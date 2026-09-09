@@ -1,0 +1,23 @@
+{
+  "name": "connection-film",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Connection out/connection-15s.mp4",
+    "render:offline": "tsx render-frames.tsx frames"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.523",
+    "@remotion/renderer": "^4.0.523",
+    "@resvg/resvg-js": "^2.6.2",
+    "@sparticuz/chromium": "^152.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.523",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}

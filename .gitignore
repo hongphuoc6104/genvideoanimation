@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+node_modules/
+**/node_modules
+**/node_modules/
+
+# Large Archives
+*.zip
+*.tar.gz
+
+# Render & build artifacts
+out/
+frames/
+.remotion/
+
+# OS and Logs
+*.log
+.DS_Store

@@ -1,0 +1,1 @@
+.agents/skills/educational-flat-motion/validators/validate-shot-spec.ts
