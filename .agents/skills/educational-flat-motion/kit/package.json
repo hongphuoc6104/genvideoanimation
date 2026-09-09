@@ -1,0 +1,22 @@
+{
+  "name": "motion-kit",
+  "version": "1.0.0",
+  "description": "Reusable Disney 12-principles flat vector motion toolkit for React & Remotion",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.ts",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "remotion": ">=4.0.0"
+  },
+  "keywords": [
+    "remotion",
+    "animation",
+    "motion-graphics",
+    "character-rigging",
+    "camera-rig",
+    "disney-principles"
+  ],
+  "author": "hongphuoc6104",
+  "license": "MIT"
+}

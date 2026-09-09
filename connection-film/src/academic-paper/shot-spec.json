@@ -1,0 +1,144 @@
+[
+  {
+    "shot_id": "SHOT-01",
+    "start_frame": 0,
+    "end_frame": 300,
+    "narrative_purpose": "Khám phá cấu trúc 4 trụ cột IMRaD để chuẩn hóa ý tưởng nghiên cứu khoa học.",
+    "start_state": {
+      "focus": "chaos",
+      "active_pillar": "none",
+      "camera_zoom": 1.0
+    },
+    "end_state": {
+      "focus": "pillar_introduction",
+      "active_pillar": "I",
+      "camera_zoom": 1.15
+    },
+    "key_beats": [
+      {
+        "frame": 0,
+        "subject": "scientist",
+        "intent": "idle breathing looking at messy data sheets"
+      },
+      {
+        "frame": 60,
+        "subject": "scientist",
+        "intent": "anticipation crouch followed by lightbulb moment"
+      },
+      {
+        "frame": 120,
+        "subject": "imrad_pillars",
+        "intent": "four massive geometric pillars drop and settle with squash/overshoot"
+      },
+      {
+        "frame": 240,
+        "subject": "camera",
+        "intent": "push in on the Introduction pillar as it unlocks"
+      }
+    ]
+  },
+  {
+    "shot_id": "SHOT-02",
+    "start_frame": 300,
+    "end_frame": 660,
+    "narrative_purpose": "Minh họa Introduction và Methods thông qua đề tài thí nghiệm Power Nap 20 phút.",
+    "start_state": {
+      "focus": "pillar_introduction",
+      "active_pillar": "I",
+      "camera_zoom": 1.15
+    },
+    "end_state": {
+      "focus": "eeg_recording",
+      "active_pillar": "M",
+      "camera_zoom": 1.0
+    },
+    "key_beats": [
+      {
+        "frame": 320,
+        "subject": "research_question",
+        "intent": "intro card reveals: 20-min Power Nap vs Problem Solving"
+      },
+      {
+        "frame": 440,
+        "subject": "methods_split",
+        "intent": "randomized control trial splitting N=100 into control vs nap groups"
+      },
+      {
+        "frame": 540,
+        "subject": "eeg_wave",
+        "intent": "brainwave oscillation signals display physical delta and theta waves"
+      }
+    ]
+  },
+  {
+    "shot_id": "SHOT-03",
+    "start_frame": 660,
+    "end_frame": 1020,
+    "narrative_purpose": "Trình bày Results khách quan với biểu đồ so sánh, phân phối chuẩn và p-value.",
+    "start_state": {
+      "focus": "eeg_recording",
+      "active_pillar": "M",
+      "camera_zoom": 1.0
+    },
+    "end_state": {
+      "focus": "results_chart",
+      "active_pillar": "R",
+      "camera_zoom": 1.08
+    },
+    "key_beats": [
+      {
+        "frame": 680,
+        "subject": "raw_data",
+        "intent": "data points assemble into a dual-column comparison bar chart"
+      },
+      {
+        "frame": 780,
+        "subject": "chart_bars",
+        "intent": "nap group bar shoots up +35% with overshoot and settling oscillation"
+      },
+      {
+        "frame": 880,
+        "subject": "significance_badge",
+        "intent": "Gaussian bell curve traces path and p < 0.01 gold badge pops in"
+      }
+    ]
+  },
+  {
+    "shot_id": "SHOT-04",
+    "start_frame": 1020,
+    "end_frame": 1350,
+    "narrative_purpose": "Thảo luận Discussion, đóng dấu bài báo và đúc kết nguyên tắc cốt lõi.",
+    "start_state": {
+      "focus": "results_chart",
+      "active_pillar": "R",
+      "camera_zoom": 1.08
+    },
+    "end_state": {
+      "focus": "accepted_paper",
+      "active_pillar": "D",
+      "camera_zoom": 1.0
+    },
+    "key_beats": [
+      {
+        "frame": 1040,
+        "subject": "geometric_morph",
+        "intent": "chart geometry folds and transforms into a formatted academic paper"
+      },
+      {
+        "frame": 1140,
+        "subject": "acceptance_stamp",
+        "intent": "rubber stamp slams down: PEER-REVIEWED & ACCEPTED with impact squash"
+      },
+      {
+        "frame": 1240,
+        "subject": "scientist",
+        "intent": "scientist waves wing in celebration with takeaway advice banner"
+      },
+      {
+        "frame": 1320,
+        "subject": "iris_transition",
+        "intent": "circular iris contracts gently around the accepted paper"
+      }
+    ]
+  }
+]

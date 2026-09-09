@@ -3,10 +3,19 @@ import {Film} from './Film';
 import {Benchmark1Character, BENCHMARK1_DURATION} from './benchmarks/Benchmark1Character';
 import {Benchmark2Scientific, BENCHMARK2_DURATION} from './benchmarks/Benchmark2Scientific';
 import {Benchmark3DataExplainer, BENCHMARK3_DURATION} from './benchmarks/Benchmark3DataExplainer';
+import {ScientificPaperFilm, TOTAL_FRAMES as SCIENTIFIC_PAPER_DURATION} from './academic-paper/ScientificPaperFilm';
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="ScientificPaper-45s"
+        component={ScientificPaperFilm}
+        durationInFrames={SCIENTIFIC_PAPER_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
       <Composition
         id="Connection"
         component={Film}

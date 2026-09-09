@@ -176,32 +176,20 @@ Every meaningful action should normally include some of:
 
 Do not substitute `Math.sin()` bobbing for acting.
 
-## Phase 7 — Reusable Motion System
-Before implementing many shots, create or reuse primitives such as:
-- anticipate()
-- overshoot()
-- settle()
-- squashStretch()
-- followThrough()
-- blink()
-- eyeLook()
-- headTurn()
-- bodyLean()
-- wingFlap()
-- walkCycle()
-- flyArc()
-- land()
-- wave()
-- cameraPan()
-- cameraPush()
-- cameraPull()
-- cameraFollow()
-- parallax()
-- irisTransition()
-- morphTransition()
-- matchTransition()
+## Phase 7 — Reusable Motion System (Motion Kit)
+Use the production-ready tools located in `kit/`:
+- `kit/motion-primitives.ts`: `squashStretch()`, `overshoot()`, `settle()`, `anticipate()`, `followThrough()`, `arcTrajectory()`, `gazeTarget()`
+- `kit/motion-profiles.ts`: Physical easing curves (`snappy`, `heavy`, `bouncy`, `organic`, `decelerate`)
+- `kit/pose-blending.ts`: Skeletal/joint blending between character poses without opacity crossfade
+- `kit/character-actions.ts`: Physical action generators (`takeoffSequence`, `flightCycle`, `landingSequence`, `reactionSequence`)
+- `kit/camera-system.ts`: Camera multi-plane staging, motivated pan/push, and parallax layer math
+- `kit/motivated-transitions.ts`: Geometric morphing, match cuts, and focal iris wipes
+- `kit/components/CharacterRig.tsx`: Generic articulated SVG character rig
+- `kit/components/CameraRig.tsx`: Multi-depth parallax camera stage component
+- `kit/components/MotivatedTransition.tsx`: Motivated iris and morph transition wrappers
+- `kit/cues.ts`: Shared cue manifest between animation and audio
 
-The exact implementation may vary, but motion behavior must be reusable and parameterized.
+Motion behavior must be reusable and parameterized via these primitives.
 
 ## Phase 8 — Motion Specification
 Before coding a shot, create a frame-level motion spec using `templates/shot-spec.md`.
@@ -262,10 +250,14 @@ Use a shared conceptual cue map such as:
 - Keep motion primitives separate from art components.
 - Keep shot timing separate from low-level drawing when possible.
 
-## Phase 13 — Mandatory QA
-Use `references/quality-rubric.md` and `checklists/anti-patterns.md`.
-
-The agent MUST inspect the actual rendered output.
+## Phase 13 — Mandatory QA & Automated Quality Gates
+1. **Automated Quality Gate**:
+   Run `npx tsx validators/motion-lint.ts <src_paths>` before declaring completion.
+   The build MUST pass with 0 CRITICAL and 0 MAJOR violations.
+   
+2. **Visual QA**:
+   Use `references/quality-rubric.md` and `checklists/anti-patterns.md`.
+   The agent MUST inspect the actual rendered output.
 
 For each shot, inspect frames at approximately:
 - 0%
