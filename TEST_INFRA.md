@@ -1,4 +1,255 @@
 # TEST_INFRA.md — Master Test Infrastructure Specification
+**Project:** Educational Flat Vector Motion & Narration System (V2 Motion & V3 Narration/Karaoke)
+**Working Directory:** `/home/hongphuoc6104/Desktop/videorenderhoathinh`
+**Authoritative Sources:** `ORIGINAL_REQUEST.md` (V2 Initial + V3 Follow-up), `PROJECT.md`, `SCOPE.md`
+
+---
+
+# PART II: V3 NARRATION, KARAOKE & AUDIO PRODUCTION TEST INFRASTRUCTURE
+
+# TEST_INFRA.md — Master Test Infrastructure Specification
+**Project:** V3 Narration, Word-Synchronized Karaoke Subsystem & Audio Production Upgrade  
+**Version:** 3.0.0-PROD  
+**Working Directory:** `/home/hongphuoc6104/Desktop/videorenderhoathinh`  
+**Authoritative Sources:** `ORIGINAL_REQUEST.md` (Follow-up 2026-09-09T18:08:43Z: R1–R12), `.agents/orchestrator_3/PROJECT.md` (F01–F40), `.agents/sub_orch_e2e/SCOPE.md`
+
+---
+
+## 1. Test Philosophy & Architecture
+
+The V3 Narration & Karaoke Subsystem test suite operates under four non-negotiable architectural principles:
+
+### 1.1 Opaque-Box, Requirement-Driven Testing
+All tests derive strictly from requirements R1–R12 and features F01–F40. Tests interact solely through public module contracts, filesystem artifacts, CLI signatures, and binary audio/video data streams. Tests never bind to internal implementation details or private variables.
+
+### 1.2 Progressive Testability & Graceful Degradation
+The test suite is executable at any milestone (M1 through M6). When a module or export is not yet implemented, test cases catch module resolution errors cleanly and report `NOT_IMPLEMENTED` (rendered as yellow `? PEND`), allowing exit code `0` in standard development mode while asserting strict mathematical and schema contracts against canonical fixture data. A test only reports `FAIL` if the targeted feature is present but violates its contract.
+
+### 1.3 Strict Zero-Dependency Policy
+The test runner and assertion harness are implemented in pure TypeScript and native Node.js 20+ APIs (`node:assert/strict`, `node:fs`, `node:path`, `node:perf_hooks`, `node:url`). Heavyweight test runners (Jest, Vitest, Mocha) are strictly forbidden to prevent ESM/CJS bundling conflicts and dependency bloat.
+
+### 1.4 Strict Offline & Air-Gapped Enforcement (`--offline`)
+All synthesis, alignment, caption generation, and rendering operate strictly offline without external cloud APIs. The suite includes an automated network guard (`offline-network-guard.ts`) that intercepts outbound HTTP, HTTPS, TCP, UDP, and DNS calls, ensuring zero leaks.
+
+---
+
+## 2. Feature Inventory Mapping & Coverage Invariants
+
+The V3 framework covers all 40 features (F01–F40) across 4 testing tiers:
+
+| # | Feature | Category | Tier 1 (Happy) | Tier 2 (Boundary) | Tier 3 (Combos) | Tier 4 (Scenarios) | Total |
+|---|---------|----------|:---:|:---:|:---:|:---:|:---:|
+| F01 | Canonical `narration-kit` | Packaging | 5 | 5 | T3-40 | S01, S04, S10 | 14 |
+| F02 | Kokoro-82M TTS Local Engine | Speech | 5 | 5 | T3-02,04,05,26 | S01, S02, S15 | 17 |
+| F03 | Voice Customization Presets | Speech | 5 | 5 | T3-04,23 | S03, S04 | 14 |
+| F04 | Zero Intermediate MP3 | Speech | 5 | 5 | T3-04 | S01, S08 | 13 |
+| F05 | Model Setup Utility | Models | 5 | 5 | T3-17 | S05, S12 | 13 |
+| F06 | Strict Offline Network Guard | Security | 5 | 5 | T3-16,17,35 | S05, S15, S18 | 16 |
+| F07 | Models Documentation | Models | 5 | 5 | T3-17 | S05 | 12 |
+| F08 | Text Normalizer | Text | 5 | 5 | T3-01,02,22,39 | S02, S06, S11 | 17 |
+| F09 | Bidirectional Text Map | Text | 5 | 5 | T3-01,03,28,39 | S02, S06 | 16 |
+| F10 | Prosody Profiles Engine | Prosody | 5 | 5 | T3-02,05,21 | S03, S07, S12, S14 | 17 |
+| F11 | ShotSpec Prosody Binding | Prosody | 5 | 5 | T3-05,14,38 | S07, S13 | 15 |
+| F12 | WhisperX Forced Alignment | Alignment | 5 | 5 | T3-01,06,23 | S01, S09, S17 | 15 |
+| F13 | Word Timing Output | Alignment | 5 | 5 | T3-03,06,10,14,23,39 | S01, S09 | 18 |
+| F14 | Alignment Quality Gates | Alignment | 5 | 5 | T3-03,27 | S09, S17 | 14 |
+| F15 | Caption Segmentation | Captions | 5 | 5 | T3-06,07,15,22,27 | S04, S10, S20 | 18 |
+| F16 | Safe Area Placement Planner | Layout | 5 | 5 | T3-07,08,24,29 | S04, S05, S10, S14 | 18 |
+| F17 | Captions Artifact Output | Captions | 5 | 5 | T3-07,09,29,39 | S04, S10 | 16 |
+| F18 | Multi-Track Audio Mixer | Audio | 5 | 5 | T3-12,21,26,38 | S08, S12, S18 | 17 |
+| F19 | Dynamic Ducking Envelopes | Audio | 5 | 5 | T3-12,13,21,30,38 | S08, S12 | 17 |
+| F20 | Audio Manifest Output | Audio | 5 | 5 | T3-12,13,20,30 | S08, S12 | 16 |
+| F21 | Semantic Animation Cues | Cues | 5 | 5 | T3-14,15,25,28,30 | S07, S13, S14 | 18 |
+| F22 | Canonical `caption-kit` | UI | 5 | 5 | T3-09,40 | S04, S11 | 14 |
+| F23 | `KaraokeWord` Progressive Fill | UI | 5 | 5 | T3-10,11,37 | S04, S11 | 15 |
+| F24 | `KaraokeLine` & `KaraokeGroup` | UI | 5 | 5 | T3-11,25,29 | S04, S11 | 15 |
+| F25 | Educational Art Direction | UI | 5 | 5 | T3-11,25 | S04, S11 | 14 |
+| F26 | `KaraokeCaptions` Coordinator | UI | 5 | 5 | T3-08,09,15,24,37 | S04, S10 | 17 |
+| F27 | Unified Pipeline Runner | Pipeline | 5 | 5 | T3-16,18,19,20,28,31-34,40 | S01, S06, S20 | 21 |
+| F28 | Validator `validate-narration.ts` | QA | 5 | 5 | T3-13,18,36 | S01, S08 | 15 |
+| F29 | Validator `validate-alignment.ts` | QA | 5 | 5 | T3-18,27,36 | S01, S09 | 15 |
+| F30 | Validator `validate-captions.ts` | QA | 5 | 5 | T3-19,22,36 | S04, S10 | 15 |
+| F31 | Validator `validate-caption-layout.ts` | QA | 5 | 5 | T3-08,19,36 | S04, S05, S10 | 15 |
+| F32 | Validator `validate-audio-mix.ts` | QA | 5 | 5 | T3-13,20,26,36 | S08, S12, S16 | 16 |
+| F33 | Validator `offline-network-guard.ts` | QA | 5 | 5 | T3-16,35,36 | S05, S15, S18 | 16 |
+| F34 | Diagnostic Frame Renderer | QA | 5 | 5 | T3-24 | S04, S14, S19 | 14 |
+| F35 | Temporal Monotonic QA | QA | 5 | 5 | T3-10,37 | S04, S11 | 14 |
+| F36 | Benchmark A Execution | Benchmark | 5 | 5 | T3-31,35 | S01, S19, S20 | 15 |
+| F37 | Benchmark B Execution | Benchmark | 5 | 5 | T3-32 | S02, S20 | 14 |
+| F38 | Benchmark C Execution | Benchmark | 5 | 5 | T3-33 | S03, S20 | 14 |
+| F39 | Voice Comparison Execution | Benchmark | 5 | 5 | T3-34 | S04, S20 | 14 |
+| F40 | Comprehensive Report | Benchmark | 5 | 5 | T3-31,32,33,34 | S01, S02, S03, S20 | 16 |
+
+### Exact Coverage Invariant:
+$$\text{Total Test Cases} = \text{Tier 1 } (200) + \text{Tier 2 } (200) + \text{Tier 3 } (40) + \text{Tier 4 } (20) = 460 \ge 460 \quad [\text{PASS}]$$
+
+---
+
+## 3. Test Harness Architecture & Interfaces
+
+The test harness resides under `tests/e2e/harness/`:
+
+### 3.1 `assert.ts`
+Zero-dependency domain assertion library built on `node:assert/strict`:
+- `assertTrue(cond, msg)`, `assertFalse(cond, msg)`
+- `assertEqual(actual, expected, msg)`, `assertNotEqual(actual, expected, msg)`
+- `assertDeepEqual(actual, expected, msg)`
+- `assertClose(actual, expected, tolerance, msg)`, `assertArrayClose(...)`
+- `assertInRange(val, min, max, msg)`
+- `assertMonotonic(numbers, strict, msg)`: Enforces temporal ordering ($t_{i+1} > t_i$ or $t_{i+1} \ge t_i$)
+- `assertNoOverlap(intervals, msg)`: Ensures intervals do not overlap ($start_{i+1} \ge end_i$)
+- `assertThrows(fn, regex|type, msg)`, `assertAsyncThrows(fn, regex|type, msg)`
+- `assertSchema(data, rules, msg)`: Validates object shapes and field types
+- `assertWavHeader(buffer, sampleRate, channels, bitsPerSample)`: Decodes RIFF/WAVE headers
+
+### 3.2 `test-context.ts`
+Lifecycle, registry, and progressive resolution:
+- `TestContext`: Per-test sandbox providing `log()`, `skip(reason)`, `notImplemented(reason)`, `createTempDir()`, `cleanupTempDirs()`.
+- `TestSuite`: Encapsulates test lists with `beforeAll`, `afterAll`, `beforeEach`, `afterEach` hooks.
+- `TestRegistry`: Singleton registry managing suites and preventing duplicate registrations.
+- `resolveOptionalModule(path)`: Safely attempts dynamic module import without crashing if absent.
+
+### 3.3 `fixtures.ts`
+Canonical reference inputs and mock generators:
+- `TEXT_FIXTURES`: Canonical scripts (`SHORT`, `TECHNICAL`, `NUMBERS_AND_SYMBOLS`, `EXPRESSIVE`, `EMPTY`).
+- `SHOTSPEC_FIXTURES`: Validated ShotSpecs (`DEFAULT_EDUCATIONAL`, `WITH_SUBJECT_BOTTOM`, `VERTICAL_SHORT`).
+- `createMockWavBuffer(opts)`: Memory-efficient 16-bit PCM RIFF WAV synthesizer (configurable sample rate, channels, duration, frequency, amplitude).
+- `MOCK_NARRATION_TEXT_MAP`, `MOCK_WORDS_JSON`, `MOCK_CAPTIONS_JSON`, `MOCK_AUDIO_MANIFEST_JSON`, `MOCK_CUE_MANIFEST_JSON`: Strict schema-compliant mock objects.
+
+### 3.4 `runner.ts`
+Core execution loop supporting:
+- Auto-discovery across all 4 tier folders (`tier1-features`, `tier2-boundaries`, `tier3-combinations`, `tier4-applications`).
+- Per-test timeout handling (default 5000ms).
+- Sandboxed execution with auto-cleanup of temp directories.
+- 3 Multi-format reporters:
+  1. Pretty Console ANSI reporter with hierarchical summary matrix.
+  2. Machine-readable JSON reporter (`--json`).
+  3. Test Anything Protocol v13 reporter (`--tap`).
+
+---
+
+## 4. Directory Layout & Module Structure
+
+```
+tests/e2e/
+├── harness/
+│   ├── assert.ts                         # Zero-dependency domain assertion library
+│   ├── test-context.ts                   # Types, TestContext, TestRegistry, progressive loader
+│   ├── fixtures.ts                       # Canonical scripts, ShotSpecs, WAV generator, mock JSON
+│   └── runner.ts                         # Master runner engine, CLI argument parser, reporters
+├── run-e2e-tests.ts                      # Standalone CLI entry point (npm run test:v3)
+├── tier1-features/                       # Tier 1: 200 isolated feature coverage tests
+│   ├── f01-canonical-narration-kit.test.ts
+│   ├── ...
+│   └── f40-comprehensive-report.test.ts
+├── tier2-boundaries/                     # Tier 2: 200 boundary, limit, and corner-case tests
+│   ├── f01-canonical-narration-kit.boundary.test.ts
+│   ├── ...
+│   └── f40-comprehensive-report.boundary.test.ts
+├── tier3-combinations/                   # Tier 3: 40 pairwise cross-feature interaction tests
+│   ├── pipeline-stages.test.ts           # T3-COMB-01 to T3-COMB-10 (Normalize + TTS + Align)
+│   ├── captions-layout.test.ts           # T3-COMB-11 to T3-COMB-20 (Captions + Safe Area + Audio Mix)
+│   ├── audio-cues.test.ts                # T3-COMB-21 to T3-COMB-30 (Ducking Recovery + SFX + Cues)
+│   └── qa-governance.test.ts             # T3-COMB-31 to T3-COMB-40 (Offline + Validators + Benchmarks)
+└── tier4-applications/                   # Tier 4: 20 realistic application scenarios
+    ├── scenarios-part1.test.ts           # T4-APP-01 to T4-APP-10 (Benchmarks A, B, C, Voices, Safe Area)
+    └── scenarios-part2.test.ts           # T4-APP-11 to T4-APP-20 (Air-Gapped, EBU R128, Diagnostic Frames)
+```
+
+---
+
+## 5. Test Tier Breakdown & Methodology
+
+1. **Tier 1 — Feature Coverage (200 Tests):**
+   - 40 features $\times$ 5 test cases.
+   - Tests isolated feature entry points, interface shapes, schemas, and nominal behavior.
+2. **Tier 2 — Boundary & Corner Cases (200 Tests):**
+   - 40 features $\times$ 5 test cases.
+   - Tests extreme inputs, null/empty strings, corrupt WAV buffers, out-of-bounds CPS (>25), reverse timestamps, safe-area collisions, and NaN telemetry.
+3. **Tier 3 — Cross-Feature Pairwise Interactions (40 Tests):**
+   - 4 files $\times$ 10 test cases.
+   - Validates data exchange between pipeline stages (e.g. Normalizer $\to$ Aligner, Aligner $\to$ Caption Segmenter, Segmenter $\to$ Remotion Layout, Mixer $\to$ Cue Manifest).
+4. **Tier 4 — Real-World Application Scenarios (20 Tests):**
+   - 2 files $\times$ 10 test cases.
+   - Exercises realistic end-to-end explainer sequences (biology explainer, technical computing deep dive, startup pitch, multi-voice comparison, 9:16 vertical shorts, 1:1 square feeds, broadcast loudness, dialogue with heavy punctuation).
+
+---
+
+## 6. Execution Commands & CLI Reference
+
+### Primary Execution Commands:
+```bash
+# Execute master test runner
+npx tsx tests/e2e/run-e2e-tests.ts
+
+# Via npm scripts
+npm run test:v3
+npm run test:e2e
+
+# Run specific tier
+npm run test:v3 -- --tier 3
+npm run test:v3 -- --tier 4
+
+# Run with verbose logs
+npm run test:v3 -- --verbose
+
+# Run with JSON output to file
+npm run test:v3 -- --json --output=out/e2e-summary.json
+```
+
+### CLI Flag Matrix:
+| Flag | Short | Default | Description |
+|------|-------|---------|-------------|
+| `--tier=<1\|2\|3\|4\|all>` | `-t` | `all` | Filter execution to specified test tier |
+| `--feature=<code>` | `-f` | none | Filter tests matching feature code (e.g. `F08`, `F15`) |
+| `--filter=<regex>` | `-k` | none | Filter tests by name or ID pattern |
+| `--scenario=<id>` | none | none | Filter tests matching scenario ID (e.g. `T4-APP-01`) |
+| `--verbose` | `-v` | `false` | Display detailed per-test logs and error stacks |
+| `--bail` | `-b` | `false` | Terminate runner immediately on first test failure |
+| `--strict` | `-s` | `false` | Treat `NOT_IMPLEMENTED` as a failure (exit code 1) |
+| `--json` | `-j` | `false` | Output results in JSON format |
+| `--tap` | none | `false` | Output results in TAP v13 format |
+| `--output=<path>` | `-o` | none | Save JSON summary to specified file path |
+| `--timeout=<ms>` | none | `5000` | Override default test timeout in milliseconds |
+| `--dry-run` | `-d` | `false` | List matching tests without executing them |
+| `--help` | `-h` | none | Show command usage and options |
+
+---
+
+## 7. Interface Contracts & Validator CLI Standards
+
+### 7.1 Interface Schemas
+1. **`narration-text-map.json`**: Bidirectional character spans (`originalSpan`, `originalWord`, `spokenWords`, `type`).
+2. **`words.json`**: Aligned token timings (`id`, `word`, `cleanWord`, `start`, `end`, `confidence`, `punctuation`).
+3. **`captions.json`**: Screen-placed caption groups (`id`, `startFrame`, `endFrame`, `startTime`, `endTime`, `box`, `lines`).
+4. **`audio-manifest.json`**: Multi-track mix metadata (`tracks`, `ducking`, `output`: 48kHz, -16.0 +/- 1.5 LUFS, true-peak <= -1.0 dBFS).
+5. **`CueManifest`**: Synchronized Remotion visual and audio markers (`SENTENCE_START`, `SENTENCE_END`, `WORD_EMPHASIS`).
+
+### 7.2 Validator CLI Standards
+All 6 validators in `validators/` support CLI execution and exit with code `0` on PASS, `1` on FAIL:
+- `validate-narration.ts <wav-file>`: 24kHz mono PCM WAV, true peak <= -1.0 dBFS, zero clipping.
+- `validate-alignment.ts --words <words.json> --script <script.txt>`: Monotonicity, non-overlap, 1:1 token matching.
+- `validate-captions.ts <captions.json>`: <=2 lines, <=42 chars/line, <=21 CPS, duration [0.8s, 7.0s].
+- `validate-caption-layout.ts --captions <captions.json> --shot-spec <shot-spec.json>`: Safe margins >= 96px, zero AABB collision with `subject_region`.
+- `validate-audio-mix.ts --manifest <manifest.json> --audio <soundtrack.wav>`: Sync delta <= 0.1s, ducking >= 10dB, LUFS -16 +/- 1.5.
+- `offline-network-guard.ts -- <command>`: Zero outbound socket/DNS calls under `--offline`.
+
+---
+
+## 8. CI/CD Integration & TEST_READY.md Protocol
+
+Once all test tiers pass verification, the system emits `TEST_READY.md` containing:
+1. Timestamped certification of all 460 test cases.
+2. Verified pass rate metrics across Tiers 1–4.
+3. Checksums of all test suites and harness files.
+4. Reproduction commands for continuous integration gates.
+
+
+---
+
+# PART I: V2 MOTION ANIMATION SYSTEM TEST INFRASTRUCTURE
+
+# TEST_INFRA.md — Master Test Infrastructure Specification
 **Project:** V2 Motion Animation System Upgrade  
 **Version:** 2.0.0-draft  
 **Working Directory:** `/home/hongphuoc6104/Desktop/videorenderhoathinh`  

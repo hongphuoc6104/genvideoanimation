@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "motion-kit": ["motion-kit/index.ts"],
+      "motion-kit/*": ["motion-kit/*"],
+      "@videorender/narration-kit": ["packages/narration-kit/src/index.ts"],
+      "@videorender/narration-kit/*": ["packages/narration-kit/src/*"],
+      "narration-kit": ["packages/narration-kit/src/index.ts"],
+      "narration-kit/*": ["packages/narration-kit/src/*"],
+      "packages/narration-kit": ["packages/narration-kit/src/index.ts"],
+      "packages/narration-kit/*": ["packages/narration-kit/src/*"]
+    }
+  },
+  "include": [
+    "packages/**/*",
+    "motion-kit/**/*",
+    "scripts/**/*",
+    "validators/**/*",
+    "tests/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "dist",
+    "**/dist"
+  ]
+}

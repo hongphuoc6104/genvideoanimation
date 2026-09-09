@@ -12,10 +12,27 @@ node_modules/
 out/
 frames/
 .remotion/
+packages/*/dist/
 
 # OS and Logs
 *.log
 .DS_Store
+
+# Python Virtual Environments
+.venv/
+__pycache__/
+*.pyc
+
+# Model Weights & Binary Checkpoints (Do not commit large weights to git)
+*.onnx
+*.bin
+*.pth
+models/kokoro/*.onnx
+models/kokoro/*.bin
+models/kokoro/voices/
+models/alignment/*.pth
+models/alignment/tokenizers/*.zip
+!models/README.md
 
 # Scratch Agent Sessions
 .agents/*

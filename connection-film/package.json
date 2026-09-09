@@ -16,6 +16,8 @@
     "@sparticuz/chromium": "^152.0.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
+    "@videorender/narration-kit": "file:../packages/narration-kit",
+    "narration-kit": "file:../packages/narration-kit",
     "motion-kit": "file:../motion-kit",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

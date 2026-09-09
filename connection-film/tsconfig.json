@@ -17,7 +17,13 @@
     "jsx": "react-jsx",
     "paths": {
       "motion-kit": ["../motion-kit/index.ts"],
-      "motion-kit/*": ["../motion-kit/*"]
+      "motion-kit/*": ["../motion-kit/*"],
+      "@videorender/narration-kit": ["../packages/narration-kit/src/index.ts"],
+      "@videorender/narration-kit/*": ["../packages/narration-kit/src/*"],
+      "narration-kit": ["../packages/narration-kit/src/index.ts"],
+      "narration-kit/*": ["../packages/narration-kit/src/*"],
+      "packages/narration-kit": ["../packages/narration-kit/src/index.ts"],
+      "packages/narration-kit/*": ["../packages/narration-kit/src/*"]
     }
   },
   "include": ["src"]
