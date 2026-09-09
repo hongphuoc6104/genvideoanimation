@@ -1,0 +1,60 @@
+{
+  "sequence_id": "benchmark_v2_network_flow",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration_frames": 180,
+  "shots": [
+    {
+      "shot_id": "shot-01-dispatch",
+      "start_frame": 0,
+      "end_frame": 60,
+      "narrative_purpose": "Client dispatches encrypted transaction along cubic Bezier conduits",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 }
+      },
+      "end_state": {
+        "camera": { "x": 60, "y": -30, "zoom": 1.1 }
+      },
+      "key_beats": [
+        { "frame": 15, "subject": "client_node", "intent": "packet_dispatch" },
+        { "frame": 45, "subject": "gateway_node", "intent": "consensus_branch" }
+      ],
+      "impact_frames": []
+    },
+    {
+      "shot_id": "shot-02-consensus",
+      "start_frame": 60,
+      "end_frame": 120,
+      "narrative_purpose": "Multi-branch quorum broadcast verifies digital signature across nodes",
+      "start_state": {
+        "camera": { "x": 60, "y": -30, "zoom": 1.1 }
+      },
+      "end_state": {
+        "camera": { "x": 120, "y": 20, "zoom": 1.25 }
+      },
+      "key_beats": [
+        { "frame": 75, "subject": "validator_cluster", "intent": "quorum_verification" },
+        { "frame": 110, "subject": "raft_leader", "intent": "commit_broadcast" }
+      ],
+      "impact_frames": []
+    },
+    {
+      "shot_id": "shot-03-commit",
+      "start_frame": 120,
+      "end_frame": 180,
+      "narrative_purpose": "High-velocity database commit pulse strikes storage ring with synchronized audio impact",
+      "start_state": {
+        "camera": { "x": 120, "y": 20, "zoom": 1.25 }
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 }
+      },
+      "key_beats": [
+        { "frame": 140, "subject": "database_storage", "intent": "write_ahead_commit" },
+        { "frame": 170, "subject": "network_mesh", "intent": "state_settle" }
+      ],
+      "impact_frames": [140]
+    }
+  ]
+}

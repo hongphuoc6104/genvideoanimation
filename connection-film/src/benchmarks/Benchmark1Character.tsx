@@ -10,7 +10,7 @@ import {
   cameraFollow,
   IDLE_POSE,
   clamp,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 
 export const BENCHMARK1_DURATION = 120;
 const WIDTH = 1920;

@@ -4,7 +4,7 @@ import {
   overshoot,
   settle,
   IDLE_POSE,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 import { ScientistRig } from './ScientistRig';
 
 export interface Act2Props {

@@ -16,3 +16,7 @@ frames/
 # OS and Logs
 *.log
 .DS_Store
+
+# Scratch Agent Sessions
+.agents/*
+!.agents/skills/

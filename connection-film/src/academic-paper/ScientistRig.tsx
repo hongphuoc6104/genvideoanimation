@@ -3,7 +3,7 @@ import {
   CharacterRig,
   CharacterPose,
   IDLE_POSE,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 
 export interface ScientistRigProps {
   x?: number;

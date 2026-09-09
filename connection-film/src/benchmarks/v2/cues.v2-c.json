@@ -1,0 +1,42 @@
+{
+  "compositionId": "BenchmarkV2-NetworkFlow",
+  "fps": 30,
+  "durationInFrames": 180,
+  "cues": [
+    {
+      "id": "packet_dispatch",
+      "frame": 15,
+      "timeSec": 0.5,
+      "category": "whoosh",
+      "label": "Client request dispatch along Bezier conduit"
+    },
+    {
+      "id": "consensus_ingress",
+      "frame": 65,
+      "timeSec": 2.166667,
+      "category": "ui_accent",
+      "label": "Consensus gateway node packet ingress"
+    },
+    {
+      "id": "quorum_broadcast",
+      "frame": 90,
+      "timeSec": 3.0,
+      "category": "chime",
+      "label": "Multi-branch quorum broadcast verification"
+    },
+    {
+      "id": "database_commit_impact",
+      "frame": 140,
+      "timeSec": 4.666667,
+      "category": "impact",
+      "label": "Database write-ahead log commit impact pulse"
+    },
+    {
+      "id": "ack_return",
+      "frame": 165,
+      "timeSec": 5.5,
+      "category": "action",
+      "label": "Acknowledgment return packet arrival"
+    }
+  ]
+}

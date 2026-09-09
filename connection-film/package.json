@@ -5,7 +5,9 @@
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "render": "remotion render src/index.ts Connection out/connection-15s.mp4",
-    "render:offline": "tsx render-frames.tsx frames"
+    "render:offline": "tsx render-frames.tsx frames",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "node -e \"const fs=require('fs'),path=require('path');const t=path.resolve(__dirname,'node_modules/motion-kit'),s=path.resolve(__dirname,'../motion-kit');if(!fs.existsSync(t)){try{fs.symlinkSync(s,t,'junction')}catch(e){}}\""
   },
   "dependencies": {
     "@remotion/cli": "^4.0.523",
@@ -14,6 +16,7 @@
     "@sparticuz/chromium": "^152.0.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
+    "motion-kit": "file:../motion-kit",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "remotion": "^4.0.523",

@@ -1,0 +1,16 @@
+{
+  "name": "videorenderhoathinh-root",
+  "version": "2.0.0",
+  "private": true,
+  "description": "V2 Educational Flat Vector Motion Animation System",
+  "scripts": {
+    "studio": "npm run studio --prefix connection-film",
+    "render": "npm run render --prefix connection-film",
+    "render:offline": "npm run render:offline --prefix connection-film",
+    "typecheck": "tsc --noEmit --project connection-film/tsconfig.json && tsc --noEmit --project motion-kit/tsconfig.json",
+    "lint": "node -e \"const fs=require('fs'),cp=require('child_process');const p=fs.existsSync('validators/motion-lint.ts')?'validators/motion-lint.ts':'motion-lint.ts';cp.execSync('tsx '+p,{stdio:'inherit'})\"",
+    "test": "node -e \"const fs=require('fs'),cp=require('child_process');if(fs.existsSync('tests/e2e-runner.ts')){cp.execSync('tsx tests/e2e-runner.ts',{stdio:'inherit'})}else{console.log('E2E runner planned for later milestones.')}\"",
+    "link-kit": "node -e \"const fs=require('fs'),path=require('path');const t=path.resolve(__dirname,'connection-film/node_modules/motion-kit'),s=path.resolve(__dirname,'motion-kit');if(!fs.existsSync(t)){fs.symlinkSync(s,t,'junction');console.log('Linked motion-kit -> connection-film/node_modules/motion-kit')}\"",
+    "postinstall": "npm run link-kit"
+  }
+}

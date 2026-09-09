@@ -1,0 +1,43 @@
+{
+  "sequence_id": "benchmark_v2_mechanical_morph",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration_frames": 150,
+  "shots": [
+    {
+      "shot_id": "shot-01-gear-assembly",
+      "start_frame": 0,
+      "end_frame": 75,
+      "narrative_purpose": "Geneva gear accelerates with angular inertia and initiates shape deformation",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 }
+      },
+      "end_state": {
+        "camera": { "x": 50, "y": 20, "zoom": 1.2 }
+      },
+      "key_beats": [
+        { "frame": 15, "subject": "geneva_gear", "intent": "inertial_spin" },
+        { "frame": 50, "subject": "mechanism", "intent": "morph_initiation" }
+      ],
+      "impact_frames": []
+    },
+    {
+      "shot_id": "shot-02-piston-transformation",
+      "start_frame": 75,
+      "end_frame": 150,
+      "narrative_purpose": "Continuous vertex interpolation morphs rotating gear into oscillating linear piston",
+      "start_state": {
+        "camera": { "x": 50, "y": 20, "zoom": 1.2 }
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 }
+      },
+      "key_beats": [
+        { "frame": 100, "subject": "piston_assembly", "intent": "linear_stroke" },
+        { "frame": 140, "subject": "machine", "intent": "cycle_settle" }
+      ],
+      "impact_frames": []
+    }
+  ]
+}

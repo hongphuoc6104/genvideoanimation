@@ -11,7 +11,7 @@ import {
   motivatedIris,
   clamp,
   CameraState,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 import { Act1Structure } from './Act1Structure';
 import { Act2Methods } from './Act2Methods';
 import { Act3Results } from './Act3Results';

@@ -138,8 +138,9 @@ export function validateProject(workspaceRoot: string): { checks: ProjectCheck[]
     });
   }
 
-  // Quality Gate: Run motion-lint on benchmarks
-  const benchmarkDir = path.join(workspaceRoot, 'connection-film/src/benchmarks');
+  // Quality Gate: Run motion-lint on benchmarks (prioritizing V2 production benchmarks)
+  const v2BenchmarkDir = path.join(workspaceRoot, 'connection-film/src/benchmarks/v2');
+  const benchmarkDir = fs.existsSync(v2BenchmarkDir) ? v2BenchmarkDir : path.join(workspaceRoot, 'connection-film/src/benchmarks');
   if (fs.existsSync(benchmarkDir)) {
     const lintRes = runLinter([benchmarkDir]);
     if (lintRes.passed) {

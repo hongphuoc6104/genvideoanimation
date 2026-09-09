@@ -8,7 +8,7 @@ import {
   overshoot,
   settle,
   stagger,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 
 export const BENCHMARK3_DURATION = 120;
 const WIDTH = 1920;

@@ -9,7 +9,7 @@ import {
   blendPose,
   snappy,
   bouncy,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 import { ScientistRig } from './ScientistRig';
 
 export interface Act1Props {

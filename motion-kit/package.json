@@ -1,0 +1,61 @@
+{
+  "name": "motion-kit",
+  "version": "2.0.0",
+  "description": "Canonical V2 2D motion animation toolkit for Remotion & React",
+  "author": "hongphuoc6104",
+  "license": "MIT",
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "default": "./index.ts"
+    },
+    "./*": {
+      "types": "./*",
+      "import": "./*",
+      "default": "./*"
+    }
+  },
+  "files": [
+    "index.ts",
+    "motion-primitives.ts",
+    "motion-profiles.ts",
+    "pose-blending.ts",
+    "character-actions.ts",
+    "camera-system.ts",
+    "motivated-transitions.ts",
+    "cues.ts",
+    "components",
+    "src",
+    "README.md",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "remotion": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "remotion": "^4.0.523",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "remotion",
+    "react",
+    "animation",
+    "motion-graphics",
+    "disney-principles",
+    "character-rigging",
+    "camera-rig",
+    "physics-motion",
+    "vector-motion"
+  ]
+}

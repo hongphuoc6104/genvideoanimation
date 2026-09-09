@@ -7,7 +7,7 @@ import {
   overshoot,
   settle,
   squashStretch,
-} from '../../../.agents/skills/educational-flat-motion/kit';
+} from 'motion-kit';
 
 export const BENCHMARK2_DURATION = 120;
 const WIDTH = 1920;

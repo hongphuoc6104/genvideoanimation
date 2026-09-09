@@ -1,0 +1,73 @@
+{
+  "sequence_id": "benchmark_v2_human_explainer",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration_frames": 150,
+  "shots": [
+    {
+      "shot_id": "shot-01-calm-welcome",
+      "start_frame": 0,
+      "end_frame": 45,
+      "narrative_purpose": "Maya introduces the concept with a calm welcoming gesture and gentle posture",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 }
+      },
+      "end_state": {
+        "camera": { "x": 40, "y": -10, "zoom": 1.05 }
+      },
+      "key_beats": [
+        { "frame": 20, "subject": "human_maya", "intent": "calm_welcome" }
+      ],
+      "impact_frames": []
+    },
+    {
+      "shot_id": "shot-02-energetic-explain",
+      "start_frame": 45,
+      "end_frame": 90,
+      "narrative_purpose": "Maya enthusiastically explains the hypothesis with energetic pointing gesture",
+      "start_state": {
+        "camera": { "x": 40, "y": -10, "zoom": 1.05 }
+      },
+      "end_state": {
+        "camera": { "x": 80, "y": -20, "zoom": 1.15 }
+      },
+      "key_beats": [
+        { "frame": 65, "subject": "human_maya", "intent": "energetic_point" }
+      ],
+      "impact_frames": []
+    },
+    {
+      "shot_id": "shot-03-dramatic-revelation",
+      "start_frame": 90,
+      "end_frame": 120,
+      "narrative_purpose": "Maya delivers a dramatic revelation with deep squash and intense anticipation",
+      "start_state": {
+        "camera": { "x": 80, "y": -20, "zoom": 1.15 }
+      },
+      "end_state": {
+        "camera": { "x": 45, "y": -10, "zoom": 1.1 }
+      },
+      "key_beats": [
+        { "frame": 105, "subject": "human_maya", "intent": "dramatic_revelation" }
+      ],
+      "impact_frames": []
+    },
+    {
+      "shot_id": "shot-04-playful-wrapup",
+      "start_frame": 120,
+      "end_frame": 150,
+      "narrative_purpose": "Maya wraps up playfully with a bouncy rebound settle",
+      "start_state": {
+        "camera": { "x": 45, "y": -10, "zoom": 1.1 }
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 }
+      },
+      "key_beats": [
+        { "frame": 135, "subject": "human_maya", "intent": "playful_wrapup" }
+      ],
+      "impact_frames": []
+    }
+  ]
+}
