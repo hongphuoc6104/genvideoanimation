@@ -23,7 +23,7 @@ export const KaraokeLine: React.FC<KaraokeLineProps> = ({
     flexWrap: 'nowrap',
     justifyContent: 'center',
     alignItems: 'baseline',
-    minHeight: '48px',
+    minHeight: `${Math.ceil(((themeProps as any)?.fontSize || theme.fontSize || 56) * 1.3)}px`,
     lineHeight: '1.3',
     ...style,
   };

@@ -1,53 +1,178 @@
 /**
  * packages/narration-kit/src/audio/audioManifest.ts
- * Builds and validates audio-manifest.json conforming to V3 R11.
+ * Builds and validates canonical audio-manifest.json conforming to both E2E fixtures and validators.
  */
 
 import * as fs from 'node:fs';
-import { AudioManifest, AudioTrackSpec, DuckingConfig } from './types';
+import * as path from 'node:path';
+import {
+  AudioManifest,
+  AudioTrackSpec,
+  DuckingConfig,
+  DuckingRegion,
+} from './types';
 
 export interface CreateAudioManifestOptions {
   outputPath?: string;
-  totalDurationSec: number;
+  outputFile?: string;
+  totalDurationSec?: number;
+  durationSec?: number;
   sampleRate?: number;
   channels?: number;
+  bitDepth?: number;
   targetLufs?: number;
-  peakDbfs: number;
-  integratedLufs: number;
+  peakDbfs?: number;
+  truePeakDbfs?: number;
+  integratedLufs?: number;
+  lufs?: number;
+  clippedSamples?: number;
   narrationTrack?: AudioTrackSpec;
   musicTrack?: AudioTrackSpec;
   sfxTracks?: AudioTrackSpec[];
   duckingConfig?: DuckingConfig;
-  duckingRegions?: Array<{ startSec: number; endSec: number; duckedGain: number }>;
+  duckingRegions?: DuckingRegion[];
 }
 
+/**
+ * Creates canonical audio-manifest.json conforming to V3 R10, R11, and test fixture schema.
+ */
 export function createAudioManifest(options: CreateAudioManifestOptions): AudioManifest {
-  const hasNarration = Boolean(options.narrationTrack);
-  const clippingFree = options.peakDbfs <= -0.1;
-  const durationSyncValid = options.totalDurationSec > 0;
+  const version = '1.0.0';
+  const sampleRate = options.sampleRate ?? 48000;
+  const channels = options.channels ?? 2;
+  const bitDepth = options.bitDepth ?? 16;
+  const totalDurationSec =
+    Math.round((options.totalDurationSec ?? options.durationSec ?? 0) * 100) / 100;
+  const truePeakDbfs =
+    Math.round((options.truePeakDbfs ?? options.peakDbfs ?? -1.2) * 10) / 10;
+  const lufs =
+    Math.round((options.lufs ?? options.integratedLufs ?? options.targetLufs ?? -16.0) * 10) / 10;
+  const clippedSamples = options.clippedSamples ?? 0;
+
+  // 1. Narration track metadata
+  let narration: any;
+  if (options.narrationTrack) {
+    const rawFile =
+      options.narrationTrack.file ||
+      (options.narrationTrack.filePath
+        ? path.basename(options.narrationTrack.filePath)
+        : 'narration.wav');
+    const dur =
+      options.narrationTrack.duration ??
+      options.narrationTrack.durationSec ??
+      totalDurationSec;
+    narration = {
+      ...options.narrationTrack,
+      file: rawFile,
+      duration: Math.round(dur * 100) / 100,
+      sampleRate: options.narrationTrack.sampleRate ?? 24000,
+      channels: options.narrationTrack.channels ?? 1,
+    };
+  } else {
+    narration = {
+      file: 'narration.wav',
+      duration: totalDurationSec,
+      sampleRate: 24000,
+      channels: 1,
+    };
+  }
+
+  // 2. Music track metadata
+  let music: any = undefined;
+  if (options.musicTrack) {
+    const rawFile =
+      options.musicTrack.file ||
+      (options.musicTrack.filePath
+        ? path.basename(options.musicTrack.filePath)
+        : 'music.wav');
+    const vol = options.musicTrack.volume ?? 0.22;
+    const attenuationDb = options.duckingConfig?.duckingDepthDb ?? -12.8;
+    const duckedVol =
+      options.musicTrack.duckedVolume ??
+      Math.round(vol * Math.pow(10, attenuationDb / 20) * 100) / 100;
+    const dur =
+      options.musicTrack.duration ??
+      options.musicTrack.durationSec ??
+      totalDurationSec;
+
+    music = {
+      ...options.musicTrack,
+      file: rawFile,
+      duration: Math.round(dur * 100) / 100,
+      volume: vol,
+      duckedVolume: duckedVol,
+    };
+  }
+
+  // 3. SFX track metadata
+  const sfx = (options.sfxTracks || []).map((s, idx) => {
+    const rawFile = s.file || (s.filePath ? path.basename(s.filePath) : `sfx_${idx}.wav`);
+    const timeSec = s.timeSec ?? s.startTimeSec ?? (s.frame !== undefined ? s.frame / 30 : 0);
+    const frame = s.frame ?? Math.round(timeSec * 30);
+    return {
+      ...s,
+      id: s.id || `sfx_${idx}`,
+      file: rawFile,
+      frame,
+      timeSec: Math.round(timeSec * 100) / 100,
+      volume: s.volume ?? 0.8,
+    };
+  });
+
+  // 4. Ducking configuration
+  const attackMs = options.duckingConfig?.attackMs ?? 100;
+  const releaseMs = options.duckingConfig?.releaseMs ?? 600;
+  const attenuationDb = options.duckingConfig?.duckingDepthDb ?? -12.8;
+
+  const ducking = {
+    enabled: Boolean(options.musicTrack && narration),
+    attackMs,
+    releaseMs,
+    attenuationDb,
+    config: options.duckingConfig || {
+      duckingDepthDb: attenuationDb,
+      attackMs,
+      releaseMs,
+    },
+    regions: options.duckingRegions || [],
+  };
+
+  // 5. Output specifications
+  const output = {
+    file: options.outputFile || 'mixed-soundtrack.wav',
+    sampleRate,
+    channels,
+    bitDepth,
+    durationSec: totalDurationSec,
+    truePeakDbfs,
+    lufs,
+    clippedSamples,
+  };
+
+  const hasNarration = Boolean(narration && narration.duration > 0);
+  const narrationDur = narration?.duration ?? 0;
+  const durationSyncValid = Math.abs(narrationDur - totalDurationSec) <= 0.1;
+  const clippingFree = truePeakDbfs <= -0.1 && clippedSamples === 0;
 
   const manifest: AudioManifest = {
-    version: '3.0',
-    targetLufs: options.targetLufs ?? -16.0,
-    sampleRate: options.sampleRate ?? 24000,
-    channels: options.channels ?? 1,
-    totalDurationSec: Math.round(options.totalDurationSec * 100) / 100,
-    peakDbfs: Math.round(options.peakDbfs * 10) / 10,
-    integratedLufs: Math.round(options.integratedLufs * 10) / 10,
+    version,
     tracks: {
-      narration: options.narrationTrack,
-      music: options.musicTrack,
-      sfx: options.sfxTracks || [],
+      narration,
+      music,
+      sfx,
     },
-    ducking: {
-      enabled: Boolean(options.musicTrack && hasNarration),
-      config: options.duckingConfig || {
-        duckingDepthDb: -12.8,
-        attackMs: 100,
-        releaseMs: 300,
-      },
-      regions: options.duckingRegions || [],
-    },
+    ducking,
+    output,
+    targetLufs: options.targetLufs ?? -16.0,
+    sampleRate,
+    channels,
+    totalDurationSec,
+    durationSec: totalDurationSec,
+    peakDbfs: truePeakDbfs,
+    truePeakDbfs,
+    integratedLufs: lufs,
+    lufs,
+    clippedSamples,
     validation: {
       clippingFree,
       hasNarration,
@@ -62,17 +187,43 @@ export function createAudioManifest(options: CreateAudioManifestOptions): AudioM
   return manifest;
 }
 
+export const generateAudioManifest = createAudioManifest;
+
+/**
+ * Validates an AudioManifest against broadcast and production standards.
+ */
 export function validateAudioManifest(manifest: AudioManifest): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
 
-  if (!manifest.tracks.narration) {
-    errors.push('Missing required narration track.');
+  const narrationDur = manifest.tracks?.narration?.duration ?? 0;
+  const outputDur = manifest.output?.durationSec ?? manifest.totalDurationSec ?? 0;
+
+  if (!manifest.tracks?.narration || narrationDur <= 0) {
+    errors.push('Missing or invalid required narration track.');
   }
-  if (manifest.peakDbfs > -0.05) {
-    errors.push(`Audio peak (${manifest.peakDbfs} dBFS) exceeds maximum safe ceiling (-0.1 dBFS).`);
+
+  if (Math.abs(narrationDur - outputDur) > 0.1) {
+    errors.push(`Duration sync mismatch: narration=${narrationDur}s, output=${outputDur}s (delta > 0.1s)`);
   }
-  if (manifest.totalDurationSec <= 0) {
-    errors.push(`Invalid audio total duration: ${manifest.totalDurationSec}s.`);
+
+  const attenuationDb = manifest.ducking?.attenuationDb ?? manifest.ducking?.config?.duckingDepthDb ?? 0;
+  if (manifest.ducking?.enabled && attenuationDb > -10.0) {
+    errors.push(`Ducking attenuation ${attenuationDb} dB is insufficient (must be <= -10.0 dB)`);
+  }
+
+  const peak = manifest.output?.truePeakDbfs ?? manifest.peakDbfs ?? 0;
+  if (peak > -1.0) {
+    errors.push(`Output true peak (${peak} dBFS) exceeds maximum safe ceiling (-1.0 dBFS).`);
+  }
+
+  const clipped = manifest.output?.clippedSamples ?? manifest.clippedSamples ?? 0;
+  if (clipped > 0) {
+    errors.push(`Output contains ${clipped} clipped samples.`);
+  }
+
+  const lufs = manifest.output?.lufs ?? manifest.integratedLufs ?? -16.0;
+  if (lufs < -17.5 || lufs > -14.5) {
+    errors.push(`Output loudness (${lufs} LUFS) is outside broadcast spec [-17.5, -14.5].`);
   }
 
   return {

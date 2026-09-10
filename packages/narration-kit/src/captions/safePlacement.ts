@@ -24,6 +24,21 @@ export const DEFAULT_BOX_WIDTH = 1536;
 export const DEFAULT_BOX_HEIGHT = 120;
 export const DEFAULT_CORNER_BOX_WIDTH = 800;
 
+export interface SafeMargins {
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+}
+
+export const VERTICAL_9_16_VIEWPORT: Viewport = { width: 1080, height: 1920 };
+export const VERTICAL_9_16_SAFE_MARGINS: SafeMargins = {
+  left: 72,
+  right: 180,
+  top: 120,
+  bottom: 320,
+};
+
 /**
  * Calculates 2D Axis-Aligned Bounding Box (AABB) intersection area in square pixels.
  * Returns 0 if boxes are disjoint or touch only at boundary edges/vertices.
@@ -53,13 +68,25 @@ export function checkAabbCollision(
 export function isWithinSafeArea(
   box: CaptionBoundingBox,
   viewport: Viewport = DEFAULT_VIEWPORT,
-  safeMargin: number = DEFAULT_SAFE_MARGIN
+  safeMargin: number | SafeMargins = DEFAULT_SAFE_MARGIN
 ): boolean {
   if (box.width <= 0 || box.height <= 0) return false;
-  if (box.x < safeMargin) return false;
-  if (box.y < safeMargin) return false;
-  if (box.x + box.width > viewport.width - safeMargin) return false;
-  if (box.y + box.height > viewport.height - safeMargin) return false;
+
+  let margins: SafeMargins;
+  if (typeof safeMargin === 'number') {
+    if (viewport.width === 1080 && viewport.height === 1920) {
+      margins = VERTICAL_9_16_SAFE_MARGINS;
+    } else {
+      margins = { left: safeMargin, right: safeMargin, top: safeMargin, bottom: safeMargin };
+    }
+  } else {
+    margins = safeMargin;
+  }
+
+  if (box.x < margins.left) return false;
+  if (box.y < margins.top) return false;
+  if (box.x + box.width > viewport.width - margins.right) return false;
+  if (box.y + box.height > viewport.height - margins.bottom) return false;
   return true;
 }
 
@@ -69,16 +96,27 @@ export function isWithinSafeArea(
 export function clampToSafeArea(
   box: CaptionBoundingBox,
   viewport: Viewport = DEFAULT_VIEWPORT,
-  safeMargin: number = DEFAULT_SAFE_MARGIN
+  safeMargin: number | SafeMargins = DEFAULT_SAFE_MARGIN
 ): CaptionBoundingBox {
-  const maxSafeWidth = Math.max(1, viewport.width - 2 * safeMargin);
-  const maxSafeHeight = Math.max(1, viewport.height - 2 * safeMargin);
+  let margins: SafeMargins;
+  if (typeof safeMargin === 'number') {
+    if (viewport.width === 1080 && viewport.height === 1920) {
+      margins = VERTICAL_9_16_SAFE_MARGINS;
+    } else {
+      margins = { left: safeMargin, right: safeMargin, top: safeMargin, bottom: safeMargin };
+    }
+  } else {
+    margins = safeMargin;
+  }
+
+  const maxSafeWidth = Math.max(1, viewport.width - margins.left - margins.right);
+  const maxSafeHeight = Math.max(1, viewport.height - margins.top - margins.bottom);
   const width = Math.max(1, Math.min(box.width, maxSafeWidth));
   const height = Math.max(1, Math.min(box.height, maxSafeHeight));
-  const minX = safeMargin;
-  const maxX = viewport.width - safeMargin - width;
-  const minY = safeMargin;
-  const maxY = viewport.height - safeMargin - height;
+  const minX = margins.left;
+  const maxX = viewport.width - margins.right - width;
+  const minY = margins.top;
+  const maxY = viewport.height - margins.bottom - height;
   const x = Math.max(minX, Math.min(box.x, maxX));
   const y = Math.max(minY, Math.min(box.y, maxY));
   return { x, y, width, height };
@@ -91,16 +129,29 @@ export function computePresetBox(
   preset: ResolvedPlacement,
   options: {
     viewport?: Viewport;
-    safeMargin?: number;
+    safeMargin?: number | SafeMargins;
     boxWidth?: number;
     boxHeight?: number;
   } = {}
 ): CaptionBoundingBox {
   const viewport = options.viewport ?? DEFAULT_VIEWPORT;
-  const safeMargin = options.safeMargin ?? DEFAULT_SAFE_MARGIN;
   const isPortrait = viewport.height > viewport.width;
   const isSquare = viewport.width === viewport.height;
 
+  // Dedicated 1080x1920 9:16 mobile handler (Requirement R8)
+  if (isPortrait && viewport.width === 1080 && viewport.height === 1920) {
+    const margins = VERTICAL_9_16_SAFE_MARGINS;
+    const boxWidth = 1080 - margins.left - margins.right; // 828px
+    const boxHeight = options.boxHeight ?? 190;
+    const x = margins.left; // 72px
+    let y = 1920 - margins.bottom - boxHeight; // 1410px (bottom anchor)
+    if (preset === 'top') {
+      y = margins.top; // 120px
+    }
+    return { x, y, width: boxWidth, height: boxHeight };
+  }
+
+  const safeMargin = typeof options.safeMargin === 'number' ? options.safeMargin : DEFAULT_SAFE_MARGIN;
   const maxSafeWidth = viewport.width - 2 * safeMargin;
   let defaultWidth: number;
   let defaultHeight: number;

@@ -76,6 +76,7 @@ function splitIntoLines(
       cleanWord: w.cleanWord,
       confidence: w.confidence,
       punctuation: w.punctuation,
+      subunits: w.subunits,
     };
   };
 
@@ -156,7 +157,12 @@ export function segmentCaptions(
   options: SegmentOptions = {}
 ): CaptionsManifest {
   const fps = options.fps ?? options.shotSpec?.fps ?? 30;
-  const maxCharsPerLine = options.maxCharsPerLine ?? 42;
+  const isPortrait =
+    (options.viewport?.height && options.viewport.height > options.viewport.width) ||
+    (options.shotSpec?.viewport?.height && options.shotSpec.viewport.height > options.shotSpec.viewport.width) ||
+    true; // Default to 9:16 vertical in V3.1
+  const defaultMaxChars = isPortrait ? 26 : 42;
+  const maxCharsPerLine = options.maxCharsPerLine ?? defaultMaxChars;
   const maxCps = options.maxCps ?? 21.0;
   const minDurationSec = options.minDurationSec ?? 0.8;
   const maxDurationSec = options.maxDurationSec ?? 7.0;

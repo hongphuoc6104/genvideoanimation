@@ -2,6 +2,7 @@
 /**
  * validators/validate-audio-mix.ts
  * Standalone CLI validator for audio production mix conforming to V3 R11.
+ * Supports both nested manifest.output and flat legacy properties.
  */
 
 import * as fs from 'node:fs';
@@ -47,46 +48,84 @@ function main() {
 
   const errors: string[] = [];
 
+  const narrationDur =
+    (manifest.tracks?.narration as any)?.duration ??
+    (manifest.tracks?.narration as any)?.durationSec ??
+    0;
+  const outputDur =
+    manifest.output?.durationSec ??
+    manifest.totalDurationSec ??
+    manifest.durationSec ??
+    0;
+
   // Check 1: Priority narration track
-  if (!manifest.tracks || !manifest.tracks.narration) {
+  if (!manifest.tracks || !manifest.tracks.narration || narrationDur <= 0) {
     errors.push('Manifest lacks authoritative narration track.');
   }
 
-  // Check 2: Digital clipping headroom (peak <= -0.1 dBFS)
-  if (manifest.peakDbfs > -0.05) {
-    errors.push(`Peak level (${manifest.peakDbfs} dBFS) exceeds maximum safe ceiling (-0.1 dBFS).`);
+  // Duration synchronization check
+  if (narrationDur > 0 && outputDur > 0 && Math.abs(narrationDur - outputDur) > 0.1) {
+    errors.push(`Track duration mismatch: narration=${narrationDur}s, output=${outputDur}s (delta > 0.1s).`);
+  }
+
+  // Check 2: Peak / True-peak level and clipping
+  const peak = manifest.output?.truePeakDbfs ?? manifest.truePeakDbfs ?? manifest.peakDbfs ?? 0;
+  if (peak > -0.05) {
+    errors.push(`Peak level (${peak} dBFS) exceeds maximum safe ceiling (-0.1 dBFS).`);
+  }
+  if (manifest.output?.truePeakDbfs !== undefined && manifest.output.truePeakDbfs > -1.0) {
+    errors.push(`Output true peak (${manifest.output.truePeakDbfs} dBFS) exceeds broadcast ceiling (-1.0 dBFS).`);
+  }
+
+  const clippedSamples = manifest.output?.clippedSamples ?? manifest.clippedSamples ?? 0;
+  if (clippedSamples > 0) {
+    errors.push(`Output contains ${clippedSamples} clipped samples.`);
   }
 
   // Check 3: Duration validity
-  if (manifest.totalDurationSec <= 0) {
-    errors.push(`Invalid audio total duration: ${manifest.totalDurationSec}s.`);
+  if (outputDur <= 0) {
+    errors.push(`Invalid audio total duration: ${outputDur}s.`);
   }
 
   // Check 4: Ducking verification
-  if (manifest.ducking?.enabled) {
-    if (!manifest.ducking.config || manifest.ducking.config.duckingDepthDb > -6.0) {
-      errors.push(`Ducking depth (${manifest.ducking.config?.duckingDepthDb} dB) insufficient (must be <= -6.0 dB).`);
-    }
+  const duckingEnabled =
+    manifest.ducking?.enabled ??
+    Boolean(manifest.tracks?.music && manifest.tracks?.narration);
+  const duckingDepth =
+    manifest.ducking?.attenuationDb ??
+    manifest.ducking?.config?.duckingDepthDb ??
+    0;
+
+  if (duckingEnabled && duckingDepth > -6.0) {
+    errors.push(`Ducking depth (${duckingDepth} dB) insufficient (must be <= -6.0 dB).`);
   }
 
-  // Check 5: Audio file check if provided
+  // Check 5: Integrated LUFS broadcast specification [-17.5, -14.5]
+  const lufs = manifest.output?.lufs ?? manifest.integratedLufs;
+  if (lufs !== undefined && (lufs < -17.5 || lufs > -14.5)) {
+    errors.push(`Output loudness (${lufs} LUFS) is outside broadcast spec [-17.5, -14.5].`);
+  }
+
+  // Check 6: WAV file validation if provided
   if (wavPath && fs.existsSync(wavPath)) {
     try {
       const buf = fs.readFileSync(wavPath);
       const h = parseWavHeader(buf);
-      if (Math.abs(h.durationSec - manifest.totalDurationSec) > 0.5) {
-        errors.push(`WAV file duration (${h.durationSec.toFixed(2)}s) mismatches manifest duration (${manifest.totalDurationSec}s).`);
+      if (outputDur > 0 && Math.abs(h.durationSec - outputDur) > 0.5) {
+        errors.push(`WAV file duration (${h.durationSec.toFixed(2)}s) mismatches manifest duration (${outputDur}s).`);
       }
     } catch (e: any) {
       errors.push(`Failed to read WAV file: ${e.message}`);
     }
   }
 
-  console.log(`  Total Duration:     ${manifest.totalDurationSec}s`);
-  console.log(`  Sample Rate:        ${manifest.sampleRate} Hz`);
-  console.log(`  True Peak:          ${manifest.peakDbfs} dBFS`);
-  console.log(`  Integrated LUFS:    ${manifest.integratedLufs} LUFS`);
-  console.log(`  Ducking Enabled:    ${manifest.ducking?.enabled ? 'Yes' : 'No'}`);
+  const displaySampleRate = manifest.output?.sampleRate ?? manifest.sampleRate ?? 48000;
+  console.log(`  Total Duration:     ${outputDur}s`);
+  console.log(`  Sample Rate:        ${displaySampleRate} Hz`);
+  console.log(`  True Peak:          ${peak} dBFS`);
+  console.log(`  Integrated LUFS:    ${lufs ?? 'N/A'} LUFS`);
+  console.log(`  Ducking Enabled:    ${duckingEnabled ? 'Yes' : 'No'}`);
+  console.log(`  Ducking Depth:      ${duckingDepth} dB`);
   console.log(`  Ducking Regions:    ${manifest.ducking?.regions?.length || 0}`);
 
   if (errors.length > 0) {

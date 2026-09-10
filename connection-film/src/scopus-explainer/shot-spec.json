@@ -1,0 +1,83 @@
+{
+  "sequence_id": "scopus-research-gap-tiktok-9x16",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "shots": [
+    {
+      "id": "shot_01",
+      "startFrame": 0,
+      "endFrame": 450,
+      "narrative_purpose": "Đặt vấn đề & Bản chất Scopus: Tại sao bị Desk Reject? 3 câu hỏi cốt lõi và 4 thuộc tính tối thiểu của Gap",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_1_problem"
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_2_taxonomy"
+      },
+      "impact_frames": [35, 180, 450]
+    },
+    {
+      "id": "shot_02",
+      "startFrame": 450,
+      "endFrame": 900,
+      "narrative_purpose": "Phân loại 5 loại Research Gap: Lý thuyết, Thực nghiệm, Bối cảnh, Phương pháp, Ứng dụng",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_2_taxonomy"
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_3_process"
+      },
+      "impact_frames": [450, 540, 630, 720, 810, 900]
+    },
+    {
+      "id": "shot_03",
+      "startFrame": 900,
+      "endFrame": 1440,
+      "narrative_purpose": "Quy trình 4 bước xác định Gap: Phễu thu hẹp dòng nghiên cứu và Cấu trúc 3 tầng Swales CARS",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_3_process"
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_4_template"
+      },
+      "impact_frames": [900, 1080, 1200, 1440]
+    },
+    {
+      "id": "shot_04",
+      "startFrame": 1440,
+      "endFrame": 1950,
+      "narrative_purpose": "Template 4 câu chuẩn quốc tế & Case Study mô hình Ngân hàng số",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_4_template"
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_5_conclusion"
+      },
+      "impact_frames": [1440, 1600, 1800, 1950]
+    },
+    {
+      "id": "shot_05",
+      "startFrame": 1950,
+      "endFrame": 2400,
+      "narrative_purpose": "4 Lỗi chết người cần tránh, checklist và thông điệp chúc mừng công bố Scopus thành công",
+      "start_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "section_5_conclusion"
+      },
+      "end_state": {
+        "camera": { "x": 0, "y": 0, "zoom": 1.0 },
+        "active_section": "final_victory"
+      },
+      "impact_frames": [1950, 2100, 2200]
+    }
+  ]
+}

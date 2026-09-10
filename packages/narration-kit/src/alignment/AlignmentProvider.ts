@@ -10,7 +10,16 @@ export interface WordTiming {
   start: number; // in seconds
   end: number;   // in seconds
   confidence: number;
-  punctuation: string;
+  punctuation?: string;
+  // Subunit timing for initialisms/acronyms (e.g. GPU -> G, P, U)
+  subunits?: Array<{
+    text: string;
+    start: number;
+    end: number;
+    confidence: number;
+  }>;
+  semanticType?: string;
+  pronunciationMode?: string;
   // Backward compatibility fields
   text?: string;
   normalizedText?: string;

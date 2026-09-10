@@ -25,7 +25,10 @@ export class WhisperXLocalAligner implements AlignmentProvider {
   constructor(options: AlignerOptions = {}) {
     this.repoRoot = options.repoRoot || this.findRepoRoot();
     this.pythonPath = options.pythonPath || this.resolvePython();
-    this.scriptPath = path.resolve(this.repoRoot, 'scripts', 'align-transcript.py');
+    const multiScript = path.resolve(this.repoRoot, 'scripts', 'align-multilingual.py');
+    this.scriptPath = fs.existsSync(multiScript)
+      ? multiScript
+      : path.resolve(this.repoRoot, 'scripts', 'align-transcript.py');
     this.device = options.device || 'cpu';
   }
 

@@ -1,14 +1,16 @@
 /**
  * packages/narration-kit/src/normalization/textNormalizer.ts
  * Main text normalizer with bidirectional token mapping, number/currency/unit expansion,
- * and authoritative narration-text-map.json schema compliance.
+ * hierarchical lexicon integration, and authoritative V3.1 bilingual Vietnamese-First support.
  */
 
 import {
+  LanguageSpan,
   NarrationTextMap,
   NarrationToken,
   NormalizationResult,
   NormalizerOptions,
+  PronunciationMapEntry,
   TokenType,
 } from './types';
 import {
@@ -27,6 +29,18 @@ import {
   expandUrl,
   sanitizeUnicode,
 } from './rules';
+import {
+  LanguageAwareTokenizer,
+  TokenizeBilingualResult,
+} from './languageAwareTokenizer';
+import { LexiconManager } from './lexiconManager';
+
+/**
+ * Checks if a text string contains Vietnamese diacritics or common Vietnamese syllables.
+ */
+export function isVietnameseText(text: string): boolean {
+  return /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i.test(text);
+}
 
 /**
  * Normalizes text for speech synthesis, expanding numbers, currencies, dates,
@@ -38,7 +52,15 @@ export function normalizeText(text: string, options?: NormalizerOptions): string
     return '';
   }
 
-  // 1. Sanitize Unicode quotes, em-dashes, and ellipsis
+  // If text is Vietnamese or Vietnamese locale is requested, use LanguageAwareTokenizer
+  const isVi = options?.locale?.startsWith('vi') || isVietnameseText(text);
+  if (isVi) {
+    const tokenizer = new LanguageAwareTokenizer(options);
+    const res = tokenizer.tokenize(text, options);
+    return res.spokenText;
+  }
+
+  // English-only legacy normalization
   let norm = sanitizeUnicode(text);
 
   // 2. Expand URLs
@@ -46,79 +68,70 @@ export function normalizeText(text: string, options?: NormalizerOptions): string
     return expandUrl(urlMatch).normalized;
   });
 
-  // 3. Expand Currency: e.g. $1,000,000,000,000, -$50.25, $0.00
+  // 3. Expand Currency
   norm = norm.replace(
     /(?:^|(?<=\s))([+-]?\$\d[\d,]*(?:\.\d+)?|\$[+-]?\d[\d,]*(?:\.\d+)?)(?=\s|[.,!?;:]|$)/gi,
     (m) => currencyToWords(m)
   );
 
-  // 4. Expand Percentages: e.g. +99.9%, -50%, 42%
+  // 4. Expand Percentages
   norm = norm.replace(
     /(?:^|(?<=\s))([+-]?\d[\d,]*(?:\.\d+)?%)(?=\s|[.,!?;:]|$)/gi,
     (m) => percentageToWords(m)
   );
 
-  // 5. Expand MM/DD/YYYY Dates: e.g. 12/05/2026
-  norm = norm.replace(/\b(\d{1,2}\/\d{1,2}\/\d{2,4})\b/g, (m) => dateToWords(m));
-
-  // 6. Expand Units: e.g. 24kHz, 60fps, 12dB, 100ms, 1080p, 16-bit
-  for (const unitDef of UNIT_DEFINITIONS) {
-    norm = norm.replace(new RegExp(`\\b${unitDef.regexStr}\\b`, 'gi'), (...args) => {
-      const num = args[1];
-      const unit = args[2] || '';
-      return unitDef.expand(num, unit).words;
+  // 5. Expand Units
+  for (const def of UNIT_DEFINITIONS) {
+    const unitRegex = new RegExp(
+      `(?:^|(?<=\\s))${def.regexStr}(?=\\s|[.,!?;:]|$)`,
+      'gi'
+    );
+    norm = norm.replace(unitRegex, (_m, numStr, unitStr) => {
+      return def.expand(numStr, unitStr).words;
     });
   }
 
-  // 7. Expand Ordinals: e.g. 1st, 2nd, 3rd, 23rd
-  norm = norm.replace(/\b(\d+)(st|nd|rd|th)\b/gi, (_, n) => ordinalToWords(parseInt(n, 10)));
+  // 6. Expand Decimals
+  norm = norm.replace(
+    /(?:^|(?<=\s))([+-]?\d[\d,]*\.\d+)(?=\s|[.,!?;:]|$)/g,
+    (m) => decimalToWords(m)
+  );
 
-  // 8. Expand 4-digit years: e.g. 2026, 1999
-  norm = norm.replace(/\b(19\d\d|20\d\d)\b/g, (m) => yearToWords(parseInt(m, 10)));
+  // 7. Expand 4-digit years
+  norm = norm.replace(
+    /(?:^|(?<=\s))(19\d{2}|20\d{2})(?=\s|[.,!?;:]|$)/g,
+    (m) => yearToWords(parseInt(m, 10))
+  );
 
-  // 9. Expand Decimals: e.g. 99.9, 2.0
-  norm = norm.replace(/(?:^|(?<=\s))([+-]?\d[\d,]*\.\d+)(?=\s|[.,!?;:]|$)/g, (m) => decimalToWords(m));
+  // 8. Expand Ordinals
+  norm = norm.replace(
+    /(?:^|(?<=\s))(\d+)(?:st|nd|rd|th)(?=\s|[.,!?;:]|$)/gi,
+    (_m, digits) => ordinalToWords(parseInt(digits, 10))
+  );
 
-  // 10. Expand Cardinals: e.g. 1,000, 42
-  norm = norm.replace(/(?:^|(?<=\s))([+-]?\d[\d,]*)(?=\s|[.,!?;:]|$)/g, (m) => {
-    const clean = m.replace(/,/g, '');
-    try {
-      return integerToWords(BigInt(clean));
-    } catch {
-      return m;
-    }
-  });
+  // 9. Expand Integers
+  norm = norm.replace(
+    /(?:^|(?<=\s))([+-]?\d[\d,]*)(?=\s|[.,!?;:]|$)/g,
+    (m) => integerToWords(parseInt(m.replace(/,/g, ''), 10))
+  );
 
-  // 11. Expand Abbreviations: e.g. dr., mr., vs., etc.
-  norm = norm.replace(/\b(dr|mr|mrs|ms|prof|vs|etc|e\.g|i\.e|approx|dept|fig|sec|min)\./gi, (m) => {
-    return COMMON_ABBREVIATIONS[m.toLowerCase()] || m;
-  });
+  // 10. Expand Common Abbreviations
+  for (const [abbr, expanded] of Object.entries(COMMON_ABBREVIATIONS)) {
+    const abbrRegex = new RegExp(`\\b${abbr}\\b`, 'gi');
+    norm = norm.replace(abbrRegex, expanded);
+  }
 
-  // 12. Expand Acronyms: e.g. AI, TTS, GPU, CPU
-  norm = norm.replace(/\b([A-Z]{2,5})\b/g, (word) => {
-    if (ACRONYM_EXPANSIONS[word]) {
-      return ACRONYM_EXPANSIONS[word];
-    }
-    // Expand any uppercase acronym to spaced letters unless in common short word list
-    const COMMON_WORDS = new Set(['IN', 'ON', 'AT', 'TO', 'BY', 'OF', 'FOR', 'AND', 'OR', 'BUT', 'THE', 'NOT', 'IS', 'ARE', 'WAS', 'BE', 'SO', 'NO', 'YES', 'IT', 'HE', 'SHE', 'WE', 'ME', 'MY', 'UP', 'DO', 'GO', 'AN', 'AS', 'IF']);
-    if (COMMON_WORDS.has(word)) {
-      return word;
-    }
-    return word.split('').join(' ');
-  });
+  // 11. Expand Acronyms with spelling
+  for (const [acronym, expanded] of Object.entries(ACRONYM_EXPANSIONS)) {
+    const acrRegex = new RegExp(`\\b${acronym}\\b`, 'g');
+    norm = norm.replace(acrRegex, expanded);
+  }
 
-  // 13. Clean up spacing and punctuation attachments
-  return norm
-    .replace(/\s+([.,!?;:])/g, '$1')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
+  return norm.replace(/\s+/g, ' ').trim();
 }
 
 /**
- * Creates an authoritative NarrationTextMap with bidirectional token mapping.
- * Invariant 1: originalText.slice(start, end) === originalWord.
- * Invariant 2: monotonic non-overlapping token intervals.
- * Invariant 3: spokenWords is a non-empty string array.
+ * Generates authoritative bidirectional narration-text-map.json object.
  */
 export function createNarrationTextMap(
   originalText: string,
@@ -127,208 +140,29 @@ export function createNarrationTextMap(
   if (!originalText || originalText.trim().length === 0) {
     return {
       version: '1.0.0',
-      originalText: originalText || '',
+      originalText: '',
       normalizedText: '',
       tokens: [],
       spokenText: '',
+      displayText: '',
+      languageSpans: [],
+      pronunciationMap: [],
     };
   }
 
-  const normalizedText = normalizeText(originalText, options);
-  const tokens: NarrationToken[] = [];
-  let tokenId = 0;
-
-  let cursor = 0;
-  const len = originalText.length;
-
-  while (cursor < len) {
-    // Skip whitespace
-    if (/\s/.test(originalText[cursor])) {
-      cursor++;
-      continue;
-    }
-
-    const remaining = originalText.slice(cursor);
-    let matchWord = '';
-    let tokenType: TokenType = 'plain';
-    let spokenWords: string[] = [];
-
-    // 1. Check URL
-    const urlMatch = remaining.match(/^https?:\/\/[^\s"'<>]+/i);
-    if (urlMatch) {
-      matchWord = urlMatch[0];
-      tokenType = 'url';
-      spokenWords = expandUrl(matchWord).spokenWords;
-    }
-
-    // 2. Check Date (MM/DD/YYYY)
-    if (!matchWord) {
-      const dateMatch = remaining.match(/^\d{1,2}\/\d{1,2}\/\d{2,4}\b/);
-      if (dateMatch) {
-        matchWord = dateMatch[0];
-        tokenType = 'date';
-        spokenWords = dateToWords(matchWord).split(/\s+/).filter(Boolean);
-      }
-    }
-
-    // 3. Check Currency
-    if (!matchWord) {
-      const currMatch = remaining.match(/^([+-]?\$\d[\d,]*(?:\.\d+)?|\$[+-]?\d[\d,]*(?:\.\d+)?)/i);
-      if (currMatch) {
-        matchWord = currMatch[0];
-        tokenType = 'currency';
-        spokenWords = currencyToWords(matchWord).split(/\s+/).filter(Boolean);
-      }
-    }
-
-    // 4. Check Percentage
-    if (!matchWord) {
-      const pctMatch = remaining.match(/^[+-]?\d[\d,]*(?:\.\d+)?%/);
-      if (pctMatch) {
-        matchWord = pctMatch[0];
-        tokenType = 'decimal';
-        spokenWords = percentageToWords(matchWord).split(/\s+/).filter(Boolean);
-      }
-    }
-
-    // 5. Check Units
-    if (!matchWord) {
-      for (const unitDef of UNIT_DEFINITIONS) {
-        const uMatch = remaining.match(new RegExp(`^${unitDef.regexStr}\\b`, 'i'));
-        if (uMatch) {
-          matchWord = uMatch[0];
-          tokenType = 'unit';
-          const expanded = unitDef.expand(uMatch[1], uMatch[2] || '');
-          spokenWords = expanded.spokenWords;
-          break;
-        }
-      }
-    }
-
-    // 6. Check Ordinal numbers
-    if (!matchWord) {
-      const ordMatch = remaining.match(/^\d+(?:st|nd|rd|th)\b/i);
-      if (ordMatch) {
-        matchWord = ordMatch[0];
-        tokenType = 'ordinal';
-        const val = parseInt(matchWord, 10);
-        spokenWords = ordinalToWords(val).split(/\s+/).filter(Boolean);
-      }
-    }
-
-    // 7. Check Decimals
-    if (!matchWord) {
-      const decMatch = remaining.match(/^[+-]?\d[\d,]*\.\d+\b/);
-      if (decMatch) {
-        matchWord = decMatch[0];
-        tokenType = 'decimal';
-        spokenWords = decimalToWords(matchWord).split(/\s+/).filter(Boolean);
-      }
-    }
-
-    // 8. Check Cardinals (integers)
-    if (!matchWord) {
-      const cardMatch = remaining.match(/^[+-]?\d[\d,]*\b/);
-      if (cardMatch) {
-        matchWord = cardMatch[0];
-        tokenType = 'cardinal';
-        const clean = matchWord.replace(/,/g, '');
-        const val = parseInt(clean, 10);
-        if (val >= 1000 && val <= 2999 && !matchWord.includes(',')) {
-          // Year expansion: e.g. 2026 -> ['twenty', 'twenty-six']
-          spokenWords = yearToWords(val).split(/\s+/).filter(Boolean);
-        } else {
-          spokenWords = integerToWords(BigInt(clean)).split(/\s+/).filter(Boolean);
-        }
-      }
-    }
-
-    // 9. Check Abbreviations
-    if (!matchWord) {
-      const abbrMatch = remaining.match(/^(?:dr|mr|mrs|ms|prof|vs|etc|e\.g|i\.e|approx|dept|fig|sec|min)\./i);
-      if (abbrMatch) {
-        matchWord = abbrMatch[0];
-        tokenType = 'abbreviation';
-        const exp = COMMON_ABBREVIATIONS[matchWord.toLowerCase()] || matchWord;
-        spokenWords = exp.split(/\s+/).filter(Boolean);
-      }
-    }
-
-    // 10. Check Acronyms
-    if (!matchWord) {
-      const acrMatch = remaining.match(/^([A-Z]{2,5})\b/);
-      if (acrMatch) {
-        const word = acrMatch[1];
-        const COMMON_WORDS = new Set(['IN', 'ON', 'AT', 'TO', 'BY', 'OF', 'FOR', 'AND', 'OR', 'BUT', 'THE', 'NOT', 'IS', 'ARE', 'WAS', 'BE', 'SO', 'NO', 'YES', 'IT', 'HE', 'SHE', 'WE', 'ME', 'MY', 'UP', 'DO', 'GO', 'AN', 'AS', 'IF']);
-        if (ACRONYM_EXPANSIONS[word] || !COMMON_WORDS.has(word)) {
-          matchWord = word;
-          tokenType = 'acronym';
-          if (ACRONYM_EXPANSIONS[word]) {
-            spokenWords = ACRONYM_EXPANSIONS[word].split(/\s+/).filter(Boolean);
-          } else {
-            spokenWords = word.split('');
-          }
-        }
-      }
-    }
-
-    // 11. Check Plain Words
-    if (!matchWord) {
-      const wordMatch = remaining.match(/^[A-Za-z]+(?:['’\-][A-Za-z]+)*/);
-      if (wordMatch) {
-        matchWord = wordMatch[0];
-        tokenType = 'plain';
-        spokenWords = [matchWord];
-      }
-    }
-
-    // 12. Check Punctuation or other symbols
-    if (!matchWord) {
-      const punctMatch = remaining.match(/^[.,!?;:()[\]"“”'—–-]/) || remaining.match(/^\S/);
-      if (punctMatch) {
-        matchWord = punctMatch[0];
-        if (options?.includePunctuationTokens) {
-          tokenType = 'punctuation';
-          spokenWords = [matchWord];
-        } else {
-          // Skip punctuation symbol in default word tokenization
-          cursor += matchWord.length;
-          continue;
-        }
-      }
-    }
-
-    if (!matchWord) {
-      cursor++;
-      continue;
-    }
-
-    const start = cursor;
-    const end = start + matchWord.length;
-
-    tokens.push({
-      id: `t${tokenId++}`,
-      originalSpan: [start, end],
-      originalWord: matchWord,
-      spokenWords: spokenWords.length > 0 ? spokenWords : [matchWord],
-      type: tokenType,
-      normalized: spokenWords.join(' '),
-    });
-
-    cursor = end;
-  }
-
-  const spokenText = tokens
-    .map((t) => t.spokenWords.join(' '))
-    .filter(Boolean)
-    .join(' ');
+  // Use LanguageAwareTokenizer by default for Vietnamese-first bilingual production
+  const tokenizer = new LanguageAwareTokenizer(options);
+  const bilingualRes = tokenizer.tokenize(originalText, options);
 
   return {
     version: '1.0.0',
     originalText,
-    normalizedText,
-    tokens,
-    spokenText,
+    normalizedText: bilingualRes.spokenText,
+    displayText: bilingualRes.displayText,
+    tokens: bilingualRes.tokens,
+    spokenText: bilingualRes.spokenText,
+    languageSpans: bilingualRes.languageSpans,
+    pronunciationMap: bilingualRes.pronunciationMap,
   };
 }
 
@@ -336,11 +170,14 @@ export function createNarrationTextMap(
  * TextNormalizer class implementing the complete normalization interface.
  */
 export class TextNormalizer {
-  constructor(private options?: NormalizerOptions) {}
+  private tokenizer: LanguageAwareTokenizer;
+
+  constructor(private options?: NormalizerOptions) {
+    this.tokenizer = new LanguageAwareTokenizer(options);
+  }
 
   /**
    * Returns normalized text string directly.
-   * Enables: result.includes(...), result.toLowerCase()
    */
   public normalize(text: string): string {
     return normalizeText(text, this.options);
@@ -365,6 +202,13 @@ export class TextNormalizer {
   }
 
   /**
+   * Dedicated bilingual tokenization and classification method (V3.1).
+   */
+  public tokenizeBilingual(text: string): TokenizeBilingualResult {
+    return this.tokenizer.tokenize(text, this.options);
+  }
+
+  /**
    * Backward compatibility for Milestone 1 interfaces.
    */
   public normalizeWithResult(text: string): NormalizationResult {
@@ -373,7 +217,10 @@ export class TextNormalizer {
       originalText: textMap.originalText,
       normalizedText: textMap.normalizedText,
       spokenText: textMap.spokenText || textMap.normalizedText,
-      tokens: textMap.tokens.map((t, idx) => ({
+      displayText: textMap.displayText,
+      languageSpans: textMap.languageSpans,
+      pronunciationMap: textMap.pronunciationMap,
+      tokens: textMap.tokens.map((t) => ({
         id: t.id,
         original: t.originalWord,
         normalized: t.normalized || t.spokenWords.join(' '),

@@ -1,0 +1,179 @@
+{
+  "version": "1.0.0",
+  "fps": 30,
+  "compositionId": "ScopusResearchGapTikTok",
+  "totalDurationSec": 80.0,
+  "totalDurationFrames": 2400,
+  "tracks": {
+    "background": {
+      "file": "background_soundtrack.wav",
+      "volume": 0.35,
+      "durationSec": 80.0,
+      "sampleRate": 48000,
+      "channels": 2
+    },
+    "sfx": [
+      {
+        "id": "sfx_01_reject",
+        "file": "sfx/stamp_reject.wav",
+        "frame": 45,
+        "timeSec": 1.5,
+        "volume": 0.85
+      },
+      {
+        "id": "sfx_02_gap_reveal",
+        "file": "sfx/node_connect.wav",
+        "frame": 130,
+        "timeSec": 4.333,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_03_dialogue",
+        "file": "sfx/node_connect.wav",
+        "frame": 220,
+        "timeSec": 7.333,
+        "volume": 0.65
+      },
+      {
+        "id": "sfx_04_triangle",
+        "file": "sfx/block_lock.wav",
+        "frame": 310,
+        "timeSec": 10.333,
+        "volume": 0.75
+      },
+      {
+        "id": "sfx_05_cars",
+        "file": "sfx/filter_pass.wav",
+        "frame": 400,
+        "timeSec": 13.333,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_06_door_1",
+        "file": "sfx/whoosh_transition.wav",
+        "frame": 480,
+        "timeSec": 16.0,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_07_door_2",
+        "file": "sfx/whoosh_transition.wav",
+        "frame": 570,
+        "timeSec": 19.0,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_08_door_3",
+        "file": "sfx/whoosh_transition.wav",
+        "frame": 660,
+        "timeSec": 22.0,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_09_door_4",
+        "file": "sfx/whoosh_transition.wav",
+        "frame": 750,
+        "timeSec": 25.0,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_10_door_5",
+        "file": "sfx/whoosh_transition.wav",
+        "frame": 840,
+        "timeSec": 28.0,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_11_funnel",
+        "file": "sfx/filter_pass.wav",
+        "frame": 950,
+        "timeSec": 31.667,
+        "volume": 0.75
+      },
+      {
+        "id": "sfx_12_matrix",
+        "file": "sfx/node_connect.wav",
+        "frame": 1060,
+        "timeSec": 35.333,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_13_lens",
+        "file": "sfx/filter_pass.wav",
+        "frame": 1170,
+        "timeSec": 39.0,
+        "volume": 0.75
+      },
+      {
+        "id": "sfx_14_assembly",
+        "file": "sfx/block_lock.wav",
+        "frame": 1280,
+        "timeSec": 42.667,
+        "volume": 0.8
+      },
+      {
+        "id": "sfx_15_formula",
+        "file": "sfx/node_connect.wav",
+        "frame": 1390,
+        "timeSec": 46.333,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_16_template",
+        "file": "sfx/filter_pass.wav",
+        "frame": 1490,
+        "timeSec": 49.667,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_17_tam",
+        "file": "sfx/node_connect.wav",
+        "frame": 1610,
+        "timeSec": 53.667,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_18_gap_pulse",
+        "file": "sfx/node_connect.wav",
+        "frame": 1730,
+        "timeSec": 57.667,
+        "volume": 0.75
+      },
+      {
+        "id": "sfx_19_model_lock",
+        "file": "sfx/block_lock.wav",
+        "frame": 1880,
+        "timeSec": 62.667,
+        "volume": 0.8
+      },
+      {
+        "id": "sfx_20_pitfalls_1_2",
+        "file": "sfx/stamp_reject.wav",
+        "frame": 2000,
+        "timeSec": 66.667,
+        "volume": 0.8
+      },
+      {
+        "id": "sfx_21_pitfalls_3_4",
+        "file": "sfx/stamp_reject.wav",
+        "frame": 2110,
+        "timeSec": 70.333,
+        "volume": 0.8
+      },
+      {
+        "id": "sfx_22_balance",
+        "file": "sfx/filter_pass.wav",
+        "frame": 2220,
+        "timeSec": 74.0,
+        "volume": 0.7
+      },
+      {
+        "id": "sfx_23_accepted",
+        "file": "sfx/stamp_accept.wav",
+        "frame": 2340,
+        "timeSec": 78.0,
+        "volume": 0.9
+      }
+    ]
+  }
+}

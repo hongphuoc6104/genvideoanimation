@@ -27,11 +27,12 @@ __pycache__/
 *.onnx
 *.bin
 *.pth
+*.pt
 models/kokoro/*.onnx
 models/kokoro/*.bin
 models/kokoro/voices/
-models/alignment/*.pth
-models/alignment/tokenizers/*.zip
+models/alignment/*
+!models/alignment/README.md
 !models/README.md
 
 # Scratch Agent Sessions

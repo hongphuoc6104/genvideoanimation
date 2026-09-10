@@ -15,6 +15,12 @@ export interface CaptionWord {
   cleanWord?: string;
   confidence?: number;
   punctuation?: string;
+  subunits?: Array<{
+    text: string;
+    start: number;
+    end: number;
+    confidence: number;
+  }>;
 }
 
 export interface CaptionLine {

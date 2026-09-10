@@ -5,5 +5,6 @@
 
 export * from './AlignmentProvider';
 export * from './WhisperXLocalAligner';
+export { WhisperXLocalAligner as WhisperXAligner } from './WhisperXLocalAligner';
 export * from './normalizeAlignment';
 export * from './validateAlignment';

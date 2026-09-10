@@ -1,0 +1,207 @@
+version: "1.0.0"
+domain: "technology"
+entries:
+  - term: "AI"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "A I"
+    case_sensitive: true
+    notes: "Artificial Intelligence - avoids confusion with Vietnamese word 'ai'"
+
+  - term: "GPU"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "G P U"
+    case_sensitive: true
+
+  - term: "GPT"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "G P T"
+    case_sensitive: true
+
+  - term: "BERT"
+    type: "ACRONYM"
+    mode: "en_word"
+    spoken: "BERT"
+    case_sensitive: true
+
+  - term: "API"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "A P I"
+    case_sensitive: true
+
+  - term: "TTS"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "T T S"
+    case_sensitive: true
+
+  - term: "ONNX"
+    type: "ACRONYM"
+    mode: "en_word"
+    spoken: "ONNX"
+    case_sensitive: true
+
+  - term: "CPU"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "C P U"
+    case_sensitive: true
+
+  - term: "LLM"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "L L M"
+    case_sensitive: true
+
+  - term: "NLP"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "N L P"
+    case_sensitive: true
+
+  - term: "ASR"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "A S R"
+    case_sensitive: true
+
+  - term: "CUDA"
+    type: "ACRONYM"
+    mode: "en_word"
+    spoken: "CUDA"
+    case_sensitive: true
+
+  - term: "PyTorch"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "PyTorch"
+    case_sensitive: false
+
+  - term: "Remotion"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "Remotion"
+    case_sensitive: false
+
+  - term: "TypeScript"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "TypeScript"
+    case_sensitive: false
+
+  - term: "JavaScript"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "JavaScript"
+    case_sensitive: false
+
+  - term: "Python"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "Python"
+    case_sensitive: false
+
+  - term: "Node.js"
+    type: "PROPER_NOUN"
+    mode: "custom"
+    spoken: "Node js"
+    case_sensitive: false
+
+  - term: "FFmpeg"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "FFmpeg"
+    case_sensitive: false
+
+  - term: "WAV"
+    type: "ACRONYM"
+    mode: "en_word"
+    spoken: "WAV"
+    case_sensitive: true
+
+  - term: "MP4"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "M P 4"
+    case_sensitive: true
+
+  - term: "PCM"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "P C M"
+    case_sensitive: true
+
+  - term: "fps"
+    type: "UNIT"
+    mode: "en_spell"
+    spoken: "f p s"
+    case_sensitive: false
+
+  - term: "kHz"
+    type: "UNIT"
+    mode: "custom"
+    spoken: "ki lô héc"
+    case_sensitive: false
+
+  - term: "ms"
+    type: "UNIT"
+    mode: "custom"
+    spoken: "mi li giây"
+    case_sensitive: false
+
+  - term: "dB"
+    type: "UNIT"
+    mode: "custom"
+    spoken: "đề xi ben"
+    case_sensitive: false
+
+  - term: "dBFS"
+    type: "UNIT"
+    mode: "en_spell"
+    spoken: "d B F S"
+    case_sensitive: false
+
+  - term: "GB"
+    type: "UNIT"
+    mode: "custom"
+    spoken: "ghi ga bai"
+    case_sensitive: false
+
+  - term: "MB"
+    type: "UNIT"
+    mode: "custom"
+    spoken: "mê ga bai"
+    case_sensitive: false
+
+  - term: "GPT-5"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "G P T năm"
+    case_sensitive: true
+
+  - term: "GPT-4"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "G P T bốn"
+    case_sensitive: true
+
+  - term: "VieNeu-TTS"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "VieNeu T T S"
+    case_sensitive: false
+
+  - term: "VieNeu"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "VieNeu"
+    case_sensitive: false
+
+  - term: "v3 Turbo"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "v ba Turbo"
+    case_sensitive: false

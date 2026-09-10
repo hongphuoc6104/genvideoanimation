@@ -47,6 +47,24 @@ import {
   computePresetBox,
   getActiveCaption,
   resolveActiveGroup as resolveActiveGroupManifest,
+  computeLoudnessStats,
+  normalizePcmLoudness,
+  normalizeWavBuffer,
+  normalizeWavFile,
+  mixAudio,
+  mixAudioTracks,
+  generateDuckingEnvelope,
+  readWavToStereo48k,
+  AudioMixer,
+  createAudioManifest,
+  generateAudioManifest,
+  validateAudioManifest,
+  deriveCuesFromNarration,
+  createCueManifestFromNarration,
+  deriveSemanticCues,
+  deriveCues,
+  generateNarrationPipeline,
+  WhisperXAligner,
 } from '@videorender/narration-kit';
 import {
   calculateProgressiveFill,
@@ -638,10 +656,259 @@ async function testCaptionsSubsystem(): Promise<void> {
   assert(typeof KaraokeCaptions === 'function', 'KaraokeCaptions is exported React component function');
 }
 
+async function testAudioNormalizationSubsystem(): Promise<void> {
+  console.log('\n--- 13. Audio Normalization & True-Peak Limiter (BS.1770-4 / EBU R128) ---');
+
+  // Test 1: Sine wave tone loudness stats
+  const sampleRate = 24000;
+  const numSamples = sampleRate; // 1.0 second
+  const sine = new Float32Array(numSamples);
+  for (let i = 0; i < numSamples; i++) {
+    sine[i] = 0.5 * Math.sin((2 * Math.PI * 1000 * i) / sampleRate);
+  }
+
+  const initialStats = computeLoudnessStats(sine, sampleRate, 1);
+  assert(initialStats.peakLinear > 0.49 && initialStats.peakLinear <= 0.51, 'Sample peak is ~0.5');
+  assert(initialStats.peakDbfs > -6.5 && initialStats.peakDbfs < -5.5, 'Sample peak is ~ -6.0 dBFS');
+  assert(initialStats.truePeakDbfs <= -5.5, 'True peak estimated properly');
+  assert(initialStats.integratedLufs > -50 && initialStats.integratedLufs < -5, 'Integrated LUFS calculated');
+  assert(initialStats.clippedSamples === 0, 'No clipped samples in clean sine wave');
+
+  // Test 2: Normalization to -16 LUFS with true peak <= -1.0 dBFS
+  const normRes = normalizePcmLoudness(sine, {
+    targetLufs: -16.0,
+    maxPeakDbfs: -1.0,
+    sampleRate,
+    channels: 1,
+  });
+  assert(normRes.normalized.length === numSamples, 'Normalized samples preserve length');
+  assert(normRes.stats.truePeakDbfs <= -1.0, 'True peak strictly <= -1.0 dBFS');
+  assert(normRes.stats.clippedSamples === 0, 'Clipped samples strictly 0');
+  assert(normRes.stats.integratedLufs >= -17.5 && normRes.stats.integratedLufs <= -14.5, 'Loudness is in [-17.5, -14.5] window');
+
+  // Test 3: Overdriven hot signal capping (gain limiting)
+  const hot = new Float32Array(numSamples);
+  for (let i = 0; i < numSamples; i++) {
+    hot[i] = 2.0 * Math.sin((2 * Math.PI * 440 * i) / sampleRate);
+  }
+  const hotRes = normalizePcmLoudness(hot, {
+    targetLufs: -16.0,
+    maxPeakDbfs: -1.0,
+    sampleRate,
+    channels: 1,
+  });
+  assert(hotRes.stats.truePeakDbfs <= -1.0, 'Overdriven signal true peak limited <= -1.0 dBFS');
+  assert(hotRes.stats.clippedSamples === 0, 'Overdriven signal has 0 clipped samples');
+
+  // Test 4: Silence handling
+  const silence = new Float32Array(sampleRate);
+  const silenceStats = computeLoudnessStats(silence, sampleRate, 1);
+  assert(silenceStats.integratedLufs <= -70, 'Silence integrated loudness is <= -70 LUFS');
+  const silenceNorm = normalizePcmLoudness(silence, -16.0);
+  assert(silenceNorm.gainApplied === 1.0, 'Silence returns unity gain without NaN');
+
+  // Test 5: normalizeWavBuffer
+  const pcm16 = new Int16Array(numSamples);
+  for (let i = 0; i < numSamples; i++) {
+    pcm16[i] = Math.round(sine[i] * 32767);
+  }
+  const pcmBuf = Buffer.from(pcm16.buffer, pcm16.byteOffset, pcm16.byteLength);
+  const wavBuf = createWavFile(pcmBuf, sampleRate, 1, 16);
+  const normWav = normalizeWavBuffer(wavBuf, { targetLufs: -16.0, maxPeakDbfs: -1.0 });
+  assert(normWav.buffer.length > 44, 'normalizeWavBuffer returns valid WAV');
+  const parsed = parseWavHeader(normWav.buffer);
+  assert(parsed.sampleRate === sampleRate, 'Sample rate preserved in WAV header');
+  assert(normWav.stats.truePeakDbfs <= -1.0, 'WAV normalization holds peak <= -1.0 dBFS');
+  assert(normWav.stats.clippedSamples === 0, 'WAV normalization has 0 clipped samples');
+}
+
+async function testAudioMixerAndDuckingSubsystem(): Promise<void> {
+  console.log('\n--- 14. Multi-Track Audio Mixing & Dynamic Ducking (48kHz Stereo) ---');
+
+  // Test 1: Dynamic Ducking Envelope
+  const sampleRate = 48000;
+  const durationSec = 2.0;
+  const totalSamples = Math.ceil(durationSec * sampleRate);
+  const speechIntervals = [{ startSec: 0.3, endSec: 0.8 }];
+  const config = { duckingDepthDb: -12.8, attackMs: 100, releaseMs: 600 };
+
+  const env = generateDuckingEnvelope(totalSamples, sampleRate, speechIntervals, config);
+  assert(env[0] === 1.0, 'Envelope starts at 1.0 (full volume)');
+  const speechSample = Math.round(0.5 * sampleRate);
+  assert(Math.abs(env[speechSample] - 0.229) < 0.02, 'Envelope ducks to ~0.229 during speech');
+  const recoveredSample = Math.round(1.8 * sampleRate);
+  assert(Math.abs(env[recoveredSample] - 1.0) < 0.02, 'Envelope recovers to 1.0 after release');
+
+  // Test 2: Micro-pause bridging (< 200ms)
+  const rapidPauses = [
+    { startSec: 0.2, endSec: 0.4 },
+    { startSec: 0.5, endSec: 0.7 }, // 100ms gap
+  ];
+  const bridgedEnv = generateDuckingEnvelope(totalSamples, sampleRate, rapidPauses, config);
+  const gapSample = Math.round(0.45 * sampleRate);
+  assert(bridgedEnv[gapSample] < 0.3, 'Micro-pause (100ms) bridged without volume pumping');
+
+  // Test 3: AudioMixer class exports
+  assert(typeof AudioMixer === 'function', 'AudioMixer class is exported');
+  assert(typeof AudioMixer.mix === 'function', 'AudioMixer has static mix method');
+  const mixer = new AudioMixer();
+  assert(typeof mixer.mix === 'function', 'AudioMixer instance has mix method');
+
+  // Test 4: Multi-track mix output format
+  const tempDir = path.resolve('out/v3/test-mix-temp');
+  fs.mkdirSync(tempDir, { recursive: true });
+
+  // Create temporary 24kHz mono narration WAV
+  const narrPcm = new Int16Array(24000 * 2); // 2.0s
+  for (let i = 0; i < narrPcm.length; i++) {
+    narrPcm[i] = Math.round(0.4 * Math.sin((2 * Math.PI * 300 * i) / 24000) * 32767);
+  }
+  const narrWav = createWavFile(Buffer.from(narrPcm.buffer, narrPcm.byteOffset, narrPcm.byteLength), 24000, 1, 16);
+  const narrPath = path.join(tempDir, 'test-narr.wav');
+  fs.writeFileSync(narrPath, narrWav);
+
+  // Create temporary music WAV (48kHz stereo)
+  const musicPcm = new Int16Array(48000 * 2 * 2); // 2.0s stereo
+  for (let i = 0; i < musicPcm.length; i++) {
+    musicPcm[i] = Math.round(0.2 * Math.sin((2 * Math.PI * 200 * i) / 48000) * 32767);
+  }
+  const musicWav = createWavFile(Buffer.from(musicPcm.buffer, musicPcm.byteOffset, musicPcm.byteLength), 48000, 2, 16);
+  const musicPath = path.join(tempDir, 'test-music.wav');
+  fs.writeFileSync(musicPath, musicWav);
+
+  const outPath = path.join(tempDir, 'test-mixed.wav');
+  const mixRes = mixAudioTracks({
+    narrationTrack: { id: 'narr', type: 'narration', filePath: narrPath, volume: 1.0 },
+    musicTrack: { id: 'mus', type: 'music', filePath: musicPath, volume: 0.25 },
+    outputPath: outPath,
+    targetDurationSec: 2.0,
+  });
+
+  assert(fs.existsSync(outPath), 'Mixed soundtrack WAV written to disk');
+  const mixedHeader = parseWavHeader(fs.readFileSync(outPath));
+  assert(mixedHeader.sampleRate === 48000, 'Mixed soundtrack sample rate is 48000 Hz');
+  assert(mixedHeader.channels === 2, 'Mixed soundtrack channels is 2 (stereo)');
+  assert(mixedHeader.bitDepth === 16, 'Mixed soundtrack bit depth is 16-bit PCM');
+  assert(mixRes.truePeakDbfs <= -1.0, 'Mixed soundtrack true peak <= -1.0 dBFS');
+  assert(mixRes.clippedSamples === 0, 'Mixed soundtrack clipped samples === 0');
+  assert(mixRes.lufs >= -17.5 && mixRes.lufs <= -14.5, 'Mixed soundtrack LUFS is within broadcast bounds');
+
+  // Clean up temp
+  try {
+    fs.unlinkSync(narrPath);
+    fs.unlinkSync(musicPath);
+    fs.unlinkSync(outPath);
+    fs.rmdirSync(tempDir);
+  } catch {}
+}
+
+async function testAudioManifestAndCuesSubsystem(): Promise<void> {
+  console.log('\n--- 15. Audio Manifest & Semantic Animation Cues ---');
+
+  // Test 1: createAudioManifest schema
+  const manifest = createAudioManifest({
+    totalDurationSec: 4.1,
+    truePeakDbfs: -1.2,
+    integratedLufs: -16.1,
+    outputFile: 'mixed-soundtrack.wav',
+    duckingConfig: { duckingDepthDb: -12.8, attackMs: 100, releaseMs: 600 },
+  });
+
+  assert(manifest.version === '1.0.0', 'Audio manifest version is 1.0.0');
+  assert(manifest.output.file === 'mixed-soundtrack.wav', 'Output file is mixed-soundtrack.wav');
+  assert(manifest.output.sampleRate === 48000, 'Output sample rate is 48000');
+  assert(manifest.output.channels === 2, 'Output channels is 2');
+  assert(manifest.output.truePeakDbfs <= -1.0, 'Output truePeakDbfs <= -1.0');
+  assert(manifest.output.clippedSamples === 0, 'Output clippedSamples === 0');
+  assert(manifest.ducking.attenuationDb <= -10.0, 'Ducking attenuationDb <= -10.0');
+
+  // Test 2: validateAudioManifest
+  const validReport = validateAudioManifest(manifest);
+  assert(validReport.valid, 'Compliant manifest passes validateAudioManifest');
+
+  const invalidManifest = JSON.parse(JSON.stringify(manifest));
+  invalidManifest.output.truePeakDbfs = 0.5; // clipping
+  const invalidReport = validateAudioManifest(invalidManifest);
+  assert(!invalidReport.valid, 'Invalid true peak fails validateAudioManifest');
+
+  // Test 3: deriveCuesFromNarration
+  const sampleWords = [
+    { word: 'In', start: 0.07, end: 0.28 },
+    { word: '2026,', start: 0.28, end: 0.95 },
+    { word: 'AI', start: 1.05, end: 1.40 },
+    { word: 'models', start: 1.58, end: 2.05 },
+    { word: 'run', start: 2.10, end: 2.38 },
+    { word: 'locally.', start: 3.46, end: 3.98 },
+  ];
+
+  const cues = deriveCuesFromNarration(sampleWords as any, [], 30, ['models', 'locally']);
+  assert(cues.length >= 3, 'Derived at least 3 semantic cues');
+
+  const startCue = cues.find((c) => c.type === 'SENTENCE_START');
+  assert(Boolean(startCue), 'SENTENCE_START cue emitted');
+  assert(startCue!.category === 'narrative', 'SENTENCE_START category is "narrative"');
+  assert(startCue!.frame >= 0, 'SENTENCE_START frame is non-negative');
+
+  const empCues = cues.filter((c) => c.type === 'WORD_EMPHASIS');
+  assert(empCues.length >= 2, 'WORD_EMPHASIS cues emitted for emphasis words');
+  assert(empCues[0].category === 'action', 'WORD_EMPHASIS category is "action"');
+
+  const endCue = cues.find((c) => c.type === 'SENTENCE_END');
+  assert(Boolean(endCue), 'SENTENCE_END cue emitted');
+  assert(endCue!.category === 'narrative', 'SENTENCE_END category is "narrative"');
+
+  // Test strict monotonicity
+  for (let i = 1; i < cues.length; i++) {
+    assert(cues[i].frame > cues[i - 1].frame, `Cue frame ${cues[i].frame} > previous ${cues[i - 1].frame} (strictly monotonic)`);
+  }
+
+  // Test 4: createCueManifestFromNarration
+  const cueManifest = createCueManifestFromNarration(sampleWords as any, [], { fps: 30, emphasisWords: ['models'] });
+  assert(cueManifest.fps === 30, 'Cue manifest fps is 30');
+  assert(cueManifest.cues.length > 0, 'Cue manifest contains cues');
+}
+
+async function testPipelineRunnerContract(): Promise<void> {
+  console.log('\n--- 16. Unified Pipeline Runner Contracts & Governance Exports ---');
+
+  // Test 1: Empty or whitespace script validation
+  let caughtEmpty = false;
+  try {
+    await generateNarrationPipeline({ script: '', outputDir: '/tmp/test' });
+  } catch (err: any) {
+    if (/cannot be empty/.test(err.message)) {
+      caughtEmpty = true;
+    }
+  }
+  assert(caughtEmpty, 'generateNarrationPipeline rejects empty script with /cannot be empty/');
+
+  let caughtWhitespace = false;
+  try {
+    await generateNarrationPipeline({ scriptText: '   \n\t  ', outputDir: '/tmp/test' });
+  } catch (err: any) {
+    if (/cannot be empty/.test(err.message)) {
+      caughtWhitespace = true;
+    }
+  }
+  assert(caughtWhitespace, 'generateNarrationPipeline rejects whitespace script with /cannot be empty/');
+
+  // Test 2: Governance exported symbols
+  assert(typeof generateNarrationPipeline === 'function', 'generateNarrationPipeline is exported');
+  assert(typeof AudioMixer === 'function', 'AudioMixer is exported');
+  assert(typeof WhisperXAligner === 'function', 'WhisperXAligner alias is exported');
+  assert(typeof deriveSemanticCues === 'function', 'deriveSemanticCues alias is exported');
+  assert(typeof deriveCues === 'function', 'deriveCues alias is exported');
+
+  // Test 3: Unscoped package alias exports
+  assert(Boolean(unscopedKit.AudioMixer), 'unscoped narration-kit exports AudioMixer');
+  assert(Boolean(unscopedKit.WhisperXAligner), 'unscoped narration-kit exports WhisperXAligner');
+  assert(Boolean(unscopedKit.generateNarrationPipeline), 'unscoped narration-kit exports generateNarrationPipeline');
+}
+
 async function runTestSuite(): Promise<void> {
   const startTime = Date.now();
   console.log('======================================================');
-  console.log(' Milestone 1, 2 & 3 Narration & Caption Kit Test Suite');
+  console.log(' Milestone 1, 2, 3 & 4 Narration Kit Test Suite');
   console.log('======================================================');
 
   try {
@@ -657,6 +924,10 @@ async function runTestSuite(): Promise<void> {
     await testWavPcmUtilities();
     await testAlignmentSubsystem();
     await testCaptionsSubsystem();
+    await testAudioNormalizationSubsystem();
+    await testAudioMixerAndDuckingSubsystem();
+    await testAudioManifestAndCuesSubsystem();
+    await testPipelineRunnerContract();
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
     console.log('\n======================================================');

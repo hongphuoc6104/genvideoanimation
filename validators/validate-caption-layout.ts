@@ -58,9 +58,21 @@ function main() {
 
   const errors: string[] = [];
   const groups = manifest.groups || [];
-  const canvasWidth = 1920;
-  const canvasHeight = 1080;
-  const safeMargin = 96;
+  
+  // Detect 1080x1920 vertical canvas vs 1920x1080 landscape
+  let isPortrait = false;
+  for (const g of groups) {
+    if (g.box.x + g.box.width <= 1080 && g.box.y + g.box.height > 1080) {
+      isPortrait = true;
+      break;
+    }
+  }
+
+  const canvasWidth = isPortrait ? 1080 : 1920;
+  const canvasHeight = isPortrait ? 1920 : 1080;
+  const safeMargins = isPortrait
+    ? { left: 72, right: 180, top: 120, bottom: 320 }
+    : { left: 96, right: 96, top: 96, bottom: 96 };
 
   let subjectRegion: SubjectRegion | undefined;
   if (subjectJson) {
@@ -79,12 +91,14 @@ function main() {
 
     // Check 2: Safe margin violation
     if (
-      box.x < safeMargin - 1 ||
-      box.y < safeMargin - 1 ||
-      box.x + box.width > canvasWidth - safeMargin + 1 ||
-      box.y + box.height > canvasHeight - safeMargin + 1
+      box.x < safeMargins.left - 1 ||
+      box.y < safeMargins.top - 1 ||
+      box.x + box.width > canvasWidth - safeMargins.right + 1 ||
+      box.y + box.height > canvasHeight - safeMargins.bottom + 1
     ) {
-      errors.push(`Group [${g.id}] violates safe margin (${safeMargin}px): box=[${box.x}, ${box.y}, ${box.width}, ${box.height}].`);
+      errors.push(
+        `Group [${g.id}] violates safe margin (L:${safeMargins.left}, R:${safeMargins.right}, T:${safeMargins.top}, B:${safeMargins.bottom}): box=[${box.x}, ${box.y}, ${box.width}, ${box.height}].`
+      );
     }
 
     // Check 3: Subject region collision
@@ -93,8 +107,9 @@ function main() {
     }
   }
 
+  console.log(`  Canvas Dimensions:    ${canvasWidth}x${canvasHeight} (${isPortrait ? '9:16 Portrait' : '16:9 Landscape'})`);
   console.log(`  Groups Evaluated:     ${groups.length}`);
-  console.log(`  Safe Margin:          ${safeMargin}px`);
+  console.log(`  Safe Margins:         L:${safeMargins.left}px, R:${safeMargins.right}px, T:${safeMargins.top}px, B:${safeMargins.bottom}px`);
   console.log(`  Subject Collisions:   ${errors.filter((e) => e.includes('collides with')).length}`);
 
   if (errors.length > 0) {

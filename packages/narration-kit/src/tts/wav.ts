@@ -10,7 +10,7 @@ export interface WavFormatInfo {
 
 /**
  * Encodes a canonical 44-byte RIFF/WAVE header for uncompressed PCM audio.
- * Defaults to strict 24kHz mono 16-bit PCM WAV.
+ * Supports arbitrary sample rates (including 48kHz native and 24kHz).
  */
 export function encodeWavHeader(
   dataLength: number,
@@ -32,10 +32,10 @@ export function encodeWavHeader(
   header.writeUInt32LE(16, 16); // Subchunk1Size (16 for standard PCM)
   header.writeUInt16LE(1, 20); // AudioFormat (1 = PCM)
   header.writeUInt16LE(channels, 22); // NumChannels (1 = Mono)
-  header.writeUInt32LE(sampleRate, 24); // SampleRate (24000)
-  header.writeUInt32LE(byteRate, 28); // ByteRate (48000)
-  header.writeUInt16LE(blockAlign, 32); // BlockAlign (2)
-  header.writeUInt16LE(bitDepth, 34); // BitsPerSample (16)
+  header.writeUInt32LE(sampleRate, 24); // SampleRate
+  header.writeUInt32LE(byteRate, 28); // ByteRate
+  header.writeUInt16LE(blockAlign, 32); // BlockAlign
+  header.writeUInt16LE(bitDepth, 34); // BitsPerSample
 
   // data sub-chunk
   header.write('data', 36, 'ascii');
@@ -154,6 +154,7 @@ export function extractPcmData(wavBuffer: Buffer): Buffer {
 /**
  * Generates pure silence PCM buffer for a specified duration in milliseconds.
  * At 24kHz 16-bit mono: 48 bytes per millisecond.
+ * At 48kHz 16-bit mono: 96 bytes per millisecond.
  */
 export function generateSilencePcm(
   durationMs: number,
@@ -170,24 +171,43 @@ export function generateSilencePcm(
 }
 
 /**
- * Losslessly concatenates multiple 24kHz mono PCM WAV buffers with optional silence gaps.
+ * Losslessly concatenates multiple mono PCM WAV buffers with optional silence gaps.
+ * Auto-detects sample rate and channel configuration from the first buffer when not explicitly provided.
  * Strictly avoids intermediate lossy conversions (zero-intermediate-MP3 compliance).
  */
 export function concatenateWavBuffers(
   wavBuffers: Buffer[],
   gapDurationMs = 0,
-  sampleRate = 24000,
-  channels = 1,
-  bitDepth = 16
+  sampleRate?: number,
+  channels?: number,
+  bitDepth?: number
 ): Buffer {
   if (!wavBuffers || wavBuffers.length === 0) {
-    return createWavFile(Buffer.alloc(0), sampleRate, channels, bitDepth);
+    return createWavFile(Buffer.alloc(0), sampleRate ?? 24000, channels ?? 1, bitDepth ?? 16);
+  }
+
+  // Auto-detect audio format from first buffer if parameters not explicitly provided
+  let effectiveSampleRate = sampleRate;
+  let effectiveChannels = channels;
+  let effectiveBitDepth = bitDepth;
+
+  if (effectiveSampleRate === undefined || effectiveChannels === undefined || effectiveBitDepth === undefined) {
+    try {
+      const firstInfo = parseWavHeader(wavBuffers[0]);
+      effectiveSampleRate = effectiveSampleRate ?? firstInfo.sampleRate;
+      effectiveChannels = effectiveChannels ?? firstInfo.channels;
+      effectiveBitDepth = effectiveBitDepth ?? firstInfo.bitDepth;
+    } catch {
+      effectiveSampleRate = effectiveSampleRate ?? 24000;
+      effectiveChannels = effectiveChannels ?? 1;
+      effectiveBitDepth = effectiveBitDepth ?? 16;
+    }
   }
 
   const pcmChunks: Buffer[] = [];
   const silencePcm =
     gapDurationMs > 0
-      ? generateSilencePcm(gapDurationMs, sampleRate, channels, bitDepth)
+      ? generateSilencePcm(gapDurationMs, effectiveSampleRate, effectiveChannels, effectiveBitDepth)
       : Buffer.alloc(0);
 
   for (let i = 0; i < wavBuffers.length; i++) {
@@ -200,6 +220,5 @@ export function concatenateWavBuffers(
   }
 
   const totalPcm = Buffer.concat(pcmChunks);
-  return createWavFile(totalPcm, sampleRate, channels, bitDepth);
+  return createWavFile(totalPcm, effectiveSampleRate, effectiveChannels, effectiveBitDepth);
 }
-

@@ -1,0 +1,1170 @@
+{
+  "version": "1.0.0",
+  "fps": 30,
+  "groups": [
+    {
+      "id": "g0",
+      "startFrame": 2,
+      "endFrame": 126,
+      "startTime": 0.067,
+      "endTime": 4.2,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "Trong năm 2026 có 85 các",
+          "words": [
+            {
+              "id": "span_1",
+              "word": "Trong",
+              "start": 0.08,
+              "end": 0.26,
+              "startFrame": 2,
+              "endFrame": 8,
+              "cleanWord": "trong",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_2",
+              "word": "năm",
+              "start": 0.26,
+              "end": 0.38,
+              "startFrame": 8,
+              "endFrame": 11,
+              "cleanWord": "năm",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_3",
+              "word": "2026",
+              "start": 0.42,
+              "end": 1.581,
+              "startFrame": 13,
+              "endFrame": 47,
+              "cleanWord": "2026",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "hai",
+                  "start": 0.42,
+                  "end": 0.58,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "nghìn",
+                  "start": 0.6,
+                  "end": 0.741,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "không",
+                  "start": 0.781,
+                  "end": 0.961,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "trăm",
+                  "start": 0.961,
+                  "end": 1.101,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "hai",
+                  "start": 1.141,
+                  "end": 1.281,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "mươi",
+                  "start": 1.301,
+                  "end": 1.401,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "sáu",
+                  "start": 1.401,
+                  "end": 1.581,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_4",
+              "word": "có",
+              "start": 1.661,
+              "end": 2.082,
+              "startFrame": 50,
+              "endFrame": 62,
+              "cleanWord": "có",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_5",
+              "word": "85",
+              "start": 2.142,
+              "end": 2.742,
+              "startFrame": 64,
+              "endFrame": 82,
+              "cleanWord": "85",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "tám",
+                  "start": 2.142,
+                  "end": 2.402,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "mươi",
+                  "start": 2.462,
+                  "end": 2.602,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "lăm",
+                  "start": 2.602,
+                  "end": 2.742,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_6",
+              "word": "các",
+              "start": 2.802,
+              "end": 3.042,
+              "startFrame": 84,
+              "endFrame": 91,
+              "cleanWord": "các",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        },
+        {
+          "text": "công trình công bố trên",
+          "words": [
+            {
+              "id": "span_7",
+              "word": "công",
+              "start": 3.082,
+              "end": 3.282,
+              "startFrame": 92,
+              "endFrame": 98,
+              "cleanWord": "công",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_8",
+              "word": "trình",
+              "start": 3.282,
+              "end": 3.463,
+              "startFrame": 98,
+              "endFrame": 104,
+              "cleanWord": "trình",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_9",
+              "word": "công",
+              "start": 3.503,
+              "end": 3.703,
+              "startFrame": 105,
+              "endFrame": 111,
+              "cleanWord": "công",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_10",
+              "word": "bố",
+              "start": 3.723,
+              "end": 3.823,
+              "startFrame": 112,
+              "endFrame": 115,
+              "cleanWord": "bố",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_11",
+              "word": "trên",
+              "start": 3.823,
+              "end": 4.203,
+              "startFrame": 115,
+              "endFrame": 126,
+              "cleanWord": "trên",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g1",
+      "startFrame": 127,
+      "endFrame": 151,
+      "startTime": 4.233,
+      "endTime": 5.033,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "Elsevier và",
+          "words": [
+            {
+              "id": "span_12",
+              "word": "Elsevier",
+              "start": 4.243,
+              "end": 4.864,
+              "startFrame": 127,
+              "endFrame": 146,
+              "cleanWord": "elsevier",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_13",
+              "word": "và",
+              "start": 4.904,
+              "end": 5.004,
+              "startFrame": 147,
+              "endFrame": 150,
+              "cleanWord": "và",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "startFrame": 163,
+      "endFrame": 295,
+      "startTime": 5.433,
+      "endTime": 9.833,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "Web of Science đều yêu cầu",
+          "words": [
+            {
+              "id": "span_14",
+              "word": "Web of Science",
+              "start": 5.424,
+              "end": 6.505,
+              "startFrame": 163,
+              "endFrame": 195,
+              "cleanWord": "webofscience",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "Web",
+                  "start": 5.424,
+                  "end": 5.744,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "of",
+                  "start": 5.784,
+                  "end": 5.884,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "Science",
+                  "start": 6.025,
+                  "end": 6.505,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_15",
+              "word": "đều",
+              "start": 6.585,
+              "end": 7.025,
+              "startFrame": 198,
+              "endFrame": 211,
+              "cleanWord": "đều",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_16",
+              "word": "yêu",
+              "start": 7.085,
+              "end": 7.185,
+              "startFrame": 213,
+              "endFrame": 216,
+              "cleanWord": "yêu",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_17",
+              "word": "cầu",
+              "start": 7.286,
+              "end": 7.386,
+              "startFrame": 219,
+              "endFrame": 222,
+              "cleanWord": "cầu",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        },
+        {
+          "text": "mã định danh DOI cùng tài",
+          "words": [
+            {
+              "id": "span_18",
+              "word": "mã",
+              "start": 7.366,
+              "end": 7.466,
+              "startFrame": 221,
+              "endFrame": 224,
+              "cleanWord": "mã",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_19",
+              "word": "định",
+              "start": 7.506,
+              "end": 7.846,
+              "startFrame": 225,
+              "endFrame": 235,
+              "cleanWord": "định",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_20",
+              "word": "danh",
+              "start": 7.986,
+              "end": 8.146,
+              "startFrame": 240,
+              "endFrame": 244,
+              "cleanWord": "danh",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_21",
+              "word": "DOI",
+              "start": 8.146,
+              "end": 8.406,
+              "startFrame": 244,
+              "endFrame": 252,
+              "cleanWord": "doi",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "D",
+                  "start": 8.146,
+                  "end": 8.226,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "O",
+                  "start": 8.246,
+                  "end": 8.326,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "I",
+                  "start": 8.326,
+                  "end": 8.406,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_22",
+              "word": "cùng",
+              "start": 8.406,
+              "end": 9.027,
+              "startFrame": 252,
+              "endFrame": 271,
+              "cleanWord": "cùng",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_23",
+              "word": "tài",
+              "start": 9.167,
+              "end": 9.827,
+              "startFrame": 275,
+              "endFrame": 295,
+              "cleanWord": "tài",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "startFrame": 297,
+      "endFrame": 437,
+      "startTime": 9.9,
+      "endTime": 14.567,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "khoản ORCID của tác giả",
+          "words": [
+            {
+              "id": "span_24",
+              "word": "khoản",
+              "start": 9.888,
+              "end": 10.208,
+              "startFrame": 297,
+              "endFrame": 306,
+              "cleanWord": "khoản",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_25",
+              "word": "ORCID",
+              "start": 10.288,
+              "end": 10.548,
+              "startFrame": 309,
+              "endFrame": 316,
+              "cleanWord": "orcid",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "O",
+                  "start": 10.288,
+                  "end": 10.368,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "R",
+                  "start": 10.308,
+                  "end": 10.388,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "C",
+                  "start": 10.348,
+                  "end": 10.428,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "I",
+                  "start": 10.388,
+                  "end": 10.468,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "D",
+                  "start": 10.468,
+                  "end": 10.548,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_26",
+              "word": "của",
+              "start": 10.748,
+              "end": 11.269,
+              "startFrame": 322,
+              "endFrame": 338,
+              "cleanWord": "của",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_27",
+              "word": "tác",
+              "start": 11.509,
+              "end": 12.349,
+              "startFrame": 345,
+              "endFrame": 370,
+              "cleanWord": "tác",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_28",
+              "word": "giả",
+              "start": 12.389,
+              "end": 12.59,
+              "startFrame": 372,
+              "endFrame": 378,
+              "cleanWord": "giả",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        },
+        {
+          "text": "Tạp chí phân hạng Q1 và Q2",
+          "words": [
+            {
+              "id": "span_29",
+              "word": "Tạp",
+              "start": 12.63,
+              "end": 12.79,
+              "startFrame": 379,
+              "endFrame": 384,
+              "cleanWord": "tạp",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_30",
+              "word": "chí",
+              "start": 12.81,
+              "end": 13.35,
+              "startFrame": 384,
+              "endFrame": 401,
+              "cleanWord": "chí",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_31",
+              "word": "phân",
+              "start": 13.39,
+              "end": 13.59,
+              "startFrame": 402,
+              "endFrame": 408,
+              "cleanWord": "phân",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_32",
+              "word": "hạng",
+              "start": 13.63,
+              "end": 13.851,
+              "startFrame": 409,
+              "endFrame": 416,
+              "cleanWord": "hạng",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_33",
+              "word": "Q1",
+              "start": 13.891,
+              "end": 14.031,
+              "startFrame": 417,
+              "endFrame": 421,
+              "cleanWord": "q1",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "Q",
+                  "start": 13.891,
+                  "end": 13.971,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "một",
+                  "start": 13.951,
+                  "end": 14.031,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_34",
+              "word": "và",
+              "start": 14.111,
+              "end": 14.211,
+              "startFrame": 423,
+              "endFrame": 426,
+              "cleanWord": "và",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_35",
+              "word": "Q2",
+              "start": 14.231,
+              "end": 14.571,
+              "startFrame": 427,
+              "endFrame": 437,
+              "cleanWord": "q2",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "Q",
+                  "start": 14.231,
+                  "end": 14.311,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "hai",
+                  "start": 14.411,
+                  "end": 14.571,
+                  "confidence": 0.95
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4",
+      "startFrame": 452,
+      "endFrame": 540,
+      "startTime": 15.067,
+      "endTime": 18,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "chiếm hơn 70 tổng số lượt",
+          "words": [
+            {
+              "id": "span_36",
+              "word": "chiếm",
+              "start": 15.071,
+              "end": 15.652,
+              "startFrame": 452,
+              "endFrame": 470,
+              "cleanWord": "chiếm",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_37",
+              "word": "hơn",
+              "start": 15.752,
+              "end": 15.912,
+              "startFrame": 473,
+              "endFrame": 477,
+              "cleanWord": "hơn",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_38",
+              "word": "70",
+              "start": 15.912,
+              "end": 16.212,
+              "startFrame": 477,
+              "endFrame": 486,
+              "cleanWord": "70",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "bảy",
+                  "start": 15.912,
+                  "end": 16.032,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "mươi",
+                  "start": 16.052,
+                  "end": 16.212,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_39",
+              "word": "tổng",
+              "start": 16.292,
+              "end": 16.573,
+              "startFrame": 489,
+              "endFrame": 497,
+              "cleanWord": "tổng",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_40",
+              "word": "số",
+              "start": 16.633,
+              "end": 16.733,
+              "startFrame": 499,
+              "endFrame": 502,
+              "cleanWord": "số",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_41",
+              "word": "lượt",
+              "start": 16.693,
+              "end": 16.873,
+              "startFrame": 501,
+              "endFrame": 506,
+              "cleanWord": "lượt",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        },
+        {
+          "text": "trích dẫn quốc tế Những",
+          "words": [
+            {
+              "id": "span_42",
+              "word": "trích",
+              "start": 16.913,
+              "end": 17.293,
+              "startFrame": 507,
+              "endFrame": 519,
+              "cleanWord": "trích",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_43",
+              "word": "dẫn",
+              "start": 17.313,
+              "end": 17.413,
+              "startFrame": 519,
+              "endFrame": 522,
+              "cleanWord": "dẫn",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_44",
+              "word": "quốc",
+              "start": 17.413,
+              "end": 17.593,
+              "startFrame": 522,
+              "endFrame": 528,
+              "cleanWord": "quốc",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_45",
+              "word": "tế",
+              "start": 17.633,
+              "end": 17.733,
+              "startFrame": 529,
+              "endFrame": 532,
+              "cleanWord": "tế",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_46",
+              "word": "Những",
+              "start": 17.733,
+              "end": 18.014,
+              "startFrame": 532,
+              "endFrame": 540,
+              "cleanWord": "những",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5",
+      "startFrame": 541,
+      "endFrame": 650,
+      "startTime": 18.033,
+      "endTime": 21.667,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "học giả sở hữu chỉ số",
+          "words": [
+            {
+              "id": "span_47",
+              "word": "học",
+              "start": 18.034,
+              "end": 18.194,
+              "startFrame": 541,
+              "endFrame": 546,
+              "cleanWord": "học",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_48",
+              "word": "giả",
+              "start": 18.234,
+              "end": 18.514,
+              "startFrame": 547,
+              "endFrame": 555,
+              "cleanWord": "giả",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_49",
+              "word": "sở",
+              "start": 18.514,
+              "end": 18.614,
+              "startFrame": 555,
+              "endFrame": 558,
+              "cleanWord": "sở",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_50",
+              "word": "hữu",
+              "start": 18.594,
+              "end": 18.694,
+              "startFrame": 558,
+              "endFrame": 561,
+              "cleanWord": "hữu",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_51",
+              "word": "chỉ",
+              "start": 18.694,
+              "end": 18.814,
+              "startFrame": 561,
+              "endFrame": 564,
+              "cleanWord": "chỉ",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_52",
+              "word": "số",
+              "start": 18.874,
+              "end": 18.974,
+              "startFrame": 566,
+              "endFrame": 569,
+              "cleanWord": "số",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        },
+        {
+          "text": "H-index từ 15 trở lên",
+          "words": [
+            {
+              "id": "span_53",
+              "word": "H-index",
+              "start": 18.954,
+              "end": 19.735,
+              "startFrame": 569,
+              "endFrame": 592,
+              "cleanWord": "hindex",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "H",
+                  "start": 18.954,
+                  "end": 19.034,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "index",
+                  "start": 19.455,
+                  "end": 19.735,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_54",
+              "word": "từ",
+              "start": 19.775,
+              "end": 19.875,
+              "startFrame": 593,
+              "endFrame": 596,
+              "cleanWord": "từ",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_55",
+              "word": "15",
+              "start": 19.975,
+              "end": 20.456,
+              "startFrame": 599,
+              "endFrame": 614,
+              "cleanWord": "15",
+              "confidence": 0.95,
+              "subunits": [
+                {
+                  "text": "mười",
+                  "start": 19.975,
+                  "end": 20.095,
+                  "confidence": 0.95
+                },
+                {
+                  "text": "lăm",
+                  "start": 20.235,
+                  "end": 20.456,
+                  "confidence": 0.95
+                }
+              ]
+            },
+            {
+              "id": "span_56",
+              "word": "trở",
+              "start": 20.676,
+              "end": 20.816,
+              "startFrame": 620,
+              "endFrame": 624,
+              "cleanWord": "trở",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_57",
+              "word": "lên",
+              "start": 20.856,
+              "end": 21.676,
+              "startFrame": 626,
+              "endFrame": 650,
+              "cleanWord": "lên",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6",
+      "startFrame": 651,
+      "endFrame": 734,
+      "startTime": 21.7,
+      "endTime": 24.467,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "thường có tỷ lệ xét duyệt",
+          "words": [
+            {
+              "id": "span_58",
+              "word": "thường",
+              "start": 21.716,
+              "end": 22.037,
+              "startFrame": 651,
+              "endFrame": 661,
+              "cleanWord": "thường",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_59",
+              "word": "có",
+              "start": 22.057,
+              "end": 22.157,
+              "startFrame": 662,
+              "endFrame": 665,
+              "cleanWord": "có",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_60",
+              "word": "tỷ",
+              "start": 22.197,
+              "end": 22.297,
+              "startFrame": 666,
+              "endFrame": 669,
+              "cleanWord": "tỷ",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_61",
+              "word": "lệ",
+              "start": 22.277,
+              "end": 22.397,
+              "startFrame": 668,
+              "endFrame": 672,
+              "cleanWord": "lệ",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_62",
+              "word": "xét",
+              "start": 22.437,
+              "end": 22.897,
+              "startFrame": 673,
+              "endFrame": 687,
+              "cleanWord": "xét",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_63",
+              "word": "duyệt",
+              "start": 22.897,
+              "end": 23.058,
+              "startFrame": 687,
+              "endFrame": 692,
+              "cleanWord": "duyệt",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        },
+        {
+          "text": "hồ sơ thành công cao vượt",
+          "words": [
+            {
+              "id": "span_64",
+              "word": "hồ",
+              "start": 23.058,
+              "end": 23.158,
+              "startFrame": 692,
+              "endFrame": 695,
+              "cleanWord": "hồ",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_65",
+              "word": "sơ",
+              "start": 23.178,
+              "end": 23.278,
+              "startFrame": 695,
+              "endFrame": 698,
+              "cleanWord": "sơ",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_66",
+              "word": "thành",
+              "start": 23.338,
+              "end": 23.798,
+              "startFrame": 700,
+              "endFrame": 714,
+              "cleanWord": "thành",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_67",
+              "word": "công",
+              "start": 23.838,
+              "end": 24.038,
+              "startFrame": 715,
+              "endFrame": 721,
+              "cleanWord": "công",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_68",
+              "word": "cao",
+              "start": 24.038,
+              "end": 24.138,
+              "startFrame": 721,
+              "endFrame": 724,
+              "cleanWord": "cao",
+              "confidence": 0.95,
+              "subunits": null
+            },
+            {
+              "id": "span_69",
+              "word": "vượt",
+              "start": 24.118,
+              "end": 24.459,
+              "startFrame": 724,
+              "endFrame": 734,
+              "cleanWord": "vượt",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7",
+      "startFrame": 736,
+      "endFrame": 760,
+      "startTime": 24.533,
+      "endTime": 25.333,
+      "position": "bottom",
+      "box": {
+        "x": 72,
+        "y": 1410,
+        "width": 828,
+        "height": 190
+      },
+      "lines": [
+        {
+          "text": "trội",
+          "words": [
+            {
+              "id": "span_70",
+              "word": "trội",
+              "start": 24.519,
+              "end": 25.059,
+              "startFrame": 736,
+              "endFrame": 752,
+              "cleanWord": "trội",
+              "confidence": 0.95,
+              "subunits": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

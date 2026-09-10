@@ -1,0 +1,203 @@
+version: "1.0.0"
+domain: "academic"
+entries:
+  - term: "Scopus"
+    type: "ENGLISH_WORD"
+    mode: "en_word"
+    spoken: "Scopus"
+    case_sensitive: false
+    notes: "Elsevier citation database"
+
+  - term: "Web of Science"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Web of Science"
+    case_sensitive: false
+    notes: "Clarivate citation index"
+
+  - term: "WoS"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "W o S"
+    case_sensitive: true
+
+  - term: "Research Gap"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Research Gap"
+    case_sensitive: false
+    notes: "Core academic research contribution concept"
+
+  - term: "Desk Reject"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Desk Reject"
+    case_sensitive: false
+    notes: "Editorial rejection prior to peer review"
+
+  - term: "Springer"
+    type: "ENGLISH_WORD"
+    mode: "en_word"
+    spoken: "Springer"
+    case_sensitive: false
+    notes: "Global academic publisher"
+
+  - term: "Elsevier"
+    type: "ENGLISH_WORD"
+    mode: "en_word"
+    spoken: "Elsevier"
+    case_sensitive: false
+    notes: "Global academic publisher"
+
+  - term: "DOI"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "D O I"
+    case_sensitive: true
+    notes: "Digital Object Identifier"
+
+  - term: "ORCID"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "O R C I D"
+    case_sensitive: true
+    notes: "Open Researcher and Contributor ID"
+
+  - term: "Q1"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "Q một"
+    case_sensitive: true
+    notes: "First quartile journal"
+
+  - term: "Q2"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "Q hai"
+    case_sensitive: true
+    notes: "Second quartile journal"
+
+  - term: "Q3"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "Q ba"
+    case_sensitive: true
+    notes: "Third quartile journal"
+
+  - term: "Q4"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "Q bốn"
+    case_sensitive: true
+    notes: "Fourth quartile journal"
+
+  - term: "H-index"
+    type: "MODEL_NAME"
+    mode: "custom"
+    spoken: "H index"
+    case_sensitive: false
+    notes: "Hirsch index metric"
+
+  - term: "Swales CARS"
+    type: "ENGLISH_PHRASE"
+    mode: "custom"
+    spoken: "Swales C A R S"
+    case_sensitive: true
+    notes: "John Swales Creating A Research Space model"
+
+  - term: "Swales"
+    type: "PROPER_NOUN"
+    mode: "en_word"
+    spoken: "Swales"
+    case_sensitive: true
+
+  - term: "CARS"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "C A R S"
+    case_sensitive: true
+
+  - term: "Move 1"
+    type: "ENGLISH_PHRASE"
+    mode: "custom"
+    spoken: "Move một"
+    case_sensitive: false
+
+  - term: "Move 2"
+    type: "ENGLISH_PHRASE"
+    mode: "custom"
+    spoken: "Move hai"
+    case_sensitive: false
+
+  - term: "Move 3"
+    type: "ENGLISH_PHRASE"
+    mode: "custom"
+    spoken: "Move ba"
+    case_sensitive: false
+
+  - term: "Defensible Gap"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Defensible Gap"
+    case_sensitive: false
+
+  - term: "Peer Review"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Peer Review"
+    case_sensitive: false
+
+  - term: "Impact Factor"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Impact Factor"
+    case_sensitive: false
+
+  - term: "SJR"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "S J R"
+    case_sensitive: true
+    notes: "SCImago Journal Rank"
+
+  - term: "CMV"
+    type: "INITIALISM"
+    mode: "en_spell"
+    spoken: "C M V"
+    case_sensitive: true
+    notes: "Common Method Variance"
+
+  - term: "Common Method Variance"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Common Method Variance"
+    case_sensitive: false
+
+  - term: "TAM"
+    type: "ACRONYM"
+    mode: "en_word"
+    spoken: "TAM"
+    case_sensitive: true
+    notes: "Technology Acceptance Model"
+
+  - term: "Gap"
+    type: "ENGLISH_WORD"
+    mode: "en_word"
+    spoken: "Gap"
+    case_sensitive: false
+    notes: "Academic research gap"
+
+  - term: "Gap Statement"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Gap Statement"
+    case_sensitive: false
+
+  - term: "A-B-C-D-E-M-F"
+    type: "FORMULA"
+    mode: "en_spell"
+    spoken: "A B C D E M F"
+    case_sensitive: true
+    notes: "Research variable formula sequence"
+
+

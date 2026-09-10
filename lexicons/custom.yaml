@@ -1,0 +1,11 @@
+version: "1.0.0"
+domain: "custom"
+description: "Project and user level pronunciation overrides with highest precedence"
+entries:
+  # Examples of project-level overrides if needed
+  - term: "Scopus Research Gap"
+    type: "ENGLISH_PHRASE"
+    mode: "en_phrase"
+    spoken: "Scopus Research Gap"
+    case_sensitive: false
+    notes: "Composite phrase override"
