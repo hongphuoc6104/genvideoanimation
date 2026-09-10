@@ -1,0 +1,59 @@
+{
+  "name": "@videorender/caption-kit",
+  "version": "1.0.0",
+  "description": "Canonical Remotion React karaoke caption kit with frame-deterministic progressive fill and zero CLS",
+  "author": "videorenderhoathinh",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./src/*": {
+      "types": "./src/*",
+      "import": "./src/*",
+      "default": "./src/*"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.2.8",
+    "remotion": "^4.0.523",
+    "typescript": "^5.0.0 || ^7.0.0"
+  },
+  "keywords": [
+    "remotion",
+    "caption-kit",
+    "karaoke",
+    "subtitles",
+    "progressive-fill",
+    "educational-motion",
+    "react"
+  ]
+}

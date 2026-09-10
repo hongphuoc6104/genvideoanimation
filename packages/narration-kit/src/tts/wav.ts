@@ -129,3 +129,77 @@ export function parseWavHeader(buffer: Buffer): WavFormatInfo {
     durationSec,
   };
 }
+
+/**
+ * Extracts raw uncompressed PCM bytes from a valid WAV file Buffer by stripping the RIFF headers.
+ */
+export function extractPcmData(wavBuffer: Buffer): Buffer {
+  if (wavBuffer.length < 44) {
+    throw new Error(`Invalid WAV buffer: length ${wavBuffer.length} < 44 bytes`);
+  }
+  let offset = 12;
+  while (offset + 8 <= wavBuffer.length) {
+    const chunkId = wavBuffer.toString('ascii', offset, offset + 4);
+    const chunkSize = wavBuffer.readUInt32LE(offset + 4);
+    if (chunkId === 'data') {
+      const dataStart = offset + 8;
+      const dataEnd = Math.min(wavBuffer.length, dataStart + chunkSize);
+      return wavBuffer.subarray(dataStart, dataEnd);
+    }
+    offset += 8 + chunkSize;
+  }
+  return wavBuffer.subarray(44);
+}
+
+/**
+ * Generates pure silence PCM buffer for a specified duration in milliseconds.
+ * At 24kHz 16-bit mono: 48 bytes per millisecond.
+ */
+export function generateSilencePcm(
+  durationMs: number,
+  sampleRate = 24000,
+  channels = 1,
+  bitDepth = 16
+): Buffer {
+  if (durationMs <= 0) return Buffer.alloc(0);
+  const bytesPerMs = (sampleRate * channels * (bitDepth / 8)) / 1000;
+  const numBytes = Math.round(durationMs * bytesPerMs);
+  const blockAlign = channels * (bitDepth / 8);
+  const alignedBytes = numBytes - (numBytes % blockAlign);
+  return Buffer.alloc(alignedBytes, 0);
+}
+
+/**
+ * Losslessly concatenates multiple 24kHz mono PCM WAV buffers with optional silence gaps.
+ * Strictly avoids intermediate lossy conversions (zero-intermediate-MP3 compliance).
+ */
+export function concatenateWavBuffers(
+  wavBuffers: Buffer[],
+  gapDurationMs = 0,
+  sampleRate = 24000,
+  channels = 1,
+  bitDepth = 16
+): Buffer {
+  if (!wavBuffers || wavBuffers.length === 0) {
+    return createWavFile(Buffer.alloc(0), sampleRate, channels, bitDepth);
+  }
+
+  const pcmChunks: Buffer[] = [];
+  const silencePcm =
+    gapDurationMs > 0
+      ? generateSilencePcm(gapDurationMs, sampleRate, channels, bitDepth)
+      : Buffer.alloc(0);
+
+  for (let i = 0; i < wavBuffers.length; i++) {
+    const buf = wavBuffers[i];
+    const pcm = extractPcmData(buf);
+    pcmChunks.push(pcm);
+    if (i < wavBuffers.length - 1 && silencePcm.length > 0) {
+      pcmChunks.push(silencePcm);
+    }
+  }
+
+  const totalPcm = Buffer.concat(pcmChunks);
+  return createWavFile(totalPcm, sampleRate, channels, bitDepth);
+}
+

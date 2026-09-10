@@ -1,0 +1,764 @@
+{
+  "version": "1.0.0",
+  "fps": 30,
+  "groups": [
+    {
+      "id": "g0",
+      "startFrame": 1,
+      "endFrame": 38,
+      "startTime": 0.033,
+      "endTime": 1.267,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "In 2026",
+          "words": [
+            {
+              "id": "w0",
+              "word": "In",
+              "start": 0.04,
+              "end": 0.09,
+              "startFrame": 1,
+              "endFrame": 3,
+              "cleanWord": "in",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w1",
+              "word": "2026",
+              "start": 0.16,
+              "end": 1.261,
+              "startFrame": 5,
+              "endFrame": 38,
+              "cleanWord": "2026",
+              "confidence": 0.805,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g1",
+      "startFrame": 56,
+      "endFrame": 222,
+      "startTime": 1.867,
+      "endTime": 7.4,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "modern GPU accelerators process deep",
+          "words": [
+            {
+              "id": "w2",
+              "word": "modern",
+              "start": 1.861,
+              "end": 2.221,
+              "startFrame": 56,
+              "endFrame": 67,
+              "cleanWord": "modern",
+              "confidence": 0.972,
+              "punctuation": ""
+            },
+            {
+              "id": "w3",
+              "word": "GPU",
+              "start": 2.301,
+              "end": 2.761,
+              "startFrame": 69,
+              "endFrame": 83,
+              "cleanWord": "gpu",
+              "confidence": 0.931,
+              "punctuation": ""
+            },
+            {
+              "id": "w4",
+              "word": "accelerators",
+              "start": 2.861,
+              "end": 3.562,
+              "startFrame": 86,
+              "endFrame": 107,
+              "cleanWord": "accelerators",
+              "confidence": 0.977,
+              "punctuation": ""
+            },
+            {
+              "id": "w5",
+              "word": "process",
+              "start": 3.682,
+              "end": 4.082,
+              "startFrame": 110,
+              "endFrame": 122,
+              "cleanWord": "process",
+              "confidence": 0.963,
+              "punctuation": ""
+            },
+            {
+              "id": "w6",
+              "word": "deep",
+              "start": 4.202,
+              "end": 4.382,
+              "startFrame": 126,
+              "endFrame": 131,
+              "cleanWord": "deep",
+              "confidence": 0.94,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "neural networks at over 150 teraflops",
+          "words": [
+            {
+              "id": "w7",
+              "word": "neural",
+              "start": 4.502,
+              "end": 4.802,
+              "startFrame": 135,
+              "endFrame": 144,
+              "cleanWord": "neural",
+              "confidence": 0.781,
+              "punctuation": ""
+            },
+            {
+              "id": "w8",
+              "word": "networks",
+              "start": 4.882,
+              "end": 5.363,
+              "startFrame": 146,
+              "endFrame": 161,
+              "cleanWord": "networks",
+              "confidence": 0.975,
+              "punctuation": ""
+            },
+            {
+              "id": "w9",
+              "word": "at",
+              "start": 5.463,
+              "end": 5.513,
+              "startFrame": 164,
+              "endFrame": 165,
+              "cleanWord": "at",
+              "confidence": 0.984,
+              "punctuation": ""
+            },
+            {
+              "id": "w10",
+              "word": "over",
+              "start": 5.583,
+              "end": 5.723,
+              "startFrame": 167,
+              "endFrame": 172,
+              "cleanWord": "over",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w11",
+              "word": "150",
+              "start": 5.843,
+              "end": 6.643,
+              "startFrame": 175,
+              "endFrame": 199,
+              "cleanWord": "150",
+              "confidence": 0.981,
+              "punctuation": ""
+            },
+            {
+              "id": "w12",
+              "word": "teraflops",
+              "start": 6.723,
+              "end": 7.384,
+              "startFrame": 202,
+              "endFrame": 222,
+              "cleanWord": "teraflops",
+              "confidence": 0.955,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "startFrame": 240,
+      "endFrame": 334,
+      "startTime": 8,
+      "endTime": 11.133,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "a 45% increase compared",
+          "words": [
+            {
+              "id": "w13",
+              "word": "a",
+              "start": 8.004,
+              "end": 8.054,
+              "startFrame": 240,
+              "endFrame": 242,
+              "cleanWord": "a",
+              "confidence": 0.957,
+              "punctuation": ""
+            },
+            {
+              "id": "w14",
+              "word": "45%",
+              "start": 8.104,
+              "end": 9.065,
+              "startFrame": 243,
+              "endFrame": 272,
+              "cleanWord": "45",
+              "confidence": 0.977,
+              "punctuation": ""
+            },
+            {
+              "id": "w15",
+              "word": "increase",
+              "start": 9.105,
+              "end": 9.425,
+              "startFrame": 273,
+              "endFrame": 283,
+              "cleanWord": "increase",
+              "confidence": 0.963,
+              "punctuation": ""
+            },
+            {
+              "id": "w16",
+              "word": "compared",
+              "start": 9.485,
+              "end": 9.845,
+              "startFrame": 285,
+              "endFrame": 295,
+              "cleanWord": "compared",
+              "confidence": 0.962,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "to earlier architectures",
+          "words": [
+            {
+              "id": "w17",
+              "word": "to",
+              "start": 9.885,
+              "end": 9.945,
+              "startFrame": 297,
+              "endFrame": 298,
+              "cleanWord": "to",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w18",
+              "word": "earlier",
+              "start": 10.065,
+              "end": 10.365,
+              "startFrame": 302,
+              "endFrame": 311,
+              "cleanWord": "earlier",
+              "confidence": 0.989,
+              "punctuation": ""
+            },
+            {
+              "id": "w19",
+              "word": "architectures",
+              "start": 10.485,
+              "end": 11.146,
+              "startFrame": 315,
+              "endFrame": 334,
+              "cleanWord": "architectures",
+              "confidence": 0.96,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "startFrame": 346,
+      "endFrame": 398,
+      "startTime": 11.533,
+      "endTime": 13.267,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "When training large language models",
+          "words": [
+            {
+              "id": "w20",
+              "word": "When",
+              "start": 11.546,
+              "end": 11.666,
+              "startFrame": 346,
+              "endFrame": 350,
+              "cleanWord": "when",
+              "confidence": 0.919,
+              "punctuation": ""
+            },
+            {
+              "id": "w21",
+              "word": "training",
+              "start": 11.726,
+              "end": 12.046,
+              "startFrame": 352,
+              "endFrame": 361,
+              "cleanWord": "training",
+              "confidence": 0.994,
+              "punctuation": ""
+            },
+            {
+              "id": "w22",
+              "word": "large",
+              "start": 12.126,
+              "end": 12.426,
+              "startFrame": 364,
+              "endFrame": 373,
+              "cleanWord": "large",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w23",
+              "word": "language",
+              "start": 12.526,
+              "end": 12.826,
+              "startFrame": 376,
+              "endFrame": 385,
+              "cleanWord": "language",
+              "confidence": 0.995,
+              "punctuation": ""
+            },
+            {
+              "id": "w24",
+              "word": "models",
+              "start": 12.906,
+              "end": 13.267,
+              "startFrame": 387,
+              "endFrame": 398,
+              "cleanWord": "models",
+              "confidence": 0.988,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4",
+      "startFrame": 408,
+      "endFrame": 432,
+      "startTime": 13.6,
+      "endTime": 14.4,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "such as GPT",
+          "words": [
+            {
+              "id": "w25",
+              "word": "such",
+              "start": 13.587,
+              "end": 13.727,
+              "startFrame": 408,
+              "endFrame": 412,
+              "cleanWord": "such",
+              "confidence": 0.997,
+              "punctuation": ""
+            },
+            {
+              "id": "w26",
+              "word": "as",
+              "start": 13.787,
+              "end": 13.847,
+              "startFrame": 414,
+              "endFrame": 415,
+              "cleanWord": "as",
+              "confidence": 0.984,
+              "punctuation": ""
+            },
+            {
+              "id": "w27",
+              "word": "GPT",
+              "start": 13.947,
+              "end": 14.407,
+              "startFrame": 418,
+              "endFrame": 432,
+              "cleanWord": "gpt",
+              "confidence": 0.97,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5",
+      "startFrame": 442,
+      "endFrame": 466,
+      "startTime": 14.733,
+      "endTime": 15.533,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "or BERT",
+          "words": [
+            {
+              "id": "w28",
+              "word": "or",
+              "start": 14.747,
+              "end": 14.827,
+              "startFrame": 442,
+              "endFrame": 445,
+              "cleanWord": "or",
+              "confidence": 0.896,
+              "punctuation": ""
+            },
+            {
+              "id": "w29",
+              "word": "BERT",
+              "start": 14.927,
+              "end": 15.188,
+              "startFrame": 448,
+              "endFrame": 456,
+              "cleanWord": "bert",
+              "confidence": 0.45,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6",
+      "startFrame": 471,
+      "endFrame": 503,
+      "startTime": 15.7,
+      "endTime": 16.767,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "high-bandwidth memory",
+          "words": [
+            {
+              "id": "w30",
+              "word": "high-bandwidth",
+              "start": 15.688,
+              "end": 16.328,
+              "startFrame": 471,
+              "endFrame": 490,
+              "cleanWord": "high-bandwidth",
+              "confidence": 0.865,
+              "punctuation": ""
+            },
+            {
+              "id": "w31",
+              "word": "memory",
+              "start": 16.448,
+              "end": 16.768,
+              "startFrame": 493,
+              "endFrame": 503,
+              "cleanWord": "memory",
+              "confidence": 0.999,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7",
+      "startFrame": 521,
+      "endFrame": 545,
+      "startTime": 17.367,
+      "endTime": 18.167,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "HBM 3",
+          "words": [
+            {
+              "id": "w32",
+              "word": "HBM",
+              "start": 17.369,
+              "end": 17.809,
+              "startFrame": 521,
+              "endFrame": 534,
+              "cleanWord": "hbm",
+              "confidence": 0.968,
+              "punctuation": ""
+            },
+            {
+              "id": "w33",
+              "word": "3",
+              "start": 17.909,
+              "end": 18.149,
+              "startFrame": 537,
+              "endFrame": 544,
+              "cleanWord": "3",
+              "confidence": 0.954,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g8",
+      "startFrame": 564,
+      "endFrame": 657,
+      "startTime": 18.8,
+      "endTime": 21.9,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "achieves transfer rates of",
+          "words": [
+            {
+              "id": "w34",
+              "word": "achieves",
+              "start": 18.809,
+              "end": 19.19,
+              "startFrame": 564,
+              "endFrame": 576,
+              "cleanWord": "achieves",
+              "confidence": 0.977,
+              "punctuation": ""
+            },
+            {
+              "id": "w35",
+              "word": "transfer",
+              "start": 19.27,
+              "end": 19.69,
+              "startFrame": 578,
+              "endFrame": 591,
+              "cleanWord": "transfer",
+              "confidence": 0.994,
+              "punctuation": ""
+            },
+            {
+              "id": "w36",
+              "word": "rates",
+              "start": 19.75,
+              "end": 19.95,
+              "startFrame": 593,
+              "endFrame": 599,
+              "cleanWord": "rates",
+              "confidence": 0.997,
+              "punctuation": ""
+            },
+            {
+              "id": "w37",
+              "word": "of",
+              "start": 20.01,
+              "end": 20.06,
+              "startFrame": 600,
+              "endFrame": 602,
+              "cleanWord": "of",
+              "confidence": 0.999,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "3.2 terabytes per second",
+          "words": [
+            {
+              "id": "w38",
+              "word": "3.2",
+              "start": 20.11,
+              "end": 20.73,
+              "startFrame": 603,
+              "endFrame": 622,
+              "cleanWord": "3.2",
+              "confidence": 0.947,
+              "punctuation": ""
+            },
+            {
+              "id": "w39",
+              "word": "terabytes",
+              "start": 20.81,
+              "end": 21.331,
+              "startFrame": 624,
+              "endFrame": 640,
+              "cleanWord": "terabytes",
+              "confidence": 0.838,
+              "punctuation": ""
+            },
+            {
+              "id": "w40",
+              "word": "per",
+              "start": 21.411,
+              "end": 21.531,
+              "startFrame": 642,
+              "endFrame": 646,
+              "cleanWord": "per",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w41",
+              "word": "second",
+              "start": 21.591,
+              "end": 21.911,
+              "startFrame": 648,
+              "endFrame": 657,
+              "cleanWord": "second",
+              "confidence": 0.948,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g9",
+      "startFrame": 668,
+      "endFrame": 753,
+      "startTime": 22.267,
+      "endTime": 25.1,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "minimizing latency across",
+          "words": [
+            {
+              "id": "w42",
+              "word": "minimizing",
+              "start": 22.251,
+              "end": 22.811,
+              "startFrame": 668,
+              "endFrame": 684,
+              "cleanWord": "minimizing",
+              "confidence": 0.969,
+              "punctuation": ""
+            },
+            {
+              "id": "w43",
+              "word": "latency",
+              "start": 22.891,
+              "end": 23.332,
+              "startFrame": 687,
+              "endFrame": 700,
+              "cleanWord": "latency",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w44",
+              "word": "across",
+              "start": 23.412,
+              "end": 23.692,
+              "startFrame": 702,
+              "endFrame": 711,
+              "cleanWord": "across",
+              "confidence": 0.997,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "parallel compute clusters",
+          "words": [
+            {
+              "id": "w45",
+              "word": "parallel",
+              "start": 23.772,
+              "end": 24.192,
+              "startFrame": 713,
+              "endFrame": 726,
+              "cleanWord": "parallel",
+              "confidence": 0.922,
+              "punctuation": ""
+            },
+            {
+              "id": "w46",
+              "word": "compute",
+              "start": 24.272,
+              "end": 24.592,
+              "startFrame": 728,
+              "endFrame": 738,
+              "cleanWord": "compute",
+              "confidence": 0.977,
+              "punctuation": ""
+            },
+            {
+              "id": "w47",
+              "word": "clusters",
+              "start": 24.632,
+              "end": 25.093,
+              "startFrame": 739,
+              "endFrame": 753,
+              "cleanWord": "clusters",
+              "confidence": 0.971,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -18,6 +18,8 @@
     "@types/react-dom": "^19.2.7",
     "@videorender/narration-kit": "file:../packages/narration-kit",
     "narration-kit": "file:../packages/narration-kit",
+    "@videorender/caption-kit": "file:../packages/caption-kit",
+    "caption-kit": "file:../packages/caption-kit",
     "motion-kit": "file:../motion-kit",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

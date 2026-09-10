@@ -7,6 +7,9 @@ import {ScientificPaperFilm, TOTAL_FRAMES as SCIENTIFIC_PAPER_DURATION} from './
 import {BenchmarkV2HumanExplainer, BENCHMARK_V2_HUMAN_DURATION} from './benchmarks/v2/BenchmarkV2HumanExplainer';
 import {BenchmarkV2MechanicalMorph, BENCHMARK_V2_MECHANICAL_DURATION} from './benchmarks/v2/BenchmarkV2MechanicalMorph';
 import {BenchmarkV2NetworkFlow, BENCHMARK_V2_NETWORK_DURATION} from './benchmarks/v2/BenchmarkV2NetworkFlow';
+import {BenchmarkV3A, BENCHMARK_V3_A_DURATION} from './benchmarks/v3/BenchmarkV3A';
+import {BenchmarkV3B, BENCHMARK_V3_B_DURATION} from './benchmarks/v3/BenchmarkV3B';
+import {BenchmarkV3C, BENCHMARK_V3_C_DURATION} from './benchmarks/v3/BenchmarkV3C';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -71,6 +74,30 @@ export const RemotionRoot: React.FC = () => {
         id="BenchmarkV2-NetworkFlow"
         component={BenchmarkV2NetworkFlow}
         durationInFrames={BENCHMARK_V2_NETWORK_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="BenchmarkV3A"
+        component={BenchmarkV3A}
+        durationInFrames={BENCHMARK_V3_A_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="BenchmarkV3B"
+        component={BenchmarkV3B}
+        durationInFrames={BENCHMARK_V3_B_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="BenchmarkV3C"
+        component={BenchmarkV3C}
+        durationInFrames={BENCHMARK_V3_C_DURATION}
         fps={30}
         width={1920}
         height={1080}

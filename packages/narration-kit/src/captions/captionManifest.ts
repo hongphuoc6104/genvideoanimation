@@ -1,24 +1,27 @@
 /**
  * packages/narration-kit/src/captions/captionManifest.ts
- * Type definitions and manifest helpers for Remotion captions.
+ * Captions manifest helpers and backward-compatible interfaces.
  */
 
 import { WordTiming } from '../alignment/AlignmentProvider';
+import { CaptionGroup, CaptionsManifest, CaptionPosition } from './types';
 
+// Backward compatibility alias
 export interface CaptionSegment {
   id: string;
   start: number; // seconds
   end: number;   // seconds
   text: string;
   words: WordTiming[];
-  placement?: 'bottom' | 'lower-left' | 'lower-right' | 'top' | 'auto';
+  placement?: CaptionPosition;
 }
 
 export interface CaptionManifest {
-  version: '3.0';
+  version: '3.0' | '1.0.0';
   fps: number;
-  totalDurationSec: number;
-  captions: CaptionSegment[];
+  totalDurationSec?: number;
+  captions?: CaptionSegment[];
+  groups?: CaptionGroup[];
 }
 
 export function getActiveCaption(
@@ -31,4 +34,20 @@ export function getActiveCaption(
     }
   }
   return null;
+}
+
+export function resolveActiveGroup(
+  manifest: CaptionsManifest | CaptionGroup[] | null | undefined,
+  currentFrame: number
+): CaptionGroup | null {
+  if (!manifest) {
+    return null;
+  }
+  const groups = Array.isArray(manifest) ? manifest : manifest.groups;
+  if (!Array.isArray(groups) || groups.length === 0) {
+    return null;
+  }
+  return groups.find(
+    (g) => currentFrame >= g.startFrame && currentFrame <= g.endFrame
+  ) || null;
 }

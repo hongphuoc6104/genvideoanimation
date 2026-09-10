@@ -98,10 +98,6 @@ Benchmark scoring and validation must be performed by an independent reviewer ag
 - [ ] Full Git commit and push to remote repository.
 - [ ] Global installation deferred until all V2 criteria are independently certified.
 
-## Follow-up — 2026-09-09T17:26:34Z
-
-User request: "tiếp tục cả các agents đang bị limit ngừng lần trước". Hãy tiếp tục thực thi các milestone M2, M3, M4, M5 ngay lập tức. Nếu có lệnh spawn subagent con, hãy đảm bảo luôn dùng Model: "inherit" (hoặc không truyền Model) để tránh lỗi MODEL_PLACEHOLDER_M322.
-
 ## Follow-up — 2026-09-09T18:08:43Z
 
 Build an offline-capable local narration, word-synchronized karaoke subtitle, and audio production subsystem (V3) for Remotion explainer animations with Kokoro-82M TTS and WhisperX forced alignment.
@@ -191,3 +187,70 @@ Generate high-fidelity local narration without cloud APIs:
 - [ ] `validators/`
 - [ ] `out/v3/benchmark-a/`, `out/v3/benchmark-b/`, `out/v3/benchmark-c/`, `out/v3/voice-comparison/`
 - [ ] `benchmark-v3-report.md`
+
+## Follow-up — 2026-09-09T17:26:34Z
+
+User request: "tiếp tục cả các agents đang bị limit ngừng lần trước". Hãy tiếp tục thực thi các milestone M2, M3, M4, M5 ngay lập tức. Nếu có lệnh spawn subagent con, hãy đảm bảo luôn dùng Model: "inherit" (hoặc không truyền Model) để tránh lỗi MODEL_PLACEHOLDER_M322.
+
+## Follow-up — 2026-09-09T23:42:38Z
+
+Build an offline-capable local narration, word-synchronized karaoke subtitle, and audio production subsystem (V3) for Remotion explainer animations with Kokoro-82M TTS and WhisperX forced alignment.
+
+Working directory: /home/hongphuoc6104/Desktop/videorenderhoathinh
+Integrity mode: development
+
+RESUMPTION CONTEXT:
+Milestone 1 is complete and committed to git (commit 8c8042c).
+See CHECKPOINT_V3.md for verified state:
+- packages/narration-kit/src/tts/ (Kokoro-82M engine, 24kHz mono PCM WAV, voice presets, asset manager, text normalizer, prosody chunker)
+- packages/narration-kit/src/alignment/ (AlignmentProvider, WhisperXLocalAligner, normalizeAlignment, validateAlignment)
+- scripts/align-transcript.py & scripts/generate-offline-narration.py
+- validators/offline-network-guard.ts (hardened against IPv4 spoofing and c-ares DNS resolve leaks)
+- models/ (kokoro ONNX weights, wav2vec2 alignment weights cached)
+- tests/ (narration-kit 90/90 pass, challenger offline guard 29/29 pass, e2e contract suite 435/435 pass)
+
+CONTINUE MILESTONES 2 THROUGH 6:
+
+1. Finish Caption Subsystem in packages/narration-kit:
+- src/captions/segmentCaptions.ts (1-2 line subtitle segmentation from word timings)
+- src/captions/safePlacement.ts (ShotSpec-aware placement: bottom, lower-left, lower-right, top, auto avoiding subject_region)
+- src/captions/index.ts
+
+2. Build Canonical Audio Subsystem in packages/narration-kit:
+- src/audio/normalizeLoudness.ts (EBU R128 / target loudness)
+- src/audio/mixAudio.ts (multi-track mixing: narration, music, SFX with attack/release ducking envelopes)
+- src/audio/audioManifest.ts (audio-manifest.json generation and validation)
+- src/audio/index.ts
+
+3. Build Canonical Pipeline Runner in packages/narration-kit:
+- src/pipeline/generateNarrationPipeline.ts (end-to-end: script -> text map -> TTS chunks -> wav concat -> alignment -> captions -> audio mix -> cue derivation)
+- src/pipeline/index.ts
+- export from packages/narration-kit/src/index.ts
+
+4. Build Remotion Karaoke Caption Kit (packages/caption-kit/):
+- packages/caption-kit/src/KaraokeCaptions.tsx
+- packages/caption-kit/src/KaraokeGroup.tsx
+- packages/caption-kit/src/KaraokeLine.tsx
+- packages/caption-kit/src/KaraokeWord.tsx (frame-deterministic progressive fill 0% -> 100% via clip-path/mask)
+- packages/caption-kit/src/index.ts
+- packages/caption-kit/package.json
+- Link to root workspace and connection-film/node_modules
+
+5. Build Standalone CLI Quality Gate Validators in validators/:
+- validators/validate-narration.ts
+- validators/validate-alignment.ts
+- validators/validate-captions.ts
+- validators/validate-caption-layout.ts
+- validators/validate-audio-mix.ts
+- validators/temporal-karaoke-qa.ts
+
+6. Execute and Render Unseen Benchmarks in out/v3/:
+- Benchmark A: Standard Educational Narration (20-30s, Adam voice)
+- Benchmark B: Difficult Technical Narration (numbers, acronyms, technical terms)
+- Benchmark C: Rapid / Expressive Narration (variable pauses, prosody)
+- Voice Comparison: Multi-voice render (am_adam, am_fenrir, am_michael, am_onyx)
+All benchmarks must generate: script.txt, narration.wav, narration-text-map.json, words.json, captions.json, audio-manifest.json, and final rendered MP4.
+
+7. Deliverables:
+- benchmark-v3-report.md with complete QA matrices, independent evaluation rubric, and offline proof.
+- Clean git commit.

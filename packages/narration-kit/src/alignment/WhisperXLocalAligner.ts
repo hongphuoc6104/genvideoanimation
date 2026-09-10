@@ -46,7 +46,7 @@ export class WhisperXLocalAligner implements AlignmentProvider {
     return 'python3';
   }
 
-  public async align(audioPath: string, transcript: string): Promise<WordTiming[]> {
+  public async align(audioPath: string, transcript: string, textMapPath?: string): Promise<WordTiming[]> {
     if (!fs.existsSync(audioPath)) {
       throw new Error(`Audio file not found for alignment: ${audioPath}`);
     }
@@ -66,6 +66,10 @@ export class WhisperXLocalAligner implements AlignmentProvider {
         '--device', this.device,
       ];
 
+      if (textMapPath && fs.existsSync(textMapPath)) {
+        args.push('--text-map', textMapPath);
+      }
+
       childProcess.execFileSync(this.pythonPath, args, {
         cwd: this.repoRoot,
         stdio: ['ignore', 'pipe', 'pipe'],
@@ -82,7 +86,11 @@ export class WhisperXLocalAligner implements AlignmentProvider {
       }
 
       const raw = fs.readFileSync(tmpOut, 'utf-8');
-      const timings: WordTiming[] = JSON.parse(raw);
+      const timings: WordTiming[] = JSON.parse(raw).map((item: any) => ({
+        ...item,
+        text: item.text || item.word,
+        normalizedText: item.normalizedText || item.cleanWord,
+      }));
       return timings;
     } finally {
       if (fs.existsSync(tmpOut)) {

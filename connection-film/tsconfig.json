@@ -23,7 +23,13 @@
       "narration-kit": ["../packages/narration-kit/src/index.ts"],
       "narration-kit/*": ["../packages/narration-kit/src/*"],
       "packages/narration-kit": ["../packages/narration-kit/src/index.ts"],
-      "packages/narration-kit/*": ["../packages/narration-kit/src/*"]
+      "packages/narration-kit/*": ["../packages/narration-kit/src/*"],
+      "@videorender/caption-kit": ["../packages/caption-kit/src/index.ts"],
+      "@videorender/caption-kit/*": ["../packages/caption-kit/src/*"],
+      "caption-kit": ["../packages/caption-kit/src/index.ts"],
+      "caption-kit/*": ["../packages/caption-kit/src/*"],
+      "packages/caption-kit": ["../packages/caption-kit/src/index.ts"],
+      "packages/caption-kit/*": ["../packages/caption-kit/src/*"]
     }
   },
   "include": ["src"]

@@ -1,0 +1,733 @@
+{
+  "version": "1.0.0",
+  "fps": 30,
+  "groups": [
+    {
+      "id": "g0",
+      "startFrame": 1,
+      "endFrame": 97,
+      "startTime": 0.033,
+      "endTime": 3.233,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "Photosynthesis is the",
+          "words": [
+            {
+              "id": "w0",
+              "word": "Photosynthesis",
+              "start": 0.04,
+              "end": 0.861,
+              "startFrame": 1,
+              "endFrame": 26,
+              "cleanWord": "photosynthesis",
+              "confidence": 0.976,
+              "punctuation": ""
+            },
+            {
+              "id": "w1",
+              "word": "is",
+              "start": 0.981,
+              "end": 1.041,
+              "startFrame": 29,
+              "endFrame": 31,
+              "cleanWord": "is",
+              "confidence": 0.997,
+              "punctuation": ""
+            },
+            {
+              "id": "w2",
+              "word": "the",
+              "start": 1.121,
+              "end": 1.181,
+              "startFrame": 34,
+              "endFrame": 35,
+              "cleanWord": "the",
+              "confidence": 1,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "fundamental biological process",
+          "words": [
+            {
+              "id": "w3",
+              "word": "fundamental",
+              "start": 1.261,
+              "end": 1.782,
+              "startFrame": 38,
+              "endFrame": 53,
+              "cleanWord": "fundamental",
+              "confidence": 0.954,
+              "punctuation": ""
+            },
+            {
+              "id": "w4",
+              "word": "biological",
+              "start": 1.902,
+              "end": 2.622,
+              "startFrame": 57,
+              "endFrame": 79,
+              "cleanWord": "biological",
+              "confidence": 0.981,
+              "punctuation": ""
+            },
+            {
+              "id": "w5",
+              "word": "process",
+              "start": 2.723,
+              "end": 3.243,
+              "startFrame": 82,
+              "endFrame": 97,
+              "cleanWord": "process",
+              "confidence": 0.994,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g1",
+      "startFrame": 109,
+      "endFrame": 142,
+      "startTime": 3.633,
+      "endTime": 4.733,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "by which green plants",
+          "words": [
+            {
+              "id": "w6",
+              "word": "by",
+              "start": 3.643,
+              "end": 3.723,
+              "startFrame": 109,
+              "endFrame": 112,
+              "cleanWord": "by",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w7",
+              "word": "which",
+              "start": 3.784,
+              "end": 3.944,
+              "startFrame": 114,
+              "endFrame": 118,
+              "cleanWord": "which",
+              "confidence": 0.994,
+              "punctuation": ""
+            },
+            {
+              "id": "w8",
+              "word": "green",
+              "start": 4.044,
+              "end": 4.284,
+              "startFrame": 121,
+              "endFrame": 129,
+              "cleanWord": "green",
+              "confidence": 0.915,
+              "punctuation": ""
+            },
+            {
+              "id": "w9",
+              "word": "plants",
+              "start": 4.384,
+              "end": 4.724,
+              "startFrame": 132,
+              "endFrame": 142,
+              "cleanWord": "plants",
+              "confidence": 1,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "startFrame": 154,
+      "endFrame": 220,
+      "startTime": 5.133,
+      "endTime": 7.333,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "transform sunlight into chemical energy.",
+          "words": [
+            {
+              "id": "w10",
+              "word": "transform",
+              "start": 5.145,
+              "end": 5.685,
+              "startFrame": 154,
+              "endFrame": 171,
+              "cleanWord": "transform",
+              "confidence": 0.993,
+              "punctuation": ""
+            },
+            {
+              "id": "w11",
+              "word": "sunlight",
+              "start": 5.825,
+              "end": 6.266,
+              "startFrame": 175,
+              "endFrame": 188,
+              "cleanWord": "sunlight",
+              "confidence": 0.997,
+              "punctuation": ""
+            },
+            {
+              "id": "w12",
+              "word": "into",
+              "start": 6.326,
+              "end": 6.466,
+              "startFrame": 190,
+              "endFrame": 194,
+              "cleanWord": "into",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w13",
+              "word": "chemical",
+              "start": 6.526,
+              "end": 6.906,
+              "startFrame": 196,
+              "endFrame": 207,
+              "cleanWord": "chemical",
+              "confidence": 0.929,
+              "punctuation": ""
+            },
+            {
+              "id": "w14",
+              "word": "energy.",
+              "start": 7.027,
+              "end": 7.347,
+              "startFrame": 211,
+              "endFrame": 220,
+              "cleanWord": "energy",
+              "confidence": 0.995,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "startFrame": 234,
+      "endFrame": 267,
+      "startTime": 7.8,
+      "endTime": 8.9,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "Inside the plant cells,",
+          "words": [
+            {
+              "id": "w15",
+              "word": "Inside",
+              "start": 7.787,
+              "end": 8.128,
+              "startFrame": 234,
+              "endFrame": 244,
+              "cleanWord": "inside",
+              "confidence": 0.967,
+              "punctuation": ""
+            },
+            {
+              "id": "w16",
+              "word": "the",
+              "start": 8.168,
+              "end": 8.228,
+              "startFrame": 245,
+              "endFrame": 247,
+              "cleanWord": "the",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w17",
+              "word": "plant",
+              "start": 8.268,
+              "end": 8.488,
+              "startFrame": 248,
+              "endFrame": 255,
+              "cleanWord": "plant",
+              "confidence": 0.993,
+              "punctuation": ""
+            },
+            {
+              "id": "w18",
+              "word": "cells,",
+              "start": 8.548,
+              "end": 8.868,
+              "startFrame": 256,
+              "endFrame": 266,
+              "cleanWord": "cells",
+              "confidence": 0.978,
+              "punctuation": ","
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4",
+      "startFrame": 281,
+      "endFrame": 428,
+      "startTime": 9.367,
+      "endTime": 14.267,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "tiny cellular engines called chloroplasts",
+          "words": [
+            {
+              "id": "w19",
+              "word": "tiny",
+              "start": 9.369,
+              "end": 9.649,
+              "startFrame": 281,
+              "endFrame": 289,
+              "cleanWord": "tiny",
+              "confidence": 0.957,
+              "punctuation": ""
+            },
+            {
+              "id": "w20",
+              "word": "cellular",
+              "start": 9.769,
+              "end": 10.149,
+              "startFrame": 293,
+              "endFrame": 304,
+              "cleanWord": "cellular",
+              "confidence": 0.99,
+              "punctuation": ""
+            },
+            {
+              "id": "w21",
+              "word": "engines",
+              "start": 10.27,
+              "end": 10.65,
+              "startFrame": 308,
+              "endFrame": 320,
+              "cleanWord": "engines",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w22",
+              "word": "called",
+              "start": 10.73,
+              "end": 10.95,
+              "startFrame": 322,
+              "endFrame": 329,
+              "cleanWord": "called",
+              "confidence": 0.987,
+              "punctuation": ""
+            },
+            {
+              "id": "w23",
+              "word": "chloroplasts",
+              "start": 11.01,
+              "end": 11.771,
+              "startFrame": 330,
+              "endFrame": 353,
+              "cleanWord": "chloroplasts",
+              "confidence": 0.938,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "capture photons using green chlorophyll",
+          "words": [
+            {
+              "id": "w24",
+              "word": "capture",
+              "start": 11.831,
+              "end": 12.211,
+              "startFrame": 355,
+              "endFrame": 366,
+              "cleanWord": "capture",
+              "confidence": 0.994,
+              "punctuation": ""
+            },
+            {
+              "id": "w25",
+              "word": "photons",
+              "start": 12.271,
+              "end": 12.832,
+              "startFrame": 368,
+              "endFrame": 385,
+              "cleanWord": "photons",
+              "confidence": 0.956,
+              "punctuation": ""
+            },
+            {
+              "id": "w26",
+              "word": "using",
+              "start": 12.992,
+              "end": 13.192,
+              "startFrame": 390,
+              "endFrame": 396,
+              "cleanWord": "using",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w27",
+              "word": "green",
+              "start": 13.292,
+              "end": 13.573,
+              "startFrame": 399,
+              "endFrame": 407,
+              "cleanWord": "green",
+              "confidence": 0.99,
+              "punctuation": ""
+            },
+            {
+              "id": "w28",
+              "word": "chlorophyll",
+              "start": 13.713,
+              "end": 14.273,
+              "startFrame": 411,
+              "endFrame": 428,
+              "cleanWord": "chlorophyll",
+              "confidence": 0.788,
+              "punctuation": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5",
+      "startFrame": 431,
+      "endFrame": 455,
+      "startTime": 14.367,
+      "endTime": 15.167,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "pigments.",
+          "words": [
+            {
+              "id": "w29",
+              "word": "pigments.",
+              "start": 14.353,
+              "end": 14.754,
+              "startFrame": 431,
+              "endFrame": 443,
+              "cleanWord": "pigments",
+              "confidence": 0.931,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6",
+      "startFrame": 455,
+      "endFrame": 560,
+      "startTime": 15.167,
+      "endTime": 18.667,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "This energy splits water molecules",
+          "words": [
+            {
+              "id": "w30",
+              "word": "This",
+              "start": 15.174,
+              "end": 15.294,
+              "startFrame": 455,
+              "endFrame": 459,
+              "cleanWord": "this",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w31",
+              "word": "energy",
+              "start": 15.394,
+              "end": 15.695,
+              "startFrame": 462,
+              "endFrame": 471,
+              "cleanWord": "energy",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w32",
+              "word": "splits",
+              "start": 15.795,
+              "end": 16.135,
+              "startFrame": 474,
+              "endFrame": 484,
+              "cleanWord": "splits",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w33",
+              "word": "water",
+              "start": 16.195,
+              "end": 16.435,
+              "startFrame": 486,
+              "endFrame": 493,
+              "cleanWord": "water",
+              "confidence": 0.994,
+              "punctuation": ""
+            },
+            {
+              "id": "w34",
+              "word": "molecules",
+              "start": 16.495,
+              "end": 17.096,
+              "startFrame": 495,
+              "endFrame": 513,
+              "cleanWord": "molecules",
+              "confidence": 0.962,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "into oxygen and hydrogen,",
+          "words": [
+            {
+              "id": "w35",
+              "word": "into",
+              "start": 17.176,
+              "end": 17.316,
+              "startFrame": 515,
+              "endFrame": 519,
+              "cleanWord": "into",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w36",
+              "word": "oxygen",
+              "start": 17.496,
+              "end": 17.917,
+              "startFrame": 525,
+              "endFrame": 538,
+              "cleanWord": "oxygen",
+              "confidence": 0.98,
+              "punctuation": ""
+            },
+            {
+              "id": "w37",
+              "word": "and",
+              "start": 18.037,
+              "end": 18.117,
+              "startFrame": 541,
+              "endFrame": 544,
+              "cleanWord": "and",
+              "confidence": 0.963,
+              "punctuation": ""
+            },
+            {
+              "id": "w38",
+              "word": "hydrogen,",
+              "start": 18.157,
+              "end": 18.677,
+              "startFrame": 545,
+              "endFrame": 560,
+              "cleanWord": "hydrogen",
+              "confidence": 0.998,
+              "punctuation": ","
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7",
+      "startFrame": 576,
+      "endFrame": 684,
+      "startTime": 19.2,
+      "endTime": 22.8,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "powering the creation of glucose",
+          "words": [
+            {
+              "id": "w39",
+              "word": "powering",
+              "start": 19.198,
+              "end": 19.578,
+              "startFrame": 576,
+              "endFrame": 587,
+              "cleanWord": "powering",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w40",
+              "word": "the",
+              "start": 19.618,
+              "end": 19.678,
+              "startFrame": 589,
+              "endFrame": 590,
+              "cleanWord": "the",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w41",
+              "word": "creation",
+              "start": 19.738,
+              "end": 20.179,
+              "startFrame": 592,
+              "endFrame": 605,
+              "cleanWord": "creation",
+              "confidence": 0.988,
+              "punctuation": ""
+            },
+            {
+              "id": "w42",
+              "word": "of",
+              "start": 20.239,
+              "end": 20.289,
+              "startFrame": 607,
+              "endFrame": 609,
+              "cleanWord": "of",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w43",
+              "word": "glucose",
+              "start": 20.379,
+              "end": 20.899,
+              "startFrame": 611,
+              "endFrame": 627,
+              "cleanWord": "glucose",
+              "confidence": 0.793,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "to nourish the entire organism.",
+          "words": [
+            {
+              "id": "w44",
+              "word": "to",
+              "start": 21,
+              "end": 21.08,
+              "startFrame": 630,
+              "endFrame": 632,
+              "cleanWord": "to",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w45",
+              "word": "nourish",
+              "start": 21.14,
+              "end": 21.48,
+              "startFrame": 634,
+              "endFrame": 644,
+              "cleanWord": "nourish",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w46",
+              "word": "the",
+              "start": 21.56,
+              "end": 21.66,
+              "startFrame": 647,
+              "endFrame": 650,
+              "cleanWord": "the",
+              "confidence": 0.997,
+              "punctuation": ""
+            },
+            {
+              "id": "w47",
+              "word": "entire",
+              "start": 21.72,
+              "end": 22.161,
+              "startFrame": 652,
+              "endFrame": 665,
+              "cleanWord": "entire",
+              "confidence": 0.96,
+              "punctuation": ""
+            },
+            {
+              "id": "w48",
+              "word": "organism.",
+              "start": 22.341,
+              "end": 22.801,
+              "startFrame": 670,
+              "endFrame": 684,
+              "cleanWord": "organism",
+              "confidence": 0.993,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

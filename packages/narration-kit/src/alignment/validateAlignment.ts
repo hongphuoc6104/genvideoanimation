@@ -1,7 +1,8 @@
 /**
  * packages/narration-kit/src/alignment/validateAlignment.ts
  * Alignment Quality Gates conforming to V3 R7 specification.
- * Throws explicit descriptive errors on any quality gate failure.
+ * Validates timestamp monotonicity, 20ms phonetic overlap limit,
+ * mean confidence threshold, script token fidelity, and silence anomalies.
  */
 
 import { WordTiming } from './AlignmentProvider';
@@ -11,6 +12,8 @@ export interface AlignmentValidationOptions {
   minConfidence?: number;
   maxSilenceGapSec?: number;
   expectedWordCount?: number;
+  maxPhoneticOverlapSec?: number;
+  scriptWords?: string[];
 }
 
 export interface AlignmentValidationReport {
@@ -19,17 +22,24 @@ export interface AlignmentValidationReport {
   firstWordStart: number;
   lastWordEnd: number;
   minConfidence: number;
+  meanConfidence: number;
   maxSilenceGap: number;
   errors: string[];
 }
 
 export function validateAlignment(
   timings: WordTiming[],
-  options: AlignmentValidationOptions = {}
+  optionsOrScriptWords?: AlignmentValidationOptions | string[]
 ): AlignmentValidationReport {
   const errors: string[] = [];
+
+  const options: AlignmentValidationOptions = Array.isArray(optionsOrScriptWords)
+    ? { scriptWords: optionsOrScriptWords }
+    : optionsOrScriptWords || {};
+
   const minConfidence = options.minConfidence ?? 0.6;
   const maxSilenceGap = options.maxSilenceGapSec ?? 4.0;
+  const maxOverlapSec = options.maxPhoneticOverlapSec ?? 0.02; // 20ms phonetic overlap limit
 
   if (!Array.isArray(timings) || timings.length === 0) {
     errors.push('Alignment contains zero word timings.');
@@ -39,38 +49,59 @@ export function validateAlignment(
       firstWordStart: 0,
       lastWordEnd: 0,
       minConfidence: 0,
+      meanConfidence: 0,
       maxSilenceGap: 0,
       errors,
     };
   }
 
+  // Token count check against script words if provided
+  if (options.scriptWords && timings.length !== options.scriptWords.length) {
+    errors.push(
+      `Token count mismatch: expected ${options.scriptWords.length}, got ${timings.length}`
+    );
+  } else if (options.expectedWordCount !== undefined && timings.length !== options.expectedWordCount) {
+    errors.push(
+      `Transcript word count mismatch: expected ${options.expectedWordCount} words, aligned ${timings.length}.`
+    );
+  }
+
   let observedMinConf = 1.0;
+  let totalConfidence = 0;
   let observedMaxSilence = 0;
 
   for (let i = 0; i < timings.length; i++) {
     const w = timings[i];
+    const wordDisplay = w.word || w.text || `w${i}`;
 
     // Gate 1: start >= 0
     if (w.start < 0) {
-      errors.push(`Word [${w.id}: "${w.text}"] has negative start time (${w.start}s).`);
+      errors.push(`Word [${w.id}: "${wordDisplay}"] has negative start time (${w.start}s).`);
     }
 
     // Gate 2: end > start
     if (w.end <= w.start) {
-      errors.push(`Word [${w.id}: "${w.text}"] has invalid duration: start=${w.start}s, end=${w.end}s.`);
+      errors.push(
+        `Word [${w.id}: "${wordDisplay}"] end ${w.end} <= start ${w.start}`
+      );
     }
 
-    // Gate 3 & 4: Monotonicity and overlap
+    // Gate 3 & 4: Monotonicity and phonetic overlap
     if (i > 0) {
       const prev = timings[i - 1];
+      const prevDisplay = prev.word || prev.text || `w${i - 1}`;
+
       if (w.start < prev.start) {
         errors.push(
-          `Timestamp decreased at word [${w.id}: "${w.text}"] (${w.start}s < ${prev.start}s).`
+          `Word ${w.id} start ${w.start} is before preceding word start ${prev.start}`
         );
       }
-      if (w.start < prev.end - 0.001) {
+
+      // Adjoining word phonetic overlap limit: maximum 20ms (0.02s) allowed
+      const overlap = prev.end - w.start;
+      if (overlap > maxOverlapSec + 1e-4) {
         errors.push(
-          `Word interval overlap between [${prev.id}: "${prev.text}"] (ends ${prev.end}s) and [${w.id}: "${w.text}"] (starts ${w.start}s).`
+          `Word interval overlap between [${prev.id}: "${prevDisplay}"] (ends ${prev.end}s) and [${w.id}: "${wordDisplay}"] (starts ${w.start}s) exceeds ${Math.round(maxOverlapSec * 1000)}ms.`
         );
       }
 
@@ -81,33 +112,38 @@ export function validateAlignment(
       }
       if (silence > maxSilenceGap) {
         errors.push(
-          `Large unexplained silence gap (${silence.toFixed(2)}s) between "${prev.text}" and "${w.text}".`
+          `Large unexplained silence gap (${silence.toFixed(2)}s) between "${prevDisplay}" and "${wordDisplay}".`
         );
       }
     }
 
-    if (w.confidence !== undefined) {
-      if (w.confidence < observedMinConf) observedMinConf = w.confidence;
-      if (w.confidence < minConfidence) {
+    const conf = w.confidence !== undefined ? w.confidence : 1.0;
+    totalConfidence += conf;
+    if (conf < observedMinConf) observedMinConf = conf;
+
+    // Check script word fidelity if provided
+    if (options.scriptWords && options.scriptWords[i]) {
+      const actualClean = (w.cleanWord || w.normalizedText || w.word || w.text || '').toLowerCase();
+      const expectedClean = options.scriptWords[i].toLowerCase();
+      if (actualClean !== expectedClean) {
         errors.push(
-          `Word [${w.id}: "${w.text}"] confidence (${w.confidence}) falls below threshold (${minConfidence}).`
+          `Word mismatch at ${i}: expected "${options.scriptWords[i]}", got "${actualClean}"`
         );
       }
     }
+  }
+
+  const meanConfidence = totalConfidence / timings.length;
+  if (meanConfidence < minConfidence) {
+    errors.push(`Mean confidence ${meanConfidence.toFixed(2)} is below ${minConfidence}`);
   }
 
   // Gate 5: Final word exceeds audio duration
   const lastWord = timings[timings.length - 1];
   if (options.audioDurationSec !== undefined && lastWord.end > options.audioDurationSec + 0.05) {
+    const wordDisplay = lastWord.word || lastWord.text || lastWord.id;
     errors.push(
-      `Final word [${lastWord.id}: "${lastWord.text}"] end (${lastWord.end}s) exceeds audio duration (${options.audioDurationSec}s).`
-    );
-  }
-
-  // Expected word count check if supplied
-  if (options.expectedWordCount !== undefined && timings.length !== options.expectedWordCount) {
-    errors.push(
-      `Transcript word count mismatch: expected ${options.expectedWordCount} words, aligned ${timings.length}.`
+      `Final word [${lastWord.id}: "${wordDisplay}"] end (${lastWord.end}s) exceeds audio duration (${options.audioDurationSec}s).`
     );
   }
 
@@ -117,6 +153,7 @@ export function validateAlignment(
     firstWordStart: timings[0].start,
     lastWordEnd: lastWord.end,
     minConfidence: observedMinConf,
+    meanConfidence,
     maxSilenceGap: observedMaxSilence,
     errors,
   };

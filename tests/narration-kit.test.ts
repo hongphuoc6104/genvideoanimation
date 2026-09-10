@@ -19,7 +19,45 @@ import {
   encodeWavHeader,
   parseWavHeader,
   createWavFile,
+  TextNormalizer,
+  normalizeText,
+  createNarrationTextMap,
+  PROSODY_PROFILES,
+  resolveProsodyProfile,
+  clampSpeed,
+  clampPause,
+  NarrationChunker,
+  chunkText,
+  chunkShotSpec,
+  extractPcmData,
+  generateSilencePcm,
+  concatenateWavBuffers,
+  validateAlignment,
+  normalizeAlignment,
+  WhisperXLocalAligner,
+  segmentCaptions,
+  CaptionSegmenter,
+  resolveCaptionPlacement,
+  planSafeAreaPlacement,
+  computeAabbIntersection,
+  checkAabbCollision,
+  validateCaptionBoxLayout,
+  isWithinSafeArea,
+  clampToSafeArea,
+  computePresetBox,
+  getActiveCaption,
+  resolveActiveGroup as resolveActiveGroupManifest,
 } from '@videorender/narration-kit';
+import {
+  calculateProgressiveFill,
+  computeClipPathInset,
+  resolveActiveGroup,
+  EDUCATIONAL_THEME,
+  KaraokeWord,
+  KaraokeLine,
+  KaraokeGroup,
+  KaraokeCaptions,
+} from '@videorender/caption-kit';
 import * as unscopedKit from 'narration-kit';
 import {
   enableOfflineNetworkGuard,
@@ -300,10 +338,310 @@ async function testOfflineNetworkGuard(): Promise<void> {
   assert(!isOfflineGuardActive(), 'Guard automatically restored after runWithOfflineGuard');
 }
 
+async function testNormalizationSubsystem(): Promise<void> {
+  console.log('\n--- 8. Text Normalization Subsystem ---');
+
+  const normalizer = new TextNormalizer();
+  const yearRes = normalizer.normalize('In 2026, AI runs at 24kHz.');
+  assert(yearRes.includes('twenty twenty-six'), 'normalizer.normalize expands 4-digit years');
+  assert(yearRes.includes('A I'), 'normalizer.normalize expands AI acronym');
+  assert(yearRes.includes('kilohertz'), 'normalizer.normalize expands 24kHz unit');
+
+  const currRes = normalizeText('$1,000,000,000,000 and -$50.25 with +99.9%');
+  assert(/one trillion dollars/i.test(currRes), 'normalizeText expands $1T to one trillion dollars');
+  assert(/negative fifty dollars/i.test(currRes), 'normalizeText expands -$50.25 to negative fifty dollars');
+  assert(/ninety-nine point nine percent/i.test(currRes), 'normalizeText expands +99.9% to ninety-nine point nine percent');
+
+  const dateRes = normalizeText('On 12/05/2026');
+  assert(dateRes.toLowerCase().includes('december fifth twenty twenty-six'), 'normalizeText expands MM/DD/YYYY dates');
+
+  const urlRes = normalizeText('Visit https://remotion.dev/docs?version=v3#intro');
+  assert(urlRes.includes('h t t p s') && urlRes.includes('remotion dot dev'), 'normalizeText expands URLs');
+
+  const unicodeRes = normalizeText('“Wait—look at that… ‘offline’!”');
+  assert(!unicodeRes.includes('“') && !unicodeRes.includes('”') && !unicodeRes.includes('—'), 'normalizeText sanitizes Unicode characters');
+
+  assert(normalizeText('') === '', 'normalizeText returns empty string for empty input');
+  assert(normalizeText('   \n\t  ') === '', 'normalizeText returns empty string for whitespace input');
+
+  // Test createNarrationTextMap
+  const sample = 'In 2026, AI models run at 24kHz locally.';
+  const map = createNarrationTextMap(sample);
+  assert(map.version === '1.0.0', 'map.version is 1.0.0');
+  assert(map.originalText === sample, 'map.originalText matches verbatim');
+  assert(map.tokens.length > 0, 'map.tokens is non-empty');
+
+  for (let i = 0; i < map.tokens.length; i++) {
+    const t = map.tokens[i];
+    const sliced = sample.slice(t.originalSpan[0], t.originalSpan[1]);
+    assert(sliced === t.originalWord, `Token ${t.id} originalSpan slices back to originalWord "${t.originalWord}"`);
+    assert(Array.isArray(t.spokenWords) && t.spokenWords.length >= 1, `Token ${t.id} spokenWords is non-empty array`);
+    if (i > 0) {
+      assert(t.originalSpan[0] >= map.tokens[i - 1].originalSpan[1], `Token ${t.id} span does not overlap preceding token`);
+    }
+  }
+}
+
+async function testProsodyAndChunkingSubsystem(): Promise<void> {
+  console.log('\n--- 9. Deterministic Prosody & Narration Chunking ---');
+
+  const profiles = ['documentary', 'educational', 'energetic', 'calm', 'dramatic', 'solemn'] as const;
+  for (const name of profiles) {
+    assert(Boolean(PROSODY_PROFILES[name]), `PROSODY_PROFILES defines "${name}"`);
+    const p = PROSODY_PROFILES[name];
+    assert(p.speed >= 0.5 && p.speed <= 2.0, `Profile ${name} speed ${p.speed} is in [0.5, 2.0]`);
+    assert(p.pauseSec >= 0.0 && p.pauseSec <= 5.0, `Profile ${name} pauseSec is in [0.0, 5.0]`);
+    assert(p.sentencePauseMs === Math.round(p.pauseSec * 1000) || p.pauseAfterSentence === p.pauseSec, `Dual representation matches in ${name}`);
+  }
+
+  assert(resolveProsodyProfile('educational').speed === 1.0, 'educational profile speed is standard 1.0');
+  assert(resolveProsodyProfile('unknown_name').name === 'educational', 'resolveProsodyProfile defaults cleanly to educational');
+  assert(clampSpeed(0.1) === 0.5, 'clampSpeed clamps sub-minimum to 0.5');
+  assert(clampSpeed(5.0) === 2.0, 'clampSpeed clamps excessive to 2.0');
+  assert(clampPause(-1.0) === 0.0, 'clampPause clamps negative to 0.0');
+  assert(clampPause(10.0) === 5.0, 'clampPause clamps excessive to 5.0');
+
+  // Chunking
+  const chunker = new NarrationChunker();
+  const chunks = chunker.chunkText('Paragraph one sentence one. Paragraph one sentence two.\n\nParagraph two sentence three.');
+  assert(chunks.length === 3, `chunkText produces 3 chunks for 3 sentences, got ${chunks.length}`);
+  assert(chunks[0].pauseAfterMs === PROSODY_PROFILES.educational.sentencePauseMs, 'Intra-paragraph sentence has sentencePauseMs');
+  assert(chunks[1].pauseAfterMs === PROSODY_PROFILES.educational.paragraphPauseMs, 'Inter-paragraph sentence has paragraphPauseMs');
+
+  // ShotSpec chunking
+  const shotSpecs = [
+    { shot_id: 'shot_1', text: 'Introductory sentence.', narration_profile: 'energetic', pause_after: 0.5 },
+    { shot_id: 'shot_2', text: 'Second shot text.', narration_profile: 'calm', pause_after: 1.0 },
+  ];
+  const shotChunks = chunkShotSpec(shotSpecs);
+  assert(shotChunks.length === 2, 'chunkShotSpec produced 2 chunks for 2 shots');
+  assert(shotChunks[0].shotId === 'shot_1', 'chunk 0 has shotId shot_1');
+  assert(shotChunks[0].profile.name === 'energetic', 'chunk 0 respects energetic profile override');
+  assert(shotChunks[0].pauseAfterMs === 500, 'chunk 0 pauseAfterMs matches pause_after 0.5s');
+  assert(shotChunks[1].shotId === 'shot_2', 'chunk 1 has shotId shot_2');
+  assert(shotChunks[1].profile.name === 'calm', 'chunk 1 respects calm profile override');
+  assert(shotChunks[1].pauseAfterMs === 1000, 'chunk 1 pauseAfterMs matches pause_after 1.0s');
+}
+
+async function testWavPcmUtilities(): Promise<void> {
+  console.log('\n--- 10. Lossless WAV PCM Utilities & Concatenation ---');
+
+  const pcm1 = Buffer.alloc(48000, 1); // 1.0s at 24kHz 16-bit mono
+  const wav1 = createWavFile(pcm1, 24000, 1, 16);
+  const pcm2 = Buffer.alloc(24000, 2); // 0.5s at 24kHz 16-bit mono
+  const wav2 = createWavFile(pcm2, 24000, 1, 16);
+
+  const extracted = extractPcmData(wav1);
+  assert(extracted.length === 48000, 'extractPcmData extracts exact PCM data length');
+  assert(extracted.equals(pcm1), 'extractPcmData matches original PCM data byte-for-byte');
+
+  const silence = generateSilencePcm(500, 24000, 1, 16);
+  assert(silence.length === 24000, 'generateSilencePcm(500ms) generates 24,000 bytes (48 bytes/ms)');
+  assert(silence.every((b) => b === 0), 'generateSilencePcm contains only zero bytes');
+
+  // Concatenate with 200ms gap (200 * 48 = 9600 bytes)
+  const concatWav = concatenateWavBuffers([wav1, wav2], 200, 24000, 1, 16);
+  const parsedConcat = parseWavHeader(concatWav);
+  const expectedPcmLength = 48000 + 9600 + 24000;
+  assert(parsedConcat.dataLength === expectedPcmLength, `Concatenated WAV data length is ${expectedPcmLength}, got ${parsedConcat.dataLength}`);
+  assert(Math.abs(parsedConcat.durationSec - 1.7) < 0.01, 'Concatenated WAV duration matches sum of chunks and gap (1.7s)');
+}
+
+async function testAlignmentSubsystem(): Promise<void> {
+  console.log('\n--- 11. Alignment Interfaces & Quality Gates ---');
+
+  const mockWords = [
+    { id: 'w0', word: 'In', cleanWord: 'in', start: 0.06, end: 0.22, confidence: 0.94, punctuation: '' },
+    { id: 'w1', word: 'twenty', cleanWord: 'twenty', start: 0.24, end: 0.58, confidence: 0.91, punctuation: '' },
+    { id: 'w2', word: 'twenty-six,', cleanWord: 'twenty-six', start: 0.60, end: 1.12, confidence: 0.89, punctuation: ',' },
+  ];
+
+  // 1. Valid alignment passes
+  const validReport = validateAlignment(mockWords, ['in', 'twenty', 'twenty-six']);
+  assert(validReport.valid, 'Valid alignment passes validateAlignment');
+  assert(validReport.errors.length === 0, 'Valid alignment has zero errors');
+
+  // 2. Reverse timestamp rejected
+  const reverseWords = [
+    { id: 'w0', word: 'In', cleanWord: 'in', start: 1.0, end: 1.5, confidence: 0.9, punctuation: '' },
+    { id: 'w1', word: 'twenty', cleanWord: 'twenty', start: 0.5, end: 1.2, confidence: 0.9, punctuation: '' },
+  ];
+  const reverseReport = validateAlignment(reverseWords);
+  assert(!reverseReport.valid, 'Reverse start timestamps rejected by quality gate');
+
+  // 3. Negative start timestamp rejected
+  const negWords = [
+    { id: 'w0', word: 'In', cleanWord: 'in', start: -0.1, end: 0.5, confidence: 0.9, punctuation: '' },
+  ];
+  const negReport = validateAlignment(negWords);
+  assert(!negReport.valid, 'Negative start timestamp rejected by quality gate');
+
+  // 4. Token fidelity mismatch rejected
+  const fidelityReport = validateAlignment(mockWords, ['in', 'twenty', 'wrong-word']);
+  assert(!fidelityReport.valid, 'Word token mismatch rejected by token fidelity check');
+
+  // 5. Test normalizeAlignment
+  const unnormalizedWords = [
+    { id: 'raw1', word: 'Hello!', cleanWord: 'hello', start: 0.1, end: 0.1, confidence: 0.9, punctuation: '!' },
+    { id: 'raw2', word: 'world.', cleanWord: 'world', start: 0.08, end: 0.5, confidence: 0.85, punctuation: '.' },
+  ];
+  const normWords = normalizeAlignment(unnormalizedWords);
+  assert(normWords[0].id === 'w0', 'normalizeAlignment assigns sequential w0 ID');
+  assert(normWords[1].id === 'w1', 'normalizeAlignment assigns sequential w1 ID');
+  assert(normWords[0].end > normWords[0].start, 'normalizeAlignment fixes zero-duration word');
+  assert(normWords[1].start >= normWords[0].end, 'normalizeAlignment clamps overlap for visual karaoke highlight');
+}
+
+async function testCaptionsSubsystem(): Promise<void> {
+  console.log('\n--- 12. Caption Subsystem & Safe Area Placement ---');
+
+  // 1. Safe Area Placement Geometry & AABB Collision
+  const box1 = { x: 100, y: 100, width: 200, height: 100 };
+  const box2 = { x: 150, y: 150, width: 200, height: 100 };
+  const intersectionArea = computeAabbIntersection(box1, box2);
+  assert(intersectionArea === 7500, `computeAabbIntersection calculated 7500 (got ${intersectionArea})`);
+  assert(checkAabbCollision(box1, box2), 'checkAabbCollision detected collision between overlapping boxes');
+
+  const disjointBox = { x: 500, y: 500, width: 100, height: 100 };
+  assert(computeAabbIntersection(box1, disjointBox) === 0, 'computeAabbIntersection returns 0 for disjoint boxes');
+  assert(!checkAabbCollision(box1, disjointBox), 'checkAabbCollision returns false for disjoint boxes');
+
+  // 2. Safe Area Invariants (SMPTE/EBU 96px on 1920x1080)
+  const defaultBottom = computePresetBox('bottom');
+  assert(defaultBottom.x === 192, 'Default bottom box horizontally centered at x=192');
+  assert(defaultBottom.y === 864, 'Default bottom box y matches safe boundary 864 (1080 - 96 - 120)');
+  assert(defaultBottom.width === 1536, 'Default bottom box width is 1536');
+  assert(defaultBottom.height === 120, 'Default bottom box height is 120');
+  assert(isWithinSafeArea(defaultBottom), 'Default bottom box is completely within safe area');
+
+  const defaultTop = computePresetBox('top');
+  assert(defaultTop.x === 192, 'Default top box horizontally centered at x=192');
+  assert(defaultTop.y === 96, 'Default top box y starts at safe margin 96');
+  assert(isWithinSafeArea(defaultTop), 'Default top box is completely within safe area');
+
+  const lowerLeft = computePresetBox('lower-left');
+  assert(lowerLeft.x === 96, 'Lower-left box starts at left margin 96');
+  assert(isWithinSafeArea(lowerLeft), 'Lower-left box is completely within safe area');
+
+  const lowerRight = computePresetBox('lower-right');
+  assert(lowerRight.x + lowerRight.width === 1920 - 96, 'Lower-right box ends at right margin 1824');
+  assert(isWithinSafeArea(lowerRight), 'Lower-right box is completely within safe area');
+
+  // 3. Multi-aspect ratio placement
+  const portraitPlacement = computePresetBox('bottom', { viewport: { width: 1080, height: 1920 } });
+  assert(portraitPlacement.width === 1080 - 2 * 96, '9:16 portrait safe width is 888px');
+  assert(portraitPlacement.x === 96, '9:16 portrait x starts at 96');
+  assert(portraitPlacement.y + portraitPlacement.height <= 1920 - 96, '9:16 portrait fits within safe boundary');
+
+  const squarePlacement = computePresetBox('bottom', { viewport: { width: 1080, height: 1080 } });
+  assert(squarePlacement.width === 1080 - 2 * 96, '1:1 square safe width is 888px');
+  assert(squarePlacement.height === 100, '1:1 square height is 100px');
+
+  // 4. Dynamic subject collision avoidance
+  const subjectBottom = { x: 500, y: 750, width: 920, height: 280 };
+  const resolvedPlacement = resolveCaptionPlacement({
+    position: 'auto',
+    subjectRegion: subjectBottom,
+  });
+  assert(resolvedPlacement.position === 'top', 'resolveCaptionPlacement dynamically relocated bottom to top on subject collision');
+  assert(resolvedPlacement.box.y === 96, 'Repositioned top box is at y=96');
+  assert(computeAabbIntersection(resolvedPlacement.box, subjectBottom) === 0, 'Repositioned top box has 0 overlap with subject');
+
+  // 5. Layout validator
+  const validReport = validateCaptionBoxLayout(defaultBottom);
+  assert(validReport.valid, 'Valid box passes validateCaptionBoxLayout');
+  const encroachingBox = { x: 50, y: 864, width: 1536, height: 120 };
+  const invalidReport = validateCaptionBoxLayout(encroachingBox);
+  assert(!invalidReport.valid, 'Encroaching box fails validateCaptionBoxLayout for safe margin breach');
+
+  // 6. Caption Segmentation Engine
+  const sampleWords = [
+    { id: 'w0', word: 'In', cleanWord: 'in', start: 0.06, end: 0.22, confidence: 0.95, punctuation: '' },
+    { id: 'w1', word: 'twenty', cleanWord: 'twenty', start: 0.24, end: 0.58, confidence: 0.95, punctuation: '' },
+    { id: 'w2', word: 'twenty-six,', cleanWord: 'twenty-six', start: 0.60, end: 1.12, confidence: 0.95, punctuation: ',' },
+    { id: 'w3', word: 'AI', cleanWord: 'ai', start: 1.36, end: 1.55, confidence: 0.95, punctuation: '' },
+    { id: 'w4', word: 'models', cleanWord: 'models', start: 1.58, end: 1.98, confidence: 0.95, punctuation: '' },
+    { id: 'w5', word: 'run', cleanWord: 'run', start: 2.02, end: 2.25, confidence: 0.95, punctuation: '' },
+    { id: 'w6', word: 'locally.', cleanWord: 'locally', start: 2.28, end: 2.70, confidence: 0.95, punctuation: '.' },
+  ];
+
+  const manifest = segmentCaptions(sampleWords, { fps: 30 });
+  assert(manifest.version === '1.0.0', 'CaptionsManifest version is 1.0.0');
+  assert(manifest.fps === 30, 'CaptionsManifest fps is 30');
+  assert(manifest.groups.length >= 2, 'segmentCaptions split phrases into at least 2 groups');
+
+  // Check group constraints
+  let totalCaptionWords = 0;
+  for (const group of manifest.groups) {
+    assert(group.lines.length >= 1 && group.lines.length <= 2, `Group ${group.id} line count in [1, 2]`);
+    for (const line of group.lines) {
+      assert(line.text.length <= 42, `Line text "${line.text}" length <= 42`);
+      totalCaptionWords += line.words.length;
+    }
+    const duration = group.endTime - group.startTime;
+    assert(duration >= 0.8 && duration <= 7.0, `Group ${group.id} duration ${duration.toFixed(2)}s in [0.8s, 7.0s]`);
+    const totalChars = group.lines.reduce((acc, l) => acc + l.text.length, 0);
+    const cps = totalChars / duration;
+    assert(cps <= 21.0, `Group ${group.id} CPS ${cps.toFixed(2)} <= 21.0`);
+    assert(group.startFrame < group.endFrame, `Group ${group.id} startFrame < endFrame`);
+  }
+  assert(totalCaptionWords === sampleWords.length, '100% word completeness: every word appears in captions manifest');
+
+  // Check consecutive frame non-overlapping
+  for (let i = 1; i < manifest.groups.length; i++) {
+    assert(
+      manifest.groups[i].startFrame >= manifest.groups[i - 1].endFrame,
+      `Consecutive groups do not overlap: g${i}.startFrame (${manifest.groups[i].startFrame}) >= g${i - 1}.endFrame (${manifest.groups[i - 1].endFrame})`
+    );
+  }
+
+  // 7. CaptionSegmenter class wrapper (QA governance contract)
+  const segmenter = new CaptionSegmenter();
+  const classManifest = segmenter.segment(sampleWords);
+  assert(classManifest.groups.length === manifest.groups.length, 'CaptionSegmenter instance method produces identical group count');
+  const staticManifest = CaptionSegmenter.segment(sampleWords);
+  assert(staticManifest.groups.length === manifest.groups.length, 'CaptionSegmenter static method produces identical group count');
+
+  // 8. Remotion Karaoke Kit Utilities & Progressive Fill
+  assert(calculateProgressiveFill(10, 20, 50) === 0.0, 'calculateProgressiveFill is 0.0 before startFrame');
+  assert(calculateProgressiveFill(20, 20, 50) === 0.0, 'calculateProgressiveFill is 0.0 at startFrame');
+  assert(calculateProgressiveFill(35, 20, 50) === 0.5, 'calculateProgressiveFill is 0.5 at midpoint');
+  assert(calculateProgressiveFill(50, 20, 50) === 1.0, 'calculateProgressiveFill is 1.0 at endFrame');
+  assert(calculateProgressiveFill(60, 20, 50) === 1.0, 'calculateProgressiveFill is 1.0 after endFrame');
+  assert(calculateProgressiveFill(25, 25, 25) === 1.0, 'calculateProgressiveFill handles zero-duration safely');
+
+  assert(computeClipPathInset(0.0) === 'inset(0 100.00% 0 0)', 'computeClipPathInset(0.0) format matches');
+  assert(computeClipPathInset(0.5) === 'inset(0 50.00% 0 0)', 'computeClipPathInset(0.5) format matches');
+  assert(computeClipPathInset(1.0) === 'inset(0 0.00% 0 0)', 'computeClipPathInset(1.0) format matches');
+  assert(computeClipPathInset(-0.5) === 'inset(0 100.00% 0 0)', 'computeClipPathInset clamps negative progress');
+  assert(computeClipPathInset(1.5) === 'inset(0 0.00% 0 0)', 'computeClipPathInset clamps overflow progress');
+
+  // 9. Frame-accurate active group resolution
+  const g0 = manifest.groups[0];
+  const activeDuringG0 = resolveActiveGroup(manifest, g0.startFrame + 5);
+  assert(activeDuringG0?.id === g0.id, 'resolveActiveGroup correctly identifies active group during speech');
+  const inactiveBefore = resolveActiveGroup(manifest, -5);
+  assert(inactiveBefore === null, 'resolveActiveGroup returns null for negative frame');
+
+  // 10. Educational Art Direction Theme
+  assert(EDUCATIONAL_THEME.upcoming.color === '#94a3b8', 'Upcoming color is slate-400 (#94a3b8)');
+  assert(EDUCATIONAL_THEME.active.color === '#38bdf8', 'Active color is sky-400 (#38bdf8)');
+  assert(EDUCATIONAL_THEME.spoken.color === '#cbd5e1', 'Spoken color is slate-300 (#cbd5e1)');
+  assert(EDUCATIONAL_THEME.upcoming.transform === 'none', 'Upcoming transform is strictly none');
+  assert(EDUCATIONAL_THEME.active.transform === 'none', 'Active transform is strictly none');
+  assert(EDUCATIONAL_THEME.spoken.transform === 'none', 'Spoken transform is strictly none');
+
+  // 11. React Component Exports
+  assert(typeof KaraokeWord === 'function', 'KaraokeWord is exported React component function');
+  assert(typeof KaraokeLine === 'function', 'KaraokeLine is exported React component function');
+  assert(typeof KaraokeGroup === 'function', 'KaraokeGroup is exported React component function');
+  assert(typeof KaraokeCaptions === 'function', 'KaraokeCaptions is exported React component function');
+}
+
 async function runTestSuite(): Promise<void> {
   const startTime = Date.now();
   console.log('======================================================');
-  console.log(' Milestone 1 Narration Kit Test Suite');
+  console.log(' Milestone 1, 2 & 3 Narration & Caption Kit Test Suite');
   console.log('======================================================');
 
   try {
@@ -314,6 +652,11 @@ async function runTestSuite(): Promise<void> {
     await testKokoroSynthesis();
     await testVoicePresetsSynthesis();
     await testOfflineNetworkGuard();
+    await testNormalizationSubsystem();
+    await testProsodyAndChunkingSubsystem();
+    await testWavPcmUtilities();
+    await testAlignmentSubsystem();
+    await testCaptionsSubsystem();
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
     console.log('\n======================================================');

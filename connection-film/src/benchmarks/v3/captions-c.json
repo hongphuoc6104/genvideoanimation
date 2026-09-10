@@ -1,0 +1,613 @@
+{
+  "version": "1.0.0",
+  "fps": 30,
+  "groups": [
+    {
+      "id": "g0",
+      "startFrame": 1,
+      "endFrame": 37,
+      "startTime": 0.033,
+      "endTime": 1.233,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "Look closely at the data!",
+          "words": [
+            {
+              "id": "w0",
+              "word": "Look",
+              "start": 0.02,
+              "end": 0.16,
+              "startFrame": 1,
+              "endFrame": 5,
+              "cleanWord": "look",
+              "confidence": 0.998,
+              "punctuation": ""
+            },
+            {
+              "id": "w1",
+              "word": "closely",
+              "start": 0.24,
+              "end": 0.6,
+              "startFrame": 7,
+              "endFrame": 18,
+              "cleanWord": "closely",
+              "confidence": 0.982,
+              "punctuation": ""
+            },
+            {
+              "id": "w2",
+              "word": "at",
+              "start": 0.64,
+              "end": 0.7,
+              "startFrame": 19,
+              "endFrame": 21,
+              "cleanWord": "at",
+              "confidence": 0.991,
+              "punctuation": ""
+            },
+            {
+              "id": "w3",
+              "word": "the",
+              "start": 0.741,
+              "end": 0.801,
+              "startFrame": 22,
+              "endFrame": 24,
+              "cleanWord": "the",
+              "confidence": 0.993,
+              "punctuation": ""
+            },
+            {
+              "id": "w4",
+              "word": "data!",
+              "start": 0.841,
+              "end": 1.121,
+              "startFrame": 25,
+              "endFrame": 34,
+              "cleanWord": "data",
+              "confidence": 0.934,
+              "punctuation": "!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g1",
+      "startFrame": 48,
+      "endFrame": 96,
+      "startTime": 1.6,
+      "endTime": 3.2,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "Everything changes in an instant.",
+          "words": [
+            {
+              "id": "w5",
+              "word": "Everything",
+              "start": 1.601,
+              "end": 1.921,
+              "startFrame": 48,
+              "endFrame": 58,
+              "cleanWord": "everything",
+              "confidence": 0.984,
+              "punctuation": ""
+            },
+            {
+              "id": "w6",
+              "word": "changes",
+              "start": 2.041,
+              "end": 2.502,
+              "startFrame": 61,
+              "endFrame": 75,
+              "cleanWord": "changes",
+              "confidence": 0.997,
+              "punctuation": ""
+            },
+            {
+              "id": "w7",
+              "word": "in",
+              "start": 2.582,
+              "end": 2.632,
+              "startFrame": 77,
+              "endFrame": 79,
+              "cleanWord": "in",
+              "confidence": 0.992,
+              "punctuation": ""
+            },
+            {
+              "id": "w8",
+              "word": "an",
+              "start": 2.682,
+              "end": 2.732,
+              "startFrame": 80,
+              "endFrame": 82,
+              "cleanWord": "an",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w9",
+              "word": "instant.",
+              "start": 2.802,
+              "end": 3.162,
+              "startFrame": 84,
+              "endFrame": 95,
+              "cleanWord": "instant",
+              "confidence": 0.965,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2",
+      "startFrame": 106,
+      "endFrame": 194,
+      "startTime": 3.533,
+      "endTime": 6.467,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "While traditional systems hesitate",
+          "words": [
+            {
+              "id": "w10",
+              "word": "While",
+              "start": 3.522,
+              "end": 3.662,
+              "startFrame": 106,
+              "endFrame": 110,
+              "cleanWord": "while",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w11",
+              "word": "traditional",
+              "start": 3.703,
+              "end": 4.103,
+              "startFrame": 111,
+              "endFrame": 123,
+              "cleanWord": "traditional",
+              "confidence": 0.987,
+              "punctuation": ""
+            },
+            {
+              "id": "w12",
+              "word": "systems",
+              "start": 4.183,
+              "end": 4.563,
+              "startFrame": 125,
+              "endFrame": 137,
+              "cleanWord": "systems",
+              "confidence": 0.999,
+              "punctuation": ""
+            },
+            {
+              "id": "w13",
+              "word": "hesitate",
+              "start": 4.643,
+              "end": 5.083,
+              "startFrame": 139,
+              "endFrame": 152,
+              "cleanWord": "hesitate",
+              "confidence": 0.969,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "and wait for confirmation,",
+          "words": [
+            {
+              "id": "w14",
+              "word": "and",
+              "start": 5.264,
+              "end": 5.344,
+              "startFrame": 158,
+              "endFrame": 160,
+              "cleanWord": "and",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w15",
+              "word": "wait",
+              "start": 5.384,
+              "end": 5.564,
+              "startFrame": 162,
+              "endFrame": 167,
+              "cleanWord": "wait",
+              "confidence": 0.908,
+              "punctuation": ""
+            },
+            {
+              "id": "w16",
+              "word": "for",
+              "start": 5.664,
+              "end": 5.744,
+              "startFrame": 170,
+              "endFrame": 172,
+              "cleanWord": "for",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w17",
+              "word": "confirmation,",
+              "start": 5.824,
+              "end": 6.464,
+              "startFrame": 175,
+              "endFrame": 194,
+              "cleanWord": "confirmation",
+              "confidence": 0.96,
+              "punctuation": ","
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g3",
+      "startFrame": 208,
+      "endFrame": 300,
+      "startTime": 6.933,
+      "endTime": 10,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "our reactive distributed",
+          "words": [
+            {
+              "id": "w18",
+              "word": "our",
+              "start": 6.945,
+              "end": 7.025,
+              "startFrame": 208,
+              "endFrame": 211,
+              "cleanWord": "our",
+              "confidence": 0.974,
+              "punctuation": ""
+            },
+            {
+              "id": "w19",
+              "word": "reactive",
+              "start": 7.085,
+              "end": 7.525,
+              "startFrame": 213,
+              "endFrame": 226,
+              "cleanWord": "reactive",
+              "confidence": 0.964,
+              "punctuation": ""
+            },
+            {
+              "id": "w20",
+              "word": "distributed",
+              "start": 7.585,
+              "end": 8.126,
+              "startFrame": 228,
+              "endFrame": 244,
+              "cleanWord": "distributed",
+              "confidence": 0.994,
+              "punctuation": ""
+            }
+          ]
+        },
+        {
+          "text": "architecture responds immediately.",
+          "words": [
+            {
+              "id": "w21",
+              "word": "architecture",
+              "start": 8.226,
+              "end": 8.766,
+              "startFrame": 247,
+              "endFrame": 263,
+              "cleanWord": "architecture",
+              "confidence": 0.983,
+              "punctuation": ""
+            },
+            {
+              "id": "w22",
+              "word": "responds",
+              "start": 8.866,
+              "end": 9.346,
+              "startFrame": 266,
+              "endFrame": 280,
+              "cleanWord": "responds",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w23",
+              "word": "immediately.",
+              "start": 9.446,
+              "end": 9.987,
+              "startFrame": 283,
+              "endFrame": 300,
+              "cleanWord": "immediately",
+              "confidence": 0.999,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g4",
+      "startFrame": 312,
+      "endFrame": 348,
+      "startTime": 10.4,
+      "endTime": 11.6,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "Notice that sudden spike?",
+          "words": [
+            {
+              "id": "w24",
+              "word": "Notice",
+              "start": 10.407,
+              "end": 10.647,
+              "startFrame": 312,
+              "endFrame": 319,
+              "cleanWord": "notice",
+              "confidence": 0.968,
+              "punctuation": ""
+            },
+            {
+              "id": "w25",
+              "word": "that",
+              "start": 10.707,
+              "end": 10.847,
+              "startFrame": 321,
+              "endFrame": 325,
+              "cleanWord": "that",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w26",
+              "word": "sudden",
+              "start": 10.947,
+              "end": 11.208,
+              "startFrame": 328,
+              "endFrame": 336,
+              "cleanWord": "sudden",
+              "confidence": 0.996,
+              "punctuation": ""
+            },
+            {
+              "id": "w27",
+              "word": "spike?",
+              "start": 11.268,
+              "end": 11.588,
+              "startFrame": 338,
+              "endFrame": 348,
+              "cleanWord": "spike",
+              "confidence": 0.997,
+              "punctuation": "?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g5",
+      "startFrame": 360,
+      "endFrame": 416,
+      "startTime": 12,
+      "endTime": 13.867,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "That is where the breakthrough happens.",
+          "words": [
+            {
+              "id": "w28",
+              "word": "That",
+              "start": 11.988,
+              "end": 12.108,
+              "startFrame": 360,
+              "endFrame": 363,
+              "cleanWord": "that",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w29",
+              "word": "is",
+              "start": 12.188,
+              "end": 12.238,
+              "startFrame": 366,
+              "endFrame": 367,
+              "cleanWord": "is",
+              "confidence": 1,
+              "punctuation": ""
+            },
+            {
+              "id": "w30",
+              "word": "where",
+              "start": 12.268,
+              "end": 12.388,
+              "startFrame": 368,
+              "endFrame": 372,
+              "cleanWord": "where",
+              "confidence": 0.998,
+              "punctuation": ""
+            },
+            {
+              "id": "w31",
+              "word": "the",
+              "start": 12.408,
+              "end": 12.489,
+              "startFrame": 372,
+              "endFrame": 375,
+              "cleanWord": "the",
+              "confidence": 0.93,
+              "punctuation": ""
+            },
+            {
+              "id": "w32",
+              "word": "breakthrough",
+              "start": 12.509,
+              "end": 12.909,
+              "startFrame": 375,
+              "endFrame": 387,
+              "cleanWord": "breakthrough",
+              "confidence": 0.969,
+              "punctuation": ""
+            },
+            {
+              "id": "w33",
+              "word": "happens.",
+              "start": 12.949,
+              "end": 13.309,
+              "startFrame": 388,
+              "endFrame": 399,
+              "cleanWord": "happens",
+              "confidence": 0.956,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g6",
+      "startFrame": 416,
+      "endFrame": 451,
+      "startTime": 13.867,
+      "endTime": 15.033,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "Unstoppable performance,",
+          "words": [
+            {
+              "id": "w34",
+              "word": "Unstoppable",
+              "start": 13.769,
+              "end": 14.29,
+              "startFrame": 413,
+              "endFrame": 429,
+              "cleanWord": "unstoppable",
+              "confidence": 0.898,
+              "punctuation": ""
+            },
+            {
+              "id": "w35",
+              "word": "performance,",
+              "start": 14.35,
+              "end": 14.83,
+              "startFrame": 431,
+              "endFrame": 445,
+              "cleanWord": "performance",
+              "confidence": 0.996,
+              "punctuation": ","
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g7",
+      "startFrame": 454,
+      "endFrame": 496,
+      "startTime": 15.133,
+      "endTime": 16.533,
+      "position": "bottom",
+      "box": {
+        "x": 192,
+        "y": 864,
+        "width": 1536,
+        "height": 120
+      },
+      "lines": [
+        {
+          "text": "delivered without compromise.",
+          "words": [
+            {
+              "id": "w36",
+              "word": "delivered",
+              "start": 15.13,
+              "end": 15.551,
+              "startFrame": 454,
+              "endFrame": 467,
+              "cleanWord": "delivered",
+              "confidence": 0.967,
+              "punctuation": ""
+            },
+            {
+              "id": "w37",
+              "word": "without",
+              "start": 15.591,
+              "end": 15.831,
+              "startFrame": 468,
+              "endFrame": 475,
+              "cleanWord": "without",
+              "confidence": 0.986,
+              "punctuation": ""
+            },
+            {
+              "id": "w38",
+              "word": "compromise.",
+              "start": 15.911,
+              "end": 16.491,
+              "startFrame": 477,
+              "endFrame": 495,
+              "cleanWord": "compromise",
+              "confidence": 0.983,
+              "punctuation": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
