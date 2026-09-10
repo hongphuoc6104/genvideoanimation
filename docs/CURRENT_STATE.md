@@ -26,6 +26,18 @@ These are implementation observations and V3.3 commit claims. They are not indep
 
 ## Independent review status
 
-Independent review is pending. The user supplied `final-v3_3.mp4` and `mobile-preview-360x640.mp4`; visual, temporal, audio, caption, portability, and source-coverage QA are in progress. Until that review is complete, do not certify V3.3, assign a production score, or treat historical benchmark scores in `README.md` as current acceptance.
+**Disposition: NOT_ACCEPTED (2026-09-10).**
 
-The acceptance gate remains the actual final MP4 plus the mobile preview, with boundary and audio review and the required semantic timeline, ShotSpec, audio manifest, QA report, and 100% source-content coverage evidence.
+The latest audit found that the full and mobile outputs contain different content at the same sampled frame. The full render shows improved sequential disclosure and caption clearance, but small body text remains in the full-derived 360px view; unmotivated fades and internal overlap around 70.4–70.8 also remain. Errors observed in the supplied mobile output cannot be applied to the full render.
+
+The preview rubric CLI audit independently confirmed that its 5.00/5.00 evidence is synthetic: the CLI evaluates fixed generated RGB buffers rather than decoding the supplied MP4. The narration audit confirmed that an omitted voice defaults to `am_adam`, which routes to Kokoro and is unsafe for the Vietnamese-first VieNeu policy.
+
+Correct media metadata recorded for this audit:
+
+- Full video (`final-v3_3.mp4`): 103.200 seconds, 3,096 frames, 30 fps, 1080×1920.
+- Full container/audio duration: 103.253 seconds.
+- Mobile preview (`mobile-preview-360x640.mp4`): 360×640.
+
+Audit limits: dense frame samples, full decoded metrics, and source audit were completed. Continuous 1× viewing/listening was not completed, and the full runtime validator suite was not rerun. Do not claim complete independent human review or fixes.
+
+The acceptance gate remains the actual final MP4 plus the mobile preview, with boundary and audio review and the required semantic timeline, ShotSpec, audio manifest, QA report, and 100% source-content coverage evidence. Current disposition is **NOT_ACCEPTED** pending corrective work and a fresh independent review.
