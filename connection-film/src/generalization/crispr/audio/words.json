@@ -1,0 +1,2354 @@
+[
+  {
+    "word": "Chỉ",
+    "start": 0.0,
+    "end": 0.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "một",
+    "start": 0.233,
+    "end": 0.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "sai",
+    "start": 0.433,
+    "end": 0.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "sót",
+    "start": 0.667,
+    "end": 0.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "đơn",
+    "start": 0.9,
+    "end": 1.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "lẻ",
+    "start": 1.1,
+    "end": 1.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "trong",
+    "start": 1.333,
+    "end": 1.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "hàng",
+    "start": 1.567,
+    "end": 1.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "tỷ",
+    "start": 1.767,
+    "end": 2.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "ký",
+    "start": 2.0,
+    "end": 2.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "tự",
+    "start": 2.2,
+    "end": 2.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "mã",
+    "start": 2.433,
+    "end": 2.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "di",
+    "start": 2.667,
+    "end": 2.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "truyền",
+    "start": 2.867,
+    "end": 3.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "DNA",
+    "start": 3.1,
+    "end": 3.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "có",
+    "start": 3.333,
+    "end": 3.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "thể",
+    "start": 3.533,
+    "end": 3.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "gây",
+    "start": 3.767,
+    "end": 4.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "ra",
+    "start": 4.0,
+    "end": 4.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "những",
+    "start": 4.2,
+    "end": 4.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "căn",
+    "start": 4.433,
+    "end": 4.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "bệnh",
+    "start": 4.667,
+    "end": 4.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "hiểm",
+    "start": 4.867,
+    "end": 5.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "nghèo",
+    "start": 5.1,
+    "end": 5.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "như",
+    "start": 5.333,
+    "end": 5.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "thiếu",
+    "start": 5.533,
+    "end": 5.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "máu",
+    "start": 5.767,
+    "end": 5.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "hồng",
+    "start": 5.967,
+    "end": 6.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "cầu",
+    "start": 6.2,
+    "end": 6.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "hình",
+    "start": 6.433,
+    "end": 6.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "liềm",
+    "start": 6.633,
+    "end": 6.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "hay",
+    "start": 6.867,
+    "end": 7.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "ung",
+    "start": 7.1,
+    "end": 7.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "thư.",
+    "start": 7.3,
+    "end": 7.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "Thế",
+    "start": 7.533,
+    "end": 7.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhưng",
+    "start": 7.767,
+    "end": 8.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "các",
+    "start": 8.033,
+    "end": 8.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "công",
+    "start": 8.267,
+    "end": 8.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "cụ",
+    "start": 8.533,
+    "end": 8.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "chỉnh",
+    "start": 8.767,
+    "end": 9.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "sửa",
+    "start": 9.0,
+    "end": 9.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "truyền",
+    "start": 9.267,
+    "end": 9.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "thống",
+    "start": 9.5,
+    "end": 9.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "như",
+    "start": 9.767,
+    "end": 10.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "ZFN",
+    "start": 10.0,
+    "end": 10.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "hay",
+    "start": 10.233,
+    "end": 10.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "TALEN",
+    "start": 10.5,
+    "end": 10.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "lại",
+    "start": 10.733,
+    "end": 11.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "quá",
+    "start": 11.0,
+    "end": 11.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "cồng",
+    "start": 11.233,
+    "end": 11.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "kềnh,",
+    "start": 11.467,
+    "end": 11.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "chi",
+    "start": 11.733,
+    "end": 11.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "phí",
+    "start": 11.967,
+    "end": 12.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "đắt",
+    "start": 12.233,
+    "end": 12.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "đỏ",
+    "start": 12.467,
+    "end": 12.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "và",
+    "start": 12.7,
+    "end": 12.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "nguy",
+    "start": 12.967,
+    "end": 13.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "cơ",
+    "start": 13.2,
+    "end": 13.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "cắt",
+    "start": 13.467,
+    "end": 13.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "chệch",
+    "start": 13.7,
+    "end": 13.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "mục",
+    "start": 13.933,
+    "end": 14.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "tiêu",
+    "start": 14.2,
+    "end": 14.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "rất",
+    "start": 14.433,
+    "end": 14.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "cao.",
+    "start": 14.7,
+    "end": 14.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "Trong",
+    "start": 14.933,
+    "end": 15.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "tự",
+    "start": 15.2,
+    "end": 15.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhiên,",
+    "start": 15.467,
+    "end": 15.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "vi",
+    "start": 15.7,
+    "end": 15.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "khuẩn",
+    "start": 15.967,
+    "end": 16.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "đã",
+    "start": 16.233,
+    "end": 16.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "phát",
+    "start": 16.5,
+    "end": 16.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "triển",
+    "start": 16.767,
+    "end": 17.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "một",
+    "start": 17.0,
+    "end": 17.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "hệ",
+    "start": 17.267,
+    "end": 17.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "thống",
+    "start": 17.533,
+    "end": 17.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "miễn",
+    "start": 17.8,
+    "end": 18.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "dịch",
+    "start": 18.067,
+    "end": 18.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "tinh",
+    "start": 18.3,
+    "end": 18.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "vi",
+    "start": 18.567,
+    "end": 18.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "mang",
+    "start": 18.833,
+    "end": 19.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "tên",
+    "start": 19.1,
+    "end": 19.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "CRISPR,",
+    "start": 19.333,
+    "end": 19.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "giúp",
+    "start": 19.6,
+    "end": 19.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "ghi",
+    "start": 19.867,
+    "end": 20.133,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhớ",
+    "start": 20.133,
+    "end": 20.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "các",
+    "start": 20.4,
+    "end": 20.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "đoạn",
+    "start": 20.633,
+    "end": 20.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "mã",
+    "start": 20.9,
+    "end": 21.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "của",
+    "start": 21.167,
+    "end": 21.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "virus",
+    "start": 21.433,
+    "end": 21.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "để",
+    "start": 21.7,
+    "end": 21.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "tiêu",
+    "start": 21.933,
+    "end": 22.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "diệt",
+    "start": 22.2,
+    "end": 22.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "chúng",
+    "start": 22.467,
+    "end": 22.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "khi",
+    "start": 22.733,
+    "end": 23.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "tái",
+    "start": 23.0,
+    "end": 23.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "xâm",
+    "start": 23.233,
+    "end": 23.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhập.",
+    "start": 23.5,
+    "end": 23.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "Đột",
+    "start": 23.767,
+    "end": 24.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "phá",
+    "start": 24.033,
+    "end": 24.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "xuất",
+    "start": 24.267,
+    "end": 24.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "hiện",
+    "start": 24.533,
+    "end": 24.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "khi",
+    "start": 24.767,
+    "end": 25.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "các",
+    "start": 25.033,
+    "end": 25.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhà",
+    "start": 25.267,
+    "end": 25.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "khoa",
+    "start": 25.533,
+    "end": 25.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "học",
+    "start": 25.767,
+    "end": 26.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "kết",
+    "start": 26.033,
+    "end": 26.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "hợp",
+    "start": 26.267,
+    "end": 26.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "enzyme",
+    "start": 26.533,
+    "end": 26.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "Cas9",
+    "start": 26.767,
+    "end": 27.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "với",
+    "start": 27.033,
+    "end": 27.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "một",
+    "start": 27.267,
+    "end": 27.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "thanh",
+    "start": 27.533,
+    "end": 27.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "RNA",
+    "start": 27.767,
+    "end": 28.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "dẫn",
+    "start": 28.033,
+    "end": 28.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "đường",
+    "start": 28.267,
+    "end": 28.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhân",
+    "start": 28.533,
+    "end": 28.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "tạo,",
+    "start": 28.767,
+    "end": 29.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "tạo",
+    "start": 29.033,
+    "end": 29.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "thành",
+    "start": 29.267,
+    "end": 29.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "chiếc",
+    "start": 29.533,
+    "end": 29.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "kéo",
+    "start": 29.767,
+    "end": 30.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "sinh",
+    "start": 30.033,
+    "end": 30.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "học",
+    "start": 30.267,
+    "end": 30.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "đa",
+    "start": 30.533,
+    "end": 30.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "năng",
+    "start": 30.767,
+    "end": 31.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "có",
+    "start": 31.033,
+    "end": 31.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "thể",
+    "start": 31.267,
+    "end": 31.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "lập",
+    "start": 31.533,
+    "end": 31.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "trình.",
+    "start": 31.767,
+    "end": 32.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "Phức",
+    "start": 32.033,
+    "end": 32.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "hợp",
+    "start": 32.333,
+    "end": 32.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "Cas9",
+    "start": 32.633,
+    "end": 32.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "liên",
+    "start": 32.967,
+    "end": 33.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "tục",
+    "start": 33.267,
+    "end": 33.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "trượt",
+    "start": 33.567,
+    "end": 33.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "tuần",
+    "start": 33.867,
+    "end": 34.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "tra",
+    "start": 34.167,
+    "end": 34.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "dọc",
+    "start": 34.467,
+    "end": 34.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "chuỗi",
+    "start": 34.8,
+    "end": 35.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "xoắn",
+    "start": 35.1,
+    "end": 35.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "kép",
+    "start": 35.4,
+    "end": 35.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "DNA,",
+    "start": 35.7,
+    "end": 36.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "quét",
+    "start": 36.0,
+    "end": 36.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "tìm",
+    "start": 36.3,
+    "end": 36.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "một",
+    "start": 36.633,
+    "end": 36.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "đoạn",
+    "start": 36.933,
+    "end": 37.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "mã",
+    "start": 37.233,
+    "end": 37.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhận",
+    "start": 37.533,
+    "end": 37.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "diện",
+    "start": 37.833,
+    "end": 38.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "đặc",
+    "start": 38.167,
+    "end": 38.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "biệt",
+    "start": 38.467,
+    "end": 38.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "gọi",
+    "start": 38.767,
+    "end": 39.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "là",
+    "start": 39.067,
+    "end": 39.367,
+    "confidence": 0.95
+  },
+  {
+    "word": "motif",
+    "start": 39.367,
+    "end": 39.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "PAM,",
+    "start": 39.667,
+    "end": 40.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "với",
+    "start": 40.0,
+    "end": 40.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "trình",
+    "start": 40.3,
+    "end": 40.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "tự",
+    "start": 40.6,
+    "end": 40.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "năm",
+    "start": 40.9,
+    "end": 41.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "phẩy",
+    "start": 41.2,
+    "end": 41.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "N-G-G",
+    "start": 41.5,
+    "end": 41.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "ba",
+    "start": 41.833,
+    "end": 42.133,
+    "confidence": 0.95
+  },
+  {
+    "word": "phẩy.",
+    "start": 42.133,
+    "end": 42.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "Khi",
+    "start": 42.433,
+    "end": 42.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhận",
+    "start": 42.7,
+    "end": 42.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "diện",
+    "start": 42.933,
+    "end": 43.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "chính",
+    "start": 43.2,
+    "end": 43.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "xác",
+    "start": 43.467,
+    "end": 43.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "motif",
+    "start": 43.7,
+    "end": 43.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "PAM,",
+    "start": 43.967,
+    "end": 44.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "Cas9",
+    "start": 44.2,
+    "end": 44.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "bám",
+    "start": 44.467,
+    "end": 44.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "chặt",
+    "start": 44.733,
+    "end": 44.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "như",
+    "start": 44.967,
+    "end": 45.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "một",
+    "start": 45.233,
+    "end": 45.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "chiếc",
+    "start": 45.467,
+    "end": 45.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "mỏ",
+    "start": 45.733,
+    "end": 46.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "neo",
+    "start": 46.0,
+    "end": 46.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "phân",
+    "start": 46.233,
+    "end": 46.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "tử,",
+    "start": 46.5,
+    "end": 46.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "kích",
+    "start": 46.767,
+    "end": 47.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoạt",
+    "start": 47.0,
+    "end": 47.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "biến",
+    "start": 47.267,
+    "end": 47.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "đổi",
+    "start": 47.533,
+    "end": 47.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "hình",
+    "start": 47.767,
+    "end": 48.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "thể",
+    "start": 48.033,
+    "end": 48.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "để",
+    "start": 48.267,
+    "end": 48.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "bắt",
+    "start": 48.533,
+    "end": 48.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "đầu",
+    "start": 48.8,
+    "end": 49.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "tách",
+    "start": 49.033,
+    "end": 49.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "mở",
+    "start": 49.3,
+    "end": 49.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "hai",
+    "start": 49.533,
+    "end": 49.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "sợi",
+    "start": 49.8,
+    "end": 50.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "xoắn",
+    "start": 50.067,
+    "end": 50.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "DNA.",
+    "start": 50.3,
+    "end": 50.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "Thanh",
+    "start": 50.567,
+    "end": 50.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "RNA",
+    "start": 50.8,
+    "end": 51.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "dẫn",
+    "start": 51.067,
+    "end": 51.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "đường",
+    "start": 51.3,
+    "end": 51.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "len",
+    "start": 51.533,
+    "end": 51.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "vào",
+    "start": 51.8,
+    "end": 52.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "giữa,",
+    "start": 52.033,
+    "end": 52.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "dò",
+    "start": 52.3,
+    "end": 52.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "tìm",
+    "start": 52.533,
+    "end": 52.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "hai",
+    "start": 52.767,
+    "end": 53.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "mươi",
+    "start": 53.033,
+    "end": 53.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "nucleotide",
+    "start": 53.267,
+    "end": 53.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "bổ",
+    "start": 53.533,
+    "end": 53.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "sung.",
+    "start": 53.767,
+    "end": 54.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "Khi",
+    "start": 54.0,
+    "end": 54.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "khớp",
+    "start": 54.267,
+    "end": 54.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoàn",
+    "start": 54.5,
+    "end": 54.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "toàn,",
+    "start": 54.733,
+    "end": 55.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "cấu",
+    "start": 55.0,
+    "end": 55.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "trúc",
+    "start": 55.233,
+    "end": 55.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "vòng",
+    "start": 55.467,
+    "end": 55.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "lai",
+    "start": 55.733,
+    "end": 55.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "R-loop",
+    "start": 55.967,
+    "end": 56.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "hình",
+    "start": 56.233,
+    "end": 56.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "thành,",
+    "start": 56.467,
+    "end": 56.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "khóa",
+    "start": 56.7,
+    "end": 56.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "chặt",
+    "start": 56.967,
+    "end": 57.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "mục",
+    "start": 57.2,
+    "end": 57.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "tiêu",
+    "start": 57.467,
+    "end": 57.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "vào",
+    "start": 57.7,
+    "end": 57.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "vị",
+    "start": 57.933,
+    "end": 58.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "trí.",
+    "start": 58.2,
+    "end": 58.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "Sự",
+    "start": 58.433,
+    "end": 58.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "bắt",
+    "start": 58.7,
+    "end": 59.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "cặp",
+    "start": 59.0,
+    "end": 59.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "chuẩn",
+    "start": 59.267,
+    "end": 59.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "xác",
+    "start": 59.567,
+    "end": 59.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "kích",
+    "start": 59.833,
+    "end": 60.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoạt",
+    "start": 60.1,
+    "end": 60.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "hai",
+    "start": 60.4,
+    "end": 60.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "lưỡi",
+    "start": 60.667,
+    "end": 60.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "kéo",
+    "start": 60.967,
+    "end": 61.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "phân",
+    "start": 61.233,
+    "end": 61.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "tử",
+    "start": 61.5,
+    "end": 61.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "bên",
+    "start": 61.8,
+    "end": 62.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "trong",
+    "start": 62.067,
+    "end": 62.367,
+    "confidence": 0.95
+  },
+  {
+    "word": "Cas9:",
+    "start": 62.367,
+    "end": 62.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "miền",
+    "start": 62.633,
+    "end": 62.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "H-N-H",
+    "start": 62.9,
+    "end": 63.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "cắt",
+    "start": 63.2,
+    "end": 63.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "sợi",
+    "start": 63.467,
+    "end": 63.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "đối",
+    "start": 63.733,
+    "end": 64.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "mã,",
+    "start": 64.033,
+    "end": 64.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "trong",
+    "start": 64.3,
+    "end": 64.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "khi",
+    "start": 64.6,
+    "end": 64.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "miền",
+    "start": 64.867,
+    "end": 65.133,
+    "confidence": 0.95
+  },
+  {
+    "word": "RuvC",
+    "start": 65.133,
+    "end": 65.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "chịu",
+    "start": 65.433,
+    "end": 65.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "trách",
+    "start": 65.7,
+    "end": 66.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "nhiệm",
+    "start": 66.0,
+    "end": 66.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "cắt",
+    "start": 66.267,
+    "end": 66.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "sợi",
+    "start": 66.533,
+    "end": 66.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "không",
+    "start": 66.833,
+    "end": 67.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "liên",
+    "start": 67.1,
+    "end": 67.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "kết.",
+    "start": 67.4,
+    "end": 67.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "Hai",
+    "start": 67.667,
+    "end": 67.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "vết",
+    "start": 67.933,
+    "end": 68.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "cắt",
+    "start": 68.167,
+    "end": 68.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "diễn",
+    "start": 68.433,
+    "end": 68.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "ra",
+    "start": 68.667,
+    "end": 68.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "chính",
+    "start": 68.933,
+    "end": 69.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "xác",
+    "start": 69.167,
+    "end": 69.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "ba",
+    "start": 69.433,
+    "end": 69.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "cặp",
+    "start": 69.667,
+    "end": 69.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "base",
+    "start": 69.933,
+    "end": 70.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "phía",
+    "start": 70.167,
+    "end": 70.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "trước",
+    "start": 70.433,
+    "end": 70.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "motif",
+    "start": 70.667,
+    "end": 70.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "PAM,",
+    "start": 70.933,
+    "end": 71.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "tạo",
+    "start": 71.167,
+    "end": 71.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "thành",
+    "start": 71.433,
+    "end": 71.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "vết",
+    "start": 71.7,
+    "end": 71.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "đứt",
+    "start": 71.933,
+    "end": 72.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "gãy",
+    "start": 72.2,
+    "end": 72.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "sợi",
+    "start": 72.433,
+    "end": 72.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "đôi",
+    "start": 72.7,
+    "end": 72.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "DNA",
+    "start": 72.933,
+    "end": 73.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoàn",
+    "start": 73.2,
+    "end": 73.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "toàn,",
+    "start": 73.433,
+    "end": 73.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "bẻ",
+    "start": 73.7,
+    "end": 73.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "khóa",
+    "start": 73.933,
+    "end": 74.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "cấu",
+    "start": 74.2,
+    "end": 74.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "trúc",
+    "start": 74.433,
+    "end": 74.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "di",
+    "start": 74.7,
+    "end": 74.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "truyền.",
+    "start": 74.933,
+    "end": 75.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "Tế",
+    "start": 75.2,
+    "end": 75.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "bào",
+    "start": 75.433,
+    "end": 75.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "lập",
+    "start": 75.633,
+    "end": 75.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "tức",
+    "start": 75.867,
+    "end": 76.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "kích",
+    "start": 76.067,
+    "end": 76.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoạt",
+    "start": 76.3,
+    "end": 76.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "cơ",
+    "start": 76.5,
+    "end": 76.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "chế",
+    "start": 76.733,
+    "end": 76.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "nối",
+    "start": 76.933,
+    "end": 77.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "đầu",
+    "start": 77.167,
+    "end": 77.367,
+    "confidence": 0.95
+  },
+  {
+    "word": "không",
+    "start": 77.367,
+    "end": 77.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "tương",
+    "start": 77.6,
+    "end": 77.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "đồng",
+    "start": 77.8,
+    "end": 78.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "để",
+    "start": 78.033,
+    "end": 78.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "hàn",
+    "start": 78.233,
+    "end": 78.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "gắn",
+    "start": 78.467,
+    "end": 78.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "thô",
+    "start": 78.667,
+    "end": 78.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "sơ,",
+    "start": 78.9,
+    "end": 79.133,
+    "confidence": 0.95
+  },
+  {
+    "word": "tạo",
+    "start": 79.133,
+    "end": 79.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "ra",
+    "start": 79.333,
+    "end": 79.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "các",
+    "start": 79.567,
+    "end": 79.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "đột",
+    "start": 79.767,
+    "end": 80.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "biến",
+    "start": 80.0,
+    "end": 80.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "mất",
+    "start": 80.2,
+    "end": 80.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "đoạn",
+    "start": 80.433,
+    "end": 80.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "giúp",
+    "start": 80.633,
+    "end": 80.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "bất",
+    "start": 80.867,
+    "end": 81.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoạt",
+    "start": 81.067,
+    "end": 81.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "hoàn",
+    "start": 81.3,
+    "end": 81.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "toàn",
+    "start": 81.5,
+    "end": 81.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "các",
+    "start": 81.733,
+    "end": 81.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "gen",
+    "start": 81.933,
+    "end": 82.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "gây",
+    "start": 82.167,
+    "end": 82.367,
+    "confidence": 0.95
+  },
+  {
+    "word": "bệnh.",
+    "start": 82.367,
+    "end": 82.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "Hoặc",
+    "start": 82.6,
+    "end": 82.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "khi",
+    "start": 82.833,
+    "end": 83.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "được",
+    "start": 83.067,
+    "end": 83.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "cung",
+    "start": 83.3,
+    "end": 83.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "cấp",
+    "start": 83.533,
+    "end": 83.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "thêm",
+    "start": 83.767,
+    "end": 84.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "một",
+    "start": 84.0,
+    "end": 84.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "đoạn",
+    "start": 84.233,
+    "end": 84.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "DNA",
+    "start": 84.467,
+    "end": 84.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "mẫu",
+    "start": 84.7,
+    "end": 84.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "lành",
+    "start": 84.933,
+    "end": 85.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "lặn,",
+    "start": 85.167,
+    "end": 85.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "tế",
+    "start": 85.4,
+    "end": 85.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "bào",
+    "start": 85.633,
+    "end": 85.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "sẽ",
+    "start": 85.867,
+    "end": 86.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "sử",
+    "start": 86.1,
+    "end": 86.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "dụng",
+    "start": 86.333,
+    "end": 86.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "cơ",
+    "start": 86.6,
+    "end": 86.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "chế",
+    "start": 86.833,
+    "end": 87.067,
+    "confidence": 0.95
+  },
+  {
+    "word": "sửa",
+    "start": 87.067,
+    "end": 87.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "chữa",
+    "start": 87.3,
+    "end": 87.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "tương",
+    "start": 87.533,
+    "end": 87.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "đồng",
+    "start": 87.767,
+    "end": 88.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "để",
+    "start": 88.0,
+    "end": 88.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "chèn",
+    "start": 88.233,
+    "end": 88.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "chính",
+    "start": 88.467,
+    "end": 88.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "xác",
+    "start": 88.7,
+    "end": 88.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "chuỗi",
+    "start": 88.933,
+    "end": 89.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "gen",
+    "start": 89.167,
+    "end": 89.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "mới",
+    "start": 89.4,
+    "end": 89.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "không",
+    "start": 89.633,
+    "end": 89.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "tì",
+    "start": 89.867,
+    "end": 90.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "vết.",
+    "start": 90.1,
+    "end": 90.333,
+    "confidence": 0.95
+  },
+  {
+    "word": "Từ",
+    "start": 90.333,
+    "end": 90.6,
+    "confidence": 0.95
+  },
+  {
+    "word": "cơ",
+    "start": 90.6,
+    "end": 90.867,
+    "confidence": 0.95
+  },
+  {
+    "word": "chế",
+    "start": 90.867,
+    "end": 91.133,
+    "confidence": 0.95
+  },
+  {
+    "word": "sinh",
+    "start": 91.133,
+    "end": 91.4,
+    "confidence": 0.95
+  },
+  {
+    "word": "học",
+    "start": 91.4,
+    "end": 91.667,
+    "confidence": 0.95
+  },
+  {
+    "word": "vi",
+    "start": 91.667,
+    "end": 91.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "mô,",
+    "start": 91.933,
+    "end": 92.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "CRISPR-Cas9",
+    "start": 92.2,
+    "end": 92.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "đã",
+    "start": 92.467,
+    "end": 92.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "mở",
+    "start": 92.7,
+    "end": 92.967,
+    "confidence": 0.95
+  },
+  {
+    "word": "ra",
+    "start": 92.967,
+    "end": 93.233,
+    "confidence": 0.95
+  },
+  {
+    "word": "kỷ",
+    "start": 93.233,
+    "end": 93.5,
+    "confidence": 0.95
+  },
+  {
+    "word": "nguyên",
+    "start": 93.5,
+    "end": 93.767,
+    "confidence": 0.95
+  },
+  {
+    "word": "mới",
+    "start": 93.767,
+    "end": 94.033,
+    "confidence": 0.95
+  },
+  {
+    "word": "của",
+    "start": 94.033,
+    "end": 94.3,
+    "confidence": 0.95
+  },
+  {
+    "word": "y",
+    "start": 94.3,
+    "end": 94.567,
+    "confidence": 0.95
+  },
+  {
+    "word": "học",
+    "start": 94.567,
+    "end": 94.833,
+    "confidence": 0.95
+  },
+  {
+    "word": "chính",
+    "start": 94.833,
+    "end": 95.1,
+    "confidence": 0.95
+  },
+  {
+    "word": "xác,",
+    "start": 95.1,
+    "end": 95.367,
+    "confidence": 0.95
+  },
+  {
+    "word": "trao",
+    "start": 95.367,
+    "end": 95.633,
+    "confidence": 0.95
+  },
+  {
+    "word": "cho",
+    "start": 95.633,
+    "end": 95.9,
+    "confidence": 0.95
+  },
+  {
+    "word": "con",
+    "start": 95.9,
+    "end": 96.167,
+    "confidence": 0.95
+  },
+  {
+    "word": "người",
+    "start": 96.167,
+    "end": 96.433,
+    "confidence": 0.95
+  },
+  {
+    "word": "khả",
+    "start": 96.433,
+    "end": 96.7,
+    "confidence": 0.95
+  },
+  {
+    "word": "năng",
+    "start": 96.7,
+    "end": 96.933,
+    "confidence": 0.95
+  },
+  {
+    "word": "sửa",
+    "start": 96.933,
+    "end": 97.2,
+    "confidence": 0.95
+  },
+  {
+    "word": "chữa",
+    "start": 97.2,
+    "end": 97.467,
+    "confidence": 0.95
+  },
+  {
+    "word": "bản",
+    "start": 97.467,
+    "end": 97.733,
+    "confidence": 0.95
+  },
+  {
+    "word": "thiết",
+    "start": 97.733,
+    "end": 98.0,
+    "confidence": 0.95
+  },
+  {
+    "word": "kế",
+    "start": 98.0,
+    "end": 98.267,
+    "confidence": 0.95
+  },
+  {
+    "word": "của",
+    "start": 98.267,
+    "end": 98.533,
+    "confidence": 0.95
+  },
+  {
+    "word": "sự",
+    "start": 98.533,
+    "end": 98.8,
+    "confidence": 0.95
+  },
+  {
+    "word": "sống.",
+    "start": 98.8,
+    "end": 99.067,
+    "confidence": 0.95
+  }
+]

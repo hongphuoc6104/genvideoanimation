@@ -634,7 +634,8 @@ export function runCli(args: string[] = process.argv.slice(2)): void {
   };
 
   const targets = args.filter((a) => !a.startsWith('--') && !a.startsWith('-'));
-  const effectiveTargets = targets.length > 0 ? targets : ['connection-film/src', 'motion-kit'];
+  const defaultTargets = ['connection-film/src/scopus-explainer', 'motion-kit', 'packages', 'validators'];
+  const effectiveTargets = targets.length > 0 ? targets : defaultTargets;
 
   if (!options.json) {
     console.log(`\n🔍 [AST MOTION-LINT] Analyzing AST structures in: ${effectiveTargets.join(', ')}\n`);

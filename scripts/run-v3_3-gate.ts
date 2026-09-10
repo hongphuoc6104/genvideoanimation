@@ -124,23 +124,7 @@ const GATES: GateStep[] = [
     id: 'G14-generalization',
     name: 'Generalization Proof (3 Unseen Mini-Projects Gate)',
     command: 'npx',
-    args: [
-      'tsx',
-      '-e',
-      `
-const { validateSourceCoverage } = require('./validators/validate-source-coverage');
-const { parseShotSpec, validateShotSpecData } = require('./validators/validate-shot-spec');
-const projects = ['mini-projects/science-mechanism', 'mini-projects/historical-process', 'mini-projects/tech-tutorial'];
-for (const p of projects) {
-  const cov = validateSourceCoverage(p + '/source-content-map.json', p + '/semantic-timeline.json');
-  if (!cov.passed) { console.error('Generalization failed on coverage:', p, cov.violations); process.exit(1); }
-  const shotData = parseShotSpec(p + '/shot-spec.json');
-  const shot = validateShotSpecData(shotData);
-  if (!shot.valid) { console.error('Generalization failed on shotSpec:', p, shot.errors); process.exit(1); }
-}
-console.log('✅ All 3 unseen mini-projects passed Generalization Proof.');
-      `,
-    ],
+    args: ['tsx', 'validators/validate-generalization.ts'],
   },
 ];
 

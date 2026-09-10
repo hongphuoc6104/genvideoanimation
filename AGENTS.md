@@ -34,20 +34,21 @@ This document governs multi-agent collaboration, architectural boundaries, accep
 ### Tier 1: Creative & Implementation Agents
 Tier 1 agents own the generation and authoring of candidate artifacts. They are strictly prohibited from evaluating, grading, or issuing QA acceptance tokens for their own deliverables.
 
-- **Director**: Oversees narrative coherence, visual metaphor continuity, scene transitions, and educational clarity across the film.
-- **Content Architect**: Deconstructs raw curriculum documents into atomic pedagogical units (`source-content-map.json`), drafts narration scripts, and compiles `semantic-timeline.json`.
-- **Audio DSP Agent**: Synthesizes spoken narration using local VieNeu-TTS (`GENVIDEO_ADAM_PROFILE`, voice `"Adam"`), applies role-aware pause envelopes, aligns phonemes, and produces the `PREMIXED` master stereo WAV file (`scopus_master_audio.wav`).
-- **Art & Rig Agent**: Authors scalable flat-vector SVG components, character rigs, academic design tokens, and ensures 1080x1920 mobile viewport compliance.
+- **Director**: Oversees narrative coherence, visual metaphor continuity, scene transitions, and pedagogical clarity across the film. Enforces that every beat communicates meaning through visual transformation, not static text cards.
+- **Content Architect**: Deconstructs raw curriculum documents into structured pedagogical units via **Curriculum Modular Mapping** (`source-content-map.json`: `IN_SCOPE_PRIMARY`, `PREREQUISITE`, `DEFERRED_TO_SERIES`). Co-authors narration scripts alongside visual storyboard contracts, compiling `semantic-timeline.json`.
+- **Audio DSP Agent**: Synthesizes spoken narration using local VieNeu-TTS (`GENVIDEO_ADAM_PROFILE`, voice `"Adam"`) with Smart Punctuation preservation, inserts physical PCM silence pauses (200-400ms) directly into master audio, aligns phonemes, and produces the `PREMIXED` master stereo WAV file (`scopus_master_audio.wav`).
+- **Art & Rig Agent**: Authors scalable flat-vector SVG components, character rigs, academic design tokens, and ensures 1080x1920 mobile viewport compliance with active kinetic rigging (no decorative passive characters).
 - **Motion & Shot Agent**: Authors Remotion TSX compositions, applies `motion-kit` spring/tween physics, orchestrates progressive disclosure beats, declares shot bounds and transitions in `shot-spec.json`, and mounts master audio via a single root `<Audio>` tag.
 
 ### Tier 2: Independent Verification & QA Gates
 Tier 2 agents own automated and independent verification. They possess sole authority to evaluate deliverables against acceptance criteria and sign `qa-report.json`.
 
 - **Static AST Validator**: Traverses production TypeScript ASTs to verify effective typography scaling (Font * scale >= threshold), checks workspace path portability (zero absolute paths), and enforces single `<Audio>` tag ownership.
+- **Visual Semantics & Anti-Card Gate**: Traverses TSX scene ASTs (`validate-visual-semantics.ts`) to reject text-card / slide monoculture, demanding animated relational mechanisms (nodes/edges, SVG geometric funnels, state machines).
 - **Acoustic Gate**: Inspects physical WAV binary headers (`parseWavHeader`), verifies sample rate (48kHz), channels (2), bit depth (16), evaluates EBU R128 loudness (-15.0 ± 1.0 LUFS, peak <= -1.8 dBTP), and verifies pause compliance.
-- **Temporal QA Gate**: Decodes rendered MP4 video frames to compute frame-to-frame pixel differences (MAD), flags unmotivated visual spikes, and confirms that preview MP4 maintains PSNR parity (>= 35 dB) with master MP4.
-- **Independent Reviewer**: Executes automated visual rubric inspection on real decoded RGB24 frames from `preview-360x640.mp4` via FFmpeg pipe (zero synthetic `Buffer.alloc` fallbacks).
-- **Adversarial Challenger**: Executes the suite of 12+ deliberate negative fixtures against validators to prove 100% defect rejection rate and 0% false positives.
+- **Temporal QA & Parity Gate**: Decodes rendered MP4 video frames to compute frame-to-frame pixel differences (MAD), flags unmotivated visual spikes, and confirms that preview MP4 maintains PSNR parity (>= 35 dB) with master MP4.
+- **Storyboard Contact Sheet & Rubric Reviewer**: Traces 3 keyframes (Start, Mid, End) per beat (`extract-contact-sheet.ts`) and executes automated visual rubric inspection on real decoded RGB24 frames from `preview-360x640.mp4` via FFmpeg pipe (zero synthetic `Buffer.alloc` fallbacks).
+- **Generalization & Adversarial Challenger**: Executes the suite of 12+ deliberate negative fixtures and validates 100% compliance across 3 real production explainer videos (`validate-generalization.ts`).
 - **Forensic Auditor**: Conducts the authoritative 18-category quality rubric audit, verifies that Tier 1 agents have not tampered with gate thresholds, and issues the signed `qa-report.json`.
 
 ---

@@ -1,0 +1,99 @@
+{
+  "voice": {
+    "voice": "Adam",
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "outputDir": "mini-projects/science-mechanism/audio",
+  "masterVoiceover": "master_audio_mono.wav",
+  "lines": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Chỉ một sai sót đơn lẻ trong hàng tỷ ký tự mã di truyền DNA có thể gây ra những căn bệnh hiểm nghèo như thiếu máu hồng cầu hình liềm hay ung thư."
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.04,
+      "pauseAfter": 0.30,
+      "spoken": "Thế nhưng các công cụ chỉnh sửa truyền thống như ZFN hay TALEN lại quá cồng kềnh, chi phí đắt đỏ và nguy cơ cắt chệch mục tiêu rất cao."
+    },
+    {
+      "id": 3,
+      "role": "evidence",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Trong tự nhiên, vi khuẩn đã phát triển một hệ thống miễn dịch tinh vi mang tên CRISPR, giúp ghi nhớ các đoạn mã của virus để tiêu diệt chúng khi tái xâm nhập."
+    },
+    {
+      "id": 4,
+      "role": "turn",
+      "speed": 1.04,
+      "pauseAfter": 0.30,
+      "spoken": "Đột phá xuất hiện khi các nhà khoa học kết hợp enzyme Cas9 với một thanh RNA dẫn đường nhân tạo, tạo thành chiếc kéo sinh học đa năng có thể lập trình."
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "spoken": "Phức hợp Cas9 liên tục trượt tuần tra dọc chuỗi xoắn kép DNA, quét tìm một đoạn mã nhận diện đặc biệt gọi là motif PAM, với trình tự năm phẩy N-G-G ba phẩy."
+    },
+    {
+      "id": 6,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.30,
+      "spoken": "Khi nhận diện chính xác motif PAM, Cas9 bám chặt như một chiếc mỏ neo phân tử, kích hoạt biến đổi hình thể để bắt đầu tách mở hai sợi xoắn DNA."
+    },
+    {
+      "id": 7,
+      "role": "evidence",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Thanh RNA dẫn đường len vào giữa, dò tìm hai mươi nucleotide bổ sung. Khi khớp hoàn toàn, cấu trúc vòng lai R-loop hình thành, khóa chặt mục tiêu vào vị trí."
+    },
+    {
+      "id": 8,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.30,
+      "spoken": "Sự bắt cặp chuẩn xác kích hoạt hai lưỡi kéo phân tử bên trong Cas9: miền H-N-H cắt sợi đối mã, trong khi miền RuvC chịu trách nhiệm cắt sợi không liên kết."
+    },
+    {
+      "id": 9,
+      "role": "payoff",
+      "speed": 1.04,
+      "pauseAfter": 0.38,
+      "spoken": "Hai vết cắt diễn ra chính xác ba cặp base phía trước motif PAM, tạo thành vết đứt gãy sợi đôi DNA hoàn toàn, bẻ khóa cấu trúc di truyền."
+    },
+    {
+      "id": 10,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "spoken": "Tế bào lập tức kích hoạt cơ chế nối đầu không tương đồng để hàn gắn thô sơ, tạo ra các đột biến mất đoạn giúp bất hoạt hoàn toàn các gen gây bệnh."
+    },
+    {
+      "id": 11,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Hoặc khi được cung cấp thêm một đoạn DNA mẫu lành lặn, tế bào sẽ sử dụng cơ chế sửa chữa tương đồng để chèn chính xác chuỗi gen mới không tì vết."
+    },
+    {
+      "id": 12,
+      "role": "close",
+      "speed": 1.02,
+      "pauseAfter": 0.40,
+      "spoken": "Từ cơ chế sinh học vi mô, CRISPR-Cas9 đã mở ra kỷ nguyên mới của y học chính xác, trao cho con người khả năng sửa chữa bản thiết kế của sự sống."
+    }
+  ]
+}

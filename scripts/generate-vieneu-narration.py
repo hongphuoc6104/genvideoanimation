@@ -27,7 +27,7 @@ CREATE_NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 SR = 48000
 
 # Authoritative Genvideo Voice Profile Constants
-INTERNAL_PAUSE_CAP = 0.13
+INTERNAL_PAUSE_CAP = 0.25
 GAP_CHAIN = (
     "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:detection=peak,"
     "areverse,"
@@ -51,13 +51,13 @@ TARGET_TP = -1.8
 TARGET_LRA = 7
 
 ROLE_DEFAULTS = {
-    "hook":     {"speed": 1.08, "pauseAfter": 0.20},
-    "thesis":   {"speed": 1.08, "pauseAfter": 0.18},
-    "body":     {"speed": 1.08, "pauseAfter": 0.16},
-    "turn":     {"speed": 1.10, "pauseAfter": 0.22},
-    "evidence": {"speed": 1.08, "pauseAfter": 0.16},
-    "payoff":   {"speed": 1.08, "pauseAfter": 0.24},
-    "close":    {"speed": 1.06, "pauseAfter": 0.20},
+    "hook":     {"speed": 1.08, "pauseAfter": 0.30},
+    "thesis":   {"speed": 1.08, "pauseAfter": 0.28},
+    "body":     {"speed": 1.08, "pauseAfter": 0.25},
+    "turn":     {"speed": 1.10, "pauseAfter": 0.35},
+    "evidence": {"speed": 1.08, "pauseAfter": 0.25},
+    "payoff":   {"speed": 1.08, "pauseAfter": 0.38},
+    "close":    {"speed": 1.06, "pauseAfter": 0.32},
 }
 
 VOICE_MAP = {

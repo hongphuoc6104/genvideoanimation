@@ -16,6 +16,12 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { spawnSync, spawn } from 'node:child_process';
 
+export interface VisualExplanationContract {
+  spatialRelationship: string;
+  transformationType: string;
+  coreMechanism?: string;
+}
+
 export interface RubricFrameMetrics {
   frameIndex: number;
   timestampSec: number;
@@ -38,6 +44,7 @@ export interface RubricFrameMetrics {
     focalDispersionPx: number;
     captionSubjectOverlapArea: number;
     captionClearancePx: number;
+    graphicMotionEnergyRatio?: number;
   };
   violations: string[];
 }
@@ -49,6 +56,8 @@ export interface RubricEvaluationReport {
   canvasHeight: number;
   framesAnalyzed: number;
   overallScore: number;
+  graphicMotionEnergyRatio?: number;
+  visualContractsValidated?: number;
   categoryScores: {
     primaryVisualRecognizable: number;
     informationalTextReadable: number;
@@ -69,6 +78,7 @@ export interface SemanticBeat {
   endFrame: number;
   visualIntent?: string;
   primaryObject?: string;
+  visualExplanationContract?: VisualExplanationContract;
   captionIntent?: {
     displayText?: string;
     layout?: string;
@@ -467,15 +477,46 @@ export class PixelFrame {
 // 2. RUBRIC SCORING EVALUATOR
 // ==========================================
 
+/**
+ * Validates visualExplanationContract schema when present on a semantic beat.
+ */
+export function validateVisualExplanationContract(
+  contract: any,
+  beatId: string
+): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  if (!contract || typeof contract !== 'object' || Array.isArray(contract)) {
+    return { valid: false, errors: [`Beat "${beatId}": visualExplanationContract must be a valid JSON object.`] };
+  }
+
+  if (typeof contract.spatialRelationship !== 'string' || !contract.spatialRelationship.trim()) {
+    errors.push(`Beat "${beatId}": visualExplanationContract.spatialRelationship must be a non-empty string.`);
+  }
+
+  if (typeof contract.transformationType !== 'string' || !contract.transformationType.trim()) {
+    errors.push(`Beat "${beatId}": visualExplanationContract.transformationType must be a non-empty string.`);
+  }
+
+  if (contract.coreMechanism !== undefined && typeof contract.coreMechanism !== 'string') {
+    errors.push(`Beat "${beatId}": visualExplanationContract.coreMechanism must be a string if specified.`);
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+
 export class PreviewRubricEvaluator {
   /**
-   * Evaluates a single PixelFrame against the 5 criteria.
+   * Evaluates a single PixelFrame against the 5 criteria + Graphic Motion Energy Ratio.
    */
   public evaluateFrame(
     frame: PixelFrame,
     frameIndex: number,
     timestampSec: number,
-    beat?: SemanticBeat
+    beat?: SemanticBeat,
+    prevFrame?: PixelFrame
   ): RubricFrameMetrics {
     const violations: string[] = [];
 
@@ -565,6 +606,38 @@ export class PreviewRubricEvaluator {
     }
     scoreE = Math.max(0, Math.min(5.0, scoreE));
 
+    // --- Graphic Motion Energy Ratio Calculation ---
+    // Central Graphic Diagram Region: X: 24..336, Y: 140..500
+    let graphicRatio = 1.0;
+    if (prevFrame) {
+      let totalMotion = 0;
+      let graphicMotion = 0;
+      const yMinGraphic = Math.floor(frame.height * 0.22); // ~140px
+      const yMaxGraphic = Math.floor(frame.height * 0.78); // ~500px
+      const xMinGraphic = 24;
+      const xMaxGraphic = frame.width - 24;
+
+      for (let y = 0; y < frame.height; y++) {
+        const rowOffset = y * frame.width;
+        for (let x = 0; x < frame.width; x++) {
+          const diff = Math.abs(frame.luminance[rowOffset + x] - prevFrame.luminance[rowOffset + x]);
+          totalMotion += diff;
+          if (y >= yMinGraphic && y < yMaxGraphic && x >= xMinGraphic && x < xMaxGraphic) {
+            graphicMotion += diff;
+          }
+        }
+      }
+
+      if (totalMotion > 500) {
+        graphicRatio = graphicMotion / totalMotion;
+        if (totalMotion > 5000 && graphicRatio < 0.25) {
+          violations.push(
+            `Low graphic motion energy ratio (${(graphicRatio * 100).toFixed(1)}% < 25%): peripheral text/card movements dominated motion.`
+          );
+        }
+      }
+    }
+
     // Weighted composite score (R2 Rubric)
     const compositeScore = 0.20 * scoreA + 0.25 * scoreB + 0.20 * scoreC + 0.20 * scoreD + 0.15 * scoreE;
 
@@ -590,6 +663,7 @@ export class PreviewRubricEvaluator {
         focalDispersionPx: focal.dispersionPx,
         captionSubjectOverlapArea: collision.overlapArea,
         captionClearancePx: collision.clearancePx,
+        graphicMotionEnergyRatio: Number(graphicRatio.toFixed(3)),
       },
       violations,
     };
@@ -601,7 +675,12 @@ export class PreviewRubricEvaluator {
   public generateReport(
     target: string,
     mode: 'mp4' | 'frames',
-    evaluatedFrames: RubricFrameMetrics[]
+    evaluatedFrames: RubricFrameMetrics[],
+    options: {
+      overallGraphicMotionRatio?: number;
+      visualContractsValidated?: number;
+      contractErrors?: string[];
+    } = {}
   ): RubricEvaluationReport {
     const count = evaluatedFrames.length;
     if (count === 0) {
@@ -631,6 +710,22 @@ export class PreviewRubricEvaluator {
       }
     }
 
+    const overallGraphicRatio = options.overallGraphicMotionRatio !== undefined
+      ? options.overallGraphicMotionRatio
+      : 1.0;
+
+    if (overallGraphicRatio < 0.40) {
+      criticalViolations.push(
+        `Overall graphic motion energy ratio (${(overallGraphicRatio * 100).toFixed(1)}%) is below required 40.0% threshold (motion dominated by peripheral text rather than graphic diagrams).`
+      );
+    }
+
+    if (options.contractErrors && options.contractErrors.length > 0) {
+      for (const err of options.contractErrors) {
+        criticalViolations.push(`Visual Explanation Contract Error: ${err}`);
+      }
+    }
+
     const avgA = sumA / count;
     const avgB = sumB / count;
     const avgC = sumC / count;
@@ -638,14 +733,16 @@ export class PreviewRubricEvaluator {
     const avgE = sumE / count;
     const overall = sumComp / count;
 
-    // Thresholds: overall >= 4.5, critical >= 4.3, all >= 4.0
+    // Thresholds: overall >= 4.5, critical >= 4.3, all >= 4.0, graphic motion >= 40%
     const passed =
       overall >= 4.50 &&
       avgA >= 4.30 &&
       avgB >= 4.30 &&
       avgC >= 4.00 &&
       avgD >= 4.30 &&
-      avgE >= 4.30;
+      avgE >= 4.30 &&
+      overallGraphicRatio >= 0.40 &&
+      (!options.contractErrors || options.contractErrors.length === 0);
 
     return {
       target,
@@ -654,6 +751,8 @@ export class PreviewRubricEvaluator {
       canvasHeight: 640,
       framesAnalyzed: count,
       overallScore: Number(overall.toFixed(2)),
+      graphicMotionEnergyRatio: Number((overallGraphicRatio * 100).toFixed(1)),
+      visualContractsValidated: options.visualContractsValidated || 0,
       categoryScores: {
         primaryVisualRecognizable: Number(avgA.toFixed(2)),
         informationalTextReadable: Number(avgB.toFixed(2)),
@@ -807,11 +906,34 @@ Options:
   }
 
   let beats: SemanticBeat[] = [];
+  let contractCount = 0;
+  const contractErrors: string[] = [];
+
   if (fs.existsSync(timelinePath)) {
     try {
       const data = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
       beats = data.beats || data;
       console.log(`Loaded ${beats.length} semantic beats from timeline.`);
+
+      // Validate visualExplanationContract schema when present
+      for (const b of beats) {
+        if (b.visualExplanationContract !== undefined) {
+          const res = validateVisualExplanationContract(b.visualExplanationContract, b.id || 'unknown');
+          if (!res.valid) {
+            contractErrors.push(...res.errors);
+          } else {
+            contractCount++;
+          }
+        }
+      }
+
+      if (contractCount > 0) {
+        console.log(`Validated ${contractCount} visualExplanationContract(s) against schema.`);
+      }
+      if (contractErrors.length > 0) {
+        console.error(`❌ Found ${contractErrors.length} visualExplanationContract schema error(s):`);
+        for (const e of contractErrors) console.error(`  - ${e}`);
+      }
     } catch (err: any) {
       console.warn(`Failed to parse timeline JSON: ${err.message}`);
     }
@@ -830,13 +952,39 @@ Options:
   }
 
   console.log(`Decoded ${decoded.length} frames from ${targetPath}. Evaluating against rubric...`);
-  for (const item of decoded) {
+  let totalMotionAcrossFilm = 0;
+  let graphicMotionAcrossFilm = 0;
+
+  for (let i = 0; i < decoded.length; i++) {
+    const item = decoded[i];
+    const prevItem = i > 0 ? decoded[i - 1] : undefined;
     const matchedBeat = beats.find((b) => item.sec >= b.startSec && item.sec <= b.endSec);
-    const metric = evaluator.evaluateFrame(item.frame, item.frameIndex, item.sec, matchedBeat);
+    const metric = evaluator.evaluateFrame(item.frame, item.frameIndex, item.sec, matchedBeat, prevItem?.frame);
     evaluatedFrames.push(metric);
+
+    if (prevItem) {
+      for (let y = 0; y < 640; y++) {
+        const rowOffset = y * 360;
+        for (let x = 0; x < 360; x++) {
+          const diff = Math.abs(item.frame.luminance[rowOffset + x] - prevItem.frame.luminance[rowOffset + x]);
+          totalMotionAcrossFilm += diff;
+          if (y >= 140 && y < 500 && x >= 24 && x < 336) {
+            graphicMotionAcrossFilm += diff;
+          }
+        }
+      }
+    }
   }
 
-  const report = evaluator.generateReport(targetPath, 'mp4', evaluatedFrames);
+  const overallGraphicRatio = totalMotionAcrossFilm > 1000
+    ? graphicMotionAcrossFilm / totalMotionAcrossFilm
+    : 1.0;
+
+  const report = evaluator.generateReport(targetPath, 'mp4', evaluatedFrames, {
+    overallGraphicMotionRatio: overallGraphicRatio,
+    visualContractsValidated: contractCount,
+    contractErrors,
+  });
 
   console.log(`------------------------------------------------------------------`);
   console.log(` EVALUATION SUMMARY (R2 MOBILE PREVIEW RUBRIC)`);
@@ -847,6 +995,10 @@ Options:
   console.log(`  (c) No Dense Card Grids:        ${report.categoryScores.noCardGrids.toFixed(2)} / 5.00  (Req >= 4.00)`);
   console.log(`  (d) One Dominant Focal Idea:    ${report.categoryScores.oneDominantFocalIdea.toFixed(2)} / 5.00  (Req >= 4.30)`);
   console.log(`  (e) Caption Collision Avoidance: ${report.categoryScores.captionNoCollision.toFixed(2)} / 5.00  (Req >= 4.30)`);
+  console.log(`  Graphic Motion Energy Ratio:  ${(overallGraphicRatio * 100).toFixed(1)}%        (Req >= 40.0%)`);
+  if (contractCount > 0 || contractErrors.length > 0) {
+    console.log(`  Visual Contracts Validated:   ${contractCount} (${contractErrors.length} errors)`);
+  }
   console.log(`------------------------------------------------------------------`);
   console.log(`  OVERALL RUBRIC SCORE:         ${report.overallScore.toFixed(2)} / 5.00  (Threshold >= 4.50)`);
   console.log(`  STATUS:                       ${report.passed ? '✅ PASS' : '❌ FAIL'}`);

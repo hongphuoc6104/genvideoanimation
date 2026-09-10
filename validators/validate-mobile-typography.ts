@@ -139,6 +139,8 @@ export function extractNumericFontSize(node: any, scope: any): number | null {
         hero: 64,
         section: 48,
         card: 38,
+        cardtitle: 38,
+        title: 38,
         body: 34,
         secondary: 30,
         caption: 56,

@@ -24,6 +24,8 @@ frames/
 .remotion/
 packages/*/dist/
 connection-film/public/audio/lines/
+**/audio/lines/
+**/*_mono.wav
 connection-film/public/audio/scopus_voiceover.wav
 
 # OS and Logs

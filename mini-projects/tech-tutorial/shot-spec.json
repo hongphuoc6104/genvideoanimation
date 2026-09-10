@@ -1,61 +1,122 @@
 {
   "version": "3.3.0",
-  "sequence_id": "tls-cryptographic-handshake",
+  "sequence_id": "git-dag-distributed-model",
   "width": 1080,
   "height": 1920,
   "fps": 30,
+  "totalDurationSec": 102.784,
+  "totalFrames": 3084,
   "shots": [
     {
       "id": "shot_01",
-      "narrative_purpose": "Key Exchange Phase: ClientHello and ServerHello negotiate cipher suite and ECDHE keys",
+      "narrative_purpose": "Bối cảnh tập trung (CVCS) và bước chuyển đột phá sang lưu trữ ảnh chụp mật mã phân tán (DAG Foundation)",
       "startFrame": 0,
-      "endFrame": 300,
-      "durationInFrames": 300,
+      "endFrame": 795,
+      "durationInFrames": 795,
       "start_state": {
         "camera": {
           "x": 0,
           "y": 0,
-          "zoom": 1
+          "zoom": 1.0
         },
-        "phase": "handshake"
+        "phase": "centralized_bottleneck"
       },
       "end_state": {
         "camera": {
           "x": 0,
           "y": 0,
-          "zoom": 1
+          "zoom": 1.0
         },
-        "phase": "encrypted"
+        "phase": "dag_foundation"
       },
       "impact_frames": [
-        75,
-        200
+        130,
+        410,
+        680
       ]
     },
     {
       "id": "shot_02",
-      "narrative_purpose": "Encrypted Channel: Symmetric AES-GCM session keys protect application data transmission",
-      "startFrame": 300,
-      "endFrame": 450,
-      "durationInFrames": 150,
+      "narrative_purpose": "Bộ ba đối tượng bên trong của Git: Blob (nội dung) -> Tree (thư mục) -> Commit (đóng gói tác giả & nút cha)",
+      "startFrame": 795,
+      "endFrame": 1513,
+      "durationInFrames": 718,
       "start_state": {
         "camera": {
           "x": 0,
           "y": 0,
-          "zoom": 1
+          "zoom": 1.0
         },
-        "phase": "encrypted"
+        "phase": "blob_object"
       },
       "end_state": {
         "camera": {
           "x": 0,
           "y": 0,
-          "zoom": 1
+          "zoom": 1.0
         },
-        "phase": "finished"
+        "phase": "commit_triad"
       },
       "impact_frames": [
-        375
+        920,
+        1160,
+        1390
+      ]
+    },
+    {
+      "id": "shot_03",
+      "narrative_purpose": "Bản chất con trỏ nhánh (main, feature) và HEAD; Fast-forward merge và Three-way recursive merge hai nút cha",
+      "startFrame": 1513,
+      "endFrame": 2234,
+      "durationInFrames": 721,
+      "start_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1.0
+        },
+        "phase": "branch_pointers"
+      },
+      "end_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1.0
+        },
+        "phase": "three_way_merge"
+      },
+      "impact_frames": [
+        1620,
+        1860,
+        2110
+      ]
+    },
+    {
+      "id": "shot_04",
+      "narrative_purpose": "Đồng bộ từ xa (remote tracking origin/main), so sánh Rebase vs Merge và mô hình du hành thời gian trên đồ thị bất biến",
+      "startFrame": 2234,
+      "endFrame": 3084,
+      "durationInFrames": 850,
+      "start_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1.0
+        },
+        "phase": "remote_sync"
+      },
+      "end_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1.0
+        },
+        "phase": "immutable_mastery"
+      },
+      "impact_frames": [
+        2360,
+        2630,
+        2930
       ]
     }
   ],
@@ -63,15 +124,35 @@
     {
       "from_shot": "shot_01",
       "to_shot": "shot_02",
-      "transition_type": "shape_morph",
+      "transition_type": "camera_carry",
       "transition_frames": [
-        285,
-        315
+        780,
+        810
       ],
-      "expected_visual_discontinuity": 5,
-      "description": "Cryptographic key icons morph into solid padlock shielding the data stream"
+      "expected_visual_discontinuity": 6.5,
+      "description": "Camera carries momentum from network bottleneck overview into internal filesystem object store"
+    },
+    {
+      "from_shot": "shot_02",
+      "to_shot": "shot_03",
+      "transition_type": "foreground_wipe",
+      "transition_frames": [
+        1498,
+        1528
+      ],
+      "expected_visual_discontinuity": 6.5,
+      "description": "Geometric scanning line sweeps across object triad revealing dynamic branch pointers and DAG graph"
+    },
+    {
+      "from_shot": "shot_03",
+      "to_shot": "shot_04",
+      "transition_type": "semantic_zoom",
+      "transition_frames": [
+        2219,
+        2249
+      ],
+      "expected_visual_discontinuity": 6.5,
+      "description": "Semantic zoom pulls out from local merge commit to reveal distributed remote tracking network"
     }
-  ],
-  "totalFrames": 450,
-  "totalDurationSec": 15
+  ]
 }

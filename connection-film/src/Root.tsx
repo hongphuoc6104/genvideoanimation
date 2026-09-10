@@ -19,6 +19,9 @@ import {
   BenchmarkV31C,
   BENCHMARK_V31_C_DURATION,
 } from './benchmarks/v3_1';
+import { CrisprFilm, TOTAL_FRAMES as CRISPR_DURATION } from './generalization/crispr/CrisprFilm';
+import { SteamEngineFilm, TOTAL_FRAMES as STEAM_ENGINE_DURATION } from './generalization/steam-engine/SteamEngineFilm';
+import { GitDagFilm, TOTAL_FRAMES as GIT_DAG_DURATION } from './generalization/git-dag/GitDagFilm';
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -150,6 +153,54 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1920}
         height={1080}
+      />
+      <Composition
+        id="CrisprMechanism"
+        component={CrisprFilm}
+        durationInFrames={CRISPR_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="CrisprCas9-TikTok916"
+        component={CrisprFilm}
+        durationInFrames={CRISPR_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WattSteamEngine"
+        component={SteamEngineFilm}
+        durationInFrames={STEAM_ENGINE_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SteamEngineCycle"
+        component={SteamEngineFilm}
+        durationInFrames={STEAM_ENGINE_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="GitDagModel"
+        component={GitDagFilm}
+        durationInFrames={GIT_DAG_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="GitDagModel-TikTok916"
+        component={GitDagFilm}
+        durationInFrames={GIT_DAG_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
       />
     </>
   );

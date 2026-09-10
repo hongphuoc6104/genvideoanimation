@@ -1,0 +1,162 @@
+{
+  "status": "success",
+  "totalDurationSec": 102.784,
+  "totalLines": 12,
+  "masterVoiceover": "mini-projects/tech-tutorial/audio/master_audio.wav",
+  "voice": {
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "precision": "fp32",
+    "device": "cpu",
+    "voice": "Adam",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 0.0,
+      "end": 8.579,
+      "audioDuration": 8.579,
+      "totalDuration": 8.929,
+      "spoken": "Trước khi Git ra đời, các hệ thống tập trung như SVN lưu trữ lịch sử dưới dạng chuỗi các vi phân thay đổi, buộc lập trình viên phải kết nối máy chủ để khóa tệp và cam kết tuần tự.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line01.wav"
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 8.929,
+      "end": 18.41,
+      "audioDuration": 9.481,
+      "totalDuration": 9.831,
+      "spoken": "Năm hai nghìn không trăm lẻ năm, Linus Torvalds tái định nghĩa bài toán: Git không lưu vi phân delta, mà chụp lại trọn vẹn trạng thái toàn bộ thư mục tại từng thời điểm bằng mã băm mật mã SHA.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line02.wav"
+    },
+    {
+      "id": 3,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 18.76,
+      "end": 26.157,
+      "audioDuration": 7.398,
+      "totalDuration": 7.748,
+      "spoken": "Mọi ảnh chụp liên kết với nhau thành một đồ thị có hướng không chu trình, gọi là DAG. Trong đó, mỗi commit mới luôn trỏ ngược về commit cha trước nó.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line03.wav"
+    },
+    {
+      "id": 4,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 26.507,
+      "end": 34.607,
+      "audioDuration": 8.1,
+      "totalDuration": 8.45,
+      "spoken": "Ở tầng thấp nhất là đối tượng Blob, chỉ chứa dữ liệu nhị phân thô của tệp tin. Tên tệp và quyền truy cập hoàn toàn không nằm trong Blob, mà được xác định bởi mã băm nội dung.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line04.wav"
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 34.957,
+      "end": 42.059,
+      "audioDuration": 7.101,
+      "totalDuration": 7.451,
+      "spoken": "Đối tượng Tree đại diện cho thư mục, đóng vai trò bản đồ định tuyến liên kết tên tệp, chế độ cấp phép và con trỏ trỏ tới các Blob hoặc Tree con tương ứng.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line05.wav"
+    },
+    {
+      "id": 6,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 42.409,
+      "end": 50.094,
+      "audioDuration": 7.686,
+      "totalDuration": 8.036,
+      "spoken": "Cuối cùng, đối tượng Commit đóng gói con trỏ tới Tree gốc, thông tin tác giả, mốc thời gian và danh sách mã băm của commit cha, tạo nên tính toàn vẹn bất biến.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line06.wav"
+    },
+    {
+      "id": 7,
+      "role": "turn",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 50.444,
+      "end": 57.428,
+      "audioDuration": 6.984,
+      "totalDuration": 7.334,
+      "spoken": "Nhiều người nghĩ nhánh là một thư mục riêng biệt, nhưng thực chất nhánh trong Git chỉ là một tệp văn bản nhỏ bốn mươi mốt byte, chứa chuỗi hash trỏ vào đỉnh commit.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line07.wav"
+    },
+    {
+      "id": 8,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 57.778,
+      "end": 66.006,
+      "audioDuration": 8.228,
+      "totalDuration": 8.578,
+      "spoken": "Khi nhánh chính không có thay đổi mới, thao tác Fast-forward đơn giản là trượt con trỏ nhánh chính tiến thẳng về phía trước tới vị trí của nhánh tính năng mà không cần tạo commit mới.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line08.wav"
+    },
+    {
+      "id": 9,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 66.356,
+      "end": 74.12,
+      "audioDuration": 7.764,
+      "totalDuration": 8.114,
+      "spoken": "Nếu lịch sử phân kỳ, Git tìm tổ tiên chung gần nhất, tổng hợp ba nguồn dữ liệu và tạo ra một commit hợp nhất đặc biệt sở hữu đồng thời hai con trỏ cha.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line09.wav"
+    },
+    {
+      "id": 10,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 74.47,
+      "end": 82.609,
+      "audioDuration": 8.139,
+      "totalDuration": 8.489,
+      "spoken": "Trong mô hình phân tán, máy chủ từ xa chỉ là một kho chứa ngang hàng với các con trỏ riêng như origin main. Khi fetch, Git tải các nút đồ thị mới về mà không ảnh hưởng mã cục bộ.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line10.wav"
+    },
+    {
+      "id": 11,
+      "role": "turn",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 82.959,
+      "end": 92.423,
+      "audioDuration": 9.464,
+      "totalDuration": 9.814,
+      "spoken": "Trong khi Merge bảo tồn chân thực mọi nhánh rẽ lịch sử, thì Rebase viết lại các commit thành một chuỗi tuyến tính sạch sẽ, nhưng làm thay đổi toàn bộ mã băm SHA của các commit con.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line11.wav"
+    },
+    {
+      "id": 12,
+      "role": "payoff",
+      "speed": 1.04,
+      "pauseAfter": 0.4,
+      "start": 92.773,
+      "end": 102.384,
+      "audioDuration": 9.611,
+      "totalDuration": 10.011,
+      "spoken": "Hiểu rõ đồ thị DAG, bạn sẽ thấy Git không hề ma thuật. Đó là cấu trúc dữ liệu bất biến tuyệt đẹp, cho phép bạn du hành thời gian và tự tin cộng tác mà không bao giờ mất dữ liệu.",
+      "file": "mini-projects/tech-tutorial/audio/lines/line12.wav"
+    }
+  ],
+  "elapsedSec": 375.182
+}

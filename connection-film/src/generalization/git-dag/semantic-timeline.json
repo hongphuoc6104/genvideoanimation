@@ -1,0 +1,237 @@
+{
+  "version": "3.3.0",
+  "compositionId": "git-dag-distributed-model",
+  "fps": 30,
+  "totalDurationSec": 102.784,
+  "totalFrames": 3084,
+  "beats": [
+    {
+      "id": "beat_01",
+      "shotId": "shot_01",
+      "conceptId": "git_c01_centralized_bottleneck",
+      "startSec": 0.0,
+      "endSec": 8.929,
+      "startFrame": 0,
+      "endFrame": 268,
+      "narrationText": "Trước khi Git ra đời, các hệ thống tập trung như SVN lưu trữ lịch sử dưới dạng chuỗi các vi phân thay đổi, buộc lập trình viên phải kết nối máy chủ để khóa tệp và cam kết tuần tự.",
+      "visualIntent": "Hiển thị mô hình máy chủ tập trung (Central Server) phát tỏa các khóa tệp màu đỏ tới các máy trạm lập trình viên, gây tắc nghẽn cổ chai.",
+      "primaryObject": "central_server_cluster",
+      "cameraIntent": "static_overview_with_subtle_push",
+      "transitionIntent": "match_cut_to_snapshot_lens",
+      "visualExplanationContract": {
+        "spatialRelationship": "Central server node emitting lock constraints to radial client workstations",
+        "transformationType": "Linear bottleneck congestion animation",
+        "visualMeaning": "Trực quan hóa việc khóa độc quyền tệp tin và nguy cơ điểm lỗi đơn (single point of failure) của VCS tập trung mà văn bản không diễn tả được độ nghẽn mạng."
+      }
+    },
+    {
+      "id": "beat_02",
+      "shotId": "shot_01",
+      "conceptId": "git_c02_distributed_snapshots",
+      "startSec": 8.929,
+      "endSec": 18.76,
+      "startFrame": 268,
+      "endFrame": 563,
+      "narrationText": "Năm hai nghìn không trăm lẻ năm, Linus Torvalds tái định nghĩa bài toán: Git không lưu vi phân delta, mà chụp lại trọn vẹn trạng thái toàn bộ thư mục tại từng thời điểm bằng mã băm mật mã SHA.",
+      "visualIntent": "Quét toàn bộ cây thư mục mã nguồn và ngưng tụ thành một ảnh chụp toàn diện (snapshot) được đóng dấu chuỗi băm SHA mật mã độc nhất.",
+      "primaryObject": "cryptographic_snapshot_lens",
+      "cameraIntent": "slow_pan_right",
+      "transitionIntent": "continuing_trajectory_to_dag_graph",
+      "visualExplanationContract": {
+        "spatialRelationship": "Full directory filesystem footprint projecting into a unique cryptographic hex hash token",
+        "transformationType": "Projective hashing condensation",
+        "visualMeaning": "Chứng minh bản chất của Git là lưu trữ ảnh chụp toàn phần chứ không phải chuỗi diff dòng rời rạc."
+      }
+    },
+    {
+      "id": "beat_03",
+      "shotId": "shot_01",
+      "conceptId": "git_c03_dag_directed_acyclic_graph",
+      "startSec": 18.76,
+      "endSec": 26.507,
+      "startFrame": 563,
+      "endFrame": 795,
+      "narrationText": "Mọi ảnh chụp liên kết với nhau thành một đồ thị có hướng không chu trình, gọi là DAG. Trong đó, mỗi commit mới luôn trỏ ngược về commit cha trước nó.",
+      "visualIntent": "Chuỗi các nút commit tròn nối với nhau bằng các mũi tên có hướng trỏ ngược về nút cha trong quá khứ, hình thành cấu trúc DAG không chu trình.",
+      "primaryObject": "dag_commit_graph",
+      "cameraIntent": "pan_across_directed_edges",
+      "transitionIntent": "camera_carry",
+      "visualExplanationContract": {
+        "spatialRelationship": "Sequential circular commit vertices with backward-pointing directed acyclic edges",
+        "transformationType": "Directed acyclic edge extension",
+        "visualMeaning": "Minh họa quy tắc đồ thị có hướng không bao giờ tạo vòng lặp khép kín, đảm bảo tính toàn vẹn thời gian của lịch sử."
+      }
+    },
+    {
+      "id": "beat_04",
+      "shotId": "shot_02",
+      "conceptId": "git_c04_blob_object",
+      "startSec": 26.507,
+      "endSec": 34.957,
+      "startFrame": 795,
+      "endFrame": 1049,
+      "narrationText": "Ở tầng thấp nhất là đối tượng Blob, chỉ chứa dữ liệu nhị phân thô của tệp tin. Tên tệp và quyền truy cập hoàn toàn không nằm trong Blob, mà được xác định bởi mã băm nội dung.",
+      "visualIntent": "Nội dung tệp văn bản mã nguồn được nén zlib thành khối lục giác Blob mang mã băm SHA nội dung bất biến.",
+      "primaryObject": "git_blob_hex_node",
+      "cameraIntent": "zoom_in_to_internal_object",
+      "transitionIntent": "object_match_to_tree_node",
+      "visualExplanationContract": {
+        "spatialRelationship": "Source code text compressed into an immutable hexagonal Blob node with SHA address",
+        "transformationType": "Content-addressed compression",
+        "visualMeaning": "Tách bạch triệt để dữ liệu nhị phân thô khỏi siêu dữ liệu tên tệp, thể hiện cơ chế định danh bằng nội dung."
+      }
+    },
+    {
+      "id": "beat_05",
+      "shotId": "shot_02",
+      "conceptId": "git_c05_tree_object",
+      "startSec": 34.957,
+      "endSec": 42.409,
+      "startFrame": 1049,
+      "endFrame": 1272,
+      "narrationText": "Đối tượng Tree đại diện cho thư mục, đóng vai trò bản đồ định tuyến liên kết tên tệp, chế độ cấp phép và con trỏ trỏ tới các Blob hoặc Tree con tương ứng.",
+      "visualIntent": "Khối Tree hình hộp thư mục mở rộng các nhánh con trỏ trỏ xuống các khối Blob lá và các Tree con theo cấu trúc thư mục phân tầng.",
+      "primaryObject": "git_tree_directory_node",
+      "cameraIntent": "tilt_downward_along_hierarchy",
+      "transitionIntent": "match_cut_to_commit_envelope",
+      "visualExplanationContract": {
+        "spatialRelationship": "Hierarchical branch container pointing downward to sub-trees and leaf Blobs",
+        "transformationType": "Hierarchical tree expansion",
+        "visualMeaning": "Biểu diễn trực quan cây thư mục Unix như một đồ thị liên kết con trỏ, tái sử dụng các Blob không đổi."
+      }
+    },
+    {
+      "id": "beat_06",
+      "shotId": "shot_02",
+      "conceptId": "git_c06_commit_object",
+      "startSec": 42.409,
+      "endSec": 50.444,
+      "startFrame": 1272,
+      "endFrame": 1513,
+      "narrationText": "Cuối cùng, đối tượng Commit đóng gói con trỏ tới Tree gốc, thông tin tác giả, mốc thời gian và danh sách mã băm của commit cha, tạo nên tính toàn vẹn bất biến.",
+      "visualIntent": "Hộp bọc Commit đóng gói con trỏ Tree gốc, nhãn tác giả, timestamp và con trỏ cha thành một đỉnh vững chắc gắn vào đồ thị DAG.",
+      "primaryObject": "git_commit_triad_envelope",
+      "cameraIntent": "pull_back_to_reveal_assembled_node",
+      "transitionIntent": "foreground_wipe",
+      "visualExplanationContract": {
+        "spatialRelationship": "Top-level Commit vertex binding root Tree pointer and backward parent pointer",
+        "transformationType": "Cryptographic envelope binding",
+        "visualMeaning": "Trực quan hóa sự gắn kết chặt chẽ của bộ ba Blob -> Tree -> Commit tạo nên nút đỉnh commit hoàn chỉnh."
+      }
+    },
+    {
+      "id": "beat_07",
+      "shotId": "shot_03",
+      "conceptId": "git_c07_branch_pointers_head",
+      "startSec": 50.444,
+      "endSec": 57.778,
+      "startFrame": 1513,
+      "endFrame": 1733,
+      "narrationText": "Nhiều người nghĩ nhánh là một thư mục riêng biệt, nhưng thực chất nhánh trong Git chỉ là một tệp văn bản nhỏ bốn mươi mốt byte, chứa chuỗi hash trỏ vào đỉnh commit.",
+      "visualIntent": "Nhãn nhánh 'main' và 'feature/auth' dưới dạng nhãn con trỏ cơ động dán lên các nút commit; con trỏ HEAD trỏ vào nhánh hiện hành.",
+      "primaryObject": "branch_pointer_tag",
+      "cameraIntent": "horizontal_tracking_across_branches",
+      "transitionIntent": "sliding_motion_to_fast_forward",
+      "visualExplanationContract": {
+        "spatialRelationship": "Floating lightweight reference tags (main, HEAD) anchored to commit node vertices",
+        "transformationType": "Reference pointer translation",
+        "visualMeaning": "Đập tan ngộ nhận rằng nhánh là bản sao thư mục; khẳng định nhánh chỉ là con trỏ siêu nhẹ 41 byte trỏ vào đỉnh commit."
+      }
+    },
+    {
+      "id": "beat_08",
+      "shotId": "shot_03",
+      "conceptId": "git_c08_fast_forward_merge",
+      "startSec": 57.778,
+      "endSec": 66.356,
+      "startFrame": 1733,
+      "endFrame": 1991,
+      "narrationText": "Khi nhánh chính không có thay đổi mới, thao tác Fast-forward đơn giản là trượt con trỏ nhánh chính tiến thẳng về phía trước tới vị trí của nhánh tính năng mà không cần tạo commit mới.",
+      "visualIntent": "Thẻ nhãn 'main' trượt mượt mà về phía trước dọc theo chuỗi commit tuyến tính đến đúng vị trí của 'feature/auth', không sinh nút commit mới.",
+      "primaryObject": "fast_forward_slider",
+      "cameraIntent": "tracking_shot_following_pointer_slide",
+      "transitionIntent": "match_cut_to_divergent_graph",
+      "visualExplanationContract": {
+        "spatialRelationship": "Linear sliding translation of branch tag along linear DAG vertices",
+        "transformationType": "Linear pointer advancement",
+        "visualMeaning": "Minh họa cơ chế Fast-forward chỉ là sự dịch chuyển con trỏ thuần túy trên đồ thị tuyến tính."
+      }
+    },
+    {
+      "id": "beat_09",
+      "shotId": "shot_03",
+      "conceptId": "git_c09_three_way_merge",
+      "startSec": 66.356,
+      "endSec": 74.47,
+      "startFrame": 1991,
+      "endFrame": 2234,
+      "narrationText": "Nếu lịch sử phân kỳ, Git tìm tổ tiên chung gần nhất, tổng hợp ba nguồn dữ liệu và tạo ra một commit hợp nhất đặc biệt sở hữu đồng thời hai con trỏ cha.",
+      "visualIntent": "Hai nhánh rẽ độc lập từ nút tổ tiên chung (BCA) cùng phóng hai tia hội tụ tạo ra nút Merge Commit màu tím với hai mũi tên cha trỏ ngược.",
+      "primaryObject": "three_way_merge_node",
+      "cameraIntent": "zoom_in_to_converging_vertex",
+      "transitionIntent": "semantic_zoom",
+      "visualExplanationContract": {
+        "spatialRelationship": "Divergent dual-branch paths converging into a two-parent merge vertex",
+        "transformationType": "Topological node convergence",
+        "visualMeaning": "Giải thích cấu trúc hình học đặc biệt của commit hợp nhất 3-way với hai cạnh cha trỏ về hai lịch sử song song."
+      }
+    },
+    {
+      "id": "beat_10",
+      "shotId": "shot_04",
+      "conceptId": "git_c10_remote_tracking_branches",
+      "startSec": 74.47,
+      "endSec": 82.959,
+      "startFrame": 2234,
+      "endFrame": 2489,
+      "narrationText": "Trong mô hình phân tán, máy chủ từ xa chỉ là một kho chứa ngang hàng với các con trỏ riêng như origin main. Khi fetch, Git tải các nút đồ thị mới về mà không ảnh hưởng mã cục bộ.",
+      "visualIntent": "Đồ thị cục bộ (Local) và đồ thị từ xa (Remote) đặt song song, trao đổi các nút commit qua mạng; con trỏ 'origin/main' dịch chuyển độc lập với 'main'.",
+      "primaryObject": "distributed_remote_graph_pair",
+      "cameraIntent": "split_screen_horizontal_pan",
+      "transitionIntent": "shape_morph_to_comparison_panel",
+      "visualExplanationContract": {
+        "spatialRelationship": "Parallel local and remote repository DAGs synchronizing vertices across network boundary",
+        "transformationType": "Inter-graph packet synchronization",
+        "visualMeaning": "Làm rõ bản chất mạng ngang hàng phân tán và sự tách biệt giữa con trỏ cục bộ với con trỏ theo dõi từ xa."
+      }
+    },
+    {
+      "id": "beat_11",
+      "shotId": "shot_04",
+      "conceptId": "git_c11_merge_vs_rebase_topology",
+      "startSec": 82.959,
+      "endSec": 92.773,
+      "startFrame": 2489,
+      "endFrame": 2783,
+      "narrationText": "Trong khi Merge bảo tồn chân thực mọi nhánh rẽ lịch sử, thì Rebase viết lại các commit thành một chuỗi tuyến tính sạch sẽ, nhưng làm thay đổi toàn bộ mã băm SHA của các commit con.",
+      "visualIntent": "Bảng so sánh đồ thị kép: bên trái giữ nguyên cấu trúc phân nhánh và nút hội tụ của Merge; bên phải nhổ cụm commit và cấy thẳng hàng lên đỉnh mới của Rebase.",
+      "primaryObject": "topology_comparison_matrix",
+      "cameraIntent": "side_by_side_comparison_focus",
+      "transitionIntent": "match_cut_to_glowing_dag_mastery",
+      "visualExplanationContract": {
+        "spatialRelationship": "Dual-panel topological comparison: branching preservation vs linear rewriting",
+        "transformationType": "Graph re-rooting transplantation",
+        "visualMeaning": "Trực quan hóa sự khác biệt sống còn về hình thái học đồ thị giữa việc bảo toàn lịch sử và việc viết lại lịch sử tuyến tính."
+      }
+    },
+    {
+      "id": "beat_12",
+      "shotId": "shot_04",
+      "conceptId": "git_c12_immutable_graph_mental_model",
+      "startSec": 92.773,
+      "endSec": 102.784,
+      "startFrame": 2783,
+      "endFrame": 3084,
+      "narrationText": "Hiểu rõ đồ thị DAG, bạn sẽ thấy Git không hề ma thuật. Đó là cấu trúc dữ liệu bất biến tuyệt đẹp, cho phép bạn du hành thời gian và tự tin cộng tác mà không bao giờ mất dữ liệu.",
+      "visualIntent": "Con trỏ HEAD lướt tự do qua các mốc thời gian trên mạng lưới DAG phát sáng rực rỡ; các khối commit bất biến và huy hiệu bảo vệ dữ liệu tuyệt đối.",
+      "primaryObject": "immutable_dag_constellation",
+      "cameraIntent": "slow_grand_pull_back_reveal",
+      "transitionIntent": "final_fade_out",
+      "visualExplanationContract": {
+        "spatialRelationship": "Dynamic timeline cursor gliding across cryptographic immutable graph lattice",
+        "transformationType": "Omnipresent graph illumination",
+        "visualMeaning": "Tổng hợp toàn bộ tri thức thành một mô hình tư duy trực quan vững chắc: đồ thị DAG bất biến là chìa khóa làm chủ Git."
+      }
+    }
+  ]
+}

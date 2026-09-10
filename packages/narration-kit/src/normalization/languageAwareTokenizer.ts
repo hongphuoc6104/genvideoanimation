@@ -148,14 +148,15 @@ export class LanguageAwareTokenizer {
 
       // Handle pure punctuation/symbols
       if (/^[^\s\p{L}\p{M}0-9]+$/u.test(matchedToken)) {
-        if (options?.includePunctuationTokens) {
+        if (options?.includePunctuationTokens !== false) {
           const spanId = `span_${spanCounter++}`;
           tokens.push({
             id: spanId,
             originalSpan: [startChar, endChar],
             originalWord: matchedToken,
-            spokenWords: [],
+            spokenWords: [matchedToken],
             type: 'punctuation',
+            spokenText: matchedToken,
           });
         }
         cursor = endChar;
@@ -212,21 +213,37 @@ export class LanguageAwareTokenizer {
       cursor = endChar;
     }
 
-    // Reconstruct displayText and spokenText
+    // Reconstruct displayText and spokenText using Smart Punctuation Joiner
     const displayText = rawText;
-    const spokenTokensList: string[] = [];
+    const CLOSING_PUNCT = /^[.,!?;:…\)\]\}”'’]+$/;
+    const OPENING_PUNCT = /^[\(\[\{“'‘]+$/;
 
-    for (const t of tokens) {
-      if (t.spokenText) {
-        spokenTokensList.push(t.spokenText);
-      } else if (t.spokenWords && t.spokenWords.length > 0) {
-        spokenTokensList.push(t.spokenWords.join(' '));
+    let spokenText = '';
+    for (let i = 0; i < tokens.length; i++) {
+      const t = tokens[i];
+      const word = (
+        t.spokenText ||
+        (t.spokenWords && t.spokenWords.length > 0 ? t.spokenWords.join(' ') : t.originalWord) ||
+        ''
+      ).trim();
+
+      if (!word) continue;
+
+      if (spokenText.length === 0) {
+        spokenText = word;
+      } else if (CLOSING_PUNCT.test(word)) {
+        spokenText += word;
+      } else if (OPENING_PUNCT.test(spokenText.slice(-1))) {
+        spokenText += word;
       } else {
-        spokenTokensList.push(t.originalWord);
+        spokenText += ' ' + word;
       }
     }
 
-    const spokenText = spokenTokensList.join(' ');
+    spokenText = spokenText
+      .replace(/\s+([,.;:!?…\)\]\}”'’])/g, '$1')
+      .replace(/([\(\[\{“'‘])\s+/g, '$1')
+      .trim();
 
     // Calculate language statistics
     let viCount = 0;

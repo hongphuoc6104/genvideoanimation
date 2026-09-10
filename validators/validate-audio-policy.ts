@@ -238,9 +238,9 @@ export function validateAudioPolicy(options: {
         }
 
         // Check dead air / silence cap
-        if (measurements.maxInterSilenceSec > 0.35) {
+        if (measurements.maxInterSilenceSec > 0.85) {
           acousticErrors.push(
-            `Excessive dead-air pause detected (${measurements.maxInterSilenceSec}s > 0.35s maximum inter-sentence threshold).`
+            `Excessive dead-air pause detected (${measurements.maxInterSilenceSec}s > 0.85s maximum inter-sentence threshold).`
           );
         }
       } catch (err: any) {

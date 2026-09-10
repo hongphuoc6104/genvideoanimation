@@ -1,0 +1,99 @@
+{
+  "voice": {
+    "voice": "Adam",
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "outputDir": "mini-projects/historical-process/audio",
+  "masterVoiceover": "master_audio_mono.wav",
+  "lines": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Trước thế kỷ mười tám, mọi nền văn minh đều mắc kẹt trong giới hạn năng lượng cơ bắp và những cỗ guồng nước phụ thuộc hoàn toàn vào dòng chảy tự nhiên."
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.05,
+      "pauseAfter": 0.30,
+      "spoken": "Năm 1712, Thomas Newcomen chế tạo cỗ máy hơi nước khí quyển đầu tiên, bơm nước làm đầy xi lanh rồi phun nước lạnh trực tiếp vào lòng buồng đốt để ép piston xuống."
+    },
+    {
+      "id": 3,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Thế nhưng chu trình nung nóng rồi làm lạnh đột ngột lòng xi lanh đã làm tiêu hao hơn 98 phần trăm nhiệt lượng chỉ để nung nóng lại thành khối kim loại sau mỗi hành trình."
+    },
+    {
+      "id": 4,
+      "role": "turn",
+      "speed": 1.05,
+      "pauseAfter": 0.32,
+      "spoken": "Năm 1765, kỹ sư James Watt nhận ra nguyên lý nhiệt động học mang tính cách mạng: muốn tiết kiệm năng lượng, xi lanh phải luôn được giữ ở nhiệt độ sôi liên tục."
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.30,
+      "spoken": "Watt phát minh bình ngưng tụ tách rời, chuyển toàn bộ quá trình làm lạnh và ngưng tụ hơi nước sang một buồng chứa làm mát biệt lập bên ngoài."
+    },
+    {
+      "id": 6,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.38,
+      "spoken": "Xi lanh chính giờ đây được bọc một lớp vỏ áo hơi giữ nhiệt bền bỉ, kết hợp bơm chân không để duy trì áp suất hút tối ưu mà không hề thất thoát nhiệt năng."
+    },
+    {
+      "id": 7,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.30,
+      "spoken": "Trong chu trình giãn nở bốn pha, hơi nước áp suất cao được dẫn vào xi lanh, van nạp ngắt sớm để hơi giãn nở tự do sinh công cơ học tối đa."
+    },
+    {
+      "id": 8,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.30,
+      "spoken": "Tiếp đó, van xả mở thông với bình ngưng, hơi nước hóa lỏng tức thì tạo độ chân không mãnh liệt kéo piston trở về với lực sinh công kép hai chiều."
+    },
+    {
+      "id": 9,
+      "role": "payoff",
+      "speed": 1.05,
+      "pauseAfter": 0.38,
+      "spoken": "Nhờ cơ cấu liên kết chuyển động song song và bánh đà quán tính, hành trình tịnh tiến lên xuống được chuyển hóa mượt mà thành mô men xoay tròn công nghiệp liên tục."
+    },
+    {
+      "id": 10,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.32,
+      "spoken": "Động cơ Watt đã giải phóng hoàn toàn các cơ sở sản xuất khỏi sự phụ thuộc địa lý, cho phép hàng nghìn khung dệt cơ khí tại Lancashire vận hành ngày đêm trong lòng đô thị."
+    },
+    {
+      "id": 11,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.32,
+      "spoken": "Những giếng mỏ than ngập nước sâu hàng trăm mét được bơm cạn, mở đường cho kỷ nguyên đầu máy xe lửa hơi nước kết nối mạng lưới giao thương lục địa."
+    },
+    {
+      "id": 12,
+      "role": "close",
+      "speed": 1.03,
+      "pauseAfter": 0.40,
+      "spoken": "Từ trực giác giữ ấm xi lanh của James Watt, nhân loại không chỉ bước vào Cách mạng Công nghiệp mà còn khai sinh nền khoa học nhiệt động lực học hiện đại."
+    }
+  ]
+}

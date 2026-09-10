@@ -27,6 +27,9 @@
     "validate:shotspec": "tsx validators/validate-shot-spec.ts connection-film/src/scopus-explainer/shot-spec.json",
     "validate:ownership": "tsx validators/validate-audio-ownership.ts",
     "validate:portability": "tsx validators/validate-portability.ts",
+    "validate:preview-rubric": "tsx validators/validate-preview-rubric.ts out/preview-360x640.mp4 --timeline connection-film/src/scopus-explainer/semantic-timeline.json",
+    "validate:visual-semantics": "tsx validators/validate-visual-semantics.ts connection-film/src/scopus-explainer/scenes",
+    "extract:contact-sheet": "tsx validators/extract-contact-sheet.ts connection-film/src/scopus-explainer/semantic-timeline.json out/preview-360x640.mp4 out/contact-sheets/scopus-explainer",
     "validate:m1": "npm run validate:shotspec && npm run validate:ownership && npm run validate:portability",
     "v3.3:gate": "tsx scripts/run-v3_3-gate.ts"
   },

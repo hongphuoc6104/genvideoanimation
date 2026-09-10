@@ -1,0 +1,162 @@
+{
+  "status": "success",
+  "totalDurationSec": 91.309,
+  "totalLines": 12,
+  "masterVoiceover": "mini-projects/historical-process/audio/master_audio_mono.wav",
+  "voice": {
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "precision": "fp32",
+    "device": "cpu",
+    "voice": "Adam",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 0.0,
+      "end": 6.373,
+      "audioDuration": 6.373,
+      "totalDuration": 6.723,
+      "spoken": "Trước thế kỷ mười tám, mọi nền văn minh đều mắc kẹt trong giới hạn năng lượng cơ bắp và những cỗ guồng nước phụ thuộc hoàn toàn vào dòng chảy tự nhiên.",
+      "file": "mini-projects/historical-process/audio/lines/line01.wav"
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.05,
+      "pauseAfter": 0.3,
+      "start": 6.723,
+      "end": 15.123,
+      "audioDuration": 8.4,
+      "totalDuration": 8.7,
+      "spoken": "Năm 1712, Thomas Newcomen chế tạo cỗ máy hơi nước khí quyển đầu tiên, bơm nước làm đầy xi lanh rồi phun nước lạnh trực tiếp vào lòng buồng đốt để ép piston xuống.",
+      "file": "mini-projects/historical-process/audio/lines/line02.wav"
+    },
+    {
+      "id": 3,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "start": 15.423,
+      "end": 23.504,
+      "audioDuration": 8.081,
+      "totalDuration": 8.431,
+      "spoken": "Thế nhưng chu trình nung nóng rồi làm lạnh đột ngột lòng xi lanh đã làm tiêu hao hơn 98 phần trăm nhiệt lượng chỉ để nung nóng lại thành khối kim loại sau mỗi hành trình.",
+      "file": "mini-projects/historical-process/audio/lines/line03.wav"
+    },
+    {
+      "id": 4,
+      "role": "turn",
+      "speed": 1.05,
+      "pauseAfter": 0.32,
+      "start": 23.854,
+      "end": 32.112,
+      "audioDuration": 8.258,
+      "totalDuration": 8.578,
+      "spoken": "Năm 1765, kỹ sư James Watt nhận ra nguyên lý nhiệt động học mang tính cách mạng: muốn tiết kiệm năng lượng, xi lanh phải luôn được giữ ở nhiệt độ sôi liên tục.",
+      "file": "mini-projects/historical-process/audio/lines/line04.wav"
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.3,
+      "start": 32.432,
+      "end": 38.386,
+      "audioDuration": 5.954,
+      "totalDuration": 6.254,
+      "spoken": "Watt phát minh bình ngưng tụ tách rời, chuyển toàn bộ quá trình làm lạnh và ngưng tụ hơi nước sang một buồng chứa làm mát biệt lập bên ngoài.",
+      "file": "mini-projects/historical-process/audio/lines/line05.wav"
+    },
+    {
+      "id": 6,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.38,
+      "start": 38.686,
+      "end": 46.078,
+      "audioDuration": 7.392,
+      "totalDuration": 7.772,
+      "spoken": "Xi lanh chính giờ đây được bọc một lớp vỏ áo hơi giữ nhiệt bền bỉ, kết hợp bơm chân không để duy trì áp suất hút tối ưu mà không hề thất thoát nhiệt năng.",
+      "file": "mini-projects/historical-process/audio/lines/line06.wav"
+    },
+    {
+      "id": 7,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.3,
+      "start": 46.458,
+      "end": 53.4,
+      "audioDuration": 6.942,
+      "totalDuration": 7.242,
+      "spoken": "Trong chu trình giãn nở bốn pha, hơi nước áp suất cao được dẫn vào xi lanh, van nạp ngắt sớm để hơi giãn nở tự do sinh công cơ học tối đa.",
+      "file": "mini-projects/historical-process/audio/lines/line07.wav"
+    },
+    {
+      "id": 8,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.3,
+      "start": 53.7,
+      "end": 60.425,
+      "audioDuration": 6.725,
+      "totalDuration": 7.025,
+      "spoken": "Tiếp đó, van xả mở thông với bình ngưng, hơi nước hóa lỏng tức thì tạo độ chân không mãnh liệt kéo piston trở về với lực sinh công kép hai chiều.",
+      "file": "mini-projects/historical-process/audio/lines/line08.wav"
+    },
+    {
+      "id": 9,
+      "role": "payoff",
+      "speed": 1.05,
+      "pauseAfter": 0.38,
+      "start": 60.725,
+      "end": 68.03,
+      "audioDuration": 7.306,
+      "totalDuration": 7.686,
+      "spoken": "Nhờ cơ cấu liên kết chuyển động song song và bánh đà quán tính, hành trình tịnh tiến lên xuống được chuyển hóa mượt mà thành mô men xoay tròn công nghiệp liên tục.",
+      "file": "mini-projects/historical-process/audio/lines/line09.wav"
+    },
+    {
+      "id": 10,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.32,
+      "start": 68.41,
+      "end": 76.321,
+      "audioDuration": 7.91,
+      "totalDuration": 8.23,
+      "spoken": "Động cơ Watt đã giải phóng hoàn toàn các cơ sở sản xuất khỏi sự phụ thuộc địa lý, cho phép hàng nghìn khung dệt cơ khí tại Lancashire vận hành ngày đêm trong lòng đô thị.",
+      "file": "mini-projects/historical-process/audio/lines/line10.wav"
+    },
+    {
+      "id": 11,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.32,
+      "start": 76.641,
+      "end": 83.229,
+      "audioDuration": 6.589,
+      "totalDuration": 6.909,
+      "spoken": "Những giếng mỏ than ngập nước sâu hàng trăm mét được bơm cạn, mở đường cho kỷ nguyên đầu máy xe lửa hơi nước kết nối mạng lưới giao thương lục địa.",
+      "file": "mini-projects/historical-process/audio/lines/line11.wav"
+    },
+    {
+      "id": 12,
+      "role": "close",
+      "speed": 1.03,
+      "pauseAfter": 0.4,
+      "start": 83.549,
+      "end": 90.909,
+      "audioDuration": 7.359,
+      "totalDuration": 7.759,
+      "spoken": "Từ trực giác giữ ấm xi lanh của James Watt, nhân loại không chỉ bước vào Cách mạng Công nghiệp mà còn khai sinh nền khoa học nhiệt động lực học hiện đại.",
+      "file": "mini-projects/historical-process/audio/lines/line12.wav"
+    }
+  ],
+  "elapsedSec": 309.751
+}

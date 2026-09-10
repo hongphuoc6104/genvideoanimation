@@ -1,6 +1,6 @@
 {
   "version": "3.3.0",
-  "timestamp": "2026-09-10T14:13:09.819Z",
+  "timestamp": "2026-09-10T15:58:15.551Z",
   "sequence_id": "scopus-research-gap-tiktok-9x16",
   "audit_status": "ACCEPTED",
   "audit_summary": "V3.3 Production Integrity Hardening & Failure-First Acceptance fully verified across code, shot-spec, timing, audio, rendered video, mobile preview, and adversarial suites.",
@@ -58,6 +58,39 @@
       "integratedLufs": -15,
       "truePeakDbfs": -3.5,
       "sha256": "b28fe33e9fabe8986036bf0a8151133879c358a3ff58d48444b7047ba8537db9"
+    },
+    {
+      "file": "mini-projects/science-mechanism/audio/master_audio.wav",
+      "type": "generalization_audio_crispr",
+      "sha256": "576b94e0fc426079ef605408bbdb74bca3725d9a92db3626a6599a6fd77d1663",
+      "durationSec": 99.04
+    },
+    {
+      "file": "mini-projects/historical-process/audio/master_audio.wav",
+      "type": "generalization_audio_steam",
+      "sha256": "8f35cf3e06cbe54ec48680eb8708eb30898fd95cce2a53dd0656a8e2899ff341",
+      "durationSec": 91.31
+    },
+    {
+      "file": "mini-projects/tech-tutorial/audio/master_audio.wav",
+      "type": "generalization_audio_git_dag",
+      "sha256": "59621c16e6bb4f6c208b20e1fb8a8e56a1b76162414b3a3ee81c057be3afc441",
+      "durationSec": 102.78
+    },
+    {
+      "file": "mini-projects/science-mechanism/source-content-map.json",
+      "type": "curriculum_map_crispr",
+      "sha256": "0b3e632f60a508cb36d594e792f763f8532640938f769df2e3b4cb4356855855"
+    },
+    {
+      "file": "mini-projects/historical-process/source-content-map.json",
+      "type": "curriculum_map_steam",
+      "sha256": "61044de562d921b1ca4edc5f2a8b314a6129888addcbc2c889ca568f42e40f97"
+    },
+    {
+      "file": "mini-projects/tech-tutorial/source-content-map.json",
+      "type": "curriculum_map_git_dag",
+      "sha256": "4da858b7a9af3ab0e2f7120230d733e5f56f33402bc1d8d2d53dd97f83f1574b"
     }
   ],
   "production_gates": {
@@ -217,6 +250,38 @@
       ],
       "coverageValid": true,
       "shotSpecValid": true
+    },
+    "gate_14_generalization": {
+      "validator": "validators/validate-generalization.ts",
+      "status": "PASSED",
+      "projects": [
+        {
+          "id": "science-mechanism",
+          "concepts": 12,
+          "shots": 4,
+          "durationSec": 99.04,
+          "lufs": -15.4,
+          "peakDb": -4.8
+        },
+        {
+          "id": "historical-process",
+          "concepts": 12,
+          "shots": 4,
+          "durationSec": 91.31,
+          "lufs": -15,
+          "peakDb": -4.8
+        },
+        {
+          "id": "tech-tutorial",
+          "concepts": 14,
+          "shots": 4,
+          "durationSec": 102.78,
+          "lufs": -15.5,
+          "peakDb": -4.8
+        }
+      ],
+      "visualAstValidation": "100% Passed (12 scene files analyzed, 0 text-card monoculture violations)",
+      "audioValidation": "100% Passed (48kHz, 2ch, 16bit, EBU R128 Compliant)"
     }
   },
   "quality_rubric_audit": {

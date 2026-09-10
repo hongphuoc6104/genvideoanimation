@@ -5,6 +5,8 @@
   "canvasHeight": 640,
   "framesAnalyzed": 103,
   "overallScore": 4.91,
+  "graphicMotionEnergyRatio": 67.5,
+  "visualContractsValidated": 0,
   "categoryScores": {
     "primaryVisualRecognizable": 4.99,
     "informationalTextReadable": 5,
@@ -14,8 +16,24 @@
   },
   "passed": true,
   "criticalViolations": [
+    "Frame 300 (10.00s): Low graphic motion energy ratio (22.4% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 420 (14.00s): Low graphic motion energy ratio (0.4% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 540 (18.00s): Low graphic motion energy ratio (0.1% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 690 (23.00s): Low graphic motion energy ratio (10.4% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 810 (27.00s): Low graphic motion energy ratio (11.7% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 1110 (37.00s): Low graphic motion energy ratio (10.3% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 1230 (41.00s): Low graphic motion energy ratio (11.5% < 25%): peripheral text/card movements dominated motion.",
     "Frame 1290 (43.00s): Low silhouette contrast (1.72:1 < 2.5:1).",
-    "Frame 1290 (43.00s): Sub-optimal focal hierarchy: focal energy ratio 41.6% (< 50%)."
+    "Frame 1290 (43.00s): Sub-optimal focal hierarchy: focal energy ratio 41.6% (< 50%).",
+    "Frame 1380 (46.00s): Low graphic motion energy ratio (14.1% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 1620 (54.00s): Low graphic motion energy ratio (16.4% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 1770 (59.00s): Low graphic motion energy ratio (12.6% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 1920 (64.00s): Low graphic motion energy ratio (14.9% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 2040 (68.00s): Low graphic motion energy ratio (0.2% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 2580 (86.00s): Low graphic motion energy ratio (0.4% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 2640 (88.00s): Low graphic motion energy ratio (0.7% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 2850 (95.00s): Low graphic motion energy ratio (0.5% < 25%): peripheral text/card movements dominated motion.",
+    "Frame 3060 (102.00s): Low graphic motion energy ratio (10.5% < 25%): peripheral text/card movements dominated motion."
   ],
   "frames": [
     {
@@ -39,7 +57,8 @@
         "focalDominanceRatio": 0.6192593884717899,
         "focalDispersionPx": 161.05824182716307,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 1
       },
       "violations": []
     },
@@ -64,7 +83,8 @@
         "focalDominanceRatio": 0.5943170423444968,
         "focalDispersionPx": 164.16068490895233,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 80
+        "captionClearancePx": 80,
+        "graphicMotionEnergyRatio": 0.848
       },
       "violations": []
     },
@@ -89,7 +109,8 @@
         "focalDominanceRatio": 0.6546478454096231,
         "focalDispersionPx": 150.63727313718323,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 125
+        "captionClearancePx": 125,
+        "graphicMotionEnergyRatio": 0.904
       },
       "violations": []
     },
@@ -114,7 +135,8 @@
         "focalDominanceRatio": 0.6368432987219842,
         "focalDispersionPx": 156.86802943882006,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 103
+        "captionClearancePx": 103,
+        "graphicMotionEnergyRatio": 0.907
       },
       "violations": []
     },
@@ -138,7 +160,8 @@
         "focalDominanceRatio": 0.6504028285864701,
         "focalDispersionPx": 160.12165028777665,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 93
+        "captionClearancePx": 93,
+        "graphicMotionEnergyRatio": 0.913
       },
       "violations": []
     },
@@ -163,7 +186,8 @@
         "focalDominanceRatio": 0.6170198455853683,
         "focalDispersionPx": 164.16631266118995,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 79
+        "captionClearancePx": 79,
+        "graphicMotionEnergyRatio": 0.631
       },
       "violations": []
     },
@@ -188,7 +212,8 @@
         "focalDominanceRatio": 0.6306728318981366,
         "focalDispersionPx": 162.48612998104431,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 85
+        "captionClearancePx": 85,
+        "graphicMotionEnergyRatio": 0.671
       },
       "violations": []
     },
@@ -213,7 +238,8 @@
         "focalDominanceRatio": 0.5989991242715159,
         "focalDispersionPx": 168.87949870991883,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 77
+        "captionClearancePx": 77,
+        "graphicMotionEnergyRatio": 0.859
       },
       "violations": []
     },
@@ -238,7 +264,8 @@
         "focalDominanceRatio": 0.6268360013430255,
         "focalDispersionPx": 162.84761187845808,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 84
+        "captionClearancePx": 84,
+        "graphicMotionEnergyRatio": 0.949
       },
       "violations": []
     },
@@ -263,7 +290,8 @@
         "focalDominanceRatio": 0.6264481844839428,
         "focalDispersionPx": 163.00475039489876,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 83
+        "captionClearancePx": 83,
+        "graphicMotionEnergyRatio": 0.556
       },
       "violations": []
     },
@@ -288,9 +316,12 @@
         "focalDominanceRatio": 0.6256170310209281,
         "focalDispersionPx": 163.0586477157113,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 83
+        "captionClearancePx": 83,
+        "graphicMotionEnergyRatio": 0.224
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (22.4% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 330,
@@ -313,7 +344,8 @@
         "focalDominanceRatio": 0.668057868708037,
         "focalDispersionPx": 156.07052820447936,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 105
+        "captionClearancePx": 105,
+        "graphicMotionEnergyRatio": 0.562
       },
       "violations": []
     },
@@ -338,7 +370,8 @@
         "focalDominanceRatio": 0.6783305588493022,
         "focalDispersionPx": 152.39111320125653,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 110
+        "captionClearancePx": 110,
+        "graphicMotionEnergyRatio": 0.989
       },
       "violations": []
     },
@@ -363,7 +396,8 @@
         "focalDominanceRatio": 0.6369279584868175,
         "focalDispersionPx": 158.72004621240737,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.551
       },
       "violations": []
     },
@@ -388,9 +422,12 @@
         "focalDominanceRatio": 0.636947897495963,
         "focalDispersionPx": 158.71623144924453,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.004
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (0.4% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 450,
@@ -413,7 +450,8 @@
         "focalDominanceRatio": 0.668886940195067,
         "focalDispersionPx": 153.75697216837594,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 105
+        "captionClearancePx": 105,
+        "graphicMotionEnergyRatio": 0.512
       },
       "violations": []
     },
@@ -438,7 +476,8 @@
         "focalDominanceRatio": 0.6690235379008754,
         "focalDispersionPx": 155.07706446602867,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 105
+        "captionClearancePx": 105,
+        "graphicMotionEnergyRatio": 0.996
       },
       "violations": []
     },
@@ -463,7 +502,8 @@
         "focalDominanceRatio": 0.6636093204715383,
         "focalDispersionPx": 155.91991939888746,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 103
+        "captionClearancePx": 103,
+        "graphicMotionEnergyRatio": 0.573
       },
       "violations": []
     },
@@ -488,9 +528,12 @@
         "focalDominanceRatio": 0.6635267649473158,
         "focalDispersionPx": 155.92431972413186,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 103
+        "captionClearancePx": 103,
+        "graphicMotionEnergyRatio": 0.001
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (0.1% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 570,
@@ -513,7 +556,8 @@
         "focalDominanceRatio": 0.6508352517516766,
         "focalDispersionPx": 157.7136351525939,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 97
+        "captionClearancePx": 97,
+        "graphicMotionEnergyRatio": 0.445
       },
       "violations": []
     },
@@ -538,7 +582,8 @@
         "focalDominanceRatio": 0.6288887950870712,
         "focalDispersionPx": 160.35084379237193,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 99
+        "captionClearancePx": 99,
+        "graphicMotionEnergyRatio": 0.514
       },
       "violations": []
     },
@@ -563,7 +608,8 @@
         "focalDominanceRatio": 0.6351816665889897,
         "focalDispersionPx": 157.08002574570875,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 88
+        "captionClearancePx": 88,
+        "graphicMotionEnergyRatio": 0.59
       },
       "violations": []
     },
@@ -588,7 +634,8 @@
         "focalDominanceRatio": 0.626064850285142,
         "focalDispersionPx": 158.2057455201084,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 84
+        "captionClearancePx": 84,
+        "graphicMotionEnergyRatio": 0.499
       },
       "violations": []
     },
@@ -613,9 +660,12 @@
         "focalDominanceRatio": 0.6258673692154028,
         "focalDispersionPx": 158.22788779198873,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 84
+        "captionClearancePx": 84,
+        "graphicMotionEnergyRatio": 0.104
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (10.4% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 720,
@@ -638,7 +688,8 @@
         "focalDominanceRatio": 0.6369356139045942,
         "focalDispersionPx": 156.65757759670905,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 89
+        "captionClearancePx": 89,
+        "graphicMotionEnergyRatio": 0.528
       },
       "violations": []
     },
@@ -663,7 +714,8 @@
         "focalDominanceRatio": 0.6321554967907542,
         "focalDispersionPx": 158.6462369940558,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.796
       },
       "violations": []
     },
@@ -688,7 +740,8 @@
         "focalDominanceRatio": 0.6222268135101778,
         "focalDispersionPx": 160.1975912191859,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 87
+        "captionClearancePx": 87,
+        "graphicMotionEnergyRatio": 0.537
       },
       "violations": []
     },
@@ -713,9 +766,12 @@
         "focalDominanceRatio": 0.6221475485333805,
         "focalDispersionPx": 160.21482571442172,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 87
+        "captionClearancePx": 87,
+        "graphicMotionEnergyRatio": 0.117
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (11.7% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 840,
@@ -738,7 +794,8 @@
         "focalDominanceRatio": 0.7579816990245913,
         "focalDispersionPx": 139.9821485284965,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 154
+        "captionClearancePx": 154,
+        "graphicMotionEnergyRatio": 0.513
       },
       "violations": []
     },
@@ -763,7 +820,8 @@
         "focalDominanceRatio": 0.6422824172226911,
         "focalDispersionPx": 156.40587890755305,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 94
+        "captionClearancePx": 94,
+        "graphicMotionEnergyRatio": 0.827
       },
       "violations": []
     },
@@ -788,7 +846,8 @@
         "focalDominanceRatio": 0.6426742728933394,
         "focalDispersionPx": 156.40069618098076,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 94
+        "captionClearancePx": 94,
+        "graphicMotionEnergyRatio": 0.999
       },
       "violations": []
     },
@@ -813,7 +872,8 @@
         "focalDominanceRatio": 0.6214022116763215,
         "focalDispersionPx": 159.3851201945017,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 85
+        "captionClearancePx": 85,
+        "graphicMotionEnergyRatio": 0.482
       },
       "violations": []
     },
@@ -838,7 +898,8 @@
         "focalDominanceRatio": 0.621404398278699,
         "focalDispersionPx": 159.3643806634532,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 85
+        "captionClearancePx": 85,
+        "graphicMotionEnergyRatio": 0.992
       },
       "violations": []
     },
@@ -863,7 +924,8 @@
         "focalDominanceRatio": 0.6264080890513459,
         "focalDispersionPx": 158.42158279226152,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 88
+        "captionClearancePx": 88,
+        "graphicMotionEnergyRatio": 0.59
       },
       "violations": []
     },
@@ -888,7 +950,8 @@
         "focalDominanceRatio": 0.6103431135463993,
         "focalDispersionPx": 161.44596939821005,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 79
+        "captionClearancePx": 79,
+        "graphicMotionEnergyRatio": 0.83
       },
       "violations": []
     },
@@ -913,7 +976,8 @@
         "focalDominanceRatio": 0.7634539016676614,
         "focalDispersionPx": 139.44857929625508,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 154
+        "captionClearancePx": 154,
+        "graphicMotionEnergyRatio": 0.474
       },
       "violations": []
     },
@@ -938,7 +1002,8 @@
         "focalDominanceRatio": 0.5777147290353556,
         "focalDispersionPx": 165.62403168897225,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 67
+        "captionClearancePx": 67,
+        "graphicMotionEnergyRatio": 0.509
       },
       "violations": []
     },
@@ -963,9 +1028,12 @@
         "focalDominanceRatio": 0.5775856236861437,
         "focalDispersionPx": 165.6323482784703,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 67
+        "captionClearancePx": 67,
+        "graphicMotionEnergyRatio": 0.103
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (10.3% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 1140,
@@ -988,7 +1056,8 @@
         "focalDominanceRatio": 0.6692119634938035,
         "focalDispersionPx": 154.9710677322789,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 101
+        "captionClearancePx": 101,
+        "graphicMotionEnergyRatio": 0.549
       },
       "violations": []
     },
@@ -1012,7 +1081,8 @@
         "focalDominanceRatio": 0.6509670429372328,
         "focalDispersionPx": 157.28086746314364,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 98
+        "captionClearancePx": 98,
+        "graphicMotionEnergyRatio": 0.954
       },
       "violations": []
     },
@@ -1037,7 +1107,8 @@
         "focalDominanceRatio": 0.6048102816645458,
         "focalDispersionPx": 163.03608572297753,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 81
+        "captionClearancePx": 81,
+        "graphicMotionEnergyRatio": 0.578
       },
       "violations": []
     },
@@ -1062,9 +1133,12 @@
         "focalDominanceRatio": 0.6044735029063748,
         "focalDispersionPx": 163.07283942325077,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 81
+        "captionClearancePx": 81,
+        "graphicMotionEnergyRatio": 0.115
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (11.5% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 1260,
@@ -1087,7 +1161,8 @@
         "focalDominanceRatio": 0.6043211455506021,
         "focalDispersionPx": 163.13134448559973,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 81
+        "captionClearancePx": 81,
+        "graphicMotionEnergyRatio": 0.763
       },
       "violations": []
     },
@@ -1112,7 +1187,8 @@
         "focalDominanceRatio": 0.4161215391413763,
         "focalDispersionPx": 175.53772256471657,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 34
+        "captionClearancePx": 34,
+        "graphicMotionEnergyRatio": 0.633
       },
       "violations": [
         "Low silhouette contrast (1.72:1 < 2.5:1).",
@@ -1140,7 +1216,8 @@
         "focalDominanceRatio": 0.7274277412684332,
         "focalDispersionPx": 149.1706581194139,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 116
+        "captionClearancePx": 116,
+        "graphicMotionEnergyRatio": 0.638
       },
       "violations": []
     },
@@ -1165,7 +1242,8 @@
         "focalDominanceRatio": 0.6628573491718258,
         "focalDispersionPx": 158.07343155474695,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.525
       },
       "violations": []
     },
@@ -1190,9 +1268,12 @@
         "focalDominanceRatio": 0.6626665022360166,
         "focalDispersionPx": 158.09365525266404,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.141
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (14.1% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 1410,
@@ -1215,7 +1296,8 @@
         "focalDominanceRatio": 0.6874336613200633,
         "focalDispersionPx": 154.8122476810275,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 100
+        "captionClearancePx": 100,
+        "graphicMotionEnergyRatio": 0.542
       },
       "violations": []
     },
@@ -1240,7 +1322,8 @@
         "focalDominanceRatio": 0.6743341395679608,
         "focalDispersionPx": 155.4520511816561,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 92
+        "captionClearancePx": 92,
+        "graphicMotionEnergyRatio": 0.996
       },
       "violations": []
     },
@@ -1265,7 +1348,8 @@
         "focalDominanceRatio": 0.6858216236209406,
         "focalDispersionPx": 153.72797745265882,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 97
+        "captionClearancePx": 97,
+        "graphicMotionEnergyRatio": 0.558
       },
       "violations": []
     },
@@ -1290,7 +1374,8 @@
         "focalDominanceRatio": 0.6843053276161956,
         "focalDispersionPx": 153.75496463328577,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 97
+        "captionClearancePx": 97,
+        "graphicMotionEnergyRatio": 0.298
       },
       "violations": []
     },
@@ -1315,7 +1400,8 @@
         "focalDominanceRatio": 0.6812890353209964,
         "focalDispersionPx": 154.3060858143906,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 96
+        "captionClearancePx": 96,
+        "graphicMotionEnergyRatio": 0.516
       },
       "violations": []
     },
@@ -1340,7 +1426,8 @@
         "focalDominanceRatio": 0.6767277434597919,
         "focalDispersionPx": 155.0073423630689,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 93
+        "captionClearancePx": 93,
+        "graphicMotionEnergyRatio": 0.777
       },
       "violations": []
     },
@@ -1365,7 +1452,8 @@
         "focalDominanceRatio": 0.6773807107414945,
         "focalDispersionPx": 155.17218966482787,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 93
+        "captionClearancePx": 93,
+        "graphicMotionEnergyRatio": 0.547
       },
       "violations": []
     },
@@ -1390,9 +1478,12 @@
         "focalDominanceRatio": 0.6772090453049476,
         "focalDispersionPx": 155.20434956354356,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 93
+        "captionClearancePx": 93,
+        "graphicMotionEnergyRatio": 0.164
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (16.4% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 1650,
@@ -1415,7 +1506,8 @@
         "focalDominanceRatio": 0.7112986697214633,
         "focalDispersionPx": 151.02217688337237,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 108
+        "captionClearancePx": 108,
+        "graphicMotionEnergyRatio": 0.632
       },
       "violations": []
     },
@@ -1440,7 +1532,8 @@
         "focalDominanceRatio": 0.7020362648644912,
         "focalDispersionPx": 151.23330063568653,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 104
+        "captionClearancePx": 104,
+        "graphicMotionEnergyRatio": 0.56
       },
       "violations": []
     },
@@ -1465,7 +1558,8 @@
         "focalDominanceRatio": 0.7243175258683553,
         "focalDispersionPx": 149.4157604710621,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 114
+        "captionClearancePx": 114,
+        "graphicMotionEnergyRatio": 0.997
       },
       "violations": []
     },
@@ -1490,7 +1584,8 @@
         "focalDominanceRatio": 0.6973667085085705,
         "focalDispersionPx": 153.45605086992157,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 103
+        "captionClearancePx": 103,
+        "graphicMotionEnergyRatio": 0.555
       },
       "violations": []
     },
@@ -1515,9 +1610,12 @@
         "focalDominanceRatio": 0.6975643504566894,
         "focalDispersionPx": 153.44210563025197,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 103
+        "captionClearancePx": 103,
+        "graphicMotionEnergyRatio": 0.126
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (12.6% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 1800,
@@ -1540,7 +1638,8 @@
         "focalDominanceRatio": 0.6807637305972354,
         "focalDispersionPx": 155.83921331908653,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 96
+        "captionClearancePx": 96,
+        "graphicMotionEnergyRatio": 0.491
       },
       "violations": []
     },
@@ -1564,7 +1663,8 @@
         "focalDominanceRatio": 0.6547767483964076,
         "focalDispersionPx": 159.15489699102775,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 85
+        "captionClearancePx": 85,
+        "graphicMotionEnergyRatio": 0.741
       },
       "violations": []
     },
@@ -1589,7 +1689,8 @@
         "focalDominanceRatio": 0.7608259929988448,
         "focalDispersionPx": 145.34287158031555,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 130
+        "captionClearancePx": 130,
+        "graphicMotionEnergyRatio": 0.531
       },
       "violations": []
     },
@@ -1614,7 +1715,8 @@
         "focalDominanceRatio": 0.6719695350561402,
         "focalDispersionPx": 156.83560360132344,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.393
       },
       "violations": []
     },
@@ -1639,9 +1741,12 @@
         "focalDominanceRatio": 0.6717384696556238,
         "focalDispersionPx": 156.85216789614785,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 91
+        "captionClearancePx": 91,
+        "graphicMotionEnergyRatio": 0.149
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (14.9% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 1950,
@@ -1664,7 +1769,8 @@
         "focalDominanceRatio": 0.6871956960374908,
         "focalDispersionPx": 154.23110647111,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 101
+        "captionClearancePx": 101,
+        "graphicMotionEnergyRatio": 0.518
       },
       "violations": []
     },
@@ -1689,7 +1795,8 @@
         "focalDominanceRatio": 0.7547352165728347,
         "focalDispersionPx": 135.29502094366714,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 158
+        "captionClearancePx": 158,
+        "graphicMotionEnergyRatio": 0.671
       },
       "violations": []
     },
@@ -1714,7 +1821,8 @@
         "focalDominanceRatio": 0.6568172190536418,
         "focalDispersionPx": 154.59883844191862,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 92
+        "captionClearancePx": 92,
+        "graphicMotionEnergyRatio": 0.513
       },
       "violations": []
     },
@@ -1739,9 +1847,12 @@
         "focalDominanceRatio": 0.6568036887685984,
         "focalDispersionPx": 154.59888131547316,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 92
+        "captionClearancePx": 92,
+        "graphicMotionEnergyRatio": 0.002
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (0.2% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 2070,
@@ -1764,7 +1875,8 @@
         "focalDominanceRatio": 0.6724923349571409,
         "focalDispersionPx": 151.63792345980394,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 101
+        "captionClearancePx": 101,
+        "graphicMotionEnergyRatio": 0.519
       },
       "violations": []
     },
@@ -1789,7 +1901,8 @@
         "focalDominanceRatio": 0.5930676584013765,
         "focalDispersionPx": 172.09109614973232,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 79
+        "captionClearancePx": 79,
+        "graphicMotionEnergyRatio": 0.894
       },
       "violations": []
     },
@@ -1814,7 +1927,8 @@
         "focalDominanceRatio": 0.6508933054410788,
         "focalDispersionPx": 157.3371077691455,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 85
+        "captionClearancePx": 85,
+        "graphicMotionEnergyRatio": 0.887
       },
       "violations": []
     },
@@ -1839,7 +1953,8 @@
         "focalDominanceRatio": 0.6394760587775015,
         "focalDispersionPx": 159.51236440231128,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 78
+        "captionClearancePx": 78,
+        "graphicMotionEnergyRatio": 0.633
       },
       "violations": []
     },
@@ -1864,7 +1979,8 @@
         "focalDominanceRatio": 0.7017125119130344,
         "focalDispersionPx": 148.45333418139003,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 111
+        "captionClearancePx": 111,
+        "graphicMotionEnergyRatio": 0.588
       },
       "violations": []
     },
@@ -1889,7 +2005,8 @@
         "focalDominanceRatio": 0.690897845499794,
         "focalDispersionPx": 151.73174392619802,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 112
+        "captionClearancePx": 112,
+        "graphicMotionEnergyRatio": 0.848
       },
       "violations": []
     },
@@ -1914,7 +2031,8 @@
         "focalDominanceRatio": 0.7056853396943135,
         "focalDispersionPx": 148.79159249067243,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 111
+        "captionClearancePx": 111,
+        "graphicMotionEnergyRatio": 0.897
       },
       "violations": []
     },
@@ -1939,7 +2057,8 @@
         "focalDominanceRatio": 0.6837223268690069,
         "focalDispersionPx": 151.60690890605815,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 101
+        "captionClearancePx": 101,
+        "graphicMotionEnergyRatio": 0.591
       },
       "violations": []
     },
@@ -1964,7 +2083,8 @@
         "focalDominanceRatio": 0.6980262275235914,
         "focalDispersionPx": 149.91734591573632,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 107
+        "captionClearancePx": 107,
+        "graphicMotionEnergyRatio": 0.57
       },
       "violations": []
     },
@@ -1989,7 +2109,8 @@
         "focalDominanceRatio": 0.6740730134187408,
         "focalDispersionPx": 153.2274859604819,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 96
+        "captionClearancePx": 96,
+        "graphicMotionEnergyRatio": 0.632
       },
       "violations": []
     },
@@ -2014,7 +2135,8 @@
         "focalDominanceRatio": 0.794027045739844,
         "focalDispersionPx": 130.80695841027764,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 169
+        "captionClearancePx": 169,
+        "graphicMotionEnergyRatio": 0.558
       },
       "violations": []
     },
@@ -2039,7 +2161,8 @@
         "focalDominanceRatio": 0.6895789082775557,
         "focalDispersionPx": 151.54131158709177,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 107
+        "captionClearancePx": 107,
+        "graphicMotionEnergyRatio": 0.917
       },
       "violations": []
     },
@@ -2064,7 +2187,8 @@
         "focalDominanceRatio": 0.6627741786685312,
         "focalDispersionPx": 155.58220613823937,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 93
+        "captionClearancePx": 93,
+        "graphicMotionEnergyRatio": 0.621
       },
       "violations": []
     },
@@ -2089,7 +2213,8 @@
         "focalDominanceRatio": 0.7915008948661693,
         "focalDispersionPx": 130.35493307698516,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 174
+        "captionClearancePx": 174,
+        "graphicMotionEnergyRatio": 0.615
       },
       "violations": []
     },
@@ -2114,7 +2239,8 @@
         "focalDominanceRatio": 0.6729283367607434,
         "focalDispersionPx": 153.8400401281613,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 99
+        "captionClearancePx": 99,
+        "graphicMotionEnergyRatio": 0.643
       },
       "violations": []
     },
@@ -2139,7 +2265,8 @@
         "focalDominanceRatio": 0.6540732384095448,
         "focalDispersionPx": 144.33920702195402,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 76
+        "captionClearancePx": 76,
+        "graphicMotionEnergyRatio": 0.638
       },
       "violations": []
     },
@@ -2164,7 +2291,8 @@
         "focalDominanceRatio": 0.6655885432293718,
         "focalDispersionPx": 152.9638041658557,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 105
+        "captionClearancePx": 105,
+        "graphicMotionEnergyRatio": 0.278
       },
       "violations": []
     },
@@ -2189,9 +2317,12 @@
         "focalDominanceRatio": 0.6656546662870502,
         "focalDispersionPx": 152.96401201486407,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 105
+        "captionClearancePx": 105,
+        "graphicMotionEnergyRatio": 0.004
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (0.4% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 2610,
@@ -2214,7 +2345,8 @@
         "focalDominanceRatio": 0.6374783232656922,
         "focalDispersionPx": 156.71063278949003,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 94
+        "captionClearancePx": 94,
+        "graphicMotionEnergyRatio": 0.505
       },
       "violations": []
     },
@@ -2239,9 +2371,12 @@
         "focalDominanceRatio": 0.6374765239921999,
         "focalDispersionPx": 156.71718330974147,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 94
+        "captionClearancePx": 94,
+        "graphicMotionEnergyRatio": 0.007
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (0.7% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 2670,
@@ -2264,7 +2399,8 @@
         "focalDominanceRatio": 0.7399940354493588,
         "focalDispersionPx": 143.1157568934556,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 140
+        "captionClearancePx": 140,
+        "graphicMotionEnergyRatio": 0.809
       },
       "violations": []
     },
@@ -2289,7 +2425,8 @@
         "focalDominanceRatio": 0.655915536176748,
         "focalDispersionPx": 155.10385381967163,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 100
+        "captionClearancePx": 100,
+        "graphicMotionEnergyRatio": 0.615
       },
       "violations": []
     },
@@ -2314,7 +2451,8 @@
         "focalDominanceRatio": 0.6564063099067402,
         "focalDispersionPx": 155.0953222061474,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 101
+        "captionClearancePx": 101,
+        "graphicMotionEnergyRatio": 0.259
       },
       "violations": []
     },
@@ -2339,7 +2477,8 @@
         "focalDominanceRatio": 0.680553154264463,
         "focalDispersionPx": 151.96205767016366,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 109
+        "captionClearancePx": 109,
+        "graphicMotionEnergyRatio": 0.53
       },
       "violations": []
     },
@@ -2364,7 +2503,8 @@
         "focalDominanceRatio": 0.7064659421519494,
         "focalDispersionPx": 148.38198888741385,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 122
+        "captionClearancePx": 122,
+        "graphicMotionEnergyRatio": 0.789
       },
       "violations": []
     },
@@ -2389,7 +2529,8 @@
         "focalDominanceRatio": 0.6876813611599376,
         "focalDispersionPx": 151.81184324509113,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 113
+        "captionClearancePx": 113,
+        "graphicMotionEnergyRatio": 0.501
       },
       "violations": []
     },
@@ -2414,9 +2555,12 @@
         "focalDominanceRatio": 0.6876764854317841,
         "focalDispersionPx": 151.8130539733506,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 113
+        "captionClearancePx": 113,
+        "graphicMotionEnergyRatio": 0.005
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (0.5% < 25%): peripheral text/card movements dominated motion."
+      ]
     },
     {
       "frameIndex": 2880,
@@ -2439,7 +2583,8 @@
         "focalDominanceRatio": 0.7682627990219147,
         "focalDispersionPx": 137.70839728097826,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 158
+        "captionClearancePx": 158,
+        "graphicMotionEnergyRatio": 0.474
       },
       "violations": []
     },
@@ -2464,7 +2609,8 @@
         "focalDominanceRatio": 0.6954525563848172,
         "focalDispersionPx": 150.5005247418626,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 116
+        "captionClearancePx": 116,
+        "graphicMotionEnergyRatio": 0.364
       },
       "violations": []
     },
@@ -2489,7 +2635,8 @@
         "focalDominanceRatio": 0.6472199619389147,
         "focalDispersionPx": 159.8459418613381,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 95
+        "captionClearancePx": 95,
+        "graphicMotionEnergyRatio": 0.744
       },
       "violations": []
     },
@@ -2514,7 +2661,8 @@
         "focalDominanceRatio": 0.6366894375613705,
         "focalDispersionPx": 157.87413956550125,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 87
+        "captionClearancePx": 87,
+        "graphicMotionEnergyRatio": 0.669
       },
       "violations": []
     },
@@ -2539,7 +2687,8 @@
         "focalDominanceRatio": 0.6382635804657342,
         "focalDispersionPx": 157.62720640134634,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 88
+        "captionClearancePx": 88,
+        "graphicMotionEnergyRatio": 0.413
       },
       "violations": []
     },
@@ -2564,7 +2713,8 @@
         "focalDominanceRatio": 0.6720602729092554,
         "focalDispersionPx": 152.9958220599634,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 100
+        "captionClearancePx": 100,
+        "graphicMotionEnergyRatio": 0.545
       },
       "violations": []
     },
@@ -2589,9 +2739,12 @@
         "focalDominanceRatio": 0.671321509259709,
         "focalDispersionPx": 153.03643807591757,
         "captionSubjectOverlapArea": 0,
-        "captionClearancePx": 100
+        "captionClearancePx": 100,
+        "graphicMotionEnergyRatio": 0.105
       },
-      "violations": []
+      "violations": [
+        "Low graphic motion energy ratio (10.5% < 25%): peripheral text/card movements dominated motion."
+      ]
     }
   ]
 }

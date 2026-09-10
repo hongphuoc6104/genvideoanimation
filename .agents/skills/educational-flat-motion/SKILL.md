@@ -8,12 +8,13 @@ description: "Production V3.3 specification for creating 1080x1920 (9:16) mobile
 ## 1. Purpose & Philosophy
 Use this skill to create repeatable, broadcast-quality, 2D educational explainer videos in Remotion using a polished, flat-vector, cinematic motion-graphics language optimized for **vertical mobile screens (9:16)**.
 
-This is a **production-system skill**, not a prompt for a single video. It governs the full end-to-end pipeline: from pedagogical source analysis to audio DSP synthesis, semantic timeline compilation, programmatic Remotion choreography, dual-resolution rendering, and failure-first automated verification.
+**Fundamental Unit of Production**: The fundamental unit of production is **a concept understood by the viewer through visual progression**, NOT a presentation or checklist of terms. The pipeline strictly prevents slide-like text dumps and decorative animations, requiring active visual mechanics to carry pedagogical meaning.
 
 ### Core Pedagogical & Visual Principles:
-- **Mobile-First Cognitive Clarity**: Explain complex academic and scientific concepts (e.g. Scopus indexing, research methodology, technical taxonomies) on vertical viewports without cognitive overload.
-- **Visual Metaphors Over Text Walls**: Convey abstract systems through dynamic geometry, spatial relationships, and motivated transformations rather than text-heavy slides.
-- **Audio-Driven Choreography**: Narration cadence and natural speech timing dictate visual motion. Visuals adapt to speech, never the reverse.
+- **Visual Progression Over Text Walls**: Convey abstract systems through dynamic geometry, spatial relationships, and motivated transformations. Every beat must prove what the visuals communicate that text cannot.
+- **Curriculum Modular Mapping**: 100% of source curriculum is architected into explicit scopes (`IN_SCOPE_PRIMARY`, `PREREQUISITE`, `DEFERRED_TO_SERIES`), dedicating deep visual time to the central question.
+- **Audio-Driven Choreography with Smart Punctuation**: Natural Vietnamese speech with preserved punctuation cadence dictates visual motion. Physical PCM silence pauses (200-400ms) provide cognitive breathing room.
+- **3-Layer Animatic & Meaning Gate**: Storyboard contact sheets, AST anti-card validators, and decoded frame diffs enforce visual explanatory value before master delivery.
 - **Failure-First Integrity**: Production acceptance is verified through automated AST, acoustic, and temporal diff validators. Zero false-positive passes.
 
 ---
@@ -211,12 +212,15 @@ Every production created or modified under this skill MUST strictly obey the fol
   - Disallowed patterns: `/home/*`, `/Users/*`, `C:\*`, `/tmp/*`, `/var/*`.
   - All asset references must use clean workspace-relative URIs (e.g. `public/audio/scopus_master_audio.wav`).
 
-### Rule 16: `HUNDRED_PERCENT_CONTENT_COVERAGE`
-- Every educational production must decompose source curriculum materials into atomic pedagogical knowledge units in `source-content-map.json`.
+### Rule 16: `CURRICULUM_MODULAR_MAPPING`
+- Every educational production must decompose source curriculum materials into structured pedagogical knowledge units in `source-content-map.json`.
+- **Three-Tier Scope Categorization**:
+  1. `IN_SCOPE_PRIMARY`: The central question and learning outcomes of the film. Must be explained with full visual progression and relational mechanics.
+  2. `PREREQUISITE`: Foundational prior knowledge, visually grounded or concisely established.
+  3. `DEFERRED_TO_SERIES`: Specialized or secondary curriculum branches explicitly mapped to follow-up episodes or supplementary material in the roadmap.
 - **Mathematical Invariant**:
   $$\text{Coverage Ratio} = \frac{\sum_{u \in \text{Units}} \mathbb{I}(u.\text{covered} \land \text{len}(u.\text{semanticBeats}) \ge 1)}{\text{Total Required Units}} \equiv 1.00 \quad (100\%)$$
-- Every concept must map to at least one valid semantic beat and shot.
-- **Strict Prohibition**: Unauthorized omission, cognitive hand-waving, or compression of difficult curriculum concepts to shorten duration is strictly prohibited. Duration must expand to fit the content.
+- **Content-Driven Duration**: Video duration expands dynamically (from 90s–120s up to 15–30 minutes) to match the depth of the central question. Cramming an entire multi-chapter syllabus into a single short video to force brevity is strictly prohibited, as it causes text-card monoculture.
 
 ### Rule 17: `FAIL_CLOSED_GATE_ENTRYPOINT`
 - All quality gates must execute through a single canonical command:
@@ -374,14 +378,17 @@ To guarantee `NO_SELF_CERTIFICATION` and maintain production velocity, agents ar
 3. Structure taxonomies into progressive beats: overview -> focus 1 -> focus 2 -> recap.
 4. Mount the master audio file via a **single `<Audio>` element** at root. Zero cue `<Audio>` tags.
 
-### Phase 9 — Automated Static & AST Validators Gate
+### Phase 9 — 3-Layer Visual Explanation & Automated AST Validators Gate
 Execute the automated test suite. Every validator must exit with code 0:
 - `npx tsx validators/validate-mobile-typography.ts`
+- `npx tsx validators/validate-visual-semantics.ts` (Anti-card AST rule & relational mechanism enforcement)
+- `npx tsx validators/extract-contact-sheet.ts` (Layer 1 Contact sheet extraction for Start/Mid/End beat keyframes)
 - `npx tsx validators/validate-shot-spec.ts`
 - `npx tsx validators/validate-audio-ownership.ts`
 - `npx tsx validators/validate-audio-policy.ts`
 - `npx tsx validators/validate-audio-mix.ts`
 - `npx tsx validators/validate-portability.ts`
+- `npx tsx validators/validate-generalization.ts` (Generalization proof across 3 production mini-projects)
 
 ### Phase 10 — Dual-Resolution Video Rendering
 Render both production and preview artifacts:
@@ -397,7 +404,7 @@ Render both production and preview artifacts:
 
 ### Phase 12 — Independent Quality Rubric Audit
 1. Independent QA agents inspect `preview-360x640.mp4` across frames: 0%, 10%, 20%, ... 100%, and all shot boundary transitions.
-2. Score all 8 categories of `references/quality-rubric.md` (1–5 scale).
+2. Score all 18 categories of `references/quality-rubric.md` (1–5 scale) using decoded RGB24 frames from FFmpeg pipe (`validate-preview-rubric.ts`).
 3. Ensure overall score `>= 4.5`, floor `>= 4.0`, critical categories `>= 4.3`.
 4. Output signed `qa-report.json`.
 
@@ -422,12 +429,16 @@ Naked cuts between major narrative scenes are strictly prohibited. Use motivated
 | Validator Script | Inspection Target | Strict Failure Conditions |
 |---|---|---|
 | `validate-mobile-typography.ts` | AST scan of all production TSX components | Font size < 64px (hero), < 48px (section), < 38px (card title), < 34px (body), < 30px (secondary), < 52px (caption) |
+| `validate-visual-semantics.ts` | AST scan of scene TSX components | Text-card / slide monoculture; lack of relational primitives (SVG shapes, nodes/edges, state machines); passive character ornament |
+| `extract-contact-sheet.ts` | Preview MP4 keyframes per beat | Missing timeline/beats, incomplete 3-frame (Start, Mid, End) keyframe extraction |
 | `validate-shot-spec.ts` | `shot-spec.json` bounds and impact frames | Any impact frame outside `[start_frame, end_frame]`, non-monotonic frames, missing required fields |
 | `validate-audio-ownership.ts` | AST scan of Remotion composition TSX | More than 1 `<Audio>` element; any secondary `<Audio>` tag mounting SFX/cues when master audio is present |
 | `validate-audio-policy.ts` | Audio manifest, pause distribution, loudness | Music files present in production; unmotivated pauses > 0.85s; pause violating role envelope; LUFS > -14.0 or < -16.5; True Peak > -1.8 dBTP |
 | `validate-audio-mix.ts` | Real WAV binary headers vs `audio-manifest.json` | Header sampleRate != 48000; channels != 2; bitDepth != 16; duration discrepancy > 0.05s |
 | `validate-portability.ts` | All JSON manifests, TSX, configs | Presence of absolute machine paths (`/home/`, `C:\`, `/Users/`) |
+| `validate-generalization.ts` | 3 unseen production mini-projects | Source coverage < 100%, invalid shotSpec, visual AST violations, non-compliant WAV audio |
 | `temporal-render-qa.ts` | Decoded MP4 frame buffer differences | Unwhitelisted adjacent frame diff spike; naked cut at scene boundaries without declared transition |
+| `validate-preview-rubric.ts` | Real decoded RGB24 frames from MP4 pipe | Rubric composite score < 4.50, floor < 4.00, critical < 4.30, motion energy ratio < 40% |
 | `offline-network-guard.ts` | Build environment and dependencies | Any external network request during render/synthesis |
 
 ---

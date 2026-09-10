@@ -1,0 +1,2134 @@
+[
+  {
+    "id": "cap_1",
+    "text": "Trước khi Git ra đời, các hệ thống tập trung như SVN lưu trữ lịch sử",
+    "startFrame": 0,
+    "endFrame": 120,
+    "words": [
+      {
+        "word": "Trước",
+        "startFrame": 0,
+        "endFrame": 8
+      },
+      {
+        "word": "khi",
+        "startFrame": 8,
+        "endFrame": 15
+      },
+      {
+        "word": "Git",
+        "startFrame": 15,
+        "endFrame": 23
+      },
+      {
+        "word": "ra",
+        "startFrame": 23,
+        "endFrame": 30
+      },
+      {
+        "word": "đời,",
+        "startFrame": 30,
+        "endFrame": 38
+      },
+      {
+        "word": "các",
+        "startFrame": 38,
+        "endFrame": 45
+      },
+      {
+        "word": "hệ",
+        "startFrame": 45,
+        "endFrame": 53
+      },
+      {
+        "word": "thống",
+        "startFrame": 53,
+        "endFrame": 60
+      },
+      {
+        "word": "tập",
+        "startFrame": 60,
+        "endFrame": 68
+      },
+      {
+        "word": "trung",
+        "startFrame": 68,
+        "endFrame": 75
+      },
+      {
+        "word": "như",
+        "startFrame": 75,
+        "endFrame": 83
+      },
+      {
+        "word": "SVN",
+        "startFrame": 83,
+        "endFrame": 90
+      },
+      {
+        "word": "lưu",
+        "startFrame": 90,
+        "endFrame": 98
+      },
+      {
+        "word": "trữ",
+        "startFrame": 98,
+        "endFrame": 105
+      },
+      {
+        "word": "lịch",
+        "startFrame": 105,
+        "endFrame": 113
+      },
+      {
+        "word": "sử",
+        "startFrame": 113,
+        "endFrame": 120
+      }
+    ]
+  },
+  {
+    "id": "cap_2",
+    "text": "dưới dạng chuỗi các vi phân thay đổi, buộc lập trình viên phải khóa tệp tuần tự.",
+    "startFrame": 120,
+    "endFrame": 240,
+    "words": [
+      {
+        "word": "dưới",
+        "startFrame": 120,
+        "endFrame": 127
+      },
+      {
+        "word": "dạng",
+        "startFrame": 127,
+        "endFrame": 134
+      },
+      {
+        "word": "chuỗi",
+        "startFrame": 134,
+        "endFrame": 141
+      },
+      {
+        "word": "các",
+        "startFrame": 141,
+        "endFrame": 148
+      },
+      {
+        "word": "vi",
+        "startFrame": 148,
+        "endFrame": 155
+      },
+      {
+        "word": "phân",
+        "startFrame": 155,
+        "endFrame": 162
+      },
+      {
+        "word": "thay",
+        "startFrame": 162,
+        "endFrame": 169
+      },
+      {
+        "word": "đổi,",
+        "startFrame": 169,
+        "endFrame": 176
+      },
+      {
+        "word": "buộc",
+        "startFrame": 176,
+        "endFrame": 184
+      },
+      {
+        "word": "lập",
+        "startFrame": 184,
+        "endFrame": 191
+      },
+      {
+        "word": "trình",
+        "startFrame": 191,
+        "endFrame": 198
+      },
+      {
+        "word": "viên",
+        "startFrame": 198,
+        "endFrame": 205
+      },
+      {
+        "word": "phải",
+        "startFrame": 205,
+        "endFrame": 212
+      },
+      {
+        "word": "khóa",
+        "startFrame": 212,
+        "endFrame": 219
+      },
+      {
+        "word": "tệp",
+        "startFrame": 219,
+        "endFrame": 226
+      },
+      {
+        "word": "tuần",
+        "startFrame": 226,
+        "endFrame": 233
+      },
+      {
+        "word": "tự.",
+        "startFrame": 233,
+        "endFrame": 240
+      }
+    ]
+  },
+  {
+    "id": "cap_3",
+    "text": "Năm hai nghìn không trăm lẻ năm, Linus Torvalds tái định nghĩa bài toán:",
+    "startFrame": 240,
+    "endFrame": 365,
+    "words": [
+      {
+        "word": "Năm",
+        "startFrame": 240,
+        "endFrame": 249
+      },
+      {
+        "word": "hai",
+        "startFrame": 249,
+        "endFrame": 258
+      },
+      {
+        "word": "nghìn",
+        "startFrame": 258,
+        "endFrame": 267
+      },
+      {
+        "word": "không",
+        "startFrame": 267,
+        "endFrame": 276
+      },
+      {
+        "word": "trăm",
+        "startFrame": 276,
+        "endFrame": 285
+      },
+      {
+        "word": "lẻ",
+        "startFrame": 285,
+        "endFrame": 294
+      },
+      {
+        "word": "năm,",
+        "startFrame": 294,
+        "endFrame": 303
+      },
+      {
+        "word": "Linus",
+        "startFrame": 303,
+        "endFrame": 311
+      },
+      {
+        "word": "Torvalds",
+        "startFrame": 311,
+        "endFrame": 320
+      },
+      {
+        "word": "tái",
+        "startFrame": 320,
+        "endFrame": 329
+      },
+      {
+        "word": "định",
+        "startFrame": 329,
+        "endFrame": 338
+      },
+      {
+        "word": "nghĩa",
+        "startFrame": 338,
+        "endFrame": 347
+      },
+      {
+        "word": "bài",
+        "startFrame": 347,
+        "endFrame": 356
+      },
+      {
+        "word": "toán:",
+        "startFrame": 356,
+        "endFrame": 365
+      }
+    ]
+  },
+  {
+    "id": "cap_4",
+    "text": "Git lưu trọn vẹn ảnh chụp Snapshot toàn bộ thư mục bằng mã băm mật mã SHA.",
+    "startFrame": 365,
+    "endFrame": 495,
+    "words": [
+      {
+        "word": "Git",
+        "startFrame": 365,
+        "endFrame": 373
+      },
+      {
+        "word": "lưu",
+        "startFrame": 373,
+        "endFrame": 380
+      },
+      {
+        "word": "trọn",
+        "startFrame": 380,
+        "endFrame": 388
+      },
+      {
+        "word": "vẹn",
+        "startFrame": 388,
+        "endFrame": 396
+      },
+      {
+        "word": "ảnh",
+        "startFrame": 396,
+        "endFrame": 403
+      },
+      {
+        "word": "chụp",
+        "startFrame": 403,
+        "endFrame": 411
+      },
+      {
+        "word": "Snapshot",
+        "startFrame": 411,
+        "endFrame": 419
+      },
+      {
+        "word": "toàn",
+        "startFrame": 419,
+        "endFrame": 426
+      },
+      {
+        "word": "bộ",
+        "startFrame": 426,
+        "endFrame": 434
+      },
+      {
+        "word": "thư",
+        "startFrame": 434,
+        "endFrame": 441
+      },
+      {
+        "word": "mục",
+        "startFrame": 441,
+        "endFrame": 449
+      },
+      {
+        "word": "bằng",
+        "startFrame": 449,
+        "endFrame": 457
+      },
+      {
+        "word": "mã",
+        "startFrame": 457,
+        "endFrame": 464
+      },
+      {
+        "word": "băm",
+        "startFrame": 464,
+        "endFrame": 472
+      },
+      {
+        "word": "mật",
+        "startFrame": 472,
+        "endFrame": 480
+      },
+      {
+        "word": "mã",
+        "startFrame": 480,
+        "endFrame": 487
+      },
+      {
+        "word": "SHA.",
+        "startFrame": 487,
+        "endFrame": 495
+      }
+    ]
+  },
+  {
+    "id": "cap_5",
+    "text": "Mọi ảnh chụp liên kết thành đồ thị có hướng không chu trình, gọi là DAG.",
+    "startFrame": 495,
+    "endFrame": 620,
+    "words": [
+      {
+        "word": "Mọi",
+        "startFrame": 495,
+        "endFrame": 503
+      },
+      {
+        "word": "ảnh",
+        "startFrame": 503,
+        "endFrame": 511
+      },
+      {
+        "word": "chụp",
+        "startFrame": 511,
+        "endFrame": 518
+      },
+      {
+        "word": "liên",
+        "startFrame": 518,
+        "endFrame": 526
+      },
+      {
+        "word": "kết",
+        "startFrame": 526,
+        "endFrame": 534
+      },
+      {
+        "word": "thành",
+        "startFrame": 534,
+        "endFrame": 542
+      },
+      {
+        "word": "đồ",
+        "startFrame": 542,
+        "endFrame": 550
+      },
+      {
+        "word": "thị",
+        "startFrame": 550,
+        "endFrame": 558
+      },
+      {
+        "word": "có",
+        "startFrame": 558,
+        "endFrame": 565
+      },
+      {
+        "word": "hướng",
+        "startFrame": 565,
+        "endFrame": 573
+      },
+      {
+        "word": "không",
+        "startFrame": 573,
+        "endFrame": 581
+      },
+      {
+        "word": "chu",
+        "startFrame": 581,
+        "endFrame": 589
+      },
+      {
+        "word": "trình,",
+        "startFrame": 589,
+        "endFrame": 597
+      },
+      {
+        "word": "gọi",
+        "startFrame": 597,
+        "endFrame": 604
+      },
+      {
+        "word": "là",
+        "startFrame": 604,
+        "endFrame": 612
+      },
+      {
+        "word": "DAG.",
+        "startFrame": 612,
+        "endFrame": 620
+      }
+    ]
+  },
+  {
+    "id": "cap_6",
+    "text": "Trong đó, mỗi commit mới luôn trỏ ngược về nút cha trước nó.",
+    "startFrame": 620,
+    "endFrame": 750,
+    "words": [
+      {
+        "word": "Trong",
+        "startFrame": 620,
+        "endFrame": 630
+      },
+      {
+        "word": "đó,",
+        "startFrame": 630,
+        "endFrame": 640
+      },
+      {
+        "word": "mỗi",
+        "startFrame": 640,
+        "endFrame": 650
+      },
+      {
+        "word": "commit",
+        "startFrame": 650,
+        "endFrame": 660
+      },
+      {
+        "word": "mới",
+        "startFrame": 660,
+        "endFrame": 670
+      },
+      {
+        "word": "luôn",
+        "startFrame": 670,
+        "endFrame": 680
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 680,
+        "endFrame": 690
+      },
+      {
+        "word": "ngược",
+        "startFrame": 690,
+        "endFrame": 700
+      },
+      {
+        "word": "về",
+        "startFrame": 700,
+        "endFrame": 710
+      },
+      {
+        "word": "nút",
+        "startFrame": 710,
+        "endFrame": 720
+      },
+      {
+        "word": "cha",
+        "startFrame": 720,
+        "endFrame": 730
+      },
+      {
+        "word": "trước",
+        "startFrame": 730,
+        "endFrame": 740
+      },
+      {
+        "word": "nó.",
+        "startFrame": 740,
+        "endFrame": 750
+      }
+    ]
+  },
+  {
+    "id": "cap_7",
+    "text": "Ở tầng thấp nhất là đối tượng Blob, chỉ chứa dữ liệu nhị phân thô của tệp tin.",
+    "startFrame": 750,
+    "endFrame": 870,
+    "words": [
+      {
+        "word": "Ở",
+        "startFrame": 750,
+        "endFrame": 757
+      },
+      {
+        "word": "tầng",
+        "startFrame": 757,
+        "endFrame": 763
+      },
+      {
+        "word": "thấp",
+        "startFrame": 763,
+        "endFrame": 770
+      },
+      {
+        "word": "nhất",
+        "startFrame": 770,
+        "endFrame": 777
+      },
+      {
+        "word": "là",
+        "startFrame": 777,
+        "endFrame": 783
+      },
+      {
+        "word": "đối",
+        "startFrame": 783,
+        "endFrame": 790
+      },
+      {
+        "word": "tượng",
+        "startFrame": 790,
+        "endFrame": 797
+      },
+      {
+        "word": "Blob,",
+        "startFrame": 797,
+        "endFrame": 803
+      },
+      {
+        "word": "chỉ",
+        "startFrame": 803,
+        "endFrame": 810
+      },
+      {
+        "word": "chứa",
+        "startFrame": 810,
+        "endFrame": 817
+      },
+      {
+        "word": "dữ",
+        "startFrame": 817,
+        "endFrame": 823
+      },
+      {
+        "word": "liệu",
+        "startFrame": 823,
+        "endFrame": 830
+      },
+      {
+        "word": "nhị",
+        "startFrame": 830,
+        "endFrame": 837
+      },
+      {
+        "word": "phân",
+        "startFrame": 837,
+        "endFrame": 843
+      },
+      {
+        "word": "thô",
+        "startFrame": 843,
+        "endFrame": 850
+      },
+      {
+        "word": "của",
+        "startFrame": 850,
+        "endFrame": 857
+      },
+      {
+        "word": "tệp",
+        "startFrame": 857,
+        "endFrame": 863
+      },
+      {
+        "word": "tin.",
+        "startFrame": 863,
+        "endFrame": 870
+      }
+    ]
+  },
+  {
+    "id": "cap_8",
+    "text": "Tên tệp và quyền truy cập không nằm trong Blob, mà định danh theo nội dung.",
+    "startFrame": 870,
+    "endFrame": 990,
+    "words": [
+      {
+        "word": "Tên",
+        "startFrame": 870,
+        "endFrame": 878
+      },
+      {
+        "word": "tệp",
+        "startFrame": 878,
+        "endFrame": 885
+      },
+      {
+        "word": "và",
+        "startFrame": 885,
+        "endFrame": 893
+      },
+      {
+        "word": "quyền",
+        "startFrame": 893,
+        "endFrame": 900
+      },
+      {
+        "word": "truy",
+        "startFrame": 900,
+        "endFrame": 908
+      },
+      {
+        "word": "cập",
+        "startFrame": 908,
+        "endFrame": 915
+      },
+      {
+        "word": "không",
+        "startFrame": 915,
+        "endFrame": 923
+      },
+      {
+        "word": "nằm",
+        "startFrame": 923,
+        "endFrame": 930
+      },
+      {
+        "word": "trong",
+        "startFrame": 930,
+        "endFrame": 938
+      },
+      {
+        "word": "Blob,",
+        "startFrame": 938,
+        "endFrame": 945
+      },
+      {
+        "word": "mà",
+        "startFrame": 945,
+        "endFrame": 953
+      },
+      {
+        "word": "định",
+        "startFrame": 953,
+        "endFrame": 960
+      },
+      {
+        "word": "danh",
+        "startFrame": 960,
+        "endFrame": 968
+      },
+      {
+        "word": "theo",
+        "startFrame": 968,
+        "endFrame": 975
+      },
+      {
+        "word": "nội",
+        "startFrame": 975,
+        "endFrame": 983
+      },
+      {
+        "word": "dung.",
+        "startFrame": 983,
+        "endFrame": 990
+      }
+    ]
+  },
+  {
+    "id": "cap_9",
+    "text": "Đối tượng Tree đại diện cho thư mục, đóng vai trò bản đồ định tuyến liên kết tên tệp,",
+    "startFrame": 990,
+    "endFrame": 1115,
+    "words": [
+      {
+        "word": "Đối",
+        "startFrame": 990,
+        "endFrame": 997
+      },
+      {
+        "word": "tượng",
+        "startFrame": 997,
+        "endFrame": 1003
+      },
+      {
+        "word": "Tree",
+        "startFrame": 1003,
+        "endFrame": 1010
+      },
+      {
+        "word": "đại",
+        "startFrame": 1010,
+        "endFrame": 1016
+      },
+      {
+        "word": "diện",
+        "startFrame": 1016,
+        "endFrame": 1023
+      },
+      {
+        "word": "cho",
+        "startFrame": 1023,
+        "endFrame": 1029
+      },
+      {
+        "word": "thư",
+        "startFrame": 1029,
+        "endFrame": 1036
+      },
+      {
+        "word": "mục,",
+        "startFrame": 1036,
+        "endFrame": 1043
+      },
+      {
+        "word": "đóng",
+        "startFrame": 1043,
+        "endFrame": 1049
+      },
+      {
+        "word": "vai",
+        "startFrame": 1049,
+        "endFrame": 1056
+      },
+      {
+        "word": "trò",
+        "startFrame": 1056,
+        "endFrame": 1062
+      },
+      {
+        "word": "bản",
+        "startFrame": 1062,
+        "endFrame": 1069
+      },
+      {
+        "word": "đồ",
+        "startFrame": 1069,
+        "endFrame": 1076
+      },
+      {
+        "word": "định",
+        "startFrame": 1076,
+        "endFrame": 1082
+      },
+      {
+        "word": "tuyến",
+        "startFrame": 1082,
+        "endFrame": 1089
+      },
+      {
+        "word": "liên",
+        "startFrame": 1089,
+        "endFrame": 1095
+      },
+      {
+        "word": "kết",
+        "startFrame": 1095,
+        "endFrame": 1102
+      },
+      {
+        "word": "tên",
+        "startFrame": 1102,
+        "endFrame": 1108
+      },
+      {
+        "word": "tệp,",
+        "startFrame": 1108,
+        "endFrame": 1115
+      }
+    ]
+  },
+  {
+    "id": "cap_10",
+    "text": "chế độ cấp phép và con trỏ trỏ tới các Blob hoặc Tree con tương ứng.",
+    "startFrame": 1115,
+    "endFrame": 1245,
+    "words": [
+      {
+        "word": "chế",
+        "startFrame": 1115,
+        "endFrame": 1123
+      },
+      {
+        "word": "độ",
+        "startFrame": 1123,
+        "endFrame": 1131
+      },
+      {
+        "word": "cấp",
+        "startFrame": 1131,
+        "endFrame": 1139
+      },
+      {
+        "word": "phép",
+        "startFrame": 1139,
+        "endFrame": 1148
+      },
+      {
+        "word": "và",
+        "startFrame": 1148,
+        "endFrame": 1156
+      },
+      {
+        "word": "con",
+        "startFrame": 1156,
+        "endFrame": 1164
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 1164,
+        "endFrame": 1172
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 1172,
+        "endFrame": 1180
+      },
+      {
+        "word": "tới",
+        "startFrame": 1180,
+        "endFrame": 1188
+      },
+      {
+        "word": "các",
+        "startFrame": 1188,
+        "endFrame": 1196
+      },
+      {
+        "word": "Blob",
+        "startFrame": 1196,
+        "endFrame": 1204
+      },
+      {
+        "word": "hoặc",
+        "startFrame": 1204,
+        "endFrame": 1213
+      },
+      {
+        "word": "Tree",
+        "startFrame": 1213,
+        "endFrame": 1221
+      },
+      {
+        "word": "con",
+        "startFrame": 1221,
+        "endFrame": 1229
+      },
+      {
+        "word": "tương",
+        "startFrame": 1229,
+        "endFrame": 1237
+      },
+      {
+        "word": "ứng.",
+        "startFrame": 1237,
+        "endFrame": 1245
+      }
+    ]
+  },
+  {
+    "id": "cap_11",
+    "text": "Cuối cùng, đối tượng Commit đóng gói con trỏ Tree gốc, tác giả, timestamp",
+    "startFrame": 1245,
+    "endFrame": 1370,
+    "words": [
+      {
+        "word": "Cuối",
+        "startFrame": 1245,
+        "endFrame": 1254
+      },
+      {
+        "word": "cùng,",
+        "startFrame": 1254,
+        "endFrame": 1263
+      },
+      {
+        "word": "đối",
+        "startFrame": 1263,
+        "endFrame": 1272
+      },
+      {
+        "word": "tượng",
+        "startFrame": 1272,
+        "endFrame": 1281
+      },
+      {
+        "word": "Commit",
+        "startFrame": 1281,
+        "endFrame": 1290
+      },
+      {
+        "word": "đóng",
+        "startFrame": 1290,
+        "endFrame": 1299
+      },
+      {
+        "word": "gói",
+        "startFrame": 1299,
+        "endFrame": 1308
+      },
+      {
+        "word": "con",
+        "startFrame": 1308,
+        "endFrame": 1316
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 1316,
+        "endFrame": 1325
+      },
+      {
+        "word": "Tree",
+        "startFrame": 1325,
+        "endFrame": 1334
+      },
+      {
+        "word": "gốc,",
+        "startFrame": 1334,
+        "endFrame": 1343
+      },
+      {
+        "word": "tác",
+        "startFrame": 1343,
+        "endFrame": 1352
+      },
+      {
+        "word": "giả,",
+        "startFrame": 1352,
+        "endFrame": 1361
+      },
+      {
+        "word": "timestamp",
+        "startFrame": 1361,
+        "endFrame": 1370
+      }
+    ]
+  },
+  {
+    "id": "cap_12",
+    "text": "và danh sách mã băm của commit cha, tạo nên tính toàn vẹn bất biến.",
+    "startFrame": 1370,
+    "endFrame": 1500,
+    "words": [
+      {
+        "word": "và",
+        "startFrame": 1370,
+        "endFrame": 1379
+      },
+      {
+        "word": "danh",
+        "startFrame": 1379,
+        "endFrame": 1387
+      },
+      {
+        "word": "sách",
+        "startFrame": 1387,
+        "endFrame": 1396
+      },
+      {
+        "word": "mã",
+        "startFrame": 1396,
+        "endFrame": 1405
+      },
+      {
+        "word": "băm",
+        "startFrame": 1405,
+        "endFrame": 1413
+      },
+      {
+        "word": "của",
+        "startFrame": 1413,
+        "endFrame": 1422
+      },
+      {
+        "word": "commit",
+        "startFrame": 1422,
+        "endFrame": 1431
+      },
+      {
+        "word": "cha,",
+        "startFrame": 1431,
+        "endFrame": 1439
+      },
+      {
+        "word": "tạo",
+        "startFrame": 1439,
+        "endFrame": 1448
+      },
+      {
+        "word": "nên",
+        "startFrame": 1448,
+        "endFrame": 1457
+      },
+      {
+        "word": "tính",
+        "startFrame": 1457,
+        "endFrame": 1465
+      },
+      {
+        "word": "toàn",
+        "startFrame": 1465,
+        "endFrame": 1474
+      },
+      {
+        "word": "vẹn",
+        "startFrame": 1474,
+        "endFrame": 1483
+      },
+      {
+        "word": "bất",
+        "startFrame": 1483,
+        "endFrame": 1491
+      },
+      {
+        "word": "biến.",
+        "startFrame": 1491,
+        "endFrame": 1500
+      }
+    ]
+  },
+  {
+    "id": "cap_13",
+    "text": "Nhiều người nghĩ nhánh là thư mục riêng biệt, nhưng thực chất nhánh trong Git",
+    "startFrame": 1500,
+    "endFrame": 1620,
+    "words": [
+      {
+        "word": "Nhiều",
+        "startFrame": 1500,
+        "endFrame": 1508
+      },
+      {
+        "word": "người",
+        "startFrame": 1508,
+        "endFrame": 1516
+      },
+      {
+        "word": "nghĩ",
+        "startFrame": 1516,
+        "endFrame": 1524
+      },
+      {
+        "word": "nhánh",
+        "startFrame": 1524,
+        "endFrame": 1532
+      },
+      {
+        "word": "là",
+        "startFrame": 1532,
+        "endFrame": 1540
+      },
+      {
+        "word": "thư",
+        "startFrame": 1540,
+        "endFrame": 1548
+      },
+      {
+        "word": "mục",
+        "startFrame": 1548,
+        "endFrame": 1556
+      },
+      {
+        "word": "riêng",
+        "startFrame": 1556,
+        "endFrame": 1564
+      },
+      {
+        "word": "biệt,",
+        "startFrame": 1564,
+        "endFrame": 1572
+      },
+      {
+        "word": "nhưng",
+        "startFrame": 1572,
+        "endFrame": 1580
+      },
+      {
+        "word": "thực",
+        "startFrame": 1580,
+        "endFrame": 1588
+      },
+      {
+        "word": "chất",
+        "startFrame": 1588,
+        "endFrame": 1596
+      },
+      {
+        "word": "nhánh",
+        "startFrame": 1596,
+        "endFrame": 1604
+      },
+      {
+        "word": "trong",
+        "startFrame": 1604,
+        "endFrame": 1612
+      },
+      {
+        "word": "Git",
+        "startFrame": 1612,
+        "endFrame": 1620
+      }
+    ]
+  },
+  {
+    "id": "cap_14",
+    "text": "chỉ là một con trỏ nhỏ 41 byte, chứa chuỗi hash trỏ vào đỉnh commit.",
+    "startFrame": 1620,
+    "endFrame": 1740,
+    "words": [
+      {
+        "word": "chỉ",
+        "startFrame": 1620,
+        "endFrame": 1628
+      },
+      {
+        "word": "là",
+        "startFrame": 1628,
+        "endFrame": 1636
+      },
+      {
+        "word": "một",
+        "startFrame": 1636,
+        "endFrame": 1644
+      },
+      {
+        "word": "con",
+        "startFrame": 1644,
+        "endFrame": 1652
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 1652,
+        "endFrame": 1660
+      },
+      {
+        "word": "nhỏ",
+        "startFrame": 1660,
+        "endFrame": 1668
+      },
+      {
+        "word": "41",
+        "startFrame": 1668,
+        "endFrame": 1676
+      },
+      {
+        "word": "byte,",
+        "startFrame": 1676,
+        "endFrame": 1684
+      },
+      {
+        "word": "chứa",
+        "startFrame": 1684,
+        "endFrame": 1692
+      },
+      {
+        "word": "chuỗi",
+        "startFrame": 1692,
+        "endFrame": 1700
+      },
+      {
+        "word": "hash",
+        "startFrame": 1700,
+        "endFrame": 1708
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 1708,
+        "endFrame": 1716
+      },
+      {
+        "word": "vào",
+        "startFrame": 1716,
+        "endFrame": 1724
+      },
+      {
+        "word": "đỉnh",
+        "startFrame": 1724,
+        "endFrame": 1732
+      },
+      {
+        "word": "commit.",
+        "startFrame": 1732,
+        "endFrame": 1740
+      }
+    ]
+  },
+  {
+    "id": "cap_15",
+    "text": "Khi nhánh chính không có thay đổi mới, Fast-forward đơn giản là trượt con trỏ",
+    "startFrame": 1740,
+    "endFrame": 1865,
+    "words": [
+      {
+        "word": "Khi",
+        "startFrame": 1740,
+        "endFrame": 1748
+      },
+      {
+        "word": "nhánh",
+        "startFrame": 1748,
+        "endFrame": 1757
+      },
+      {
+        "word": "chính",
+        "startFrame": 1757,
+        "endFrame": 1765
+      },
+      {
+        "word": "không",
+        "startFrame": 1765,
+        "endFrame": 1773
+      },
+      {
+        "word": "có",
+        "startFrame": 1773,
+        "endFrame": 1782
+      },
+      {
+        "word": "thay",
+        "startFrame": 1782,
+        "endFrame": 1790
+      },
+      {
+        "word": "đổi",
+        "startFrame": 1790,
+        "endFrame": 1798
+      },
+      {
+        "word": "mới,",
+        "startFrame": 1798,
+        "endFrame": 1807
+      },
+      {
+        "word": "Fast-forward",
+        "startFrame": 1807,
+        "endFrame": 1815
+      },
+      {
+        "word": "đơn",
+        "startFrame": 1815,
+        "endFrame": 1823
+      },
+      {
+        "word": "giản",
+        "startFrame": 1823,
+        "endFrame": 1832
+      },
+      {
+        "word": "là",
+        "startFrame": 1832,
+        "endFrame": 1840
+      },
+      {
+        "word": "trượt",
+        "startFrame": 1840,
+        "endFrame": 1848
+      },
+      {
+        "word": "con",
+        "startFrame": 1848,
+        "endFrame": 1857
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 1857,
+        "endFrame": 1865
+      }
+    ]
+  },
+  {
+    "id": "cap_16",
+    "text": "nhánh chính tiến thẳng về phía trước tới vị trí nhánh tính năng mà 0 tạo commit.",
+    "startFrame": 1865,
+    "endFrame": 1995,
+    "words": [
+      {
+        "word": "nhánh",
+        "startFrame": 1865,
+        "endFrame": 1873
+      },
+      {
+        "word": "chính",
+        "startFrame": 1873,
+        "endFrame": 1880
+      },
+      {
+        "word": "tiến",
+        "startFrame": 1880,
+        "endFrame": 1888
+      },
+      {
+        "word": "thẳng",
+        "startFrame": 1888,
+        "endFrame": 1896
+      },
+      {
+        "word": "về",
+        "startFrame": 1896,
+        "endFrame": 1903
+      },
+      {
+        "word": "phía",
+        "startFrame": 1903,
+        "endFrame": 1911
+      },
+      {
+        "word": "trước",
+        "startFrame": 1911,
+        "endFrame": 1919
+      },
+      {
+        "word": "tới",
+        "startFrame": 1919,
+        "endFrame": 1926
+      },
+      {
+        "word": "vị",
+        "startFrame": 1926,
+        "endFrame": 1934
+      },
+      {
+        "word": "trí",
+        "startFrame": 1934,
+        "endFrame": 1941
+      },
+      {
+        "word": "nhánh",
+        "startFrame": 1941,
+        "endFrame": 1949
+      },
+      {
+        "word": "tính",
+        "startFrame": 1949,
+        "endFrame": 1957
+      },
+      {
+        "word": "năng",
+        "startFrame": 1957,
+        "endFrame": 1964
+      },
+      {
+        "word": "mà",
+        "startFrame": 1964,
+        "endFrame": 1972
+      },
+      {
+        "word": "0",
+        "startFrame": 1972,
+        "endFrame": 1980
+      },
+      {
+        "word": "tạo",
+        "startFrame": 1980,
+        "endFrame": 1987
+      },
+      {
+        "word": "commit.",
+        "startFrame": 1987,
+        "endFrame": 1995
+      }
+    ]
+  },
+  {
+    "id": "cap_17",
+    "text": "Nếu lịch sử phân kỳ, Git tìm tổ tiên chung gần nhất, tổng hợp ba nguồn dữ liệu",
+    "startFrame": 1995,
+    "endFrame": 2120,
+    "words": [
+      {
+        "word": "Nếu",
+        "startFrame": 1995,
+        "endFrame": 2002
+      },
+      {
+        "word": "lịch",
+        "startFrame": 2002,
+        "endFrame": 2009
+      },
+      {
+        "word": "sử",
+        "startFrame": 2009,
+        "endFrame": 2016
+      },
+      {
+        "word": "phân",
+        "startFrame": 2016,
+        "endFrame": 2023
+      },
+      {
+        "word": "kỳ,",
+        "startFrame": 2023,
+        "endFrame": 2030
+      },
+      {
+        "word": "Git",
+        "startFrame": 2030,
+        "endFrame": 2037
+      },
+      {
+        "word": "tìm",
+        "startFrame": 2037,
+        "endFrame": 2044
+      },
+      {
+        "word": "tổ",
+        "startFrame": 2044,
+        "endFrame": 2051
+      },
+      {
+        "word": "tiên",
+        "startFrame": 2051,
+        "endFrame": 2058
+      },
+      {
+        "word": "chung",
+        "startFrame": 2058,
+        "endFrame": 2064
+      },
+      {
+        "word": "gần",
+        "startFrame": 2064,
+        "endFrame": 2071
+      },
+      {
+        "word": "nhất,",
+        "startFrame": 2071,
+        "endFrame": 2078
+      },
+      {
+        "word": "tổng",
+        "startFrame": 2078,
+        "endFrame": 2085
+      },
+      {
+        "word": "hợp",
+        "startFrame": 2085,
+        "endFrame": 2092
+      },
+      {
+        "word": "ba",
+        "startFrame": 2092,
+        "endFrame": 2099
+      },
+      {
+        "word": "nguồn",
+        "startFrame": 2099,
+        "endFrame": 2106
+      },
+      {
+        "word": "dữ",
+        "startFrame": 2106,
+        "endFrame": 2113
+      },
+      {
+        "word": "liệu",
+        "startFrame": 2113,
+        "endFrame": 2120
+      }
+    ]
+  },
+  {
+    "id": "cap_18",
+    "text": "và tạo ra một commit hợp nhất đặc biệt sở hữu đồng thời hai con trỏ cha.",
+    "startFrame": 2120,
+    "endFrame": 2250,
+    "words": [
+      {
+        "word": "và",
+        "startFrame": 2120,
+        "endFrame": 2128
+      },
+      {
+        "word": "tạo",
+        "startFrame": 2128,
+        "endFrame": 2135
+      },
+      {
+        "word": "ra",
+        "startFrame": 2135,
+        "endFrame": 2143
+      },
+      {
+        "word": "một",
+        "startFrame": 2143,
+        "endFrame": 2151
+      },
+      {
+        "word": "commit",
+        "startFrame": 2151,
+        "endFrame": 2158
+      },
+      {
+        "word": "hợp",
+        "startFrame": 2158,
+        "endFrame": 2166
+      },
+      {
+        "word": "nhất",
+        "startFrame": 2166,
+        "endFrame": 2174
+      },
+      {
+        "word": "đặc",
+        "startFrame": 2174,
+        "endFrame": 2181
+      },
+      {
+        "word": "biệt",
+        "startFrame": 2181,
+        "endFrame": 2189
+      },
+      {
+        "word": "sở",
+        "startFrame": 2189,
+        "endFrame": 2196
+      },
+      {
+        "word": "hữu",
+        "startFrame": 2196,
+        "endFrame": 2204
+      },
+      {
+        "word": "đồng",
+        "startFrame": 2204,
+        "endFrame": 2212
+      },
+      {
+        "word": "thời",
+        "startFrame": 2212,
+        "endFrame": 2219
+      },
+      {
+        "word": "hai",
+        "startFrame": 2219,
+        "endFrame": 2227
+      },
+      {
+        "word": "con",
+        "startFrame": 2227,
+        "endFrame": 2235
+      },
+      {
+        "word": "trỏ",
+        "startFrame": 2235,
+        "endFrame": 2242
+      },
+      {
+        "word": "cha.",
+        "startFrame": 2242,
+        "endFrame": 2250
+      }
+    ]
+  },
+  {
+    "id": "cap_19",
+    "text": "Trong mô hình phân tán, máy chủ từ xa chỉ là kho chứa ngang hàng với origin main.",
+    "startFrame": 2250,
+    "endFrame": 2370,
+    "words": [
+      {
+        "word": "Trong",
+        "startFrame": 2250,
+        "endFrame": 2257
+      },
+      {
+        "word": "mô",
+        "startFrame": 2257,
+        "endFrame": 2263
+      },
+      {
+        "word": "hình",
+        "startFrame": 2263,
+        "endFrame": 2270
+      },
+      {
+        "word": "phân",
+        "startFrame": 2270,
+        "endFrame": 2277
+      },
+      {
+        "word": "tán,",
+        "startFrame": 2277,
+        "endFrame": 2283
+      },
+      {
+        "word": "máy",
+        "startFrame": 2283,
+        "endFrame": 2290
+      },
+      {
+        "word": "chủ",
+        "startFrame": 2290,
+        "endFrame": 2297
+      },
+      {
+        "word": "từ",
+        "startFrame": 2297,
+        "endFrame": 2303
+      },
+      {
+        "word": "xa",
+        "startFrame": 2303,
+        "endFrame": 2310
+      },
+      {
+        "word": "chỉ",
+        "startFrame": 2310,
+        "endFrame": 2317
+      },
+      {
+        "word": "là",
+        "startFrame": 2317,
+        "endFrame": 2323
+      },
+      {
+        "word": "kho",
+        "startFrame": 2323,
+        "endFrame": 2330
+      },
+      {
+        "word": "chứa",
+        "startFrame": 2330,
+        "endFrame": 2337
+      },
+      {
+        "word": "ngang",
+        "startFrame": 2337,
+        "endFrame": 2343
+      },
+      {
+        "word": "hàng",
+        "startFrame": 2343,
+        "endFrame": 2350
+      },
+      {
+        "word": "với",
+        "startFrame": 2350,
+        "endFrame": 2357
+      },
+      {
+        "word": "origin",
+        "startFrame": 2357,
+        "endFrame": 2363
+      },
+      {
+        "word": "main.",
+        "startFrame": 2363,
+        "endFrame": 2370
+      }
+    ]
+  },
+  {
+    "id": "cap_20",
+    "text": "Khi fetch, Git tải các nút đồ thị mới về mà không ảnh hưởng mã cục bộ.",
+    "startFrame": 2370,
+    "endFrame": 2490,
+    "words": [
+      {
+        "word": "Khi",
+        "startFrame": 2370,
+        "endFrame": 2377
+      },
+      {
+        "word": "fetch,",
+        "startFrame": 2377,
+        "endFrame": 2384
+      },
+      {
+        "word": "Git",
+        "startFrame": 2384,
+        "endFrame": 2391
+      },
+      {
+        "word": "tải",
+        "startFrame": 2391,
+        "endFrame": 2398
+      },
+      {
+        "word": "các",
+        "startFrame": 2398,
+        "endFrame": 2405
+      },
+      {
+        "word": "nút",
+        "startFrame": 2405,
+        "endFrame": 2412
+      },
+      {
+        "word": "đồ",
+        "startFrame": 2412,
+        "endFrame": 2419
+      },
+      {
+        "word": "thị",
+        "startFrame": 2419,
+        "endFrame": 2426
+      },
+      {
+        "word": "mới",
+        "startFrame": 2426,
+        "endFrame": 2434
+      },
+      {
+        "word": "về",
+        "startFrame": 2434,
+        "endFrame": 2441
+      },
+      {
+        "word": "mà",
+        "startFrame": 2441,
+        "endFrame": 2448
+      },
+      {
+        "word": "không",
+        "startFrame": 2448,
+        "endFrame": 2455
+      },
+      {
+        "word": "ảnh",
+        "startFrame": 2455,
+        "endFrame": 2462
+      },
+      {
+        "word": "hưởng",
+        "startFrame": 2462,
+        "endFrame": 2469
+      },
+      {
+        "word": "mã",
+        "startFrame": 2469,
+        "endFrame": 2476
+      },
+      {
+        "word": "cục",
+        "startFrame": 2476,
+        "endFrame": 2483
+      },
+      {
+        "word": "bộ.",
+        "startFrame": 2483,
+        "endFrame": 2490
+      }
+    ]
+  },
+  {
+    "id": "cap_21",
+    "text": "Trong khi Merge bảo tồn chân thực lịch sử, thì Rebase viết lại các commit",
+    "startFrame": 2490,
+    "endFrame": 2615,
+    "words": [
+      {
+        "word": "Trong",
+        "startFrame": 2490,
+        "endFrame": 2498
+      },
+      {
+        "word": "khi",
+        "startFrame": 2498,
+        "endFrame": 2507
+      },
+      {
+        "word": "Merge",
+        "startFrame": 2507,
+        "endFrame": 2515
+      },
+      {
+        "word": "bảo",
+        "startFrame": 2515,
+        "endFrame": 2523
+      },
+      {
+        "word": "tồn",
+        "startFrame": 2523,
+        "endFrame": 2532
+      },
+      {
+        "word": "chân",
+        "startFrame": 2532,
+        "endFrame": 2540
+      },
+      {
+        "word": "thực",
+        "startFrame": 2540,
+        "endFrame": 2548
+      },
+      {
+        "word": "lịch",
+        "startFrame": 2548,
+        "endFrame": 2557
+      },
+      {
+        "word": "sử,",
+        "startFrame": 2557,
+        "endFrame": 2565
+      },
+      {
+        "word": "thì",
+        "startFrame": 2565,
+        "endFrame": 2573
+      },
+      {
+        "word": "Rebase",
+        "startFrame": 2573,
+        "endFrame": 2582
+      },
+      {
+        "word": "viết",
+        "startFrame": 2582,
+        "endFrame": 2590
+      },
+      {
+        "word": "lại",
+        "startFrame": 2590,
+        "endFrame": 2598
+      },
+      {
+        "word": "các",
+        "startFrame": 2598,
+        "endFrame": 2607
+      },
+      {
+        "word": "commit",
+        "startFrame": 2607,
+        "endFrame": 2615
+      }
+    ]
+  },
+  {
+    "id": "cap_22",
+    "text": "thành chuỗi tuyến tính sạch sẽ, nhưng làm thay đổi toàn bộ mã băm SHA.",
+    "startFrame": 2615,
+    "endFrame": 2745,
+    "words": [
+      {
+        "word": "thành",
+        "startFrame": 2615,
+        "endFrame": 2624
+      },
+      {
+        "word": "chuỗi",
+        "startFrame": 2624,
+        "endFrame": 2632
+      },
+      {
+        "word": "tuyến",
+        "startFrame": 2632,
+        "endFrame": 2641
+      },
+      {
+        "word": "tính",
+        "startFrame": 2641,
+        "endFrame": 2650
+      },
+      {
+        "word": "sạch",
+        "startFrame": 2650,
+        "endFrame": 2658
+      },
+      {
+        "word": "sẽ,",
+        "startFrame": 2658,
+        "endFrame": 2667
+      },
+      {
+        "word": "nhưng",
+        "startFrame": 2667,
+        "endFrame": 2676
+      },
+      {
+        "word": "làm",
+        "startFrame": 2676,
+        "endFrame": 2684
+      },
+      {
+        "word": "thay",
+        "startFrame": 2684,
+        "endFrame": 2693
+      },
+      {
+        "word": "đổi",
+        "startFrame": 2693,
+        "endFrame": 2702
+      },
+      {
+        "word": "toàn",
+        "startFrame": 2702,
+        "endFrame": 2710
+      },
+      {
+        "word": "bộ",
+        "startFrame": 2710,
+        "endFrame": 2719
+      },
+      {
+        "word": "mã",
+        "startFrame": 2719,
+        "endFrame": 2728
+      },
+      {
+        "word": "băm",
+        "startFrame": 2728,
+        "endFrame": 2736
+      },
+      {
+        "word": "SHA.",
+        "startFrame": 2736,
+        "endFrame": 2745
+      }
+    ]
+  },
+  {
+    "id": "cap_23",
+    "text": "Hiểu rõ đồ thị DAG, bạn sẽ thấy cấu trúc dữ liệu bất biến tuyệt đẹp,",
+    "startFrame": 2745,
+    "endFrame": 2870,
+    "words": [
+      {
+        "word": "Hiểu",
+        "startFrame": 2745,
+        "endFrame": 2753
+      },
+      {
+        "word": "rõ",
+        "startFrame": 2753,
+        "endFrame": 2761
+      },
+      {
+        "word": "đồ",
+        "startFrame": 2761,
+        "endFrame": 2768
+      },
+      {
+        "word": "thị",
+        "startFrame": 2768,
+        "endFrame": 2776
+      },
+      {
+        "word": "DAG,",
+        "startFrame": 2776,
+        "endFrame": 2784
+      },
+      {
+        "word": "bạn",
+        "startFrame": 2784,
+        "endFrame": 2792
+      },
+      {
+        "word": "sẽ",
+        "startFrame": 2792,
+        "endFrame": 2800
+      },
+      {
+        "word": "thấy",
+        "startFrame": 2800,
+        "endFrame": 2808
+      },
+      {
+        "word": "cấu",
+        "startFrame": 2808,
+        "endFrame": 2815
+      },
+      {
+        "word": "trúc",
+        "startFrame": 2815,
+        "endFrame": 2823
+      },
+      {
+        "word": "dữ",
+        "startFrame": 2823,
+        "endFrame": 2831
+      },
+      {
+        "word": "liệu",
+        "startFrame": 2831,
+        "endFrame": 2839
+      },
+      {
+        "word": "bất",
+        "startFrame": 2839,
+        "endFrame": 2847
+      },
+      {
+        "word": "biến",
+        "startFrame": 2847,
+        "endFrame": 2854
+      },
+      {
+        "word": "tuyệt",
+        "startFrame": 2854,
+        "endFrame": 2862
+      },
+      {
+        "word": "đẹp,",
+        "startFrame": 2862,
+        "endFrame": 2870
+      }
+    ]
+  },
+  {
+    "id": "cap_24",
+    "text": "cho phép bạn du hành thời gian và tự tin cộng tác mà không bao giờ mất dữ liệu.",
+    "startFrame": 2870,
+    "endFrame": 3000,
+    "words": [
+      {
+        "word": "cho",
+        "startFrame": 2870,
+        "endFrame": 2877
+      },
+      {
+        "word": "phép",
+        "startFrame": 2877,
+        "endFrame": 2884
+      },
+      {
+        "word": "bạn",
+        "startFrame": 2884,
+        "endFrame": 2891
+      },
+      {
+        "word": "du",
+        "startFrame": 2891,
+        "endFrame": 2897
+      },
+      {
+        "word": "hành",
+        "startFrame": 2897,
+        "endFrame": 2904
+      },
+      {
+        "word": "thời",
+        "startFrame": 2904,
+        "endFrame": 2911
+      },
+      {
+        "word": "gian",
+        "startFrame": 2911,
+        "endFrame": 2918
+      },
+      {
+        "word": "và",
+        "startFrame": 2918,
+        "endFrame": 2925
+      },
+      {
+        "word": "tự",
+        "startFrame": 2925,
+        "endFrame": 2932
+      },
+      {
+        "word": "tin",
+        "startFrame": 2932,
+        "endFrame": 2938
+      },
+      {
+        "word": "cộng",
+        "startFrame": 2938,
+        "endFrame": 2945
+      },
+      {
+        "word": "tác",
+        "startFrame": 2945,
+        "endFrame": 2952
+      },
+      {
+        "word": "mà",
+        "startFrame": 2952,
+        "endFrame": 2959
+      },
+      {
+        "word": "không",
+        "startFrame": 2959,
+        "endFrame": 2966
+      },
+      {
+        "word": "bao",
+        "startFrame": 2966,
+        "endFrame": 2973
+      },
+      {
+        "word": "giờ",
+        "startFrame": 2973,
+        "endFrame": 2979
+      },
+      {
+        "word": "mất",
+        "startFrame": 2979,
+        "endFrame": 2986
+      },
+      {
+        "word": "dữ",
+        "startFrame": 2986,
+        "endFrame": 2993
+      },
+      {
+        "word": "liệu.",
+        "startFrame": 2993,
+        "endFrame": 3000
+      }
+    ]
+  }
+]

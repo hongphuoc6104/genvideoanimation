@@ -1,0 +1,54 @@
+{
+  "version": "3.3",
+  "audioPolicy": "narration-sfx",
+  "voiceProfile": "GENVIDEO_ADAM_PROFILE",
+  "tracks": {
+    "narration": {
+      "id": "crispr_narration_master",
+      "type": "narration",
+      "file": "master_audio.wav",
+      "duration": 99.038,
+      "volume": 1.0,
+      "sampleRate": 48000,
+      "channels": 2
+    },
+    "sfx": []
+  },
+  "ducking": {
+    "enabled": false,
+    "attackMs": 100,
+    "releaseMs": 600,
+    "attenuationDb": -12.0,
+    "config": {
+      "duckingDepthDb": -12.0,
+      "attackMs": 100,
+      "releaseMs": 600
+    },
+    "regions": []
+  },
+  "output": {
+    "file": "master_audio.wav",
+    "sampleRate": 48000,
+    "channels": 2,
+    "bitDepth": 16,
+    "durationSec": 99.038,
+    "truePeakDbfs": -4.8,
+    "lufs": -15.4,
+    "clippedSamples": 0
+  },
+  "targetLufs": -15.0,
+  "sampleRate": 48000,
+  "channels": 2,
+  "totalDurationSec": 99.038,
+  "durationSec": 99.038,
+  "peakDbfs": -4.8,
+  "truePeakDbfs": -4.8,
+  "integratedLufs": -15.4,
+  "lufs": -15.4,
+  "clippedSamples": 0,
+  "validation": {
+    "clippingFree": true,
+    "hasNarration": true,
+    "durationSyncValid": true
+  }
+}

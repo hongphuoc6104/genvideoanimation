@@ -761,3 +761,79 @@ Independent reviewer must evaluate actual candidate media across 18 rubric categ
 - [ ] npm run v3.3:gate passes cleanly and fails closed on defects.
 - [ ] Independent review report scores overall >= 4.5/5.0 with no category < 4.0/5.0.
 - [ ] All code, configs, and reports committed and pushed to main.
+
+
+## Follow-up — 2026-09-10T14:56:25Z
+
+Tái cấu trúc toàn diện Skill và Pipeline sản xuất video diễn hoạt giáo dục (Educational Flat-Vector Remotion): chuyển đổi triệt để đơn vị sản xuất từ "trình bày danh mục thuật ngữ" sang "người xem hiểu được quan hệ bản chất nhờ diễn biến hình ảnh", giải quyết dứt điểm vấn đề slide hóa/card trang trí, bảo toàn dấu câu và nhịp thở TTS, và chứng minh năng lực tổng quát hóa bằng 3 video hoàn chỉnh chuẩn sản xuất (90s–120s) trên các chủ đề hoàn toàn mới.
+
+Working directory: `/home/hongphuoc6104/Desktop/videorenderhoathinh`
+Integrity mode: development
+
+## Architecture & Governance Invariants
+Dự án áp dụng nghiêm ngặt kiến trúc **Two-Tier Agent Architecture** và nguyên tắc bất biến **NO_SELF_CERTIFICATION** theo `AGENTS.md`:
+- **Tier 1 (Creative & Implementation Agents)**: Content Architect, Audio DSP Agent, Art & Rig Agent, Motion & Shot Agent — chịu trách nhiệm sản xuất kịch bản, audio, asset SVG và Remotion TSX. Tuyệt đối không tự chấm điểm, tự cấp chứng chỉ nghiệm thu.
+- **Tier 2 (Independent Verification & QA Gates)**: Static AST Validator, Acoustic Gate, Temporal QA Gate, Independent Reviewer (Agent-as-Judge), Forensic Auditor — chịu trách nhiệm kiểm thử khách quan, độc lập, ký báo cáo `qa-report.json`.
+
+---
+
+## Requirements
+
+### R1. Tái định nghĩa đơn vị sản xuất: Curriculum Modular Mapping & Content-Driven Duration
+- **Xóa bỏ trần thời lượng cưỡng ép**: Thời lượng video do độ sâu nội dung và diễn biến hình ảnh quyết định (từ 90s đến bài giảng dài 15–30 phút khi cần), xóa bỏ hoàn toàn tình trạng đọc lướt công thức/thuật ngữ chỉ để ép vào khung thời gian.
+- **Curriculum Modular Mapping (100% Quản lý Sư phạm)**: Tài liệu nguồn được quản lý 100% trong `source-content-map.json` và phân loại rõ ràng:
+  - `IN_SCOPE_PRIMARY`: Thuộc câu hỏi trung tâm (Central Question) và kết quả học tập (Learning Outcome) của video, bắt buộc giải thích sâu bằng hình ảnh động biến đổi.
+  - `PREREQUISITE`: Kiến thức tiên quyết, được nhắc nhanh hoặc trực quan hóa tinh gọn.
+  - `DEFERRED_TO_SERIES`: Các nhánh nội dung chuyên sâu được phân bổ sang tập tiếp theo hoặc tài liệu bổ trợ, có liên kết và ghi nhận rõ ràng trong roadmap.
+- **Đồng sáng tạo Kịch bản & Storyboard**: Viết kịch bản narration song hành với Storyboard trực quan; mỗi beat định nghĩa rõ quan hệ trực quan cốt lõi mà văn bản/nhãn không thể hiện được.
+
+### R2. Kiểm định tính giải thích trực quan 3 tầng (3-Layer Animatic & Visual Meaning Gate)
+- **Tầng 1 (Storyboard Contact Sheet)**: Tự động trích xuất chuỗi keyframes tĩnh (Đầu - Giữa - Cuối của từng beat) thể hiện rõ biến đổi hình học/quan hệ. Reviewer độc lập duyệt tính giải thích trước khi đầu tư animation.
+- **Tầng 2 (Visual AST Validator)**: Duyệt cây cú pháp trừu tượng (AST) của scene TSX để chứng minh sự hiện diện của các thành phần diễn hoạt quan hệ (mô hình mạng lưới, node/edge, biến đổi hình học, cơ chế động) và chặn triệt để mẫu thiết kế phản trực quan (chỉ gồm text paragraph + card wrapper).
+- **Tầng 3 (Low-Fi Remotion Animatic & Visual Contract)**: Render 360p wireframe/animatic với "Visual Explanation Contract" (khai báo trạng thái biến đổi `spatialRelationship`, `transformationType`). Kiểm tra frame khác biệt chuyển động bằng FFmpeg pipe kết hợp Agent-as-Judge đánh giá thực sự quan hệ ngữ nghĩa trước khi khóa TTS master và render 1080p.
+
+### R3. Pipeline TTS & Text Normalization: Smart Punctuation Joiner & Physical DSP Pauses
+- **Khắc phục triệt để mất dấu câu trong `languageAwareTokenizer.ts`**: Tích hợp cơ chế **Smart Punctuation Joiner**:
+  - Giữ token dấu câu độc lập trong cấu trúc AST để phục vụ `caption-kit` (đồng bộ highlight karaoke mượt mà, không bị dính dấu).
+  - Tự động xuất `spokenText` chuẩn ngữ pháp tiếng Việt (gắn liền dấu câu sau từ trước: `từ, từ.`, loại bỏ khoảng trắng giả) cấp cho VieNeu-TTS để mô hình sinh ra đúng cao độ và ngữ điệu tự nhiên.
+- **Physical PCM Pause Insertion ở tầng DSP**: Pipeline âm thanh chủ động phân tách các mệnh đề và chèn khoảng lặng PCM thực tế (200–400ms tùy vai trò ngữ nghĩa) trực tiếp vào luồng WAV master, đảm bảo nhịp thở và khoảng dừng giải thích chuẩn xác, đo đạc được bằng `validate-audio-policy`.
+
+### R4. Generalization Proof trên 3 Chủ Đề Mới Hoàn Chỉnh (Chuẩn sản xuất 90s – 120s)
+- Thay thế hoàn toàn cơ chế kiểm thử giả lập (sóng sin 440 Hz và chỉ duyệt JSON) bằng quy trình sản xuất video hoàn chỉnh chuẩn production cho cả 3 chủ đề mới:
+  1. **Science Mechanism**: Cơ chế phân tử CRISPR-Cas9 cắt và chỉnh sửa DNA.
+  2. **Historical Process**: Cuộc cách mạng công nghiệp & chu trình biến đổi nhiệt năng - áp suất động cơ hơi nước Watt.
+  3. **Tech Tutorial**: Mô hình đồ thị có hướng không chu trình (DAG) phân tán của Git (Commit, Branch, Merge).
+- **Quy mô & Cấu trúc**: Mỗi video đạt độ dài chuẩn sản xuất 90s – 120s (10-15 beats), cấu trúc gồm: Bối cảnh vấn đề -> Cơ chế lõi trực quan -> Ví dụ thực tế -> Tổng kết/Ứng dụng.
+- **Tính thực tế tuyệt đối**: Cả 3 video phải có kịch bản tiếng Việt tối ưu cho việc hiểu, audio VieNeu TTS thật (giọng Adam, bảo toàn dấu ngắt câu, chuẩn EBU R128), và Remotion TSX trực quan thực sự (không dùng card text tĩnh), vượt qua đầy đủ 3 tầng gate (Storyboard Contact Sheet, Visual AST, và Visual Rubric Frame-Diff).
+
+---
+
+## Acceptance Criteria
+
+### C1. Normalization & TTS Punctuation Preservation
+- [ ] `packages/narration-kit/src/normalization/languageAwareTokenizer.ts` bảo toàn các token dấu câu trong AST và sinh ra `spokenText` chuẩn ngữ pháp (không có khoảng trắng trước dấu câu: ví dụ `"nghiên cứu, phát triển."`).
+- [ ] VieNeu-TTS v3 Turbo tổng hợp giọng nói tiếng Việt mượt mà, thể hiện rõ ngữ điệu ngắt nghỉ theo dấu câu tự nhiên.
+- [ ] Pipeline audio DSP chèn các đoạn khoảng lặng PCM thực tế (200–400ms) giữa các mệnh đề/beat; file master WAV đạt chuẩn 48kHz, 16-bit stereo, EBU R128 (-15.0 ± 1.0 LUFS, peak <= -1.8 dBTP).
+
+### C2. Visual AST & Anti-Card Invariants
+- [ ] `validators/validate-visual-semantics.ts` (hoặc mở rộng `validate-preview-rubric.ts`) duyệt AST của các component scene: phát hiện và loại bỏ các scene chỉ chứa text card / paragraph với nhân vật trang trí tĩnh; bắt buộc chứa các phần tử diễn hoạt quan hệ (nodes/edges, SVG paths chuyển động, state transitions).
+
+### C3. 3-Layer Visual Explanation Gate
+- [ ] Tạo công cụ trích xuất Contact Sheet 3-frame (Start, Mid, End) tự động cho từng beat.
+- [ ] Bổ sung tiêu chí đánh giá "Ý nghĩa giải thích trực quan" vào Rubric: Phạt nặng nếu tỷ lệ năng lượng chuyển động đồ họa < 40% (chỉ có text di chuyển); Agent-as-Judge độc lập thẩm định contact sheet đạt điểm >= 4.0/5.0 cho câu hỏi *"Hình ảnh thể hiện quan hệ gì mà đoạn text không làm được?"*.
+
+### C4. 3 Production-Grade Generalization Mini-Projects
+- [ ] Hoàn thành cả 3 mini-projects (`science-mechanism`, `historical-process`, `tech-tutorial`) với thời lượng 90s–120s (10-15 beats) mỗi bài.
+- [ ] Cả 3 dự án có:
+  - `source-content-map.json` theo chuẩn Curriculum Modular Mapping.
+  - `semantic-timeline.json` đồng bộ với kịch bản narration tiếng Việt và Visual Explanation Contract.
+  - File master audio WAV thật sinh từ VieNeu-TTS v3 Turbo (Adam).
+  - Code Remotion TSX trực quan hóa sinh động cơ chế cốt lõi (CRISPR cắt DNA, chu trình xi-lanh hơi nước, đồ thị DAG Git commit).
+  - Render preview MP4 360x640 và master MP4 1080x1920 hoàn chỉnh.
+
+### C5. Canonical Gate Entrypoint Pass
+- [ ] Lệnh kiểm thử nghiệm thu duy nhất kết thúc thành công với exit code 0:
+  ```bash
+  npm run v3.3:gate
+  ```
+- [ ] Báo cáo `qa-report.json` được ký bởi Tier 2 Independent Auditor, ghi nhận đầy đủ SHA-256 của các artifact và điểm số đạt chuẩn (Overall >= 4.50, Floor >= 4.00, Critical >= 4.30).

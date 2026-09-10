@@ -1,0 +1,99 @@
+{
+  "voice": {
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32",
+    "voice": "Adam",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "outputDir": "mini-projects/tech-tutorial/audio",
+  "masterVoiceover": "master_audio.wav",
+  "lines": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Trước khi Git ra đời, các hệ thống tập trung như SVN lưu trữ lịch sử dưới dạng chuỗi các vi phân thay đổi, buộc lập trình viên phải kết nối máy chủ để khóa tệp và cam kết tuần tự."
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Năm hai nghìn không trăm lẻ năm, Linus Torvalds tái định nghĩa bài toán: Git không lưu vi phân delta, mà chụp lại trọn vẹn trạng thái toàn bộ thư mục tại từng thời điểm bằng mã băm mật mã SHA."
+    },
+    {
+      "id": 3,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Mọi ảnh chụp liên kết với nhau thành một đồ thị có hướng không chu trình, gọi là DAG. Trong đó, mỗi commit mới luôn trỏ ngược về commit cha trước nó."
+    },
+    {
+      "id": 4,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Ở tầng thấp nhất là đối tượng Blob, chỉ chứa dữ liệu nhị phân thô của tệp tin. Tên tệp và quyền truy cập hoàn toàn không nằm trong Blob, mà được xác định bởi mã băm nội dung."
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Đối tượng Tree đại diện cho thư mục, đóng vai trò bản đồ định tuyến liên kết tên tệp, chế độ cấp phép và con trỏ trỏ tới các Blob hoặc Tree con tương ứng."
+    },
+    {
+      "id": 6,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Cuối cùng, đối tượng Commit đóng gói con trỏ tới Tree gốc, thông tin tác giả, mốc thời gian và danh sách mã băm của commit cha, tạo nên tính toàn vẹn bất biến."
+    },
+    {
+      "id": 7,
+      "role": "turn",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Nhiều người nghĩ nhánh là một thư mục riêng biệt, nhưng thực chất nhánh trong Git chỉ là một tệp văn bản nhỏ bốn mươi mốt byte, chứa chuỗi hash trỏ vào đỉnh commit."
+    },
+    {
+      "id": 8,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Khi nhánh chính không có thay đổi mới, thao tác Fast-forward đơn giản là trượt con trỏ nhánh chính tiến thẳng về phía trước tới vị trí của nhánh tính năng mà không cần tạo commit mới."
+    },
+    {
+      "id": 9,
+      "role": "evidence",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Nếu lịch sử phân kỳ, Git tìm tổ tiên chung gần nhất, tổng hợp ba nguồn dữ liệu và tạo ra một commit hợp nhất đặc biệt sở hữu đồng thời hai con trỏ cha."
+    },
+    {
+      "id": 10,
+      "role": "body",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Trong mô hình phân tán, máy chủ từ xa chỉ là một kho chứa ngang hàng với các con trỏ riêng như origin main. Khi fetch, Git tải các nút đồ thị mới về mà không ảnh hưởng mã cục bộ."
+    },
+    {
+      "id": 11,
+      "role": "turn",
+      "speed": 1.05,
+      "pauseAfter": 0.35,
+      "spoken": "Trong khi Merge bảo tồn chân thực mọi nhánh rẽ lịch sử, thì Rebase viết lại các commit thành một chuỗi tuyến tính sạch sẽ, nhưng làm thay đổi toàn bộ mã băm SHA của các commit con."
+    },
+    {
+      "id": 12,
+      "role": "payoff",
+      "speed": 1.04,
+      "pauseAfter": 0.40,
+      "spoken": "Hiểu rõ đồ thị DAG, bạn sẽ thấy Git không hề ma thuật. Đó là cấu trúc dữ liệu bất biến tuyệt đẹp, cho phép bạn du hành thời gian và tự tin cộng tác mà không bao giờ mất dữ liệu."
+    }
+  ]
+}

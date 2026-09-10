@@ -1,0 +1,55 @@
+{
+  "version": "3.3",
+  "audioStrategy": "PREMIXED",
+  "audioPolicy": "narration-sfx",
+  "voiceProfile": "GENVIDEO_ADAM_PROFILE",
+  "tracks": {
+    "narration": {
+      "id": "git_dag_narration_master",
+      "type": "narration",
+      "file": "master_audio.wav",
+      "duration": 102.784,
+      "volume": 1,
+      "sampleRate": 48000,
+      "channels": 2
+    },
+    "sfx": []
+  },
+  "ducking": {
+    "enabled": false,
+    "attackMs": 100,
+    "releaseMs": 600,
+    "attenuationDb": -12,
+    "config": {
+      "duckingDepthDb": -12,
+      "attackMs": 100,
+      "releaseMs": 600
+    },
+    "regions": []
+  },
+  "output": {
+    "file": "master_audio.wav",
+    "sampleRate": 48000,
+    "channels": 2,
+    "bitDepth": 16,
+    "durationSec": 102.784,
+    "truePeakDbfs": -4.8,
+    "lufs": -15.5,
+    "clippedSamples": 0
+  },
+  "targetLufs": -15,
+  "sampleRate": 48000,
+  "channels": 2,
+  "totalDurationSec": 102.784,
+  "durationSec": 102.784,
+  "peakDbfs": -4.8,
+  "truePeakDbfs": -4.8,
+  "integratedLufs": -15.5,
+  "lufs": -15.5,
+  "clippedSamples": 0,
+  "validation": {
+    "clippingFree": true,
+    "hasNarration": true,
+    "durationSyncValid": true
+  }
+}
