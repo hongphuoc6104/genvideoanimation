@@ -89,3 +89,23 @@ The entire production pipeline must pass the single canonical entrypoint without
 npm run v3.3:gate
 ```
 Any single gate failure halts execution immediately with exit code 1.
+
+---
+
+## 6. GPU Hardware Acceleration & Render Invariants (GPU_ACCELERATION_STANDARD)
+
+1. **Mandatory Hardware Encoding (`h264_nvenc`)**:
+   All production MP4 renders (1080x1920 9:16 and preview 360x640) must utilize NVIDIA hardware-accelerated video encoding (`h264_nvenc`).
+   - Configured centrally in `remotion.config.ts` via `Config.setHardwareAcceleration('required')`.
+   - Remotion's pre-stitcher FFmpeg invocation automatically injects `-c:v h264_nvenc -cq 18` (replacing CPU `libx264 -crf 18`).
+   - If NVIDIA NVENC is unavailable, the pipeline must fail closed rather than silently falling back to unaccelerated CPU encoding unless an explicit override flag is passed.
+2. **OpenGL Hardware Rasterization (`angle` / `egl`)**:
+   - Headless Chrome rasterization must declare `Config.setChromiumOpenGlRenderer('angle')` and `Config.setChromiumMultiProcessOnLinux(true)`.
+3. **Execution Commands**:
+   - Production renders must use the dedicated GPU scripts:
+     - CRISPR: `npm run render:gpu:crispr`
+     - Steam Engine: `npm run render:gpu:steam`
+     - Git DAG: `npm run render:gpu:git`
+     - Scopus Explainer: `npm run render:gpu:scopus`
+     - All 4 films: `npm run render:gpu:all`
+

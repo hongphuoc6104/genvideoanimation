@@ -232,6 +232,18 @@ Every production created or modified under this skill MUST strictly obey the fol
   $$\text{Negative Rejection Rate} \equiv 100\% \quad (12/12 \text{ deliberate defective fixtures rejected})$$
   $$\text{Positive Pass Rate} \equiv 100\% \quad (12/12 \text{ matching baseline fixtures accepted})$$
 
+### Rule 18: `GPU_ACCELERATED_RENDERING`
+- All Remotion rendering pipelines must enforce GPU hardware acceleration:
+  - **Hardware Video Encoder**: NVIDIA `h264_nvenc` with constant quality (`-cq 18`).
+  - **Chromium Hardware OpenGL**: `Config.setChromiumOpenGlRenderer('angle')` and `Config.setChromiumMultiProcessOnLinux(true)`.
+  - **Fail-Closed Hardware Policy**: Remotion config declares `Config.setHardwareAcceleration('required')`. Any missing hardware encoder halts the render rather than silently falling back to slow CPU software encoding.
+  - **Standard GPU Render Commands**:
+    - CRISPR-Cas9: `npm run render:gpu:crispr`
+    - Steam Engine: `npm run render:gpu:steam`
+    - Git DAG: `npm run render:gpu:git`
+    - Scopus Explainer: `npm run render:gpu:scopus`
+    - All Compositions: `npm run render:gpu:all`
+
 ---
 
 ## 4. Technical Production Defaults (V3.3)
