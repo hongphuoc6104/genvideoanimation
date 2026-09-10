@@ -12,8 +12,8 @@
       "fps": 30,
       "durationSec": 103.2,
       "totalFrames": 3096,
-      "sizeBytes": 15473449,
-      "sha256": "7caa3d8fb07457f2ae0f2b6c8ff917a5648c79a6de5f6654e9a558477259b643"
+      "sizeBytes": 20253433,
+      "sha256": "7c9e18bb4a9f7b805bbb6d5fba61e34335c317f135d29d2513e59703ba2b59a5"
     },
     {
       "file": "out/preview-360x640.mp4",
@@ -22,8 +22,8 @@
       "fps": 30,
       "durationSec": 103.2,
       "totalFrames": 3096,
-      "sizeBytes": 6458376,
-      "sha256": "e3ca2b986d33885e3b86003d2bfe5289c4029aee4a0acac8c2f8af79c1999b2c"
+      "sizeBytes": 14046163,
+      "sha256": "fdd4f8de5c8119d4210d6188184eba07098fc693e5c5621fff2cad86443ee70a"
     },
     {
       "file": "out/semantic-timeline.json",
@@ -46,7 +46,7 @@
       "shotsCount": 5,
       "transitionsCount": 4,
       "continuityValid": true,
-      "sha256": "dc1abff39b31c4d6ec835510fc6e95eca58caf585ea2a6342bbe2f4b11c097ba"
+      "sha256": "596d0e227c40d937c5f021311d43a1b5c2c5ee6d1293951cfa4b4b258c4131b6"
     },
     {
       "file": "out/audio-manifest.json",
@@ -99,8 +99,8 @@
       "fps": 30,
       "durationSec": 99.07,
       "totalFrames": 2972,
-      "sizeBytes": 23290555,
-      "sha256": "25edea9ce0a82ad08b6d721fe7329cc4d48ba817421a84676768e074af0ffd62"
+      "sizeBytes": 27672962,
+      "sha256": "e0fa69e7ec066fe956fa392d1672d769f0b1b817020c5cba5fcf589a66bfba09"
     },
     {
       "file": "out/steam-engine-1080p.mp4",
@@ -109,8 +109,8 @@
       "fps": 30,
       "durationSec": 91.67,
       "totalFrames": 2750,
-      "sizeBytes": 9859224,
-      "sha256": "bad5d9be2b8cc2718228df12460b646b017f7935296b89b0988575894b194bd8"
+      "sizeBytes": 15752070,
+      "sha256": "6eb0572756c6871d9afc8c79b874ad1d6578b4da1b9bec40207bf50224631458"
     },
     {
       "file": "out/git-dag-1080p.mp4",
@@ -119,8 +119,8 @@
       "fps": 30,
       "durationSec": 102.8,
       "totalFrames": 3084,
-      "sizeBytes": 12771089,
-      "sha256": "bd94afc9bd62eede5ba286e8d2030754e88147da1b4b18e66942216772fec63e"
+      "sizeBytes": 20899454,
+      "sha256": "6bbac428a5e12b9200c5f162367b0917ed518e513610bd098c0ddc6a61c4677b"
     },
     {
       "file": "connection-film/src/scopus-explainer/factual-claims.json",
