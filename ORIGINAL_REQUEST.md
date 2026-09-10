@@ -668,3 +668,96 @@ Harden the 1080x1920 Remotion educational video production pipeline for the Scop
 - [ ] `.agents/skills/educational-flat-motion/SKILL.md` is updated with V3.3 production defaults and rules.
 - [ ] Independent QA report `qa-report.json` is generated with rubric scores meeting acceptance thresholds.
 
+
+
+## 2026-09-10T13:19:51Z
+
+Execute V3.3 Production Integrity Hardening for the 2D Educational Flat-Vector Remotion motion system. Eliminate false positive acceptance through system-first contracts, real media decoding, fail-closed gates, and independent review.
+
+Working directory: /home/hongphuoc6104/Desktop/videorenderhoathinh
+Integrity mode: benchmark
+
+## Requirements
+
+### R1. Canonical Production Policy
+Create production-policy.json as the single source of truth for canvas dimensions (1080x1920, 9:16), 30fps, typography thresholds (Hero >= 64px, Section >= 48px, Card Title >= 38px, Body >= 34px, Secondary >= 30px, Karaoke >= 52px), safe regions, audio policy (narration-sfx, no background music), and acceptance thresholds.
+
+### R2. Never Shrink to Fit & Effective Typography
+Typography validation must account for effective rendered size after SVG/CSS transforms and parent scales (validators/validate-mobile-typography.ts). When content cannot fit, split into additional visual beats rather than shrinking fonts or compressing cards.
+
+### R3. Deterministic Mobile Preview Lineage & Parity
+The 360x640 mobile preview must be generated deterministically from the final candidate MP4 via FFmpeg resize (final-v3_3.mp4 -> preview-360x640.mp4). Implement full/mobile content parity verification decoding real frames and rejecting stale/divergent previews.
+
+### R4. Real Video Decoding (No Synthetic Buffers)
+Production acceptance must decode actual MP4 video frames. Completely eliminate synthetic Buffer.alloc image data and fake metrics from production acceptance paths. Missing or unreadable MP4s must fail closed.
+
+### R5. Progressive Disclosure & Single Primary Idea Per Beat
+Enforce progressive disclosure for taxonomies and multi-step processes (e.g. Scopus research gap breakdown). Zero simultaneous five-card information dumps.
+
+### R6. Canonical Semantic Timeline & Choreography
+semantic-timeline.json is the single authoritative timing source. Scene choreography, ShotSpec, cues, and sequence boundaries must derive from the timeline. Disallow magic numbers and stale timing constants.
+
+### R7. Real ShotSpec Validation & Motivated Transitions
+Run validators/validate-shot-spec.ts against real production ShotSpec without converting errors to warnings. Separate impactFrames from transitionFrames. Forbid naked hard cuts and whole-scene opacity crossfades as sole transitions.
+
+### R8. Single Audio Ownership & Routing
+Every audio asset must have exactly one route to final output. Production default is PREMIXED (master_audio.wav mounted once in Remotion; zero runtime cue playback). Implement validators/validate-audio-ownership.ts and audio-dependency-graph.json to prevent double SFX playback. Missing required audio must fail.
+
+### R9. Safe TTS Default & Vietnamese-First Bilingual
+Primary production TTS is VieNeu-TTS v3 Turbo with voice Adam. Default voice must route to VieNeu Adam; omitting voice must never route to Kokoro am_adam. Maintain Vietnamese-first prosody with English code-switching for technical terms.
+
+### R10. Real Audio Metadata & Portability
+Read audio metadata (sample rate, channels, bit depth, duration) from actual WAV headers/ffprobe. Zero user-specific absolute paths (/home/, /Users/) in committed artifacts.
+
+### R11. Content Coverage (100% Required)
+Decompose educational source material into atomic knowledge units (source-content-map.json). 100% of required source units must map to valid semantic beats and shots.
+
+### R12. Skill & Governance Hardening
+Update .agents/skills/educational-flat-motion/SKILL.md to preserve all 17 hard rules. Create concise AGENTS.md governing agent roles and system invariants. Maintain runtime separation (no runtime imports from .agents/skills).
+
+### R13. Canonical Acceptance Entrypoint (npm run v3.3:gate)
+Create one canonical command running all V3.3 gates (typecheck, tests, ShotSpec, timeline, source coverage, mobile typography, audio ownership, media metadata, portability, temporal QA, mobile preview parity, negative fixtures). Must fail closed.
+
+### R14. Adversarial Negative & Positive Fixture Suite
+Build deliberately broken negative fixtures (14px body text, scaled-down text, impact outside shot, fake fade transition, double SFX, missing audio, omitted voice routing to Kokoro, machine paths, stale preview, stale timeline, unannotated spike, <100% source coverage). All negative fixtures must fail, and positive fixtures must pass.
+
+### R15. Scopus Canary Migration
+Migrate the Scopus canary through the reusable production contracts: reflow choreography, fix typography/layout, eliminate 70.4s panel overlap, enforce PREMIXED audio, and verify 100% source coverage.
+
+### R16. Generalization Proof (3 Unseen Mini-Projects)
+Run at least three unseen, unrelated mini-projects (science/mechanism, historical/process, technology/tutorial) through the canonical gate to prove contracts are not overfit to Scopus.
+
+### R17. Independent Review & Quality Rubric
+Independent reviewer must evaluate actual candidate media across 18 rubric categories. Acceptance requires overall average >= 4.5/5.0, no category < 4.0/5.0, and critical categories >= 4.3/5.0.
+
+---
+
+## Acceptance Criteria
+
+### Infrastructure & Policy
+- [ ] production-policy.json created and consumed across runtime and validators.
+- [ ] AGENTS.md created with clear role separation and system invariants.
+- [ ] SKILL.md updated with all 17 non-negotiable hard rules.
+- [ ] motion-kit and runtime packages have 0 runtime imports from .agents/skills.
+- [ ] Zero user-specific absolute paths in production artifacts.
+
+### Verification & Quality Tooling
+- [ ] validators/validate-mobile-typography.ts enforces effective rendered font sizes.
+- [ ] validators/validate-preview-rubric.ts decodes real MP4 frames with zero synthetic Buffer.alloc paths.
+- [ ] Full/mobile content parity validator proves visual consistency across all semantic beats.
+- [ ] validators/validate-audio-ownership.ts prevents double SFX playback and verifies single route in audio-dependency-graph.json.
+- [ ] TTS default routing test proves omitted voice selects VieNeu Adam (not am_adam/Kokoro).
+- [ ] Complete suite of adversarial negative fixtures rejected by validators.
+- [ ] Matching positive fixtures accepted by validators.
+
+### Scopus Canary & Production Artifacts
+- [ ] final-v3_3.mp4 (1080x1920) and preview-360x640.mp4 rendered with fresh non-rejected SHA256 hashes.
+- [ ] semantic-timeline.json and source-content-map.json achieve 100% required coverage.
+- [ ] Visual choreography reflowed to narration; 70.4s panel overlap eliminated.
+- [ ] Single PREMIXED audio master mounted; zero background music.
+
+### Generalization & Review
+- [ ] 3 unseen mini-projects successfully pass all production gates.
+- [ ] npm run v3.3:gate passes cleanly and fails closed on defects.
+- [ ] Independent review report scores overall >= 4.5/5.0 with no category < 4.0/5.0.
+- [ ] All code, configs, and reports committed and pushed to main.

@@ -9,7 +9,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { KokoroTtsEngine } from '../tts/KokoroTtsEngine';
-import { createTTSProvider } from '../tts';
+import { createTTSProvider, DEFAULT_VIENEU_VOICE } from '../tts';
 import { TextNormalizer } from '../normalization/textNormalizer';
 import { NarrationChunker } from '../tts/chunkNarration';
 import { NarrationProfileName } from '../prosody';
@@ -90,7 +90,10 @@ export async function generateNarrationPipeline(
   fs.mkdirSync(outDir, { recursive: true });
 
   const fps = request.fps || 30;
-  const voice = request.voice || 'am_adam';
+  const voice =
+    request.voice && request.voice.trim().length > 0
+      ? request.voice.trim()
+      : DEFAULT_VIENEU_VOICE;
   const isOffline = request.offline ?? true;
   const compositionId = request.compositionId || 'v3_composition';
 

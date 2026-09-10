@@ -1,0 +1,39 @@
+{
+  "version": "3.3.0",
+  "compositionId": "crispr-cas9-mechanism",
+  "fps": 30,
+  "totalDurationSec": 15,
+  "totalFrames": 450,
+  "beats": [
+    {
+      "id": "beat_01",
+      "shotId": "shot_01",
+      "startSec": 0,
+      "endSec": 5,
+      "startFrame": 0,
+      "endFrame": 150,
+      "conceptId": "c1",
+      "narrationText": "Thanh dẫn đường RNA hướng enzyme Cas9 tới mục tiêu chính xác"
+    },
+    {
+      "id": "beat_02",
+      "shotId": "shot_01",
+      "startSec": 5,
+      "endSec": 10,
+      "startFrame": 150,
+      "endFrame": 300,
+      "conceptId": "c2",
+      "narrationText": "Nhận diện chuỗi PAM mở xoắn liên kết đôi DNA"
+    },
+    {
+      "id": "beat_03",
+      "shotId": "shot_02",
+      "startSec": 10,
+      "endSec": 15,
+      "startFrame": 300,
+      "endFrame": 450,
+      "conceptId": "c3",
+      "narrationText": "Thực hiện vết cắt kép kích hoạt sửa chữa tế bào"
+    }
+  ]
+}

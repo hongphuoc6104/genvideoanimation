@@ -1,0 +1,1686 @@
+{
+  "timestamp": "2026-09-10T14:06:27.326Z",
+  "durationMs": 69,
+  "total": 205,
+  "passed": 205,
+  "failed": 0,
+  "notImplemented": 0,
+  "skipped": 0,
+  "success": true,
+  "tiers": [
+    {
+      "tier": 1,
+      "total": 85,
+      "passed": 85,
+      "failed": 0,
+      "notImplemented": 0,
+      "skipped": 0
+    },
+    {
+      "tier": 2,
+      "total": 85,
+      "passed": 85,
+      "failed": 0,
+      "notImplemented": 0,
+      "skipped": 0
+    },
+    {
+      "tier": 3,
+      "total": 21,
+      "passed": 21,
+      "failed": 0,
+      "notImplemented": 0,
+      "skipped": 0
+    },
+    {
+      "tier": 4,
+      "total": 14,
+      "passed": 14,
+      "failed": 0,
+      "notImplemented": 0,
+      "skipped": 0
+    }
+  ],
+  "results": [
+    {
+      "id": "T1-F01-001",
+      "name": "F01-01: Validates complete schema structure matching V3.3 contract",
+      "feature": "F01",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 2
+    },
+    {
+      "id": "T1-F01-002",
+      "name": "F01-02: Canvas 1080x1920 30fps defaults and 360x640 preview scale factor",
+      "feature": "F01",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F01-003",
+      "name": "F01-03: Typography minimums enforce mobile floor and semantic thresholds",
+      "feature": "F01",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F01-004",
+      "name": "F01-04: Audio policy specifies narration-sfx, PREMIXED strategy, and role pauses",
+      "feature": "F01",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F01-005",
+      "name": "F01-05: Quality gate acceptance thresholds enforce zero-tolerance invariants",
+      "feature": "F01",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F02-001",
+      "name": "F02-01: Semantic typography role minimums comply with R1/R2 standards",
+      "feature": "F02",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F02-002",
+      "name": "F02-02: Nested scale factor multiplication formula (Effective = Font * Prod(Scale))",
+      "feature": "F02",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F02-003",
+      "name": "F02-03: Absolute mobile floor 30px rejects deceptive font compliance",
+      "feature": "F02",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F02-004",
+      "name": "F02-04: Transform parser extracts numeric scale factors from CSS and SVG strings",
+      "feature": "F02",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 2
+    },
+    {
+      "id": "T1-F02-005",
+      "name": "F02-05: Never Shrink to Fit mandate forces progressive scene splitting over font reduction",
+      "feature": "F02",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F03-001",
+      "name": "F03-01: FFmpeg command construction mandates Lanczos filter and audio copy",
+      "feature": "F03",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F03-002",
+      "name": "F03-02: Frame count parity invariant (N_master == N_preview)",
+      "feature": "F03",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F03-003",
+      "name": "F03-03: Duration synchronization delta must be strictly < 0.033s (1 frame at 30fps)",
+      "feature": "F03",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F03-004",
+      "name": "F03-04: Preview modification timestamp freshness (mtime_preview >= mtime_master)",
+      "feature": "F03",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F03-005",
+      "name": "F03-05: PSNR metric calculation confirms mathematical fidelity >= 35.0 dB",
+      "feature": "F03",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F04-001",
+      "name": "F04-01: FFmpeg rawvideo pipe configuration specifies RGB24 and single frame extraction",
+      "feature": "F04",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F04-002",
+      "name": "F04-02: Zero synthetic Buffer.alloc fake frames allowed in production QA paths",
+      "feature": "F04",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F04-003",
+      "name": "F04-03: Fail-closed logic terminates execution with exit 1 when MP4 is missing",
+      "feature": "F04",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F04-004",
+      "name": "F04-04: Fail-closed logic terminates execution with exit 1 when MP4 is corrupt or truncated",
+      "feature": "F04",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F04-005",
+      "name": "F04-05: Decoded frame buffer dimensions match exact RGB24 byte requirement (W * H * 3)",
+      "feature": "F04",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F05-001",
+      "name": "F05-01: Active prominent card count per frame must be <= 1",
+      "feature": "F05",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F05-002",
+      "name": "F05-02: Connected text cluster count per frame must not exceed 3 clusters",
+      "feature": "F05",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F05-003",
+      "name": "F05-03: Saliency energy ratio within primary focal region must be >= 0.60",
+      "feature": "F05",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F05-004",
+      "name": "F05-04: Sequential beat unfolding architecture (Overview -> Focused Beats -> Recap)",
+      "feature": "F05",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F05-005",
+      "name": "F05-05: Cognitive dwell time requirement (>= 1.2s per pedagogical concept)",
+      "feature": "F05",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F06-001",
+      "name": "F06-01: Canonical timeline schema defines mandatory beat metadata",
+      "feature": "F06",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F06-002",
+      "name": "F06-02: Strictly monotonic frame progression across consecutive beats",
+      "feature": "F06",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F06-003",
+      "name": "F06-03: Zero hardcoded magic frames mandate (visual timings derive from timeline)",
+      "feature": "F06",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F06-004",
+      "name": "F06-04: Beat boundary continuity ensures gapless scene sequencing",
+      "feature": "F06",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F06-005",
+      "name": "F06-05: Timeline duration parity with audio within +/- 1 frame tolerance",
+      "feature": "F06",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F07-001",
+      "name": "F07-01: Internal impact frames must lie strictly within host shot frame bounds",
+      "feature": "F07",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F07-002",
+      "name": "F07-02: Transition frame bridge windows span across shot boundary [f_start, f_end]",
+      "feature": "F07",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F07-003",
+      "name": "F07-03: Transition types must adhere strictly to 8 whitelisted motivated types",
+      "feature": "F07",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F07-004",
+      "name": "F07-04: Prohibition of naked cuts lacking declared motivated transition",
+      "feature": "F07",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F07-005",
+      "name": "F07-05: Prohibition of whole-scene opacity crossfades / dissolves",
+      "feature": "F07",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F08-001",
+      "name": "F08-01: Audio dependency graph validates PREMIXED strategy schema",
+      "feature": "F08",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F08-002",
+      "name": "F08-02: Exactly 1 <Audio> tag mounted in root composition",
+      "feature": "F08",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F08-003",
+      "name": "F08-03: Prohibition of secondary cue <Audio> tags inside child scene components",
+      "feature": "F08",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F08-004",
+      "name": "F08-04: Zero duplicate SFX playback (mixed into master WAV and mounted via discrete tag)",
+      "feature": "F08",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F08-005",
+      "name": "F08-05: Audio policy hygiene strictly prohibits background music tracks in production assets",
+      "feature": "F08",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F09-001",
+      "name": "F09-01: Default voice configuration resolves to VieNeu Adam",
+      "feature": "F09",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F09-002",
+      "name": "F09-02: Omitted or empty voice parameter never routes to Kokoro am_adam",
+      "feature": "F09",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F09-003",
+      "name": "F09-03: Bilingual code-switching generates single utterance with single speaker identity",
+      "feature": "F09",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F09-004",
+      "name": "F09-04: Vietnamese syntactic prosody is preserved across entire sentence",
+      "feature": "F09",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F09-005",
+      "name": "F09-05: English technical terms maintain accurate phonetic pronunciation mapping",
+      "feature": "F09",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F10-001",
+      "name": "F10-01: Physical RIFF WAV header parsing validates binary audio format",
+      "feature": "F10",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F10-002",
+      "name": "F10-02: Format compliance verifies 48kHz stereo 16-bit PCM standard",
+      "feature": "F10",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F10-003",
+      "name": "F10-03: Measured physical WAV duration matches audio-manifest.json within +/- 0.05s",
+      "feature": "F10",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F10-004",
+      "name": "F10-04: Portability gate detects and flags machine-specific absolute paths",
+      "feature": "F10",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F10-005",
+      "name": "F10-05: Relative URI normalization enforces workspace-relative paths",
+      "feature": "F10",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F11-001",
+      "name": "F11-01: Source content map validates canonical V3.3 schema structure",
+      "feature": "F11",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F11-002",
+      "name": "F11-02: 100% concept coverage invariant (coveragePercent == 100)",
+      "feature": "F11",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F11-003",
+      "name": "F11-03: Zero omitted pedagogical units (every concept is covered: true)",
+      "feature": "F11",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F11-004",
+      "name": "F11-04: Beat ID traceability confirms every mapped concept corresponds to timeline beat",
+      "feature": "F11",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F11-005",
+      "name": "F11-05: Fail-closed gate logic rejects any content coverage ratio < 1.0",
+      "feature": "F11",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F12-001",
+      "name": "F12-01: Exactly 17 non-negotiable hard rules defined in SKILL.md specification",
+      "feature": "F12",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F12-002",
+      "name": "F12-02: Two-tier agent governance separates Implementation from Verification",
+      "feature": "F12",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F12-003",
+      "name": "F12-03: Zero runtime imports from .agents/ across all production packages",
+      "feature": "F12",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F12-004",
+      "name": "F12-04: Prohibition of self-certification prevents implementing agent from scoring deliverables",
+      "feature": "F12",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F12-005",
+      "name": "F12-05: Mobile-first defaults in skill specification enforce content-driven duration",
+      "feature": "F12",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F13-001",
+      "name": "F13-01: Canonical v3.3:gate command chain defines ordered quality gates",
+      "feature": "F13",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F13-002",
+      "name": "F13-02: Fail-closed execution immediately halts gate pipeline on any non-zero exit code",
+      "feature": "F13",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F13-003",
+      "name": "F13-03: Zero warnings-as-pass policy treats unhandled warnings or partial fails as failure",
+      "feature": "F13",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F13-004",
+      "name": "F13-04: Typecheck integration enforces zero TypeScript compiler errors",
+      "feature": "F13",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F13-005",
+      "name": "F13-05: E2E test harness execution is required in gate chain",
+      "feature": "F13",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F14-001",
+      "name": "F14-01: Adversarial matrix defines at least 12 distinct defective fixtures",
+      "feature": "F14",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F14-002",
+      "name": "F14-02: 100% negative fixture rejection rate invariant (12/12 rejected)",
+      "feature": "F14",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F14-003",
+      "name": "F14-03: 100% positive baseline pass rate invariant (12/12 accepted)",
+      "feature": "F14",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F14-004",
+      "name": "F14-04: Standalone validator script invocation without internal mock bypasses",
+      "feature": "F14",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F14-005",
+      "name": "F14-05: Granular diagnostic violation classification across defective fixtures",
+      "feature": "F14",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F15-001",
+      "name": "F15-01: 70.4s panel overlap elimination decouples Beat 16 exit and Beat 17 entrance",
+      "feature": "F15",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F15-002",
+      "name": "F15-02: 103.20s total timeline reflow parity with master narration audio",
+      "feature": "F15",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F15-003",
+      "name": "F15-03: Exactly 3096 frames match at 30fps (3096 = 103.20 * 30)",
+      "feature": "F15",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F15-004",
+      "name": "F15-04: Single PREMIXED audio mount in Scopus explainer root composition",
+      "feature": "F15",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F15-005",
+      "name": "F15-05: Exactly 24/24 concept coverage across 3 Scopus academic source images",
+      "feature": "F15",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F16-001",
+      "name": "F16-01: Science / Mechanism explainer project satisfies canonical manifest contract",
+      "feature": "F16",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F16-002",
+      "name": "F16-02: Historical / Process explainer project satisfies canonical manifest contract",
+      "feature": "F16",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F16-003",
+      "name": "F16-03: Technology / Tutorial explainer project satisfies canonical manifest contract",
+      "feature": "F16",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F16-004",
+      "name": "F16-04: Domain-agnostic CLI validator flags allow arbitrary project inspection",
+      "feature": "F16",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F16-005",
+      "name": "F16-05: Elimination of Scopus-specific filename coupling in reusable core tooling",
+      "feature": "F16",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F17-001",
+      "name": "F17-01: Quality report schema covers all 18 objective evaluation categories",
+      "feature": "F17",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T1-F17-002",
+      "name": "F17-02: Overall average threshold formula enforces minimum >= 4.50",
+      "feature": "F17",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F17-003",
+      "name": "F17-03: Floor minimum threshold requires every individual category score >= 4.00",
+      "feature": "F17",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F17-004",
+      "name": "F17-04: Critical category threshold requires all 11 critical categories >= 4.30",
+      "feature": "F17",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T1-F17-005",
+      "name": "F17-05: Signed report validation requires non-empty reviewer signature and certified verdict",
+      "feature": "F17",
+      "tier": 1,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F01-001",
+      "name": "F01-B01: Canvas dimensions boundary & 9:16 aspect ratio enforcement",
+      "feature": "F01",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F01-002",
+      "name": "F01-B02: Frame rate boundaries reject non-positive or fractional values",
+      "feature": "F01",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F01-003",
+      "name": "F01-B03: Loudness tolerance extreme boundaries (-15.0 LUFS +/- 1.0 LUFS)",
+      "feature": "F01",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F01-004",
+      "name": "F01-B04: True peak ceiling boundary (-1.80 dBTP vs -1.79 dBTP)",
+      "feature": "F01",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F01-005",
+      "name": "F01-B05: Null, undefined, or empty policy payload rejection",
+      "feature": "F01",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F02-001",
+      "name": "F02-B01: Exact role threshold boundaries (63.9 vs 64.0, 33.9 vs 34.0)",
+      "feature": "F02",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F02-002",
+      "name": "F02-B02: Scale factor floor boundaries (60px * 0.5 = 30.0px vs 59px * 0.5 = 29.5px)",
+      "feature": "F02",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F02-003",
+      "name": "F02-B03: Micro-scale extremes and reflection transforms (scale(-1))",
+      "feature": "F02",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F02-004",
+      "name": "F02-B04: Zero, negative, and NaN font sizes rejected cleanly",
+      "feature": "F02",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F02-005",
+      "name": "F02-B05: String font units parsing handles px, decimals, and rejects unknown units",
+      "feature": "F02",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F03-001",
+      "name": "F03-B01: Duration delta exact boundary (0.0329s pass vs 0.0331s fail)",
+      "feature": "F03",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F03-002",
+      "name": "F03-B02: Identical file mtime boundary (equal mtime passes, 1ms older fails)",
+      "feature": "F03",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F03-003",
+      "name": "F03-B03: PSNR exact threshold boundary (35.00 dB pass vs 34.99 dB fail)",
+      "feature": "F03",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F03-004",
+      "name": "F03-B04: Single-frame minimal composition parity (1 frame, 0.0333s)",
+      "feature": "F03",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F03-005",
+      "name": "F03-B05: Zero-byte and empty video file rejection",
+      "feature": "F03",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F04-001",
+      "name": "F04-B01: Zero-length stream output from FFmpeg triggers fail-closed error",
+      "feature": "F04",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F04-002",
+      "name": "F04-B02: Timestamp beyond video duration fails with out-of-bounds error",
+      "feature": "F04",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F04-003",
+      "name": "F04-B03: Buffer length mismatch detects unexpected frame resolution",
+      "feature": "F04",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F04-004",
+      "name": "F04-B04: Truncated frame buffer handled safely without out-of-bounds read",
+      "feature": "F04",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F04-005",
+      "name": "F04-B05: File path safety handles spaces, unicode, and special characters",
+      "feature": "F04",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F05-001",
+      "name": "F05-B01: Active prominent card count exact boundary (N=1 passes, N=2 fails)",
+      "feature": "F05",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F05-002",
+      "name": "F05-B02: Connected text cluster exact boundary (N=3 passes, N=4 fails)",
+      "feature": "F05",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F05-003",
+      "name": "F05-B03: Saliency energy ratio exact boundary (0.600 passes, 0.599 fails)",
+      "feature": "F05",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F05-004",
+      "name": "F05-B04: Cognitive dwell time exact boundary (1.200s passes, 1.199s fails)",
+      "feature": "F05",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F05-005",
+      "name": "F05-B05: Zero-card visual-only beat analysis (safe cluster analysis on empty text)",
+      "feature": "F05",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F06-001",
+      "name": "F06-B01: Zero-duration beat rejection (startFrame === endFrame)",
+      "feature": "F06",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F06-002",
+      "name": "F06-B02: Backwards or inverted frame range rejection (startFrame > endFrame)",
+      "feature": "F06",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F06-003",
+      "name": "F06-B03: Maximum single beat duration sanity check (beats > 30s flagged)",
+      "feature": "F06",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F06-004",
+      "name": "F06-B04: Single-beat minimal valid composition boundary",
+      "feature": "F06",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F06-005",
+      "name": "F06-B05: Narration token range boundary consistency ([start, end] with start <= end)",
+      "feature": "F06",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F07-001",
+      "name": "F07-B01: Impact frame at exact start and end frame boundaries passes",
+      "feature": "F07",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F07-002",
+      "name": "F07-B02: Impact frame 1 past boundary (start - 1 or end + 1) fails",
+      "feature": "F07",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F07-003",
+      "name": "F07-B03: Ambient shot with empty impact_frames array [] passes",
+      "feature": "F07",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F07-004",
+      "name": "F07-B04: Transition window minimal width (1 frame width [N, N+1]) passes",
+      "feature": "F07",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F07-005",
+      "name": "F07-B05: Invalid motivated transition string rejected against whitelist",
+      "feature": "F07",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F08-001",
+      "name": "F08-B01: Audio tag count 0 boundary triggers missing master audio failure",
+      "feature": "F08",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F08-002",
+      "name": "F08-B02: Audio tag count 2 boundary triggers dual ownership failure",
+      "feature": "F08",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F08-003",
+      "name": "F08-B03: Commented-out JSX audio tag is ignored and not counted as duplicate mount",
+      "feature": "F08",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F08-004",
+      "name": "F08-B04: Conditional audio tag {hasAudio && <Audio />} is prohibited",
+      "feature": "F08",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F08-005",
+      "name": "F08-B05: Audio strategy string validation rejects non-PREMIXED values",
+      "feature": "F08",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F09-001",
+      "name": "F09-B01: Empty string voice option { voice: \"\" } resolves to VieNeu Adam",
+      "feature": "F09",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F09-002",
+      "name": "F09-B02: Whitespace-only voice option { voice: \"   \" } resolves to VieNeu Adam",
+      "feature": "F09",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F09-003",
+      "name": "F09-B03: Undefined options object resolves to VieNeu Adam",
+      "feature": "F09",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F09-004",
+      "name": "F09-B04: Case-insensitive voice name resolution (\"adam\", \"ADAM\", \"Adam\" -> \"Adam\")",
+      "feature": "F09",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F09-005",
+      "name": "F09-B05: Explicit Kokoro opt-in permitted only when provider === \"kokoro\"",
+      "feature": "F09",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F10-001",
+      "name": "F10-B01: Duration discrepancy exact boundary (0.050s passes, 0.051s fails)",
+      "feature": "F10",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F10-002",
+      "name": "F10-B02: Sample rate boundaries (48000Hz & 24000Hz pass, 44100Hz fails)",
+      "feature": "F10",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F10-003",
+      "name": "F10-B03: Channel boundaries (stereo 2 passes, surround 6 fails)",
+      "feature": "F10",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F10-004",
+      "name": "F10-B04: Subdirectory path traversal rejection (../outside/audio.wav fails)",
+      "feature": "F10",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F10-005",
+      "name": "F10-B05: Root-relative leading slash prohibition (/public/audio.wav fails as absolute path)",
+      "feature": "F10",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F11-001",
+      "name": "F11-B01: Coverage percentage 99.9% rejection (must be strictly 100%)",
+      "feature": "F11",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F11-002",
+      "name": "F11-B02: Single-concept minimal curriculum passes when 1/1 covered (100%)",
+      "feature": "F11",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F11-003",
+      "name": "F11-B03: Duplicate concept ID detection and rejection",
+      "feature": "F11",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F11-004",
+      "name": "F11-B04: Unmapped or empty beat ID rejection",
+      "feature": "F11",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F11-005",
+      "name": "F11-B05: Empty curriculum document with 0 units rejected",
+      "feature": "F11",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F12-001",
+      "name": "F12-B01: Rule count boundary rejects rule sets with fewer than 17 rules",
+      "feature": "F12",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F12-002",
+      "name": "F12-B02: Exact rule name spelling and UPPERCASE_SNAKE_CASE casing",
+      "feature": "F12",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F12-003",
+      "name": "F12-B03: Deep relative import from .agents/ is detected and rejected",
+      "feature": "F12",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F12-004",
+      "name": "F12-B04: AGENTS.md role exclusivity rejects overlap between Tier 1 and Tier 2 roles",
+      "feature": "F12",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F12-005",
+      "name": "F12-B05: Self-scoring rejection when authorAgent === reviewerAgent",
+      "feature": "F12",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F13-001",
+      "name": "F13-B01: Exit code propagation preserves exact non-zero codes (1, 2, 127)",
+      "feature": "F13",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F13-002",
+      "name": "F13-B02: Empty gate pipeline configuration rejected",
+      "feature": "F13",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F13-003",
+      "name": "F13-B03: Timeout enforcement aborts stalled gate step",
+      "feature": "F13",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 21
+    },
+    {
+      "id": "T2-F13-004",
+      "name": "F13-B04: Non-zero exit on first step halts immediately without executing subsequent steps",
+      "feature": "F13",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F13-005",
+      "name": "F13-B05: Stderr capture and aggregation on gate failure",
+      "feature": "F13",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F14-001",
+      "name": "F14-B01: Defective fixture count boundary rejects suites with fewer than 12 fixtures",
+      "feature": "F14",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F14-002",
+      "name": "F14-B02: Positive fixture symmetry (every negative fixture must have matching baseline)",
+      "feature": "F14",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F14-003",
+      "name": "F14-B03: 91.7% rejection rate (11/12) fails 100% rejection requirement",
+      "feature": "F14",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F14-004",
+      "name": "F14-B04: Corrupted fixture JSON syntax triggers validator parse error and failure",
+      "feature": "F14",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F14-005",
+      "name": "F14-B05: Missing fixture file triggers immediate test failure",
+      "feature": "F14",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F15-001",
+      "name": "F15-B01: Scene 4 frame boundary enforces B16.endFrame <= B17.startFrame",
+      "feature": "F15",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F15-002",
+      "name": "F15-B02: Total frame boundary limits (3095 fails, 3096 passes, 3097 fails)",
+      "feature": "F15",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F15-003",
+      "name": "F15-B03: Scene 4 internal sub-beats have strictly positive frame durations",
+      "feature": "F15",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F15-004",
+      "name": "F15-B04: Scene boundary gap limit (zero dead-air frames between scenes)",
+      "feature": "F15",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F15-005",
+      "name": "F15-B05: Scopus concept map count boundary (exactly 24 units, <24 or >24 fails)",
+      "feature": "F15",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F16-001",
+      "name": "F16-B01: Empty project directory rejection",
+      "feature": "F16",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T2-F16-002",
+      "name": "F16-B02: Unseen project missing semantic-timeline.json rejection",
+      "feature": "F16",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F16-003",
+      "name": "F16-B03: Non-9:16 aspect ratio rejected by mobile educational gate",
+      "feature": "F16",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F16-004",
+      "name": "F16-B04: Unicode script tokens handled cleanly without normalization drift",
+      "feature": "F16",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F16-005",
+      "name": "F16-B05: Cross-platform relative path normalization (POSIX / vs Windows \\)",
+      "feature": "F16",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F17-001",
+      "name": "F17-B01: Overall average score exact boundary (4.500 passes, 4.499 fails)",
+      "feature": "F17",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F17-002",
+      "name": "F17-B02: Floor score exact boundary (4.00 passes, 3.99 fails)",
+      "feature": "F17",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F17-003",
+      "name": "F17-B03: Critical category score exact boundary (4.30 passes, 4.29 fails)",
+      "feature": "F17",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F17-004",
+      "name": "F17-B04: Out-of-bounds scores rejected (> 5.0 or < 1.0)",
+      "feature": "F17",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T2-F17-005",
+      "name": "F17-B05: Incomplete rubric report rejection (17/18 categories fails schema)",
+      "feature": "F17",
+      "tier": 2,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-15",
+      "name": "T3-15: ShotSpec ↔ Adversarial Bad Fixtures 02/03: Validates 100% rejection of out-of-bounds impact and naked cuts, while baselines pass",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-16",
+      "name": "T3-16: Audio Ownership ↔ Audio Metadata: Master audio file binary RIFF header matches manifest duration and sample rate",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 9
+    },
+    {
+      "id": "T3-17",
+      "name": "T3-17: Audio Ownership ↔ Adversarial Bad Fixture 04: Duplicate SFX ownership (master + cue) is rejected with exit 1; baseline passes",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-18",
+      "name": "T3-18: VieNeu TTS ↔ Audio Metadata WAV: TTS synthesis produces valid 48kHz/16-bit uncompressed PCM WAV stream",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-19",
+      "name": "T3-19: Content Coverage ↔ Scopus Canary 24/24 units: Source coverage validator proves 100% curriculum mapping with 0 gaps",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-20",
+      "name": "T3-20: Acceptance Entrypoint ↔ Adversarial Suite: Adversarial suite enforces 100% rejection rate across all 12 bad fixtures",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-21",
+      "name": "T3-21: Acceptance Entrypoint ↔ Independent Rubric: Quality rubric enforces overall >= 4.50, floor >= 4.00, critical >= 4.30",
+      "feature": "T3-AUDIO-ADVERSARIAL",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-05",
+      "name": "T3-05: Typography ↔ Preview Lineage: 1080p font thresholds scale down to 360p preview maintaining mobile physical floor >= 10px",
+      "feature": "T3-LINEAGE-DECODING",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-06",
+      "name": "T3-06: Typography ↔ Progressive Disclosure: Prohibits shrinking text to fit multi-card grids; enforces 1 primary focal card at full typography scale",
+      "feature": "T3-LINEAGE-DECODING",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-07",
+      "name": "T3-07: Preview Lineage ↔ Video Decoding: Video decoding pipeline consumes real rawvideo RGB24 buffers and fails closed on truncated streams",
+      "feature": "T3-LINEAGE-DECODING",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-08",
+      "name": "T3-08: Preview Lineage ↔ Scopus Canary PSNR: Derivation preserves visual fidelity with PSNR >= 35dB, duration delta < 0.033s, and frame parity",
+      "feature": "T3-LINEAGE-DECODING",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-09",
+      "name": "T3-09: Video Decoding ↔ ShotSpec Transitions: Visual discontinuity spikes >4x median reconcile against whitelisted motivated transitions",
+      "feature": "T3-LINEAGE-DECODING",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-01",
+      "name": "T3-01: Policy ↔ Typography: Static typography validator enforces canonical policy minimums and effective scaling",
+      "feature": "T3-POLICY",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-02",
+      "name": "T3-02: Policy ↔ Audio Ownership: Audio policy strictly binds PREMIXED strategy, zero music, and single audio tag",
+      "feature": "T3-POLICY",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-03",
+      "name": "T3-03: Policy ↔ VieNeu TTS: Speech policy parameters strictly govern default engine and voice routing",
+      "feature": "T3-POLICY",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-04",
+      "name": "T3-04: Policy ↔ Portability: Portability zero-tolerance policy enforces workspace-relative URIs across manifests",
+      "feature": "T3-POLICY",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T3-10",
+      "name": "T3-10: Progressive Disclosure ↔ Timeline: Semantic timeline enforces 1 primary object and 1 visual intent per beat without card collisions",
+      "feature": "T3-TIMELINE",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-11",
+      "name": "T3-11: Progressive Disclosure ↔ Scopus Canary 70.4s panel fix: Template and Case Study panels have disjoint non-overlapping active windows",
+      "feature": "T3-TIMELINE",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-12",
+      "name": "T3-12: Timeline ↔ ShotSpec: Shot boundaries and transitions strictly derive from semantic timeline beat groupings",
+      "feature": "T3-TIMELINE",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-13",
+      "name": "T3-13: Timeline ↔ Audio Ownership: All timeline sfxIntent cues are pre-baked into master audio and zero cue <Audio> tags exist in scenes",
+      "feature": "T3-TIMELINE",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T3-14",
+      "name": "T3-14: Timeline ↔ Content Coverage: Bidirectional 100% mapping between semantic beats and curriculum knowledge units",
+      "feature": "T3-TIMELINE",
+      "tier": 3,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T4-SCN-06",
+      "name": "T4-SCN-06: Desk reject stamp impact frame whitelist (MAD spike >4x reconciled against ShotSpec frame 45)",
+      "feature": "T4-CONTINUITY-AUDIO",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-07",
+      "name": "T4-SCN-07: Motivated scene boundary transitions without naked cuts across all 4 major scene boundaries",
+      "feature": "T4-CONTINUITY-AUDIO",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-08",
+      "name": "T4-SCN-08: PREMIXED master audio single ownership playback across root film and child scenes",
+      "feature": "T4-CONTINUITY-AUDIO",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T4-SCN-09",
+      "name": "T4-SCN-09: Role-aware natural pause acoustics (-15 LUFS, natural pauses up to 0.80s)",
+      "feature": "T4-CONTINUITY-AUDIO",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-10",
+      "name": "T4-SCN-10: Generalization Proof: Science / Mechanism Explainer (CRISPR-Cas9 mechanism passes all production contracts)",
+      "feature": "T4-GENERALIZATION",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T4-SCN-11",
+      "name": "T4-SCN-11: Generalization Proof: Historical / Process Explainer (Printing Press Revolution passes all production contracts)",
+      "feature": "T4-GENERALIZATION",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-12",
+      "name": "T4-SCN-12: Generalization Proof: Technology / Tutorial Explainer (TLS Cryptographic Handshake passes all production contracts)",
+      "feature": "T4-GENERALIZATION",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-13",
+      "name": "T4-SCN-13: Portable Multi-OS Workspace Relocation Audit (zero absolute machine paths across production files)",
+      "feature": "T4-GENERALIZATION",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T4-SCN-14",
+      "name": "T4-SCN-14: Independent Reviewer Quality Rubric Certification (Overall >= 4.50, Critical >= 4.30, NO_SELF_CERTIFICATION)",
+      "feature": "T4-GENERALIZATION",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-01",
+      "name": "T4-SCN-01: Full Scopus Explainer 103.20s/3096 frames end-to-end pipeline integration",
+      "feature": "T4-SCOPUS-CANARY",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T4-SCN-02",
+      "name": "T4-SCN-02: 5-Door Research Gap Taxonomy progressive disclosure without simultaneous card dumps",
+      "feature": "T4-SCOPUS-CANARY",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-03",
+      "name": "T4-SCN-03: 3-Tier Gap statement modular assembly (Foundation -> Problem -> Positioning)",
+      "feature": "T4-SCOPUS-CANARY",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    },
+    {
+      "id": "T4-SCN-04",
+      "name": "T4-SCN-04: Digital banking case study mobile legibility >= 34px across 1080p and 360p canvases",
+      "feature": "T4-SCOPUS-CANARY",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 1
+    },
+    {
+      "id": "T4-SCN-05",
+      "name": "T4-SCN-05: Swales CARS Move 1-2-3 dynamic retiming with continuous C0/C1 camera velocity continuity",
+      "feature": "T4-SCOPUS-CANARY",
+      "tier": 4,
+      "status": "PASS",
+      "durationMs": 0
+    }
+  ]
+}

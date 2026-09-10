@@ -9,7 +9,17 @@ node_modules/
 *.tar.gz
 
 # Render & build artifacts
-out/
+out/*
+!out/qa-report.json
+!out/audio-manifest.json
+!out/semantic-timeline.json
+!out/source-content-map.json
+!out/shot-spec.json
+!out/preview-parity-report.json
+!out/preview-rubric-report.json
+!out/adversarial-qa-report.json
+!out/v3_3-e2e-summary.json
+connection-film/out/
 frames/
 .remotion/
 packages/*/dist/

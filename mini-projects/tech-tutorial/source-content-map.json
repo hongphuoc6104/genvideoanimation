@@ -1,0 +1,33 @@
+{
+  "version": "3.3.0",
+  "sourceDocument": "Computer Networks & Internet Security Standard",
+  "totalConcepts": 3,
+  "mappedConcepts": 3,
+  "coveragePercent": 100,
+  "mappings": [
+    {
+      "conceptId": "c1",
+      "conceptTitle": "Client Hello & Key Share",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_01",
+      "narrationExcerpt": "Client gửi danh sách cipher suites cùng tham số Diffie-Hellman",
+      "covered": true
+    },
+    {
+      "conceptId": "c2",
+      "conceptTitle": "Server Hello & Certificate",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_02",
+      "narrationExcerpt": "Server xác thực danh tính chứng chỉ số X509",
+      "covered": true
+    },
+    {
+      "conceptId": "c3",
+      "conceptTitle": "Symmetric Session Key Derivation",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_03",
+      "narrationExcerpt": "Thiết lập khóa phiên mã hóa đối xứng hoàn tất 1-RTT",
+      "covered": true
+    }
+  ]
+}

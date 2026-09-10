@@ -1,0 +1,290 @@
+{
+  "timestamp": "2026-09-10T11:24:36.848Z",
+  "totalFixtures": 12,
+  "executedFixtures": 12,
+  "rejectedBadCount": 12,
+  "acceptedBaselineCount": 12,
+  "falseAcceptances": 0,
+  "falseRejections": 0,
+  "suitePassed": true,
+  "rejectionRatePercent": 100,
+  "totalDurationMs": 23415,
+  "fixtures": [
+    {
+      "id": "01-14px-body-text",
+      "name": "14px Body Text Mobile Typography Rejection",
+      "requirement": "R1, R22",
+      "validator": "validators/validate-mobile-typography.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Mobile typography violation in BadMobileTypography.tsx: font size 14px < 34px (minimum body text threshold), SVG text font size 14px < 34px (minimum body text threshold)\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1067
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] All typography complies with mobile minimum thresholds.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1010
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1067ms), Baseline accepted (1010ms)."
+    },
+    {
+      "id": "02-invalid-impact-frame",
+      "name": "Out-of-Bounds Impact Frame Rejection",
+      "requirement": "R7, R22",
+      "validator": "validators/validate-shot-spec.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "\n📋 Validating ShotSpec: tests/adversarial/fixtures/02-invalid-impact-frame/bad/shot-spec.json\n  ❌ [FAIL] 1 validation error(s) found:\n     - 🔴 Shot shot_02: Declared impact frame 450 falls outside shot duration [618, 1309].\n\n================================================================================\n❌ [FAILED] One or more ShotSpec files failed validation.\n\n",
+        "stderr": "",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 662
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "\n📋 Validating ShotSpec: tests/adversarial/fixtures/02-invalid-impact-frame/baseline/shot-spec.json\n  ✅ [PASS] All shot specifications and continuity constraints satisfied.\n\n================================================================================\n✅ [PASSED] 100% of examined ShotSpec files satisfy schema & continuity.\n\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 664
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (662ms), Baseline accepted (664ms)."
+    },
+    {
+      "id": "03-naked-scene-cut",
+      "name": "Naked Discontinuous Scene Cut Rejection",
+      "requirement": "R8, R10, R22",
+      "validator": "validators/validate-shot-spec.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Continuity violation for 'camera': Shot shot_01.end_state camera ({\"x\":0,\"y\":0,\"zoom\":1}) does not match Shot shot_02.start_state camera ({\"x\":300,\"y\":150,\"zoom\":1.8}) without declared motivated transition.\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1048
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] ShotSpec validation PASSED: Motivated transition or camera continuity verified.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 994
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1048ms), Baseline accepted (994ms)."
+    },
+    {
+      "id": "04-duplicate-sfx-ownership",
+      "name": "Duplicate Audio SFX Ownership Rejection",
+      "requirement": "R11, R22",
+      "validator": "validators/validate-audio-ownership.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Dual audio ownership detected: PREMIXED master mounted alongside discrete cue <Audio> tags (found 2 <Audio> elements).\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1097
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Audio ownership PASSED: Exactly 1 master Audio track mounted.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1068
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1097ms), Baseline accepted (1068ms)."
+    },
+    {
+      "id": "05-absolute-machine-path",
+      "name": "Absolute Machine Path Portability Rejection",
+      "requirement": "R15, R22",
+      "validator": "validators/validate-portability.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Forbidden machine-specific absolute path detected: \"/home/hongphuoc6104\". All committed paths must be workspace-relative.\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1002
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Portability check PASSED: Zero absolute machine paths found.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1051
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1002ms), Baseline accepted (1051ms)."
+    },
+    {
+      "id": "06-am-adam-default-voice",
+      "name": "Kokoro am_adam Default Voice Rejection",
+      "requirement": "R13, R22",
+      "validator": "validators/validate-voice-profile.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Kokoro voice 'am_adam' is prohibited as production default. Production voice must be 'Adam' (VieNeu-TTS).\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 976
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Voice profile PASSED: Default voice is 'Adam' (VieNeu-TTS).\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1030
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (976ms), Baseline accepted (1030ms)."
+    },
+    {
+      "id": "07-audio-metadata-mismatch",
+      "name": "Audio Duration / Sample Rate Header Mismatch Rejection",
+      "requirement": "R14, R22",
+      "validator": "validators/validate-audio-mix.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "\n======================================================\n VALIDATOR: Audio Mix & Manifest Quality Gate\n Manifest: /home/hongphuoc6104/Desktop/videorenderhoathinh/tests/adversarial/fixtures/07-audio-metadata-mismatch/bad/audio-manifest.json\n======================================================\n\n  Total Duration:     103.2s\n  Sample Rate:        48000 Hz\n  True Peak:          -1.8 dBFS\n  Integrated LUFS:    -15 LUFS\n  Ducking Enabled:    No\n  Ducking Depth:      0 dB\n  Ducking Regions:    0\n",
+        "stderr": "\n❌ AUDIO MIX VALIDATION FAILED with 1 error(s):\n  - WAV file duration (1.00s) mismatches manifest duration (103.2s).\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 636
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "\n======================================================\n VALIDATOR: Audio Mix & Manifest Quality Gate\n Manifest: /home/hongphuoc6104/Desktop/videorenderhoathinh/tests/adversarial/fixtures/07-audio-metadata-mismatch/baseline/audio-manifest.json\n======================================================\n\n  Total Duration:     1s\n  Sample Rate:        24000 Hz\n  True Peak:          -1.8 dBFS\n  Integrated LUFS:    -15 LUFS\n  Ducking Enabled:    No\n  Ducking Depth:      0 dB\n  Ducking Regions:    0\n\n✅ PASS: Audio mix and manifest satisfy all production criteria.\n\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 641
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (636ms), Baseline accepted (641ms)."
+    },
+    {
+      "id": "08-scene-timing-older-than-shotspec",
+      "name": "Scene Component Frame Timing Desynchronization Rejection",
+      "requirement": "R5, R6, R22",
+      "validator": "validators/validate-timeline-sync.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Scene timing mismatch: scene 'Scene1ProblemScopus' active duration (450) != ShotSpec shot_01 duration (618) (168 frozen trailing frames detected).\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1004
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Timeline sync PASSED: Scene phases match ShotSpec bounds.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 998
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1004ms), Baseline accepted (998ms)."
+    },
+    {
+      "id": "09-cue-visual-mismatch",
+      "name": "Audio Cue Firing Outside Visual Mount Window Rejection",
+      "requirement": "R4, R10, R22",
+      "validator": "validators/validate-cue-visual-sync.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Cue 'cue_stamp_reject' at frame 45 targets visual element 'stamp_reject_overlay' mounted at [150, 280].\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1016
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Cue/visual synchronization PASSED.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1037
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1016ms), Baseline accepted (1037ms)."
+    },
+    {
+      "id": "10-five-dense-cards-simultaneously",
+      "name": "Simultaneous Multi-Card Density Violation Rejection",
+      "requirement": "R3, R22",
+      "validator": "validators/validate-progressive-disclosure.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Progressive disclosure violation: 1 dense info-cards visible simultaneously. Maximum allowed concurrent cards is 1.\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1006
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Progressive disclosure PASSED: 1 primary focal card per visual beat.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1015
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1006ms), Baseline accepted (1015ms)."
+    },
+    {
+      "id": "11-fake-content-duration",
+      "name": "Artificial Duration Padding Without Narrative Tokens Rejection",
+      "requirement": "R4, R21, R22",
+      "validator": "validators/validate-content-coverage.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Fake duration expansion detected: beat 'beat_fake_padding' spans 500 frames without narration tokens or concept mapping.\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1037
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Content coverage PASSED: 100% concepts mapped with non-zero narrative tokens.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1017
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1037ms), Baseline accepted (1017ms)."
+    },
+    {
+      "id": "12-unannotated-temporal-spike",
+      "name": "Unannotated Video Discontinuity Spike (>4x Median) Rejection",
+      "requirement": "R8, R9, R22",
+      "validator": "validators/temporal-render-qa.ts",
+      "badResult": {
+        "exitCode": 1,
+        "stdout": "",
+        "stderr": "❌ [FAIL] Unannotated temporal discontinuity ratio 13.54x > 4.0x local median at frame 5.\n",
+        "rejected": true,
+        "patternMatched": true,
+        "durationMs": 1200
+      },
+      "baselineResult": {
+        "exitCode": 0,
+        "stdout": "✅ [PASS] Temporal QA PASSED: 0 unannotated spikes detected.\n",
+        "stderr": "",
+        "accepted": true,
+        "durationMs": 1135
+      },
+      "verdict": "PASS",
+      "diagnostics": "Verified: Bad rejected with diagnostic signature (1200ms), Baseline accepted (1135ms)."
+    }
+  ]
+}

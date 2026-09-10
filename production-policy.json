@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "3.3.0",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": "9:16",
+    "fps": 30,
+    "preview": {
+      "width": 360,
+      "height": 640,
+      "scale": 0.3333333333333333
+    },
+    "safeMargins": {
+      "horizontal": 80,
+      "vertical": 140,
+      "captionRegion": {
+        "top": 1600,
+        "bottom": 1800
+      }
+    }
+  },
+  "typography": {
+    "minimums": {
+      "hero": 64,
+      "section": 48,
+      "card": 38,
+      "body": 34,
+      "secondary": 30,
+      "caption": 52,
+      "citation": 22
+    },
+    "enforceEffectiveScale": true,
+    "absoluteMobileFloor": 30
+  },
+  "audio": {
+    "policy": "narration-sfx",
+    "strategy": "PREMIXED",
+    "targetLoudnessLufs": -15.0,
+    "loudnessToleranceLufs": 1.0,
+    "truePeakCeilingDbTp": -1.8,
+    "sampleRate": 48000,
+    "channels": 2,
+    "bitDepth": 16,
+    "allowMusic": false,
+    "rolePauses": {
+      "withinClause": [0.08, 0.20],
+      "normalSentence": [0.18, 0.40],
+      "semanticTurn": [0.25, 0.55],
+      "majorSectionTransition": [0.40, 0.80],
+      "payoffRealization": [0.30, 0.65],
+      "maxUnmotivatedPause": 0.85
+    }
+  },
+  "speech": {
+    "primaryLanguage": "vi-VN",
+    "secondaryLanguage": "en",
+    "defaultEngine": "VieNeu-TTS",
+    "defaultVoice": "Adam",
+    "fallbackEngine": "Kokoro"
+  },
+  "acceptance": {
+    "overallRubricMin": 4.50,
+    "floorRubricMin": 4.00,
+    "criticalRubricMin": 4.30,
+    "contentCoverageRatio": 1.00,
+    "maxAllowedTemporalSpikes": 0,
+    "maxAllowedAbsolutePaths": 0,
+    "maxAllowedDualAudioTags": 0
+  }
+}

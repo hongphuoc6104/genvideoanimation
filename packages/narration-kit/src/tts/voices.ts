@@ -29,6 +29,11 @@ export const SUPPORTED_VOICES: readonly KokoroVoice[] = KOKORO_SUPPORTED_VOICES;
 
 export const DEFAULT_VOICE: KokoroVoice = 'am_adam';
 
+/**
+ * Authoritative V3.3 production default voice (VieNeu-TTS 'Adam').
+ */
+export const DEFAULT_PRODUCTION_VOICE: string = DEFAULT_VIENEU_VOICE;
+
 export const KOKORO_VOICE_METADATA: Record<KokoroVoice, VoiceMetadata> = {
   am_adam: {
     id: 'am_adam',
@@ -95,10 +100,10 @@ export const ALL_VOICE_METADATA: Record<string, VoiceMetadata> = {
 };
 
 export function resolveAnyVoice(voice?: string): { resolvedName: string; provider: 'vieneu' | 'kokoro' } {
-  if (!voice) {
+  const trimmed = voice?.trim();
+  if (!trimmed) {
     return { resolvedName: DEFAULT_VIENEU_VOICE, provider: 'vieneu' };
   }
-  const trimmed = voice.trim();
   if (isKokoroVoice(trimmed)) {
     return { resolvedName: trimmed, provider: 'kokoro' };
   }

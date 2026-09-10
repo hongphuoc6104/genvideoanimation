@@ -1,0 +1,16 @@
+{
+  "masterPath": "out/final-v3_3.mp4",
+  "previewPath": "out/preview-360x640.mp4",
+  "masterDuration": 103.2,
+  "previewDuration": 103.2,
+  "durationDelta": 0,
+  "masterFrames": 3096,
+  "previewFrames": 3096,
+  "masterMtime": 1789048930667.2183,
+  "previewMtime": 1789048952987.7139,
+  "averagePsnrDb": 35.41,
+  "minPsnrDb": 31.69,
+  "framesSampled": 103,
+  "passed": true,
+  "violations": []
+}

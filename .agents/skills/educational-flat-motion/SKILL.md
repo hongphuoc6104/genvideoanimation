@@ -27,23 +27,32 @@ Use this skill when:
 
 ---
 
-## 3. The 8 Non-Negotiable Hard Rules (V3.3 Governance)
+## 3. The 17 Non-Negotiable Hard Rules (V3.3 Governance)
 
-Every production created or modified under this skill MUST strictly obey the following 8 Hard Rules. Violating any rule constitutes an immediate build/QA rejection.
+Every production created or modified under this skill MUST strictly obey the following 17 Hard Rules. Violating any rule constitutes an immediate build/QA rejection.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                      THE 8 NON-NEGOTIABLE HARD RULES                        │
-├───────────────────────────────┬─────────────────────────────────────────────┤
-│ 1. NEVER_SHRINK_TO_FIT        │ Split into beats; enforce font minimums     │
-│ 2. ONE_PRIMARY_IDEA_PER_BEAT  │ Zero multi-card info dumps during 1 idea    │
-│ 3. PROGRESSIVE_DISCLOSURE     │ Sequential beats for taxonomies/steps       │
-│ 4. MOBILE_FIRST_READABILITY   │ 360x640 preview legibility without zoom     │
-│ 5. ONE_AUTHORITATIVE_TIMELINE │ semantic-timeline.json is single source     │
-│ 6. ONE_AUDIO_OWNER_PER_ASSET  │ PREMIXED master audio only; 0 cue <Audio>   │
-│ 7. FINAL_RENDER_IS_AUTHORITATIVE │ Inspect MP4 frames, diffs & WAV headers   │
-│ 8. NO_SELF_CERTIFICATION      │ Independent QA gates; no self-grading       │
-└───────────────────────────────┴─────────────────────────────────────────────┘
+│                     THE 17 NON-NEGOTIABLE HARD RULES                        │
+├─────────────────────────────────────┬───────────────────────────────────────┤
+│ 1. NEVER_SHRINK_TO_FIT              │ Split into beats; enforce font minimum│
+│ 2. ONE_PRIMARY_IDEA_PER_BEAT        │ Zero multi-card dumps during 1 idea   │
+│ 3. PROGRESSIVE_DISCLOSURE           │ Sequential beats for taxonomies/steps │
+│ 4. MOBILE_FIRST_READABILITY         │ 360x640 preview legible; safe margins │
+│ 5. ONE_AUTHORITATIVE_TIMELINE       │ semantic-timeline.json is sole source │
+│ 6. ONE_AUDIO_OWNER_PER_ASSET        │ PREMIXED master audio; 0 cue <Audio>  │
+│ 7. FINAL_RENDER_IS_AUTHORITATIVE    │ Inspect decoded MP4 frames & WAVs     │
+│ 8. NO_SELF_CERTIFICATION            │ Independent QA gates; no self-grading │
+│ 9. CANONICAL_PRODUCTION_POLICY      │ production-policy.json single source  │
+│ 10. EFFECTIVE_TYPOGRAPHY_SCALING    │ AST accounts for nested SVG/CSS scale │
+│ 11. DETERMINISTIC_PREVIEW_LINEAGE   │ Preview derived from master via FFmpeg│
+│ 12. REAL_VIDEO_DECODING_NO_SYNTHETIC│ Real FFmpeg RGB24; 0 fake buffers     │
+│ 13. MOTIVATED_TRANSITIONS_IMPACT    │ ShotSpec separates impact & transition│
+│ 14. SAFE_TTS_DEFAULT_VIENEU         │ Default voice routes to VieNeu Adam   │
+│ 15. MEASURED_METADATA_PORTABILITY   │ Measured WAV headers; 0 absolute paths│
+│ 16. HUNDRED_PERCENT_CONTENT_COVERAGE│ source-content-map.json maps 100%     │
+│ 17. FAIL_CLOSED_GATE_ENTRYPOINT     │ npm run v3.3:gate halts on any defect │
+└─────────────────────────────────────┴───────────────────────────────────────┘
 ```
 
 ### Rule 1: `NEVER_SHRINK_TO_FIT`
@@ -130,6 +139,94 @@ Every production created or modified under this skill MUST strictly obey the fol
   - Overall Rubric Average: `>= 4.5 / 5.0`
   - Floor Minimum: No single category `< 4.0`
   - Critical Categories (Mobile Readability, Audio/Visual Sync, Narration Naturalness, Timing Integrity, Validator Reliability): individually `>= 4.3`
+
+### Rule 9: `CANONICAL_PRODUCTION_POLICY`
+- `production-policy.json` at repository root is the sole authoritative configuration source consumed across all Remotion compositions, audio DSP pipelines, and verification gates.
+- **Parameters Governed**:
+  - Canvas dimensions (`1080x1920`, `9:16`, `30fps`) and preview specifications (`360x640`, scale `0.3333`).
+  - Safe margins (horizontal `80px`, vertical `140px`, bottom caption region `1600–1800px`).
+  - Typography minimums (`hero: 64`, `section: 48`, `card: 38`, `body: 34`, `secondary: 30`, `caption: 52`, `citation: 22`).
+  - Audio constraints (`PREMIXED`, `narration-sfx`, target `-15.0 LUFS ± 1.0`, true peak `≤ -1.8 dBTP`, `sampleRate: 48000`, `channels: 2`, `allowMusic: false`).
+  - Speech routing (`primaryLanguage: "vi-VN"`, `defaultEngine: "VieNeu-TTS"`, `defaultVoice: "Adam"`).
+  - Acceptance thresholds (`overallRubricMin: 4.50`, `floorRubricMin: 4.00`, `criticalRubricMin: 4.30`, `contentCoverageRatio: 1.00`).
+- **Enforcement**: Compositions and scripts must never define local conflicting policy constants. Missing, malformed, or out-of-spec `production-policy.json` terminates build with exit code 1.
+
+### Rule 10: `EFFECTIVE_TYPOGRAPHY_SCALING`
+- Typography validation via `validators/validate-mobile-typography.ts` must compute the **Effective Rendered Font Size**:
+  $$\text{EffectiveFontSize}(N) = \text{FontSize}(N) \times \prod_{P \in \text{Ancestors}(N)} \text{ScaleFactor}(P) \times \text{LocalScale}(N)$$
+- Accounts for nested SVG/CSS transform scales (e.g. `transform="scale(0.5)"`, `transform: "scale(Sx, Sy)"`, inline zoom factors).
+- **Hard Minimum Thresholds**:
+  - Hero text: `>= 64px`
+  - Section title: `>= 48px`
+  - Card title: `>= 38px`
+  - Body text: `>= 34px`
+  - Secondary text: `>= 30px` (Absolute Mobile Floor)
+  - Karaoke captions: `>= 52px`
+- **Strict Prohibition**: Hiding small fonts behind scaling transforms to bypass typography minimums is strictly prohibited and fails closed.
+
+### Rule 11: `DETERMINISTIC_PREVIEW_LINEAGE`
+- `preview-360x640.mp4` must be deterministically derived from `final-v3_3.mp4` using FFmpeg Lanczos downscaling:
+  ```bash
+  ffmpeg -y -v error -i out/final-v3_3.mp4 \
+    -vf "scale=360:640:flags=lanczos" \
+    -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p \
+    -c:a copy out/preview-360x640.mp4
+  ```
+- **Parity Invariants**:
+  1. Duration Parity: $|T_{\text{master}} - T_{\text{preview}}| < 0.033\text{s}$ (within 1 frame at 30fps).
+  2. Frame Count Parity: $N_{\text{frames, preview}} \equiv N_{\text{frames, master}}$.
+  3. Timestamp Freshness: $\text{mtime}(\text{preview}) \ge \text{mtime}(\text{master})$.
+  4. Frame Fidelity: Sampled decoded frames must achieve $\text{PSNR} \ge 35.0\text{ dB}$.
+- **Strict Prohibition**: Rendering `preview-360x640.mp4` as an independent Remotion composition is strictly prohibited.
+
+### Rule 12: `REAL_VIDEO_DECODING_NO_SYNTHETIC_BUFFERS`
+- Production acceptance and preview rubric gates must decode actual MP4 video frames from candidate media.
+- Frames are extracted via FFmpeg rawvideo RGB24 pipe (`-f rawvideo -pix_fmt rgb24 -`).
+- **Strict Prohibition**: Completely eliminate synthetic in-memory fallback buffers (`Buffer.alloc(360*640*3)`) and mock metrics from all acceptance paths.
+- **Fail-Closed Contract**: If `final-v3_3.mp4` or `preview-360x640.mp4` is missing, unreadable, 0 bytes, or fails FFmpeg decoding, the gate immediately terminates execution (`process.exit(1)`).
+
+### Rule 13: `MOTIVATED_TRANSITIONS_SEPARATE_IMPACT`
+- In `shot-spec.json`, visual apexes internal to a shot must be strictly decoupled from inter-shot transition windows:
+  1. **Impact Frames**: Internal key visual moments:
+     $$\forall f \in \text{impact\_frames}(S_i): S_i.\text{startFrame} \le f \le S_i.\text{endFrame}$$
+  2. **Transition Frames**: Dedicated window bridging consecutive shots:
+     $$[f_{\text{start}}, f_{\text{end}}] \quad \text{where } f_{\text{start}} \le S_i.\text{endFrame} \le f_{\text{end}}$$
+  3. **Transition Whitelist**: Transitions are strictly restricted to 8 motivated types:
+     `['object_match', 'camera_carry', 'shape_morph', 'foreground_wipe', 'continuing_trajectory', 'semantic_zoom', 'motivated_iris', 'match_cut']`
+- **Strict Prohibition**: Naked hard cuts (unannotated frame MAD spikes $> 4.0\times$ rolling median) and whole-scene opacity crossfades (`progress < 0.5 ? A : B`) are strictly prohibited.
+
+### Rule 14: `SAFE_TTS_DEFAULT_VIENEU`
+- The primary production speech synthesis engine is local `VieNeu-TTS v3 Turbo` (`GENVIDEO_ADAM_PROFILE`).
+- **Voice Routing Invariants**:
+  1. Default voice is `"Adam"`.
+  2. When the `voice` parameter is omitted, undefined, or empty in a TTS request, it **MUST default to VieNeu Adam**.
+  3. Omitting `voice` must **NEVER route to Kokoro `am_adam`**. Kokoro is strictly an explicit, opt-in fallback for English-only benchmarks.
+  4. Bilingual Cadence: Full sentences maintain Vietnamese syntactic cadence with precise English code-switching for technical terms (e.g. *Scopus*, *Research Gap*, *Desk Reject*) within a single continuous audio take under the same speaker identity.
+
+### Rule 15: `MEASURED_METADATA_AND_PORTABILITY`
+- Audio metadata recorded in `audio-manifest.json` must be extracted from physical binary WAV RIFF headers (`parseWavHeader`) and `ffprobe` stream measurements.
+  - Required format: 48000 Hz, 2 channels (stereo), 16-bit uncompressed PCM.
+  - Duration must match measured file length within $\pm 0.05\text{s}$.
+- **Portability Invariant**: All committed files, manifests, specs, and TSX components must contain **ZERO machine-specific absolute paths**:
+  - Disallowed patterns: `/home/*`, `/Users/*`, `C:\*`, `/tmp/*`, `/var/*`.
+  - All asset references must use clean workspace-relative URIs (e.g. `public/audio/scopus_master_audio.wav`).
+
+### Rule 16: `HUNDRED_PERCENT_CONTENT_COVERAGE`
+- Every educational production must decompose source curriculum materials into atomic pedagogical knowledge units in `source-content-map.json`.
+- **Mathematical Invariant**:
+  $$\text{Coverage Ratio} = \frac{\sum_{u \in \text{Units}} \mathbb{I}(u.\text{covered} \land \text{len}(u.\text{semanticBeats}) \ge 1)}{\text{Total Required Units}} \equiv 1.00 \quad (100\%)$$
+- Every concept must map to at least one valid semantic beat and shot.
+- **Strict Prohibition**: Unauthorized omission, cognitive hand-waving, or compression of difficult curriculum concepts to shorten duration is strictly prohibited. Duration must expand to fit the content.
+
+### Rule 17: `FAIL_CLOSED_GATE_ENTRYPOINT`
+- All quality gates must execute through a single canonical command:
+  ```bash
+  npm run v3.3:gate
+  ```
+- **Fail-Closed Contract**: Any single gate failure immediately aborts the pipeline with exit code 1. No warnings-only mode is permitted.
+- **Adversarial False-Positive Invariant**: The adversarial test suite (`scripts/run-adversarial-suite.ts`) must achieve:
+  $$\text{Negative Rejection Rate} \equiv 100\% \quad (12/12 \text{ deliberate defective fixtures rejected})$$
+  $$\text{Positive Pass Rate} \equiv 100\% \quad (12/12 \text{ matching baseline fixtures accepted})$$
 
 ---
 
@@ -337,23 +434,33 @@ Naked cuts between major narrative scenes are strictly prohibited. Use motivated
 
 ## 9. Quality Rubric Summary (V3.3 Standards)
 
-Full evaluation criteria are defined in `references/quality-rubric.md`.
+Full evaluation criteria are defined in `references/quality-rubric.md`. Production acceptance requires evaluation across all 18 objective categories.
 
 | Category | Critical? | Minimum | Key Evaluation Points |
 |---|---|---|---|
-| **1. Mobile Readability** | **YES** | **4.3** | 360x640 preview legibility, typography minimums met, zero text clipping or overlap, WCAG AA contrast |
-| **2. Information Density** | NO | 4.0 | Adherence to ONE_PRIMARY_IDEA_PER_BEAT, progressive disclosure of taxonomies, zero card dumps |
-| **3. Audio/Visual Sync** | **YES** | **4.3** | Visual hit frames align with narration tokens within ±2 frames, SFX hits align with visual action |
-| **4. Narration Naturalness** | **YES** | **4.3** | Role-aware pause ranges applied, VieNeu `Adam` voice, natural breathing cadence, zero rushed speech |
-| **5. Timing Integrity** | **YES** | **4.3** | All timings derived from `semantic-timeline.json`, zero ShotSpec out-of-bounds, monotonic progression |
-| **6. Production Portability** | NO | 4.0 | Zero machine-specific absolute paths, workspace-relative URIs across all manifests and code |
-| **7. Source Content Coverage** | NO | 4.0 | `source-content-map.json` maps 100% of source academic concepts to beats without omission |
-| **8. Validator Reliability** | **YES** | **4.3** | All automated validators pass with exit code 0; adversarial suite rejects 100% of bad fixtures |
+| **1. Mobile Readability & Font Minimums** | **YES** | **4.3** | 360x640 preview legibility, typography minimums met, zero text clipping or overlap, WCAG AA contrast |
+| **2. Effective Typography & Transform Scaling** | **YES** | **4.3** | Effective rendered font size (Font × scale) >= threshold, zero micro-text hidden behind transforms |
+| **3. Information Density & Single Focal Idea** | NO | 4.0 | Adherence to ONE_PRIMARY_IDEA_PER_BEAT, single dominant focal idea per beat, zero card dumps |
+| **4. Progressive Disclosure Architecture** | NO | 4.0 | Sequential beats for taxonomies/steps, overview -> individual beats -> synthesis recap |
+| **5. Mobile Safe Margins & Overlay Clearance** | NO | 4.0 | 80px horizontal, 140px vertical margins, bottom caption banner (1600-1800px) unobstructed |
+| **6. Karaoke Caption Placement & Non-Collision** | **YES** | **4.3** | >= 52px caption font, zero collision with primary focal subject, bottom placement with top fallback |
+| **7. Audio/Visual Hit Synchronization** | **YES** | **4.3** | Visual hit frames align with narration tokens within ±2 frames, SFX hits align with visual action |
+| **8. Narration Acoustic Quality & Prosody** | **YES** | **4.3** | VieNeu `Adam` voice, natural breathing cadence, high acoustic clarity, zero synthetic artifacts |
+| **9. Role-Aware Natural Pause Compliance** | NO | 4.0 | Clause (0.08-0.20s), sentence (0.18-0.40s), turn (0.25-0.55s), section (0.40-0.80s), max unmotivated 0.85s |
+| **10. Broadcast Loudness & Dynamic Range** | NO | 4.0 | -15.0 ± 1.0 LUFS integrated loudness, true peak <= -1.8 dBTP, 48kHz 16-bit stereo |
+| **11. Single Audio Ownership & PREMIXED Strategy** | **YES** | **4.3** | Master audio mounted once in Remotion, zero runtime cue <Audio> tags, zero background music |
+| **12. Authoritative Timeline Derivation** | **YES** | **4.3** | All timings derived from `semantic-timeline.json`, zero hardcoded TSX frame constants |
+| **13. ShotSpec Validity & Impact Bounds** | **YES** | **4.3** | Impact frames strictly within shot bounds, monotonic frame indices, valid shot schema |
+| **14. Motivated Transitions & Temporal Continuity** | **YES** | **4.3** | Whitelisted motivated transitions, impact decoupled from transition window, zero naked cuts |
+| **15. Full/Mobile Preview Lineage & Visual Parity** | **YES** | **4.3** | Preview deterministically derived via FFmpeg Lanczos, duration/frame count parity, PSNR >= 35 dB |
+| **16. Real Video Decoding & No Synthetic Buffers** | **YES** | **4.3** | Real FFmpeg RGB24 frame pipe decoding, zero synthetic Buffer.alloc fallbacks, fail-closed |
+| **17. Source Curriculum Content Coverage** | NO | 4.0 | `source-content-map.json` maps 100% of source academic concepts to beats without omission |
+| **18. Production Portability & Environment Agnosticism** | NO | 4.0 | Zero machine-specific absolute paths (/home, /Users), workspace-relative URIs |
 
 **Acceptance Thresholds**:
-- Overall Average: `>= 4.5 / 5.0`
-- Floor Minimum: `>= 4.0` on all categories
-- Critical Minimum: `>= 4.3` on Categories 1, 3, 4, 5, 8
+- Overall Average: `>= 4.50 / 5.00`
+- Floor Minimum: `>= 4.00` on all 18 categories
+- Critical Minimum: `>= 4.30` on Critical Categories (1, 2, 6, 7, 8, 11, 12, 13, 14, 15, 16)
 
 ---
 
@@ -388,4 +495,4 @@ Every production milestone is incomplete until all 7 artifacts are generated, va
 4. `source-content-map.json`: Complete 100% mapping of source concepts to timeline beats.
 5. `shot-spec.json`: Machine-validated shot specifications with transition whitelist.
 6. `audio-manifest.json`: Measured audio metadata (sample rate, channels, bit depth, LUFS, True Peak) with relative URIs.
-7. `qa-report.json`: Independent evaluation report containing scores for all 8 rubric categories and automated validator results.
+7. `qa-report.json`: Independent evaluation report containing scores for all 18 rubric categories and automated validator results.

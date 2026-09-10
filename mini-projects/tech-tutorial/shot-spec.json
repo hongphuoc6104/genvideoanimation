@@ -1,0 +1,77 @@
+{
+  "version": "3.3.0",
+  "sequence_id": "tls-cryptographic-handshake",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "shots": [
+    {
+      "id": "shot_01",
+      "narrative_purpose": "Key Exchange Phase: ClientHello and ServerHello negotiate cipher suite and ECDHE keys",
+      "startFrame": 0,
+      "endFrame": 300,
+      "durationInFrames": 300,
+      "start_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "phase": "handshake"
+      },
+      "end_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "phase": "encrypted"
+      },
+      "impact_frames": [
+        75,
+        200
+      ]
+    },
+    {
+      "id": "shot_02",
+      "narrative_purpose": "Encrypted Channel: Symmetric AES-GCM session keys protect application data transmission",
+      "startFrame": 300,
+      "endFrame": 450,
+      "durationInFrames": 150,
+      "start_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "phase": "encrypted"
+      },
+      "end_state": {
+        "camera": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        },
+        "phase": "finished"
+      },
+      "impact_frames": [
+        375
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from_shot": "shot_01",
+      "to_shot": "shot_02",
+      "transition_type": "shape_morph",
+      "transition_frames": [
+        285,
+        315
+      ],
+      "expected_visual_discontinuity": 5,
+      "description": "Cryptographic key icons morph into solid padlock shielding the data stream"
+    }
+  ],
+  "totalFrames": 450,
+  "totalDurationSec": 15
+}

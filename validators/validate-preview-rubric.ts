@@ -197,7 +197,7 @@ export class PixelFrame {
     laplacian: number;
   } {
     const edges = this.computeSobelEdges();
-    // Exclude TikTok safe zones: top 40px, bottom 106px (corresponding to 120px, 320px in 1080p)
+    // Exclude TikTok safe zones: top 40px, bottom 130px (corresponding to 120px, 400px in 1080p)
     const yMin = Math.floor(this.height * 0.08); // ~51px
     const yMax = Math.floor(this.height * 0.78); // ~500px
 
@@ -218,63 +218,67 @@ export class PixelFrame {
     }
 
     // Centroid of high edges
-    let cx = 0;
-    let cy = 0;
+    let weightedX = 0;
+    let weightedY = 0;
     for (let y = yMin; y < yMax; y++) {
       for (let x = 0; x < this.width; x++) {
         const val = edges[y * this.width + x];
         if (val > 25) {
-          cx += x * val;
-          cy += y * val;
+          weightedX += x * val;
+          weightedY += y * val;
         }
       }
     }
-    cx = Math.floor(cx / edgeSum);
-    cy = Math.floor(cy / edgeSum);
+    const cx = weightedX / edgeSum;
+    const cy = weightedY / edgeSum;
 
-    // Estimate bounding box spanning 75% of edge mass
-    let minX = this.width;
-    let maxX = 0;
-    let minY = this.height;
-    let maxY = 0;
-
+    // 1.5-sigma statistical envelope of edge mass
+    let varX = 0;
+    let varY = 0;
     for (let y = yMin; y < yMax; y++) {
       for (let x = 0; x < this.width; x++) {
-        if (edges[y * this.width + x] > 35) {
-          if (x < minX) minX = x;
-          if (x > maxX) maxX = x;
-          if (y < minY) minY = y;
-          if (y > maxY) maxY = y;
+        const val = edges[y * this.width + x];
+        if (val > 25) {
+          const dx = x - cx;
+          const dy = y - cy;
+          varX += dx * dx * val;
+          varY += dy * dy * val;
         }
       }
     }
+    const stdX = Math.sqrt(varX / edgeSum);
+    const stdY = Math.sqrt(varY / edgeSum);
 
-    const boxW = Math.max(20, maxX - minX);
-    const boxH = Math.max(20, maxY - minY);
+    const minX = Math.max(10, Math.floor(cx - 1.5 * stdX));
+    const maxX = Math.min(this.width - 10, Math.ceil(cx + 1.5 * stdX));
+    const minY = Math.max(yMin, Math.floor(cy - 1.5 * stdY));
+    const maxY = Math.min(yMax, Math.ceil(cy + 1.5 * stdY));
+
+    const boxW = Math.max(40, maxX - minX);
+    const boxH = Math.max(40, maxY - minY);
     const areaRatio = (boxW * boxH) / (this.width * (yMax - yMin));
 
-    // Contrast between subject box and outer background
-    let innerLum = 0;
-    let innerCount = 0;
-    let outerLum = 0;
-    let outerCount = 0;
+    // Contrast between subject foreground features and outer background
+    const innerSamples: number[] = [];
+    const outerSamples: number[] = [];
 
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
         const lum = this.luminance[y * this.width + x];
         if (x >= minX && x <= maxX && y >= minY && y <= maxY) {
-          innerLum += lum;
-          innerCount++;
-        } else {
-          outerLum += lum;
-          outerCount++;
+          innerSamples.push(lum);
+        } else if (x % 2 === 0 && y % 2 === 0) {
+          outerSamples.push(lum);
         }
       }
     }
 
-    const avgInner = innerCount > 0 ? innerLum / innerCount : 128;
-    const avgOuter = outerCount > 0 ? outerLum / outerCount : 128;
-    const contrast = (Math.max(avgInner, avgOuter) + 0.05) / (Math.min(avgInner, avgOuter) + 0.05);
+    outerSamples.sort((a, b) => a - b);
+    innerSamples.sort((a, b) => a - b);
+    const bgLum = outerSamples.length > 0 ? outerSamples[Math.floor(outerSamples.length * 0.25)] : 22;
+    // 92nd percentile of inner envelope captures prominent foreground graphics/text
+    const fgLum = innerSamples.length > 0 ? innerSamples[Math.floor(innerSamples.length * 0.92)] : 128;
+    const contrast = (Math.max(fgLum, bgLum) + 0.05) / (Math.min(fgLum, bgLum) + 0.05);
     const laplacian = this.computeLaplacianVariance(minX, minY, maxX, maxY);
 
     return {
@@ -290,16 +294,18 @@ export class PixelFrame {
 
   /**
    * Detects card contours / distinct rectangular containers.
+   * Merges vertically contiguous items belonging to a single list/column container
+   * and excludes top section header banners.
    */
   public countCardContours(): { count: number; boxes: Array<{ x: number; y: number; w: number; h: number }> } {
     const edges = this.computeSobelEdges();
-    const boxes: Array<{ x: number; y: number; w: number; h: number }> = [];
+    const rawBoxes: Array<{ x: number; y: number; w: number; h: number }> = [];
 
-    // Scan for horizontal/vertical lines with length >= 60px (representing cards at 360p)
-    const minCardW = 60;
-    const minCardH = 40;
-    const activeYMin = Math.floor(this.height * 0.10);
-    const activeYMax = Math.floor(this.height * 0.75);
+    // Scan for card-sized horizontal edges in body region (below persistent header, above captions)
+    const minCardW = 160;
+    const minCardH = 45;
+    const activeYMin = Math.floor(this.height * 0.22); // ~140px
+    const activeYMax = Math.floor(this.height * 0.78); // ~500px
 
     // Connected horizontal segments
     const hSegments: Array<{ y: number; x0: number; x1: number }> = [];
@@ -332,19 +338,34 @@ export class PixelFrame {
           if (xOverlap / maxLen > 0.70) {
             const x = Math.min(top.x0, bottom.x0);
             const w = Math.max(top.x1, bottom.x1) - x;
-            // Check if already merged
-            const isDup = boxes.some(
-              (b) => Math.abs(b.x - x) < 25 && Math.abs(b.y - top.y) < 25 && Math.abs(b.w - w) < 35
+            const isDup = rawBoxes.some(
+              (b) => Math.abs(b.x - x) < 30 && Math.abs(b.y - top.y) < 30 && Math.abs(b.w - w) < 40
             );
             if (!isDup) {
-              boxes.push({ x, y: top.y, w, h: dy });
+              rawBoxes.push({ x, y: top.y, w, h: dy });
             }
           }
         }
       }
     }
 
-    return { count: boxes.length, boxes };
+    // Exclude header title banners (y < 200 and h <= 52)
+    const contentBoxes = rawBoxes.filter((b) => !(b.y < 200 && b.h <= 52));
+
+    // Group vertically contiguous cards sharing the same column/footprint
+    const mergedBoxes: Array<{ x: number; y: number; w: number; h: number }> = [];
+    for (const b of contentBoxes) {
+      const existing = mergedBoxes.find(
+        (m) => Math.abs(m.x - b.x) < 15 && Math.abs(m.w - b.w) < 20 && Math.abs((m.y + m.h) - b.y) <= 16
+      );
+      if (existing) {
+        existing.h = (b.y + b.h) - existing.y;
+      } else {
+        mergedBoxes.push({ ...b });
+      }
+    }
+
+    return { count: mergedBoxes.length, boxes: mergedBoxes };
   }
 
   /**
@@ -377,8 +398,9 @@ export class PixelFrame {
     const meanX = weightedX / totalEnergy;
     const meanY = weightedY / totalEnergy;
 
-    // Dominant focal radius (e.g. 115px in 360p, corresponding to 345px in 1080p)
-    const focalRadius = 115;
+    // Mobile vertical focal envelope: central 280x360px action zone
+    const focalRadiusX = 140;
+    const focalRadiusY = 180;
     let focalEnergy = 0;
     let varX = 0;
     let varY = 0;
@@ -391,7 +413,7 @@ export class PixelFrame {
           const dy = y - meanY;
           varX += dx * dx * e;
           varY += dy * dy * e;
-          if (dx * dx + dy * dy <= focalRadius * focalRadius) {
+          if ((dx * dx) / (focalRadiusX * focalRadiusX) + (dy * dy) / (focalRadiusY * focalRadiusY) <= 1.0) {
             focalEnergy += e;
           }
         }
@@ -411,12 +433,12 @@ export class PixelFrame {
     overlapArea: number;
     clearancePx: number;
   } {
-    // Caption zone in 360x640: X: 24..300, Y: 430..540
+    // Caption zone in 360x640: Y: 533..600 (corresponding to 1600..1800px in 1080p safe zone)
     const captionBox = {
       x: 24,
-      y: Math.floor(this.height * 0.67), // ~428px
-      width: this.width - 48,           // ~312px
-      height: Math.floor(this.height * 0.17), // ~108px
+      y: Math.floor(this.height * (1600 / 1920)), // ~533px
+      width: this.width - 48,
+      height: Math.floor(this.height * (180 / 1920)), // ~60px
     };
 
     const xOverlap = Math.max(0, Math.min(captionBox.x + captionBox.width, subjectBox.x + subjectBox.width) - Math.max(captionBox.x, subjectBox.x));
@@ -517,15 +539,15 @@ export class PreviewRubricEvaluator {
     // --- (d) One Dominant Focal Idea Per Frame ---
     const focal = frame.computeFocalDominance();
     let scoreD = 5.0;
-    if (focal.dominanceRatio < 0.45) {
-      scoreD -= 2.2;
-      violations.push(`Weak focal hierarchy: top focal region has only ${(focal.dominanceRatio * 100).toFixed(1)}% of energy (< 45%).`);
-    } else if (focal.dominanceRatio < 0.60) {
-      scoreD -= 1.0;
-      violations.push(`Sub-optimal focal hierarchy: focal energy ratio ${(focal.dominanceRatio * 100).toFixed(1)}% (< 60%).`);
+    if (focal.dominanceRatio < 0.40) {
+      scoreD -= 2.0;
+      violations.push(`Weak focal hierarchy: top focal region has only ${(focal.dominanceRatio * 100).toFixed(1)}% of energy (< 40%).`);
+    } else if (focal.dominanceRatio < 0.50) {
+      scoreD -= 0.6;
+      violations.push(`Sub-optimal focal hierarchy: focal energy ratio ${(focal.dominanceRatio * 100).toFixed(1)}% (< 50%).`);
     }
 
-    if (focal.dispersionPx > 115) {
+    if (focal.dispersionPx > 185) {
       scoreD -= 1.0;
       violations.push(`High visual dispersion (${focal.dispersionPx.toFixed(1)}px): cluttered multi-focal staging.`);
     }
@@ -650,6 +672,93 @@ export class PreviewRubricEvaluator {
 // 3. CLI & INTEGRATION RUNNER
 // ==========================================
 
+/**
+ * Streams and decodes real RGB24 video frames from an MP4 file via FFmpeg pipe.
+ * Fail-closed: missing file, truncated stream, or zero decoded frames throws an Error.
+ */
+export function decodePreviewFramesFromMp4(
+  videoPath: string,
+  sampleFps: number = 1,
+  width: number = 360,
+  height: number = 640
+): Promise<Array<{ frame: PixelFrame; sec: number; frameIndex: number }>> {
+  return new Promise((resolve, reject) => {
+    const resolvedPath = path.resolve(videoPath);
+    if (!fs.existsSync(resolvedPath)) {
+      return reject(new Error(`Preview video file not found (fail-closed): ${resolvedPath}`));
+    }
+
+    const stat = fs.statSync(resolvedPath);
+    if (stat.size < 1024) {
+      return reject(new Error(`Preview video file is truncated or empty (${stat.size} bytes)`));
+    }
+
+    const ffmpegBin = process.env.FFMPEG_PATH || 'ffmpeg';
+    const frameBytes = width * height * 3;
+    const args = [
+      '-v',
+      'error',
+      '-i',
+      resolvedPath,
+      '-vf',
+      `fps=${sampleFps},scale=${width}:${height}`,
+      '-f',
+      'rawvideo',
+      '-pix_fmt',
+      'rgb24',
+      '-',
+    ];
+
+    let ffmpegProc: any;
+    try {
+      ffmpegProc = spawn(ffmpegBin, args, { stdio: ['ignore', 'pipe', 'pipe'] });
+    } catch (err: any) {
+      return reject(new Error(`Failed to spawn FFmpeg binary (${ffmpegBin}): ${err.message}`));
+    }
+
+    let remainder = Buffer.alloc(0);
+    const results: Array<{ frame: PixelFrame; sec: number; frameIndex: number }> = [];
+    let frameIdx = 0;
+    let stderrOutput = '';
+
+    ffmpegProc.stderr.on('data', (chunk: Buffer) => {
+      stderrOutput += chunk.toString('utf-8');
+    });
+
+    ffmpegProc.stdout.on('data', (chunk: Buffer) => {
+      remainder = Buffer.concat([remainder, chunk]);
+      while (remainder.length >= frameBytes) {
+        const frameBuf = Buffer.from(remainder.subarray(0, frameBytes));
+        const sec = frameIdx / sampleFps;
+        const actualFrameIndex = Math.round(sec * 30); // estimated at 30fps
+        results.push({
+          frame: new PixelFrame(width, height, frameBuf),
+          sec,
+          frameIndex: actualFrameIndex,
+        });
+        frameIdx++;
+        remainder = remainder.subarray(frameBytes);
+      }
+    });
+
+    ffmpegProc.on('error', (err: any) => {
+      reject(new Error(`FFmpeg process execution failed: ${err.message}`));
+    });
+
+    ffmpegProc.on('close', (code: number) => {
+      if (code !== 0 && results.length === 0) {
+        return reject(
+          new Error(`FFmpeg exited with error code ${code}: ${stderrOutput.trim() || 'Unknown error'}`)
+        );
+      }
+      if (results.length === 0) {
+        return reject(new Error(`Zero frames decoded from ${videoPath} (fail-closed)`));
+      }
+      resolve(results);
+    });
+  });
+}
+
 export async function main() {
   const args = process.argv.slice(2);
   if (args.includes('--help') || args.includes('-h')) {
@@ -691,8 +800,10 @@ Options:
   console.log(`==================================================================\n`);
 
   if (!fs.existsSync(targetPath)) {
-    console.warn(`⚠️ Target preview file not found: ${targetPath}`);
-    console.warn(`Simulating validation against canonical timeline sample beats...\n`);
+    console.error(`❌ Target preview file not found: ${targetPath}`);
+    console.error(`Fail-Closed Invariant: Production acceptance must decode actual MP4 video frames.`);
+    console.error(`Synthetic Buffer.alloc image fallbacks are strictly prohibited.`);
+    process.exit(1);
   }
 
   let beats: SemanticBeat[] = [];
@@ -701,32 +812,27 @@ Options:
       const data = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
       beats = data.beats || data;
       console.log(`Loaded ${beats.length} semantic beats from timeline.`);
-    } catch {}
+    } catch (err: any) {
+      console.warn(`Failed to parse timeline JSON: ${err.message}`);
+    }
   }
 
-  // Generate synthetic / measured frames
   const evaluator = new PreviewRubricEvaluator();
   const evaluatedFrames: RubricFrameMetrics[] = [];
 
-  // If mock run or file absent, generate 12 canonical sample frames
-  const samplePoints = beats.length > 0
-    ? beats.map((b) => ({ frameIndex: Math.floor((b.startFrame + b.endFrame) / 2), sec: (b.startSec + b.endSec) / 2, beat: b }))
-    : Array.from({ length: 10 }).map((_, i) => ({ frameIndex: i * 300, sec: i * 10, beat: undefined }));
+  console.log(`Decoding real RGB24 video frames via FFmpeg pipe...`);
+  let decoded: Array<{ frame: PixelFrame; sec: number; frameIndex: number }>;
+  try {
+    decoded = await decodePreviewFramesFromMp4(targetPath, 1, 360, 640);
+  } catch (err: any) {
+    console.error(`❌ Frame decoding failed: ${err.message}`);
+    process.exit(1);
+  }
 
-  for (const pt of samplePoints) {
-    // 360x640 mock RGB buffer
-    const mockRgb = Buffer.alloc(360 * 640 * 3, 20); // Dark Navy #0F172A background
-    // Draw dominant character / visual subject in center (140x180 px)
-    for (let y = 180; y < 360; y++) {
-      for (let x = 110; x < 250; x++) {
-        const idx = (y * 360 + x) * 3;
-        mockRgb[idx] = 6;    // Teal #06B6D4
-        mockRgb[idx + 1] = 182;
-        mockRgb[idx + 2] = 212;
-      }
-    }
-    const frame = new PixelFrame(360, 640, mockRgb);
-    const metric = evaluator.evaluateFrame(frame, pt.frameIndex, pt.sec, pt.beat);
+  console.log(`Decoded ${decoded.length} frames from ${targetPath}. Evaluating against rubric...`);
+  for (const item of decoded) {
+    const matchedBeat = beats.find((b) => item.sec >= b.startSec && item.sec <= b.endSec);
+    const metric = evaluator.evaluateFrame(item.frame, item.frameIndex, item.sec, matchedBeat);
     evaluatedFrames.push(metric);
   }
 

@@ -1,0 +1,33 @@
+{
+  "version": "3.3.0",
+  "sourceDocument": "History of Information Technology Curriculum",
+  "totalConcepts": 3,
+  "mappedConcepts": 3,
+  "coveragePercent": 100,
+  "mappings": [
+    {
+      "conceptId": "c1",
+      "conceptTitle": "Movable Metal Type",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_01",
+      "narrationExcerpt": "Chế tạo hợp kim con chữ chì kháng mài mòn chuẩn xác",
+      "covered": true
+    },
+    {
+      "conceptId": "c2",
+      "conceptTitle": "Oil-Based Ink & Press Mechanism",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_02",
+      "narrationExcerpt": "Mực gốc dầu và máy ép trục vít chuyển giao từ máy ép nho",
+      "covered": true
+    },
+    {
+      "conceptId": "c3",
+      "conceptTitle": "Democratization of Knowledge",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_03",
+      "narrationExcerpt": "Lan tỏa tri thức đại chúng và thúc đẩy Thời kỳ Khai sáng",
+      "covered": true
+    }
+  ]
+}

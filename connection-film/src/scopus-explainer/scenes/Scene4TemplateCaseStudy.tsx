@@ -12,18 +12,18 @@ export const Scene4TemplateCaseStudy: React.FC = () => {
   const cardScale = interpolate(introSpring, [0, 1], [0.92, 1.0]);
 
   // Content-driven progressive beats for Shot 4 (555 frames total):
-  // Beat 16: frames 0 - 143 (Template 4 câu chuẩn quốc tế)
-  // Beat 17: frames 143 - 264 (Case Study Ngân hàng số - TAM Nền tảng)
+  // Beat 16: frames 0 - 135 (Template 4 câu chuẩn quốc tế)
+  // Beat 17: frames 135 - 264 (Case Study Ngân hàng số - TAM Nền tảng)
   // Beat 18: frames 264 - 421 (Mâu thuẫn cơ chế E-service quality)
   // Beat 19: frames 421 - 555 (Mô hình hoàn chỉnh: Mediator & Moderator + Match cut out at 540-555)
   const activeBeat =
-    frame < 143 ? 1 :
+    frame < 135 ? 1 :
     frame < 264 ? 2 :
     frame < 421 ? 3 : 4;
 
-  // Motivated case stage crossfades & vertical slide (8-frame transition window)
-  const b1Exit = interpolate(frame, [135, 143], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
-  const b1Slide = interpolate(frame, [135, 143], [0, -25], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  // Motivated case stage crossfades & vertical slide (sequential transition at frame 135)
+  const b1Exit = interpolate(frame, [127, 135], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const b1Slide = interpolate(frame, [127, 135], [0, -25], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
 
   const b2Enter = interpolate(frame, [135, 143], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const b2Exit = interpolate(frame, [256, 264], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
@@ -112,9 +112,9 @@ export const Scene4TemplateCaseStudy: React.FC = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* BEAT 16: TEMPLATE 4 CÂU (Frames 0 - 143) */}
+      {/* BEAT 16: TEMPLATE 4 CÂU (Frames 0 - 135) */}
       {/* ========================================================================= */}
-      {frame < 143 && (
+      {frame < 135 && (
         <div
           style={{
             position: 'absolute',

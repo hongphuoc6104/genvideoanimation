@@ -97,6 +97,12 @@ export function normalizeText(text: string, options?: NormalizerOptions): string
     (m) => decimalToWords(m)
   );
 
+  // 6.5 Expand Dates (MM/DD/YYYY or MM/DD/YY)
+  norm = norm.replace(
+    /(?:^|(?<=\s))(\d{1,2}\/\d{1,2}\/\d{2,4})(?=\s|[.,!?;:]|$)/g,
+    (m) => dateToWords(m)
+  );
+
   // 7. Expand 4-digit years
   norm = norm.replace(
     /(?:^|(?<=\s))(19\d{2}|20\d{2})(?=\s|[.,!?;:]|$)/g,

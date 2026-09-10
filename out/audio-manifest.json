@@ -1,0 +1,262 @@
+{
+  "version": "3.3",
+  "audioPolicy": "narration-sfx",
+  "voiceProfile": "GENVIDEO_ADAM_PROFILE",
+  "tracks": {
+    "narration": {
+      "id": "narration_master",
+      "type": "narration",
+      "file": "scopus_voiceover.wav",
+      "duration": 103.2,
+      "volume": 1,
+      "sampleRate": 24000,
+      "channels": 1
+    },
+    "sfx": [
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/stamp_reject.wav",
+        "startTimeSec": 1.5,
+        "volume": 0.85,
+        "id": "sfx_0",
+        "file": "stamp_reject.wav",
+        "frame": 45,
+        "timeSec": 1.5
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/node_connect.wav",
+        "startTimeSec": 5.414,
+        "volume": 0.7,
+        "id": "sfx_1",
+        "file": "node_connect.wav",
+        "frame": 162,
+        "timeSec": 5.41
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/node_connect.wav",
+        "startTimeSec": 9.098,
+        "volume": 0.65,
+        "id": "sfx_2",
+        "file": "node_connect.wav",
+        "frame": 273,
+        "timeSec": 9.1
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/block_lock.wav",
+        "startTimeSec": 13.433,
+        "volume": 0.75,
+        "id": "sfx_3",
+        "file": "block_lock.wav",
+        "frame": 403,
+        "timeSec": 13.43
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/filter_pass.wav",
+        "startTimeSec": 17.356,
+        "volume": 0.7,
+        "id": "sfx_4",
+        "file": "filter_pass.wav",
+        "frame": 521,
+        "timeSec": 17.36
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/whoosh_transition.wav",
+        "startTimeSec": 22.095,
+        "volume": 0.7,
+        "id": "sfx_5",
+        "file": "whoosh_transition.wav",
+        "frame": 663,
+        "timeSec": 22.1
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/whoosh_transition.wav",
+        "startTimeSec": 26.705,
+        "volume": 0.7,
+        "id": "sfx_6",
+        "file": "whoosh_transition.wav",
+        "frame": 801,
+        "timeSec": 26.71
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/whoosh_transition.wav",
+        "startTimeSec": 30.789,
+        "volume": 0.7,
+        "id": "sfx_7",
+        "file": "whoosh_transition.wav",
+        "frame": 924,
+        "timeSec": 30.79
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/whoosh_transition.wav",
+        "startTimeSec": 35.919,
+        "volume": 0.7,
+        "id": "sfx_8",
+        "file": "whoosh_transition.wav",
+        "frame": 1078,
+        "timeSec": 35.92
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/whoosh_transition.wav",
+        "startTimeSec": 40.595,
+        "volume": 0.7,
+        "id": "sfx_9",
+        "file": "whoosh_transition.wav",
+        "frame": 1218,
+        "timeSec": 40.6
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/filter_pass.wav",
+        "startTimeSec": 45.122,
+        "volume": 0.75,
+        "id": "sfx_10",
+        "file": "filter_pass.wav",
+        "frame": 1354,
+        "timeSec": 45.12
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/node_connect.wav",
+        "startTimeSec": 49.285,
+        "volume": 0.7,
+        "id": "sfx_11",
+        "file": "node_connect.wav",
+        "frame": 1479,
+        "timeSec": 49.29
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/filter_pass.wav",
+        "startTimeSec": 53.694,
+        "volume": 0.75,
+        "id": "sfx_12",
+        "file": "filter_pass.wav",
+        "frame": 1611,
+        "timeSec": 53.69
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/block_lock.wav",
+        "startTimeSec": 58.346,
+        "volume": 0.8,
+        "id": "sfx_13",
+        "file": "block_lock.wav",
+        "frame": 1750,
+        "timeSec": 58.35
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/node_connect.wav",
+        "startTimeSec": 62.554,
+        "volume": 0.7,
+        "id": "sfx_14",
+        "file": "node_connect.wav",
+        "frame": 1877,
+        "timeSec": 62.55
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/filter_pass.wav",
+        "startTimeSec": 67.351,
+        "volume": 0.7,
+        "id": "sfx_15",
+        "file": "filter_pass.wav",
+        "frame": 2021,
+        "timeSec": 67.35
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/node_connect.wav",
+        "startTimeSec": 72.118,
+        "volume": 0.7,
+        "id": "sfx_16",
+        "file": "node_connect.wav",
+        "frame": 2164,
+        "timeSec": 72.12
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/node_connect.wav",
+        "startTimeSec": 76.173,
+        "volume": 0.75,
+        "id": "sfx_17",
+        "file": "node_connect.wav",
+        "frame": 2285,
+        "timeSec": 76.17
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/block_lock.wav",
+        "startTimeSec": 81.402,
+        "volume": 0.8,
+        "id": "sfx_18",
+        "file": "block_lock.wav",
+        "frame": 2442,
+        "timeSec": 81.4
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/stamp_reject.wav",
+        "startTimeSec": 85.825,
+        "volume": 0.8,
+        "id": "sfx_19",
+        "file": "stamp_reject.wav",
+        "frame": 2575,
+        "timeSec": 85.83
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/stamp_reject.wav",
+        "startTimeSec": 90.425,
+        "volume": 0.8,
+        "id": "sfx_20",
+        "file": "stamp_reject.wav",
+        "frame": 2713,
+        "timeSec": 90.43
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/filter_pass.wav",
+        "startTimeSec": 94.871,
+        "volume": 0.7,
+        "id": "sfx_21",
+        "file": "filter_pass.wav",
+        "frame": 2846,
+        "timeSec": 94.87
+      },
+      {
+        "filePath": "connection-film/src/scopus-explainer/audio/sfx/stamp_accept.wav",
+        "startTimeSec": 99.423,
+        "volume": 0.9,
+        "id": "sfx_22",
+        "file": "stamp_accept.wav",
+        "frame": 2983,
+        "timeSec": 99.42
+      }
+    ]
+  },
+  "ducking": {
+    "enabled": false,
+    "attackMs": 100,
+    "releaseMs": 600,
+    "attenuationDb": -12.8,
+    "config": {
+      "duckingDepthDb": -12.8,
+      "attackMs": 100,
+      "releaseMs": 600
+    },
+    "regions": []
+  },
+  "output": {
+    "file": "scopus_master_audio.wav",
+    "sampleRate": 48000,
+    "channels": 2,
+    "bitDepth": 16,
+    "durationSec": 103.2,
+    "truePeakDbfs": -3.5,
+    "lufs": -15,
+    "clippedSamples": 0
+  },
+  "targetLufs": -15,
+  "sampleRate": 48000,
+  "channels": 2,
+  "totalDurationSec": 103.2,
+  "durationSec": 103.2,
+  "peakDbfs": -3.5,
+  "truePeakDbfs": -3.5,
+  "integratedLufs": -15,
+  "lufs": -15,
+  "clippedSamples": 0,
+  "validation": {
+    "clippingFree": true,
+    "hasNarration": true,
+    "durationSyncValid": true
+  }
+}

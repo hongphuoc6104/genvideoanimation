@@ -153,6 +153,115 @@ export function extractNumericFontSize(node: any, scope: any): number | null {
 }
 
 /**
+ * Extracts numeric scale factors from CSS or SVG transform strings: scale(sx), scale(sx, sy).
+ */
+export function parseScaleFactorsFromString(transformStr: string): number[] {
+  const scales: number[] = [];
+  const scaleRegex = /scale\(\s*([-0-9.]+)(?:\s*,\s*([-0-9.]+))?\s*\)/g;
+  let match;
+  while ((match = scaleRegex.exec(transformStr)) !== null) {
+    const sx = parseFloat(match[1]);
+    const sy = match[2] ? parseFloat(match[2]) : sx;
+    if (!isNaN(sx) && !isNaN(sy)) {
+      scales.push(Math.min(Math.abs(sx), Math.abs(sy)));
+    }
+  }
+  return scales;
+}
+
+/**
+ * Extracts scale factor from a JSX opening element attributes (transform, scale, style).
+ */
+export function extractScaleFactorsFromOpeningElement(openingElement: any, scope: any): number[] {
+  if (!openingElement || !openingElement.attributes) return [];
+  const scales: number[] = [];
+
+  for (const attr of openingElement.attributes) {
+    if (attr.type !== 'JSXAttribute') continue;
+    const name = attr.name?.name;
+
+    // 1. Direct scale attribute: scale={0.5} or scale="0.5"
+    if (name === 'scale') {
+      const val =
+        attr.value?.type === 'JSXExpressionContainer'
+          ? extractNumericFontSize(attr.value.expression, scope)
+          : attr.value?.type === 'StringLiteral'
+          ? parseFloat(attr.value.value)
+          : null;
+      if (typeof val === 'number' && !isNaN(val) && val > 0) {
+        scales.push(val);
+      }
+    }
+
+    // 2. Direct transform attribute: transform="scale(0.5)" or transform={`scale(${s})`}
+    if (name === 'transform') {
+      if (attr.value?.type === 'StringLiteral') {
+        scales.push(...parseScaleFactorsFromString(attr.value.value));
+      } else if (attr.value?.type === 'JSXExpressionContainer') {
+        const expr = attr.value.expression;
+        if (expr.type === 'StringLiteral') {
+          scales.push(...parseScaleFactorsFromString(expr.value));
+        } else if (expr.type === 'TemplateLiteral') {
+          const raw = expr.quasis.map((q: any) => q.value.raw).join(' ');
+          scales.push(...parseScaleFactorsFromString(raw));
+        }
+      }
+    }
+
+    // 3. style={{ transform: ..., scale: ... }}
+    if (name === 'style' && attr.value?.type === 'JSXExpressionContainer') {
+      const expr = attr.value.expression;
+      if (expr?.type === 'ObjectExpression') {
+        for (const prop of expr.properties) {
+          if (prop.type === 'ObjectProperty') {
+            const propKey = prop.key?.name || prop.key?.value;
+            if (propKey === 'scale') {
+              const val = extractNumericFontSize(prop.value, scope);
+              if (typeof val === 'number' && !isNaN(val) && val > 0) {
+                scales.push(val);
+              }
+            } else if (propKey === 'transform') {
+              if (prop.value.type === 'StringLiteral') {
+                scales.push(...parseScaleFactorsFromString(prop.value.value));
+              } else if (prop.value.type === 'TemplateLiteral') {
+                const raw = prop.value.quasis.map((q: any) => q.value.raw).join(' ');
+                scales.push(...parseScaleFactorsFromString(raw));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return scales;
+}
+
+/**
+ * Computes cumulative scale factor across self and all ancestor JSX elements.
+ */
+export function computeCumulativeScale(astPath: any): number {
+  let cumulative = 1.0;
+  // Check self
+  const selfScales = extractScaleFactorsFromOpeningElement(astPath.node, astPath.scope);
+  for (const s of selfScales) cumulative *= s;
+
+  // Check ancestors
+  let current = astPath.parentPath;
+  while (current) {
+    if (current.isJSXElement()) {
+      const opening = current.node.openingElement;
+      if (opening && opening !== astPath.node) {
+        const ancestorScales = extractScaleFactorsFromOpeningElement(opening, current.scope);
+        for (const s of ancestorScales) cumulative *= s;
+      }
+    }
+    current = current.parentPath;
+  }
+  return cumulative;
+}
+
+/**
  * Determines whether an element is an excluded citation or decorative rig glyph.
  */
 function isCitationOrExcluded(astPath: any, tagName: string, content: string): boolean {
@@ -361,7 +470,10 @@ export function validateSourceCode(
             }
           }
         }
-        if (explicitCaptionSize !== null && explicitCaptionSize < TYPOGRAPHY_THRESHOLDS.caption) {
+        const cumulativeScale = computeCumulativeScale(astPath);
+        const baseCaption = explicitCaptionSize !== null ? explicitCaptionSize : 56;
+        const effectiveCaption = baseCaption * cumulativeScale;
+        if (effectiveCaption < TYPOGRAPHY_THRESHOLDS.caption) {
           const line = astPath.node.loc?.start.line || 1;
           const col = astPath.node.loc?.start.column || 1;
           violations.push({
@@ -370,11 +482,11 @@ export function validateSourceCode(
             column: col,
             tagName,
             role: 'caption',
-            detectedSize: explicitCaptionSize,
+            detectedSize: Number(effectiveCaption.toFixed(2)),
             requiredThreshold: TYPOGRAPHY_THRESHOLDS.caption,
-            shortfall: TYPOGRAPHY_THRESHOLDS.caption - explicitCaptionSize,
+            shortfall: Number((TYPOGRAPHY_THRESHOLDS.caption - effectiveCaption).toFixed(2)),
             severity: 'CRITICAL',
-            message: `Karaoke captions font size (${explicitCaptionSize}px) violates minimum threshold (>= ${TYPOGRAPHY_THRESHOLDS.caption}px).`,
+            message: `Karaoke captions font size (${baseCaption}px${cumulativeScale !== 1.0 ? ` * ${cumulativeScale.toFixed(2)} = ${effectiveCaption.toFixed(1)}px` : ''}) violates minimum threshold (>= ${TYPOGRAPHY_THRESHOLDS.caption}px).`,
             snippet: content.slice(astPath.node.start, Math.min(astPath.node.end, astPath.node.start + 120)),
           });
         }
@@ -456,29 +568,32 @@ export function validateSourceCode(
         return;
       }
 
-      // Check detected font size against thresholds
+      // Check detected font size against thresholds with cumulative scale
       const role = resolveRole(astPath, tagName, strict);
       const requiredThreshold = TYPOGRAPHY_THRESHOLDS[role];
+      const cumulativeScale = computeCumulativeScale(astPath);
+      const effectiveSize = detectedSize * cumulativeScale;
 
       // Absolute floor check (< 30px) OR role threshold check
-      if (detectedSize < 30 || detectedSize < requiredThreshold) {
+      if (effectiveSize < 30 || effectiveSize < requiredThreshold) {
         const line = astPath.node.loc?.start.line || 1;
         const col = astPath.node.loc?.start.column || 1;
-        const shortfall = Math.max(requiredThreshold - detectedSize, 30 - detectedSize);
+        const shortfall = Math.max(requiredThreshold - effectiveSize, 30 - effectiveSize);
+        const scaleDesc = cumulativeScale !== 1.0 ? ` (effective: ${detectedSize}px * ${cumulativeScale.toFixed(2)} = ${effectiveSize.toFixed(1)}px)` : '';
         violations.push({
           file: filePath,
           line,
           column: col,
           tagName,
           role,
-          detectedSize,
+          detectedSize: Number(effectiveSize.toFixed(2)),
           requiredThreshold,
-          shortfall,
+          shortfall: Number(shortfall.toFixed(2)),
           severity: 'CRITICAL',
           message:
-            detectedSize < 30
-              ? `Font size (${detectedSize}px) violates absolute mobile floor (>= 30px) for role '${role}' (required >= ${requiredThreshold}px).`
-              : `Font size (${detectedSize}px) violates mobile threshold for role '${role}' (required >= ${requiredThreshold}px).`,
+            effectiveSize < 30
+              ? `Font size (${detectedSize}px${scaleDesc}) violates absolute mobile floor (>= 30px) for role '${role}' (required >= ${requiredThreshold}px).`
+              : `Font size (${detectedSize}px${scaleDesc}) violates mobile threshold for role '${role}' (required >= ${requiredThreshold}px).`,
           snippet: content.slice(astPath.node.start, Math.min(astPath.node.end, astPath.node.start + 120)),
         });
       }

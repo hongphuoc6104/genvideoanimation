@@ -1,0 +1,39 @@
+{
+  "version": "3.3.0",
+  "compositionId": "tls-cryptographic-handshake",
+  "fps": 30,
+  "totalDurationSec": 15,
+  "totalFrames": 450,
+  "beats": [
+    {
+      "id": "beat_01",
+      "shotId": "shot_01",
+      "startSec": 0,
+      "endSec": 5,
+      "startFrame": 0,
+      "endFrame": 150,
+      "conceptId": "c1",
+      "narrationText": "Client gửi danh sách cipher suites cùng tham số Diffie-Hellman"
+    },
+    {
+      "id": "beat_02",
+      "shotId": "shot_01",
+      "startSec": 5,
+      "endSec": 10,
+      "startFrame": 150,
+      "endFrame": 300,
+      "conceptId": "c2",
+      "narrationText": "Server xác thực danh tính chứng chỉ số X509"
+    },
+    {
+      "id": "beat_03",
+      "shotId": "shot_02",
+      "startSec": 10,
+      "endSec": 15,
+      "startFrame": 300,
+      "endFrame": 450,
+      "conceptId": "c3",
+      "narrationText": "Thiết lập khóa phiên mã hóa đối xứng hoàn tất 1-RTT"
+    }
+  ]
+}

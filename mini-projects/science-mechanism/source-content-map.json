@@ -1,0 +1,33 @@
+{
+  "version": "3.3.0",
+  "sourceDocument": "CRISPR Genome Editing Pedagogical Standard",
+  "totalConcepts": 3,
+  "mappedConcepts": 3,
+  "coveragePercent": 100,
+  "mappings": [
+    {
+      "conceptId": "c1",
+      "conceptTitle": "sgRNA Guide Specificity",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_01",
+      "narrationExcerpt": "Thanh dẫn đường RNA hướng enzyme Cas9 tới mục tiêu chính xác",
+      "covered": true
+    },
+    {
+      "conceptId": "c2",
+      "conceptTitle": "PAM Site Recognition",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_02",
+      "narrationExcerpt": "Nhận diện chuỗi PAM mở xoắn liên kết đôi DNA",
+      "covered": true
+    },
+    {
+      "conceptId": "c3",
+      "conceptTitle": "DSB Cleavage & NHEJ Repair",
+      "sourceDocument": "curriculum-standard.pdf",
+      "beatId": "beat_03",
+      "narrationExcerpt": "Thực hiện vết cắt kép kích hoạt sửa chữa tế bào",
+      "covered": true
+    }
+  ]
+}

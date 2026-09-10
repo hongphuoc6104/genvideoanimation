@@ -1,95 +1,64 @@
-# Project: V3.1 Vietnamese-First Bilingual Narration Hardening
+# Project: V3.3 Production Integrity Hardening
 
 ## Architecture
-The V3.1 system transforms the Remotion narration and karaoke subtitle subsystem into a production-grade, Vietnamese-first bilingual production engine for vertical educational motion videos (1080x1920, 9:16, 30fps).
+The V3.3 production architecture hardens the 1080x1920 (9:16, 30fps) 2D Educational Flat-Vector Remotion motion graphics system against false-positive acceptance through system-first contracts, real media decoding, single audio ownership, progressive disclosure, and fail-closed gates.
 
 ### System Overview & Module Boundaries
-1. **TTS Engine & Audio Subsystem (`packages/narration-kit/src/tts/` & `scripts/`)**:
-   - Primary TTS: Local VieNeu-TTS v3 Turbo running via `/home/hongphuoc6104/video3d/.genvideo/voice/vieneu/.venv/bin/python3` and `scripts/generate-vieneu-narration.py`.
-   - Local weights: `pnnbao-ump/VieNeu-TTS-v3-Turbo` and `OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano-ONNX` cached in `~/.cache/huggingface/hub/`.
-   - Audio output: Uncompressed 48kHz/24kHz mono 16-bit PCM WAV (`pcm_s16le`).
-   - Fallback: Kokoro-82M preserved as English-only fallback via polymorphic `TTSProvider`.
-   - Voice presets: `Minh Quân`, `Minh Đức`, `Adam`, `Mai Phương`.
-   - Single bilingual utterance synthesis with continuous prosody and identical speaker timbre.
+1. **Canonical Production Policy (`production-policy.json`)**:
+   - Single authoritative configuration governing canvas (1080x1920, 30fps, 360x640 preview), typography minimums (Hero >= 64px, Section >= 48px, Card Title >= 38px, Body >= 34px, Secondary >= 30px, Karaoke >= 52px), safe regions (L80, R80, T140, B140, Caption 1600-1800), audio policy (`narration-sfx`, PREMIXED, -15 LUFS, -1.8 dBTP, role pauses), and gate thresholds.
 
-2. **Bilingual NLP, Tokenization & Lexicons (`packages/narration-kit/src/normalization/` & `lexicons/`)**:
-   - Tokenizer & classifier for 10 semantic types: `VIETNAMESE`, `ENGLISH_WORD`, `ENGLISH_PHRASE`, `ACRONYM`, `INITIALISM`, `PROPER_NOUN`, `NUMBER`, `UNIT`, `FORMULA`, `MODEL_NAME`.
-   - 5 pronunciation modes: `vi`, `en_word`, `en_phrase`, `en_spell`, `custom`.
-   - Hierarchical YAML lexicons in `lexicons/`: `custom.yaml` (highest priority), `academic-vi-en.yaml`, `technology-vi-en.yaml`.
-   - Strict unregistered acronym halt (throws error, never silently guessed).
-   - Vietnamese number & alphanumeric normalization (e.g., 2026 -> "hai nghìn không trăm hai mươi sáu"; GPT-5, Q1, H-index).
-   - Dual text representation: `displayText` (authoritative display) decoupled from `spokenText` (phonetic synthesis).
+2. **Static & Acoustic Quality Gates (`validators/`)**:
+   - `validate-mobile-typography.ts`: AST visitor calculating effective rendered font size after parent SVG/CSS transform scaling ($\text{Font} \times \prod \text{Scale} \ge 30\text{px}$).
+   - `validate-shot-spec.ts`: Validates shot continuity, strictly separates internal `impact_frames` from `transition_frames`, enforces 8 motivated transition types, prohibits naked cuts and opacity crossfades.
+   - `validate-audio-ownership.ts`: Enforces PREMIXED strategy with exactly 1 `<Audio>` tag mounting master WAV; validates `audio-dependency-graph.json`; prohibits secondary cue `<Audio>` tags and double SFX playback.
+   - `validate-audio-policy.ts`: Validates broadcast loudness (-15 LUFS, -1.8 dBTP ceiling) and role-aware natural pause ranges (clause 0.08-0.20s, sentence 0.18-0.40s, turn 0.25-0.55s, section 0.40-0.80s, payoff 0.30-0.65s, max dead-air 0.85s).
+   - `validate-audio-mix.ts`: Extracts binary RIFF WAV headers and verifies sampleRate, channels, bitDepth, duration against manifest.
+   - `validate-portability.ts`: Asserts zero machine-specific absolute paths (`/home/`, `/Users/`, `C:\`, `/tmp/`) in committed artifacts.
+   - `validate-source-coverage.ts`: Asserts 100.0% coverage of curriculum atomic units in `source-content-map.json`.
 
-3. **Multilingual Forced Alignment & Subunit Mapping (`packages/narration-kit/src/alignment/` & `scripts/`)**:
-   - Local multilingual forced alignment via `torchaudio.pipelines.MMS_FA` in `scripts/align-multilingual.py`.
-   - Script-authoritative timestamp boundary alignment (ASR never drifts or alters script).
-   - Bidirectional token mapping: `display_token ↔ spoken_token(s) ↔ timestamps`.
-   - Subunit mapping for initialisms: e.g. `GPU` maps to `G`, `P`, `U` timestamps without spaces in `displayText`, supporting progressive fill.
-   - Monotonic, non-negative word and subunit timestamps in `words.json`.
+3. **Real Video Decoding & Mobile Parity Gates (`validators/`)**:
+   - `validate-preview-rubric.ts`: Decodes real MP4 frames via FFmpeg rawvideo pipe; completely eliminates synthetic `Buffer.alloc` fallbacks; fails closed on missing/corrupted media.
+   - `validate-preview-parity.ts`: Verifies mathematical lineage and frame parity between `final-v3_3.mp4` and `preview-360x640.mp4` (duration $\Delta t < 0.033\text{s}$, frame count match, $\text{PSNR} \ge 35\text{ dB}$, fresh mtime).
 
-4. **Mobile 9:16 Caption Kit (`packages/caption-kit/` & `packages/narration-kit/src/captions/`)**:
-   - Safe areas for 1080x1920: Left 72px, Right 180px, Top 120px, Bottom 320px ($X \in [72, 900]$, $Y \in [120, 1600]$, $W_{\max} = 828\text{px}$).
-   - Invariants: Base font size 56px, max 2 lines, never shrink font size to fit.
-   - Dynamic re-segmentation: Line character budget $\le 26$ characters; overflow phrases partitioned into sequential groups.
-   - Mobile preview QA: 360x640 preview video rendered via Remotion `--scale=0.3333333333333333`.
+4. **Speech Synthesis & Voice Routing (`packages/narration-kit/`)**:
+   - Default TTS engine: local `VieNeu-TTS v3 Turbo` with voice `Adam`.
+   - Omitted or empty voice parameter in pipeline requests strictly resolves to VieNeu `Adam`.
+   - Omitting voice never routes to Kokoro `am_adam`. Kokoro is strictly an explicit opt-in fallback for English-only benchmarks.
 
-5. **Quality Gate Validators & Offline Guard (`validators/`)**:
-   - `validate-language-spans.ts`
-   - `validate-pronunciation-map.ts`
-   - `validate-token-reconciliation.ts`
-   - `validate-bilingual-alignment.ts`
-   - `validate-vietnamese-normalization.ts`
-   - Updated `validate-captions.ts` and `validate-caption-layout.ts`.
-   - Strict offline enforcement via `validators/offline-network-guard.ts` wrapping all operations.
+5. **Canonical Acceptance Entrypoint (`package.json`) & Adversarial Suite**:
+   - `npm run v3.3:gate`: Single canonical command executing all gates in fail-closed sequence.
+   - `scripts/run-adversarial-suite.ts`: 12+ negative fixtures (all rejected) and matching positive fixtures (all accepted) executed against real standalone validators.
 
-6. **Benchmarks & Real Project Acceptance**:
-   - Voice benchmark suite across 4 voices in `out/voice-benchmarks/`.
-   - 3 Unseen benchmarks (A, B, C) producing all 8 artifacts in `out/v3.1/`.
-   - Real project acceptance: `connection-film` (Scopus explainer) re-rendered with V3.1 engine to `out/scopus-research-gap-tiktok-9x16.mp4`.
+6. **Canary Migration & Unseen Mini-Projects**:
+   - Scopus Canary: Reflow choreography to 103.20s (3096 frames), eliminate 70.4s panel collision in `Scene4TemplateCaseStudy.tsx`, enforce single PREMIXED master audio, 100% source coverage.
+   - 3 Unseen Mini-Projects: Science/mechanism, historical/process, technology/tutorial, all passing `npm run v3.3:gate`.
+   - Independent review scoring across 18 rubric categories (overall >= 4.5, min >= 4.0, critical >= 4.3).
 
 ---
 
 ## Feature Inventory
-Every feature from the user request and survey phase appears here with its assigned milestone. No feature is unassigned.
+Every feature from requirements and Phase 0 survey appears here with its assigned milestone. No feature is unassigned.
 
 | # | Feature | Description | Milestone | Source |
 |---|---------|-------------|-----------|--------|
-| F01 | VieNeu-TTS v3 Turbo Engine | Primary local offline TTS engine producing mono PCM WAV (`pcm_s16le`) | M1 | Survey / R1 |
-| F02 | Local Model & Env Packaging | Local weights in `~/.cache/huggingface/hub/` & python script runner | M1 | Survey / R1, R12 |
-| F03 | Kokoro Fallback Preservation | Kokoro preserved as English-only fallback via polymorphic `TTSProvider` | M1 | Survey / R1 |
-| F04 | Vietnamese-First Language Policy | `primaryLanguage = vi-VN`, `secondaryLanguage = en`, single bilingual utterance | M1 | Survey / R2 |
-| F05 | Voice Presets Setup | Support `Minh Quân`, `Minh Đức`, `Adam`, and `Mai Phương` | M1 | Survey / R9 |
-| F06 | Voice Benchmark Runner | Benchmark script generating 4 voice WAVs in `out/voice-benchmarks/` | M1 | Survey / R9 |
-| F07 | Language-Aware Tokenizer | Classifies tokens into 10 semantic types | M2 | Survey / R3 |
-| F08 | Pronunciation Modes | Implements 5 modes: `vi`, `en_word`, `en_phrase`, `en_spell`, `custom` | M2 | Survey / R3 |
-| F09 | Hierarchical YAML Lexicons | `lexicons/` (`academic-vi-en.yaml`, `technology-vi-en.yaml`, `custom.yaml`) | M2 | Survey / R4 |
-| F10 | Strict Unregistered Acronym Halt | Halts on unknown uppercase acronyms, prevents silent guessing | M2 | Survey / R4, R11 |
-| F11 | Vietnamese Number Normalization | Vietnamese reading grammar for numbers and years (e.g. 2026) | M2 | Survey / R6 |
-| F12 | Alphanumeric Model Name Normalization | Bilingual reading for mixed names (e.g., GPT-5, Q1, H-index) | M2 | Survey / R6 |
-| F13 | Dual Text Representation | Strict decoupling of `displayText` vs `spokenText` | M3 | Survey / R5 |
-| F14 | Multilingual Forced Alignment | Local MMS_FA forced alignment for Vietnamese and English speech | M3 | Survey / R7 |
-| F15 | Token Reconciliation & Subunits | Initialisms map display token to spoken subunits (GPU -> G, P, U) | M3 | Survey / R5 |
-| F16 | Monotonic Timestamp Alignment | Script-authoritative monotonic non-negative word & subunit timings | M3 | Survey / R7 |
-| F17 | Mobile 9:16 Safe Placement | Safe margins Left 72, Right 180, Top 120, Bottom 320 for 1080x1920 | M4 | Survey / R8 |
-| F18 | 56px Base Font & 2-Line Limit | Base font 56px, max 2 lines, line character budget $\le 26$ chars | M4 | Survey / R8 |
-| F19 | Dynamic Caption Re-segmentation | Auto re-segmentation of overflow phrases without shrinking font size | M4 | Survey / R8 |
-| F20 | 360x640 Mobile Preview QA | Remotion 360x640 preview video render pipeline for legibility QA | M4 | Survey / R8 |
-| F21 | Validator: Language Spans | `validate-language-spans.ts` (100% coverage, enum check, no silent guessing) | M5 | Survey / R11 |
-| F22 | Validator: Pronunciation Map | `validate-pronunciation-map.ts` (lexicon hierarchy, fail on wrong spelling) | M5 | Survey / R11 |
-| F23 | Validator: Token Reconciliation | `validate-token-reconciliation.ts` (captions match display text, no spaces) | M5 | Survey / R11 |
-| F24 | Validator: Bilingual Alignment | `validate-bilingual-alignment.ts` (monotonicity, code-switching stability) | M5 | Survey / R11 |
-| F25 | Validator: VN Normalization | `validate-vietnamese-normalization.ts` (fail if VN year read in English) | M5 | Survey / R11 |
-| F26 | Layout & Caption Validators Update | Update `validate-captions.ts` & `validate-caption-layout.ts` for 9:16 56px | M5 | Survey / R11 |
-| F27 | Offline Network Guard Enforcement | Enforce `validators/offline-network-guard.ts` across all operations | M5 | Survey / R12 |
-| F28 | Benchmark A Execution | Academic Vietnamese ($\ge 90\%$), producing all 8 artifacts | M6 | Survey / R10 |
-| F29 | Benchmark B Execution | Technology Code-Switch ($\ge 75\%$), producing all 8 artifacts | M6 | Survey / R10 |
-| F30 | Benchmark C Execution | Dense Academic Metadata, producing all 8 artifacts | M6 | Survey / R10 |
-| F31 | 8-Artifact Schema Verification | Verify 8 artifacts in each benchmark output directory | M6 | Survey / R10 |
-| F32 | Benchmark Mobile Preview Renders | Render 360x640 preview MP4 for each benchmark | M6 | Survey / R8, R10 |
-| F33 | Connection Film V3.1 Script & Audio | Vietnamese bilingual narration generation for Scopus explainer | M7 | Survey / R13 |
-| F34 | Connection Film Captions Alignment | Re-segment captions with 56px safe area, resolving $40\text{px}$ overflow | M7 | Survey / R13 |
-| F35 | Connection Film Full Render | Render final 1080x1920 30fps MP4 with synced audio & captions | M7 | Survey / R13 |
-| F36 | Final Verification & Audit | All validators pass, offline guard verified, independent audit pass | M7 | Survey / R11-R13 |
+| F01 | Canonical Production Policy | `production-policy.json` as single source of truth for canvas, fps, typography, audio, and gate thresholds | M1 | R1 |
+| F02 | Effective Typography Scaling Validator | `validators/validate-mobile-typography.ts` calculating effective rendered font size after parent/SVG transform scaling | M2 | R2 |
+| F03 | Deterministic Mobile Preview Lineage | Deterministic derivation of `preview-360x640.mp4` from `final-v3_3.mp4` via FFmpeg Lanczos resize | M3 | R3 |
+| F04 | Full / Mobile Content Parity Validator | `validators/validate-preview-parity.ts` decoding real frames and enforcing PSNR >= 35dB & frame parity | M3 | R3 |
+| F05 | Real Video Decoding (No Synthetic Buffers) | `validators/validate-preview-rubric.ts` elimination of Buffer.alloc mock fallback, real FFmpeg rawvideo decoding, fail closed | M3 | R4 |
+| F06 | Progressive Disclosure Choreography | Enforce 1 primary idea per beat; eliminate simultaneous multi-card dumps; resolve 70.4s panel collision | M5 | R5, R15 |
+| F07 | Canonical Semantic Timeline | `semantic-timeline.json` as single source of truth for all scene boundaries, durations, shots, cues; zero magic numbers | M5 | R6 |
+| F08 | Real ShotSpec Validation & Motivated Transitions | `validators/validate-shot-spec.ts` strict separation of impact frames from transition windows, 8 motivated transitions | M2 | R7 |
+| F09 | Single Audio Ownership & Routing | `validators/validate-audio-ownership.ts`, `audio-dependency-graph.json`, PREMIXED default, zero secondary `<Audio>`, zero music | M2 | R8 |
+| F10 | Safe VieNeu TTS Default & Voice Routing | Default voice routes to VieNeu Adam; omit voice never routes to Kokoro `am_adam`; Vietnamese-first bilingual | M1 | R9 |
+| F11 | Real Audio Metadata & Portability | Real WAV headers/ffprobe metadata validation; `validators/validate-portability.ts` asserting zero absolute machine paths | M2 | R10 |
+| F12 | Content Coverage Mapping & Validator | `source-content-map.json` mapping 100% of source units; `validators/validate-source-coverage.ts` | M2 | R11 |
+| F13 | Skill & Governance Hardening | `.agents/skills/educational-flat-motion/SKILL.md` 17 hard rules, `AGENTS.md` role separation, 0 runtime imports from `.agents/` | M1 | R12 |
+| F14 | Canonical Acceptance Entrypoint | `npm run v3.3:gate` running all gates in fail-closed sequence | M4 | R13 |
+| F15 | Adversarial Negative & Positive Fixture Suite | `tests/adversarial/` 12+ defective fixtures rejected 100% and 12+ positive baselines accepted 100% by real validators | M4 | R14 |
+| F16 | Scopus Canary Migration | Eliminate 70.4s collision, reflow to 103.20s, render `final-v3_3.mp4` & `preview-360x640.mp4`, PREMIXED audio | M5 | R15 |
+| F17 | Generalization Proof (3 Unseen Mini-Projects) | 3 unseen projects (science/mechanism, historical/process, technology/tutorial) passing `npm run v3.3:gate` | M6 | R16 |
+| F18 | Independent Review & Quality Rubric | Independent evaluation across 18 categories (overall >= 4.5, min >= 4.0, critical >= 4.3, `qa-report.json`) | M7 | R17 |
 
 ---
 
@@ -97,100 +66,137 @@ Every feature from the user request and survey phase appears here with its assig
 
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | VieNeu-TTS Engine & Audio Subsystem | F01, F02, F03, F04, F05, F06 | None | IN_PROGRESS |
-| M2 | Bilingual Tokenizer, Lexicons & VN Normalization | F07, F08, F09, F10, F11, F12 | None | PLANNED |
-| M3 | Multilingual Forced Alignment & Subunit Mapping | F13, F14, F15, F16 | M1, M2 | PLANNED |
-| M4 | Mobile 9:16 Caption Kit & Preview QA | F17, F18, F19, F20 | M2, M3 | PLANNED |
-| M5 | Quality Gate Validators Suite & Offline Guard | F21, F22, F23, F24, F25, F26, F27 | M2, M3, M4 | PLANNED |
-| M6 | Benchmarks Execution (4 Voices & 3 Unseen Benchmarks) | F28, F29, F30, F31, F32 | M1, M2, M3, M4, M5 | PLANNED |
-| M7 | Real Project Acceptance: Scopus Explainer Re-Render | F33, F34, F35, F36 | M1-M6 | PLANNED |
+| M1 | Governance, Production Policy & Voice Routing Contracts | F01, F10, F13 | None | PLANNED |
+| M2 | Static, Acoustic & Portability Quality Gates | F02, F08, F09, F11, F12 | M1 | PLANNED |
+| M3 | Real Video Decoding & Mobile Parity Quality Gates | F03, F04, F05 | M1 | PLANNED |
+| M4 | Adversarial Fixture Suite & Canonical Acceptance Entrypoint | F14, F15 | M2, M3 | PLANNED |
+| M5 | Scopus Canary Migration & Choreography Hardening | F06, F07, F16 | M1, M2, M3, M4 | PLANNED |
+| M6 | Generalization Proof (3 Unseen Mini-Projects) | F17 | M4, M5 | PLANNED |
+| M7 | Independent Review & Quality Rubric Certification | F18 | M1-M6 | PLANNED |
 
 ---
 
 ## Interface Contracts
 
-### TTS Provider Interface (`packages/narration-kit/src/tts/types.ts`)
+### 1. Production Policy Contract (`production-policy.json`)
 ```typescript
-export interface TTSRequest {
-  text: string;
-  voice: string; // "adam", "minh_duc", "minh_quan", "mai_phuong"
-  speed?: number;
-  sampleRate?: 24000 | 48000;
-  format?: 'wav';
-}
-
-export interface TTSResult {
-  audioBuffer: Buffer;
-  sampleRate: number;
-  channels: number;
-  bitDepth: number;
-  durationMs: number;
-}
-
-export interface TTSProvider {
-  readonly name: string;
-  synthesize(request: TTSRequest): Promise<TTSResult>;
-  getVoices(): VoiceMetadata[];
+export interface ProductionPolicy {
+  version: "3.3.0";
+  canvas: {
+    width: 1080;
+    height: 1920;
+    aspectRatio: "9:16";
+    fps: 30;
+    preview: { width: 360; height: 640; scale: number };
+    safeMargins: { horizontal: number; vertical: number; captionRegion: { top: number; bottom: number } };
+  };
+  typography: {
+    minimums: { hero: 64; section: 48; card: 38; body: 34; secondary: 30; caption: 52; citation: 22 };
+    enforceEffectiveScale: true;
+    absoluteMobileFloor: 30;
+  };
+  audio: {
+    policy: "narration-sfx";
+    strategy: "PREMIXED";
+    targetLoudnessLufs: -15.0;
+    loudnessToleranceLufs: 1.0;
+    truePeakCeilingDbTp: -1.8;
+    sampleRate: 48000;
+    channels: 2;
+    bitDepth: 16;
+    allowMusic: false;
+    rolePauses: {
+      withinClause: [number, number];
+      normalSentence: [number, number];
+      semanticTurn: [number, number];
+      majorSectionTransition: [number, number];
+      payoffRealization: [number, number];
+      maxUnmotivatedPause: 0.85;
+    };
+  };
+  speech: {
+    primaryLanguage: "vi-VN";
+    secondaryLanguage: "en";
+    defaultEngine: "VieNeu-TTS";
+    defaultVoice: "Adam";
+    fallbackEngine: "Kokoro";
+  };
+  acceptance: {
+    overallRubricMin: 4.50;
+    floorRubricMin: 4.00;
+    criticalRubricMin: 4.30;
+    contentCoverageRatio: 1.00;
+    maxAllowedTemporalSpikes: 0;
+    maxAllowedAbsolutePaths: 0;
+    maxAllowedDualAudioTags: 0;
+  };
 }
 ```
 
-### Language Spans & Token Types (`packages/narration-kit/src/normalization/types.ts`)
+### 2. Semantic Timeline Contract (`semantic-timeline.json`)
 ```typescript
-export type SemanticTokenType =
-  | 'VIETNAMESE'
-  | 'ENGLISH_WORD'
-  | 'ENGLISH_PHRASE'
-  | 'ACRONYM'
-  | 'INITIALISM'
-  | 'PROPER_NOUN'
-  | 'NUMBER'
-  | 'UNIT'
-  | 'FORMULA'
-  | 'MODEL_NAME';
+export interface SemanticBeat {
+  id: string; // e.g. "beat_01"
+  shotId: string; // e.g. "shot_01"
+  narrationTokenRange: [number, number];
+  startSec: number;
+  endSec: number;
+  startFrame: number;
+  endFrame: number;
+  visualIntent: string;
+  primaryObject: string;
+  cameraIntent: string;
+  conceptId: string;
+  sfxIntent?: { asset: string; frame: number; volume: number };
+  captionIntent?: { displayText: string; layout: "bottom" | "top"; fontSize: number };
+}
 
-export type PronunciationMode =
-  | 'vi'
-  | 'en_word'
-  | 'en_phrase'
-  | 'en_spell'
-  | 'custom';
-
-export interface LanguageSpan {
-  text: string;
-  type: SemanticTokenType;
-  mode: PronunciationMode;
-  spokenText: string;
-  startIndex: number;
-  endIndex: number;
+export interface SemanticTimeline {
+  version: "3.3.0";
+  compositionId: string;
+  totalFrames: number;
+  durationSec: number;
+  fps: 30;
+  beats: SemanticBeat[];
 }
 ```
 
-### Word & Subunit Timings Contract (`words.json`)
+### 3. Audio Dependency Graph Contract (`audio-dependency-graph.json`)
 ```typescript
-export interface AlignedSubunit {
-  subunit: string; // e.g. "G", "P", "U"
-  start: number;   // seconds
-  end: number;     // seconds
-  confidence: number;
-}
-
-export interface AlignedWord {
-  word: string;    // displayText (e.g. "GPU")
-  spokenText: string; // spokenText (e.g. "G P U")
-  start: number;   // seconds
-  end: number;     // seconds
-  confidence: number;
-  subunits?: AlignedSubunit[];
+export interface AudioDependencyGraph {
+  version: "3.3.0";
+  strategy: "PREMIXED";
+  masterAudio: string;
+  remotionMounts: Array<{ file: string; tag: string; line: number }>;
+  tracks: {
+    narration: { source: string; mixedIntoMaster: boolean };
+    sfx: Array<{ id: string; asset: string; frame: number; mixedIntoMaster: boolean }>;
+  };
+  runtimePlayback: {
+    discreteAudioTagsCount: number; // MUST be 0
+    duplicateSfxCount: number; // MUST be 0
+  };
 }
 ```
 
-### 9:16 Caption Box Layout Contract (`captions.json`)
+### 4. Source Content Mapping Contract (`source-content-map.json`)
 ```typescript
-export interface CaptionBox {
-  x: number;      // >= 72
-  y: number;      // >= 120
-  width: number;  // <= 828, x + width <= 900
-  height: number; // <= 190 (2 lines @ 56px)
+export interface SourceContentUnit {
+  conceptId: string;
+  conceptTitle: string;
+  sourceDocument: string;
+  beatId: string;
+  narrationExcerpt: string;
+  covered: boolean;
+}
+
+export interface SourceContentMap {
+  version: "3.3.0";
+  sourceDocument: string;
+  totalUnits: number;
+  coveredUnits: number;
+  coveragePercent: number; // MUST be 100
+  mappings: SourceContentUnit[];
 }
 ```
 
@@ -199,47 +205,45 @@ export interface CaptionBox {
 ## Code Layout
 ```
 /home/hongphuoc6104/Desktop/videorenderhoathinh/
+├── production-policy.json              # Canonical production policy (R1)
+├── AGENTS.md                          # Two-tier governance and role invariants (R12)
+├── .agents/
+│   └── skills/educational-flat-motion/SKILL.md # Hardened with 17 non-negotiable hard rules (R12)
 ├── packages/
-│   ├── narration-kit/
-│   │   ├── src/
-│   │   │   ├── tts/              # VieNeuTtsEngine, KokoroTtsEngine, voices, types
-│   │   │   ├── normalization/    # tokenizer, lexicons, vietnamese normalizer
-│   │   │   ├── alignment/        # multilingual aligner, subunit reconciliation
-│   │   │   ├── captions/         # 9:16 safe placement, dynamic re-segmentation
-│   │   │   ├── audio/            # loudness normalization, audio mixing
-│   │   │   └── pipeline/         # unified end-to-end pipeline runner
-│   │   └── package.json
-│   └── caption-kit/
-│       ├── src/
-│       │   ├── KaraokeCaptions.tsx
-│       │   ├── KaraokeGroup.tsx
-│       │   ├── KaraokeLine.tsx
-│       │   ├── KaraokeWord.tsx   # subunit progressive fill
-│       │   └── theme.ts          # 56px base font size, safe area styling
-│       └── package.json
-├── lexicons/
-│   ├── custom.yaml               # Highest priority project overrides
-│   ├── academic-vi-en.yaml       # Scopus, DOI, ORCID, Q1, H-index, Springer, etc.
-│   └── technology-vi-en.yaml     # AI, GPU, GPT, BERT, API, ONNX, etc.
-├── scripts/
-│   ├── generate-vieneu-narration.py  # Local VieNeu-TTS v3 Turbo offline wrapper
-│   ├── align-multilingual.py          # Local MMS_FA multilingual forced alignment
-│   ├── run-voice-benchmarks.ts        # 4-voice benchmark runner
-│   ├── run-v3.1-benchmarks.ts         # 3 unseen benchmarks runner
-│   └── render-mobile-preview.ts       # 360x640 preview renderer
+│   └── narration-kit/
+│       └── src/
+│           ├── pipeline/generateNarrationPipeline.ts # VieNeu Adam default voice routing (R9)
+│           └── tts/voices.ts                         # Default voice configuration (R9)
 ├── validators/
-│   ├── validate-language-spans.ts
-│   ├── validate-pronunciation-map.ts
-│   ├── validate-token-reconciliation.ts
-│   ├── validate-bilingual-alignment.ts
-│   ├── validate-vietnamese-normalization.ts
-│   ├── validate-captions.ts
-│   ├── validate-caption-layout.ts
-│   └── offline-network-guard.ts
-├── out/
-│   ├── voice-benchmarks/         # 4 voice WAVs (Minh Quân, Minh Đức, Adam, Mai Phương)
-│   ├── v3.1/                     # Benchmark A, B, C (all 8 artifacts each)
-│   └── scopus-research-gap-tiktok-9x16.mp4 # Final re-rendered project video
-├── connection-film/              # Scopus / Research Gap explainer Remotion project
-└── ORIGINAL_REQUEST.md
+│   ├── validate-mobile-typography.ts   # Effective transform scaling calculation (R2)
+│   ├── validate-shot-spec.ts           # Separate impact vs transition frames (R7)
+│   ├── validate-audio-ownership.ts     # PREMIXED single mount enforcement (R8)
+│   ├── validate-audio-policy.ts        # Role-aware pause ranges (R17)
+│   ├── validate-audio-mix.ts           # Measured WAV headers (sampleRate, channels, bitDepth) (R10)
+│   ├── validate-portability.ts         # Zero machine-specific absolute paths (R10)
+│   ├── validate-source-coverage.ts     # 100% curriculum coverage gate (R11)
+│   ├── validate-preview-parity.ts      # Master vs preview PSNR & frame parity (R3)
+│   ├── validate-preview-rubric.ts      # Real FFmpeg frame decoding, no Buffer.alloc (R4)
+│   └── temporal-render-qa.ts           # Real MP4 temporal difference verification (R9)
+├── scripts/
+│   ├── generate-preview.ts             # Deterministic FFmpeg Lanczos resize (R3)
+│   └── run-adversarial-suite.ts        # Real validator adversarial runner (R14)
+├── tests/
+│   └── adversarial/                    # 12+ defective fixtures & 12+ positive baselines (R14)
+├── connection-film/
+│   └── src/scopus-explainer/
+│       ├── ScopusExplainerFilm.tsx     # Single master audio mount, timeline integration (R8, R15)
+│       ├── semantic-timeline.json      # Canonical timeline (R6)
+│       ├── source-content-map.json     # 100% source mapping (R11)
+│       ├── shot-spec.json              # Validated shot transitions & impact frames (R7)
+│       └── scenes/
+│           └── Scene4TemplateCaseStudy.tsx # 70.4s panel collision eliminated (R5, R15)
+├── mini-projects/                      # 3 Unseen mini-projects for generalization proof (R16)
+│   ├── science-mechanism/
+│   ├── historical-process/
+│   └── tech-tutorial/
+└── out/
+    ├── final-v3_3.mp4                  # Full 1080x1920 30fps production render (R15)
+    ├── preview-360x640.mp4             # Deterministic 360x640 preview render (R3, R15)
+    └── qa-report.json                  # Independent review 18-category score report (R17)
 ```

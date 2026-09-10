@@ -39,11 +39,12 @@ export interface TTSFactoryOptions {
  * Defaults to VieNeu-TTS v3 Turbo as primary engine, preserving Kokoro as fallback.
  */
 export function createTTSProvider(options: TTSFactoryOptions = {}): TTSProvider {
+  const normalizedVoice = options.voice?.trim();
   const isExplicitKokoro =
     options.provider === 'kokoro' ||
     options.primaryLanguage === 'en' ||
     options.language === 'en' ||
-    (options.voice ? isKokoroVoice(options.voice) : false);
+    (normalizedVoice ? isKokoroVoice(normalizedVoice) : false);
 
   if (isExplicitKokoro) {
     return new KokoroProvider();
