@@ -1,0 +1,43 @@
+{
+  "version": "3.3.0",
+  "compositionId": "watt-steam-engine-mechanism",
+  "topic": "James Watt Condenser and Thermodynamic Expansion Engine",
+  "claims": [
+    {
+      "id": "claim_steam_01",
+      "beatId": "beat_04",
+      "conceptId": "steam_c04_separate_condenser",
+      "statement": "The separate condenser isolates cyclic cooling from the main cylinder, preventing repetitive thermal quenching of the cylinder walls.",
+      "verifiableSource": "Dickinson HW. (A Short History of the Steam Engine, Cambridge University Press, 1939)",
+      "evidenceLocation": "Chapter 4: James Watt and the Separate Condenser, pp. 66-72",
+      "truthCondition": "Main cylinder is continuously kept at boiling point (~100°C) with a steam jacket, while the condenser vessel remains cold (~30°C)",
+      "simplificationBoundaries": "Trace heat conduction occurs through the exhaust valve duct, minimized by intermittent valve timing",
+      "predictiveQuestion": "Why did Newcomen's engine consume four times more coal than Watt's engine?",
+      "predictedAnswer": "Newcomen repeatedly chilled the massive cylinder walls with cold water spray, wasting huge fuel energy reheating them on every stroke"
+    },
+    {
+      "id": "claim_steam_02",
+      "beatId": "beat_07",
+      "conceptId": "steam_c07_pv_diagram_expansion",
+      "statement": "Cutting off live steam early in the stroke allows expansive working where internal energy of steam performs mechanical work along an adiabatic curve.",
+      "verifiableSource": "Carnot S. (Reflections on the Motive Power of Fire, 1824) / P-V Indicator History",
+      "evidenceLocation": "Watt-Southern Indicator Diagram Archives, Science Museum London",
+      "truthCondition": "Net work output equals the closed line integral W = ∮ P dV representing the enclosed area of the 4-phase cycle",
+      "simplificationBoundaries": "Actual expansion is polytropic (P V^n = const with n ≈ 1.13) rather than ideal adiabatic due to minor heat transfer",
+      "predictiveQuestion": "What thermodynamic parameter determines the work done per cycle?",
+      "predictedAnswer": "The enclosed cyclic integral area ∮ P dV on the Pressure-Volume diagram"
+    },
+    {
+      "id": "claim_steam_03",
+      "beatId": "beat_08",
+      "conceptId": "steam_c08_parallel_motion_linkage",
+      "statement": "Watt's three-bar parallel motion linkage constrains the piston rod point to an approximately straight vertical line, eliminating lateral cylinder wear.",
+      "verifiableSource": "Ferguson E. (Kinematics of Mechanisms from the Time of Watt, Smithsonian Institution, 1962)",
+      "evidenceLocation": "Bulletin 228, Paper 27, pp. 185-230",
+      "truthCondition": "Inflection point on coupler link traces a lemniscate of Watt whose central segment deviates less than 0.1mm from a true vertical line over the design stroke",
+      "simplificationBoundaries": "Linkage members maintain rigid invariant lengths while beam rotates through ±14 degrees",
+      "predictiveQuestion": "Why was the parallel motion linkage essential for double-acting steam engines?",
+      "predictedAnswer": "Piston rods in double-acting engines must push upward as well as pull downward, requiring rigid vertical guidance without buckling or lateral bore wear"
+    }
+  ]
+}

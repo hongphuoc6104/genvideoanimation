@@ -837,3 +837,65 @@ Dự án áp dụng nghiêm ngặt kiến trúc **Two-Tier Agent Architecture** 
   npm run v3.3:gate
   ```
 - [ ] Báo cáo `qa-report.json` được ký bởi Tier 2 Independent Auditor, ghi nhận đầy đủ SHA-256 của các artifact và điểm số đạt chuẩn (Overall >= 4.50, Floor >= 4.00, Critical >= 4.30).
+
+
+## 2026-09-10T17:03:13Z
+
+Cải tổ toàn diện hệ thống Educational Flat-Vector Remotion (V3.3+): Chuyển từ "sinh hình chuyển động và đếm primitive" sang "kiểm chứng cơ chế giải thích đúng" (Explanatory Motion Verification), thống nhất runtime timeline/caption contract xuyên suốt mọi project, vá toàn bộ lỗ hổng false-acceptance trong canonical gates, và chuẩn hóa quy trình sản xuất (Model → Animatic → Master).
+
+Working directory: /home/hongphuoc6104/Desktop/videorenderhoathinh
+Integrity mode: development
+
+## Requirements
+
+### R1. Explanatory Mechanism Invariants & Visual Truth (Cơ chế trực quan đúng)
+Mỗi cơ chế khoa học/kỹ thuật phải tuân thủ bất biến topo và hình học trước-sau có thể kiểm chứng:
+- **CRISPR DSB**: Cắt tách thực tế 2 backbone thành 2 phân đoạn riêng biệt với các đầu tự do, ngắt đứt đường path SVG liên tục qua điểm cắt.
+- **CRISPR NHEJ & HDR**: NHEJ đóng kín hoàn toàn khoảng hở (gapWidth=0, nối liền 2 đầu tại mối hàn indel); HDR thể hiện rõ đoạn mẫu donor chèn vào vị trí đích.
+- **Steam PV Diagram**: Tọa độ điểm tracer bám sát outline chu trình nhiệt động (W = ∮ P dV, sai số <= 2px), không đi xuyên vào lòng diện tích; đồng bộ trạng thái van và hành trình piston.
+- **Steam Watt Linkage**: Giữ nguyên chiều dài danh định của các thanh cứng (thanh C-D cố định 90px trong suốt quá trình quay); loại bỏ việc co giãn thanh để ép quỹ đạo.
+- **Git DAG**: Đồ thị commit/branch diễn hoạt liên tục, phân biệt rõ logical snapshot với delta packfile; không để text/nhãn tràn ra ngoài bounding box.
+- Chuyển đổi kiến trúc dàn cảnh: Loại bỏ bố cục "slide text-card monoculture", đưa mô hình cơ chế làm trung tâm diễn hoạt liên tục xuyên suốt cảnh, giữ object state liên tục giữa các beat.
+
+### R2. Authoritative Dynamic Timeline & Unified Caption Contract (Trục thời gian thực thi & Phụ đề chuẩn)
+- **Authoritative Timeline Architecture**:
+  - Root film đọc và kiểm tra `semantic-timeline.json`, truyền danh sách `beats` của từng shot vào scene component thông qua props (`<Scene shotBeats={shot.beats} />`).
+  - Xây dựng helper/hook dùng chung trong `packages/motion-kit` (ví dụ `useBeatChoreography(shotBeats, currentFrame)`) để tính toán `currentBeat`, `beatProgress (0..1)`, và `phaseProgress` từ dữ liệu được truyền vào; helper thuần túy (pure), không tự đọc file hay phụ thuộc project cụ thể.
+  - Các sự kiện giải thích bên trong beat (mở van, cắt DNA, di chuyển tracer) phải có timing được khai báo hoặc suy dẫn từ timeline cues, không hardcode số frame tùy ý trong TSX.
+- **Unified Caption Contract**: Thống nhất 1 schema timeline và 1 cơ chế render caption chuẩn (`caption-kit`) cho tất cả các mini-projects (loại bỏ việc mỗi phim tự viết custom banner/layout riêng). Caption tự động ngắt dòng hợp lý, đảm bảo không bao giờ tràn màn hình hoặc che khuất sơ đồ/cơ chế chính.
+
+### R3. Hardened Gate Integrity & Multi-Project Coverage (Vá lỗ hổng kiểm thử & Đánh giá đúng sản phẩm)
+- **Fail-Closed Verification**: Loại bỏ triệt để các lỗ hổng fail-open trong AST validators và scripts (thư mục không tồn tại, thiếu audio-manifest, hoặc chỉ có 1 rect nhỏ đều phải báo lỗi và exit 1).
+- **Comprehensive Candidate Verification**: Giữ `npm run v3.3:gate` là entrypoint nghiệm thu duy nhất, chạy cùng bộ kiểm tra trên cả Scopus và ba video generalization (CRISPR, Steam Engine, Git DAG) dựa trên cấu hình dự án chung. Giải mã thật bằng FFmpeg pipe, đo EBU R128 loudness, kiểm tra preview parity (PSNR >= 35 dB), contact sheets và temporal MAD cho cả 4 video.
+- **Invariant Unit Tests**: Bổ sung bộ kiểm tra tự động các bất biến cơ chế (DNA đứt/nối, tracer P-V, chiều dài thanh Watt) sử dụng chính logic/state mà component render sử dụng.
+- **Explanatory Reporting**: Tách bạch Technical Gate tự động vs. Explanatory Review. Phần chưa được review bởi reviewer độc lập phải ghi rõ "chưa xác minh", không suy diễn kết quả PASS từ technical gates.
+
+### R4. Factual Script Ledger & Aligner Token Normalization (Chuẩn hóa kịch bản & Audio DSP)
+- **Factual Ledger & Explanatory Contract**: Chuẩn hóa schema thành phần dùng chung của skill. Mỗi khẳng định cốt lõi có nguồn đối chiếu truy cập được, vị trí bằng chứng, điều kiện đúng, giới hạn giản lược và câu hỏi dự đoán; liên kết tới câu narration và beat tương ứng.
+- **Sửa khẳng định kịch bản**: Hiệu chỉnh các phát biểu tuyệt đối sai lệch trong kịch bản CRISPR (NHEJ không bắt buộc sinh indel, HDR phụ thuộc hiệu suất) và Git (logical snapshot vs packfile delta compression).
+- **End-to-End Pipeline Regeneration**: Khi kịch bản thay đổi, tái tạo đồng bộ audio master WAV, alignment, timeline, captions và video render.
+- **Acoustic Aligner Targets**: Chuẩn hóa `languageAwareTokenizer` và `align-multilingual.py`: dấu câu được bảo toàn trong kịch bản TTS/prosody, nhưng acoustic aligner targets chỉ chứa các âm vị phát âm thực tế (không ép token dấu câu thành ký tự a gây sai lệch alignment). Map punctuation trở lại cho display subtitles.
+- Đồng bộ voice profile và pause rules giữa Python scripts và TypeScript voice profiles.
+
+### R5. Synchronized Skill & Governance Alignment (Đồng bộ tài liệu chỉ dẫn & Rubric)
+- Cập nhật `.agents/skills/educational-flat-motion/SKILL.md` và `AGENTS.md`: bỏ quy tắc "detailed body text", đưa quy trình duyệt Animatic 360p có lời tạm trước Master TTS.
+- Cập nhật tài liệu rubric tham chiếu và template sản xuất đồng bộ.
+
+## Acceptance Criteria
+
+### Mechanism & Visual Verifications
+- [ ] CRISPR double-strand break: Khi cắt, 2 path DNA thực sự tách thành 2 phân đoạn riêng biệt với đầu tự do, không còn đường nối liên tục qua điểm cắt.
+- [ ] CRISPR NHEJ: Ở progress=1, hai đầu DNA nối khít hoàn toàn (gapWidth=0, không còn khoảng hở).
+- [ ] Steam PV Diagram: Tọa độ điểm tracer bám sát outline chu trình nhiệt động (sai số <= 2px), không đi xuyên vào lòng diện tích.
+- [ ] Steam Linkage: Chiều dài các thanh cứng (C-D, etc.) không đổi trong suốt chu trình chuyển động (độ co giãn = 0px).
+
+### Runtime & Pipeline Verifications
+- [ ] Test thay đổi độ dài narration: Sửa độ dài một câu narration trong kịch bản, chạy tái tạo timeline và render: hình, captions và các sự kiện bên trong beat tự động cập nhật đồng bộ mà không cần sửa bất kỳ mốc frame nào trong code TSX scene.
+- [ ] Phụ đề (caption) trên cả 3 video render qua chuẩn chung `caption-kit`, không có dòng nào vượt quá kích thước màn hình hoặc che khuất sơ đồ chính.
+- [ ] Aligner pipeline: Tokenizer không biến dấu câu thành ký tự a trong acoustic targets; display subtitle hiển thị đầy đủ dấu câu.
+
+### Gate & Quality Verifications
+- [ ] Canonical gate (`npm run v3.3:gate`) chạy fail-closed: Test fixture thiếu thư mục/manifest/audio lập tức fail exit 1.
+- [ ] Cả 4 video (Scopus + 3 generalization) đều được FFmpeg pipe giải mã thật, đo PSNR preview parity (>= 35 dB), contact sheet và EBU R128 loudness (-15.0 ± 1.0 LUFS, peak <= -1.8 dBTP).
+- [ ] Toàn bộ test suite unit, invariant, boundary, stress, adversarial tests chạy và pass 100% trên code đã sửa.
+- [ ] Báo cáo QA ghi rõ kết quả từng project, phạm vi kiểm tra, SHA-256 artifact thực, và phân định rõ ràng các phần Explanatory Review đã kiểm tra vs. "chưa xác minh".

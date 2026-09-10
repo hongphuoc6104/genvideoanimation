@@ -1,21 +1,29 @@
 import React from 'react';
 import { interpolate, useCurrentFrame } from 'remotion';
+import { useBeatChoreography } from 'motion-kit';
 import { PVDiagram } from '../components/PVDiagram';
 import { ParallelMotionLinkage } from '../components/ParallelMotionLinkage';
 import { RotaryFlywheel } from '../components/RotaryFlywheel';
 import { THEME } from '../components/DesignTokens';
 
-export const Scene3ThermodynamicCycle: React.FC = () => {
+export interface Scene3ThermodynamicCycleProps {
+  durationInFrames?: number;
+  shotBeats?: any[];
+}
+
+export const Scene3ThermodynamicCycle: React.FC<Scene3ThermodynamicCycleProps> = ({
+  shotBeats,
+}) => {
   const frame = useCurrentFrame();
 
-  // 3 sub-phases (Beats 7, 8, 9), duration ~750 frames (25 seconds)
-  // Phase 1 (0 - 250): 4-phase thermodynamic P-V expansion cycle
-  // Phase 2 (250 - 500): Parallel motion pantograph linkage
-  // Phase 3 (500 - 750): Industrial flywheel rotary torque
-
-  const isPhase1 = frame < 250;
-  const isPhase2 = frame >= 250 && frame < 500;
-  const isPhase3 = frame >= 500;
+  // Dynamic choreography derived from semantic timeline (Beats 7, 8, 9)
+  // Phase 1: 4-phase thermodynamic P-V expansion cycle
+  // Phase 2: Parallel motion pantograph linkage
+  // Phase 3: Industrial flywheel rotary torque
+  const choreography = useBeatChoreography(shotBeats, frame, 750);
+  const isPhase1 = choreography.phase === 1;
+  const isPhase2 = choreography.phase === 2;
+  const isPhase3 = choreography.phase >= 3;
 
   // Kinetic state
   const cycleProgress = ((frame * 1.2) % 100) / 100;

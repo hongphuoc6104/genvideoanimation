@@ -74,7 +74,7 @@ export const GitObjectCard: React.FC<GitObjectCardProps> = ({
         x={-width / 2 + 24}
         y={42}
         fill="#FFFFFF"
-        fontSize={38}
+        fontSize={32}
         fontWeight="800"
         fontFamily="system-ui, sans-serif"
       >
@@ -99,9 +99,9 @@ export const GitObjectCard: React.FC<GitObjectCardProps> = ({
         <text
           key={idx}
           x={-width / 2 + 28}
-          y={105 + idx * 42}
+          y={105 + idx * 44}
           fill="#E2E8F0"
-          fontSize={32}
+          fontSize={30}
           fontWeight="500"
           fontFamily="monospace"
         >

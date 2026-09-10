@@ -205,7 +205,47 @@ export function validatePortability(options: PortabilityOptions = {}): Portabili
       }
     }
   } else {
+    if (!fs.existsSync(scanTarget)) {
+      const rel = path.relative(workspaceRoot, scanTarget);
+      return {
+        scannedFilesCount: 0,
+        violationsCount: 1,
+        violationsByFile: {
+          [rel]: [
+            {
+              file: scanTarget,
+              line: 1,
+              column: 1,
+              patternName: 'Target Missing',
+              matchedText: scanTarget,
+              snippet: `Scan target directory or file does not exist: ${scanTarget}`,
+            },
+          ],
+        },
+        passed: false,
+      };
+    }
     targetFiles = collectScanFiles(scanTarget, options.excludeDirs, options.includeExtensions);
+  }
+
+  if (targetFiles.length === 0) {
+    return {
+      scannedFilesCount: 0,
+      violationsCount: 1,
+      violationsByFile: {
+        [scanTarget]: [
+          {
+            file: scanTarget,
+            line: 1,
+            column: 1,
+            patternName: 'Zero Files Scanned',
+            matchedText: scanTarget,
+            snippet: `No candidate files found to analyze for portability. Gate must fail closed.`,
+          },
+        ],
+      },
+      passed: false,
+    };
   }
 
   const violationsByFile: Record<string, PortabilityViolation[]> = {};

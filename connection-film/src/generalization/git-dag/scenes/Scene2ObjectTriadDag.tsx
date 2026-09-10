@@ -1,32 +1,47 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame } from 'remotion';
+import { useBeatChoreography } from 'motion-kit';
 import { GitObjectCard } from '../components/GitObjectCard';
 
-export const Scene2ObjectTriadDag: React.FC = () => {
+export interface Scene2ObjectTriadDagProps {
+  durationInFrames?: number;
+  shotBeats?: any[];
+}
+
+export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
+  shotBeats,
+}) => {
   const frame = useCurrentFrame();
 
-  // Phase interpolation within Scene 2 (frames 0 to 718 relative to Scene 2 Sequence)
-  // Beat 4: 0 - 254 (global 795 - 1049, Blob Object)
-  // Beat 5: 254 - 477 (global 1049 - 1272, Tree Object)
-  // Beat 6: 477 - 718 (global 1272 - 1513, Commit Triad Binding)
-  const isBeat4 = frame < 254;
-  const isBeat5 = frame >= 254 && frame < 477;
-  const isBeat6 = frame >= 477;
+  // Dynamic choreography derived from semantic timeline
+  // Beat 4 (Phase 1): Blob Object
+  // Beat 5 (Phase 2): Tree Object
+  // Beat 6 (Phase 3): Commit Triad Binding
+  const choreography = useBeatChoreography(shotBeats, frame, 720);
+  const isBeat4 = choreography.phase === 1;
+  const isBeat5 = choreography.phase === 2;
+  const isBeat6 = choreography.phase >= 3;
 
-  const beat4Opacity = interpolate(frame, [0, 15, 239, 254], [0, 1, 1, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const beat4Opacity = isBeat4
+    ? interpolate(choreography.beatProgress, [0, 0.06, 0.94, 1.0], [0, 1, 1, 0], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+      })
+    : 0;
 
-  const beat5Opacity = interpolate(frame, [254, 269, 462, 477], [0, 1, 1, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const beat5Opacity = isBeat5
+    ? interpolate(choreography.beatProgress, [0, 0.06, 0.94, 1.0], [0, 1, 1, 0], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+      })
+    : 0;
 
-  const beat6Opacity = interpolate(frame, [477, 492, 700, 718], [0, 1, 1, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const beat6Opacity = isBeat6
+    ? interpolate(choreography.beatProgress, [0, 0.06, 0.95, 1.0], [0, 1, 1, 1], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+      })
+    : 0;
 
   return (
     <div

@@ -92,7 +92,24 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
             orig = t.get("originalWord") or t.get("word") or ""
             if not orig or orig.strip() == "":
                 continue
+
+            # Non-spoken punctuation attaches to previous display token for display subtitle fidelity
+            is_punct = (
+                t.get("type") == "punctuation"
+                or t.get("semanticType") == "PUNCTUATION"
+                or t.get("isSpoken") is False
+                or bool(re.match(r"^[^\w\s]+$", orig))
+            )
+            if is_punct:
+                if display_tokens:
+                    display_tokens[-1]["displayWord"] += orig
+                continue
+
             spoken_units = t.get("spokenWords") or [orig]
+            spoken_units = [u for u in spoken_units if u and u.strip()]
+            if not spoken_units:
+                continue
+
             spoken_text = t.get("spokenText") or " ".join(spoken_units)
             display_tokens.append({
                 "id": t.get("id", f"w{len(display_tokens)}"),
@@ -106,8 +123,13 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
         # Fallback simple split on transcript
         words = transcript_text.strip().split()
         for idx, w in enumerate(words):
+            # If word is standalone punctuation, attach to previous
+            if re.match(r"^[^\w\s]+$", w) and display_tokens:
+                display_tokens[-1]["displayWord"] += w
+                continue
+
             display_tokens.append({
-                "id": f"w{idx}",
+                "id": f"w{len(display_tokens)}",
                 "displayWord": w,
                 "spokenUnits": [w],
                 "spokenText": w,
@@ -119,14 +141,22 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
         return []
 
     # 3. Build token sequence for CTC aligner
-    # Flatten all spoken tokens
+    # Flatten all spoken units with valid phonetic characters (filtering out empty/punctuation)
     all_spoken_units = []
     for dt in display_tokens:
+        dt_spoken = []
         for u in dt["spokenUnits"]:
-            all_spoken_units.append({
-                "parentDisplay": dt,
-                "unitText": u,
-            })
+            roman = strip_vietnamese_diacritics(u)
+            clean = re.sub(r"[^a-z']", "", roman)
+            if clean:
+                item = {
+                    "parentDisplay": dt,
+                    "unitText": u,
+                    "clean": clean,
+                }
+                all_spoken_units.append(item)
+                dt_spoken.append(item)
+        dt["filteredSpokenUnits"] = dt_spoken
 
     # Prepare characters for MMS_FA
     bundle, model = load_mms_model(device)
@@ -141,18 +171,12 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
     emission = emissions[0].cpu().detach()
     num_frames = emission.shape[0]
 
-    # Map words to char targets
+    # Map words to char targets without ghost 'a' artifacts
     char_list = []
     unit_char_spans = []
 
     for item in all_spoken_units:
-        raw_unit = item["unitText"]
-        # Strip diacritics and keep only a-z and apostrophe
-        roman = strip_vietnamese_diacritics(raw_unit)
-        clean = re.sub(r"[^a-z']", "", roman)
-        if not clean:
-            clean = "a" # minimum anchor
-
+        clean = item["clean"]
         start_c = len(char_list)
         for ch in clean:
             if ch in dictionary:
@@ -205,8 +229,8 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
                 end_t = round(max((last_frame + 1) * time_per_frame, start_t + 0.08), 3)
             else:
                 # Proportional fallback
-                frac_start = idx / len(all_spoken_units)
-                frac_end = (idx + 1) / len(all_spoken_units)
+                frac_start = idx / max(len(all_spoken_units), 1)
+                frac_end = (idx + 1) / max(len(all_spoken_units), 1)
                 start_t = round(frac_start * total_duration, 3)
                 end_t = round(frac_end * total_duration, 3)
 
@@ -239,7 +263,9 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
     reconciled_words = []
 
     for dt in display_tokens:
-        sub_count = len(dt["spokenUnits"])
+        sub_count = len(dt.get("filteredSpokenUnits", []))
+        if sub_count == 0:
+            continue
         matched_units = unit_timings[unit_cursor : unit_cursor + sub_count]
         unit_cursor += sub_count
 

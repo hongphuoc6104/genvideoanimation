@@ -8,6 +8,67 @@ export interface PVDiagramProps {
   showLabels?: boolean;
 }
 
+export interface PVPointResult {
+  p1: { x: number; y: number };
+  p2: { x: number; y: number };
+  p3: { x: number; y: number };
+  p4: { x: number; y: number };
+  pCtrl: { x: number; y: number };
+  p3Bottom: { x: number; y: number };
+  tracerX: number;
+  tracerY: number;
+  phaseLabel: string;
+}
+
+export function calculatePVPoint(
+  cycleProgress: number,
+  originX: number = 90,
+  originY: number = 360
+): PVPointResult {
+  // Key thermodynamic cycle coordinates in SVG space
+  const p1 = { x: originX + 50, y: originY - 240 };
+  const p2 = { x: originX + 140, y: originY - 240 };
+  const p3 = { x: originX + 320, y: originY - 90 };
+  const p4 = { x: originX + 50, y: originY - 40 };
+
+  const pCtrl = { x: originX + 220, y: originY - 180 };
+  const p3Bottom = { x: p3.x, y: p4.y };
+
+  let tracerX = p1.x;
+  let tracerY = p1.y;
+  let phaseLabel = 'Pha 1: Nạp hơi cao áp vào xi-lanh';
+
+  if (cycleProgress < 0.25) {
+    const t = cycleProgress / 0.25;
+    tracerX = p1.x + t * (p2.x - p1.x);
+    tracerY = p1.y;
+    phaseLabel = 'Pha 1: Nạp hơi cao áp (P cao, giãn nở)';
+  } else if (cycleProgress < 0.60) {
+    const t = (cycleProgress - 0.25) / 0.35;
+    const invT = 1 - t;
+    tracerX = invT * invT * p2.x + 2 * invT * t * pCtrl.x + t * t * p3.x;
+    tracerY = invT * invT * p2.y + 2 * invT * t * pCtrl.y + t * t * p3.y;
+    phaseLabel = 'Pha 2: Giãn nở đoạn nhiệt sinh công hữu ích';
+  } else if (cycleProgress < 0.75) {
+    const t = (cycleProgress - 0.60) / 0.15;
+    tracerX = p3.x;
+    tracerY = p3.y + t * (p3Bottom.y - p3.y);
+    phaseLabel = 'Pha 3: Xả hơi sang bình ngưng riêng';
+  } else if (cycleProgress < 0.90) {
+    const t = (cycleProgress - 0.75) / 0.15;
+    tracerX = p3Bottom.x - t * (p3Bottom.x - p4.x);
+    tracerY = p4.y;
+    phaseLabel = 'Pha 4: Hơi ngưng tụ tạo chân không hồi lưu';
+  } else {
+    const t = (cycleProgress - 0.90) / 0.10;
+    tracerX = p4.x;
+    tracerY = p4.y - t * (p4.y - p1.y);
+    phaseLabel = 'Chu trình khép kín: Bắt đầu nạp hơi mới';
+  }
+
+  return { p1, p2, p3, p4, pCtrl, p3Bottom, tracerX, tracerY, phaseLabel };
+}
+
 export const PVDiagram: React.FC<PVDiagramProps> = ({
   cycleProgress,
   width = 520,
@@ -19,43 +80,11 @@ export const PVDiagram: React.FC<PVDiagramProps> = ({
   const axisLengthX = 360;
   const axisLengthY = 280;
 
-  // Key thermodynamic cycle coordinates in SVG space
-  // Point 1: Top-left (High P, Low V) - Start of steam admission
-  const p1 = { x: originX + 50, y: originY - 240 };
-  // Point 2: Top-mid (High P, Cut-off V) - Steam valve cut-off
-  const p2 = { x: originX + 140, y: originY - 240 };
-  // Point 3: Bottom-right (Low P, Max V) - End of expansion stroke
-  const p3 = { x: originX + 320, y: originY - 90 };
-  // Point 4: Bottom-left (Vacuum P, Low V) - Condenser evacuation
-  const p4 = { x: originX + 50, y: originY - 40 };
-
-  // Calculate current indicator dot position along cycle
-  let tracerX = p1.x;
-  let tracerY = p1.y;
-  let phaseLabel = 'Pha 1: Nạp hơi cao áp';
-
-  if (cycleProgress < 0.25) {
-    const t = cycleProgress / 0.25;
-    tracerX = p1.x + t * (p2.x - p1.x);
-    tracerY = p1.y;
-    phaseLabel = 'Pha 1: Nạp hơi cao áp (P cao)';
-  } else if (cycleProgress < 0.65) {
-    const t = (cycleProgress - 0.25) / 0.4;
-    // Curved adiabatic expansion from p2 to p3
-    tracerX = p2.x + t * (p3.x - p2.x);
-    tracerY = p2.y + Math.pow(t, 0.7) * (p3.y - p2.y);
-    phaseLabel = 'Pha 2: Giãn nở đoạn nhiệt sinh công';
-  } else if (cycleProgress < 0.8) {
-    const t = (cycleProgress - 0.65) / 0.15;
-    tracerX = p3.x - t * (p3.x - (originX + 320));
-    tracerY = p3.y + t * (p4.y - p3.y);
-    phaseLabel = 'Pha 3: Xả hơi sang bình ngưng';
-  } else {
-    const t = (cycleProgress - 0.8) / 0.2;
-    tracerX = (originX + 320) - t * ((originX + 320) - p4.x);
-    tracerY = p4.y - t * (p4.y - p1.y);
-    phaseLabel = 'Pha 4: Hút chân không hồi lưu';
-  }
+  const { p1, p2, p3, p4, pCtrl, p3Bottom, tracerX, tracerY, phaseLabel } = calculatePVPoint(
+    cycleProgress,
+    originX,
+    originY
+  );
 
   return (
     <div style={{ position: 'relative', width, height }}>

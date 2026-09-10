@@ -27,8 +27,9 @@ export const BranchTag: React.FC<BranchTagProps> = ({
     config: { damping: 14, stiffness: 85 },
   });
 
-  const tagWidth = Math.max(160, name.length * 18 + 40);
-  const tagHeight = 54;
+  const displayText = isHead ? `HEAD -> ${name}` : name;
+  const tagWidth = Math.max(180, displayText.length * 20 + 56);
+  const tagHeight = 60;
 
   return (
     <g transform={`translate(${x}, ${y}) scale(${scale})`}>
@@ -44,8 +45,8 @@ export const BranchTag: React.FC<BranchTagProps> = ({
         y={-16 - tagHeight}
         width={tagWidth}
         height={tagHeight}
-        rx={10}
-        ry={10}
+        rx={12}
+        ry={12}
         fill={color}
         stroke="#FFFFFF"
         strokeWidth={2}
@@ -61,7 +62,7 @@ export const BranchTag: React.FC<BranchTagProps> = ({
         fontWeight="bold"
         fontFamily="monospace"
       >
-        {isHead ? `HEAD -> ${name}` : name}
+        {displayText}
       </text>
     </g>
   );

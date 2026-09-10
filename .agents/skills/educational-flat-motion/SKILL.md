@@ -81,10 +81,10 @@ Every production created or modified under this skill MUST strictly obey the fol
 
 ### Rule 3: `PROGRESSIVE_DISCLOSURE`
 - When presenting multi-item frameworks, taxonomies, comparison matrices, or multi-step procedures:
-  1. **Beat 1 (Overview)**: Briefly establish the taxonomy frame or category container (1.0–2.0s).
-  2. **Beats 2..N (Individual Focus)**: Walk through each item one by one. The active item expands to full-screen prominence with its hero visual and detailed body text (>= 34px). Previous items exit or collapse to small indicator dots/icons.
-  3. **Beat N+1 (Synthesis/Recap)**: Display the synthesized summary or comparison matrix once all individual items have been taught.
-- Viewers must never be forced to parse un-narrated elements ahead of time.
+  1. **Beat 1 (Overview)**: Briefly establish the taxonomy frame or relational container (1.0–2.0s).
+  2. **Beats 2..N (Individual Focus)**: Walk through each item one by one. The active item expands to full prominence through **active relational visual mechanics** (kinematic diagrams, state machines, topological transformations) rather than walls of text. Text is limited to concise anchors and labels (>= 30px floor, >= 38px cards). Previous items exit or collapse to small indicator icons/nodes.
+  3. **Beat N+1 (Synthesis/Recap)**: Display the synthesized summary, graph, or comparison matrix once all individual items have been taught.
+- Viewers must never be forced to parse un-narrated elements ahead of time. Slide text-card monoculture is strictly forbidden.
 
 ### Rule 4: `MOBILE_FIRST_READABILITY`
 - **Dual-Render Requirement**: Every production render must generate both `1080x1920` (master MP4) and `360x640` (mobile preview MP4).
@@ -322,14 +322,14 @@ To guarantee `NO_SELF_CERTIFICATION` and maintain production velocity, agents ar
                      Phase 12: Independent Quality Rubric Audit (>= 4.5 / 5.0)
 ```
 
-### Phase 1 — Source Content Mapping (`source-content-map.json`)
+### Phase 1 — Source Content Mapping & Factual Claims Ledger
 1. Analyze raw source material (academic paper, syllabus, or technical brief).
 2. Extract all core concepts, definitions, taxonomies, and pedagogical arguments.
-3. Map every single concept to at least one semantic beat in `source-content-map.json`.
-4. **Invariant**: Coverage must equal **100%**. Unauthorized omission or over-summarization of difficult concepts is strictly forbidden.
+3. Map every single concept to at least one semantic beat in `source-content-map.json` (Coverage = **100%**).
+4. Author authoritative `factual-claims.json` ledger linking each core scientific/technical assertion to primary literature, exact citation indices, boundary conditions of validity, simplified models, and verification questions.
 
 ### Phase 2 — Vietnamese Narration & Role-Aware Pauses
-1. Write the narration script in natural, idiomatic academic Vietnamese (`vi-VN`).
+1. Write the narration script in natural, idiomatic academic Vietnamese (`vi-VN`) with Smart Punctuation preservation.
 2. Transcribe foreign/technical tokens into phonetic Vietnamese where necessary while keeping visible on-screen terms in professional bilingual format (e.g. Scopus, Research Gap).
 3. Apply the **Role-Aware Natural Pause Policy**:
    | Pause Role | Duration Range | Narrative Function | Example |
@@ -341,16 +341,22 @@ To guarantee `NO_SELF_CERTIFICATION` and maintain production velocity, agents ar
    | **Payoff / Epiphany**| 0.30s – 0.65s| Emphasizing key takeaway or resolution | After "lấp đầy trọn vẹn khoảng trống" |
 4. **Dead-Air Threshold**: Unmotivated silence exceeding `0.85s` is flagged as an error. Intentional pauses matching declared transition boundaries are whitelisted.
 
-### Phase 3 — VieNeu-TTS Voice Synthesis & Alignment
+### Phase 3 — Animatic 360p Draft Review
+1. Render a fast, low-cost draft animatic at 360x640 with scratch voice / timing cues.
+2. Review visual pacing, spatial blocking, and pedagogical clarity before triggering full TTS synthesis.
+3. Verify that visual mechanics clearly explain the concepts without requiring audio explanations to carry missing visual context.
+
+### Phase 4 — VieNeu-TTS Voice Synthesis & MMS Forced Alignment
 1. Synthesize narration takes using `VieNeu-TTS` (`GENVIDEO_ADAM_PROFILE`, voice `"Adam"`).
 2. Forbid default routing to Kokoro (`am_adam`); Kokoro is reserved for explicit fallback only.
-3. Run forced alignment to generate word-level timestamp tokens (`token-reconciliation.json`).
+3. Filter punctuation out of MMS acoustic targets while attaching punctuation marks to display subtitles, preventing ghost character injection and alignment skew.
+4. Run forced alignment to generate word-level timestamp tokens (`token-reconciliation.json`).
 
-### Phase 4 — Semantic Timeline Compilation (`semantic-timeline.json`)
-1. Compile the master timeline from narration tokens and role-aware pauses.
+### Phase 5 — Semantic Timeline Compilation & Dynamic Beat Choreography
+1. Compile the master timeline from narration tokens and role-aware pauses into `semantic-timeline.json`.
 2. Calculate exact `startSec`, `endSec`, `startFrame`, and `endFrame` (at 30 fps) for every beat.
 3. Assign `visualIntent`, `primaryObject`, `cameraIntent`, `transitionIntent`, and `sfxIntent`.
-4. Ensure strictly monotonic frame progression with zero overlaps or gaps.
+4. Implement scenes via `useBeatChoreography(shotBeats, currentFrame)` in `packages/motion-kit` to dynamically adapt intra-beat progression and phase states without hardcoded frame numbers.
 
 ### Phase 5 — PREMIXED Master Audio DSP & Measured Manifest
 1. Mix voiceover audio and SFX cues into a single stereo master file: `scopus_master_audio.wav`.

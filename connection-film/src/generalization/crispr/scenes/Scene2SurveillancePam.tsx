@@ -1,5 +1,6 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { useBeatChoreography } from 'motion-kit';
 import { DnaDoubleHelix } from '../components/DnaDoubleHelix';
 import { Cas9ProteinRig } from '../components/Cas9ProteinRig';
 import { GuideRnaStrand } from '../components/GuideRnaStrand';
@@ -8,41 +9,41 @@ import { CRISPR_THEME } from '../types';
 
 interface Scene2SurveillancePamProps {
   durationInFrames?: number;
+  shotBeats?: any[];
 }
 
 export const Scene2SurveillancePam: React.FC<Scene2SurveillancePamProps> = ({
   durationInFrames = 840,
+  shotBeats,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1 (frames 0 - 270): Sliding along DNA searching for PAM
-  // Phase 2 (frames 270 - 540): PAM motif 5'-NGG-3' recognition & anchor clamp
-  // Phase 3 (frames 540 - 840): Unwinding and 20-nt guide RNA R-loop hybridization
-
-  const phase = frame < 270 ? 1 : frame < 540 ? 2 : 3;
+  // Dynamic beat choreography derived from semantic timeline
+  // Beat 1: Sliding along DNA searching for PAM
+  // Beat 2: PAM motif 5'-NGG-3' recognition & anchor clamp
+  // Beat 3: Unwinding and 20-nt guide RNA R-loop hybridization
+  const choreography = useBeatChoreography(shotBeats, frame, durationInFrames);
+  const phase = choreography.phase;
 
   // Cas9 position tracking
-  const cas9X = interpolate(frame, [0, 270, 540], [260, 560, 560], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const cas9X = phase === 1
+    ? interpolate(choreography.beatProgress, [0, 1], [260, 560], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
+    : 560;
 
   const clampSpring = spring({
-    frame: Math.max(0, frame - 250),
+    frame: phase === 1 ? 0 : Math.round(choreography.beatProgress * 60),
     fps,
     config: { damping: 14, stiffness: 90 },
   });
 
-  const unwindProgress = interpolate(frame, [480, 720], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const unwindProgress = phase < 3
+    ? (phase === 2 ? choreography.getEventProgress(0.7, 1.0) : 0)
+    : choreography.getEventProgress(0.0, 0.6);
 
-  const hybridizeProgress = interpolate(frame, [540, 800], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const hybridizeProgress = phase < 3
+    ? 0
+    : choreography.getEventProgress(0.1, 0.85);
 
   const cardSpring = spring({
     frame: frame % 270,

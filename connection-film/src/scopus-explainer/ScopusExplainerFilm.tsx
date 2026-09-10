@@ -3,6 +3,7 @@ import { Audio, Sequence, staticFile } from 'remotion';
 import { KaraokeCaptions } from 'caption-kit';
 import captionsData from './subtitles/captions.json';
 import shotSpecData from './shot-spec.json';
+import semanticTimelineData from './semantic-timeline.json';
 import { Scene1ProblemScopus } from './scenes/Scene1ProblemScopus';
 import { Scene2GapTaxonomy } from './scenes/Scene2GapTaxonomy';
 import { Scene3ProcessFunnel } from './scenes/Scene3ProcessFunnel';
@@ -13,7 +14,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 
-const SCENE_COMPONENTS: Record<string, React.FC> = {
+const SCENE_COMPONENTS: Record<string, React.FC<{ durationInFrames?: number; shotBeats?: any[] }>> = {
   shot_01: Scene1ProblemScopus,
   shot_02: Scene2GapTaxonomy,
   shot_03: Scene3ProcessFunnel,
@@ -26,6 +27,7 @@ export const SHOTS = shotSpecData.shots.map((shot: any) => ({
   id: shot.id,
   startFrame: shot.startFrame,
   durationInFrames: shot.endFrame - shot.startFrame,
+  beats: (semanticTimelineData.beats || []).filter((b: any) => b.shotId === shot.id),
   component: SCENE_COMPONENTS[shot.id] || Scene1ProblemScopus,
 }));
 
@@ -62,7 +64,7 @@ export const ScopusExplainerFilm: React.FC = () => {
             from={shot.startFrame}
             durationInFrames={shot.durationInFrames}
           >
-            <Component />
+            <Component durationInFrames={shot.durationInFrames} shotBeats={shot.beats} />
           </Sequence>
         );
       })}

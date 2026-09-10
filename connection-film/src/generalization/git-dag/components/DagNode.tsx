@@ -67,12 +67,13 @@ export const DagNode: React.FC<DagNodeProps> = ({
       {/* Commit Short SHA Hash */}
       <text
         x={0}
-        y={label ? -6 : 10}
+        y={label ? -8 : 10}
         textAnchor="middle"
         fill="#FFFFFF"
-        fontSize={32}
+        fontSize={30}
         fontWeight="bold"
         fontFamily="monospace"
+        letterSpacing="-1px"
       >
         {hash.slice(0, 7)}
       </text>
@@ -81,11 +82,11 @@ export const DagNode: React.FC<DagNodeProps> = ({
       {label && (
         <text
           x={0}
-          y={26}
+          y={28}
           textAnchor="middle"
           fill="#E0F2FE"
           fontSize={30}
-          fontWeight="600"
+          fontWeight="bold"
           fontFamily="system-ui, sans-serif"
         >
           {label}

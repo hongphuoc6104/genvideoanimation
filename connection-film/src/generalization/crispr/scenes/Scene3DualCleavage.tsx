@@ -1,5 +1,6 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { useBeatChoreography } from 'motion-kit';
 import { DnaDoubleHelix } from '../components/DnaDoubleHelix';
 import { Cas9ProteinRig } from '../components/Cas9ProteinRig';
 import { CleavageScissors } from '../components/CleavageScissors';
@@ -8,32 +9,35 @@ import { CRISPR_THEME } from '../types';
 
 interface Scene3DualCleavageProps {
   durationInFrames?: number;
+  shotBeats?: any[];
 }
 
 export const Scene3DualCleavage: React.FC<Scene3DualCleavageProps> = ({
   durationInFrames = 750,
+  shotBeats,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1 (frames 0 - 270): Activation of catalytic domains (RuvC & HNH)
-  // Phase 2 (frames 270 - 540): Dual strand scission 3bp upstream of PAM (DSB)
-  // Phase 3 (frames 540 - 750): Separation of blunt ends & cellular alarm activation
+  // Dynamic beat choreography derived from semantic timeline
+  // Beat 1: Activation of catalytic domains (RuvC & HNH)
+  // Beat 2: Dual strand scission 3bp upstream of PAM (DSB)
+  // Beat 3: Separation of blunt ends & cellular alarm activation
+  const choreography = useBeatChoreography(shotBeats, frame, durationInFrames);
+  const phase = choreography.phase;
 
-  const phase = frame < 270 ? 1 : frame < 540 ? 2 : 3;
+  const cutProgress = phase === 1
+    ? 0
+    : phase === 2
+    ? choreography.getEventProgress(0.05, 0.85)
+    : 1;
 
-  const cutProgress = interpolate(frame, [250, 420], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-
-  const separationProgress = interpolate(frame, [420, 680], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const separationProgress = phase < 3
+    ? 0
+    : choreography.getEventProgress(0.05, 0.85);
 
   const cardSpring = spring({
-    frame: frame % 270,
+    frame: Math.round(choreography.beatProgress * 150),
     fps,
     config: { damping: 14, stiffness: 85 },
   });

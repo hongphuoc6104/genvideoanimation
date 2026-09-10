@@ -32,6 +32,11 @@
         "displayText": "Tại sao bài báo có số liệu tốt phương pháp mạnh vẫn bị Desk Reject ngay từ vòng đầu",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "manuscript_rejection_stamp_impact",
+        "transformationType": "stamp_impact_compression",
+        "coreMechanism": "desk_reject_paradox"
       }
     },
     {
@@ -58,6 +63,11 @@
         "displayText": "Nguyên nhân cốt lõi Phần mở đầu không chứng minh được khoảng trống nghiên cứu một cách thuyết phục",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "magnifying_void_highlight",
+        "transformationType": "void_revelation_expansion",
+        "coreMechanism": "research_gap_detection"
       }
     },
     {
@@ -84,6 +94,11 @@
         "displayText": "Chuẩn Scopus là chuẩn đối thoại học thuật Vấn đề rõ tổng quan chọn lọc lập luận có căn cứ",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "dialogue_network_connectivity",
+        "transformationType": "node_edge_activation",
+        "coreMechanism": "academic_dialogue_graph"
       }
     },
     {
@@ -110,6 +125,11 @@
         "displayText": "Một Gap chuẩn phải trả lời ba câu hỏi Đã biết gì Chưa thỏa đáng điểm nào Đóng góp gì mới",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "golden_triangle_inscribed_flow",
+        "transformationType": "triangular_prism_rotation",
+        "coreMechanism": "three_core_questions_hierarchy"
       }
     },
     {
@@ -142,6 +162,11 @@
         "displayText": "Và sở hữu bốn thuộc tính Định vị Chứng cứ Giải thích và Khả nghiên cứu theo mô hình Swales C A R S",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "four_pillars_structural_support",
+        "transformationType": "pillar_rise_elevation",
+        "coreMechanism": "cars_four_attributes"
       }
     },
     {
@@ -168,6 +193,11 @@
         "displayText": "Cánh cửa thứ nhất Gap Lý thuyết khi lý thuyết hiện hành chưa giải thích đủ cơ chế trung gian hay điều tiết",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_theory_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "theoretical_gap_portal"
       }
     },
     {
@@ -194,6 +224,11 @@
         "displayText": "Cánh cửa thứ hai Gap Thực nghiệm khi các nghiên cứu trước cho kết quả mâu thuẫn chưa nhất quán",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_empirical_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "empirical_gap_portal"
       }
     },
     {
@@ -220,6 +255,11 @@
         "displayText": "Cánh cửa thứ ba Gap Bối cảnh đặc thù văn hóa thể chế làm thay đổi cơ chế không chỉ đơn thuần đổi địa bàn",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_contextual_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "contextual_gap_portal"
       }
     },
     {
@@ -246,6 +286,11 @@
         "displayText": "Cánh cửa thứ tư Gap Phương pháp hạn chế về đo lường thiết kế mẫu dữ liệu dọc hoặc sai lệch C M V",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_methodological_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "methodological_gap_portal"
       }
     },
     {
@@ -278,6 +323,11 @@
         "displayText": "Cánh cửa thứ năm Gap Ứng dụng khi hàm ý chính sách và quản trị gắn liền với đóng góp học thuật",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_practical_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "practical_gap_portal"
       }
     },
     {
@@ -304,6 +354,11 @@
         "displayText": "Bước một Dùng phễu lọc thu hẹp từ chủ đề rộng sang dòng nghiên cứu chuyên sâu có trọng tâm",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "conical_funnel_filtration",
+        "transformationType": "cascade_particle_filtering",
+        "coreMechanism": "research_funnel_pipeline"
       }
     },
     {
@@ -330,6 +385,11 @@
         "displayText": "Bước hai Lập bản đồ tri thức bốn trục để nhận diện điểm mâu thuẫn và hạn chế lặp lại có hệ thống",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "matrix_radar_orthogonal_grid",
+        "transformationType": "radar_sweep_clustering",
+        "coreMechanism": "knowledge_matrix_mapping"
       }
     },
     {
@@ -356,6 +416,11 @@
         "displayText": "Bước ba Lọc hạn chế qua ba điều kiện liên hệ học thuật cốt lõi lặp lại nhiều lần và khả thi kiểm định",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "three_condition_concentric_sieve",
+        "transformationType": "sieve_particle_separation",
+        "coreMechanism": "three_conditions_filter"
       }
     },
     {
@@ -382,6 +447,11 @@
         "displayText": "Bước bốn Kiến tạo Gap Statement ba tầng Tầng Nền móng Tầng Vấn đề và Tầng Định vị giải pháp",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "three_tier_vertical_assembly",
+        "transformationType": "tier_docking_alignment",
+        "coreMechanism": "three_tier_architecture"
       }
     },
     {
@@ -414,6 +484,11 @@
         "displayText": "Áp dụng công thức biến số chuẩn A B C D E M F để thể hiện sự kế thừa học thuật có chọn lọc",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "variable_circuit_flow",
+        "transformationType": "circuit_trace_conduction",
+        "coreMechanism": "variable_formula_derivation"
       }
     },
     {
@@ -440,6 +515,11 @@
         "displayText": "Nắm chắc Template bốn câu chuẩn quốc tế Câu nền tảng Câu điểm chưa rõ Câu ý nghĩa và Câu định vị",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "four_quadrant_template_alignment",
+        "transformationType": "modular_slotting_insertion",
+        "coreMechanism": "four_sentence_scaffold"
       }
     },
     {
@@ -466,6 +546,11 @@
         "displayText": "Case study Ngân hàng số Mô hình TAM đã xác nhận vai trò của tính hữu ích và dễ sử dụng",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "tam_directed_acyclic_graph",
+        "transformationType": "node_connection_flow",
+        "coreMechanism": "technology_acceptance_baseline"
       }
     },
     {
@@ -492,6 +577,11 @@
         "displayText": "Dẫu vậy cơ chế từ chất lượng dịch vụ điện tử sang ý định tiếp tục dùng vẫn chưa nhất quán tại thị trường mới nổi",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "conflicting_node_rupture",
+        "transformationType": "tension_spark_divergence",
+        "coreMechanism": "conflict_context_tension"
       }
     },
     {
@@ -524,6 +614,11 @@
         "displayText": "Nghiên cứu mới kiểm định trung gian Hài lòng và điều tiết Rủi ro cảm nhận lấp đầy trọn vẹn khoảng trống",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "extended_network_bridge",
+        "transformationType": "mediator_moderator_synthesis",
+        "coreMechanism": "network_equilibrium_restoration"
       }
     },
     {
@@ -550,6 +645,11 @@
         "displayText": "Tuyệt đối tránh Lỗi một Tuyên bố thiếu bằng chứng và Lỗi hai Đồng nhất bối cảnh mới với tính mới",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "hazard_barrier_boundary",
+        "transformationType": "warning_beacon_pulse",
+        "coreMechanism": "pitfall_1_2_detection"
       }
     },
     {
@@ -576,6 +676,11 @@
         "displayText": "Tránh Lỗi ba Liệt kê nguồn thay vì tổng hợp và Lỗi bốn Tách rời khoảng trống khỏi thiết kế phương pháp",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "hazard_barrier_boundary",
+        "transformationType": "warning_beacon_pulse",
+        "coreMechanism": "pitfall_3_4_detection"
       }
     },
     {
@@ -602,6 +707,11 @@
         "displayText": "Tránh hai cực đoan không tuyên bố vĩ mô rỗng tuếch cũng đừng vi mô hóa địa bàn mà thiếu giá trị lý thuyết",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "fulcrum_balance_tilt",
+        "transformationType": "equilibrium_oscillation_damping",
+        "coreMechanism": "two_extremes_balance"
       }
     },
     {
@@ -628,6 +738,11 @@
         "displayText": "Research Gap là nền tảng của tính mới Chúc bạn xây dựng lập luận vững chắc và công bố thành công trên Scopus",
         "layout": "bottom",
         "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "concentric_seal_radiance",
+        "transformationType": "seal_emboss_expansion",
+        "coreMechanism": "scopus_publication_axiom"
       }
     }
   ]

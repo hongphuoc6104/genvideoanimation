@@ -117,7 +117,10 @@ export function validateAllGeneralizationProjects() {
 
     // Manifest loudness & peak
     const manifestPath = path.join(project.manifestDir, "audio/audio-manifest.json");
-    if (fs.existsSync(manifestPath)) {
+    if (!fs.existsSync(manifestPath)) {
+      errors.push(`[${project.id}] Audio manifest missing at ${manifestPath}`);
+      console.error(`  ❌ Audio manifest missing: ${manifestPath}`);
+    } else {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
       const lufs = manifest.output?.lufs ?? manifest.integratedLufs;
       const peak = manifest.output?.truePeakDbfs ?? manifest.truePeakDbfs;

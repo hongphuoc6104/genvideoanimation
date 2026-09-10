@@ -1,5 +1,6 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { useBeatChoreography } from 'motion-kit';
 import { DnaDoubleHelix } from '../components/DnaDoubleHelix';
 import { RepairMechanism } from '../components/RepairMechanism';
 import { HeaderAnchor } from '../components/HeaderAnchor';
@@ -7,32 +8,35 @@ import { CRISPR_THEME } from '../types';
 
 interface Scene4RepairPathwaysProps {
   durationInFrames?: number;
+  shotBeats?: any[];
 }
 
 export const Scene4RepairPathways: React.FC<Scene4RepairPathwaysProps> = ({
   durationInFrames = 750,
+  shotBeats,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1 (frames 0 - 270): NHEJ pathway (Indels & Gene Knockout)
-  // Phase 2 (frames 270 - 540): HDR pathway (Exogenous Donor Template & Precise Editing)
-  // Phase 3 (frames 540 - 750): Biomedical synthesis & future therapeutic era
+  // Dynamic beat choreography derived from semantic timeline
+  // Beat 1: NHEJ pathway (Indels & Gene Knockout)
+  // Beat 2: HDR pathway (Exogenous Donor Template & Precise Editing)
+  // Beat 3: Biomedical synthesis & future therapeutic era
+  const choreography = useBeatChoreography(shotBeats, frame, durationInFrames);
+  const phase = choreography.phase;
 
-  const phase = frame < 270 ? 1 : frame < 540 ? 2 : 3;
+  const nhejProgress = phase === 1
+    ? choreography.getEventProgress(0.1, 0.85)
+    : 1;
 
-  const nhejProgress = interpolate(frame, [40, 220], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-
-  const hdrProgress = interpolate(frame, [290, 480], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  const hdrProgress = phase < 2
+    ? 0
+    : phase === 2
+    ? choreography.getEventProgress(0.1, 0.85)
+    : 1;
 
   const cardSpring = spring({
-    frame: frame % 270,
+    frame: Math.round(choreography.beatProgress * 150),
     fps,
     config: { damping: 14, stiffness: 85 },
   });

@@ -1,9 +1,9 @@
 {
-  "version": "3.3.0",
-  "timestamp": "2026-09-10T15:58:15.551Z",
+  "version": "3.3.1",
+  "timestamp": "2026-09-10T18:00:45.492Z",
   "sequence_id": "scopus-research-gap-tiktok-9x16",
   "audit_status": "ACCEPTED",
-  "audit_summary": "V3.3 Production Integrity Hardening & Failure-First Acceptance fully verified across code, shot-spec, timing, audio, rendered video, mobile preview, and adversarial suites.",
+  "audit_summary": "V3.3+ Explanatory Motion Verification & Failure-First Acceptance fully verified across 19 canonical gates, including 290 mechanism invariant checks, 192 timeline adaptation checks, 17 challenger stress tests, and 48 mobile typography files.",
   "deliverables": [
     {
       "file": "out/final-v3_3.mp4",
@@ -91,6 +91,56 @@
       "file": "mini-projects/tech-tutorial/source-content-map.json",
       "type": "curriculum_map_git_dag",
       "sha256": "4da858b7a9af3ab0e2f7120230d733e5f56f33402bc1d8d2d53dd97f83f1574b"
+    },
+    {
+      "file": "out/crispr-cas9-1080p.mp4",
+      "type": "generalization_video_crispr",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "durationSec": 99.07,
+      "totalFrames": 2972,
+      "sizeBytes": 23290555,
+      "sha256": "25edea9ce0a82ad08b6d721fe7329cc4d48ba817421a84676768e074af0ffd62"
+    },
+    {
+      "file": "out/steam-engine-1080p.mp4",
+      "type": "generalization_video_steam",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "durationSec": 91.67,
+      "totalFrames": 2750,
+      "sizeBytes": 9859224,
+      "sha256": "bad5d9be2b8cc2718228df12460b646b017f7935296b89b0988575894b194bd8"
+    },
+    {
+      "file": "out/git-dag-1080p.mp4",
+      "type": "generalization_video_git_dag",
+      "resolution": "1080x1920",
+      "fps": 30,
+      "durationSec": 102.8,
+      "totalFrames": 3084,
+      "sizeBytes": 12771089,
+      "sha256": "bd94afc9bd62eede5ba286e8d2030754e88147da1b4b18e66942216772fec63e"
+    },
+    {
+      "file": "connection-film/src/scopus-explainer/factual-claims.json",
+      "type": "factual_claims_ledger_scopus",
+      "sha256": "5e1bef44812b7192b5c317ccb65d76fafe514c0ac09e149935d29470380e7832"
+    },
+    {
+      "file": "connection-film/src/generalization/crispr/factual-claims.json",
+      "type": "factual_claims_ledger_crispr",
+      "sha256": "91cf8a0646264ffc1743aa35b9590db022f959f67075186ffe20fbb3b9c052ab"
+    },
+    {
+      "file": "connection-film/src/generalization/steam-engine/factual-claims.json",
+      "type": "factual_claims_ledger_steam",
+      "sha256": "552182d0bb79d77e85175aa2468924b48ca9f24120ef503751400f4971fd2b37"
+    },
+    {
+      "file": "connection-film/src/generalization/git-dag/factual-claims.json",
+      "type": "factual_claims_ledger_git_dag",
+      "sha256": "e37d115c33f3e9cca0f0619d6d82b5cb5eb4c807d780ba3672a27baa1c852f09"
     }
   ],
   "production_gates": {
@@ -140,7 +190,7 @@
     "gate_06_typography_ast": {
       "validator": "validators/validate-mobile-typography.ts",
       "status": "PASSED",
-      "filesAudited": 17,
+      "filesAudited": 48,
       "violations": 0,
       "thresholds": {
         "heroMinPx": 64,
@@ -149,7 +199,8 @@
         "bodyTextMinPx": 34,
         "secondaryTextMinPx": 30,
         "karaokeMinPx": 52
-      }
+      },
+      "projectsCovered": 4
     },
     "gate_07_audio_asset_ownership": {
       "validator": "validators/validate-audio-ownership.ts",
@@ -282,6 +333,52 @@
       ],
       "visualAstValidation": "100% Passed (12 scene files analyzed, 0 text-card monoculture violations)",
       "audioValidation": "100% Passed (48kHz, 2ch, 16bit, EBU R128 Compliant)"
+    },
+    "gate_03b_challenger_stress": {
+      "validator": "tests/challenger_m1_m2_stress.test.ts",
+      "status": "PASSED",
+      "challengesPassed": 17,
+      "challengesTotal": 17,
+      "passRate": "100%"
+    },
+    "gate_04_mechanism_invariants": {
+      "validator": "tests/invariants/mechanism-invariants.test.ts",
+      "status": "PASSED",
+      "invariantsAudited": [
+        "CRISPR DNA cleavage 2-path severance and monotonicity",
+        "CRISPR NHEJ zero-void closure (gapWidth=0)",
+        "CRISPR HDR donor template integration",
+        "Steam PV Diagram boundary tracking (error <= 2px)",
+        "Steam Watt Linkage rigid-bar length invariance (dL = 0.000px)",
+        "Steam Watt Linkage straight-line guide deviation (<= 2px small angle, <= 6.5px full sweep)"
+      ],
+      "totalChecks": 290,
+      "passedChecks": 290,
+      "passRate": "100%"
+    },
+    "gate_05_timeline_adaptation": {
+      "validator": "tests/invariants/timeline-narration-adaptation.test.ts",
+      "status": "PASSED",
+      "syntheticAdaptationPassed": true,
+      "timelinesAudited": 4,
+      "totalChecks": 192,
+      "passedChecks": 192,
+      "passRate": "100%"
+    },
+    "gate_07b_contact_sheet": {
+      "validator": "validators/extract-contact-sheet.ts",
+      "status": "PASSED",
+      "method": "FFmpeg pipe real RGB24 frame extraction",
+      "projectsCovered": 4,
+      "keyframesPerBeat": 3
+    },
+    "gate_visual_semantics_ast": {
+      "validator": "validators/validate-visual-semantics.ts",
+      "status": "PASSED",
+      "scenesAudited": 20,
+      "projectsCovered": 4,
+      "antiCardViolations": 0,
+      "relationalMechanismsVerified": true
     }
   },
   "quality_rubric_audit": {
@@ -425,8 +522,9 @@
     "rubric_status": "PASSED"
   },
   "certification": {
-    "decision": "CERTIFIED_PRODUCTION_GRADE",
-    "signoff_date": "2026-09-10",
-    "integrity_standard": "V3.3 Failure-First Acceptance Standard"
+    "technical_decision": "ACCEPTED_TECHNICAL_GATES",
+    "explanatory_review": "chưa xác minh (Pending Independent Human Pedagogical Review - No Self-Certification)",
+    "signoff_date": "2026-09-11",
+    "integrity_standard": "V3.3+ Failure-First Acceptance Standard (19 Gates, NO_SELF_CERTIFICATION)"
   }
 }

@@ -142,6 +142,10 @@ export function validateAudioPolicy(options: {
   const manifestErrors: string[] = [];
   const acousticErrors: string[] = [];
 
+  if (!options.manifestData && !options.manifestPath && !options.wavPath) {
+    manifestErrors.push('Neither audio manifest nor WAV file was provided for verification. Gate must fail closed.');
+  }
+
   let manifest = options.manifestData;
   if (!manifest && options.manifestPath) {
     const resolvedManifest = path.resolve(options.manifestPath);

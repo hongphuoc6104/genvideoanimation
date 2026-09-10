@@ -6,7 +6,7 @@
   "framesAnalyzed": 103,
   "overallScore": 4.91,
   "graphicMotionEnergyRatio": 67.5,
-  "visualContractsValidated": 0,
+  "visualContractsValidated": 23,
   "categoryScores": {
     "primaryVisualRecognizable": 4.99,
     "informationalTextReadable": 5,

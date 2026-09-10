@@ -54,7 +54,7 @@ export function computeClipPathInset(progress: number): string {
  * or after speech ends.
  */
 export function resolveActiveGroup(
-  captions: CaptionsData | CaptionGroup[] | null | undefined,
+  captions: CaptionsData | CaptionGroup[] | any | null | undefined,
   currentFrame: number
 ): CaptionGroup | null {
   if (!captions) {
@@ -64,7 +64,50 @@ export function resolveActiveGroup(
   if (!Array.isArray(groups) || groups.length === 0) {
     return null;
   }
-  return groups.find(
-    (g) => currentFrame >= g.startFrame && currentFrame <= g.endFrame
-  ) || null;
+  const rawItem = groups.find(
+    (g: any) => currentFrame >= g.startFrame && currentFrame <= g.endFrame
+  );
+  if (!rawItem) {
+    return null;
+  }
+
+  // If already a canonical CaptionGroup with box and lines, return it directly
+  if (rawItem.box && Array.isArray(rawItem.lines)) {
+    return rawItem as CaptionGroup;
+  }
+
+  // Normalize simple segment/word array into canonical CaptionGroup
+  const words = (rawItem.words || []).map((w: any, idx: number) => ({
+    id: w.id || `w_${idx}`,
+    word: w.word || w.text || '',
+    start: w.start ?? ((w.startFrame ?? 0) / 30),
+    end: w.end ?? ((w.endFrame ?? 0) / 30),
+    startFrame: w.startFrame,
+    endFrame: w.endFrame,
+    cleanWord: w.cleanWord || w.word,
+  }));
+
+  const lines = rawItem.lines || [
+    {
+      text: rawItem.text || words.map((w: any) => w.word).join(' '),
+      words,
+    },
+  ];
+
+  return {
+    id: rawItem.id || 'group_auto',
+    startFrame: rawItem.startFrame,
+    endFrame: rawItem.endFrame,
+    startTime: rawItem.startTime ?? (rawItem.startFrame / 30),
+    endTime: rawItem.endTime ?? (rawItem.endFrame / 30),
+    position: rawItem.position || 'bottom',
+    box: rawItem.box || {
+      x: 72,
+      y: 1410,
+      width: 936,
+      height: 220,
+    },
+    lines,
+  };
 }
+

@@ -1,28 +1,32 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { useBeatChoreography } from 'motion-kit';
 import { DnaDoubleHelix } from '../components/DnaDoubleHelix';
 import { HeaderAnchor } from '../components/HeaderAnchor';
 import { CRISPR_THEME } from '../types';
 
 interface Scene1MutationProblemProps {
   durationInFrames?: number;
+  shotBeats?: any[];
 }
 
 export const Scene1MutationProblem: React.FC<Scene1MutationProblemProps> = ({
   durationInFrames = 660,
+  shotBeats,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1 (frames 0 - 240): Single nucleotide mutation pathology
-  // Phase 2 (frames 240 - 450): Legacy tools (ZFN/TALEN) limitation & off-target risk
-  // Phase 3 (frames 450 - 660): Bacterial CRISPR adaptive defense insight
-
-  const phase = frame < 240 ? 1 : frame < 450 ? 2 : 3;
+  // Dynamic beat choreography derived from semantic timeline
+  // Beat 1: Single nucleotide mutation pathology
+  // Beat 2: Legacy tools (ZFN/TALEN) limitation & off-target risk
+  // Beat 3: Bacterial CRISPR adaptive defense insight
+  const choreography = useBeatChoreography(shotBeats, frame, durationInFrames);
+  const phase = choreography.phase;
 
   // Spring animations for cards
   const cardSpring = spring({
-    frame: frame % 240,
+    frame: Math.round(choreography.beatProgress * 150),
     fps,
     config: { damping: 14, stiffness: 85 },
   });

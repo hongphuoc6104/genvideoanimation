@@ -1,0 +1,43 @@
+{
+  "version": "3.3.0",
+  "compositionId": "git-dag-cryptographic-history",
+  "topic": "Git Directed Acyclic Graph and Content-Addressed Object Model",
+  "claims": [
+    {
+      "id": "claim_git_01",
+      "beatId": "beat_02",
+      "conceptId": "git_c02_distributed_snapshots",
+      "statement": "Logically, Git represents version history as a Directed Acyclic Graph of complete filesystem snapshots rather than change-delta sequences.",
+      "verifiableSource": "Chacon S, Straub B. (Pro Git, 2nd Edition, Apress 2014)",
+      "evidenceLocation": "Chapter 10: Git Internals - Git Objects & Plumbing",
+      "truthCondition": "Each commit object contains a pointer to a root tree object capturing the complete project directory structure at that point in time",
+      "simplificationBoundaries": "While logically snapshots, Git physically uses packfiles with directed delta compression (git pack-objects) on disk to minimize network and disk overhead",
+      "predictiveQuestion": "How does Git logically store repository history?",
+      "predictedAnswer": "As an immutable Directed Acyclic Graph (DAG) of project snapshots, not file diffs"
+    },
+    {
+      "id": "claim_git_02",
+      "beatId": "beat_04",
+      "conceptId": "git_c04_blob_object",
+      "statement": "Git Blob objects store only raw file contents compressed with zlib; filenames, timestamps, and permissions are stored separately in Tree objects.",
+      "verifiableSource": "Torvalds L. (Git Source Code, cache.h & object-file.c)",
+      "evidenceLocation": "Git core repository: Documentation/git-hash-object.txt",
+      "truthCondition": "Blob SHA-1 is computed as sha1('blob ' + size + '\\0' + content); identical files share the exact same Blob regardless of filename or path",
+      "simplificationBoundaries": "Git originally used SHA-1 (160-bit); transitioning to SHA-256 (256-bit) via objectFormat configuration",
+      "predictiveQuestion": "Where is a file's name stored in Git's object database?",
+      "predictedAnswer": "In the parent Tree object that references the Blob, never inside the Blob object itself"
+    },
+    {
+      "id": "claim_git_03",
+      "beatId": "beat_07",
+      "conceptId": "git_c07_branch_movable_pointer",
+      "statement": "A Git branch is a lightweight 41-byte movable reference containing only the 40-character hex SHA of its latest commit tip.",
+      "verifiableSource": "Pro Git Book, Section 3.1: Git Branches in a Nutshell",
+      "evidenceLocation": ".git/refs/heads/<branch-name> file format",
+      "truthCondition": "Branch creation does not copy project files; it creates a plain text file containing a 40-character commit hash plus a newline",
+      "simplificationBoundaries": "Packed references in .git/packed-refs aggregate multiple branch heads into a single sorted index for lookup performance",
+      "predictiveQuestion": "Why are Git branch creation and switching nearly instantaneous?",
+      "predictedAnswer": "A branch is merely a 41-byte pointer to a commit hash in the immutable DAG, requiring zero file replication"
+    }
+  ]
+}

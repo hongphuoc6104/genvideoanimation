@@ -87,6 +87,7 @@ export interface NarrationToken {
   semanticType?: SemanticTokenType;
   pronunciationMode?: PronunciationMode;
   spokenText?: string;
+  isSpoken?: boolean;
 }
 
 export interface NarrationTextMap {

@@ -32,6 +32,104 @@ const DEFAULT_BASE_PAIRS: BasePair[] = [
   { index: 13, base1: 'T', base2: 'A' },
 ];
 
+export interface DnaStrandCalculationResult {
+  strand1Points: Array<{ x: number; y: number }>;
+  strand2Points: Array<{ x: number; y: number }>;
+  strand1Paths: string[];
+  strand2Paths: string[];
+  isSevered: boolean;
+  cutGapX: number;
+}
+
+export function calculateDnaPointsAndPaths(
+  basePairs: BasePair[] = DEFAULT_BASE_PAIRS,
+  unwindProgress: number = 0,
+  cleavageProgress: number = 0,
+  rotationPhase: number = 0,
+  yOffset: number = 0
+): DnaStrandCalculationResult {
+  const strandWidth = 840;
+  const numPairs = basePairs.length;
+  const stepX = strandWidth / (numPairs - 1);
+  const startX = 120;
+  const centerY = 500 + yOffset;
+  const amplitude = 95;
+
+  const strand1Points: Array<{ x: number; y: number }> = [];
+  const strand2Points: Array<{ x: number; y: number }> = [];
+
+  basePairs.forEach((bp, i) => {
+    const x = startX + i * stepX;
+    const angle = (i * 0.55) + rotationPhase;
+    
+    let dy1 = Math.sin(angle) * amplitude;
+    let dy2 = -Math.sin(angle) * amplitude;
+
+    if (unwindProgress > 0 && i >= 4 && i <= 8) {
+      const unwindFactor = unwindProgress * Math.sin(((i - 4) / 4) * Math.PI);
+      dy1 = dy1 - unwindFactor * 80;
+      dy2 = dy2 + unwindFactor * 95;
+    }
+
+    if (cleavageProgress > 0 && i >= 7) {
+      const shiftX = cleavageProgress * 110;
+      const shiftY = (i % 2 === 0 ? 1 : -1) * cleavageProgress * 30;
+      strand1Points.push({ x: x + shiftX, y: centerY + dy1 + shiftY });
+      strand2Points.push({ x: x + shiftX, y: centerY + dy2 - shiftY });
+    } else if (cleavageProgress > 0 && i < 7) {
+      const shiftX = -cleavageProgress * 40;
+      strand1Points.push({ x: x + shiftX, y: centerY + dy1 });
+      strand2Points.push({ x: x + shiftX, y: centerY + dy2 });
+    } else {
+      strand1Points.push({ x, y: centerY + dy1 });
+      strand2Points.push({ x, y: centerY + dy2 });
+    }
+  });
+
+  const buildPaths = (points: { x: number; y: number }[], cutIdx: number = 7) => {
+    if (cleavageProgress <= 0) {
+      const d = points.reduce((acc, p, idx) => {
+        if (idx === 0) return `M ${p.x} ${p.y}`;
+        const prev = points[idx - 1];
+        const mx = (prev.x + p.x) / 2;
+        const my = (prev.y + p.y) / 2;
+        return `${acc} Q ${prev.x} ${prev.y}, ${mx} ${my}`;
+      }, '');
+      return [d];
+    }
+    const leftPoints = points.slice(0, cutIdx);
+    const rightPoints = points.slice(cutIdx);
+    const leftD = leftPoints.reduce((acc, p, idx) => {
+      if (idx === 0) return `M ${p.x} ${p.y}`;
+      const prev = leftPoints[idx - 1];
+      const mx = (prev.x + p.x) / 2;
+      const my = (prev.y + p.y) / 2;
+      return `${acc} Q ${prev.x} ${prev.y}, ${mx} ${my}`;
+    }, '');
+    const rightD = rightPoints.reduce((acc, p, idx) => {
+      if (idx === 0) return `M ${p.x} ${p.y}`;
+      const prev = rightPoints[idx - 1];
+      const mx = (prev.x + p.x) / 2;
+      const my = (prev.y + p.y) / 2;
+      return `${acc} Q ${prev.x} ${prev.y}, ${mx} ${my}`;
+    }, '');
+    return [leftD, rightD];
+  };
+
+  const strand1Paths = buildPaths(strand1Points);
+  const strand2Paths = buildPaths(strand2Points);
+  const cutGapX = strand1Points.length > 7 ? strand1Points[7].x - strand1Points[6].x : 0;
+
+  return {
+    strand1Points,
+    strand2Points,
+    strand1Paths,
+    strand2Paths,
+    isSevered: cleavageProgress > 0 && strand1Paths.length === 2 && strand2Paths.length === 2,
+    cutGapX,
+  };
+}
+
 export const DnaDoubleHelix: React.FC<DnaDoubleHelixProps> = ({
   basePairs = DEFAULT_BASE_PAIRS,
   unwindProgress = 0,
@@ -50,43 +148,19 @@ export const DnaDoubleHelix: React.FC<DnaDoubleHelixProps> = ({
   // Subtle natural continuous rotation / breathing
   const rotationPhase = (frame * 0.04) % (Math.PI * 2);
 
-  const strandWidth = 840;
-  const numPairs = basePairs.length;
-  const stepX = strandWidth / (numPairs - 1);
-  const startX = 120;
   const centerY = 500 + yOffset;
-  const amplitude = 95;
 
-  // Compute strand coordinate paths
-  const strand1Points: Array<{ x: number; y: number }> = [];
-  const strand2Points: Array<{ x: number; y: number }> = [];
+  const { strand1Points, strand2Points, strand1Paths, strand2Paths } = calculateDnaPointsAndPaths(
+    basePairs,
+    unwindProgress,
+    cleavageProgress,
+    rotationPhase,
+    yOffset
+  );
 
-  basePairs.forEach((bp, i) => {
-    const x = startX + i * stepX;
-    const angle = (i * 0.55) + rotationPhase;
-    
-    // Normal vertical oscillation
-    let dy1 = Math.sin(angle) * amplitude;
-    let dy2 = -Math.sin(angle) * amplitude;
-
-    // Unwinding effect at target region (indices 4 to 8)
-    if (unwindProgress > 0 && i >= 4 && i <= 8) {
-      const unwindFactor = unwindProgress * Math.sin(((i - 4) / 4) * Math.PI);
-      dy1 = dy1 - unwindFactor * 80;
-      dy2 = dy2 + unwindFactor * 95;
-    }
-
-    // Cleavage separation: split at cut point (between index 6 and 7)
-    if (cleavageProgress > 0 && i >= 7) {
-      const shiftX = cleavageProgress * 65;
-      const shiftY = (i % 2 === 0 ? 1 : -1) * cleavageProgress * 25;
-      strand1Points.push({ x: x + shiftX, y: centerY + dy1 + shiftY });
-      strand2Points.push({ x: x + shiftX, y: centerY + dy2 - shiftY });
-    } else {
-      strand1Points.push({ x, y: centerY + dy1 });
-      strand2Points.push({ x, y: centerY + dy2 });
-    }
-  });
+  const buildStrandPaths = (_points: any, _cutIdx?: number) => {
+    return _points === strand1Points ? strand1Paths : strand2Paths;
+  };
 
   const getBaseColor = (base: string) => {
     switch (base) {
@@ -219,35 +293,29 @@ export const DnaDoubleHelix: React.FC<DnaDoubleHelixProps> = ({
           );
         })}
 
-        {/* Strand 1 Backbone Path */}
-        <path
-          d={strand1Points.reduce((acc, p, idx) => {
-            if (idx === 0) return `M ${p.x} ${p.y}`;
-            const prev = strand1Points[idx - 1];
-            const mx = (prev.x + p.x) / 2;
-            const my = (prev.y + p.y) / 2;
-            return `${acc} Q ${prev.x} ${prev.y}, ${mx} ${my}`;
-          }, '')}
-          fill="none"
-          stroke="url(#strand1-grad)"
-          strokeWidth={10}
-          strokeLinecap="round"
-        />
+        {/* Strand 1 Backbone Path (Severed into two separate fragments when cleaved) */}
+        {buildStrandPaths(strand1Points, 7).map((pathD, idx) => (
+          <path
+            key={`strand1-segment-${idx}`}
+            d={pathD}
+            fill="none"
+            stroke="url(#strand1-grad)"
+            strokeWidth={10}
+            strokeLinecap="round"
+          />
+        ))}
 
-        {/* Strand 2 Backbone Path */}
-        <path
-          d={strand2Points.reduce((acc, p, idx) => {
-            if (idx === 0) return `M ${p.x} ${p.y}`;
-            const prev = strand2Points[idx - 1];
-            const mx = (prev.x + p.x) / 2;
-            const my = (prev.y + p.y) / 2;
-            return `${acc} Q ${prev.x} ${prev.y}, ${mx} ${my}`;
-          }, '')}
-          fill="none"
-          stroke="url(#strand2-grad)"
-          strokeWidth={10}
-          strokeLinecap="round"
-        />
+        {/* Strand 2 Backbone Path (Severed into two separate fragments when cleaved) */}
+        {buildStrandPaths(strand2Points, 7).map((pathD, idx) => (
+          <path
+            key={`strand2-segment-${idx}`}
+            d={pathD}
+            fill="none"
+            stroke="url(#strand2-grad)"
+            strokeWidth={10}
+            strokeLinecap="round"
+          />
+        ))}
 
         {/* PAM Callout Badge */}
         {highlightPam && (

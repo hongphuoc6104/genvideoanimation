@@ -20,9 +20,11 @@ export const KaraokeLine: React.FC<KaraokeLineProps> = ({
   const lineStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'nowrap',
+    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'baseline',
+    maxWidth: '100%',
+    rowGap: '6px',
     minHeight: `${Math.ceil(((themeProps as any)?.fontSize || theme.fontSize || 56) * 1.3)}px`,
     lineHeight: '1.3',
     ...style,

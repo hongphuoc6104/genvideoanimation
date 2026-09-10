@@ -1,0 +1,31 @@
+{
+  "version": "3.3.0",
+  "compositionId": "scopus-explainer",
+  "topic": "Academic Research Gap Identification and Scopus Publication Strategy",
+  "claims": [
+    {
+      "id": "claim_scopus_01",
+      "beatId": "beat_01",
+      "conceptId": "gap_c01_problem_statement",
+      "statement": "An academic research paper requires an explicitly formulated Research Gap, not just novel numerical experimental data.",
+      "verifiableSource": "Sandberg J, Alvesson M. (Ways of Constructing Research Questions, Organization Studies 2011)",
+      "evidenceLocation": "Vol 32, Issue 1, pp. 23-44",
+      "truthCondition": "Reviewers reject manuscripts lacking clear problematization of existing theoretical literature even when experimental findings are valid",
+      "simplificationBoundaries": "Applied technical case reports may emphasize utility over fundamental theoretical gap, but Q1/Q2 Scopus journals demand explicit literature positioning",
+      "predictiveQuestion": "Why are mathematically rigorous papers frequently rejected by Scopus journals?",
+      "predictedAnswer": "Because they fail to frame findings within an established academic research gap in existing literature"
+    },
+    {
+      "id": "claim_scopus_02",
+      "beatId": "beat_02",
+      "conceptId": "gap_c02_gap_taxonomy",
+      "statement": "Research gaps follow distinct taxonomies: Evidence Gap, Knowledge Gap, Practical Gap, and Methodological Gap.",
+      "verifiableSource": "Miles DA. (A Taxonomy of Research Gaps, ResearchGate 2017)",
+      "evidenceLocation": "Doctoral Workshop Series, pp. 1-15",
+      "truthCondition": "Each gap type requires dedicated literature justification and corresponding methodology alignment",
+      "simplificationBoundaries": "Hybrid gaps often occur in multidisciplinary research, but identifying the primary gap type provides rhetorical coherence",
+      "predictiveQuestion": "What differentiates an Evidence Gap from a Methodological Gap?",
+      "predictedAnswer": "An Evidence Gap identifies contradictory or missing empirical findings, whereas a Methodological Gap addresses limitations in existing research tools or instruments"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "version": "3.3.0",
+  "compositionId": "crispr-cas9-mechanism",
+  "topic": "CRISPR-Cas9 Molecular Cleavage and DNA Repair Mechanism",
+  "claims": [
+    {
+      "id": "claim_crispr_01",
+      "beatId": "beat_04",
+      "conceptId": "crispr_c04_cas9_sgrna_complex",
+      "statement": "Cas9 forms a ribonucleoprotein (RNP) complex with a single guide RNA (sgRNA) comprising a 20-nt spacer targeting sequence and scaffold.",
+      "verifiableSource": "Jinek et al. (Science 2012, doi:10.1126/science.1225829)",
+      "evidenceLocation": "Science Vol 337, pp. 816-821, Figure 1A & 1B",
+      "truthCondition": "Cas9 endonuclease is catalytically inactive as apo-protein and requires crRNA:tracrRNA duplex or engineered chimeric sgRNA for structural activation",
+      "simplificationBoundaries": "Natural bacterial systems use separate crRNA and tracrRNA; engineered single guide RNA (sgRNA) fuses both with a tetraloop",
+      "predictiveQuestion": "What activates the endonuclease activity of Cas9?",
+      "predictedAnswer": "Binding to the single guide RNA (sgRNA) to form the functional ribonucleoprotein complex"
+    },
+    {
+      "id": "claim_crispr_02",
+      "beatId": "beat_06",
+      "conceptId": "crispr_c06_pam_recognition_anchor",
+      "statement": "Cas9 requires an initial Protospacer Adjacent Motif (PAM) 5'-NGG-3' recognition on the non-target strand before interrogating DNA sequence.",
+      "verifiableSource": "Sternberg et al. (Nature 2014, doi:10.1038/nature13011)",
+      "evidenceLocation": "Nature Vol 507, pp. 62-67, Figures 2 and 3",
+      "truthCondition": "SpCas9 specifically interrogates PAM via major and minor groove interactions using Arg1333 and Arg1335 before duplex unwinding",
+      "simplificationBoundaries": "SpCas9 primarily recognizes 5'-NGG-3'; non-canonical 5'-NAG-3' has ~5-10x lower affinity",
+      "predictiveQuestion": "Can Cas9 unwind DNA without first finding a PAM site?",
+      "predictedAnswer": "No, PAM recognition is the mandatory kinetic prerequisite for local DNA duplex destabilization"
+    },
+    {
+      "id": "claim_crispr_03",
+      "beatId": "beat_08",
+      "conceptId": "crispr_c08_dual_catalytic_domains",
+      "statement": "Cas9 utilizes two distinct catalytic nuclease domains: HNH cleaves the target strand, while RuvC cleaves the non-target strand.",
+      "verifiableSource": "Nishimasu et al. (Cell 2014, doi:10.1016/j.cell.2014.02.001)",
+      "evidenceLocation": "Cell Vol 156, Issue 5, pp. 935-949, Figure 4",
+      "truthCondition": "HNH domain active site (His840) cuts the DNA strand complementary to sgRNA; RuvC domain active site (Asp10) cuts the displaced non-target strand",
+      "simplificationBoundaries": "Mutation of either active site yields a nickase (Cas9n D10A or H840A); mutation of both yields dead Cas9 (dCas9)",
+      "predictiveQuestion": "Which domain cleaves which DNA strand?",
+      "predictedAnswer": "HNH cleaves the complementary guide-bound strand; RuvC cleaves the displaced non-target strand"
+    },
+    {
+      "id": "claim_crispr_04",
+      "beatId": "beat_09",
+      "conceptId": "crispr_c09_double_strand_break",
+      "statement": "Cleavage results in a blunt double-strand break located precisely 3 base pairs upstream of the PAM sequence.",
+      "verifiableSource": "Jinek et al. (Science 2012) & Addgene CRISPR Reference Guide",
+      "evidenceLocation": "Science Vol 337, Figure 1D & 1E; cleavage maps",
+      "truthCondition": "Phosphodiester backbones of both strands are severed between nucleotide positions -3 and -4 counting upstream from the 5' PAM edge",
+      "simplificationBoundaries": "Trace frequencies of staggered 1-bp cleavage have been documented in vitro under high enzyme concentrations, but canonical cleavage produces blunt ends",
+      "predictiveQuestion": "Where does the double-strand cut occur relative to PAM?",
+      "predictedAnswer": "Exactly 3 base pairs upstream of the PAM motif, completely severing both DNA strands into two disconnected fragments"
+    },
+    {
+      "id": "claim_crispr_05",
+      "beatId": "beat_10",
+      "conceptId": "crispr_c10_nhej_pathway",
+      "statement": "Non-Homologous End Joining (NHEJ) repairs double-strand breaks by direct ligation, frequently generating insertion or deletion (indel) mutations that disrupt reading frames.",
+      "verifiableSource": "Lieber MR. (Annu Rev Biochem 2010, doi:10.1146/annurev.biochem.052308.093131)",
+      "evidenceLocation": "Annu Rev Biochem 79: 181-211",
+      "truthCondition": "NHEJ can ligate cleanly, but persistent Cas9 recutting of perfect junctions eventually selects for error-prone indels that abolish the target/PAM sequence",
+      "simplificationBoundaries": "NHEJ is not inherently defective; the emergence of indels in CRISPR experiments is driven by iterative cleavage cycles until target sequence destruction",
+      "predictiveQuestion": "Why does CRISPR targeting usually result in gene knockout via NHEJ?",
+      "predictedAnswer": "Iterative cleavage and rejoining cycles continue until an error-prone indel creates a frameshift mutation that prevents Cas9 from rebinding"
+    },
+    {
+      "id": "claim_crispr_06",
+      "beatId": "beat_11",
+      "conceptId": "crispr_c11_hdr_pathway",
+      "statement": "Homology-Directed Repair (HDR) enables precise sequence replacement when provided with an exogenous donor DNA template containing homology arms.",
+      "verifiableSource": "Ran et al. (Nature Protocols 2013, doi:10.1038/nprot.2013.143)",
+      "evidenceLocation": "Nat Protoc 8(11): 2281-2308, Step 14",
+      "truthCondition": "HDR uses homologous flanking sequences to copy the donor sequence into the cleaved chromosomal site during S/G2 phase of the cell cycle",
+      "simplificationBoundaries": "HDR efficiency is generally lower (1-10%) than NHEJ (20-60%) in mammalian somatic cells without cell cycle synchronization or chemical inhibitors",
+      "predictiveQuestion": "What is required for precise gene insertion rather than random knockout?",
+      "predictedAnswer": "An exogenous donor DNA template containing homologous left and right homology arms flanking the desired sequence insert"
+    }
+  ]
+}

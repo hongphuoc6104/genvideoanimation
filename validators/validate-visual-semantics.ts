@@ -221,7 +221,11 @@ function checkComponent(
   // Flags components composed purely of text cards without diagrams or animation mechanics.
   // -------------------------------------------------------------
   const totalVisualPrimitives = svgPrimitiveCount + relationalComponents.length;
-  if (textTagCount >= 2 && totalVisualPrimitives === 0 && !hasSvgRoot && !fileHasKinetic) {
+  const isPureTextMonoculture =
+    textTagCount >= 2 &&
+    (totalVisualPrimitives === 0 || (svgPrimitiveCount <= 2 && relationalComponents.length === 0 && !fileHasKinetic));
+
+  if (isPureTextMonoculture && !fileHasKinetic) {
     const loc = astPath.node.loc?.start || { line: 1, column: 1 };
     violations.push({
       file: filePath,
@@ -230,7 +234,7 @@ function checkComponent(
       rule: 'no-text-card-monoculture',
       ruleId: 'no-text-card-monoculture',
       severity: 'CRITICAL',
-      message: `Text-card monoculture detected in component "${componentName}". Component contains ${textTagCount} text elements but 0 diagrams, 0 SVG primitives, and no animation mechanics. Educational motion must use relational visual diagrams, not static presentation slides.`,
+      message: `Text-card monoculture detected in component "${componentName}". Component contains ${textTagCount} text elements but lacks meaningful diagram mechanisms (only ${svgPrimitiveCount} primitives, 0 relational components). Educational motion must use relational visual diagrams, not static presentation slides.`,
     });
   }
 
@@ -238,7 +242,7 @@ function checkComponent(
   // RULE 2: Require Relational Visual Primitives (CRITICAL)
   // Scene components must instantiate at least one visual mechanism or drawing canvas.
   // -------------------------------------------------------------
-  if (isSceneComponent && totalVisualPrimitives === 0 && !hasSvgRoot) {
+  if (isSceneComponent && (totalVisualPrimitives === 0 || (svgPrimitiveCount < 2 && relationalComponents.length === 0 && !hasSvgRoot))) {
     const loc = astPath.node.loc?.start || { line: 1, column: 1 };
     violations.push({
       file: filePath,
@@ -342,7 +346,31 @@ export function validateVisualSemantics(
   }
 
   for (const t of targets) {
+    if (!fs.existsSync(t)) {
+      allViolations.push({
+        file: t,
+        line: 1,
+        column: 1,
+        rule: 'target-path-not-found',
+        ruleId: 'target-path-not-found',
+        severity: 'CRITICAL',
+        message: `Target directory or file does not exist: ${t}. Gate must fail closed.`,
+      });
+      continue;
+    }
     walk(t);
+  }
+
+  if (visitedFiles.size === 0 && allViolations.length === 0) {
+    allViolations.push({
+      file: targets.join(', '),
+      line: 1,
+      column: 1,
+      rule: 'zero-files-analyzed',
+      ruleId: 'zero-files-analyzed',
+      severity: 'CRITICAL',
+      message: `No candidate scene files (.tsx/.jsx) found to analyze in targets: ${targets.join(', ')}. Gate must fail closed.`,
+    });
   }
 
   const criticalCount = allViolations.filter((v) => v.severity === 'CRITICAL').length;

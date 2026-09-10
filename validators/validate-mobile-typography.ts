@@ -665,7 +665,37 @@ export function runLinter(
   }
 
   for (const t of targets) {
+    if (!fs.existsSync(t)) {
+      allViolations.push({
+        file: t,
+        line: 1,
+        column: 1,
+        tagName: 'target',
+        role: 'section',
+        declaredFontSize: 0,
+        effectiveFontSize: 0,
+        threshold: 1,
+        severity: 'CRITICAL',
+        message: `Target directory or file does not exist: ${t}. Gate must fail closed.`,
+      });
+      continue;
+    }
     walk(t);
+  }
+
+  if (visitedFiles.size === 0 && allViolations.length === 0) {
+    allViolations.push({
+      file: targets.join(', '),
+      line: 1,
+      column: 1,
+      tagName: 'target',
+      role: 'section',
+      declaredFontSize: 0,
+      effectiveFontSize: 0,
+      threshold: 1,
+      severity: 'CRITICAL',
+      message: `No candidate files found to analyze in target: ${targets.join(', ')}. Gate must fail closed.`,
+    });
   }
 
   const criticalCount = allViolations.filter((v) => v.severity === 'CRITICAL').length;

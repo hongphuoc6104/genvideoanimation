@@ -157,6 +157,7 @@ export class LanguageAwareTokenizer {
             spokenWords: [matchedToken],
             type: 'punctuation',
             spokenText: matchedToken,
+            isSpoken: false,
           });
         }
         cursor = endChar;
@@ -197,6 +198,7 @@ export class LanguageAwareTokenizer {
         semanticType: classification.type,
         pronunciationMode: classification.mode,
         spokenText: classification.spoken,
+        isSpoken: true,
       });
 
       pronMap.push({
