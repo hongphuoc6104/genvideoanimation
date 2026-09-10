@@ -1,3 +1,5 @@
+> **Current context:** [MASTER_CONTEXT.md](docs/MASTER_CONTEXT.md) · [CURRENT_STATE.md](docs/CURRENT_STATE.md). The historical benchmark scores below are retained as project history; they are not current independent acceptance. Independent review of the V3.3 media is pending.
+
 # Educational Flat Vector Motion System (Remotion)
 
 Hệ thống sản xuất video hoạt họa giải thích 2D (Educational Flat Vector Explainer) chuyên nghiệp với React & Remotion, được xây dựng theo chuẩn 12 nguyên tắc hoạt hình (Disney's 12 Animation Principles), Character Rigging đa khớp và Automated Quality Gates.
