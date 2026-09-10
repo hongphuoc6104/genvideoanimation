@@ -439,7 +439,7 @@ export function createMockAudioDependencyGraph(overrides: Partial<AudioDependenc
     masterAudio: 'public/audio/scopus_master_audio.wav',
     remotionMounts: [
       {
-        file: 'connection-film/src/scopus-explainer/ScopusExplainerFilm.tsx',
+        file: 'connection-film/src/legacy/scopus-explainer/ScopusExplainerFilm.tsx',
         tag: '<Audio src={staticFile("audio/scopus_master_audio.wav")} />',
         line: 50,
       },
@@ -647,7 +647,7 @@ export function createMockQAReport(overrides: Partial<QAReport> = {}): QAReport 
   return {
     version: '3.3.0',
     timestamp: '2026-09-10T14:00:00Z',
-    composition: 'connection-film/src/scopus-explainer/ScopusExplainerFilm.tsx',
+    composition: 'connection-film/src/legacy/scopus-explainer/ScopusExplainerFilm.tsx',
     certifiedBy: 'independent_reviewer_agent',
     scores,
     overallAverage: avg,

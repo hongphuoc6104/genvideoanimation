@@ -10,6 +10,8 @@ node_modules/
 
 # Render & build artifacts
 out/*
+!out/audits/
+!out/audits/**
 !out/qa-report.json
 !out/audio-manifest.json
 !out/semantic-timeline.json

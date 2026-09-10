@@ -79,14 +79,14 @@
       "role": "body",
       "speed": 1.04,
       "pauseAfter": 0.32,
-      "spoken": "Tế bào lập tức kích hoạt cơ chế nối đầu không tương đồng để hàn gắn thô sơ, tạo ra các đột biến mất đoạn giúp bất hoạt hoàn toàn các gen gây bệnh."
+      "spoken": "Tế bào lập tức kích hoạt cơ chế nối đầu không tương đồng để hàn gắn thô sơ, thường tạo ra các đột biến chèn mất đoạn nhỏ giúp làm mất chức năng gen mục tiêu."
     },
     {
       "id": 11,
       "role": "body",
       "speed": 1.04,
       "pauseAfter": 0.35,
-      "spoken": "Hoặc khi được cung cấp thêm một đoạn DNA mẫu lành lặn, tế bào sẽ sử dụng cơ chế sửa chữa tương đồng để chèn chính xác chuỗi gen mới không tì vết."
+      "spoken": "Hoặc khi được cung cấp thêm một đoạn DNA mẫu lành lặn, tế bào có thể kích hoạt cơ chế sửa chữa tương đồng để chèn chính xác chuỗi gen mới theo thiết kế."
     },
     {
       "id": 12,

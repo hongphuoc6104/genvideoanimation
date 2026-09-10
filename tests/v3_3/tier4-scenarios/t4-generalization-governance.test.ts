@@ -146,9 +146,9 @@ describe({ name: 'Tier 4: Generalization & Governance Scenarios', feature: 'T4-G
       // Collect key committed production artifacts to audit
       const filesToAudit = [
         'production-policy.json',
-        'connection-film/src/scopus-explainer/semantic-timeline.json',
-        'connection-film/src/scopus-explainer/shot-spec.json',
-        'connection-film/src/scopus-explainer/source-content-map.json',
+        'connection-film/src/legacy/scopus-explainer/semantic-timeline.json',
+        'connection-film/src/legacy/scopus-explainer/shot-spec.json',
+        'connection-film/src/legacy/scopus-explainer/source-content-map.json',
         'mini-projects/science-mechanism/semantic-timeline.json',
         'mini-projects/science-mechanism/shot-spec.json',
         'mini-projects/science-mechanism/source-content-map.json',

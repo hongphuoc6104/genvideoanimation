@@ -26,6 +26,7 @@ export interface BeatChoreographyState<T extends TimelineBeat = TimelineBeat> {
   currentBeatIndex: number;
   totalBeats: number;
   beatProgress: number; // 0..1 within current beat
+  intraBeatProgress: number; // Alias for beatProgress (0..1)
   phase: number; // 1-indexed (currentBeatIndex + 1)
   phaseProgress: number; // Alias for beatProgress
   isLastBeat: boolean;
@@ -56,6 +57,7 @@ export function calculateBeatChoreography<T extends TimelineBeat = TimelineBeat>
       currentBeatIndex: 0,
       totalBeats: 1,
       beatProgress: progress,
+      intraBeatProgress: progress,
       phase: 1,
       phaseProgress: progress,
       isLastBeat: true,
@@ -119,6 +121,7 @@ export function calculateBeatChoreography<T extends TimelineBeat = TimelineBeat>
     currentBeatIndex: activeIndex,
     totalBeats: shotBeats.length,
     beatProgress,
+    intraBeatProgress: beatProgress,
     phase: activeIndex + 1,
     phaseProgress: beatProgress,
     isLastBeat: activeIndex === shotBeats.length - 1,

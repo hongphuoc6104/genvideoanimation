@@ -1,0 +1,162 @@
+{
+  "status": "success",
+  "totalDurationSec": 98.887,
+  "totalLines": 12,
+  "masterVoiceover": "mini-projects/science-mechanism/audio/master_audio_mono.wav",
+  "voice": {
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "precision": "fp32",
+    "device": "cpu",
+    "voice": "Adam",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 0.0,
+      "end": 7.173,
+      "audioDuration": 7.173,
+      "totalDuration": 7.523,
+      "spoken": "Chỉ một sai sót đơn lẻ trong hàng tỷ ký tự mã di truyền DNA có thể gây ra những căn bệnh hiểm nghèo như thiếu máu hồng cầu hình liềm hay ung thư.",
+      "file": "mini-projects/science-mechanism/audio/lines/line01.wav"
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.04,
+      "pauseAfter": 0.3,
+      "start": 7.523,
+      "end": 14.631,
+      "audioDuration": 7.108,
+      "totalDuration": 7.408,
+      "spoken": "Thế nhưng các công cụ chỉnh sửa truyền thống như ZFN hay TALEN lại quá cồng kềnh, chi phí đắt đỏ và nguy cơ cắt chệch mục tiêu rất cao.",
+      "file": "mini-projects/science-mechanism/audio/lines/line02.wav"
+    },
+    {
+      "id": 3,
+      "role": "evidence",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 14.931,
+      "end": 23.417,
+      "audioDuration": 8.487,
+      "totalDuration": 8.837,
+      "spoken": "Trong tự nhiên, vi khuẩn đã phát triển một hệ thống miễn dịch tinh vi mang tên CRISPR, giúp ghi nhớ các đoạn mã của virus để tiêu diệt chúng khi tái xâm nhập.",
+      "file": "mini-projects/science-mechanism/audio/lines/line03.wav"
+    },
+    {
+      "id": 4,
+      "role": "turn",
+      "speed": 1.04,
+      "pauseAfter": 0.3,
+      "start": 23.767,
+      "end": 31.728,
+      "audioDuration": 7.96,
+      "totalDuration": 8.26,
+      "spoken": "Đột phá xuất hiện khi các nhà khoa học kết hợp enzyme Cas9 với một thanh RNA dẫn đường nhân tạo, tạo thành chiếc kéo sinh học đa năng có thể lập trình.",
+      "file": "mini-projects/science-mechanism/audio/lines/line04.wav"
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "start": 32.028,
+      "end": 42.128,
+      "audioDuration": 10.1,
+      "totalDuration": 10.42,
+      "spoken": "Phức hợp Cas9 liên tục trượt tuần tra dọc chuỗi xoắn kép DNA, quét tìm một đoạn mã nhận diện đặc biệt gọi là motif PAM, với trình tự năm phẩy N-G-G ba phẩy.",
+      "file": "mini-projects/science-mechanism/audio/lines/line05.wav"
+    },
+    {
+      "id": 6,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.3,
+      "start": 42.448,
+      "end": 50.26,
+      "audioDuration": 7.812,
+      "totalDuration": 8.112,
+      "spoken": "Khi nhận diện chính xác motif PAM, Cas9 bám chặt như một chiếc mỏ neo phân tử, kích hoạt biến đổi hình thể để bắt đầu tách mở hai sợi xoắn DNA.",
+      "file": "mini-projects/science-mechanism/audio/lines/line06.wav"
+    },
+    {
+      "id": 7,
+      "role": "evidence",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 50.56,
+      "end": 58.072,
+      "audioDuration": 7.512,
+      "totalDuration": 7.862,
+      "spoken": "Thanh RNA dẫn đường len vào giữa, dò tìm hai mươi nucleotide bổ sung. Khi khớp hoàn toàn, cấu trúc vòng lai R-loop hình thành, khóa chặt mục tiêu vào vị trí.",
+      "file": "mini-projects/science-mechanism/audio/lines/line07.wav"
+    },
+    {
+      "id": 8,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.3,
+      "start": 58.422,
+      "end": 67.358,
+      "audioDuration": 8.937,
+      "totalDuration": 9.237,
+      "spoken": "Sự bắt cặp chuẩn xác kích hoạt hai lưỡi kéo phân tử bên trong Cas9: miền H-N-H cắt sợi đối mã, trong khi miền RuvC chịu trách nhiệm cắt sợi không liên kết.",
+      "file": "mini-projects/science-mechanism/audio/lines/line08.wav"
+    },
+    {
+      "id": 9,
+      "role": "payoff",
+      "speed": 1.04,
+      "pauseAfter": 0.38,
+      "start": 67.658,
+      "end": 74.808,
+      "audioDuration": 7.15,
+      "totalDuration": 7.53,
+      "spoken": "Hai vết cắt diễn ra chính xác ba cặp base phía trước motif PAM, tạo thành vết đứt gãy sợi đôi DNA hoàn toàn, bẻ khóa cấu trúc di truyền.",
+      "file": "mini-projects/science-mechanism/audio/lines/line09.wav"
+    },
+    {
+      "id": 10,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "start": 75.188,
+      "end": 82.548,
+      "audioDuration": 7.359,
+      "totalDuration": 7.679,
+      "spoken": "Tế bào lập tức kích hoạt cơ chế nối đầu không tương đồng để hàn gắn thô sơ, thường tạo ra các đột biến chèn mất đoạn nhỏ giúp làm mất chức năng gen mục tiêu.",
+      "file": "mini-projects/science-mechanism/audio/lines/line10.wav"
+    },
+    {
+      "id": 11,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 82.868,
+      "end": 89.837,
+      "audioDuration": 6.97,
+      "totalDuration": 7.32,
+      "spoken": "Hoặc khi được cung cấp thêm một đoạn DNA mẫu lành lặn, tế bào có thể kích hoạt cơ chế sửa chữa tương đồng để chèn chính xác chuỗi gen mới theo thiết kế.",
+      "file": "mini-projects/science-mechanism/audio/lines/line11.wav"
+    },
+    {
+      "id": 12,
+      "role": "close",
+      "speed": 1.02,
+      "pauseAfter": 0.4,
+      "start": 90.187,
+      "end": 98.487,
+      "audioDuration": 8.3,
+      "totalDuration": 8.7,
+      "spoken": "Từ cơ chế sinh học vi mô, CRISPR-Cas9 đã mở ra kỷ nguyên mới của y học chính xác, trao cho con người khả năng sửa chữa bản thiết kế của sự sống.",
+      "file": "mini-projects/science-mechanism/audio/lines/line12.wav"
+    }
+  ],
+  "elapsedSec": 27.645
+}

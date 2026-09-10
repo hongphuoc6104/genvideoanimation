@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "topic": "sodium-potassium-pump",
+  "claims": [
+    {
+      "claimId": "claim_01_resting_potential",
+      "statement": "Tế bào động vật duy trì điện thế màng lúc nghỉ xấp xỉ -70 mV thông qua gradient nồng độ ion Natri và Kali bất đối xứng.",
+      "boundaryConditions": "Áp dụng chủ yếu cho tế bào thần kinh và sợi cơ động vật ở trạng thái nghỉ sinh lý bình thường; giá trị dao động từ -40 mV đến -90 mV tùy loại mô.",
+      "evidenceSource": "Curriculum Section 1; Lodish et al., Molecular Cell Biology, 8th Ed., Chapter 11",
+      "beatRef": "b01_membrane_potential"
+    },
+    {
+      "claimId": "claim_02_alternating_access",
+      "statement": "Bơm Na⁺/K⁺-ATPase ngăn ngừa rò rỉ ion bằng cơ chế van đổi hướng luân phiên hai trạng thái chính E1 và E2 theo mô hình Albers-Post.",
+      "boundaryConditions": "Kênh vận chuyển không mở thông đồng thời hai phía màng tại bất kỳ trạng thái trung gian ổn định nào.",
+      "evidenceSource": "Post et al. (1969); Albers (1967); Toyoshima et al., Nature (2013)",
+      "beatRef": "b02_alternating_access_solution"
+    },
+    {
+      "claimId": "claim_03_phosphorylation",
+      "statement": "Ba ion Na⁺ gắn kết tại cấu hình E1 kích hoạt phản ứng thủy phân ATP và phosphoryl hóa gốc Aspartate của protein bơm.",
+      "boundaryConditions": "Yêu cầu có mặt ion Mg²⁺ làm đồng yếu tố cho phản ứng chuyển nhóm phosphate từ ATP sang Aspartate 369.",
+      "evidenceSource": "Jorgensen et al., Annu. Rev. Physiol. (2003); Curriculum Section 2",
+      "beatRef": "b03_na_binding_phosphorylation"
+    },
+    {
+      "claimId": "claim_04_na_extrusion",
+      "statement": "Phản ứng phosphoryl hóa thúc đẩy sự thay đổi cấu hình từ E1 sang E2, làm giảm mạnh ái lực với Na⁺ và giải phóng 3 Na⁺ vào dịch ngoại bào.",
+      "boundaryConditions": "Ái lực của vị trí gắn Na⁺ giảm hàng trăm lần khi bơm chuyển từ dạng E1 sang E2-P.",
+      "evidenceSource": "Curriculum Section 2; Morth et al., Nature (2007)",
+      "beatRef": "b04_e1_to_e2_na_release"
+    },
+    {
+      "claimId": "claim_05_k_binding",
+      "statement": "Ở cấu hình E2 mở ra ngoài, bơm có ái lực cao với K⁺; sự gắn kết của 2 K⁺ kích hoạt phản ứng khử phosphoryl hóa giải phóng Pi.",
+      "boundaryConditions": "Tùy thuộc vào nồng độ ion K⁺ ngoại bào (thông thường khoảng 4-5 mM trong huyết thanh).",
+      "evidenceSource": "Curriculum Section 2; Shinoda et al., Nature (2009)",
+      "beatRef": "b05_k_binding_dephosphorylation"
+    },
+    {
+      "claimId": "claim_06_k_release",
+      "statement": "Việc mất nhóm phosphate đưa bơm trở về cấu hình E1 hướng nội, giảm ái lực với K⁺ và giải phóng 2 K⁺ vào dịch bào.",
+      "boundaryConditions": "Sự gắn ATP mới với ái lực thấp tại vị trí điều hòa tăng tốc độ giải phóng K⁺ vào tế bào chất.",
+      "evidenceSource": "Curriculum Section 2; Glynn, Annu. Rev. Biochem. (1985)",
+      "beatRef": "b06_e2_to_e1_k_release"
+    },
+    {
+      "claimId": "claim_07_electrogenic_balance",
+      "statement": "Mỗi chu trình xúc tác tiêu tốn 1 ATP đẩy chính xác 3 Na⁺ ra ngoài và kéo 2 K⁺ vào trong, tạo ra dòng điện ròng mang tính sinh điện (electrogenic).",
+      "boundaryConditions": "Tỉ lệ 3:2:1 được bảo toàn nghiêm ngặt ở điều kiện sinh lý; làm mất ròng 1 điện tích dương trong tế bào mỗi chu trình.",
+      "evidenceSource": "Curriculum Section 3; Thomas, Physiol. Rev. (1972)",
+      "beatRef": "b07_electrogenic_synthesis"
+    }
+  ]
+}

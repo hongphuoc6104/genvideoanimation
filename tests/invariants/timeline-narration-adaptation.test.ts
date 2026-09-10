@@ -90,19 +90,19 @@ function runTimelineAdaptationTests() {
   const timelines = [
     {
       name: 'Scopus Explainer',
-      path: path.resolve(__dirname, '../../connection-film/src/scopus-explainer/semantic-timeline.json'),
+      path: path.resolve(__dirname, '../../connection-film/src/legacy/scopus-explainer/semantic-timeline.json'),
     },
     {
       name: 'CRISPR-Cas9',
-      path: path.resolve(__dirname, '../../connection-film/src/generalization/crispr/semantic-timeline.json'),
+      path: path.resolve(__dirname, '../../connection-film/src/legacy/crispr/semantic-timeline.json'),
     },
     {
       name: 'Steam Engine',
-      path: path.resolve(__dirname, '../../connection-film/src/generalization/steam-engine/semantic-timeline.json'),
+      path: path.resolve(__dirname, '../../connection-film/src/legacy/steam-engine/semantic-timeline.json'),
     },
     {
       name: 'Git DAG',
-      path: path.resolve(__dirname, '../../connection-film/src/generalization/git-dag/semantic-timeline.json'),
+      path: path.resolve(__dirname, '../../connection-film/src/legacy/git-dag/semantic-timeline.json'),
     },
   ];
 

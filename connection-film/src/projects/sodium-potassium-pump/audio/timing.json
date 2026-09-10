@@ -1,0 +1,102 @@
+{
+  "status": "success",
+  "totalDurationSec": 35.597,
+  "totalLines": 7,
+  "masterVoiceover": "connection-film/src/projects/sodium-potassium-pump/audio/master_audio_mono.wav",
+  "voice": {
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "precision": "fp32",
+    "device": "cpu",
+    "voice": "Adam",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 0.0,
+      "end": 4.535,
+      "audioDuration": 4.535,
+      "totalDuration": 4.885,
+      "spoken": "Để duy trì điện thế nghỉ âm bảy mươi milivôn, tế bào phải chống lại dòng ion khuếch tán tự nhiên.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line01.wav"
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 4.885,
+      "end": 9.463,
+      "audioDuration": 4.577,
+      "totalDuration": 4.927,
+      "spoken": "Bơm Natri - Kali giải quyết nghịch lý này bằng cơ chế van đổi hướng luân phiên hai trạng thái.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line02.wav"
+    },
+    {
+      "id": 3,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "start": 9.813,
+      "end": 15.351,
+      "audioDuration": 5.539,
+      "totalDuration": 5.859,
+      "spoken": "Ở cấu hình E1 mở vào trong, ba ion Natri gắn kết và ATP phosphoryl hóa cấu trúc bơm.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line03.wav"
+    },
+    {
+      "id": 4,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "start": 15.671,
+      "end": 20.339,
+      "audioDuration": 4.668,
+      "totalDuration": 4.988,
+      "spoken": "Bơm lập tức lật sang cấu hình E2 mở ra ngoài, giải phóng ba ion Natri vào dịch ngoại bào.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line04.wav"
+    },
+    {
+      "id": 5,
+      "role": "evidence",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "start": 20.659,
+      "end": 24.705,
+      "audioDuration": 4.045,
+      "totalDuration": 4.365,
+      "spoken": "Hai ion Kali từ bên ngoài gắn vào, kích hoạt giải phóng phốt-phát để đóng van ngoại bào.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line05.wav"
+    },
+    {
+      "id": 6,
+      "role": "payoff",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "start": 25.025,
+      "end": 29.941,
+      "audioDuration": 4.917,
+      "totalDuration": 5.267,
+      "spoken": "Protein hồi phục về trạng thái E1 hướng nội, thả hai ion Kali vào bên trong tế bào chất.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line06.wav"
+    },
+    {
+      "id": 7,
+      "role": "close",
+      "speed": 1.02,
+      "pauseAfter": 0.4,
+      "start": 30.291,
+      "end": 35.197,
+      "audioDuration": 4.905,
+      "totalDuration": 5.305,
+      "spoken": "Mỗi chu trình tiêu tốn một ATP, đẩy ba Natri và nhận hai Kali, duy trì điện thế cho tế bào.",
+      "file": "connection-film/src/projects/sodium-potassium-pump/audio/lines/line07.wav"
+    }
+  ],
+  "elapsedSec": 63.995
+}

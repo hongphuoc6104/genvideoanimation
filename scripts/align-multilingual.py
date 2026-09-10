@@ -73,10 +73,11 @@ def align_bilingual(audio_path: str, transcript_text: str, text_map: dict, devic
     waveform = torch.from_numpy(samples).float()
     if waveform.ndim == 1:
         waveform = waveform.unsqueeze(0)
-    elif waveform.shape[0] > 1 and waveform.shape[1] > 1:
-        waveform = torch.mean(waveform, dim=0, keepdim=True)
-    if waveform.shape[0] > 1:
-        waveform = torch.mean(waveform, dim=0, keepdim=True)
+    elif waveform.ndim == 2:
+        if waveform.shape[1] < waveform.shape[0]:
+            waveform = torch.mean(waveform, dim=1, keepdim=True).t()
+        else:
+            waveform = torch.mean(waveform, dim=0, keepdim=True)
 
     target_sr = 16000
     if sample_rate != target_sr:

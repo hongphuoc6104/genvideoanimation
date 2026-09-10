@@ -8,7 +8,7 @@ import * as fs from 'node:fs';
 import { parseWavHeader, extractPcmData, createWavFile } from '../tts/wav';
 import { LoudnessStats, NormalizeOptions, NormalizeResult } from './types';
 
-export { LoudnessStats, NormalizeOptions, NormalizeResult };
+export type { LoudnessStats, NormalizeOptions, NormalizeResult };
 
 /**
  * Biquad filter state and coefficients for Direct Form II Transposed.

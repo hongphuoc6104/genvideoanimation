@@ -28,7 +28,7 @@ describe({ name: 'Tier 4: Scopus Canary Real-World Pipeline Scenarios', feature:
     'T4-SCN-01: Full Scopus Explainer 103.20s/3096 frames end-to-end pipeline integration',
     () => {
       // 1. Verify timeline integrity: 103.20s at 30fps = exactly 3096 frames
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
       assertTrue(fs.existsSync(timelinePath), 'semantic-timeline.json must exist');
       const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
 
@@ -39,7 +39,7 @@ describe({ name: 'Tier 4: Scopus Canary Real-World Pipeline Scenarios', feature:
       assertEqual(timeline.height, 1920, 'Canvas height must be 1920');
 
       // 2. Verify all 5 scene components exist on disk
-      const scenesDir = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/scenes');
+      const scenesDir = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/scenes');
       const expectedScenes = [
         'Scene1ProblemScopus.tsx',
         'Scene2GapTaxonomy.tsx',
@@ -82,7 +82,7 @@ describe({ name: 'Tier 4: Scopus Canary Real-World Pipeline Scenarios', feature:
       // Door 4: Methodological Gap (beat_09)
       // Door 5: Practical/Application Gap (beat_10)
 
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
       const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
 
       const taxonomyBeats = timeline.beats.filter((b: any) => b.shotId === 'shot_02');
@@ -175,7 +175,7 @@ describe({ name: 'Tier 4: Scopus Canary Real-World Pipeline Scenarios', feature:
     'T4-SCN-04: Digital banking case study mobile legibility >= 34px across 1080p and 360p canvases',
     () => {
       // Scene 4 Case Study Digital Banking components
-      const scene4Path = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/scenes/Scene4TemplateCaseStudy.tsx');
+      const scene4Path = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/scenes/Scene4TemplateCaseStudy.tsx');
       assertTrue(fs.existsSync(scene4Path), 'Scene4TemplateCaseStudy.tsx must exist');
       const scene4Code = fs.readFileSync(scene4Path, 'utf-8');
 
@@ -226,8 +226,8 @@ describe({ name: 'Tier 4: Scopus Canary Real-World Pipeline Scenarios', feature:
       // Move 2: Establishing a niche / gap (Nghịch lý từ chối & Khoảng trống nghiên cứu)
       // Move 3: Occupying the niche (Đóng góp mới của nghiên cứu)
 
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
-      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/shot-spec.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
+      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/shot-spec.json');
 
       const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
       const shotSpec = JSON.parse(fs.readFileSync(shotSpecPath, 'utf-8'));

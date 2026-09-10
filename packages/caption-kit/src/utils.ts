@@ -102,10 +102,10 @@ export function resolveActiveGroup(
     endTime: rawItem.endTime ?? (rawItem.endFrame / 30),
     position: rawItem.position || 'bottom',
     box: rawItem.box || {
-      x: 72,
-      y: 1410,
-      width: 936,
-      height: 220,
+      x: 80,
+      y: 1480,
+      width: 920,
+      height: 180,
     },
     lines,
   };

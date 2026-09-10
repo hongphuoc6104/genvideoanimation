@@ -1,0 +1,376 @@
+{
+  "version": "3.3.0",
+  "compositionId": "crispr-cas9-mechanism",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "totalDurationSec": 99.07,
+  "totalFrames": 2972,
+  "policy": "content-driven",
+  "authoritative": true,
+  "totalConcepts": 12,
+  "mappedConcepts": 12,
+  "coveragePercent": 100,
+  "beats": [
+    {
+      "id": "beat_01",
+      "shotId": "shot_01",
+      "conceptId": "crispr_c01_mutation_pathology",
+      "narrationTokenRange": [
+        0,
+        24
+      ],
+      "startSec": 0.0,
+      "endSec": 7.523,
+      "startFrame": 0,
+      "endFrame": 226,
+      "visualIntent": "Hiển thị chuỗi xoắn kép DNA với nucleotide đột biến phát sáng cảnh báo đỏ, gây sai lệch cấu trúc protein",
+      "primaryObject": "dna_double_helix_mutated",
+      "cameraIntent": "slow_push_in_focus",
+      "sfxIntent": {
+        "asset": "sfx/cell_ambient.wav",
+        "frame": 30,
+        "volume": 0.4
+      },
+      "captionIntent": {
+        "displayText": "Chỉ một sai sót đơn lẻ trong hàng tỷ ký tự mã di truyền DNA có thể gây ra những căn bệnh hiểm nghèo như thiếu máu hồng cầu hình liềm hay ung thư.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "mutated_basepair_focal_highlight",
+        "transformationType": "structural_distortion_glow"
+      }
+    },
+    {
+      "id": "beat_02",
+      "shotId": "shot_01",
+      "conceptId": "crispr_c02_legacy_tools_limitation",
+      "narrationTokenRange": [
+        25,
+        47
+      ],
+      "startSec": 7.523,
+      "endSec": 14.931,
+      "startFrame": 226,
+      "endFrame": 448,
+      "visualIntent": "Minh họa công cụ ZFN và TALEN cồng kềnh với biểu tượng cảnh báo cắt chệch mục tiêu (off-target)",
+      "primaryObject": "legacy_protein_tools_warning",
+      "cameraIntent": "static_analytic_view",
+      "sfxIntent": {
+        "asset": "sfx/warning_beep.wav",
+        "frame": 260,
+        "volume": 0.5
+      },
+      "captionIntent": {
+        "displayText": "Thế nhưng các công cụ chỉnh sửa truyền thống như ZFN hay TALEN lại quá cồng kềnh, chi phí đắt đỏ và nguy cơ cắt chệch mục tiêu rất cao.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "bulky_protein_misalignment",
+        "transformationType": "off_target_divergence"
+      }
+    },
+    {
+      "id": "beat_03",
+      "shotId": "shot_01",
+      "conceptId": "crispr_c03_bacterial_defense_origin",
+      "narrationTokenRange": [
+        48,
+        73
+      ],
+      "startSec": 14.931,
+      "endSec": 23.767,
+      "startFrame": 448,
+      "endFrame": 713,
+      "visualIntent": "Thực khuẩn thể xâm nhập vi khuẩn, mảng CRISPR kích hoạt hệ miễn dịch thích ứng tự nhiên lưu trữ spacer",
+      "primaryObject": "bacterial_crispr_array",
+      "cameraIntent": "carry_over_to_enzyme",
+      "sfxIntent": {
+        "asset": "sfx/bacterial_shield.wav",
+        "frame": 480,
+        "volume": 0.6
+      },
+      "captionIntent": {
+        "displayText": "Trong tự nhiên, vi khuẩn đã phát triển một hệ thống miễn dịch tinh vi mang tên CRISPR, giúp ghi nhớ các đoạn mã của virus để tiêu diệt chúng khi tái xâm nhập.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "phage_injection_and_spacer_acquisition",
+        "transformationType": "immune_memory_integration"
+      }
+    },
+    {
+      "id": "beat_04",
+      "shotId": "shot_02",
+      "conceptId": "crispr_c04_cas9_sgrna_complex",
+      "narrationTokenRange": [
+        74,
+        99
+      ],
+      "startSec": 23.767,
+      "endSec": 32.028,
+      "startFrame": 713,
+      "endFrame": 961,
+      "visualIntent": "Khối protein Cas9 hai thùy liên kết với chuỗi sgRNA hairpin tạo thành phức hợp cắt phân tử hoàn chỉnh",
+      "primaryObject": "cas9_sgrna_ribonucleoprotein",
+      "cameraIntent": "orbital_assembly_inspect",
+      "sfxIntent": {
+        "asset": "sfx/protein_dock.wav",
+        "frame": 750,
+        "volume": 0.6
+      },
+      "captionIntent": {
+        "displayText": "Đột phá xuất hiện khi các nhà khoa học kết hợp enzyme Cas9 với một thanh RNA dẫn đường nhân tạo, tạo thành chiếc kéo sinh học đa năng có thể lập trình.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "cas9_clamp_sgrna_assembly",
+        "transformationType": "allosteric_ribonucleoprotein_docking"
+      }
+    },
+    {
+      "id": "beat_05",
+      "shotId": "shot_02",
+      "conceptId": "crispr_c05_pam_motif_surveillance",
+      "narrationTokenRange": [
+        100,
+        127
+      ],
+      "startSec": 32.028,
+      "endSec": 42.448,
+      "startFrame": 961,
+      "endFrame": 1273,
+      "visualIntent": "Phức hợp Cas9 trượt tuần tra 1D dọc trục chuỗi xoắn kép DNA, quét tìm motif nhận diện PAM 5'-NGG-3'",
+      "primaryObject": "cas9_sliding_scanner",
+      "cameraIntent": "tracking_pan_right",
+      "sfxIntent": {
+        "asset": "sfx/radar_scan.wav",
+        "frame": 1000,
+        "volume": 0.5
+      },
+      "captionIntent": {
+        "displayText": "Phức hợp Cas9 liên tục trượt tuần tra dọc chuỗi xoắn kép DNA, quét tìm một đoạn mã nhận diện đặc biệt gọi là motif PAM, với trình tự năm phẩy N-G-G ba phẩy.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "linear_1d_dna_sliding",
+        "transformationType": "surveillance_motion_scan"
+      }
+    },
+    {
+      "id": "beat_06",
+      "shotId": "shot_02",
+      "conceptId": "crispr_c06_pam_recognition_anchor",
+      "narrationTokenRange": [
+        128,
+        153
+      ],
+      "startSec": 42.448,
+      "endSec": 50.56,
+      "startFrame": 1273,
+      "endFrame": 1517,
+      "visualIntent": "Cas9 nhận diện chính xác PAM, khóa chặt mỏ neo và kích hoạt biến đổi cấu trúc để bắt đầu tách mở DNA",
+      "primaryObject": "pam_anchor_clamp",
+      "cameraIntent": "macro_push_in_lock",
+      "sfxIntent": {
+        "asset": "sfx/magnetic_lock.wav",
+        "frame": 1300,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Khi nhận diện chính xác motif PAM, Cas9 bám chặt như một chiếc mỏ neo phân tử, kích hoạt biến đổi hình thể để bắt đầu tách mở hai sợi xoắn DNA.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "pam_groove_docking_anchor",
+        "transformationType": "local_duplex_torsional_destabilization"
+      }
+    },
+    {
+      "id": "beat_07",
+      "shotId": "shot_03",
+      "conceptId": "crispr_c07_dna_unwinding_rloop",
+      "narrationTokenRange": [
+        154,
+        182
+      ],
+      "startSec": 50.56,
+      "endSec": 58.422,
+      "startFrame": 1517,
+      "endFrame": 1753,
+      "visualIntent": "sgRNA bắt cặp zippy 20 nucleotide bổ sung với sợi khuôn mẫu, sợi đối diện uốn cong thành vòng lai R-loop",
+      "primaryObject": "r_loop_hybrid_complex",
+      "cameraIntent": "semantic_zoom_center",
+      "sfxIntent": {
+        "asset": "sfx/zipper_lock.wav",
+        "frame": 1550,
+        "volume": 0.65
+      },
+      "captionIntent": {
+        "displayText": "Thanh RNA dẫn đường len vào giữa, dò tìm hai mươi nucleotide bổ sung. Khi khớp hoàn toàn, cấu trúc vòng lai R-loop hình thành, khóa chặt mục tiêu vào vị trí.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "rna_dna_heteroduplex_zippering",
+        "transformationType": "r_loop_strand_displacement"
+      }
+    },
+    {
+      "id": "beat_08",
+      "shotId": "shot_03",
+      "conceptId": "crispr_c08_dual_catalytic_domains",
+      "narrationTokenRange": [
+        183,
+        209
+      ],
+      "startSec": 58.422,
+      "endSec": 67.658,
+      "startFrame": 1753,
+      "endFrame": 2030,
+      "visualIntent": "Hai miền nuclease HNH và RuvC áp sát hai sợi đối diện, phát sáng tia năng lượng chuẩn bị cắt",
+      "primaryObject": "hnh_ruvc_catalytic_blades",
+      "cameraIntent": "tension_hold_focus",
+      "sfxIntent": {
+        "asset": "sfx/energy_charge.wav",
+        "frame": 1780,
+        "volume": 0.6
+      },
+      "captionIntent": {
+        "displayText": "Sự bắt cặp chuẩn xác kích hoạt hai lưỡi kéo phân tử bên trong Cas9: miền H-N-H cắt sợi đối mã, trong khi miền RuvC chịu trách nhiệm cắt sợi không liên kết.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "dual_catalytic_domain_convergence",
+        "transformationType": "allosteric_cleavage_trigger"
+      }
+    },
+    {
+      "id": "beat_09",
+      "shotId": "shot_03",
+      "conceptId": "crispr_c09_double_strand_break",
+      "narrationTokenRange": [
+        210,
+        233
+      ],
+      "startSec": 67.658,
+      "endSec": 75.188,
+      "startFrame": 2030,
+      "endFrame": 2256,
+      "visualIntent": "Vết cắt kép diễn ra chính xác 3-bp trước PAM, đứt lìa trục photodiester tạo thành Double-Strand Break (DSB)",
+      "primaryObject": "double_strand_break_impact",
+      "cameraIntent": "impact_shake_recoil",
+      "sfxIntent": {
+        "asset": "sfx/molecular_cut_impact.wav",
+        "frame": 2070,
+        "volume": 0.9
+      },
+      "captionIntent": {
+        "displayText": "Hai vết cắt diễn ra chính xác ba cặp base phía trước motif PAM, tạo thành vết đứt gãy sợi đôi DNA hoàn toàn, bẻ khóa cấu trúc di truyền.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "precise_3bp_upstream_cleavage",
+        "transformationType": "double_strand_backbone_scission"
+      }
+    },
+    {
+      "id": "beat_10",
+      "shotId": "shot_04",
+      "conceptId": "crispr_c10_nhej_pathway",
+      "narrationTokenRange": [
+        234,
+        259
+      ],
+      "startSec": 75.188,
+      "endSec": 82.868,
+      "startFrame": 2256,
+      "endFrame": 2486,
+      "visualIntent": "Con đường nối đầu không tương đồng (NHEJ) hàn gắn vội vã gây đột biến mất đoạn (indel), bất hoạt gen",
+      "primaryObject": "nhej_indel_scar",
+      "cameraIntent": "split_pathway_left",
+      "sfxIntent": {
+        "asset": "sfx/blunt_repair.wav",
+        "frame": 2290,
+        "volume": 0.6
+      },
+      "captionIntent": {
+        "displayText": "Tế bào lập tức kích hoạt cơ chế nối đầu không tương đồng để hàn gắn thô sơ, thường tạo ra các đột biến chèn mất đoạn nhỏ giúp làm mất chức năng gen mục tiêu.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "blunt_end_rejoining_with_indel",
+        "transformationType": "frameshift_disruption_seal"
+      }
+    },
+    {
+      "id": "beat_11",
+      "shotId": "shot_04",
+      "conceptId": "crispr_c11_hdr_precise_editing",
+      "narrationTokenRange": [
+        260,
+        287
+      ],
+      "startSec": 82.868,
+      "endSec": 90.187,
+      "startFrame": 2486,
+      "endFrame": 2706,
+      "visualIntent": "Đoạn DNA mẫu donor trượt vào khe hở, cơ chế HDR tổng hợp chuỗi nucleotide mới hoàn hảo không tì vết",
+      "primaryObject": "hdr_donor_integration",
+      "cameraIntent": "split_pathway_right",
+      "sfxIntent": {
+        "asset": "sfx/donor_chime.wav",
+        "frame": 2520,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Hoặc khi được cung cấp thêm một đoạn DNA mẫu lành lặn, tế bào có thể kích hoạt cơ chế sửa chữa tương đồng để chèn chính xác chuỗi gen mới theo thiết kế.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "donor_template_homology_alignment",
+        "transformationType": "precise_sequence_integration"
+      }
+    },
+    {
+      "id": "beat_12",
+      "shotId": "shot_04",
+      "conceptId": "crispr_c12_biomedical_revolution",
+      "narrationTokenRange": [
+        288,
+        313
+      ],
+      "startSec": 90.187,
+      "endSec": 99.067,
+      "startFrame": 2706,
+      "endFrame": 2972,
+      "visualIntent": "Chuỗi DNA lành lặn tỏa sáng màu ngọc lam kết nối biểu tượng y sinh học chữa lành các bệnh nan y",
+      "primaryObject": "biomedical_victory_seal",
+      "cameraIntent": "wide_panoramic_pull_out",
+      "sfxIntent": {
+        "asset": "sfx/victory_seal.wav",
+        "frame": 2750,
+        "volume": 0.8
+      },
+      "captionIntent": {
+        "displayText": "Từ cơ chế sinh học vi mô, CRISPR-Cas9 đã mở ra kỷ nguyên mới của y học chính xác, trao cho con người khả năng sửa chữa bản thiết kế của sự sống.",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "molecular_healing_to_macroscopic_health",
+        "transformationType": "panoramic_biomedical_synthesis"
+      }
+    }
+  ]
+}

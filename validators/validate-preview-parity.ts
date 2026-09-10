@@ -303,19 +303,24 @@ export async function validatePreviewParity(
 
 export async function main() {
   const args = process.argv.slice(2);
-  let master = 'out/final-v3_3.mp4';
-  let preview = 'out/preview-360x640.mp4';
+  let master = '';
+  let preview = '';
   let outReport = 'out/preview-parity-report.json';
+  const positional: string[] = [];
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--master' && args[i + 1]) master = args[++i];
     else if (args[i] === '--preview' && args[i + 1]) preview = args[++i];
     else if (args[i] === '--output' && args[i + 1]) outReport = args[++i];
     else if (!args[i].startsWith('--')) {
-      if (!master) master = args[i];
-      else preview = args[i];
+      positional.push(args[i]);
     }
   }
+
+  if (!master && positional.length > 0) master = positional[0];
+  if (!preview && positional.length > 1) preview = positional[1];
+  if (!master) master = 'out/final-v3_3.mp4';
+  if (!preview) preview = 'out/preview-360x640.mp4';
 
   console.log(`\n==================================================================`);
   console.log(` VALIDATOR: Deterministic Mobile Preview Parity (R3 QA Gate)`);

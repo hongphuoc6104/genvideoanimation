@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "sequenceId": "sodium-potassium-pump",
+  "fps": 30,
+  "totalFrames": 1068,
+  "totalDurationSec": 35.6,
+  "beats": [
+    {
+      "id": "b01_membrane_potential",
+      "shotId": "shot_01",
+      "startSec": 0.0,
+      "endSec": 4.885,
+      "startFrame": 0,
+      "endFrame": 147,
+      "visualIntent": "Hiển thị màng phospholipid kép ngăn cách dịch ngoại bào và tế bào chất, đo điện thế nghỉ -70 mV và chỉ ra dòng ion rò rỉ thụ động",
+      "primaryObject": "cell_membrane_gradient",
+      "cameraIntent": "slow_push_in",
+      "transitionIntent": "none",
+      "visualExplanationContract": {
+        "spatialRelationship": "extracellular_high_na_vs_intracellular_high_k",
+        "transformationType": "passive_diffusion_leak_vectors",
+        "coreMechanism": "electrochemical_gradient_decay"
+      }
+    },
+    {
+      "id": "b02_alternating_access_solution",
+      "shotId": "shot_01",
+      "startSec": 4.885,
+      "endSec": 9.813,
+      "startFrame": 147,
+      "endFrame": 294,
+      "visualIntent": "Bơm Na+/K+ cắm xuyên màng xuất hiện với cấu hình van lật luân phiên Albers-Post hai trạng thái E1 và E2",
+      "primaryObject": "pump_alternating_valve_architecture",
+      "cameraIntent": "focus_on_pump_core",
+      "transitionIntent": "object_match",
+      "visualExplanationContract": {
+        "spatialRelationship": "transmembrane_dual_aperture_gate",
+        "transformationType": "conformational_state_alternation",
+        "coreMechanism": "occluded_gate_prevents_leakage"
+      }
+    },
+    {
+      "id": "b03_na_binding_phosphorylation",
+      "shotId": "shot_02",
+      "startSec": 9.813,
+      "endSec": 15.671,
+      "startFrame": 294,
+      "endFrame": 470,
+      "visualIntent": "Ở trạng thái E1 mở hướng nội, 3 ion Na+ gắn chặt vào vị trí thụ thể; ATP cập bến và phosphoryl hóa gốc Aspartate",
+      "primaryObject": "e1_na3_atp_binding_complex",
+      "cameraIntent": "tight_macro_binding_pocket",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "cytoplasm_to_pump_cavity_docking",
+        "transformationType": "atp_phosphorylation_aspartate_bond",
+        "coreMechanism": "high_affinity_na_trapping"
+      }
+    },
+    {
+      "id": "b04_e1_to_e2_na_release",
+      "shotId": "shot_02",
+      "startSec": 15.671,
+      "endSec": 20.659,
+      "startFrame": 470,
+      "endFrame": 620,
+      "visualIntent": "Nhóm phosphate đẩy cấu trúc protein lật ngược sang trạng thái E2 mở ra ngoài; ái lực Na+ sụt giảm, đẩy 3 Na+ ra ngoài tế bào",
+      "primaryObject": "e2p_na_release_gate",
+      "cameraIntent": "follow_na_extrusion",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "pump_cavity_to_extracellular_fluid",
+        "transformationType": "gate_inversion_e1_to_e2",
+        "coreMechanism": "affinity_drop_promotes_unbinding"
+      }
+    },
+    {
+      "id": "b05_k_binding_dephosphorylation",
+      "shotId": "shot_02",
+      "startSec": 20.659,
+      "endSec": 25.025,
+      "startFrame": 620,
+      "endFrame": 751,
+      "visualIntent": "2 ion K+ ngoại bào tiến vào gắn tại khe hở E2; liên kết kích hoạt phản ứng thủy phân giải phóng phosphate tự do Pi",
+      "primaryObject": "e2_k2_docking_and_dephosphorylation",
+      "cameraIntent": "focus_on_extracellular_entrance",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "extracellular_k_intake_to_pockets",
+        "transformationType": "phosphate_cleavage_and_dissociation",
+        "coreMechanism": "k_induced_dephosphorylation"
+      }
+    },
+    {
+      "id": "b06_e2_to_e1_k_release",
+      "shotId": "shot_02",
+      "startSec": 25.025,
+      "endSec": 30.291,
+      "startFrame": 751,
+      "endFrame": 909,
+      "visualIntent": "Mất nhóm phosphate, protein tự động hồi phục về cấu hình E1 quay mặt vào trong; ái lực giảm, thả 2 K+ vào bào tương",
+      "primaryObject": "e1_k2_inward_discharge",
+      "cameraIntent": "follow_k_into_cytoplasm",
+      "transitionIntent": "semantic_zoom",
+      "visualExplanationContract": {
+        "spatialRelationship": "pump_interior_to_cytoplasmic_pool",
+        "transformationType": "snap_back_reversion_to_e1",
+        "coreMechanism": "relaxation_affinity_shift_releases_potassium"
+      }
+    },
+    {
+      "id": "b07_electrogenic_synthesis",
+      "shotId": "shot_03",
+      "startSec": 30.291,
+      "endSec": 35.597,
+      "startFrame": 909,
+      "endFrame": 1068,
+      "visualIntent": "Bảng tổng kết động học: 1 ATP -> 3 Na+ ra / 2 K+ vào, điện tích ròng mất +1 bên trong, tái lập điện thế nghỉ -70 mV",
+      "primaryObject": "stoichiometric_balance_board",
+      "cameraIntent": "wide_panoramic_synthesis",
+      "transitionIntent": "none",
+      "visualExplanationContract": {
+        "spatialRelationship": "asymmetric_3_to_2_charge_separation",
+        "transformationType": "negative_polarization_reinforcement",
+        "coreMechanism": "electrogenic_pump_maintains_cellular_life"
+      }
+    }
+  ]
+}

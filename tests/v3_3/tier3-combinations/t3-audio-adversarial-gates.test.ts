@@ -239,8 +239,8 @@ describe({ name: 'Tier 3: Audio, Adversarial & Gate Interactions', feature: 'T3-
   test(
     'T3-19: Content Coverage ↔ Scopus Canary 24/24 units: Source coverage validator proves 100% curriculum mapping with 0 gaps',
     () => {
-      const sourceMapPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/source-content-map.json');
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
+      const sourceMapPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/source-content-map.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
 
       assertTrue(fs.existsSync(sourceMapPath), 'source-content-map.json must exist');
       assertTrue(fs.existsSync(timelinePath), 'semantic-timeline.json must exist');

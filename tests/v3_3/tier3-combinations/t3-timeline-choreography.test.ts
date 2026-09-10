@@ -32,7 +32,7 @@ describe({ name: 'Tier 3: Timeline & Choreography Interactions', feature: 'T3-TI
     'T3-10: Progressive Disclosure ↔ Timeline: Semantic timeline enforces 1 primary object and 1 visual intent per beat without card collisions',
     () => {
       // 1. Read production timeline or generate canonical mock
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
       assertTrue(fs.existsSync(timelinePath), 'semantic-timeline.json must exist');
       const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
 
@@ -126,8 +126,8 @@ describe({ name: 'Tier 3: Timeline & Choreography Interactions', feature: 'T3-TI
   test(
     'T3-12: Timeline ↔ ShotSpec: Shot boundaries and transitions strictly derive from semantic timeline beat groupings',
     () => {
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
-      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/shot-spec.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
+      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/shot-spec.json');
 
       assertTrue(fs.existsSync(timelinePath), 'semantic-timeline.json must exist');
       assertTrue(fs.existsSync(shotSpecPath), 'shot-spec.json must exist');
@@ -176,7 +176,7 @@ describe({ name: 'Tier 3: Timeline & Choreography Interactions', feature: 'T3-TI
   test(
     'T3-13: Timeline ↔ Audio Ownership: All timeline sfxIntent cues are pre-baked into master audio and zero cue <Audio> tags exist in scenes',
     () => {
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
       const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
 
       // Extract all SFX intents declared in timeline
@@ -201,7 +201,7 @@ describe({ name: 'Tier 3: Timeline & Choreography Interactions', feature: 'T3-TI
       }
 
       // Read root film file ScopusExplainerFilm.tsx
-      const rootFilmPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/ScopusExplainerFilm.tsx');
+      const rootFilmPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/ScopusExplainerFilm.tsx');
       assertTrue(fs.existsSync(rootFilmPath), 'ScopusExplainerFilm.tsx must exist');
       const rootCode = fs.readFileSync(rootFilmPath, 'utf-8');
 
@@ -215,7 +215,7 @@ describe({ name: 'Tier 3: Timeline & Choreography Interactions', feature: 'T3-TI
       );
 
       // Verify scene components contain zero <Audio> tags
-      const scenesDir = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/scenes');
+      const scenesDir = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/scenes');
       const sceneFiles = fs.readdirSync(scenesDir).filter((f) => f.endsWith('.tsx'));
       for (const file of sceneFiles) {
         const sceneCode = fs.readFileSync(path.join(scenesDir, file), 'utf-8');
@@ -229,8 +229,8 @@ describe({ name: 'Tier 3: Timeline & Choreography Interactions', feature: 'T3-TI
   test(
     'T3-14: Timeline ↔ Content Coverage: Bidirectional 100% mapping between semantic beats and curriculum knowledge units',
     () => {
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
-      const sourceMapPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/source-content-map.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
+      const sourceMapPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/source-content-map.json');
 
       const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf-8'));
       const sourceMap = JSON.parse(fs.readFileSync(sourceMapPath, 'utf-8'));

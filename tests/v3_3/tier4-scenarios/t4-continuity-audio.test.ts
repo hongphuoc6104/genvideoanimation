@@ -29,8 +29,8 @@ describe({ name: 'Tier 4: Continuity & Audio Scenarios', feature: 'T4-CONTINUITY
   test(
     'T4-SCN-06: Desk reject stamp impact frame whitelist (MAD spike >4x reconciled against ShotSpec frame 45)',
     () => {
-      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/shot-spec.json');
-      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/semantic-timeline.json');
+      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/shot-spec.json');
+      const timelinePath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json');
 
       assertTrue(fs.existsSync(shotSpecPath), 'shot-spec.json must exist');
       assertTrue(fs.existsSync(timelinePath), 'semantic-timeline.json must exist');
@@ -71,7 +71,7 @@ describe({ name: 'Tier 4: Continuity & Audio Scenarios', feature: 'T4-CONTINUITY
   test(
     'T4-SCN-07: Motivated scene boundary transitions without naked cuts across all 4 major scene boundaries',
     () => {
-      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/shot-spec.json');
+      const shotSpecPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/shot-spec.json');
       const shotSpec = JSON.parse(fs.readFileSync(shotSpecPath, 'utf-8'));
       const shots = shotSpec.shots;
 
@@ -122,7 +122,7 @@ describe({ name: 'Tier 4: Continuity & Audio Scenarios', feature: 'T4-CONTINUITY
   test(
     'T4-SCN-08: PREMIXED master audio single ownership playback across root film and child scenes',
     () => {
-      const rootFilmPath = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/ScopusExplainerFilm.tsx');
+      const rootFilmPath = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/ScopusExplainerFilm.tsx');
       assertTrue(fs.existsSync(rootFilmPath), 'ScopusExplainerFilm.tsx must exist');
       const rootFilmCode = fs.readFileSync(rootFilmPath, 'utf-8');
 
@@ -153,7 +153,7 @@ describe({ name: 'Tier 4: Continuity & Audio Scenarios', feature: 'T4-CONTINUITY
       assertEqual(graph.runtimePlayback.duplicateSfxCount, 0);
 
       // 4. Verify no child scene mounts secondary audio tags
-      const scenesDir = path.resolve(process.cwd(), 'connection-film/src/scopus-explainer/scenes');
+      const scenesDir = path.resolve(process.cwd(), 'connection-film/src/legacy/scopus-explainer/scenes');
       const scenes = fs.readdirSync(scenesDir).filter((f) => f.endsWith('.tsx'));
       for (const sceneFile of scenes) {
         const sceneCode = fs.readFileSync(path.join(scenesDir, sceneFile), 'utf-8');

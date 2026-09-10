@@ -9,7 +9,7 @@ import { parseWavHeader, extractPcmData, createWavFile } from '../tts/wav';
 import { AudioTrackSpec, DuckingConfig, DuckingRegion, MixOptions, MixResult } from './types';
 import { computeLoudnessStats, normalizePcmLoudness } from './normalizeLoudness';
 
-export { MixOptions, MixResult };
+export type { MixOptions, MixResult };
 
 /**
  * Reads any PCM WAV file and resamples it to 48,000 Hz stereo Float32 buffers.

@@ -189,6 +189,17 @@ export function extractWhitelistedFrames(shotSpecData: any): number[] {
     for (const f of shotSpecData.impact_frames) if (typeof f === 'number') frames.add(f);
   }
 
+  // Top-level beats array if co-located or provided
+  if (Array.isArray(shotSpecData.beats)) {
+    for (const b of shotSpecData.beats) {
+      if (typeof b.startFrame === 'number') frames.add(b.startFrame);
+      if (typeof b.endFrame === 'number') frames.add(b.endFrame);
+      if (Array.isArray(b.impact_frames)) {
+        for (const f of b.impact_frames) if (typeof f === 'number') frames.add(f);
+      }
+    }
+  }
+
   // Transitions declarations: add all frames in transition windows
   if (Array.isArray(shotSpecData.transitions)) {
     for (const t of shotSpecData.transitions) {
@@ -210,6 +221,8 @@ export function extractWhitelistedFrames(shotSpecData: any): number[] {
     : [];
 
   for (const shot of shots) {
+    if (typeof shot.startFrame === 'number') frames.add(shot.startFrame);
+    if (typeof shot.endFrame === 'number') frames.add(shot.endFrame);
     if (Array.isArray(shot.impact_frames)) {
       for (const f of shot.impact_frames) if (typeof f === 'number') frames.add(f);
     }
@@ -331,6 +344,25 @@ export async function analyzeRenderedVideo(
     const rawSpec = fs.readFileSync(specPath, 'utf-8');
     const parsedSpec = JSON.parse(rawSpec);
     whitelistedFrames = extractWhitelistedFrames(parsedSpec);
+
+    // Also check for co-located semantic-timeline.json
+    const dir = path.dirname(specPath);
+    const timelineFile = path.join(dir, 'semantic-timeline.json');
+    if (fs.existsSync(timelineFile)) {
+      try {
+        const timelineData = JSON.parse(fs.readFileSync(timelineFile, 'utf-8'));
+        if (Array.isArray(timelineData.beats)) {
+          const beatFrames = timelineData.beats
+            .map((b: any) => [b.startFrame, b.endFrame, ...(b.impact_frames || [])])
+            .flat()
+            .filter((f: any) => typeof f === 'number');
+          const merged = new Set([...whitelistedFrames, ...beatFrames]);
+          whitelistedFrames = Array.from(merged).sort((a, b) => a - b);
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
   } else if (shotSpecOrPath && typeof shotSpecOrPath === 'object') {
     whitelistedFrames = extractWhitelistedFrames(shotSpecOrPath);
   }

@@ -1,0 +1,2313 @@
+[
+  {
+    "id": "cap_1_a",
+    "text": "Chỉ một sai sót đơn lẻ trong hàng tỷ ký tự mã di truyền DNA có thể",
+    "startFrame": 0,
+    "endFrame": 108,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Chỉ",
+        "startFrame": 0,
+        "endFrame": 6
+      },
+      {
+        "word": "một",
+        "startFrame": 6,
+        "endFrame": 13
+      },
+      {
+        "word": "sai",
+        "startFrame": 13,
+        "endFrame": 19
+      },
+      {
+        "word": "sót",
+        "startFrame": 19,
+        "endFrame": 25
+      },
+      {
+        "word": "đơn",
+        "startFrame": 25,
+        "endFrame": 32
+      },
+      {
+        "word": "lẻ",
+        "startFrame": 32,
+        "endFrame": 38
+      },
+      {
+        "word": "trong",
+        "startFrame": 38,
+        "endFrame": 44
+      },
+      {
+        "word": "hàng",
+        "startFrame": 44,
+        "endFrame": 51
+      },
+      {
+        "word": "tỷ",
+        "startFrame": 51,
+        "endFrame": 57
+      },
+      {
+        "word": "ký",
+        "startFrame": 57,
+        "endFrame": 63
+      },
+      {
+        "word": "tự",
+        "startFrame": 63,
+        "endFrame": 70
+      },
+      {
+        "word": "mã",
+        "startFrame": 70,
+        "endFrame": 76
+      },
+      {
+        "word": "di",
+        "startFrame": 76,
+        "endFrame": 82
+      },
+      {
+        "word": "truyền",
+        "startFrame": 82,
+        "endFrame": 89
+      },
+      {
+        "word": "DNA",
+        "startFrame": 89,
+        "endFrame": 95
+      },
+      {
+        "word": "có",
+        "startFrame": 95,
+        "endFrame": 101
+      },
+      {
+        "word": "thể",
+        "startFrame": 101,
+        "endFrame": 108
+      }
+    ]
+  },
+  {
+    "id": "cap_1_b",
+    "text": "gây ra những căn bệnh hiểm nghèo như thiếu máu hồng cầu hình liềm hay ung thư.",
+    "startFrame": 108,
+    "endFrame": 215,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "gây",
+        "startFrame": 108,
+        "endFrame": 114
+      },
+      {
+        "word": "ra",
+        "startFrame": 114,
+        "endFrame": 120
+      },
+      {
+        "word": "những",
+        "startFrame": 120,
+        "endFrame": 127
+      },
+      {
+        "word": "căn",
+        "startFrame": 127,
+        "endFrame": 133
+      },
+      {
+        "word": "bệnh",
+        "startFrame": 133,
+        "endFrame": 139
+      },
+      {
+        "word": "hiểm",
+        "startFrame": 139,
+        "endFrame": 146
+      },
+      {
+        "word": "nghèo",
+        "startFrame": 146,
+        "endFrame": 152
+      },
+      {
+        "word": "như",
+        "startFrame": 152,
+        "endFrame": 158
+      },
+      {
+        "word": "thiếu",
+        "startFrame": 158,
+        "endFrame": 165
+      },
+      {
+        "word": "máu",
+        "startFrame": 165,
+        "endFrame": 171
+      },
+      {
+        "word": "hồng",
+        "startFrame": 171,
+        "endFrame": 177
+      },
+      {
+        "word": "cầu",
+        "startFrame": 177,
+        "endFrame": 184
+      },
+      {
+        "word": "hình",
+        "startFrame": 184,
+        "endFrame": 190
+      },
+      {
+        "word": "liềm",
+        "startFrame": 190,
+        "endFrame": 196
+      },
+      {
+        "word": "hay",
+        "startFrame": 196,
+        "endFrame": 203
+      },
+      {
+        "word": "ung",
+        "startFrame": 203,
+        "endFrame": 209
+      },
+      {
+        "word": "thư.",
+        "startFrame": 209,
+        "endFrame": 215
+      }
+    ]
+  },
+  {
+    "id": "cap_2_a",
+    "text": "Thế nhưng các công cụ chỉnh sửa truyền thống như ZFN hay TALEN lại quá cồng kềnh,",
+    "startFrame": 226,
+    "endFrame": 347,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Thế",
+        "startFrame": 226,
+        "endFrame": 233
+      },
+      {
+        "word": "nhưng",
+        "startFrame": 233,
+        "endFrame": 240
+      },
+      {
+        "word": "các",
+        "startFrame": 240,
+        "endFrame": 247
+      },
+      {
+        "word": "công",
+        "startFrame": 247,
+        "endFrame": 254
+      },
+      {
+        "word": "cụ",
+        "startFrame": 254,
+        "endFrame": 261
+      },
+      {
+        "word": "chỉnh",
+        "startFrame": 261,
+        "endFrame": 268
+      },
+      {
+        "word": "sửa",
+        "startFrame": 268,
+        "endFrame": 275
+      },
+      {
+        "word": "truyền",
+        "startFrame": 275,
+        "endFrame": 283
+      },
+      {
+        "word": "thống",
+        "startFrame": 283,
+        "endFrame": 290
+      },
+      {
+        "word": "như",
+        "startFrame": 290,
+        "endFrame": 297
+      },
+      {
+        "word": "ZFN",
+        "startFrame": 297,
+        "endFrame": 304
+      },
+      {
+        "word": "hay",
+        "startFrame": 304,
+        "endFrame": 311
+      },
+      {
+        "word": "TALEN",
+        "startFrame": 311,
+        "endFrame": 318
+      },
+      {
+        "word": "lại",
+        "startFrame": 318,
+        "endFrame": 325
+      },
+      {
+        "word": "quá",
+        "startFrame": 325,
+        "endFrame": 332
+      },
+      {
+        "word": "cồng",
+        "startFrame": 332,
+        "endFrame": 339
+      },
+      {
+        "word": "kềnh,",
+        "startFrame": 339,
+        "endFrame": 347
+      }
+    ]
+  },
+  {
+    "id": "cap_2_b",
+    "text": "chi phí đắt đỏ và nguy cơ cắt chệch mục tiêu rất cao.",
+    "startFrame": 347,
+    "endFrame": 439,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "chi",
+        "startFrame": 347,
+        "endFrame": 354
+      },
+      {
+        "word": "phí",
+        "startFrame": 354,
+        "endFrame": 361
+      },
+      {
+        "word": "đắt",
+        "startFrame": 361,
+        "endFrame": 368
+      },
+      {
+        "word": "đỏ",
+        "startFrame": 368,
+        "endFrame": 375
+      },
+      {
+        "word": "và",
+        "startFrame": 375,
+        "endFrame": 382
+      },
+      {
+        "word": "nguy",
+        "startFrame": 382,
+        "endFrame": 389
+      },
+      {
+        "word": "cơ",
+        "startFrame": 389,
+        "endFrame": 396
+      },
+      {
+        "word": "cắt",
+        "startFrame": 396,
+        "endFrame": 403
+      },
+      {
+        "word": "chệch",
+        "startFrame": 403,
+        "endFrame": 410
+      },
+      {
+        "word": "mục",
+        "startFrame": 410,
+        "endFrame": 418
+      },
+      {
+        "word": "tiêu",
+        "startFrame": 418,
+        "endFrame": 425
+      },
+      {
+        "word": "rất",
+        "startFrame": 425,
+        "endFrame": 432
+      },
+      {
+        "word": "cao.",
+        "startFrame": 432,
+        "endFrame": 439
+      }
+    ]
+  },
+  {
+    "id": "cap_3_a",
+    "text": "Trong tự nhiên, vi khuẩn đã phát triển một hệ thống miễn dịch tinh vi mang tên CRISPR,",
+    "startFrame": 448,
+    "endFrame": 583,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Trong",
+        "startFrame": 448,
+        "endFrame": 455
+      },
+      {
+        "word": "tự",
+        "startFrame": 455,
+        "endFrame": 463
+      },
+      {
+        "word": "nhiên,",
+        "startFrame": 463,
+        "endFrame": 470
+      },
+      {
+        "word": "vi",
+        "startFrame": 470,
+        "endFrame": 478
+      },
+      {
+        "word": "khuẩn",
+        "startFrame": 478,
+        "endFrame": 485
+      },
+      {
+        "word": "đã",
+        "startFrame": 485,
+        "endFrame": 493
+      },
+      {
+        "word": "phát",
+        "startFrame": 493,
+        "endFrame": 500
+      },
+      {
+        "word": "triển",
+        "startFrame": 500,
+        "endFrame": 508
+      },
+      {
+        "word": "một",
+        "startFrame": 508,
+        "endFrame": 515
+      },
+      {
+        "word": "hệ",
+        "startFrame": 515,
+        "endFrame": 523
+      },
+      {
+        "word": "thống",
+        "startFrame": 523,
+        "endFrame": 530
+      },
+      {
+        "word": "miễn",
+        "startFrame": 530,
+        "endFrame": 538
+      },
+      {
+        "word": "dịch",
+        "startFrame": 538,
+        "endFrame": 545
+      },
+      {
+        "word": "tinh",
+        "startFrame": 545,
+        "endFrame": 553
+      },
+      {
+        "word": "vi",
+        "startFrame": 553,
+        "endFrame": 560
+      },
+      {
+        "word": "mang",
+        "startFrame": 560,
+        "endFrame": 568
+      },
+      {
+        "word": "tên",
+        "startFrame": 568,
+        "endFrame": 575
+      },
+      {
+        "word": "CRISPR,",
+        "startFrame": 575,
+        "endFrame": 583
+      }
+    ]
+  },
+  {
+    "id": "cap_3_b",
+    "text": "giúp ghi nhớ các đoạn mã của virus để tiêu diệt chúng khi tái xâm nhập.",
+    "startFrame": 583,
+    "endFrame": 703,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "giúp",
+        "startFrame": 583,
+        "endFrame": 590
+      },
+      {
+        "word": "ghi",
+        "startFrame": 590,
+        "endFrame": 598
+      },
+      {
+        "word": "nhớ",
+        "startFrame": 598,
+        "endFrame": 605
+      },
+      {
+        "word": "các",
+        "startFrame": 605,
+        "endFrame": 613
+      },
+      {
+        "word": "đoạn",
+        "startFrame": 613,
+        "endFrame": 620
+      },
+      {
+        "word": "mã",
+        "startFrame": 620,
+        "endFrame": 628
+      },
+      {
+        "word": "của",
+        "startFrame": 628,
+        "endFrame": 635
+      },
+      {
+        "word": "virus",
+        "startFrame": 635,
+        "endFrame": 643
+      },
+      {
+        "word": "để",
+        "startFrame": 643,
+        "endFrame": 650
+      },
+      {
+        "word": "tiêu",
+        "startFrame": 650,
+        "endFrame": 658
+      },
+      {
+        "word": "diệt",
+        "startFrame": 658,
+        "endFrame": 665
+      },
+      {
+        "word": "chúng",
+        "startFrame": 665,
+        "endFrame": 673
+      },
+      {
+        "word": "khi",
+        "startFrame": 673,
+        "endFrame": 680
+      },
+      {
+        "word": "tái",
+        "startFrame": 680,
+        "endFrame": 688
+      },
+      {
+        "word": "xâm",
+        "startFrame": 688,
+        "endFrame": 695
+      },
+      {
+        "word": "nhập.",
+        "startFrame": 695,
+        "endFrame": 703
+      }
+    ]
+  },
+  {
+    "id": "cap_4_a",
+    "text": "Đột phá xuất hiện khi các nhà khoa học kết hợp enzyme Cas9 với một thanh RNA dẫn đường nhân tạo,",
+    "startFrame": 713,
+    "endFrame": 865,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Đột",
+        "startFrame": 713,
+        "endFrame": 720
+      },
+      {
+        "word": "phá",
+        "startFrame": 720,
+        "endFrame": 727
+      },
+      {
+        "word": "xuất",
+        "startFrame": 727,
+        "endFrame": 735
+      },
+      {
+        "word": "hiện",
+        "startFrame": 735,
+        "endFrame": 742
+      },
+      {
+        "word": "khi",
+        "startFrame": 742,
+        "endFrame": 749
+      },
+      {
+        "word": "các",
+        "startFrame": 749,
+        "endFrame": 756
+      },
+      {
+        "word": "nhà",
+        "startFrame": 756,
+        "endFrame": 764
+      },
+      {
+        "word": "khoa",
+        "startFrame": 764,
+        "endFrame": 771
+      },
+      {
+        "word": "học",
+        "startFrame": 771,
+        "endFrame": 778
+      },
+      {
+        "word": "kết",
+        "startFrame": 778,
+        "endFrame": 785
+      },
+      {
+        "word": "hợp",
+        "startFrame": 785,
+        "endFrame": 793
+      },
+      {
+        "word": "enzyme",
+        "startFrame": 793,
+        "endFrame": 800
+      },
+      {
+        "word": "Cas9",
+        "startFrame": 800,
+        "endFrame": 807
+      },
+      {
+        "word": "với",
+        "startFrame": 807,
+        "endFrame": 814
+      },
+      {
+        "word": "một",
+        "startFrame": 814,
+        "endFrame": 822
+      },
+      {
+        "word": "thanh",
+        "startFrame": 822,
+        "endFrame": 829
+      },
+      {
+        "word": "RNA",
+        "startFrame": 829,
+        "endFrame": 836
+      },
+      {
+        "word": "dẫn",
+        "startFrame": 836,
+        "endFrame": 843
+      },
+      {
+        "word": "đường",
+        "startFrame": 843,
+        "endFrame": 851
+      },
+      {
+        "word": "nhân",
+        "startFrame": 851,
+        "endFrame": 858
+      },
+      {
+        "word": "tạo,",
+        "startFrame": 858,
+        "endFrame": 865
+      }
+    ]
+  },
+  {
+    "id": "cap_4_b",
+    "text": "tạo thành chiếc kéo sinh học đa năng có thể lập trình.",
+    "startFrame": 865,
+    "endFrame": 952,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "tạo",
+        "startFrame": 865,
+        "endFrame": 872
+      },
+      {
+        "word": "thành",
+        "startFrame": 872,
+        "endFrame": 879
+      },
+      {
+        "word": "chiếc",
+        "startFrame": 879,
+        "endFrame": 887
+      },
+      {
+        "word": "kéo",
+        "startFrame": 887,
+        "endFrame": 894
+      },
+      {
+        "word": "sinh",
+        "startFrame": 894,
+        "endFrame": 901
+      },
+      {
+        "word": "học",
+        "startFrame": 901,
+        "endFrame": 908
+      },
+      {
+        "word": "đa",
+        "startFrame": 908,
+        "endFrame": 916
+      },
+      {
+        "word": "năng",
+        "startFrame": 916,
+        "endFrame": 923
+      },
+      {
+        "word": "có",
+        "startFrame": 923,
+        "endFrame": 930
+      },
+      {
+        "word": "thể",
+        "startFrame": 930,
+        "endFrame": 937
+      },
+      {
+        "word": "lập",
+        "startFrame": 937,
+        "endFrame": 945
+      },
+      {
+        "word": "trình.",
+        "startFrame": 945,
+        "endFrame": 952
+      }
+    ]
+  },
+  {
+    "id": "cap_5_a",
+    "text": "Phức hợp Cas9 liên tục trượt tuần tra dọc chuỗi xoắn kép DNA,",
+    "startFrame": 961,
+    "endFrame": 1077,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Phức",
+        "startFrame": 961,
+        "endFrame": 970
+      },
+      {
+        "word": "hợp",
+        "startFrame": 970,
+        "endFrame": 979
+      },
+      {
+        "word": "Cas9",
+        "startFrame": 979,
+        "endFrame": 988
+      },
+      {
+        "word": "liên",
+        "startFrame": 988,
+        "endFrame": 996
+      },
+      {
+        "word": "tục",
+        "startFrame": 996,
+        "endFrame": 1005
+      },
+      {
+        "word": "trượt",
+        "startFrame": 1005,
+        "endFrame": 1014
+      },
+      {
+        "word": "tuần",
+        "startFrame": 1014,
+        "endFrame": 1023
+      },
+      {
+        "word": "tra",
+        "startFrame": 1023,
+        "endFrame": 1032
+      },
+      {
+        "word": "dọc",
+        "startFrame": 1032,
+        "endFrame": 1041
+      },
+      {
+        "word": "chuỗi",
+        "startFrame": 1041,
+        "endFrame": 1050
+      },
+      {
+        "word": "xoắn",
+        "startFrame": 1050,
+        "endFrame": 1059
+      },
+      {
+        "word": "kép",
+        "startFrame": 1059,
+        "endFrame": 1068
+      },
+      {
+        "word": "DNA,",
+        "startFrame": 1068,
+        "endFrame": 1077
+      }
+    ]
+  },
+  {
+    "id": "cap_5_b",
+    "text": "quét tìm một đoạn mã nhận diện đặc biệt gọi là motif PAM, với trình tự năm phẩy N-G-G ba phẩy.",
+    "startFrame": 1077,
+    "endFrame": 1264,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "quét",
+        "startFrame": 1077,
+        "endFrame": 1086
+      },
+      {
+        "word": "tìm",
+        "startFrame": 1086,
+        "endFrame": 1095
+      },
+      {
+        "word": "một",
+        "startFrame": 1095,
+        "endFrame": 1103
+      },
+      {
+        "word": "đoạn",
+        "startFrame": 1103,
+        "endFrame": 1112
+      },
+      {
+        "word": "mã",
+        "startFrame": 1112,
+        "endFrame": 1121
+      },
+      {
+        "word": "nhận",
+        "startFrame": 1121,
+        "endFrame": 1130
+      },
+      {
+        "word": "diện",
+        "startFrame": 1130,
+        "endFrame": 1139
+      },
+      {
+        "word": "đặc",
+        "startFrame": 1139,
+        "endFrame": 1148
+      },
+      {
+        "word": "biệt",
+        "startFrame": 1148,
+        "endFrame": 1157
+      },
+      {
+        "word": "gọi",
+        "startFrame": 1157,
+        "endFrame": 1166
+      },
+      {
+        "word": "là",
+        "startFrame": 1166,
+        "endFrame": 1175
+      },
+      {
+        "word": "motif",
+        "startFrame": 1175,
+        "endFrame": 1184
+      },
+      {
+        "word": "PAM,",
+        "startFrame": 1184,
+        "endFrame": 1193
+      },
+      {
+        "word": "với",
+        "startFrame": 1193,
+        "endFrame": 1201
+      },
+      {
+        "word": "trình",
+        "startFrame": 1201,
+        "endFrame": 1210
+      },
+      {
+        "word": "tự",
+        "startFrame": 1210,
+        "endFrame": 1219
+      },
+      {
+        "word": "năm",
+        "startFrame": 1219,
+        "endFrame": 1228
+      },
+      {
+        "word": "phẩy",
+        "startFrame": 1228,
+        "endFrame": 1237
+      },
+      {
+        "word": "N-G-G",
+        "startFrame": 1237,
+        "endFrame": 1246
+      },
+      {
+        "word": "ba",
+        "startFrame": 1246,
+        "endFrame": 1255
+      },
+      {
+        "word": "phẩy.",
+        "startFrame": 1255,
+        "endFrame": 1264
+      }
+    ]
+  },
+  {
+    "id": "cap_6_a",
+    "text": "Khi nhận diện chính xác motif PAM, Cas9 bám chặt như một chiếc mỏ neo phân tử,",
+    "startFrame": 1273,
+    "endFrame": 1398,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Khi",
+        "startFrame": 1273,
+        "endFrame": 1281
+      },
+      {
+        "word": "nhận",
+        "startFrame": 1281,
+        "endFrame": 1288
+      },
+      {
+        "word": "diện",
+        "startFrame": 1288,
+        "endFrame": 1295
+      },
+      {
+        "word": "chính",
+        "startFrame": 1295,
+        "endFrame": 1303
+      },
+      {
+        "word": "xác",
+        "startFrame": 1303,
+        "endFrame": 1310
+      },
+      {
+        "word": "motif",
+        "startFrame": 1310,
+        "endFrame": 1317
+      },
+      {
+        "word": "PAM,",
+        "startFrame": 1317,
+        "endFrame": 1325
+      },
+      {
+        "word": "Cas9",
+        "startFrame": 1325,
+        "endFrame": 1332
+      },
+      {
+        "word": "bám",
+        "startFrame": 1332,
+        "endFrame": 1339
+      },
+      {
+        "word": "chặt",
+        "startFrame": 1339,
+        "endFrame": 1347
+      },
+      {
+        "word": "như",
+        "startFrame": 1347,
+        "endFrame": 1354
+      },
+      {
+        "word": "một",
+        "startFrame": 1354,
+        "endFrame": 1361
+      },
+      {
+        "word": "chiếc",
+        "startFrame": 1361,
+        "endFrame": 1369
+      },
+      {
+        "word": "mỏ",
+        "startFrame": 1369,
+        "endFrame": 1376
+      },
+      {
+        "word": "neo",
+        "startFrame": 1376,
+        "endFrame": 1383
+      },
+      {
+        "word": "phân",
+        "startFrame": 1383,
+        "endFrame": 1391
+      },
+      {
+        "word": "tử,",
+        "startFrame": 1391,
+        "endFrame": 1398
+      }
+    ]
+  },
+  {
+    "id": "cap_6_b",
+    "text": "kích hoạt biến đổi hình thể để bắt đầu tách mở hai sợi xoắn DNA.",
+    "startFrame": 1398,
+    "endFrame": 1508,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "kích",
+        "startFrame": 1398,
+        "endFrame": 1405
+      },
+      {
+        "word": "hoạt",
+        "startFrame": 1405,
+        "endFrame": 1413
+      },
+      {
+        "word": "biến",
+        "startFrame": 1413,
+        "endFrame": 1420
+      },
+      {
+        "word": "đổi",
+        "startFrame": 1420,
+        "endFrame": 1427
+      },
+      {
+        "word": "hình",
+        "startFrame": 1427,
+        "endFrame": 1435
+      },
+      {
+        "word": "thể",
+        "startFrame": 1435,
+        "endFrame": 1442
+      },
+      {
+        "word": "để",
+        "startFrame": 1442,
+        "endFrame": 1449
+      },
+      {
+        "word": "bắt",
+        "startFrame": 1449,
+        "endFrame": 1457
+      },
+      {
+        "word": "đầu",
+        "startFrame": 1457,
+        "endFrame": 1464
+      },
+      {
+        "word": "tách",
+        "startFrame": 1464,
+        "endFrame": 1471
+      },
+      {
+        "word": "mở",
+        "startFrame": 1471,
+        "endFrame": 1479
+      },
+      {
+        "word": "hai",
+        "startFrame": 1479,
+        "endFrame": 1486
+      },
+      {
+        "word": "sợi",
+        "startFrame": 1486,
+        "endFrame": 1493
+      },
+      {
+        "word": "xoắn",
+        "startFrame": 1493,
+        "endFrame": 1500
+      },
+      {
+        "word": "DNA.",
+        "startFrame": 1500,
+        "endFrame": 1508
+      }
+    ]
+  },
+  {
+    "id": "cap_7_a",
+    "text": "Thanh RNA dẫn đường len vào giữa, dò tìm hai mươi nucleotide bổ sung. Khi khớp hoàn toàn,",
+    "startFrame": 1517,
+    "endFrame": 1644,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Thanh",
+        "startFrame": 1517,
+        "endFrame": 1524
+      },
+      {
+        "word": "RNA",
+        "startFrame": 1524,
+        "endFrame": 1531
+      },
+      {
+        "word": "dẫn",
+        "startFrame": 1531,
+        "endFrame": 1538
+      },
+      {
+        "word": "đường",
+        "startFrame": 1538,
+        "endFrame": 1545
+      },
+      {
+        "word": "len",
+        "startFrame": 1545,
+        "endFrame": 1552
+      },
+      {
+        "word": "vào",
+        "startFrame": 1552,
+        "endFrame": 1559
+      },
+      {
+        "word": "giữa,",
+        "startFrame": 1559,
+        "endFrame": 1566
+      },
+      {
+        "word": "dò",
+        "startFrame": 1566,
+        "endFrame": 1573
+      },
+      {
+        "word": "tìm",
+        "startFrame": 1573,
+        "endFrame": 1580
+      },
+      {
+        "word": "hai",
+        "startFrame": 1580,
+        "endFrame": 1587
+      },
+      {
+        "word": "mươi",
+        "startFrame": 1587,
+        "endFrame": 1594
+      },
+      {
+        "word": "nucleotide",
+        "startFrame": 1594,
+        "endFrame": 1601
+      },
+      {
+        "word": "bổ",
+        "startFrame": 1601,
+        "endFrame": 1608
+      },
+      {
+        "word": "sung.",
+        "startFrame": 1608,
+        "endFrame": 1615
+      },
+      {
+        "word": "Khi",
+        "startFrame": 1615,
+        "endFrame": 1622
+      },
+      {
+        "word": "khớp",
+        "startFrame": 1622,
+        "endFrame": 1629
+      },
+      {
+        "word": "hoàn",
+        "startFrame": 1629,
+        "endFrame": 1637
+      },
+      {
+        "word": "toàn,",
+        "startFrame": 1637,
+        "endFrame": 1644
+      }
+    ]
+  },
+  {
+    "id": "cap_7_b",
+    "text": "cấu trúc vòng lai R-loop hình thành, khóa chặt mục tiêu vào vị trí.",
+    "startFrame": 1644,
+    "endFrame": 1742,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "cấu",
+        "startFrame": 1644,
+        "endFrame": 1651
+      },
+      {
+        "word": "trúc",
+        "startFrame": 1651,
+        "endFrame": 1658
+      },
+      {
+        "word": "vòng",
+        "startFrame": 1658,
+        "endFrame": 1665
+      },
+      {
+        "word": "lai",
+        "startFrame": 1665,
+        "endFrame": 1672
+      },
+      {
+        "word": "R-loop",
+        "startFrame": 1672,
+        "endFrame": 1679
+      },
+      {
+        "word": "hình",
+        "startFrame": 1679,
+        "endFrame": 1686
+      },
+      {
+        "word": "thành,",
+        "startFrame": 1686,
+        "endFrame": 1693
+      },
+      {
+        "word": "khóa",
+        "startFrame": 1693,
+        "endFrame": 1700
+      },
+      {
+        "word": "chặt",
+        "startFrame": 1700,
+        "endFrame": 1707
+      },
+      {
+        "word": "mục",
+        "startFrame": 1707,
+        "endFrame": 1714
+      },
+      {
+        "word": "tiêu",
+        "startFrame": 1714,
+        "endFrame": 1721
+      },
+      {
+        "word": "vào",
+        "startFrame": 1721,
+        "endFrame": 1728
+      },
+      {
+        "word": "vị",
+        "startFrame": 1728,
+        "endFrame": 1735
+      },
+      {
+        "word": "trí.",
+        "startFrame": 1735,
+        "endFrame": 1742
+      }
+    ]
+  },
+  {
+    "id": "cap_8_a",
+    "text": "Sự bắt cặp chuẩn xác kích hoạt hai lưỡi kéo phân tử bên trong Cas9:",
+    "startFrame": 1753,
+    "endFrame": 1875,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Sự",
+        "startFrame": 1753,
+        "endFrame": 1761
+      },
+      {
+        "word": "bắt",
+        "startFrame": 1761,
+        "endFrame": 1769
+      },
+      {
+        "word": "cặp",
+        "startFrame": 1769,
+        "endFrame": 1777
+      },
+      {
+        "word": "chuẩn",
+        "startFrame": 1777,
+        "endFrame": 1785
+      },
+      {
+        "word": "xác",
+        "startFrame": 1785,
+        "endFrame": 1793
+      },
+      {
+        "word": "kích",
+        "startFrame": 1793,
+        "endFrame": 1801
+      },
+      {
+        "word": "hoạt",
+        "startFrame": 1801,
+        "endFrame": 1810
+      },
+      {
+        "word": "hai",
+        "startFrame": 1810,
+        "endFrame": 1818
+      },
+      {
+        "word": "lưỡi",
+        "startFrame": 1818,
+        "endFrame": 1826
+      },
+      {
+        "word": "kéo",
+        "startFrame": 1826,
+        "endFrame": 1834
+      },
+      {
+        "word": "phân",
+        "startFrame": 1834,
+        "endFrame": 1842
+      },
+      {
+        "word": "tử",
+        "startFrame": 1842,
+        "endFrame": 1850
+      },
+      {
+        "word": "bên",
+        "startFrame": 1850,
+        "endFrame": 1858
+      },
+      {
+        "word": "trong",
+        "startFrame": 1858,
+        "endFrame": 1866
+      },
+      {
+        "word": "Cas9:",
+        "startFrame": 1866,
+        "endFrame": 1875
+      }
+    ]
+  },
+  {
+    "id": "cap_8_b",
+    "text": "miền H-N-H cắt sợi đối mã, trong khi miền RuvC chịu trách nhiệm cắt sợi không liên kết.",
+    "startFrame": 1875,
+    "endFrame": 2021,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "miền",
+        "startFrame": 1875,
+        "endFrame": 1883
+      },
+      {
+        "word": "H-N-H",
+        "startFrame": 1883,
+        "endFrame": 1891
+      },
+      {
+        "word": "cắt",
+        "startFrame": 1891,
+        "endFrame": 1899
+      },
+      {
+        "word": "sợi",
+        "startFrame": 1899,
+        "endFrame": 1907
+      },
+      {
+        "word": "đối",
+        "startFrame": 1907,
+        "endFrame": 1915
+      },
+      {
+        "word": "mã,",
+        "startFrame": 1915,
+        "endFrame": 1923
+      },
+      {
+        "word": "trong",
+        "startFrame": 1923,
+        "endFrame": 1931
+      },
+      {
+        "word": "khi",
+        "startFrame": 1931,
+        "endFrame": 1940
+      },
+      {
+        "word": "miền",
+        "startFrame": 1940,
+        "endFrame": 1948
+      },
+      {
+        "word": "RuvC",
+        "startFrame": 1948,
+        "endFrame": 1956
+      },
+      {
+        "word": "chịu",
+        "startFrame": 1956,
+        "endFrame": 1964
+      },
+      {
+        "word": "trách",
+        "startFrame": 1964,
+        "endFrame": 1972
+      },
+      {
+        "word": "nhiệm",
+        "startFrame": 1972,
+        "endFrame": 1980
+      },
+      {
+        "word": "cắt",
+        "startFrame": 1980,
+        "endFrame": 1988
+      },
+      {
+        "word": "sợi",
+        "startFrame": 1988,
+        "endFrame": 1996
+      },
+      {
+        "word": "không",
+        "startFrame": 1996,
+        "endFrame": 2004
+      },
+      {
+        "word": "liên",
+        "startFrame": 2004,
+        "endFrame": 2013
+      },
+      {
+        "word": "kết.",
+        "startFrame": 2013,
+        "endFrame": 2021
+      }
+    ]
+  },
+  {
+    "id": "cap_9_a",
+    "text": "Hai vết cắt diễn ra chính xác ba cặp base phía trước motif PAM,",
+    "startFrame": 2030,
+    "endFrame": 2130,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Hai",
+        "startFrame": 2030,
+        "endFrame": 2037
+      },
+      {
+        "word": "vết",
+        "startFrame": 2037,
+        "endFrame": 2044
+      },
+      {
+        "word": "cắt",
+        "startFrame": 2044,
+        "endFrame": 2051
+      },
+      {
+        "word": "diễn",
+        "startFrame": 2051,
+        "endFrame": 2058
+      },
+      {
+        "word": "ra",
+        "startFrame": 2058,
+        "endFrame": 2065
+      },
+      {
+        "word": "chính",
+        "startFrame": 2065,
+        "endFrame": 2073
+      },
+      {
+        "word": "xác",
+        "startFrame": 2073,
+        "endFrame": 2080
+      },
+      {
+        "word": "ba",
+        "startFrame": 2080,
+        "endFrame": 2087
+      },
+      {
+        "word": "cặp",
+        "startFrame": 2087,
+        "endFrame": 2094
+      },
+      {
+        "word": "base",
+        "startFrame": 2094,
+        "endFrame": 2101
+      },
+      {
+        "word": "phía",
+        "startFrame": 2101,
+        "endFrame": 2108
+      },
+      {
+        "word": "trước",
+        "startFrame": 2108,
+        "endFrame": 2116
+      },
+      {
+        "word": "motif",
+        "startFrame": 2116,
+        "endFrame": 2123
+      },
+      {
+        "word": "PAM,",
+        "startFrame": 2123,
+        "endFrame": 2130
+      }
+    ]
+  },
+  {
+    "id": "cap_9_b",
+    "text": "tạo thành vết đứt gãy sợi đôi DNA hoàn toàn, bẻ khóa cấu trúc di truyền.",
+    "startFrame": 2130,
+    "endFrame": 2244,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "tạo",
+        "startFrame": 2130,
+        "endFrame": 2137
+      },
+      {
+        "word": "thành",
+        "startFrame": 2137,
+        "endFrame": 2144
+      },
+      {
+        "word": "vết",
+        "startFrame": 2144,
+        "endFrame": 2151
+      },
+      {
+        "word": "đứt",
+        "startFrame": 2151,
+        "endFrame": 2158
+      },
+      {
+        "word": "gãy",
+        "startFrame": 2158,
+        "endFrame": 2166
+      },
+      {
+        "word": "sợi",
+        "startFrame": 2166,
+        "endFrame": 2173
+      },
+      {
+        "word": "đôi",
+        "startFrame": 2173,
+        "endFrame": 2180
+      },
+      {
+        "word": "DNA",
+        "startFrame": 2180,
+        "endFrame": 2187
+      },
+      {
+        "word": "hoàn",
+        "startFrame": 2187,
+        "endFrame": 2194
+      },
+      {
+        "word": "toàn,",
+        "startFrame": 2194,
+        "endFrame": 2201
+      },
+      {
+        "word": "bẻ",
+        "startFrame": 2201,
+        "endFrame": 2208
+      },
+      {
+        "word": "khóa",
+        "startFrame": 2208,
+        "endFrame": 2216
+      },
+      {
+        "word": "cấu",
+        "startFrame": 2216,
+        "endFrame": 2223
+      },
+      {
+        "word": "trúc",
+        "startFrame": 2223,
+        "endFrame": 2230
+      },
+      {
+        "word": "di",
+        "startFrame": 2230,
+        "endFrame": 2237
+      },
+      {
+        "word": "truyền.",
+        "startFrame": 2237,
+        "endFrame": 2244
+      }
+    ]
+  },
+  {
+    "id": "cap_10_a",
+    "text": "Tế bào lập tức kích hoạt cơ chế nối đầu không tương đồng để hàn gắn thô sơ,",
+    "startFrame": 2256,
+    "endFrame": 2347,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Tế",
+        "startFrame": 2256,
+        "endFrame": 2259
+      },
+      {
+        "word": "bào",
+        "startFrame": 2257,
+        "endFrame": 2262
+      },
+      {
+        "word": "lập",
+        "startFrame": 2263,
+        "endFrame": 2266
+      },
+      {
+        "word": "tức",
+        "startFrame": 2268,
+        "endFrame": 2271
+      },
+      {
+        "word": "kích",
+        "startFrame": 2272,
+        "endFrame": 2277
+      },
+      {
+        "word": "hoạt",
+        "startFrame": 2277,
+        "endFrame": 2280
+      },
+      {
+        "word": "cơ",
+        "startFrame": 2280,
+        "endFrame": 2283
+      },
+      {
+        "word": "chế",
+        "startFrame": 2285,
+        "endFrame": 2289
+      },
+      {
+        "word": "nối",
+        "startFrame": 2289,
+        "endFrame": 2294
+      },
+      {
+        "word": "đầu",
+        "startFrame": 2295,
+        "endFrame": 2299
+      },
+      {
+        "word": "không",
+        "startFrame": 2300,
+        "endFrame": 2310
+      },
+      {
+        "word": "tương",
+        "startFrame": 2312,
+        "endFrame": 2317
+      },
+      {
+        "word": "đồng",
+        "startFrame": 2318,
+        "endFrame": 2322
+      },
+      {
+        "word": "để",
+        "startFrame": 2324,
+        "endFrame": 2327
+      },
+      {
+        "word": "hàn",
+        "startFrame": 2328,
+        "endFrame": 2333
+      },
+      {
+        "word": "gắn",
+        "startFrame": 2333,
+        "endFrame": 2339
+      },
+      {
+        "word": "thô",
+        "startFrame": 2339,
+        "endFrame": 2344
+      },
+      {
+        "word": "sơ,",
+        "startFrame": 2344,
+        "endFrame": 2347
+      }
+    ]
+  },
+  {
+    "id": "cap_10_b",
+    "text": "thường tạo ra các đột biến chèn mất đoạn nhỏ giúp làm mất chức năng gen mục tiêu.",
+    "startFrame": 2349,
+    "endFrame": 2463,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "thường",
+        "startFrame": 2349,
+        "endFrame": 2372
+      },
+      {
+        "word": "tạo",
+        "startFrame": 2374,
+        "endFrame": 2377
+      },
+      {
+        "word": "ra",
+        "startFrame": 2375,
+        "endFrame": 2378
+      },
+      {
+        "word": "các",
+        "startFrame": 2379,
+        "endFrame": 2384
+      },
+      {
+        "word": "đột",
+        "startFrame": 2385,
+        "endFrame": 2390
+      },
+      {
+        "word": "biến",
+        "startFrame": 2390,
+        "endFrame": 2396
+      },
+      {
+        "word": "chèn",
+        "startFrame": 2398,
+        "endFrame": 2402
+      },
+      {
+        "word": "mất",
+        "startFrame": 2404,
+        "endFrame": 2407
+      },
+      {
+        "word": "đoạn",
+        "startFrame": 2409,
+        "endFrame": 2416
+      },
+      {
+        "word": "nhỏ",
+        "startFrame": 2417,
+        "endFrame": 2420
+      },
+      {
+        "word": "giúp",
+        "startFrame": 2420,
+        "endFrame": 2425
+      },
+      {
+        "word": "làm",
+        "startFrame": 2425,
+        "endFrame": 2432
+      },
+      {
+        "word": "mất",
+        "startFrame": 2433,
+        "endFrame": 2436
+      },
+      {
+        "word": "chức",
+        "startFrame": 2437,
+        "endFrame": 2442
+      },
+      {
+        "word": "năng",
+        "startFrame": 2442,
+        "endFrame": 2447
+      },
+      {
+        "word": "gen",
+        "startFrame": 2447,
+        "endFrame": 2450
+      },
+      {
+        "word": "mục",
+        "startFrame": 2451,
+        "endFrame": 2455
+      },
+      {
+        "word": "tiêu.",
+        "startFrame": 2455,
+        "endFrame": 2463
+      }
+    ]
+  },
+  {
+    "id": "cap_11_a",
+    "text": "Hoặc khi được cung cấp thêm một đoạn DNA mẫu lành lặn,",
+    "startFrame": 2486,
+    "endFrame": 2559,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Hoặc",
+        "startFrame": 2486,
+        "endFrame": 2489
+      },
+      {
+        "word": "khi",
+        "startFrame": 2489,
+        "endFrame": 2492
+      },
+      {
+        "word": "được",
+        "startFrame": 2491,
+        "endFrame": 2496
+      },
+      {
+        "word": "cung",
+        "startFrame": 2496,
+        "endFrame": 2499
+      },
+      {
+        "word": "cấp",
+        "startFrame": 2500,
+        "endFrame": 2503
+      },
+      {
+        "word": "thêm",
+        "startFrame": 2503,
+        "endFrame": 2509
+      },
+      {
+        "word": "một",
+        "startFrame": 2509,
+        "endFrame": 2512
+      },
+      {
+        "word": "đoạn",
+        "startFrame": 2514,
+        "endFrame": 2519
+      },
+      {
+        "word": "DNA",
+        "startFrame": 2520,
+        "endFrame": 2524
+      },
+      {
+        "word": "mẫu",
+        "startFrame": 2526,
+        "endFrame": 2539
+      },
+      {
+        "word": "lành",
+        "startFrame": 2546,
+        "endFrame": 2554
+      },
+      {
+        "word": "lặn,",
+        "startFrame": 2556,
+        "endFrame": 2559
+      }
+    ]
+  },
+  {
+    "id": "cap_11_b",
+    "text": "tế bào có thể kích hoạt cơ chế sửa chữa tương đồng để chèn chính xác chuỗi gen mới theo thiết kế.",
+    "startFrame": 2559,
+    "endFrame": 2681,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "tế",
+        "startFrame": 2559,
+        "endFrame": 2562
+      },
+      {
+        "word": "bào",
+        "startFrame": 2562,
+        "endFrame": 2574
+      },
+      {
+        "word": "có",
+        "startFrame": 2576,
+        "endFrame": 2579
+      },
+      {
+        "word": "thể",
+        "startFrame": 2580,
+        "endFrame": 2585
+      },
+      {
+        "word": "kích",
+        "startFrame": 2585,
+        "endFrame": 2589
+      },
+      {
+        "word": "hoạt",
+        "startFrame": 2589,
+        "endFrame": 2595
+      },
+      {
+        "word": "cơ",
+        "startFrame": 2595,
+        "endFrame": 2598
+      },
+      {
+        "word": "chế",
+        "startFrame": 2598,
+        "endFrame": 2603
+      },
+      {
+        "word": "sửa",
+        "startFrame": 2604,
+        "endFrame": 2609
+      },
+      {
+        "word": "chữa",
+        "startFrame": 2610,
+        "endFrame": 2617
+      },
+      {
+        "word": "tương",
+        "startFrame": 2618,
+        "endFrame": 2625
+      },
+      {
+        "word": "đồng",
+        "startFrame": 2626,
+        "endFrame": 2630
+      },
+      {
+        "word": "để",
+        "startFrame": 2630,
+        "endFrame": 2633
+      },
+      {
+        "word": "chèn",
+        "startFrame": 2631,
+        "endFrame": 2637
+      },
+      {
+        "word": "chính",
+        "startFrame": 2637,
+        "endFrame": 2644
+      },
+      {
+        "word": "xác",
+        "startFrame": 2645,
+        "endFrame": 2648
+      },
+      {
+        "word": "chuỗi",
+        "startFrame": 2650,
+        "endFrame": 2654
+      },
+      {
+        "word": "gen",
+        "startFrame": 2654,
+        "endFrame": 2658
+      },
+      {
+        "word": "mới",
+        "startFrame": 2660,
+        "endFrame": 2663
+      },
+      {
+        "word": "theo",
+        "startFrame": 2664,
+        "endFrame": 2668
+      },
+      {
+        "word": "thiết",
+        "startFrame": 2670,
+        "endFrame": 2678
+      },
+      {
+        "word": "kế.",
+        "startFrame": 2678,
+        "endFrame": 2681
+      }
+    ]
+  },
+  {
+    "id": "cap_12_a",
+    "text": "Từ cơ chế sinh học vi mô, CRISPR-Cas9 đã mở ra kỷ nguyên mới của y học chính xác,",
+    "startFrame": 2706,
+    "endFrame": 2849,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "Từ",
+        "startFrame": 2706,
+        "endFrame": 2713
+      },
+      {
+        "word": "cơ",
+        "startFrame": 2713,
+        "endFrame": 2721
+      },
+      {
+        "word": "chế",
+        "startFrame": 2721,
+        "endFrame": 2728
+      },
+      {
+        "word": "sinh",
+        "startFrame": 2728,
+        "endFrame": 2736
+      },
+      {
+        "word": "học",
+        "startFrame": 2736,
+        "endFrame": 2743
+      },
+      {
+        "word": "vi",
+        "startFrame": 2743,
+        "endFrame": 2751
+      },
+      {
+        "word": "mô,",
+        "startFrame": 2751,
+        "endFrame": 2758
+      },
+      {
+        "word": "CRISPR-Cas9",
+        "startFrame": 2758,
+        "endFrame": 2766
+      },
+      {
+        "word": "đã",
+        "startFrame": 2766,
+        "endFrame": 2774
+      },
+      {
+        "word": "mở",
+        "startFrame": 2774,
+        "endFrame": 2781
+      },
+      {
+        "word": "ra",
+        "startFrame": 2781,
+        "endFrame": 2789
+      },
+      {
+        "word": "kỷ",
+        "startFrame": 2789,
+        "endFrame": 2796
+      },
+      {
+        "word": "nguyên",
+        "startFrame": 2796,
+        "endFrame": 2804
+      },
+      {
+        "word": "mới",
+        "startFrame": 2804,
+        "endFrame": 2811
+      },
+      {
+        "word": "của",
+        "startFrame": 2811,
+        "endFrame": 2819
+      },
+      {
+        "word": "y",
+        "startFrame": 2819,
+        "endFrame": 2826
+      },
+      {
+        "word": "học",
+        "startFrame": 2826,
+        "endFrame": 2834
+      },
+      {
+        "word": "chính",
+        "startFrame": 2834,
+        "endFrame": 2841
+      },
+      {
+        "word": "xác,",
+        "startFrame": 2841,
+        "endFrame": 2849
+      }
+    ]
+  },
+  {
+    "id": "cap_12_b",
+    "text": "trao cho con người khả năng sửa chữa bản thiết kế của sự sống.",
+    "startFrame": 2849,
+    "endFrame": 2955,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "words": [
+      {
+        "word": "trao",
+        "startFrame": 2849,
+        "endFrame": 2857
+      },
+      {
+        "word": "cho",
+        "startFrame": 2857,
+        "endFrame": 2864
+      },
+      {
+        "word": "con",
+        "startFrame": 2864,
+        "endFrame": 2872
+      },
+      {
+        "word": "người",
+        "startFrame": 2872,
+        "endFrame": 2879
+      },
+      {
+        "word": "khả",
+        "startFrame": 2879,
+        "endFrame": 2887
+      },
+      {
+        "word": "năng",
+        "startFrame": 2887,
+        "endFrame": 2894
+      },
+      {
+        "word": "sửa",
+        "startFrame": 2894,
+        "endFrame": 2902
+      },
+      {
+        "word": "chữa",
+        "startFrame": 2902,
+        "endFrame": 2909
+      },
+      {
+        "word": "bản",
+        "startFrame": 2909,
+        "endFrame": 2917
+      },
+      {
+        "word": "thiết",
+        "startFrame": 2917,
+        "endFrame": 2924
+      },
+      {
+        "word": "kế",
+        "startFrame": 2924,
+        "endFrame": 2932
+      },
+      {
+        "word": "của",
+        "startFrame": 2932,
+        "endFrame": 2940
+      },
+      {
+        "word": "sự",
+        "startFrame": 2940,
+        "endFrame": 2947
+      },
+      {
+        "word": "sống.",
+        "startFrame": 2947,
+        "endFrame": 2955
+      }
+    ]
+  }
+]

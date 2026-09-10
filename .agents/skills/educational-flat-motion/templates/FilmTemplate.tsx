@@ -1,0 +1,61 @@
+import React from 'react';
+import { Audio, Sequence, staticFile } from 'remotion';
+import { KaraokeCaptions } from 'caption-kit';
+import shotSpecData from './shot-spec.json';
+import captionsData from './subtitles/captions.json';
+import semanticTimelineData from './semantic-timeline.json';
+import { SceneTemplate } from './scenes/SceneTemplate';
+
+export const FPS = 30;
+export const WIDTH = 1080;
+export const HEIGHT = 1920;
+export const TOTAL_FRAMES = shotSpecData.totalFrames;
+
+const SCENE_COMPONENTS: Record<string, React.FC<{ durationInFrames?: number; shotBeats?: any[] }>> = {
+  shot_01: SceneTemplate,
+};
+
+export const SHOTS = shotSpecData.shots.map((shot: any) => ({
+  id: shot.id,
+  startFrame: shot.startFrame,
+  durationInFrames: shot.endFrame - shot.startFrame,
+  beats: (semanticTimelineData.beats || []).filter((b: any) => b.shotId === shot.id),
+  component: SCENE_COMPONENTS[shot.id] || SceneTemplate,
+}));
+
+export const FilmTemplate: React.FC = () => {
+  return (
+    <div
+      style={{
+        position: 'relative',
+        width: WIDTH,
+        height: HEIGHT,
+        backgroundColor: '#0A0F1D',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Root Master Audio: Single Ownership PREMIXED Audio Mount */}
+      <Audio
+        src={staticFile('projects/example/audio/master_audio.wav')}
+        volume={1.0}
+      />
+
+      {/* Motivated Shots Sequence Map */}
+      {SHOTS.map((shot) => {
+        const Component = shot.component;
+        return (
+          <Sequence
+            key={shot.id}
+            from={shot.startFrame}
+            durationInFrames={shot.durationInFrames}
+          >
+            <Component durationInFrames={shot.durationInFrames} shotBeats={shot.beats} />
+          </Sequence>
+        );
+      })}
+
+      {/* Synchronized Mobile Karaoke Subtitles (Safe Region Y: [1420px, 1750px]) */}
+      <KaraokeCaptions captions={captionsData as any} />
+    </div>
+  );
+};

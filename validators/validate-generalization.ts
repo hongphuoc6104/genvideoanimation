@@ -33,19 +33,19 @@ export const GENERALIZATION_PROJECTS: GeneralizationProject[] = [
     id: "science-mechanism",
     name: "CRISPR-Cas9 Molecular Mechanism",
     manifestDir: "mini-projects/science-mechanism",
-    compositionDir: "connection-film/src/generalization/crispr"
+    compositionDir: "connection-film/src/legacy/crispr"
   },
   {
     id: "historical-process",
     name: "Watt Steam Engine Thermodynamic Cycle",
     manifestDir: "mini-projects/historical-process",
-    compositionDir: "connection-film/src/generalization/steam-engine"
+    compositionDir: "connection-film/src/legacy/steam-engine"
   },
   {
     id: "tech-tutorial",
     name: "Git Distributed DAG Commit Model",
     manifestDir: "mini-projects/tech-tutorial",
-    compositionDir: "connection-film/src/generalization/git-dag"
+    compositionDir: "connection-film/src/legacy/git-dag"
   }
 ];
 

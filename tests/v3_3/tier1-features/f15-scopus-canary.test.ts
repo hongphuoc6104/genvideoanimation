@@ -75,7 +75,7 @@ describe({ name: 'F15: Scopus Explainer Canary Contract', feature: 'F15', tier: 
     'F15-04: Single PREMIXED audio mount in Scopus explainer root composition',
     () => {
       const scopusAudioMount = {
-        file: 'connection-film/src/scopus-explainer/ScopusExplainerFilm.tsx',
+        file: 'connection-film/src/legacy/scopus-explainer/ScopusExplainerFilm.tsx',
         src: 'audio/scopus_master_audio.wav',
         tagCount: 1,
       };

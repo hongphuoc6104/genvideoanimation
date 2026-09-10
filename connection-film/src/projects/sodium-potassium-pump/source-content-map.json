@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "topic": "sodium-potassium-pump",
+  "title": "Cơ Chế Hoạt Động Của Bơm Natri - Kali (Na⁺/K⁺-ATPase)",
+  "sourceDocument": "curriculum/sodium-potassium-pump-source.md",
+  "coverage": 1.0,
+  "mappings": [
+    {
+      "sourceSection": "1. Bối Cảnh & Đặt Vấn Đề",
+      "coreConcepts": [
+        "Điện thế màng lúc nghỉ -70 mV",
+        "Gradient nồng độ: K+ trong cao, Na+ ngoài cao",
+        "Khuếch tán thụ động qua kênh rò rỉ đe dọa làm sụp đổ điện thế nghỉ",
+        "Bơm Na+/K+-ATPase tiêu hao năng lượng liên tục chống lại khuếch tán"
+      ],
+      "coverageStatus": "IN_SCOPE_PRIMARY",
+      "mappedBeats": ["b01_membrane_potential", "b02_alternating_access_solution"]
+    },
+    {
+      "sourceSection": "2. Chu Trình Động Học Hai Trạng Thái (Mô Hình Albers-Post E1 ⇄ E2)",
+      "coreConcepts": [
+        "Pha 1: Cấu hình E1 hướng nội, ái lực cao với Na+, 3 Na+ gắn kết",
+        "Pha 2: Thủy phân ATP, ADP giải phóng, nhóm phosphate gắn vào gốc Aspartate",
+        "Pha 3: Đổi hình thể E1 sang E2 hướng ngoại, giảm ái lực Na+, giải phóng 3 Na+",
+        "Pha 4: Cấu hình E2 ái lực cao với K+, 2 K+ từ ngoại bào gắn vào",
+        "Pha 5: Khử phosphoryl hóa giải phóng Pi, hồi phục hình thể E2 sang E1",
+        "Pha 6: Giải phóng 2 K+ vào tế bào chất, bơm sẵn sàng cho chu trình mới"
+      ],
+      "coverageStatus": "IN_SCOPE_PRIMARY",
+      "mappedBeats": [
+        "b03_na_binding_phosphorylation",
+        "b04_e1_to_e2_na_release",
+        "b05_k_binding_dephosphorylation",
+        "b06_e2_to_e1_k_release"
+      ]
+    },
+    {
+      "sourceSection": "3. Cân Bằng Năng Lượng & Ý Nghĩa Sinh Học",
+      "coreConcepts": [
+        "Tỷ lệ trao đổi: 1 ATP tiêu tốn đẩy 3 Na+ ra và kéo 2 K+ vào",
+        "Bơm sinh điện (Electrogenic Pump): Mất ròng 1 điện tích dương nội bào",
+        "Duy trì điện thế nghỉ và gradient điện hóa cho truyền xung thần kinh và đồng vận chuyển"
+      ],
+      "coverageStatus": "IN_SCOPE_PRIMARY",
+      "mappedBeats": ["b07_electrogenic_synthesis"]
+    }
+  ]
+}

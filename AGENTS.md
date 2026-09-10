@@ -1,5 +1,41 @@
 # Agent Governance & System Invariants (V3.3 Production Standard)
 
+## 0. Project North Star & Scope Guard (SKILL_SYSTEM_FIRST)
+
+The primary product of this repository is a reusable educational visual-storytelling **skill system**: instructions, reference material, templates, schemas, shared runtime tools, production entrypoints, and independent evaluation. Individual videos are outputs and evidence of that system. The creative direction is explanatory visual storytelling inspired by Kurzgesagt principles, with narration carrying detail, visuals demonstrating relationships, and text serving concise anchors rather than slide-like paragraphs.
+
+### 0.1 Preserve the user's intended scope
+
+- When the user requests improvement, repair, restructuring, or generalization of the skill/system/pipeline, agents MUST work at the reusable system level. Findings in an existing video are diagnostic evidence; they do not silently redefine the task as perfecting that video.
+- Before implementation, state the system outcome and affected reusable layers in the task briefing. Delegate by those outcomes, with named owners for integration and independent verification, rather than assigning only a list of scene patches.
+- A user request explicitly limited to one video, scene, or asset may be handled at that scope. Read-only audits may remain read-only. These rules do not expand a narrow request into a mandatory full rewrite or authorize unrelated cleanup.
+- Existing film names, render commands, benchmarks, and examples elsewhere in this document identify current fixtures. They do not override a system-level objective or require preserving legacy layouts as the production default.
+
+### 0.2 Fix the production method, not only its current output
+
+- For each system finding, trace the observed output defect to its cause in authoring instructions, examples/templates, data contracts, runtime behavior, or evaluation. Change the responsible reusable layer; document when an issue is genuinely specific to one asset.
+- Update affected skill instructions, references, templates, schemas, scripts, and tests consistently. Editing only the opening philosophy of `SKILL.md`, adding a JSON field, or adding a validator is not evidence that the production method changed.
+- Changes to existing videos are permitted as integration work and regression evidence. They MUST NOT be the sole deliverable or sole completion criterion of a skill-system task. Do not add project-name exceptions or hardcoded scene timing to make a benchmark pass.
+- Shared infrastructure must preserve creative flexibility: do not replace card monoculture with a compulsory layout, character, metaphor, or transformation for every beat. Choose visual actions because they explain the intended relationship.
+
+### 0.3 Legacy migration and cleanup are part of system restructuring
+
+- A restructuring task MUST inventory the affected instructions, duplicate skill copies, templates, schemas, runtime modules, entrypoints, and sample projects, assigning each a disposition: **KEEP**, **REPLACE/MIGRATE**, **ARCHIVE**, or **REMOVE**. Record the replacement path and remaining dependencies where applicable.
+- Establish one documented canonical path for each active production responsibility. Update callers and references, and remove superseded entrypoints from defaults so a future agent cannot accidentally select the old workflow.
+- Keep historical videos and layouts only as clearly marked regression/reference material when useful; do not present them as authoritative examples for new production unless they meet the current creative contract.
+- Check imports, scripts, documentation links, and asset consumers before removing files. Preserve source material and useful comparison evidence. Do not delete user work, overwrite concurrent changes, or move runtime code into `.agents/` as a cleanup shortcut.
+- Report migration and cleanup completed, intentionally retained legacy material, and outstanding dependencies. Do not claim a restructuring is complete while contradictory active workflows remain unexplained.
+
+### 0.4 Evidence required to close a skill-system task
+
+- Maintain an evidence ledger linking each finding to its root cause, reusable change, reproduction/check, actual output evidence, and regression outcome. Distinguish **implemented**, **output verified**, and **unverified**; code changes and PASS counts alone do not close viewer-facing defects.
+- Use short animatics and before/after clips to calibrate the method before expensive full renders or rollout across all projects. A calibration clip is evidence for reusable rules and examples, not a substitute objective of perfecting one video.
+- For a claimed generalization milestone, a fresh implementation agent must produce a candidate on a new topic using the canonical skill, source material, and declared project brief, without inheriting project-specific repair instructions. Record extra assistance or undocumented steps; incorporate recurring gaps back into the skill and repeat the affected verification.
+- Verify the actual candidate artifacts with project-specific paths and lineage. Independent Tier 2 review must assess explanatory meaning and visible regressions as well as technical checks. A successful old-video render or helper-only test does not establish that a new production follows the skill.
+- Final system deliverables must identify the canonical workflow, reusable changes, migration/cleanup disposition, reproduction instructions, independent evidence, and unresolved limitations. Existing technical thresholds and NO_SELF_CERTIFICATION remain in force.
+
+---
+
 ## 1. Purpose & Scope
 This document governs multi-agent collaboration, architectural boundaries, acceptance authority, and quality invariants for the 2D Educational Flat-Vector Remotion motion system. It establishes a strict **Two-Tier Agent Architecture** to enforce the failure-first acceptance standard and eliminate false-positive evaluations.
 
@@ -108,4 +144,3 @@ Any single gate failure halts execution immediately with exit code 1.
      - Git DAG: `npm run render:gpu:git`
      - Scopus Explainer: `npm run render:gpu:scopus`
      - All 4 films: `npm run render:gpu:all`
-

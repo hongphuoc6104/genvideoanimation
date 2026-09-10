@@ -1,0 +1,91 @@
+{
+  "head": "fe5c700f43ebb6c12393c31436a71ea9cd1ef8b8",
+  "baseline": "5a9b9a7867ef401237b80d1e9bc4cac5e4aa6170",
+  "purpose": "Read-only diagnostic audit; not production certification",
+  "media": [
+    {
+      "path": "out/crispr-cas9-1080p.mp4",
+      "sha256": "25edea9ce0a82ad08b6d721fe7329cc4d48ba817421a84676768e074af0ffd62",
+      "bytes": 23290555,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30/1",
+            "duration": "99.066667",
+            "nb_frames": "2972"
+          },
+          {
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "duration": "99.114667",
+            "nb_frames": "4646"
+          }
+        ],
+        "format": {
+          "duration": "99.114667"
+        }
+      }
+    },
+    {
+      "path": "out/steam-engine-1080p.mp4",
+      "sha256": "bad5d9be2b8cc2718228df12460b646b017f7935296b89b0988575894b194bd8",
+      "bytes": 9859224,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30/1",
+            "duration": "91.666667",
+            "nb_frames": "2750"
+          },
+          {
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "duration": "91.712000",
+            "nb_frames": "4299"
+          }
+        ],
+        "format": {
+          "duration": "91.712000"
+        }
+      }
+    },
+    {
+      "path": "out/git-dag-1080p.mp4",
+      "sha256": "bd94afc9bd62eede5ba286e8d2030754e88147da1b4b18e66942216772fec63e",
+      "bytes": 12771089,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30/1",
+            "duration": "102.800000",
+            "nb_frames": "3084"
+          },
+          {
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "duration": "102.848000",
+            "nb_frames": "4821"
+          }
+        ],
+        "format": {
+          "duration": "102.848000"
+        }
+      }
+    }
+  ]
+}

@@ -312,7 +312,7 @@ export async function runAllStressTests() {
   });
 
   await runChallenge('M2.4 Visual semantics validator on production scenes', () => {
-    const res = validateVisualSemantics(['connection-film/src/scopus-explainer/scenes']);
+    const res = validateVisualSemantics(['connection-film/src/legacy/scopus-explainer/scenes']);
     assert.ok(res.filesAnalyzed >= 7, `Analyzed ${res.filesAnalyzed} files`);
     assert.strictEqual(res.criticalCount, 0, 'Production scenes have 0 critical violations');
     assert.strictEqual(res.majorCount, 0, 'Production scenes have 0 major violations');
@@ -381,7 +381,7 @@ export async function runAllStressTests() {
   });
 
   await runChallenge('M2.8 Contact sheet extraction on existing preview video', async () => {
-    const timelinePath = 'connection-film/src/scopus-explainer/semantic-timeline.json';
+    const timelinePath = 'connection-film/src/legacy/scopus-explainer/semantic-timeline.json';
     const videoPath = 'out/preview-360x640.mp4';
     const outDir = '/tmp/contact-sheet-test';
 

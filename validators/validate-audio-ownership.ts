@@ -50,6 +50,7 @@ export interface OwnershipValidationResult {
 }
 
 export interface OwnershipOptions {
+  projectPath?: string;
   tsxPath?: string;
   manifestPath?: string;
   cuesPath?: string;
@@ -269,12 +270,45 @@ export function validateAudioManifestAndCues(
  */
 export function validateAudioOwnership(options: OwnershipOptions = {}): OwnershipValidationResult {
   const rootDir = process.cwd();
-  const tsxPath = options.tsxPath || path.join(rootDir, 'connection-film/src/scopus-explainer/ScopusExplainerFilm.tsx');
-  const manifestPath = options.manifestPath || path.join(rootDir, 'connection-film/src/scopus-explainer/audio/audio-manifest.json');
-  const cuesPath = options.cuesPath || path.join(rootDir, 'connection-film/src/scopus-explainer/cues.json');
-  const scenesDir = options.scenesDir || path.join(rootDir, 'connection-film/src/scopus-explainer/scenes');
+
+  if (options.projectPath) {
+    const pDir = path.resolve(rootDir, options.projectPath);
+    if (fs.existsSync(pDir)) {
+      const files = fs.readdirSync(pDir);
+      const filmFile = files.find((f) => f.endsWith('Film.tsx') || f === 'Film.tsx');
+      if (filmFile && !options.tsxPath) {
+        options.tsxPath = path.join(pDir, filmFile);
+      }
+      const manifestCandidate = path.join(pDir, 'audio', 'audio-manifest.json');
+      if (fs.existsSync(manifestCandidate) && !options.manifestPath) {
+        options.manifestPath = manifestCandidate;
+      }
+      const cuesCandidate = path.join(pDir, 'cues.json');
+      if (fs.existsSync(cuesCandidate) && !options.cuesPath) {
+        options.cuesPath = cuesCandidate;
+      }
+      const scenesCandidate = path.join(pDir, 'scenes');
+      if (fs.existsSync(scenesCandidate) && !options.scenesDir) {
+        options.scenesDir = scenesCandidate;
+      }
+      const audioDir = path.join(pDir, 'audio');
+      if (fs.existsSync(audioDir) && !options.masterFile) {
+        const audioFiles = fs.readdirSync(audioDir);
+        const masterWav = audioFiles.find((f) => f.includes('master') && f.endsWith('.wav'));
+        if (masterWav) options.masterFile = masterWav;
+      }
+    }
+  }
+
+  const defaultBase = fs.existsSync(path.join(rootDir, 'connection-film/src/scopus-explainer'))
+    ? 'connection-film/src/scopus-explainer'
+    : 'connection-film/src/legacy/scopus-explainer';
+  const tsxPath = options.tsxPath || path.join(rootDir, `${defaultBase}/ScopusExplainerFilm.tsx`);
+  const manifestPath = options.manifestPath || (options.projectPath ? undefined : path.join(rootDir, `${defaultBase}/audio/audio-manifest.json`));
+  const cuesPath = options.cuesPath || (options.projectPath ? undefined : path.join(rootDir, `${defaultBase}/cues.json`));
+  const scenesDir = options.scenesDir || (options.projectPath ? undefined : path.join(rootDir, `${defaultBase}/scenes`));
   const audioStrategy = options.audioStrategy || 'PREMIXED';
-  const masterFile = options.masterFile || 'scopus_master_audio.wav';
+  const masterFile = options.masterFile || 'master_audio.wav';
 
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -347,7 +381,9 @@ export function runCli(args: string[] = process.argv.slice(2)): void {
   const options: OwnershipOptions = {};
 
   for (let i = 0; i < args.length; i++) {
-    if (args[i] === '--tsx' && args[i + 1]) options.tsxPath = args[++i];
+    if (args[i].startsWith('--project=')) options.projectPath = args[i].split('=')[1];
+    else if (args[i] === '--project' && args[i + 1]) options.projectPath = args[++i];
+    else if (args[i] === '--tsx' && args[i + 1]) options.tsxPath = args[++i];
     else if (args[i] === '--manifest' && args[i + 1]) options.manifestPath = args[++i];
     else if (args[i] === '--cues' && args[i + 1]) options.cuesPath = args[++i];
     else if (args[i] === '--scenes-dir' && args[i + 1]) options.scenesDir = args[++i];

@@ -10,10 +10,10 @@
  */
 
 import * as assert from 'node:assert';
-import { calculateDnaPointsAndPaths } from '../../connection-film/src/generalization/crispr/components/DnaDoubleHelix';
-import { calculateRepairState } from '../../connection-film/src/generalization/crispr/components/RepairMechanism';
-import { calculatePVPoint } from '../../connection-film/src/generalization/steam-engine/components/PVDiagram';
-import { solveWattLinkage } from '../../connection-film/src/generalization/steam-engine/components/ParallelMotionLinkage';
+import { calculateDnaPointsAndPaths } from '../../connection-film/src/legacy/crispr/components/DnaDoubleHelix';
+import { calculateRepairState } from '../../connection-film/src/legacy/crispr/components/RepairMechanism';
+import { calculatePVPoint } from '../../connection-film/src/legacy/steam-engine/components/PVDiagram';
+import { solveWattLinkage } from '../../connection-film/src/legacy/steam-engine/components/ParallelMotionLinkage';
 
 function runMechanismInvariantTests() {
   console.log('🧪 Running Mechanism Invariant Verification Suite...');

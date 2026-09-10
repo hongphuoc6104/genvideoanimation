@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemanticTimelineV3_4",
+  "type": "object",
+  "required": ["sequenceId", "fps", "totalFrames", "beats"],
+  "properties": {
+    "sequenceId": { "type": "string" },
+    "fps": { "type": "integer", "const": 30 },
+    "totalFrames": { "type": "integer" },
+    "totalDurationSec": { "type": "number" },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "shotId",
+          "startSec",
+          "endSec",
+          "startFrame",
+          "endFrame",
+          "visualIntent",
+          "primaryObject",
+          "visualExplanationContract"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "shotId": { "type": "string" },
+          "startSec": { "type": "number" },
+          "endSec": { "type": "number" },
+          "startFrame": { "type": "integer" },
+          "endFrame": { "type": "integer" },
+          "visualIntent": { "type": "string" },
+          "primaryObject": { "type": "string" },
+          "cameraIntent": { "type": "string" },
+          "transitionIntent": { "type": "string" },
+          "sfxIntent": { "type": "string" },
+          "visualExplanationContract": {
+            "type": "object",
+            "required": ["spatialRelationship", "transformationType"],
+            "properties": {
+              "spatialRelationship": { "type": "string" },
+              "transformationType": { "type": "string" },
+              "coreMechanism": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

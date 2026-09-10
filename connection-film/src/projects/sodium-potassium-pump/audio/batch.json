@@ -1,0 +1,64 @@
+{
+  "voice": {
+    "voice": "Adam",
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "outputDir": "connection-film/src/projects/sodium-potassium-pump/audio",
+  "masterVoiceover": "master_audio_mono.wav",
+  "lines": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Để duy trì điện thế nghỉ âm bảy mươi milivôn, tế bào phải chống lại dòng ion khuếch tán tự nhiên."
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Bơm Natri - Kali giải quyết nghịch lý này bằng cơ chế van đổi hướng luân phiên hai trạng thái."
+    },
+    {
+      "id": 3,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "spoken": "Ở cấu hình E1 mở vào trong, ba ion Natri gắn kết và ATP phosphoryl hóa cấu trúc bơm."
+    },
+    {
+      "id": 4,
+      "role": "body",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "spoken": "Bơm lập tức lật sang cấu hình E2 mở ra ngoài, giải phóng ba ion Natri vào dịch ngoại bào."
+    },
+    {
+      "id": 5,
+      "role": "evidence",
+      "speed": 1.04,
+      "pauseAfter": 0.32,
+      "spoken": "Hai ion Kali từ bên ngoài gắn vào, kích hoạt giải phóng phốt-phát để đóng van ngoại bào."
+    },
+    {
+      "id": 6,
+      "role": "payoff",
+      "speed": 1.04,
+      "pauseAfter": 0.35,
+      "spoken": "Protein hồi phục về trạng thái E1 hướng nội, thả hai ion Kali vào bên trong tế bào chất."
+    },
+    {
+      "id": 7,
+      "role": "close",
+      "speed": 1.02,
+      "pauseAfter": 0.40,
+      "spoken": "Mỗi chu trình tiêu tốn một ATP, đẩy ba Natri và nhận hai Kali, duy trì điện thế cho tế bào."
+    }
+  ]
+}

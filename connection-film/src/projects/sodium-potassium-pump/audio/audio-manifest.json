@@ -1,0 +1,17 @@
+{
+  "version": "3.4",
+  "audioPolicy": "narration-sfx",
+  "voiceProfile": "GENVIDEO_ADAM_PROFILE",
+  "tracks": {
+    "narration": {
+      "id": "narration_master",
+      "type": "narration",
+      "file": "master_audio.wav",
+      "duration": 35.597,
+      "volume": 1,
+      "sampleRate": 48000,
+      "channels": 2
+    },
+    "sfx": []
+  }
+}

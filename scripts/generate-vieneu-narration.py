@@ -235,7 +235,7 @@ def parse_args():
     parser.add_argument("--role", type=str, default="body", choices=list(ROLE_DEFAULTS.keys()), help="Narrative role (default: body)")
 
     # Batch-mode input
-    parser.add_argument("--batch-json", type=str, help="Path to batch JSON defining lines to synthesize in one model load")
+    parser.add_argument("--batch-json", "--batch", type=str, dest="batch_json", help="Path to batch JSON defining lines to synthesize in one model load")
 
     # Explicit synthesis parameters (R1 requirement)
     parser.add_argument("--voice", type=str, default="Adam", help="Voice preset or alias (default: Adam)")
@@ -401,11 +401,18 @@ def process_batch(args: argparse.Namespace):
 
     raw_voiceover_path.unlink(missing_ok=True)
 
+    cwd = Path.cwd()
+    def to_rel(p: Path | str) -> str:
+        try:
+            return os.path.relpath(p, cwd)
+        except Exception:
+            return str(p)
+
     timing_result = {
         "status": "success",
         "totalDurationSec": round(len(voiceover) / SR, 3),
         "totalLines": len(lines),
-        "masterVoiceover": str(master_voiceover_path),
+        "masterVoiceover": to_rel(master_voiceover_path),
         "voice": voice_fingerprint,
         "scenes": [
             {
@@ -418,7 +425,7 @@ def process_batch(args: argparse.Namespace):
                 "audioDuration": round(l["audioDuration"], 3),
                 "totalDuration": round(l["end"] - l["start"] + l["pauseAfter"], 3),
                 "spoken": l["spoken"],
-                "file": str(l["processed"]),
+                "file": to_rel(l["processed"]),
             }
             for l in lines
         ],

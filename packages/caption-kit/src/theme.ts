@@ -33,8 +33,8 @@ export const EDUCATIONAL_THEME: CaptionTheme = {
   activeScale: 1.0,
   backgroundColor: 'rgba(15, 23, 42, 0.85)', // dark slate translucent pill
   borderRadius: '16px',
-  padding: '16px 24px',
-  fontSize: 56, // V3.1 9:16 mobile invariant
+  padding: '14px 24px',
+  fontSize: 52, // Standard mobile typography (NEVER_SHRINK_TO_FIT floor for karaoke captions)
   fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
   lineHeight: 1.3,
   letterSpacing: '-0.01em',

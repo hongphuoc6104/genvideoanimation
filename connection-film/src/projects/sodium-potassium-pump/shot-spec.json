@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "3.4.0",
+  "sequence_id": "sodium-potassium-pump",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "totalFrames": 1068,
+  "totalDurationSec": 35.6,
+  "shots": [
+    {
+      "id": "shot_01",
+      "narrative_purpose": "Mô tả nghịch lý gradient nồng độ ion và cấu trúc van đổi hướng luân phiên E1/E2",
+      "startFrame": 0,
+      "endFrame": 294,
+      "durationInFrames": 294,
+      "start_state": {
+        "camera": "neutral_full_view",
+        "membrane": "resting_passive_leak"
+      },
+      "end_state": {
+        "camera": "centered_on_pump",
+        "pump": "e1_ready"
+      },
+      "impact_frames": [147]
+    },
+    {
+      "id": "shot_02",
+      "narrative_purpose": "Chu trình động học 6 pha vận chuyển ion điều khiển bởi năng lượng ATP",
+      "startFrame": 294,
+      "endFrame": 909,
+      "durationInFrames": 615,
+      "start_state": {
+        "camera": "macro_pump_core",
+        "state": "e1_na3_binding"
+      },
+      "end_state": {
+        "camera": "macro_pump_core",
+        "state": "e1_k2_released"
+      },
+      "impact_frames": [470, 620, 629, 751]
+    },
+    {
+      "id": "shot_03",
+      "narrative_purpose": "Cân bằng điện sinh học ròng 3 Na+ ra / 2 K+ vào và duy trì điện thế màng",
+      "startFrame": 909,
+      "endFrame": 1068,
+      "durationInFrames": 159,
+      "start_state": {
+        "camera": "wide_zoom_out",
+        "summary": "net_charge_separation"
+      },
+      "end_state": {
+        "camera": "settled_teleological_view",
+        "membrane": "polarized_stable_minus_70mv"
+      },
+      "impact_frames": []
+    }
+  ],
+  "transitions": [
+    {
+      "from_shot": "shot_01",
+      "to_shot": "shot_02",
+      "transition_type": "object_match",
+      "transition_frames": [292, 296],
+      "expected_visual_discontinuity": 1.8,
+      "description": "Khóa vị trí protein bơm tại trung tâm chuyển đổi mượt mà sang chu trình phân tử chi tiết"
+    },
+    {
+      "from_shot": "shot_02",
+      "to_shot": "shot_03",
+      "transition_type": "semantic_zoom",
+      "transition_frames": [907, 911],
+      "expected_visual_discontinuity": 2.2,
+      "description": "Thu nhỏ toàn cảnh màng tế bào để hiển thị ma trận sinh điện và cân bằng năng lượng"
+    }
+  ]
+}
