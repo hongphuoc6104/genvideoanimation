@@ -26,9 +26,10 @@
         "active_section": "section_2_taxonomy"
       },
       "impact_frames": [
-        35,
-        180,
-        450
+        29,
+        45,
+        162,
+        403
       ],
       "durationInFrames": 618
     },
@@ -54,12 +55,11 @@
         "active_section": "section_3_process"
       },
       "impact_frames": [
-        450,
-        540,
-        630,
-        720,
-        810,
-        900
+        663,
+        801,
+        924,
+        1078,
+        1218
       ],
       "durationInFrames": 691
     },
@@ -85,10 +85,11 @@
         "active_section": "section_4_template"
       },
       "impact_frames": [
-        900,
-        1080,
-        1200,
-        1440
+        1354,
+        1479,
+        1611,
+        1750,
+        1877
       ],
       "durationInFrames": 667
     },
@@ -114,10 +115,10 @@
         "active_section": "section_5_conclusion"
       },
       "impact_frames": [
-        1440,
-        1600,
-        1800,
-        1950
+        2021,
+        2164,
+        2285,
+        2442
       ],
       "durationInFrames": 555
     },
@@ -143,11 +144,58 @@
         "active_section": "final_victory"
       },
       "impact_frames": [
-        1950,
-        2100,
-        2200
+        2575,
+        2713,
+        2846,
+        2983
       ],
       "durationInFrames": 565
+    }
+  ],
+  "transitions": [
+    {
+      "from_shot": "shot_01",
+      "to_shot": "shot_02",
+      "transition_type": "camera_carry",
+      "transition_frames": [
+        603,
+        633
+      ],
+      "expected_visual_discontinuity": 6.5,
+      "description": "Continuous camera push carrying researcher focus from problem context into gap doors taxonomy"
+    },
+    {
+      "from_shot": "shot_02",
+      "to_shot": "shot_03",
+      "transition_type": "foreground_wipe",
+      "transition_frames": [
+        1294,
+        1324
+      ],
+      "expected_visual_discontinuity": 6.5,
+      "description": "Practical gap door portal expands as a foreground wipe leading into the 4-step research funnel"
+    },
+    {
+      "from_shot": "shot_03",
+      "to_shot": "shot_04",
+      "transition_type": "semantic_zoom",
+      "transition_frames": [
+        1961,
+        1991
+      ],
+      "expected_visual_discontinuity": 6.5,
+      "description": "Semantic zoom into the gap statement tier-3 block connecting directly to international template cards"
+    },
+    {
+      "from_shot": "shot_04",
+      "to_shot": "shot_05",
+      "transition_type": "match_cut",
+      "transition_frames": [
+        2516,
+        2546
+      ],
+      "expected_visual_discontinuity": 6.5,
+      "description": "Match cut from structural model nodes to pitfall warning indicators on the same visual coordinate axis"
     }
   ],
   "totalFrames": 3096,

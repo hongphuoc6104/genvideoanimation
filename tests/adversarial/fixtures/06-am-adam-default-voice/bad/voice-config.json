@@ -1,0 +1,11 @@
+{
+  "profile": "GENVIDEO_ADAM_PROFILE",
+  "synthesis": {
+    "voice": "am_adam",
+    "engine": "kokoro",
+    "backend": "onnx"
+  },
+  "delivery": {
+    "integratedLufsTarget": -15.0
+  }
+}

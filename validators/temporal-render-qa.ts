@@ -12,6 +12,7 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import * as os from 'node:os';
 import { spawn } from 'node:child_process';
 
 export interface TemporalQAAnomaly {
@@ -63,7 +64,7 @@ export interface TemporalVideoQAReport extends TemporalQAResult {
  * Resolves the path to the ffmpeg executable.
  * Prioritizes:
  * 1. Explicit override option / FFMPEG_PATH env
- * 2. /home/hongphuoc6104/.local/bin/ffmpeg
+ * 2. $HOME/.local/bin/ffmpeg
  * 3. System 'ffmpeg'
  */
 export function getFfmpegPath(overridePath?: string): string {
@@ -73,7 +74,7 @@ export function getFfmpegPath(overridePath?: string): string {
   if (process.env.FFMPEG_PATH && fs.existsSync(process.env.FFMPEG_PATH)) {
     return process.env.FFMPEG_PATH;
   }
-  const defaultLocal = '/home/hongphuoc6104/.local/bin/ffmpeg';
+  const defaultLocal = path.join(os.homedir(), '.local', 'bin', 'ffmpeg');
   if (fs.existsSync(defaultLocal)) {
     return defaultLocal;
   }
@@ -188,6 +189,19 @@ export function extractWhitelistedFrames(shotSpecData: any): number[] {
     for (const f of shotSpecData.impact_frames) if (typeof f === 'number') frames.add(f);
   }
 
+  // Transitions declarations: add all frames in transition windows
+  if (Array.isArray(shotSpecData.transitions)) {
+    for (const t of shotSpecData.transitions) {
+      const rawWindow = t.transition_frames ?? t.transitionFrames ?? t.frames;
+      if (Array.isArray(rawWindow) && rawWindow.length >= 2) {
+        const [start, end] = [Number(rawWindow[0]), Number(rawWindow[1])];
+        if (!isNaN(start) && !isNaN(end)) {
+          for (let f = start; f <= end; f++) frames.add(f);
+        }
+      }
+    }
+  }
+
   // Nested shots array
   const shots = Array.isArray(shotSpecData.shots)
     ? shotSpecData.shots
@@ -201,6 +215,17 @@ export function extractWhitelistedFrames(shotSpecData: any): number[] {
     }
     if (Array.isArray(shot.whitelisted_impact_frames)) {
       for (const f of shot.whitelisted_impact_frames) if (typeof f === 'number') frames.add(f);
+    }
+    if (Array.isArray(shot.transitions)) {
+      for (const t of shot.transitions) {
+        const rawWindow = t.transition_frames ?? t.transitionFrames ?? t.frames;
+        if (Array.isArray(rawWindow) && rawWindow.length >= 2) {
+          const [start, end] = [Number(rawWindow[0]), Number(rawWindow[1])];
+          if (!isNaN(start) && !isNaN(end)) {
+            for (let f = start; f <= end; f++) frames.add(f);
+          }
+        }
+      }
     }
   }
 

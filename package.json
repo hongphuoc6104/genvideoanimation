@@ -22,7 +22,12 @@
     "test:e2e": "tsx tests/e2e/run-e2e-tests.ts",
     "link-packages": "node -e \"const fs=require('fs'),path=require('path');const t1=path.resolve(__dirname,'connection-film/node_modules/motion-kit'),s1=path.resolve(__dirname,'motion-kit');if(!fs.existsSync(t1)){try{fs.symlinkSync(s1,t1,'junction')}catch(e){}} const scopeDir=path.resolve(__dirname,'connection-film/node_modules/@videorender');if(!fs.existsSync(scopeDir)){fs.mkdirSync(scopeDir,{recursive:true})} const t2=path.resolve(scopeDir,'narration-kit'),s2=path.resolve(__dirname,'packages/narration-kit');if(!fs.existsSync(t2)){try{fs.symlinkSync(s2,t2,'junction')}catch(e){}} const t3=path.resolve(__dirname,'connection-film/node_modules/narration-kit');if(!fs.existsSync(t3)){try{fs.symlinkSync(s2,t3,'junction')}catch(e){}} const t4=path.resolve(scopeDir,'caption-kit'),s4=path.resolve(__dirname,'packages/caption-kit');if(!fs.existsSync(t4)&&fs.existsSync(s4)){try{fs.symlinkSync(s4,t4,'junction')}catch(e){}} const t5=path.resolve(__dirname,'connection-film/node_modules/caption-kit');if(!fs.existsSync(t5)&&fs.existsSync(s4)){try{fs.symlinkSync(s4,t5,'junction')}catch(e){}} const rootScope=path.resolve(__dirname,'node_modules/@videorender');if(!fs.existsSync(rootScope)){fs.mkdirSync(rootScope,{recursive:true})} const t6=path.resolve(rootScope,'caption-kit');if(!fs.existsSync(t6)&&fs.existsSync(s4)){try{fs.symlinkSync(s4,t6,'junction')}catch(e){}} const t7=path.resolve(__dirname,'node_modules/caption-kit');if(!fs.existsSync(t7)&&fs.existsSync(s4)){try{fs.symlinkSync(s4,t7,'junction')}catch(e){}} console.log('Linked workspace packages -> connection-film/node_modules')\"",
     "link-kit": "npm run link-packages",
-    "postinstall": "npm run link-packages"
+    "postinstall": "npm run link-packages",
+    "validate:typography": "tsx validators/validate-mobile-typography.ts connection-film/src/scopus-explainer",
+    "validate:shotspec": "tsx validators/validate-shot-spec.ts connection-film/src/scopus-explainer/shot-spec.json",
+    "validate:ownership": "tsx validators/validate-audio-ownership.ts",
+    "validate:portability": "tsx validators/validate-portability.ts",
+    "validate:m1": "npm run validate:shotspec && npm run validate:ownership && npm run validate:portability"
   },
   "main": "index.js",
   "directories": {

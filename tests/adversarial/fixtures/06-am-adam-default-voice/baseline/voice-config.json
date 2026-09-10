@@ -1,0 +1,13 @@
+{
+  "profile": "GENVIDEO_ADAM_PROFILE",
+  "synthesis": {
+    "voice": "Adam",
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32"
+  },
+  "delivery": {
+    "integratedLufsTarget": -15.0
+  }
+}

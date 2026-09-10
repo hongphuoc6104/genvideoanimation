@@ -1,17 +1,42 @@
 #!/usr/bin/env tsx
 /**
- * VALIDATE SHOT SPEC - CONTINUITY & SCHEMA VALIDATOR
+ * VALIDATE SHOT SPEC - CONTINUITY & SCHEMA VALIDATOR (V3.3 Production Hardening)
  *
  * Validates ShotSpec JSON data against schema and continuity constraints:
  * - Validates shot frame progression and rejects temporal gaps / overlaps.
  * - Validates C0 camera continuity (position x, y, and zoom/scale) between consecutive shots:
- *   S_N.end_state.camera == S_{N+1}.start_state.camera.
- * - Validates impact frames declared in impact_frames / whitelisted_impact_frames are within [startFrame, endFrame].
- * - Supports both snake_case and camelCase, array of shots and object with { shots: [...] }.
+ *   S_N.end_state.camera == S_{N+1}.start_state.camera, with exceptions only for declared motivated transitions.
+ * - Validates impact frames declared in impact_frames / whitelisted_impact_frames are strictly within [startFrame, endFrame].
+ * - Validates transition schema: transition_frames, transition_type, and expected_visual_discontinuity.
+ * - Enforces strict transition type whitelist (object_match, camera_carry, shape_morph, foreground_wipe, continuing_trajectory, semantic_zoom, motivated_iris, match_cut).
+ * - Exports extractWhitelistedTransitions and extractWhitelistedDiscontinuityFrames for temporal-render-qa.
+ * - Enforces non-zero exit code (process.exit(1)) on any validation failure.
  */
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+
+export const ALLOWED_TRANSITION_TYPES = [
+  'object_match',
+  'camera_carry',
+  'shape_morph',
+  'foreground_wipe',
+  'continuing_trajectory',
+  'semantic_zoom',
+  'motivated_iris',
+  'match_cut',
+] as const;
+
+export type MotivatedTransitionType = typeof ALLOWED_TRANSITION_TYPES[number];
+
+export interface ShotTransition {
+  from_shot: string;
+  to_shot: string;
+  transition_type: MotivatedTransitionType;
+  transition_frames: [number, number];
+  expected_visual_discontinuity: number | boolean;
+  description?: string;
+}
 
 export interface ShotCameraState {
   x: number;
@@ -43,6 +68,7 @@ export interface NormalizedShot {
   key_beats: ShotBeat[];
   impact_frames: number[];
   camera?: ShotCameraState;
+  transitions?: ShotTransition[];
   raw?: Record<string, unknown>;
 }
 
@@ -113,6 +139,33 @@ export function extractCameraFromState(state: any): { x: number; y: number; zoom
 }
 
 /**
+ * Normalizes a transition declaration from snake_case or camelCase.
+ */
+export function normalizeTransition(raw: any, defaultFrom?: string, defaultTo?: string): ShotTransition {
+  const from_shot = String(raw.from_shot ?? raw.fromShot ?? defaultFrom ?? '');
+  const to_shot = String(raw.to_shot ?? raw.toShot ?? raw.target_shot_id ?? raw.targetShotId ?? defaultTo ?? '');
+  const transition_type = (raw.transition_type ?? raw.transitionType ?? raw.type ?? '') as MotivatedTransitionType;
+
+  let transition_frames: [number, number] = [0, 0];
+  const rawFrames = raw.transition_frames ?? raw.transitionFrames ?? raw.frames;
+  if (Array.isArray(rawFrames) && rawFrames.length >= 2) {
+    transition_frames = [Number(rawFrames[0]), Number(rawFrames[1])];
+  }
+
+  const expected_visual_discontinuity =
+    raw.expected_visual_discontinuity ?? raw.expectedVisualDiscontinuity ?? true;
+
+  return {
+    from_shot,
+    to_shot,
+    transition_type,
+    transition_frames,
+    expected_visual_discontinuity,
+    description: raw.description,
+  };
+}
+
+/**
  * Normalizes a shot object supporting both camelCase and snake_case properties.
  */
 export function normalizeShot(rawShot: any, index: number = 0): NormalizedShot {
@@ -141,6 +194,14 @@ export function normalizeShot(rawShot: any, index: number = 0): NormalizedShot {
       }))
     : [];
 
+  // Per-shot transitions
+  let transitions: ShotTransition[] | undefined;
+  if (Array.isArray(rawShot.transitions)) {
+    transitions = rawShot.transitions.map((t: any) => normalizeTransition(t, id));
+  } else if (rawShot.transition) {
+    transitions = [normalizeTransition(rawShot.transition, id)];
+  }
+
   return {
     id,
     startFrame,
@@ -151,8 +212,88 @@ export function normalizeShot(rawShot: any, index: number = 0): NormalizedShot {
     key_beats,
     impact_frames,
     camera: rawShot.camera,
+    transitions,
     raw: rawShot,
   };
+}
+
+/**
+ * Validates a single transition against the list of shots.
+ */
+export function validateTransition(
+  trans: ShotTransition,
+  shots: NormalizedShot[]
+): { errors: string[]; warnings: string[] } {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  // 1. Allowed transition type
+  if (!ALLOWED_TRANSITION_TYPES.includes(trans.transition_type)) {
+    errors.push(
+      `Transition ${trans.from_shot || '?'} -> ${trans.to_shot || '?'}: Invalid transition_type "${trans.transition_type}". Must be one of: ${ALLOWED_TRANSITION_TYPES.join(', ')}.`
+    );
+  }
+
+  // 2. Shot existence
+  const fromIdx = shots.findIndex((s) => s.id === trans.from_shot);
+  const toIdx = shots.findIndex((s) => s.id === trans.to_shot);
+
+  if (fromIdx === -1) {
+    errors.push(`Transition references unknown from_shot "${trans.from_shot}".`);
+  }
+  if (toIdx === -1) {
+    errors.push(`Transition references unknown to_shot "${trans.to_shot}".`);
+  }
+
+  if (fromIdx !== -1 && toIdx !== -1) {
+    // Must be consecutive shots
+    if (toIdx !== fromIdx + 1) {
+      errors.push(
+        `Transition invalid: "${trans.to_shot}" is not the consecutive successor of "${trans.from_shot}".`
+      );
+    }
+
+    const fromShot = shots[fromIdx];
+    const toShot = shots[toIdx];
+    const boundary = fromShot.endFrame;
+
+    const [tStart, tEnd] = trans.transition_frames;
+    if (typeof tStart !== 'number' || isNaN(tStart) || typeof tEnd !== 'number' || isNaN(tEnd) || tStart > tEnd) {
+      errors.push(
+        `Transition ${trans.from_shot} -> ${trans.to_shot}: Invalid transition_frames [${tStart}, ${tEnd}].`
+      );
+    } else {
+      if (tStart < fromShot.startFrame) {
+        errors.push(
+          `Transition ${trans.from_shot} -> ${trans.to_shot}: Start frame ${tStart} precedes ${fromShot.id}.startFrame (${fromShot.startFrame}).`
+        );
+      }
+      if (tEnd > toShot.endFrame) {
+        errors.push(
+          `Transition ${trans.from_shot} -> ${trans.to_shot}: End frame ${tEnd} exceeds ${toShot.id}.endFrame (${toShot.endFrame}).`
+        );
+      }
+      if (tStart > boundary || tEnd < boundary) {
+        errors.push(
+          `Transition ${trans.from_shot} -> ${trans.to_shot}: Window [${tStart}, ${tEnd}] does not cover boundary frame ${boundary}.`
+        );
+      }
+    }
+  }
+
+  // 3. Expected discontinuity
+  if (
+    typeof trans.expected_visual_discontinuity !== 'boolean' &&
+    (typeof trans.expected_visual_discontinuity !== 'number' ||
+      isNaN(trans.expected_visual_discontinuity) ||
+      trans.expected_visual_discontinuity <= 0)
+  ) {
+    errors.push(
+      `Transition ${trans.from_shot} -> ${trans.to_shot}: expected_visual_discontinuity must be true or a positive number.`
+    );
+  }
+
+  return { errors, warnings };
 }
 
 /**
@@ -212,22 +353,28 @@ export function validateSingleShot(shot: NormalizedShot): { errors: string[]; wa
 
 /**
  * Validates continuity between consecutive shots S_N and S_{N+1}.
+ * When a motivated transition is declared between the shots, intentional camera or state jumps are allowed.
  */
 export function validateShotContinuity(
   prevShot: NormalizedShot,
-  currShot: NormalizedShot
+  currShot: NormalizedShot,
+  declaredTransitions: ShotTransition[] = []
 ): { errors: string[]; warnings: string[] } {
   const errors: string[] = [];
   const warnings: string[] = [];
 
-  // Frame continuity: consecutive shots must connect with 0 gap/overlap
+  // 1. Frame continuity: consecutive shots must connect with 0 gap/overlap
   if (prevShot.endFrame !== currShot.startFrame) {
     const msg = `Frame gap or overlap between Shot ${prevShot.id} (ends at ${prevShot.endFrame}) and Shot ${currShot.id} (starts at ${currShot.startFrame}).`;
     errors.push(msg);
-    warnings.push(msg);
   }
 
-  // Camera continuity: S_N.end_state.camera == S_{N+1}.start_state.camera
+  // Check if an active transition is declared between these consecutive shots
+  const activeTransition = declaredTransitions.find(
+    (t) => t.from_shot === prevShot.id && t.to_shot === currShot.id
+  );
+
+  // 2. Camera continuity: S_N.end_state.camera == S_{N+1}.start_state.camera
   const prevCam = extractCameraFromState(prevShot.end_state);
   const currCam = extractCameraFromState(currShot.start_state);
 
@@ -237,17 +384,19 @@ export function validateShotContinuity(
     const dz = Math.abs(prevCam.zoom - currCam.zoom);
 
     if (dx > 0.001 || dy > 0.001 || dz > 0.001) {
-      errors.push(
-        `Continuity violation for 'camera': Shot ${prevShot.id}.end_state camera (${JSON.stringify(prevCam)}) does not match Shot ${currShot.id}.start_state camera (${JSON.stringify(currCam)}).`
-      );
+      if (!activeTransition) {
+        errors.push(
+          `Continuity violation for 'camera': Shot ${prevShot.id}.end_state camera (${JSON.stringify(prevCam)}) does not match Shot ${currShot.id}.start_state camera (${JSON.stringify(currCam)}) without a declared motivated transition.`
+        );
+      }
     }
   }
 
-  // Generic state key continuity check
-  if (prevShot.end_state && currShot.start_state) {
+  // 3. Generic state key continuity check
+  if (prevShot.end_state && currShot.start_state && !activeTransition) {
     for (const key of Object.keys(prevShot.end_state)) {
       if (['camera', 'camera_zoom', 'camera_x', 'camera_y', 'zoom', 'scale'].includes(key)) {
-        continue; // Checked above with tolerance
+        continue;
       }
       if (key in currShot.start_state) {
         const prevVal = JSON.stringify(prevShot.end_state[key]);
@@ -262,6 +411,81 @@ export function validateShotContinuity(
   }
 
   return { errors, warnings };
+}
+
+/**
+ * Extracts all whitelisted transitions from a ShotSpec object.
+ */
+export function extractWhitelistedTransitions(shotSpecData: any): ShotTransition[] {
+  if (!shotSpecData) return [];
+  const rawList: any[] = [];
+
+  if (Array.isArray(shotSpecData.transitions)) {
+    rawList.push(...shotSpecData.transitions);
+  }
+
+  const shots = Array.isArray(shotSpecData.shots)
+    ? shotSpecData.shots
+    : Array.isArray(shotSpecData)
+    ? shotSpecData
+    : [];
+
+  for (const s of shots) {
+    if (Array.isArray(s.transitions)) {
+      for (const t of s.transitions) {
+        rawList.push(normalizeTransition(t, s.id));
+      }
+    } else if (s.transition) {
+      rawList.push(normalizeTransition(s.transition, s.id));
+    }
+  }
+
+  return rawList.map((t) => normalizeTransition(t));
+}
+
+/**
+ * Extracts all frames that are permitted to have visual discontinuity spikes:
+ * includes discrete impact frames AND all frames inside active transition windows.
+ */
+export function extractWhitelistedDiscontinuityFrames(shotSpecData: any): {
+  impactFrames: number[];
+  transitionWindows: [number, number][];
+  allWhitelistedFrames: number[];
+} {
+  const frames = new Set<number>();
+  const transitions = extractWhitelistedTransitions(shotSpecData);
+  const transitionWindows: [number, number][] = [];
+
+  // 1. Add discrete impact frames
+  const shots = Array.isArray(shotSpecData?.shots)
+    ? shotSpecData.shots
+    : Array.isArray(shotSpecData)
+    ? shotSpecData
+    : [];
+
+  for (const s of shots) {
+    const rawImpacts = s.impact_frames ?? s.whitelisted_impact_frames ?? [];
+    if (Array.isArray(rawImpacts)) {
+      for (const f of rawImpacts) {
+        if (typeof f === 'number') frames.add(f);
+      }
+    }
+  }
+
+  // 2. Add transition window frames
+  for (const t of transitions) {
+    const [start, end] = t.transition_frames;
+    transitionWindows.push([start, end]);
+    for (let f = start; f <= end; f++) {
+      frames.add(f);
+    }
+  }
+
+  return {
+    impactFrames: Array.from(frames).sort((a, b) => a - b),
+    transitionWindows,
+    allWhitelistedFrames: Array.from(frames).sort((a, b) => a - b),
+  };
 }
 
 /**
@@ -289,6 +513,16 @@ export function validateShotSpecData(data: any): ShotValidationResult {
 
   const normalizedShots: NormalizedShot[] = rawShots.map((s, idx) => normalizeShot(s, idx));
 
+  // Extract all transitions
+  const transitions: ShotTransition[] = extractWhitelistedTransitions(data);
+
+  // Validate transitions
+  for (const t of transitions) {
+    const tRes = validateTransition(t, normalizedShots);
+    allErrors.push(...tRes.errors);
+    allWarnings.push(...tRes.warnings);
+  }
+
   // Validate each individual shot
   for (const shot of normalizedShots) {
     const singleRes = validateSingleShot(shot);
@@ -298,7 +532,7 @@ export function validateShotSpecData(data: any): ShotValidationResult {
 
   // Validate continuity across consecutive pairs
   for (let i = 1; i < normalizedShots.length; i++) {
-    const continuityRes = validateShotContinuity(normalizedShots[i - 1], normalizedShots[i]);
+    const continuityRes = validateShotContinuity(normalizedShots[i - 1], normalizedShots[i], transitions);
     allErrors.push(...continuityRes.errors);
     allWarnings.push(...continuityRes.warnings);
   }
@@ -325,7 +559,7 @@ export function validateShotSpec(shotOrData: any, previousShot?: any): ShotValid
     const prevNorm = normalizeShot(previousShot, 0);
 
     const singleRes = validateSingleShot(currNorm);
-    const continuityRes = validateShotContinuity(prevNorm, currNorm);
+    const continuityRes = validateShotContinuity(prevNorm, currNorm, currNorm.transitions || []);
 
     const errors = [...singleRes.errors, ...continuityRes.errors];
     const warnings = [...singleRes.warnings, ...continuityRes.warnings];
@@ -379,6 +613,7 @@ Usage:
 
 Options:
   --json       Output machine-readable JSON summary
+  --strict     Enforce strict mode (default)
   -h, --help   Display this usage guide
 `);
     process.exit(args.length === 0 ? 1 : 0);
@@ -460,4 +695,3 @@ const isDirectCli =
 if (isDirectCli) {
   runCli();
 }
-

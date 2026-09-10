@@ -1,0 +1,11 @@
+{
+  "totalConcepts": 2,
+  "mappedConcepts": 1,
+  "coveragePercent": 50.0,
+  "mappings": [
+    {
+      "conceptId": "concept_desk_reject",
+      "beatId": "beat_01"
+    }
+  ]
+}

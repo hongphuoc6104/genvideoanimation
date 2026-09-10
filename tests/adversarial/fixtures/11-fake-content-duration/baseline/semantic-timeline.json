@@ -1,0 +1,20 @@
+{
+  "beats": [
+    {
+      "id": "beat_01",
+      "narrationTokenRange": [0, 15],
+      "startFrame": 0,
+      "endFrame": 300,
+      "visualIntent": "Desk reject paradox",
+      "conceptId": "concept_desk_reject"
+    },
+    {
+      "id": "beat_02",
+      "narrationTokenRange": [16, 35],
+      "startFrame": 300,
+      "endFrame": 650,
+      "visualIntent": "Scopus academic dialogue",
+      "conceptId": "concept_scopus_dialogue"
+    }
+  ]
+}

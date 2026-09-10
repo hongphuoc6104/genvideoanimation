@@ -1,0 +1,10 @@
+{
+  "sceneId": "Scene1ProblemScopus",
+  "shotId": "shot_01",
+  "phases": {
+    "phaseA": { "startFrame": 0, "endFrame": 150 },
+    "phaseB": { "startFrame": 150, "endFrame": 300 },
+    "phaseC": { "startFrame": 300, "endFrame": 450 }
+  },
+  "activeDurationInFrames": 450
+}

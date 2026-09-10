@@ -1,0 +1,10 @@
+{
+  "cues": [
+    {
+      "id": "cue_stamp_reject",
+      "frame": 160,
+      "targetElement": "stamp_reject_overlay",
+      "soundFx": "sfx/stamp_reject.wav"
+    }
+  ]
+}

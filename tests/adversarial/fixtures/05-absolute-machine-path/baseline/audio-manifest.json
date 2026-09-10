@@ -1,0 +1,12 @@
+{
+  "compositionId": "ScopusExplainerFilm",
+  "version": "3.3.0",
+  "tracks": [
+    {
+      "id": "sfx_stamp",
+      "role": "sfx",
+      "relativePath": "audio/sfx/stamp_reject.wav",
+      "durationSec": 0.45
+    }
+  ]
+}

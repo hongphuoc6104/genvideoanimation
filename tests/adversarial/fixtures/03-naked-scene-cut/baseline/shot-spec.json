@@ -1,0 +1,33 @@
+{
+  "sequence_id": "adversarial-motivated-transition",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "shots": [
+    {
+      "id": "shot_01",
+      "startFrame": 0,
+      "endFrame": 618,
+      "start_state": { "camera": { "x": 0, "y": 0, "zoom": 1.0 } },
+      "end_state": { "camera": { "x": 0, "y": 0, "zoom": 1.0 } },
+      "impact_frames": [],
+      "transitions": [
+        {
+          "from_shot": "shot_01",
+          "to_shot": "shot_02",
+          "transition_type": "camera_carry",
+          "transition_frames": [603, 633],
+          "expected_visual_discontinuity": 0.45
+        }
+      ]
+    },
+    {
+      "id": "shot_02",
+      "startFrame": 618,
+      "endFrame": 1309,
+      "start_state": { "camera": { "x": 300, "y": 150, "zoom": 1.8 } },
+      "end_state": { "camera": { "x": 300, "y": 150, "zoom": 1.8 } },
+      "impact_frames": []
+    }
+  ]
+}

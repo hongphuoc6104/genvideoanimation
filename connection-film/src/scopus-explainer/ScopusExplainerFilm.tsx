@@ -2,7 +2,6 @@ import React from 'react';
 import { Audio, Sequence, staticFile } from 'remotion';
 import { KaraokeCaptions } from 'caption-kit';
 import captionsData from './subtitles/captions.json';
-import cuesData from './cues.json';
 import shotSpecData from './shot-spec.json';
 import { Scene1ProblemScopus } from './scenes/Scene1ProblemScopus';
 import { Scene2GapTaxonomy } from './scenes/Scene2GapTaxonomy';
@@ -53,22 +52,6 @@ export const ScopusExplainerFilm: React.FC = () => {
         volume={1.0}
       />
 
-      {/* Dynamic Semantic SFX Audio Hits Triggered at Declared Cue Frames (No Background Music) */}
-      {cuesData.cues.map((cue: any) => {
-        if (!cue.soundFx) return null;
-        return (
-          <Sequence
-            key={cue.id}
-            from={cue.frame}
-            durationInFrames={60}
-          >
-            <Audio
-              src={staticFile(`audio/${cue.soundFx}`)}
-              volume={cue.volume ?? 0.75}
-            />
-          </Sequence>
-        );
-      })}
 
       {/* 5 Sequential Scenes covering the Content-Driven Timeline */}
       {SHOTS.map((shot) => {

@@ -1,0 +1,15 @@
+{
+  "compositionId": "ScopusExplainerFilm",
+  "output": {
+    "durationSec": 103.20,
+    "sampleRate": 48000,
+    "truePeakDbfs": -1.8,
+    "lufs": -15.0,
+    "clippedSamples": 0
+  },
+  "tracks": {
+    "narration": {
+      "durationSec": 103.20
+    }
+  }
+}

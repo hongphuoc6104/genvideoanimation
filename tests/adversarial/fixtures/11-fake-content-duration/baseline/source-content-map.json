@@ -1,0 +1,15 @@
+{
+  "totalConcepts": 2,
+  "mappedConcepts": 2,
+  "coveragePercent": 100.0,
+  "mappings": [
+    {
+      "conceptId": "concept_desk_reject",
+      "beatId": "beat_01"
+    },
+    {
+      "conceptId": "concept_scopus_dialogue",
+      "beatId": "beat_02"
+    }
+  ]
+}

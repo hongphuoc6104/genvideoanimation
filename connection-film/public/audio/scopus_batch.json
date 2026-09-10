@@ -171,6 +171,6 @@
       "spoken": "Research Gap là nền tảng của tính mới Chúc bạn xây dựng lập luận vững chắc và công bố thành công trên Scopus"
     }
   ],
-  "outputDir": "/home/hongphuoc6104/Desktop/videorenderhoathinh/connection-film/src/scopus-explainer/audio",
+  "outputDir": "connection-film/src/scopus-explainer/audio",
   "masterVoiceover": "scopus_voiceover.wav"
 }

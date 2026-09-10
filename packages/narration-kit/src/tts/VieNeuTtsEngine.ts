@@ -70,7 +70,7 @@ export class VieNeuTtsEngine implements TtsEngine, TTSProvider {
     }
 
     // 2. Machine-wide VieNeu virtualenv
-    const machineVenv = '/home/hongphuoc6104/video3d/.genvideo/voice/vieneu/.venv/bin/python3';
+    const machineVenv = path.join(os.homedir(), 'video3d', '.genvideo', 'voice', 'vieneu', '.venv', 'bin', 'python3');
     if (fs.existsSync(machineVenv)) {
       return machineVenv;
     }

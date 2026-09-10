@@ -1,290 +1,268 @@
 # TEST_INFRA.md — Master Test Infrastructure Specification
-**Project:** Educational Flat Vector Motion & Narration System (V2 Motion & V3 Narration/Karaoke)
-**Working Directory:** `/home/hongphuoc6104/Desktop/videorenderhoathinh`
-**Authoritative Sources:** `ORIGINAL_REQUEST.md` (V2 Initial + V3 Follow-up), `PROJECT.md`, `SCOPE.md`
-
----
-
-# PART II: V3 NARRATION, KARAOKE & AUDIO PRODUCTION TEST INFRASTRUCTURE
-
-# TEST_INFRA.md — Master Test Infrastructure Specification
-**Project:** V3 Narration, Word-Synchronized Karaoke Subsystem & Audio Production Upgrade  
-**Version:** 3.0.0-PROD  
+**Project:** V3.3 Production Integrity Hardening (Failure-First Acceptance)  
+**Version:** 3.3.0-PROD  
 **Working Directory:** `/home/hongphuoc6104/Desktop/videorenderhoathinh`  
-**Authoritative Sources:** `ORIGINAL_REQUEST.md` (Follow-up 2026-09-09T18:08:43Z: R1–R12), `.agents/orchestrator_3/PROJECT.md` (F01–F40), `.agents/sub_orch_e2e/SCOPE.md`
+**Authoritative Sources:** `ORIGINAL_REQUEST.md` (V3.3 section 2026-09-10T11:05:38Z: R1–R23), `.agents/orchestrator_8/PROJECT.md` (F01–F28), `.agents/sub_orch_e2e_testing/SCOPE.md`
 
 ---
 
 ## 1. Test Philosophy & Architecture
 
-The V3 Narration & Karaoke Subsystem test suite operates under four non-negotiable architectural principles:
+The V3.3 Production Integrity Hardening test framework operates under five non-negotiable architectural principles designed to eradicate all false-positive acceptance paths across static AST analysis, acoustic DSP, temporal motion, and mobile preview legibility:
 
 ### 1.1 Opaque-Box, Requirement-Driven Testing
-All tests derive strictly from requirements R1–R12 and features F01–F40. Tests interact solely through public module contracts, filesystem artifacts, CLI signatures, and binary audio/video data streams. Tests never bind to internal implementation details or private variables.
+All tests derive strictly from requirements R1–R23 and features F01–F28. Verification is conducted solely through public module contracts, filesystem artifacts, CLI execution signatures, AST visitors, and binary audio/video data streams. Tests are agnostic to internal implementation details, enforcing behavioral and physical invariants.
 
-### 1.2 Progressive Testability & Graceful Degradation
-The test suite is executable at any milestone (M1 through M6). When a module or export is not yet implemented, test cases catch module resolution errors cleanly and report `NOT_IMPLEMENTED` (rendered as yellow `? PEND`), allowing exit code `0` in standard development mode while asserting strict mathematical and schema contracts against canonical fixture data. A test only reports `FAIL` if the targeted feature is present but violates its contract.
+### 1.2 Failure-First Acceptance & Adversarial Verification (R22)
+A quality gate is never certified simply because it passes clean inputs; it must demonstrably reject deliberately invalid inputs. The suite includes an adversarial false-positive test harness (`scripts/run-adversarial-suite.ts`) executing 12 engineered bad fixtures spanning typography violations, invalid impact frames, naked scene cuts, duplicate audio playback, machine-specific paths, default Kokoro voice routing, metadata mismatches, out-of-sync scene timing, cue/visual mismatch, dense card grids, fake duration inflation, and unannotated temporal spikes. Acceptance strictly requires **100% rejection** of all 12 bad fixtures.
 
-### 1.3 Strict Zero-Dependency Policy
-The test runner and assertion harness are implemented in pure TypeScript and native Node.js 20+ APIs (`node:assert/strict`, `node:fs`, `node:path`, `node:perf_hooks`, `node:url`). Heavyweight test runners (Jest, Vitest, Mocha) are strictly forbidden to prevent ESM/CJS bundling conflicts and dependency bloat.
+### 1.3 4-Tier Hierarchical Testing Methodology
+Verification is partitioned into 4 complementary tiers:
+- **Tier 1 — Feature Contracts (Unit/Contract Level):** Enforces isolated schema, interface shapes, and nominal behaviors ($\ge 5$ tests per feature across all 28 features $= 140$ tests).
+- **Tier 2 — Boundary, Limit & Corner Cases:** Stresses parameter limits, out-of-bounds frame bounds, zero-length arrays, NaN telemetry, invalid sample rates, and non-monotonic sequences ($\ge 5$ tests per feature $= 140$ tests).
+- **Tier 3 — Cross-Feature Pairwise Interactions:** Validates data contract handoffs across pipeline subsystems (e.g. Timeline $\leftrightarrow$ ShotSpec, AST Typography $\leftrightarrow$ Mobile Preview, VieNeu TTS $\leftrightarrow$ Audio Mix, Transitions $\leftrightarrow$ Temporal QA) ($30$ tests).
+- **Tier 4 — Real-World Application Scenarios:** Executes full end-to-end production explainer sequences under realistic operational conditions ($15$ comprehensive scenarios).
 
-### 1.4 Strict Offline & Air-Gapped Enforcement (`--offline`)
-All synthesis, alignment, caption generation, and rendering operate strictly offline without external cloud APIs. The suite includes an automated network guard (`offline-network-guard.ts`) that intercepts outbound HTTP, HTTPS, TCP, UDP, and DNS calls, ensuring zero leaks.
+### 1.4 Mobile-First Physical Legibility & Progressive Disclosure (R1, R2, R3)
+Video assets must remain legible when viewed on mobile phone viewports. In dual-render production ($1080 \times 1920$ master and $360 \times 640$ QA preview), text height must never render below $10.0\text{px}$ on the $360\text{p}$ canvas ($30\text{px}$ in $1080\text{p}$). PowerPoint-style multi-card density is prohibited; choreography must adhere to progressive disclosure (1 primary idea per beat).
+
+### 1.5 Strict Acoustic & Environment Portability (R11, R14, R15, R16)
+Remotion compositions enforce `PREMIXED` single audio ownership (master audio WAV contains narration and all mixed SFX; zero discrete `<Audio>` cue tags). Committed manifests contain zero machine-specific absolute paths (`/home/`, `C:\`, `/Users/`).
 
 ---
 
 ## 2. Feature Inventory Mapping & Coverage Invariants
 
-The V3 framework covers all 40 features (F01–F40) across 4 testing tiers:
+The V3.3 framework maps all 28 features (F01–F28) against requirements R1–R23 across the 4 tiers plus the adversarial test suite:
 
-| # | Feature | Category | Tier 1 (Happy) | Tier 2 (Boundary) | Tier 3 (Combos) | Tier 4 (Scenarios) | Total |
-|---|---------|----------|:---:|:---:|:---:|:---:|:---:|
-| F01 | Canonical `narration-kit` | Packaging | 5 | 5 | T3-40 | S01, S04, S10 | 14 |
-| F02 | Kokoro-82M TTS Local Engine | Speech | 5 | 5 | T3-02,04,05,26 | S01, S02, S15 | 17 |
-| F03 | Voice Customization Presets | Speech | 5 | 5 | T3-04,23 | S03, S04 | 14 |
-| F04 | Zero Intermediate MP3 | Speech | 5 | 5 | T3-04 | S01, S08 | 13 |
-| F05 | Model Setup Utility | Models | 5 | 5 | T3-17 | S05, S12 | 13 |
-| F06 | Strict Offline Network Guard | Security | 5 | 5 | T3-16,17,35 | S05, S15, S18 | 16 |
-| F07 | Models Documentation | Models | 5 | 5 | T3-17 | S05 | 12 |
-| F08 | Text Normalizer | Text | 5 | 5 | T3-01,02,22,39 | S02, S06, S11 | 17 |
-| F09 | Bidirectional Text Map | Text | 5 | 5 | T3-01,03,28,39 | S02, S06 | 16 |
-| F10 | Prosody Profiles Engine | Prosody | 5 | 5 | T3-02,05,21 | S03, S07, S12, S14 | 17 |
-| F11 | ShotSpec Prosody Binding | Prosody | 5 | 5 | T3-05,14,38 | S07, S13 | 15 |
-| F12 | WhisperX Forced Alignment | Alignment | 5 | 5 | T3-01,06,23 | S01, S09, S17 | 15 |
-| F13 | Word Timing Output | Alignment | 5 | 5 | T3-03,06,10,14,23,39 | S01, S09 | 18 |
-| F14 | Alignment Quality Gates | Alignment | 5 | 5 | T3-03,27 | S09, S17 | 14 |
-| F15 | Caption Segmentation | Captions | 5 | 5 | T3-06,07,15,22,27 | S04, S10, S20 | 18 |
-| F16 | Safe Area Placement Planner | Layout | 5 | 5 | T3-07,08,24,29 | S04, S05, S10, S14 | 18 |
-| F17 | Captions Artifact Output | Captions | 5 | 5 | T3-07,09,29,39 | S04, S10 | 16 |
-| F18 | Multi-Track Audio Mixer | Audio | 5 | 5 | T3-12,21,26,38 | S08, S12, S18 | 17 |
-| F19 | Dynamic Ducking Envelopes | Audio | 5 | 5 | T3-12,13,21,30,38 | S08, S12 | 17 |
-| F20 | Audio Manifest Output | Audio | 5 | 5 | T3-12,13,20,30 | S08, S12 | 16 |
-| F21 | Semantic Animation Cues | Cues | 5 | 5 | T3-14,15,25,28,30 | S07, S13, S14 | 18 |
-| F22 | Canonical `caption-kit` | UI | 5 | 5 | T3-09,40 | S04, S11 | 14 |
-| F23 | `KaraokeWord` Progressive Fill | UI | 5 | 5 | T3-10,11,37 | S04, S11 | 15 |
-| F24 | `KaraokeLine` & `KaraokeGroup` | UI | 5 | 5 | T3-11,25,29 | S04, S11 | 15 |
-| F25 | Educational Art Direction | UI | 5 | 5 | T3-11,25 | S04, S11 | 14 |
-| F26 | `KaraokeCaptions` Coordinator | UI | 5 | 5 | T3-08,09,15,24,37 | S04, S10 | 17 |
-| F27 | Unified Pipeline Runner | Pipeline | 5 | 5 | T3-16,18,19,20,28,31-34,40 | S01, S06, S20 | 21 |
-| F28 | Validator `validate-narration.ts` | QA | 5 | 5 | T3-13,18,36 | S01, S08 | 15 |
-| F29 | Validator `validate-alignment.ts` | QA | 5 | 5 | T3-18,27,36 | S01, S09 | 15 |
-| F30 | Validator `validate-captions.ts` | QA | 5 | 5 | T3-19,22,36 | S04, S10 | 15 |
-| F31 | Validator `validate-caption-layout.ts` | QA | 5 | 5 | T3-08,19,36 | S04, S05, S10 | 15 |
-| F32 | Validator `validate-audio-mix.ts` | QA | 5 | 5 | T3-13,20,26,36 | S08, S12, S16 | 16 |
-| F33 | Validator `offline-network-guard.ts` | QA | 5 | 5 | T3-16,35,36 | S05, S15, S18 | 16 |
-| F34 | Diagnostic Frame Renderer | QA | 5 | 5 | T3-24 | S04, S14, S19 | 14 |
-| F35 | Temporal Monotonic QA | QA | 5 | 5 | T3-10,37 | S04, S11 | 14 |
-| F36 | Benchmark A Execution | Benchmark | 5 | 5 | T3-31,35 | S01, S19, S20 | 15 |
-| F37 | Benchmark B Execution | Benchmark | 5 | 5 | T3-32 | S02, S20 | 14 |
-| F38 | Benchmark C Execution | Benchmark | 5 | 5 | T3-33 | S03, S20 | 14 |
-| F39 | Voice Comparison Execution | Benchmark | 5 | 5 | T3-34 | S04, S20 | 14 |
-| F40 | Comprehensive Report | Benchmark | 5 | 5 | T3-31,32,33,34 | S01, S02, S03, S20 | 16 |
+| Feature ID | Feature Name | Requirement Source | Milestone | Tier 1 (Happy) | Tier 2 (Boundary) | Tier 3 (Pairwise) | Tier 4 (Scenario) | Adversarial Fixture | Total Tests |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **F01** | Static Typography Validator | R1 | M1 | 5 | 5 | T3-01, T3-02 | S04, S11 | Bad Fixture 1 (14px font) | 14 |
+| **F02** | Strict ShotSpec Impact Bounds | R7 | M1 | 5 | 5 | T3-03, T3-04 | S01, S06 | Bad Fixture 2 (Out-of-range impact) | 14 |
+| **F03** | ShotSpec Transition Whitelist | R8 | M1 | 5 | 5 | T3-04, T3-05 | S07, S15 | Bad Fixture 3 (Naked scene cut) | 14 |
+| **F04** | Audio Ownership Validator | R11 | M1 | 5 | 5 | T3-06, T3-07 | S08, S10 | Bad Fixture 4 (Duplicate SFX) | 14 |
+| **F05** | Workspace Portability Validator | R15 | M1 | 5 | 5 | T3-08, T3-09 | S10, S13 | Bad Fixture 5 (Machine absolute path) | 14 |
+| **F06** | Remotion Audio Tag Deduplication | R11 | M1 | 5 | 5 | T3-06, T3-07 | S08 | Bad Fixture 4 (Remotion cue tags) | 13 |
+| **F07** | Authoritative Audio Asset Graph | R12 | M2 | 5 | 5 | T3-09, T3-10 | S08, S09 | Bad Fixture 4 (Audio asset overlap) | 13 |
+| **F08** | Safe VieNeu-TTS Voice Default | R13 | M2 | 5 | 5 | T3-11, T3-12 | S09, S14 | Bad Fixture 6 (am_adam default) | 14 |
+| **F09** | Measured Audio Metadata Manifest | R14 | M2 | 5 | 5 | T3-10, T3-13 | S08, S09 | Bad Fixture 7 (Metadata mismatch) | 14 |
+| **F10** | Audio Policy Hygiene | R16 | M2 | 5 | 5 | T3-12, T3-14 | S09, S10 | Bad Fixture 4 (Production BGM) | 13 |
+| **F11** | Role-Aware Natural Pause Policy | R17 | M2 | 5 | 5 | T3-11, T3-15 | S05, S09 | Bad Fixture 8 (Pause anomaly) | 13 |
+| **F12** | Audio Dynamics QA Gate (-15 LUFS) | R18 | M2 | 5 | 5 | T3-13, T3-14 | S08, S09 | Bad Fixture 7 (Clipping/Loudness) | 13 |
+| **F13** | Canonical Semantic Timeline | R4 | M3 | 5 | 5 | T3-03, T3-16, T3-17 | S01, S02, S03 | Bad Fixture 8 (Timeline out of sync) | 15 |
+| **F14** | 100% Source Content Coverage Map | R21 | M3 | 5 | 5 | T3-16, T3-18 | S01, S12 | Bad Fixture 11 (Omitted concept) | 14 |
+| **F15** | Derived ShotSpec & Cues Manifests | R4, R7, R8 | M3 | 5 | 5 | T3-03, T3-04, T3-17 | S01, S06, S07 | Bad Fixture 8 (Derived timing lag) | 15 |
+| **F16** | Progressive Disclosure Choreography | R3 | M4 | 5 | 5 | T3-19, T3-20 | S02, S03, S11 | Bad Fixture 10 (5 dense cards) | 15 |
+| **F17** | Content-Driven Dynamic Timing | R5 | M4 | 5 | 5 | T3-17, T3-21 | S01, S05 | Bad Fixture 11 (Fake duration expansion) | 14 |
+| **F18** | 103.20s Narration Parity | R6 | M4 | 5 | 5 | T3-17, T3-21 | S01, S05 | Bad Fixture 11 (Parity stretch) | 13 |
+| **F19** | Motivated Scene Transitions | R9, R10 | M4 | 5 | 5 | T3-05, T3-22 | S07, S15 | Bad Fixture 3 (Unmotivated cut) | 14 |
+| **F20** | Scene Typography Mobile Remediation | R1, R2 | M4 | 5 | 5 | T3-01, T3-23 | S04, S11 | Bad Fixture 1 (Unremediated font) | 14 |
+| **F21** | Educational Flat Motion Skill | R19 | M5 | 5 | 5 | T3-24, T3-25 | S01, S15 | Bad Fixture 10 (Skill rule breach) | 13 |
+| **F22** | Quality Rubric Overhaul (>= 4.5) | R20 | M5 | 5 | 5 | T3-25, T3-26 | S15 | Bad Fixture 12 (Low rubric score) | 13 |
+| **F23** | Adversarial Test Suite Runner | R22 | M6 | 5 | 5 | T3-27, T3-28 | S10, S15 | All 12 Bad Fixtures | 24 |
+| **F24** | 12 Deliberate Bad Fixtures | R22 | M6 | 5 | 5 | T3-27, T3-28 | S15 | All 12 Bad Fixtures | 24 |
+| **F25** | Dual-Render MP4 Pipeline | R2 | M6 | 5 | 5 | T3-29, T3-30 | S01, S11 | Bad Fixture 12 (Preview mismatch) | 13 |
+| **F26** | Mobile Legibility Preview Rubric | R2 | M6 | 5 | 5 | T3-23, T3-29 | S04, S11 | Bad Fixtures 1, 10 (Illegible preview) | 14 |
+| **F27** | Temporal QA MP4 Discontinuity Check | R9 | M6 | 5 | 5 | T3-22, T3-30 | S07, S15 | Bad Fixture 12 (Unannotated spike) | 14 |
+| **F28** | Final End-to-End Acceptance | R23 | M6 | 5 | 5 | T3-26, T3-28, T3-30 | S01, S15 | Full Acceptance Gate | 15 |
 
-### Exact Coverage Invariant:
-$$\text{Total Test Cases} = \text{Tier 1 } (200) + \text{Tier 2 } (200) + \text{Tier 3 } (40) + \text{Tier 4 } (20) = 460 \ge 460 \quad [\text{PASS}]$$
+### Mathematical Coverage Invariant:
+$$\text{Total Test Cases} = \text{Tier 1 } (140) + \text{Tier 2 } (140) + \text{Tier 3 } (30) + \text{Tier 4 } (15) + \text{Adversarial } (12) = 337 \ge 337 \quad [\mathbf{PASS}]$$
 
 ---
 
-## 3. Test Harness Architecture & Interfaces
+## 3. Test Architecture, Directory Layout & Execution Commands
 
-The test harness resides under `tests/e2e/harness/`:
-
-### 3.1 `assert.ts`
-Zero-dependency domain assertion library built on `node:assert/strict`:
-- `assertTrue(cond, msg)`, `assertFalse(cond, msg)`
-- `assertEqual(actual, expected, msg)`, `assertNotEqual(actual, expected, msg)`
-- `assertDeepEqual(actual, expected, msg)`
-- `assertClose(actual, expected, tolerance, msg)`, `assertArrayClose(...)`
-- `assertInRange(val, min, max, msg)`
-- `assertMonotonic(numbers, strict, msg)`: Enforces temporal ordering ($t_{i+1} > t_i$ or $t_{i+1} \ge t_i$)
-- `assertNoOverlap(intervals, msg)`: Ensures intervals do not overlap ($start_{i+1} \ge end_i$)
-- `assertThrows(fn, regex|type, msg)`, `assertAsyncThrows(fn, regex|type, msg)`
-- `assertSchema(data, rules, msg)`: Validates object shapes and field types
-- `assertWavHeader(buffer, sampleRate, channels, bitsPerSample)`: Decodes RIFF/WAVE headers
-
-### 3.2 `test-context.ts`
-Lifecycle, registry, and progressive resolution:
-- `TestContext`: Per-test sandbox providing `log()`, `skip(reason)`, `notImplemented(reason)`, `createTempDir()`, `cleanupTempDirs()`.
-- `TestSuite`: Encapsulates test lists with `beforeAll`, `afterAll`, `beforeEach`, `afterEach` hooks.
-- `TestRegistry`: Singleton registry managing suites and preventing duplicate registrations.
-- `resolveOptionalModule(path)`: Safely attempts dynamic module import without crashing if absent.
-
-### 3.3 `fixtures.ts`
-Canonical reference inputs and mock generators:
-- `TEXT_FIXTURES`: Canonical scripts (`SHORT`, `TECHNICAL`, `NUMBERS_AND_SYMBOLS`, `EXPRESSIVE`, `EMPTY`).
-- `SHOTSPEC_FIXTURES`: Validated ShotSpecs (`DEFAULT_EDUCATIONAL`, `WITH_SUBJECT_BOTTOM`, `VERTICAL_SHORT`).
-- `createMockWavBuffer(opts)`: Memory-efficient 16-bit PCM RIFF WAV synthesizer (configurable sample rate, channels, duration, frequency, amplitude).
-- `MOCK_NARRATION_TEXT_MAP`, `MOCK_WORDS_JSON`, `MOCK_CAPTIONS_JSON`, `MOCK_AUDIO_MANIFEST_JSON`, `MOCK_CUE_MANIFEST_JSON`: Strict schema-compliant mock objects.
-
-### 3.4 `runner.ts`
-Core execution loop supporting:
-- Auto-discovery across all 4 tier folders (`tier1-features`, `tier2-boundaries`, `tier3-combinations`, `tier4-applications`).
-- Per-test timeout handling (default 5000ms).
-- Sandboxed execution with auto-cleanup of temp directories.
-- 3 Multi-format reporters:
-  1. Pretty Console ANSI reporter with hierarchical summary matrix.
-  2. Machine-readable JSON reporter (`--json`).
-  3. Test Anything Protocol v13 reporter (`--tap`).
-
----
-
-## 4. Directory Layout & Module Structure
-
+### 3.1 Directory Layout
 ```
-tests/e2e/
-├── harness/
-│   ├── assert.ts                         # Zero-dependency domain assertion library
-│   ├── test-context.ts                   # Types, TestContext, TestRegistry, progressive loader
-│   ├── fixtures.ts                       # Canonical scripts, ShotSpecs, WAV generator, mock JSON
-│   └── runner.ts                         # Master runner engine, CLI argument parser, reporters
-├── run-e2e-tests.ts                      # Standalone CLI entry point (npm run test:v3)
-├── tier1-features/                       # Tier 1: 200 isolated feature coverage tests
-│   ├── f01-canonical-narration-kit.test.ts
-│   ├── ...
-│   └── f40-comprehensive-report.test.ts
-├── tier2-boundaries/                     # Tier 2: 200 boundary, limit, and corner-case tests
-│   ├── f01-canonical-narration-kit.boundary.test.ts
-│   ├── ...
-│   └── f40-comprehensive-report.boundary.test.ts
-├── tier3-combinations/                   # Tier 3: 40 pairwise cross-feature interaction tests
-│   ├── pipeline-stages.test.ts           # T3-COMB-01 to T3-COMB-10 (Normalize + TTS + Align)
-│   ├── captions-layout.test.ts           # T3-COMB-11 to T3-COMB-20 (Captions + Safe Area + Audio Mix)
-│   ├── audio-cues.test.ts                # T3-COMB-21 to T3-COMB-30 (Ducking Recovery + SFX + Cues)
-│   └── qa-governance.test.ts             # T3-COMB-31 to T3-COMB-40 (Offline + Validators + Benchmarks)
-└── tier4-applications/                   # Tier 4: 20 realistic application scenarios
-    ├── scenarios-part1.test.ts           # T4-APP-01 to T4-APP-10 (Benchmarks A, B, C, Voices, Safe Area)
-    └── scenarios-part2.test.ts           # T4-APP-11 to T4-APP-20 (Air-Gapped, EBU R128, Diagnostic Frames)
+/home/hongphuoc6104/Desktop/videorenderhoathinh/
+├── validators/                                   # Standalone CLI Quality Gates
+│   ├── validate-mobile-typography.ts             # AST mobile typography gate (R1)
+│   ├── validate-shot-spec.ts                     # Strict ShotSpec & transition whitelist gate (R7, R8)
+│   ├── validate-audio-ownership.ts               # PREMIXED single audio owner AST gate (R11)
+│   ├── validate-portability.ts                   # Zero machine-specific absolute paths gate (R15)
+│   ├── validate-audio-policy.ts                  # Audio policy & role-aware pause gate (R16, R17)
+│   ├── validate-audio-mix.ts                     # Audio dynamics & metadata gate (R14, R18)
+│   ├── temporal-render-qa.ts                     # Rolling MAD frame discontinuity QA gate (R9)
+│   └── validate-preview-rubric.ts                # 360x640 mobile preview 5-criteria rubric (R2)
+├── tests/
+│   ├── adversarial/                              # R22 Adversarial Test Harness & Fixtures
+│   │   ├── fixtures/                             # 12 Deliberate Bad Fixtures
+│   │   │   ├── 01-sub-threshold-typography.tsx   # 14px body font in informational component
+│   │   │   ├── 02-out-of-bounds-impact.json      # Impact frame 450 in shot duration [618, 1309]
+│   │   │   ├── 03-naked-scene-cut.json           # Discontinuous camera jump with no declared transition
+│   │   │   ├── 04-dual-audio-playback.tsx        # Mounts master WAV + discrete cue <Audio> tags
+│   │   │   ├── 05-machine-absolute-path.json     # Contains /home/hongphuoc6104/ path string
+│   │   │   ├── 06-am-adam-default-voice.json     # Config defaulting to Kokoro am_adam instead of Adam
+│   │   │   ├── 07-audio-metadata-mismatch.json   # Manifest declares 48kHz but WAV is 24kHz
+│   │   │   ├── 08-stale-scene-timing.tsx         # Component uses hardcoded frames out of sync with ShotSpec
+│   │   │   ├── 09-cue-visual-desync.json         # SFX cue fires before visual actor is mounted
+│   │   │   ├── 10-dense-card-grid.tsx            # 5 taxonomy cards rendered simultaneously
+│   │   │   ├── 11-fake-duration-inflation.json   # Empty frame stretch without narration tokens
+│   │   │   └── 12-unannotated-temporal-spike.json# Frame difference spike > 4x without ShotSpec whitelist
+│   │   └── run-adversarial-suite.ts              # Harness executing and asserting 100% rejection
+│   └── e2e/
+│       ├── harness/                              # Zero-dependency assertion engine & runners
+│       ├── tier1-features/                       # 140 isolated feature contract tests
+│       ├── tier2-boundaries/                     # 140 limit, boundary & corner tests
+│       ├── tier3-combinations/                   # 30 pairwise cross-feature interaction tests
+│       └── tier4-applications/                   # 15 realistic end-to-end explainer scenarios
+├── scripts/
+│   ├── run-adversarial-suite.ts                  # Root runner for adversarial gate
+│   └── render-scopus-v3_3.ts                     # Dual-render 1080p & 360p execution pipeline
+└── out/
+    ├── final-v3_3.mp4                            # 1080x1920 master MP4
+    ├── preview-360x640.mp4                       # 360x640 preview MP4
+    ├── qa-report.json                            # Independent QA evaluation report
+    └── preview-rubric-report.json                # Mobile preview rubric scores
 ```
 
----
+### 3.2 Master Execution Commands
 
-## 5. Test Tier Breakdown & Methodology
-
-1. **Tier 1 — Feature Coverage (200 Tests):**
-   - 40 features $\times$ 5 test cases.
-   - Tests isolated feature entry points, interface shapes, schemas, and nominal behavior.
-2. **Tier 2 — Boundary & Corner Cases (200 Tests):**
-   - 40 features $\times$ 5 test cases.
-   - Tests extreme inputs, null/empty strings, corrupt WAV buffers, out-of-bounds CPS (>25), reverse timestamps, safe-area collisions, and NaN telemetry.
-3. **Tier 3 — Cross-Feature Pairwise Interactions (40 Tests):**
-   - 4 files $\times$ 10 test cases.
-   - Validates data exchange between pipeline stages (e.g. Normalizer $\to$ Aligner, Aligner $\to$ Caption Segmenter, Segmenter $\to$ Remotion Layout, Mixer $\to$ Cue Manifest).
-4. **Tier 4 — Real-World Application Scenarios (20 Tests):**
-   - 2 files $\times$ 10 test cases.
-   - Exercises realistic end-to-end explainer sequences (biology explainer, technical computing deep dive, startup pitch, multi-voice comparison, 9:16 vertical shorts, 1:1 square feeds, broadcast loudness, dialogue with heavy punctuation).
-
----
-
-## 6. Execution Commands & CLI Reference
-
-### Primary Execution Commands:
 ```bash
-# Execute master test runner
-npx tsx tests/e2e/run-e2e-tests.ts
+# 1. Execute full adversarial false-positive verification (R22)
+npx tsx scripts/run-adversarial-suite.ts
 
-# Via npm scripts
-npm run test:v3
-npm run test:e2e
+# 2. Run all static and AST validators
+npm run validate:all
+# Alternatively run individually:
+npx tsx validators/validate-mobile-typography.ts connection-film/src/scopus-explainer
+npx tsx validators/validate-shot-spec.ts connection-film/src/scopus-explainer/shot-spec.json
+npx tsx validators/validate-audio-ownership.ts connection-film/src/scopus-explainer
+npx tsx validators/validate-portability.ts connection-film/src/scopus-explainer
 
-# Run specific tier
-npm run test:v3 -- --tier 3
-npm run test:v3 -- --tier 4
+# 3. Inspect 360x640 mobile preview against the 5-criteria rubric (R2)
+npx tsx validators/validate-preview-rubric.ts out/preview-360x640.mp4 \
+  --timeline connection-film/src/scopus-explainer/semantic-timeline.json \
+  --output out/preview-rubric-report.json
 
-# Run with verbose logs
-npm run test:v3 -- --verbose
+# 4. Verify temporal motion continuity on rendered MP4 (R9)
+npx tsx validators/temporal-render-qa.ts out/final-v3_3.mp4 \
+  --shot-spec connection-film/src/scopus-explainer/shot-spec.json \
+  --threshold 4.0
 
-# Run with JSON output to file
-npm run test:v3 -- --json --output=out/e2e-summary.json
+# 5. Execute full Tier 1 - Tier 4 E2E Test Suite
+npx tsx tests/e2e/run-e2e-tests.ts --tier=all --strict
 ```
 
-### CLI Flag Matrix:
-| Flag | Short | Default | Description |
-|------|-------|---------|-------------|
-| `--tier=<1\|2\|3\|4\|all>` | `-t` | `all` | Filter execution to specified test tier |
-| `--feature=<code>` | `-f` | none | Filter tests matching feature code (e.g. `F08`, `F15`) |
-| `--filter=<regex>` | `-k` | none | Filter tests by name or ID pattern |
-| `--scenario=<id>` | none | none | Filter tests matching scenario ID (e.g. `T4-APP-01`) |
-| `--verbose` | `-v` | `false` | Display detailed per-test logs and error stacks |
-| `--bail` | `-b` | `false` | Terminate runner immediately on first test failure |
-| `--strict` | `-s` | `false` | Treat `NOT_IMPLEMENTED` as a failure (exit code 1) |
-| `--json` | `-j` | `false` | Output results in JSON format |
-| `--tap` | none | `false` | Output results in TAP v13 format |
-| `--output=<path>` | `-o` | none | Save JSON summary to specified file path |
-| `--timeout=<ms>` | none | `5000` | Override default test timeout in milliseconds |
-| `--dry-run` | `-d` | `false` | List matching tests without executing them |
-| `--help` | `-h` | none | Show command usage and options |
+### 3.3 Pass / Fail Semantics
+
+1. **Standard Validation Mode (Clean Inputs):**
+   - Quality gates must exit with `0` on compliant inputs.
+   - Any rule violation (e.g. typography $< 34\text{px}$, unannotated spike $> 4\times$, out-of-range impact frame) immediately prints descriptive errors and terminates with exit code `1`.
+   - **Zero Warnings-Only Bypass**: Warnings in production code are treated as fatal errors during CI and benchmark acceptance.
+2. **Adversarial Verification Mode (Bad Fixtures):**
+   - An adversarial test passes **if and only if** the target validator terminates with non-zero exit code (`1`) AND emits the expected error signature.
+   - If a validator succeeds with exit code `0` on a bad fixture, the adversarial runner halts immediately with a fatal **FALSE POSITIVE ACCEPTANCE** error.
 
 ---
 
-## 7. Interface Contracts & Validator CLI Standards
+## 4. Real-World Application Scenarios (Tier 4)
 
-### 7.1 Interface Schemas
-1. **`narration-text-map.json`**: Bidirectional character spans (`originalSpan`, `originalWord`, `spokenWords`, `type`).
-2. **`words.json`**: Aligned token timings (`id`, `word`, `cleanWord`, `start`, `end`, `confidence`, `punctuation`).
-3. **`captions.json`**: Screen-placed caption groups (`id`, `startFrame`, `endFrame`, `startTime`, `endTime`, `box`, `lines`).
-4. **`audio-manifest.json`**: Multi-track mix metadata (`tracks`, `ducking`, `output`: 48kHz, -16.0 +/- 1.5 LUFS, true-peak <= -1.0 dBFS).
-5. **`CueManifest`**: Synchronized Remotion visual and audio markers (`SENTENCE_START`, `SENTENCE_END`, `WORD_EMPHASIS`).
+Tier 4 exercises complete production workflows modeling realistic educational explainer pipelines:
 
-### 7.2 Validator CLI Standards
-All 6 validators in `validators/` support CLI execution and exit with code `0` on PASS, `1` on FAIL:
-- `validate-narration.ts <wav-file>`: 24kHz mono PCM WAV, true peak <= -1.0 dBFS, zero clipping.
-- `validate-alignment.ts --words <words.json> --script <script.txt>`: Monotonicity, non-overlap, 1:1 token matching.
-- `validate-captions.ts <captions.json>`: <=2 lines, <=42 chars/line, <=21 CPS, duration [0.8s, 7.0s].
-- `validate-caption-layout.ts --captions <captions.json> --shot-spec <shot-spec.json>`: Safe margins >= 96px, zero AABB collision with `subject_region`.
-- `validate-audio-mix.ts --manifest <manifest.json> --audio <soundtrack.wav>`: Sync delta <= 0.1s, ducking >= 10dB, LUFS -16 +/- 1.5.
-- `offline-network-guard.ts -- <command>`: Zero outbound socket/DNS calls under `--offline`.
+### Scenario 1: `T4-SCN-01` — Scopus Explainer 103.20s Full Pipeline Run
+- **Description:** Complete end-to-end generation and validation of the 103.20s Scopus explainer video across all 23 semantic beats (3096 frames).
+- **Assertions:** `semantic-timeline.json` frame count matches audio master duration ($\Delta t \le 0.05\text{s}$), all 5 scenes mount sequentially, zero dropped frames, all 4 motivated transitions execute smoothly, exit code 0 across all validators.
+
+### Scenario 2: `T4-SCN-02` — 5-Door Research Gap Taxonomy Progressive Disclosure
+- **Description:** Staging of the 5 Research Gap doors (Theoretical, Empirical, Contextual, Methodological, Practical) under progressive disclosure.
+- **Assertions:** Never mounts all 5 cards simultaneously with full informational text. Each door enters as a focused, full-screen visual beat. Card contour detector in `validate-preview-rubric.ts` asserts $N_{\text{cards}} \le 2$ at all times ($S_c \ge 4.2$).
+
+### Scenario 3: `T4-SCN-03` — 3-Tier Gap Statement Modular Assembly
+- **Description:** Animation of the 3-Tier Gap Statement (Foundation Tier $\to$ Problem Tier $\to$ Positioning Tier) and the 4-Sentence Template.
+- **Assertions:** Visual assembly blocks snap together with spring physics (`settle` oscillations $\le 3$), text remains $\ge 38\text{px}$ for block titles and $\ge 34\text{px}$ for descriptions. Optical legibility on 360p preview $\ge 4.30$.
+
+### Scenario 4: `T4-SCN-04` — Digital Banking Case Study Mobile Legibility
+- **Description:** Verification of the applied case study (Digital banking e-service quality, trust, perceived risk, continuance intention).
+- **Assertions:** Replaces legacy $10\text{px}$ and $12\text{px}$ text with mobile-compliant typography ($\ge 34\text{px}$ in 1080p, $\ge 11.3\text{px}$ in 360p). Contrast ratio against dark navy background $\ge 4.5:1$.
+
+### Scenario 5: `T4-SCN-05` — Swales CARS Move 1-2-3 Dynamic Retiming
+- **Description:** Dynamic choreography of the Swales CARS model (Establishing territory $\to$ Niche $\to$ Occupying niche).
+- **Assertions:** Animations expand to fill the allocated 14.5s narration duration without static freezes or uniform linear stretching. Camera tracks focus points with C0 and C1 velocity continuity.
+
+### Scenario 6: `T4-SCN-06` — Desk Reject High-Velocity Stamp Impact Whitelist
+- **Description:** High-velocity desk reject stamp animation in Scene 1 triggering a rapid visual frame change.
+- **Assertions:** Impact frame index is declared in `shot-spec.json` within shot duration. `temporal-render-qa.ts` verifies that the frame difference spike ($> 4\times$ local median) is cleanly reconciled against the whitelist.
+
+### Scenario 7: `T4-SCN-07` — Continuous Camera Carry Scene Transition Continuity
+- **Description:** Scene boundary transitions between Scene 1 and Scene 2 (frames 603–633), Scene 2 and Scene 3 (1294–1324), Scene 3 and Scene 4 (1961–1991), Scene 4 and Scene 5 (2516–2546).
+- **Assertions:** Motivated transition types (`camera_carry`, `portal_morph`, `block_unfold`) declared in ShotSpec. Zero naked hard cuts. Temporal difference curve remains smooth with zero unwhitelisted spikes.
+
+### Scenario 8: `T4-SCN-08` — PREMIXED Master Audio Single Ownership Playback
+- **Description:** Auditory verification that Remotion mounts only `scopus_master_audio.wav` with zero discrete cue `<Audio>` elements.
+- **Assertions:** Static AST scan asserts exactly 1 `<Audio>` tag in `ScopusExplainerFilm.tsx`. Audio power measurements confirm zero double playback energy spikes (+6dB phase summation prevented).
+
+### Scenario 9: `T4-SCN-09` — Role-Aware Natural Pause Acoustics & Dynamics (-15 LUFS)
+- **Description:** Narration audio synthesis and mixing enforcing role-aware pause ranges (clauses 0.08–0.20s, sentences 0.18–0.40s, section turns 0.40–0.80s).
+- **Assertions:** EBU R128 integrated loudness matches $-15.0 \pm 0.5$ LUFS. Maximum true peak $\le -1.8$ dBTP. Loudness range $\text{LRA} \le 12.0$ LU. Zero production background music assets present.
+
+### Scenario 10: `T4-SCN-10` — Air-Gapped Clean Environment Run with Zero Network Leaks
+- **Description:** Full synthesis, alignment, and rendering pipeline executed with external network interfaces disabled.
+- **Assertions:** `offline-network-guard.ts` intercepts all sockets. Pipeline generates valid audio, subtitles, and video without making external HTTP/API requests.
+
+### Scenario 11: `T4-SCN-11` — 360x640 Mobile Preview Readability Verification
+- **Description:** Automated inspection of `out/preview-360x640.mp4` across the 5 mobile legibility criteria.
+- **Assertions:** `validate-preview-rubric.ts` confirms overall score $\ge 4.50/5.00$, with primary visual recognizable, text readable without zooming, no dense card grids, one focal idea per frame, and zero caption-subject collisions.
+
+### Scenario 12: `T4-SCN-12` — 100% Concept Traceability from Source Documents
+- **Description:** Traceability audit verifying that all 24 academic concepts from the 3 source document images in `content/` are mapped to semantic beats.
+- **Assertions:** `source-content-map.json` coverage metric $= 100.0\%$. Zero conceptual omissions or arbitrary truncations.
+
+### Scenario 13: `T4-SCN-13` — Portable Multi-OS Workspace Relocation Audit
+- **Description:** Simulates moving the workspace directory to an arbitrary filesystem location or differing OS username.
+- **Assertions:** `validate-portability.ts` scans all committed files and verifies zero occurrences of machine-specific paths (`/home/hongphuoc6104`, `/Users/`, `C:\`).
+
+### Scenario 14: `T4-SCN-14` — Multilingual VieNeu Adam TTS Voice Parity
+- **Description:** Verification of the bilingual Vietnamese-first speech synthesis using VieNeu-TTS v3 Turbo with English terms (*Scopus*, *Research Gap*, *Desk Reject*, *Swales CARS*).
+- **Assertions:** Configured voice is strictly `Adam` (VieNeu-TTS). Pronunciation map properly decouples display text from spoken phonetic tokens. Zero silent fallbacks to Kokoro `am_adam`.
+
+### Scenario 15: `T4-SCN-15` — Independent Reviewer Acceptance Scoring
+- **Description:** Generation of the final independent QA certification report (`out/qa-report.json`).
+- **Assertions:** Evaluates all 8 mandatory rubric categories (Mobile Readability, Information Density, Audio/Visual Synchronization, Narration Naturalness, Timing Integrity, Production Portability, Source Content Coverage, Validator Reliability). Overall average $\ge 4.50/5.00$, no category $< 4.00$, critical categories $\ge 4.30$.
 
 ---
 
-## 8. CI/CD Integration & TEST_READY.md Protocol
+## 5. Coverage Thresholds & Acceptance Gates
 
-Once all test tiers pass verification, the system emits `TEST_READY.md` containing:
-1. Timestamped certification of all 460 test cases.
-2. Verified pass rate metrics across Tiers 1–4.
-3. Checksums of all test suites and harness files.
-4. Reproduction commands for continuous integration gates.
+### 5.1 Formal Acceptance Thresholds
+$$\begin{array}{|l|c|c|}
+\hline
+\textbf{Quality Gate / Metric} & \textbf{Minimum Threshold} & \textbf{Enforcing Validator} \\ \hline
+\text{Mobile Font Size (Hero)} & \ge 64\text{px} & \text{validate-mobile-typography.ts} \\
+\text{Mobile Font Size (Section)} & \ge 48\text{px} & \text{validate-mobile-typography.ts} \\
+\text{Mobile Font Size (Card Title)} & \ge 38\text{px} & \text{validate-mobile-typography.ts} \\
+\text{Mobile Font Size (Body)} & \ge 34\text{px} & \text{validate-mobile-typography.ts} \\
+\text{Mobile Font Size (Secondary)} & \ge 30\text{px} & \text{validate-mobile-typography.ts} \\
+\text{Mobile Font Size (Karaoke)} & \ge 52\text{px} & \text{validate-mobile-typography.ts} \\
+\text{ShotSpec Impact Frame Bounds} & \text{Start} \le t_{\text{impact}} \le \text{End} & \text{validate-shot-spec.ts} \\
+\text{Motivated Transition Whitelist} & \in \{\text{camera\_carry, portal\_morph, \dots}\} & \text{validate-shot-spec.ts} \\
+\text{Remotion Audio Ownership} & \text{Exactly 1 master Audio tag} & \text{validate-audio-ownership.ts} \\
+\text{Machine-Specific Absolute Paths} & 0 \text{ occurrences} & \text{validate-portability.ts} \\
+\text{Master Integrated Loudness} & -15.0 \pm 0.5 \text{ LUFS} & \text{validate-audio-mix.ts} \\
+\text{Master Maximum True Peak} & \le -1.8 \text{ dBTP} & \text{validate-audio-mix.ts} \\
+\text{Temporal Unannotated Spikes} & 0 \text{ spikes } (> 4.0\times \text{ median}) & \text{temporal-render-qa.ts} \\
+\text{Mobile Preview Rubric (Overall)} & \ge 4.50 / 5.00 & \text{validate-preview-rubric.ts} \\
+\text{Mobile Preview (Critical Categories)} & \ge 4.30 / 5.00 & \text{validate-preview-rubric.ts} \\
+\text{Source Content Coverage} & 100.0\% & \text{source-content-map.json} \\
+\text{Adversarial Fixture Rejection Rate} & 100.0\% \text{ (12 / 12)} & \text{scripts/run-adversarial-suite.ts} \\
+\hline
+\end{array}$$
 
-
----
-
-# PART I: V2 MOTION ANIMATION SYSTEM TEST INFRASTRUCTURE
-
-# TEST_INFRA.md — Master Test Infrastructure Specification
-**Project:** V2 Motion Animation System Upgrade  
-**Version:** 2.0.0-draft  
-**Working Directory:** `/home/hongphuoc6104/Desktop/videorenderhoathinh`  
-**Authoritative Sources:** `ORIGINAL_REQUEST.md`, `PROJECT.md`, `.agents/sub_orch_e2e_testing/SCOPE.md`, `spec_analysis.md`
-
----
-
-## 1. Test Philosophy
-
-The V2 Motion Animation System test suite operates under four non-negotiable architectural principles:
-
-### 1.1 Opaque-Box, Requirement-Driven Testing
-All tests are derived directly from user requirements (`ORIGINAL_REQUEST.md`) and project contracts (`PROJECT.md`). Tests exercise public module APIs, mathematical invariants, CLI interfaces, and raw video streams. They do not bind to private internal state, private helper functions, or ephemeral implementation artifacts.
-
-### 1.2 Progressive Testability & Graceful Fallbacks
-The test suite can be run at **any milestone** of project execution (M1 through M6). When a module or export is not yet implemented, test cases cleanly catch module resolution failures and report `NOT_IMPLEMENTED` without crashing the master runner process or producing false negative failures. A test only reports `FAIL` if the targeted feature is present but violates its behavioral, mathematical, or structural contract.
-
-### 1.3 Mathematical Invariants & Physical Rigor
-Animation quality in V2 is treated as a verifiable mathematical discipline:
-- Bezier curves must follow exact cubic/quadratic equations and their analytical first derivatives.
-- Physical performance profiles must produce distinct, measurable squash factors, overshoot amplitudes, and harmonic settle decay rates.
-- Camera paths must satisfy $C^0$ (positional) and $C^1$ (velocity) continuity equations across shot boundaries without acceleration spikes.
-- Temporal video quality is audited via raw luminance frame decoding and rolling local median MAD ratios ($>4.0\times$).
-
-### 1.4 Zero External Runtime Test Dependencies
-The master test runner is completely self-contained in pure TypeScript/Node.js (`tests/e2e-runner.ts` executed via `npx tsx`), eliminating heavyweight, brittle test frameworks (Jest, Vitest, Mocha) and their associated ESM/CJS or React 19 JSX bundling conflicts.
+### 5.2 Failure Protocol
+If any quality gate fails:
+1. The execution pipeline terminates immediately with non-zero exit code.
+2. A structured JSON error payload is emitted specifying the failing file, line number, metric value, and threshold.
+3. The video build is marked as **NON-COMPLIANT** and production export is halted.
 
 ---
 
-## 2. Feature Inventory Mapping & Coverage Thresholds
+## 6. Backward Compatibility: V2 Feature Taxonomy Mapping (`F-PKG-CANONICAL` through `F-SHOTSPEC-CUES`)
 
-All 20 high-level system features mapped across the 4 testing tiers.
+For continuity across releases, the V3.3 production hardening framework maintains full bidirectional trace to the V2 motion engine test taxonomy:
 
-| # | Feature Code | Feature Name & Scope | Tier 1 (Happy) | Tier 2 (Boundary) | Tier 3 (Combos) | Tier 4 (Scenarios) | Total Tests |
-|---|:---|:---|:---:|:---:|:---:|:---:|:---:|
+| # | V2 Feature ID | Scope & Module | Tier 1 | Tier 2 | Tier 3 | Tier 4 | Total |
+|---|---------------|----------------|:------:|:------:|:------:|:------:|:-----:|
 | 1 | `F-PKG-CANONICAL` | Canonical `motion-kit` package, package.json, exports | 5 | 5 | ✓ (T3-17) | ✓ (T4-10) | 12 |
 | 2 | `F-PKG-ISOLATION` | Import isolation (0 runtime imports from `.agents/skills`) | 5 | 5 | ✓ (T3-17) | ✓ (T4-10) | 12 |
 | 3 | `F-RIG-INTERFACE` | `RigInterface` contract, joint hierarchy, geometry layers | 5 | 5 | ✓ (T3-12) | ✓ (T4-01,07) | 13 |
@@ -307,542 +285,5 @@ All 20 high-level system features mapped across the 4 testing tiers.
 | 20 | `F-SHOTSPEC-CUES` | ShotSpec continuity validator & cue manifest audio sync | 5 | 5 | ✓ (T3-10,14,15,16) | ✓ (T4-04,09,10) | 17 |
 | **Total** | | | **100** | **100** | **20** | **10** | **230** |
 
-### Coverage Threshold Invariant
-$$\text{Total Test Count} = 100 + 100 + 20 + 10 = 230$$
-$$\text{Threshold Condition: } 230 \ge 11 \times 20 + \max(5, 10) = 220 + 10 = 230 \quad \text{[PASSED: Exact Match]}$$
+All legacy features (`F-PKG-CANONICAL` through `F-SHOTSPEC-CUES`) remain verified in full within the root regression harness.
 
----
-
-## 3. Test Architecture
-
-### 3.1 Test Runner CLI
-- **Command:** `npx tsx tests/e2e-runner.ts [options]`
-- **Flags:**
-  - `--tier=<1|2|3|4>`: Restrict test run to specified tier.
-  - `--feature=<code|name>`: Filter tests by feature code (e.g. `--feature=F-CAM-TRACKING`).
-  - `--scenario=<id>`: Run a specific scenario by ID (e.g. `--scenario=T4-SCEN-01`).
-  - `--verbose`: Output detailed per-assertion telemetry and intermediate calculation outputs.
-  - `--bail`: Stop execution immediately on the first assertion failure.
-  - `--json`: Emit complete machine-readable test summary to stdout or file.
-
-### 3.2 Harness Interfaces (`tests/harness/test-types.ts`)
-```typescript
-export type TestStatus = 'PASS' | 'FAIL' | 'NOT_IMPLEMENTED' | 'SKIPPED';
-
-export interface TestCase {
-  id: string;                         // e.g. T1-PKG-01, T3-COMB-05, T4-SCEN-02
-  tier: 1 | 2 | 3 | 4;
-  feature: string;                    // Feature code or primary feature
-  name: string;
-  description: string;
-  run: () => Promise<void> | void;
-}
-
-export interface TestResult {
-  id: string;
-  name: string;
-  tier: number;
-  feature: string;
-  status: TestStatus;
-  durationMs: number;
-  error?: Error;
-  telemetry?: Record<string, any>;
-}
-
-export interface SuiteSummary {
-  total: number;
-  passed: number;
-  failed: number;
-  notImplemented: number;
-  skipped: number;
-  durationMs: number;
-  results: TestResult[];
-}
-```
-
-### 3.3 Assertion Library (`tests/harness/assert.ts`)
-Provides strict, deterministic assertion helpers:
-- `assertEqual<T>(actual: T, expected: T, message?: string)`: Strict `===` comparison.
-- `assertDeepEqual<T>(actual: T, expected: T, message?: string)`: Recursive structural deep equality.
-- `assertClose(actual: number, expected: number, tolerance: number, message?: string)`: Floating-point precision check ($|actual - expected| \le tolerance$).
-- `assertInRange(val: number, min: number, max: number, message?: string)`: Numerical range bounds verification.
-- `assertThrows(fn: () => void, errorTypeOrMatcher?: any, message?: string)`: Synchronous exception assertion.
-- `assertThrowsAsync(fn: () => Promise<void>, errorTypeOrMatcher?: any, message?: string)`: Asynchronous rejection assertion.
-- `assertValidJsonSchema(data: any, schema: object, message?: string)`: AJV schema validation.
-
-### 3.4 Directory Layout
-```
-tests/
-├── e2e-runner.ts                     # Master CLI test runner
-├── harness/
-│   ├── test-types.ts                 # Test interfaces and status definitions
-│   ├── assert.ts                     # Strict assertion utilities
-│   ├── loader.ts                     # Dynamic progressive module resolver
-│   └── fixtures/                     # Test data fixtures (SVGs, shot-specs, cues, AST samples)
-├── tier1-features/                   # 100 happy-path tests (5 per feature)
-├── tier2-boundaries/                 # 100 boundary & corner tests (5 per feature)
-├── tier3-combinations/               # 20 pairwise cross-feature interaction tests
-└── tier4-scenarios/                  # 10 real-world end-to-end application scenarios
-```
-
-### 3.5 Progressive Resolution Architecture
-To execute safely prior to full milestone completion:
-```typescript
-export async function resolveOptionalModule<T>(modulePath: string): Promise<T | null> {
-  try {
-    return await import(modulePath);
-  } catch (err: any) {
-    if (err.code === 'ERR_MODULE_NOT_FOUND' || err.message.includes('Cannot find module')) {
-      return null;
-    }
-    throw err;
-  }
-}
-```
-If `resolveOptionalModule` returns `null`, the test case registers `NOT_IMPLEMENTED` and terminates safely.
-
----
-
-## 4. Tier 3: Cross-Feature Combinations (20 Pairwise Tests)
-
-Tier 3 rigorously evaluates cross-module boundaries and mathematical interaction invariants between distinct subsystems.
-
-```
-| Test ID | Primary Feature | Secondary Feature | Interaction Target |
-|:---|:---|:---|:---|
-| T3-COMB-01 | F-RIG-HUMAN | F-PHYSICS-PROFILES | Joint articulation driven by 5 physics profiles |
-| T3-COMB-02 | F-CHAR-CONTROLLER | F-PROFILE-ACTIONS | Action sequence blending & anticipation/settle continuity |
-| T3-COMB-03 | F-CAM-TRACKING | F-CAM-DAMPING | Velocity look-ahead with 2nd-order critically damped filter |
-| T3-COMB-04 | F-CAM-DAMPING | F-CAM-CONTINUITY | Spring-damper ODE across Hermite C0/C1 boundary transitions |
-| T3-COMB-05 | F-BEZIER-MATH | F-BEZIER-DYNAMICS | Cubic coordinates vs analytical derivatives & tangent angles |
-| T3-COMB-06 | F-BEZIER-DYNAMICS | F-BEZIER-TRAVEL | Arc-length LUT constant velocity & dynamic tangent alignment |
-| T3-COMB-07 | F-MORPH-RESAMPLE | F-MORPH-INTERPOLATE | Vertex equidistant resampling with cyclic phase shift minimization |
-| T3-COMB-08 | F-MORPH-INTERPOLATE | F-AST-LINTER | Geometric morph validation vs ternary conditional flip detection |
-| T3-COMB-09 | F-RIG-CUSTOM | F-CHAR-CONTROLLER | Arbitrary SVG joint mapping and hierarchical action driving |
-| T3-COMB-10 | F-SHOTSPEC-CUES | F-TEMPORAL-QA | ShotSpec impact frame whitelisting vs rolling MAD spike filter |
-| T3-COMB-11 | F-RIG-BIRD | F-PHYSICS-PROFILES | Avian wing flap frequency & touchdown squash across profiles |
-| T3-COMB-12 | F-RIG-INTERFACE | F-AST-LINTER | Structural joint hierarchy verification via AST visitor |
-| T3-COMB-13 | F-BEZIER-TRAVEL | F-CAM-TRACKING | Camera tracking a packet on a curved Bezier trajectory |
-| T3-COMB-14 | F-SHOTSPEC-CUES | F-CAM-CONTINUITY | ShotSpec inter-shot state contract vs Hermite spline evaluation |
-| T3-COMB-15 | F-SHOTSPEC-CUES | F-PROFILE-ACTIONS | Key beat profile annotations driving character action dynamics |
-| T3-COMB-16 | F-BEZIER-TRAVEL | F-SHOTSPEC-CUES | Bezier packet arrival timing aligned with audio cue manifest |
-| T3-COMB-17 | F-PKG-CANONICAL | F-PKG-ISOLATION | Standalone package exports audit & zero .agents import gate |
-| T3-COMB-18 | F-AST-LINTER | F-CAM-CONTINUITY | AST detection of unmotivated zoom vs compliant Hermite camera |
-| T3-COMB-19 | F-AST-LINTER | F-CHAR-CONTROLLER | AST detection of opacity pose crossfade vs controller pose blending |
-| T3-COMB-20 | F-TEMPORAL-QA | F-MORPH-INTERPOLATE | Video frame MAD continuity during geometric morph vs binary swap |
-```
-
-### Detailed Specifications for Tier 3 Tests
-
-#### `T3-COMB-01`: Human Rig Joint Dynamics Across All 5 Physics Profiles
-- **Features Combined:** `F-RIG-HUMAN` + `F-PHYSICS-PROFILES`
-- **Interaction Rationale:** An articulated human rig must exhibit physically distinguishable joint displacements, squash deformations, and oscillation counts when commanded by different performance profiles.
-- **Inputs:** `HumanRig` instance; gesture action executed under profiles: `calm`, `energetic`, `playful`, `dramatic`, `solemn`.
-- **Outputs:** Pose joints (`torso`, `armRightUpper`, `head`) evaluated at frame intervals $t \in [0, 45]$.
-- **Invariants & Assertions:**
-  1. Profile `playful` produces maximum vertical squash $S_y \le 0.70$ and exactly 3 distinct settle oscillation peaks in elbow angle.
-  2. Profile `solemn` produces zero overshoot ($A = 0.0$), $S_y \ge 0.97$, and strictly monotonic settle decay ($d\theta/dt \le 0$ during settle phase).
-  3. Profile `energetic` exhibits higher peak angular velocity $\max|\omega|$ than profile `calm` by at least $1.8\times$.
-
-#### `T3-COMB-02`: Character Controller Action Queue & Profile Continuity
-- **Features Combined:** `F-CHAR-CONTROLLER` + `F-PROFILE-ACTIONS`
-- **Interaction Rationale:** Action transitions (`anticipate` $\rightarrow$ `react` $\rightarrow$ `settle`) must maintain $C^0$ joint position continuity across phase boundaries without teleports or discontinuous jumps.
-- **Inputs:** `CharacterController` with a sequence of 3 actions scheduled over 90 frames under `dramatic` profile.
-- **Outputs:** Joint transform sequence at boundary frames $t = 29, 30$ and $t = 59, 60$.
-- **Invariants & Assertions:**
-  1. Anticipation phase exhibits negative displacement ($x(t) < x(0)$ for $t \in [1, 20]$ with peak pull-back $\approx 0.28$).
-  2. Positional delta at boundary frame transitions: $|p(k) - p(k-1)| \le \Delta_{\text{max-velocity}}$.
-  3. $C^0$ continuity verified: $\lim_{t \to t_{\text{boundary}}^-} p(t) = \lim_{t \to t_{\text{boundary}}^+} p(t)$ within tolerance $\epsilon \le 10^{-4}$.
-
-#### `T3-COMB-03`: Velocity Look-Ahead with 2nd-Order Critically Damped Inertial Filter
-- **Features Combined:** `F-CAM-TRACKING` + `F-CAM-DAMPING`
-- **Interaction Rationale:** Camera target tracking must combine dynamic look-ahead lead ($\mathbf{L} = k_{\text{lead}} \mathbf{v}$) with 2nd-order spring damping and dead-zone filtering to eliminate high-frequency hunting.
-- **Inputs:** Target subject accelerating from $(0, 0)$ to $(600, 0)$ over 30 frames, then abruptly stopping; dead-zone radius $D = 15\text{px}$.
-- **Outputs:** Camera position sequence $\mathbf{p}_c(k)$ and velocity sequence $\mathbf{v}_c(k)$.
-- **Invariants & Assertions:**
-  1. Inside dead-zone ($|\Delta \mathbf{p}| \le 15$), camera velocity remains identically $(0, 0)$.
-  2. As target velocity exceeds dead-zone, camera leads target along direction of motion ($x_c(k) > x_{\text{target}}(k)$ during peak cruise).
-  3. When target abruptly stops, camera does not snap to target; exhibits exponential inertial decay governed by critically damped ODE ($\zeta = 1.0$) with zero overshoot past final settled coordinate.
-
-#### `T3-COMB-04`: Spring Damping Inertia Across Hermite Spline Shot Transitions
-- **Features Combined:** `F-CAM-DAMPING` + `F-CAM-CONTINUITY`
-- **Interaction Rationale:** Connecting a spring-damped camera tracking shot to an interpolated shot transition must preserve incoming velocity $\mathbf{v}_0$ into the Hermite spline basis.
-- **Inputs:** Shot 1 ends with camera moving at velocity $\mathbf{v}_0 = (12.5, 4.2)\text{ px/frame}$; Shot 2 Hermite transition to $(800, 400)$ over 30 frames.
-- **Outputs:** Trajectory $\mathbf{p}_c(t)$ and numerical 1st derivative $\mathbf{v}_c(t)$ across boundary $t=0$.
-- **Invariants & Assertions:**
-  1. Hermite initial velocity matches Shot 1 exit velocity: $\mathbf{v}_c(0) = \mathbf{v}_0$ within $\epsilon \le 10^{-3}$.
-  2. Acceleration $\mathbf{a}_c(t)$ exhibits no impulse discontinuity at the boundary: $|\mathbf{a}_c(0^+) - \mathbf{a}_c(0^-)| \le 2.0\text{ px/frame}^2$.
-
-#### `T3-COMB-05`: Cubic Bezier Points vs Analytical Derivatives & Tangent Vectors
-- **Features Combined:** `F-BEZIER-MATH` + `F-BEZIER-DYNAMICS`
-- **Interaction Rationale:** Exact cubic coordinates $\mathbf{B}(t)$ must mathematically reconcile with analytical first derivatives $\mathbf{B}'(t)$ and tangent orientation angles $\theta(t)$.
-- **Inputs:** Control points $P_0(50, 100), P_1(150, 400), P_2(400, 50), P_3(600, 300)$; evaluated at 50 uniformly spaced values of $t \in [0, 1]$.
-- **Outputs:** Coordinate $\mathbf{B}(t)$, analytical velocity $\mathbf{B}'(t)$, central finite difference velocity $\mathbf{v}_{\text{fd}}(t) = \frac{\mathbf{B}(t+h) - \mathbf{B}(t-h)}{2h}$ ($h = 10^{-5}$), and tangent angle $\theta(t) = \operatorname{atan2}(\dot{y}, \dot{x})$.
-- **Invariants & Assertions:**
-  1. Analytical velocity matches numerical finite difference: $\|\mathbf{B}'(t) - \mathbf{v}_{\text{fd}}(t)\| \le 10^{-4}$ for all $t \in (0, 1)$.
-  2. Tangent vector unit length $\|\hat{\mathbf{T}}(t)\| = 1.0 \pm 10^{-6}$.
-  3. Tangent angle matches derivative direction: $\cos\theta = \dot{x}/\|\mathbf{B}'\|$ and $\sin\theta = \dot{y}/\|\mathbf{B}'\|$.
-
-#### `T3-COMB-06`: Arc-Length LUT Constant Velocity & Tangent Orientation
-- **Features Combined:** `F-BEZIER-DYNAMICS` + `F-BEZIER-TRAVEL`
-- **Interaction Rationale:** Moving a packet at constant physical speed requires arc-length parameterization via LUT; packet rotation must dynamically match the instantaneous curve tangent angle.
-- **Inputs:** S-curve cubic Bezier; constant packet speed $v_0 = 10\text{ px/frame}$; 100-entry arc-length LUT.
-- **Outputs:** Packet positions $\mathbf{p}(k)$ and angles $\theta(k)$ across 60 frames.
-- **Invariants & Assertions:**
-  1. Constant arc-length step: physical Euclidean distance between consecutive positions along the curve satisfies $\|\mathbf{p}(k) - \mathbf{p}(k-1)\| \approx 10.0 \pm 0.2\text{ px}$ across both high-curvature and flat segments.
-  2. Packet rotation angle $\phi(k)$ matches curve tangent $\theta(s(k))$ within $\pm 0.1^\circ$.
-
-#### `T3-COMB-07`: Arc-Length Equidistant Path Resampling & Cyclic Phase Shift Minimization
-- **Features Combined:** `F-MORPH-RESAMPLE` + `F-MORPH-INTERPOLATE`
-- **Interaction Rationale:** Morphing between paths of unequal vertex counts requires uniform arc-length resampling, followed by cyclic vertex index optimization to prevent shape twisting.
-- **Inputs:** Shape A: 4-vertex diamond; Shape B: 12-vertex star; resampled to $N=64$ equidistant vertices; test with Shape B rotated $90^\circ$.
-- **Outputs:** Resampled point arrays $A, B$; optimal phase shift index $k^* = \arg\min_k \sum \|A_i - B_{i+k}\|^2$; interpolated path at $t = 0.5$.
-- **Invariants & Assertions:**
-  1. Points on resampled curves are strictly equidistant along the perimeter: $|\|A_{i+1} - A_i\| - \|A_i - A_{i-1}\|| \le 0.05 \cdot \bar{L}$.
-  2. Phase shift optimization chooses $k^*$ that reduces total squared vertex travel distance by at least $40\%$ compared to unshifted $k=0$.
-  3. Interpolated path at $t=0.5$ has zero self-intersections (simple polygon test).
-
-#### `T3-COMB-08`: Geometric Path Morphing vs AST Motion Linter Enforcement
-- **Features Combined:** `F-MORPH-INTERPOLATE` + `F-AST-LINTER`
-- **Interaction Rationale:** The AST motion linter must approve true geometric path morphing implementations while intercepting and rejecting conditional binary flips.
-- **Inputs:** Two source code fixtures:
-  - Fixture 1: `ValidMorph.tsx` using `interpolateSvgPath(pathA, pathB, progress)`
-  - Fixture 2: `InvalidMorph.tsx` containing `progress < 0.5 ? <PathA/> : <PathB/>`
-- **Outputs:** Linter report generated by `motion-lint.ts`.
-- **Invariants & Assertions:**
-  1. Fixture 1 yields 0 violations.
-  2. Fixture 2 raises exactly 1 CRITICAL violation under rule `no-conditional-morph-swap`, identifying exact line number and offending ternary expression.
-
-#### `T3-COMB-09`: Arbitrary Custom Rig Adapter Driven by Character Controller
-- **Features Combined:** `F-RIG-CUSTOM` + `F-CHAR-CONTROLLER`
-- **Interaction Rationale:** Third-party SVG assets with `data-joint` attributes must mount via `ArbitraryCustomRigAdapter` and respond to `CharacterController` action commands without runtime errors for unmapped channels.
-- **Inputs:** Custom robot SVG with tagged joints (`head`, `arm-left`, `chassis`); action commanded: `anticipate` with `squashRatio = 0.85` and `head` tilt.
-- **Outputs:** Rendered SVG DOM tree; computed joint transform matrix for `head` and `arm-left`.
-- **Invariants & Assertions:**
-  1. Tagged joints receive exact matrix transforms computed by controller.
-  2. Unmapped joint channels in generic pose (e.g. `wingLeft`, `legRight`) are ignored without throwing exceptions or generating invalid DOM attributes.
-  3. Bounding box pivot calculation correctly anchors rotation around declared `data-pivot` coordinates.
-
-#### `T3-COMB-10`: ShotSpec Impact Frame Whitelist vs Temporal QA Spike Detection
-- **Features Combined:** `F-SHOTSPEC-CUES` + `F-TEMPORAL-QA`
-- **Interaction Rationale:** Temporal video QA must flag frame discontinuities exceeding $4.0\times$ local median MAD, unless the frame is declared in `shot-spec.json` under `whitelisted_impact_frames`.
-- **Inputs:** Synthetic 60-frame video sequence with an abrupt high-contrast visual shock at frame 30 (producing MAD ratio $= 5.8\times$ local median); two ShotSpec variations:
-  - Spec A: `whitelisted_impact_frames: [30]`
-  - Spec B: `whitelisted_impact_frames: []`
-- **Outputs:** `temporal-render-qa.ts` analysis result.
-- **Invariants & Assertions:**
-  1. Under Spec A, frame 30 is logged as `WHITELISTED_IMPACT`, overall QA status is `PASS`.
-  2. Under Spec B, frame 30 is flagged as `UNANNOTATED_DISCONTINUITY`, overall QA status is `FAIL`.
-
-#### `T3-COMB-11`: Bird Rig Wing Kinematics & Touchdown Squash Across Profiles
-- **Features Combined:** `F-RIG-BIRD` + `F-PHYSICS-PROFILES`
-- **Interaction Rationale:** `BirdRig` wing flapping cycles, banking angles, and touchdown impact squash must scale dynamically with performance profiles.
-- **Inputs:** `BirdRig` executing a landing sequence under `energetic` vs `calm` profiles.
-- **Outputs:** Joint parameters (`wingLeftAngle`, `wingRightAngle`, `squash`) evaluated across frames 0 to 40.
-- **Invariants & Assertions:**
-  1. Wing flap frequency during approach is $1.6\times$ higher in `energetic` than in `calm`.
-  2. Touchdown impact produces vertical squash $S_y = 0.72 \pm 0.02$ for `energetic` vs $S_y = 0.94 \pm 0.02$ for `calm`.
-  3. Rebound overshoot in `energetic` reaches $S_y = 1.15 \pm 0.03$ before settling.
-
-#### `T3-COMB-12`: RigInterface Joint Hierarchy Structural Validation via AST Linter
-- **Features Combined:** `F-RIG-INTERFACE` + `F-AST-LINTER`
-- **Interaction Rationale:** The AST motion linter rule `no-monolithic-character` must structurally inspect components claiming to implement `RigInterface` and verify hierarchical `<g>` grouping.
-- **Inputs:**
-  - Fixture 1: Articulated rig returning `<g id="root"><g id="torso"><g id="head"/></g></g>`.
-  - Fixture 2: Monolithic rig returning `<svg><path d="..."/></svg>` without joint hierarchy.
-- **Outputs:** AST inspection results from `motion-lint.ts`.
-- **Invariants & Assertions:**
-  1. Fixture 1 passes with 0 violations.
-  2. Fixture 2 triggers CRITICAL `no-monolithic-character` violation.
-
-#### `T3-COMB-13`: Camera Tracking a Bezier Packet Trajectory with Look-Ahead
-- **Features Combined:** `F-BEZIER-TRAVEL` + `F-CAM-TRACKING`
-- **Interaction Rationale:** Camera tracking an entity traveling along a curved Bezier trajectory must orient its look-ahead lead vector along the instantaneous curve tangent.
-- **Inputs:** Cubic Bezier path curving from $(0, 0)$ to $(800, 600)$; packet traveling along curve; `CameraRig` tracking packet with $k_{\text{lead}} = 4.0$ frames.
-- **Outputs:** Camera target coordinates $(x_c, y_c)$ over 60 frames.
-- **Invariants & Assertions:**
-  1. Look-ahead offset vector $\mathbf{L}(k) = \mathbf{p}_c(k) - \mathbf{p}_{\text{packet}}(k)$ is parallel to instantaneous tangent $\hat{\mathbf{T}}(k)$ ($\mathbf{L} \cdot \hat{\mathbf{T}} \approx \|\mathbf{L}\|$ within $\cos\Delta\theta \ge 0.98$).
-  2. Camera trajectory exhibits no velocity spikes: $\max|\mathbf{a}_c| \le 3.5\text{ px/frame}^2$.
-
-#### `T3-COMB-14`: ShotSpec Inter-Shot State Contract vs Hermite Spline Evaluation
-- **Features Combined:** `F-SHOTSPEC-CUES` + `F-CAM-CONTINUITY`
-- **Interaction Rationale:** ShotSpec continuity validator verifies that Shot $N$ end state equals Shot $N+1$ start state; Hermite spline evaluation across the boundary must yield identical position and continuous derivative.
-- **Inputs:** Valid `shot-spec.json` with 2 consecutive shots: Shot 1 ending at $(300, 150, \text{zoom: } 1.2)$, Shot 2 starting at $(300, 150, \text{zoom: } 1.2)$; Hermite spline transition evaluated across the boundary.
-- **Outputs:** `validate-shot-spec.ts` output and evaluated camera position at boundary frame $t_{\text{boundary}}$.
-- **Invariants & Assertions:**
-  1. `validate-shot-spec.ts` returns exit code 0.
-  2. Positional discrepancy across boundary $\Delta p = \|\mathbf{p}(t_{\text{boundary}}^+) - \mathbf{p}(t_{\text{boundary}}^-)\| \equiv 0.0$.
-  3. Derivative continuity: $\|\mathbf{v}(t_{\text{boundary}}^+) - \mathbf{v}(t_{\text{boundary}}^-)\| \le 10^{-4}$.
-
-#### `T3-COMB-15`: ShotSpec Key Beats Mapped to Profile Dynamics
-- **Features Combined:** `F-SHOTSPEC-CUES` + `F-PROFILE-ACTIONS`
-- **Interaction Rationale:** Key beats declared in `shot-spec.json` with specific `performance_profile` annotations must match the physical parameters executed by `CharacterController`.
-- **Inputs:** `shot-spec.json` containing key beat: `{ frame: 45, intent: "surprise_recoil", performance_profile: "dramatic" }`.
-- **Outputs:** Controller pose parameters at frame 45 to 75.
-- **Invariants & Assertions:**
-  1. Evaluated anticipation duration equals dramatic profile specification (14 frames).
-  2. Peak recoil amplitude matches dramatic profile parameter ($A = 0.28$).
-
-#### `T3-COMB-16`: Bezier Packet Arrival Aligned with Audio Cue Manifest
-- **Features Combined:** `F-BEZIER-TRAVEL` + `F-SHOTSPEC-CUES` (Audio Cue Sync)
-- **Interaction Rationale:** A packet traveling along a Bezier curve to a target node must reach arc progress $1.0$ at the exact frame declared in `cues.json` for the destination audio impact.
-- **Inputs:** Arc-length parameterized Bezier trajectory configured to arrive at frame 45; `cues.json` declaring `{ id: "node_impact", frame: 45, category: "impact" }`.
-- **Outputs:** Computed packet arc progress at frames 44, 45, 46 and cue trigger event.
-- **Invariants & Assertions:**
-  1. Packet arc progress at frame 44: $s \approx 0.96 \pm 0.01$.
-  2. Packet arc progress at frame 45: $s \equiv 1.00 \pm 0.001$.
-  3. Cue time conversion: $\text{timeSec} = 45 / 30 = 1.500\text{s}$ matches audio synthesis timestamp exactly.
-
-#### `T3-COMB-17`: Standalone Package Exports & Zero `.agents` Import Gate
-- **Features Combined:** `F-PKG-CANONICAL` + `F-PKG-ISOLATION`
-- **Interaction Rationale:** The canonical `motion-kit` package must cleanly export all required public symbols from `index.ts` while enforcing that zero source files in compositions import from `.agents/`.
-- **Inputs:** `motion-kit/package.json`, `motion-kit/src/index.ts`, AST import scanner across `connection-film/src/`.
-- **Outputs:** Exported symbol list and AST import scanner report.
-- **Invariants & Assertions:**
-  1. All required symbols exported: `RigInterface`, `CharacterController`, `BirdRig`, `HumanRig`, `ArbitraryCustomRigAdapter`, `PerformanceProfile`, `CameraRig`, `interpolateSvgPath`, `quadraticBezierPoint`, `cubicBezierPoint`, `createBezierLUT`.
-  2. Number of import declarations matching `from '.*\.agents.*'` across all production compositions and benchmarks equals exactly 0.
-
-#### `T3-COMB-18`: AST Linter Detection of Unmotivated Slow Zoom vs Compliant Camera
-- **Features Combined:** `F-AST-LINTER` + `F-CAM-CONTINUITY`
-- **Interaction Rationale:** AST motion linter rule `no-constant-slow-zoom` must reject unmotivated monotonic ambient camera zoom while approving Hermite spline camera choreographies.
-- **Inputs:**
-  - Fixture A: Camera scale computed as `1.0 + frame * 0.0005` (ambient unmotivated drift).
-  - Fixture B: Camera scale evaluated via `interpolateCameraHermite()`.
-- **Outputs:** AST linter violation reports.
-- **Invariants & Assertions:**
-  1. Fixture A triggers MAJOR violation `no-constant-slow-zoom`.
-  2. Fixture B passes with 0 violations.
-
-#### `T3-COMB-19`: AST Linter Detection of Binary Pose Crossfades vs CharacterController Blending
-- **Features Combined:** `F-AST-LINTER` + `F-CHAR-CONTROLLER`
-- **Interaction Rationale:** AST rule `no-crossfade-pose-blend` must reject opacity crossfades between two rig instances while approving `CharacterController.blend(from, to, t)`.
-- **Inputs:**
-  - Fixture A: Two `<HumanRig/>` instances with `opacity={1 - progress}` and `opacity={progress}`.
-  - Fixture B: Single `<HumanRig pose={controller.blend(poseA, poseB, progress)}/>`.
-- **Outputs:** AST linter violation reports.
-- **Invariants & Assertions:**
-  1. Fixture A triggers CRITICAL violation `no-crossfade-pose-blend`.
-  2. Fixture B passes with 0 violations.
-
-#### `T3-COMB-20`: Video Frame MAD Continuity During Geometric Morph vs Binary Swap
-- **Features Combined:** `F-TEMPORAL-QA` + `F-MORPH-INTERPOLATE`
-- **Interaction Rationale:** Rolling MAD analysis of decoded video frames must show smooth, bounded differences during true geometric morphing, contrasting with a massive spike on binary component swaps.
-- **Inputs:**
-  - Video A: 60-frame rendered morph using `PathMorph` (continuous vertex interpolation).
-  - Video B: 60-frame rendered morph using ternary flip (`progress < 0.5 ? <A/> : <B/>`).
-- **Outputs:** Adjacent-frame MAD arrays $\text{MAD}_t$ and local median ratios $R_t$.
-- **Invariants & Assertions:**
-  1. Video A: $\max(R_t) \le 2.2\times$ (smooth, well-conditioned temporal progression).
-  2. Video B: $R_{30} \ge 7.5\times$ local median (massive single-frame pop); rejected as an unannotated defect.
-
----
-
-## 5. Tier 4: Real-World Application Scenarios (10 Production Scenarios)
-
-Tier 4 tests complete, production-grade end-to-end scenarios representing realistic user-facing animated compositions and release workflows.
-
-```
-| Scenario ID | Scenario Name | Primary Benchmark / Domain | Core Requirements Validated |
-|:---|:---|:---|:---|
-| T4-SCEN-01 | Human Conversational Explainer Acting | Benchmark V2-A (`BenchmarkV2HumanExplainer.tsx`) | R1, R2, R3, R4, R9, R10 |
-| T4-SCEN-02 | Complex Mechanical Physics & True Geometry Morph | Benchmark V2-B (`BenchmarkV2MechanicalMorph.tsx`) | R1, R3, R4, R5, R8, R9 |
-| T4-SCEN-03 | Multi-Stage Network Protocol Data Flow & Bezier Travel | Benchmark V2-C (`BenchmarkV2NetworkFlow.tsx`) | R1, R2, R6, R4, R9, R10 |
-| T4-SCEN-04 | Production Multi-Shot Continuity Contract & Enforcement | Multi-Shot Composition Pipeline | R4, R9 |
-| T4-SCEN-05 | Recursive AST Linter Anti-Pattern Scanning on Entire Codebase | Quality Gate Tooling (`motion-lint.ts`) | R7 |
-| T4-SCEN-06 | Temporal Render QA with Synthetic & FFmpeg Decoded Frames | Video Inspection Tooling (`temporal-render-qa.ts`) | R8 |
-| T4-SCEN-07 | Articulated Avian Flight Physics & Aerodynamic Banking | Avian Motion System (`BirdRig`) | R2, R3, R4 |
-| T4-SCEN-08 | Arbitrary SVG Custom Rig Adapter Pipeline | Third-Party Vector Character Ingestion | R2, R3 |
-| T4-SCEN-09 | Audio-Visual Frame-Accurate Synchronization Pipeline | Cue Manifest & Audio Engine (`cues.json`) | R10 |
-| T4-SCEN-10 | Full End-to-End System Pipeline | Complete Build $\rightarrow$ QA $\rightarrow$ Render $\rightarrow$ Review | R1–R12 |
-```
-
-### Detailed Specifications for Tier 4 Scenarios
-
-#### `T4-SCEN-01`: Human Conversational Explainer Acting
-- **Composition Target:** `connection-film/src/benchmarks/v2/BenchmarkV2HumanExplainer.tsx`
-- **Duration & Format:** 150 frames @ 30fps (5.0s), 1920×1080.
-- **Narrative Storyboard & Beats:**
-  1. *Beat 1 (Frames 0–35) [Profile: `calm`]:* Articulated educator Maya stands at interactive holographic board. Subtle breathing rhythm, weight balance shift between hips, gaze directed toward viewer.
-  2. *Beat 2 (Frames 35–65) [Profile: `energetic`]:* Wind-up anticipation: Maya turns, arm draws back with elbow bend and wrist follow-through lag $\rightarrow$ energetic sweep gesture pointing to diagram $\rightarrow$ snappy overshoot and harmonic settle. Camera tracks hand with 6-frame look-ahead lead.
-  3. *Beat 3 (Frames 65–110) [Profile: `dramatic`]:* System alert on board triggers double-take reaction: torso recoils, eyes dilate ($1.35\times$), eyebrows arch, hands raise with multi-phase damped oscillation before settling. Camera performs motivated push-in (zoom 1.0 $\rightarrow$ 1.28) maintaining $C^1$ continuity.
-  4. *Beat 4 (Frames 110–150) [Profile: `playful`]:* Maya smiles, open-palm gesture toward solution, head tilts playfully with secondary ponytail follow-through lag. Settle to concluding pose.
-- **Verifiable Invariants & Passing Gates:**
-  1. `motion-lint.ts` confirms 0 Critical and 0 Major AST violations.
-  2. `validate-shot-spec.ts` confirms 100% schema and inter-shot state continuity.
-  3. Hand tracking camera velocity does not exceed maximum allowable target acceleration.
-  4. Secondary ponytail lag evaluates to exactly 3 frames behind torso momentum.
-
-#### `T4-SCEN-02`: Complex Mechanical Physics & True Geometry Morph
-- **Composition Target:** `connection-film/src/benchmarks/v2/BenchmarkV2MechanicalMorph.tsx`
-- **Duration & Format:** 150 frames @ 30fps (5.0s), 1920×1080.
-- **Narrative Storyboard & Beats:**
-  1. *Beat 1 (Frames 0–45) [Clockwork Escapement]:* 12-tooth Geneva wheel rotates with non-linear rotational inertia, overshoots slot alignment, and settles with micro-vibrations. Camera orbital pan tracks gear teeth engagement.
-  2. *Beat 2 (Frames 45–95) [Continuous Topological Morph]:* Mechanical gear teeth reshape their SVG bezier contours into electromagnetic stator coil poles. True geometric path vertex interpolation ($N=64$ resampled vertices, cyclic phase shift optimization). Zero conditional component swapping (`progress < X ? A : B`).
-  3. *Beat 3 (Frames 95–150) [Electromagnetic Induction & Stator Spin]:* Copper windings illuminate with magnetic flux loops. Rotor accelerates into high-speed rotation, settling into stable equilibrium. Camera pulls back to system overview with smooth $C^1$ velocity deceleration.
-- **Verifiable Invariants & Passing Gates:**
-  1. Morph transition contains exactly 0 JSX ternary or conditional branch expressions.
-  2. Resampled vertex count $N \ge 64$ everywhere during morph.
-  3. Decoded frame video QA yields 0 unannotated MAD spikes $>4\times$ local median.
-  4. Camera pullback velocity deceleration curve is strictly monotonic.
-
-#### `T4-SCEN-03`: Multi-Stage Network Protocol Data Flow & Bezier Travel
-- **Composition Target:** `connection-film/src/benchmarks/v2/BenchmarkV2NetworkFlow.tsx`
-- **Duration & Format:** 180 frames @ 30fps (6.0s), 1920×1080.
-- **Narrative Storyboard & Beats:**
-  1. *Shot 1 (Frames 0–60) [Client $\rightarrow$ Gateway Handshake]:* Client generates cryptographic payload packet. Multi-point cubic Bezier path reveals with animated dashoffset. Payload travels along exact cubic curve; packet orientation aligns dynamically with tangent vector $\mathbf{B}'(t)$ with banking tilt proportional to path curvature $\kappa(t)$. Gateway mounted via `ArbitraryCustomRigAdapter` with spinning fan joints.
-  2. *Shot 2 (Frames 60–120) [Gateway $\rightarrow$ Raft Consensus Quorum]:* Gateway dispatches 3 synchronized packets along diverging quadratic Bezier branches to 3 distributed Raft consensus nodes. Camera continuity matches Shot 1 end state ($S_0.\text{end\_state} == S_1.\text{start\_state}$). Nodes acknowledge receipt with staggered overshoot and settle.
-  3. *Shot 3 (Frames 120–180) [Commit Log Persistence & Audio Sync]:* Unified commit packet converges onto database cylinder. Database rings compress with physical squash on impact ($S_y = 0.82$), rebound, and lock into persistent state. Frame-accurate audio cues triggered: `handshake_start` (f=10), `gateway_ingress` (f=55), `quorum_ack` (f=98), `disk_commit_impact` (f=145).
-- **Verifiable Invariants & Passing Gates:**
-  1. Packet coordinate distance to theoretical Bezier curve: $\| \mathbf{p}_{\text{actual}} - \mathbf{B}(t) \| \le 10^{-4}$ for all frames.
-  2. Packet banking angle $\beta(t) = c \cdot \kappa(t)$ is continuous.
-  3. Shot 1 to Shot 2 camera position delta $= 0.0$ and zoom delta $= 0.0$.
-  4. Audio cue manifest matches visual impact frames with $\Delta \text{frame} = 0$.
-
-#### `T4-SCEN-04`: Production Multi-Shot Continuity Contract & Enforcement
-- **Scope:** Multi-shot continuity validator (`validate-shot-spec.ts`) and ShotSpec JSON files.
-- **Execution Flow:**
-  1. Ingest production shot specifications containing 4 consecutive shots.
-  2. Validate frame progression: $S_0.\text{end\_frame} == S_1.\text{start\_frame} == \dots == S_3.\text{start\_frame}$.
-  3. Validate camera vector equality: $\|S_N.\text{end\_state.camera} - S_{N+1}.\text{start\_state.camera}\| \le 0.001$.
-  4. Validate continuity of persistent actors across shot boundaries.
-  5. Invalidate: inject deliberate continuity errors (e.g. 1-frame gap, zoom mismatch) and confirm immediate validator exit code 1 with exact schema error path.
-- **Verifiable Invariants & Passing Gates:**
-  1. Valid multi-shot specs pass with exit code 0.
-  2. Any frame gap, overlap, or camera state mismatch triggers immediate process failure with descriptive diagnostic output.
-
-#### `T4-SCEN-05`: Recursive AST Linter Anti-Pattern Scanning on Entire Codebase
-- **Scope:** `validators/motion-lint.ts` executed across `connection-film/src/` and `motion-kit/`.
-- **Execution Flow:**
-  1. Babel/TypeScript AST visitor recursively traverses all `.ts` and `.tsx` files.
-  2. Checks for anti-pattern rules:
-     - `no-monolithic-character` (unarticulated SVGs)
-     - `no-conditional-morph-swap` (binary ternary flips)
-     - `no-crossfade-pose-blend` (opacity crossfades between poses)
-     - `no-unmotivated-linear-translate` (linear translate $>20$ frames without easing)
-     - `no-constant-slow-zoom` (unmotivated ambient slow zoom)
-     - `no-opacity-scene-transition` (opacity fades between scenes)
-  3. Tests synthetic anti-pattern test fixtures to verify 100% detection rate.
-- **Verifiable Invariants & Passing Gates:**
-  1. Zero Critical and zero Major violations on all production compositions and V2 benchmarks.
-  2. Synthetic invalid fixtures trigger expected rule violations with 100% sensitivity.
-
-#### `T4-SCEN-06`: Temporal Render QA with Synthetic & FFmpeg Decoded Frames
-- **Scope:** `validators/temporal-render-qa.ts` using FFmpeg rawvideo decoding pipe.
-- **Execution Flow:**
-  1. Decode rendered MP4 video frames to $320 \times 180$ grayscale rawvideo buffer via FFmpeg pipe.
-  2. Compute adjacent-frame Mean Absolute Difference (MAD) array.
-  3. Compute rolling local median filter (window $M = 15$ frames).
-  4. Flag frames with ratio $\text{MAD}_t / \max(M_t, 0.5) > 4.0$.
-  5. Reconcile flagged frames with `whitelisted_impact_frames` in `shot-spec.json`.
-- **Verifiable Invariants & Passing Gates:**
-  1. V2 benchmark MP4s pass with 0 unannotated MAD spikes.
-  2. Injected artificial frame glitch (e.g. single black frame inserted into smooth animation) is detected with ratio $>8.0\times$ and fails QA.
-
-#### `T4-SCEN-07`: Articulated Avian Flight Physics & Aerodynamic Banking
-- **Scope:** `BirdRig` articulated flight kinematics.
-- **Execution Flow:**
-  1. Multi-phase flight sequence over 120 frames:
-     - Crouch anticipation ($S_y = 0.75$, wings tucked).
-     - Parabolic launch climb with periodic wing flap cycle ($6\text{ Hz}$).
-     - High-speed banked turn where roll angle $\phi$ is proportional to flight path curvature $\kappa$.
-     - Rooftop touchdown with impact squash and settle.
-  2. Expressive layers: pupil gaze leading head direction, beak sync.
-- **Verifiable Invariants & Passing Gates:**
-  1. Banking angle adheres to aerodynamic equilibrium: $\tan\phi = \frac{v^2}{R \cdot g}$.
-  2. Gaze lead vector precedes flight velocity vector by $\approx 4$ frames.
-  3. Landing touchdown exhibits physical squash followed by damped rebound.
-
-#### `T4-SCEN-08`: Arbitrary SVG Custom Rig Adapter Ingestion Pipeline
-- **Scope:** Universal vector mounting via `ArbitraryCustomRigAdapter`.
-- **Execution Flow:**
-  1. Ingest an un-rigged third-party industrial robot SVG containing `data-joint="base"`, `data-joint="arm1"`, `data-joint="arm2"`, `data-joint="gripper"`.
-  2. Mount via `ArbitraryCustomRigAdapter` into `RigInterface`.
-  3. Bind to `CharacterController` and command an articulated pick-and-place motion sequence.
-  4. Render 60 frames and verify hierarchical joint rotation chaining.
-- **Verifiable Invariants & Passing Gates:**
-  1. Rotation of `arm1` automatically propagates forward kinematics to `arm2` and `gripper`.
-  2. Zero SVG path deformation or clipping artifacts outside designated bounding box.
-
-#### `T4-SCEN-09`: Audio-Visual Frame-Accurate Synchronization Pipeline
-- **Scope:** `cues.json` manifest driving Remotion and `make_audio.py`.
-- **Execution Flow:**
-  1. Define unified `cues.json` with 8 multi-track audio events (`action_hit`, `whoosh`, `impact`, `ui_accent`).
-  2. Visual composition queries cue events to trigger visual accent particles.
-  3. Python audio synthesizer reads `cues.json` and synthesizes sample-accurate audio transients at $t = \text{frame} / 30.0$.
-  4. Audio waveform transient peak verified against video visual impact frame within $\Delta t \le 1\text{ frame}$ ($33\text{ ms}$).
-- **Verifiable Invariants & Passing Gates:**
-  1. Time calculation in cue manifest: $\text{timeSec} \equiv \text{frame} / \text{fps}$ with zero floating-point accumulation drift over 1800 frames (60s).
-  2. Audio waveform envelope peak matches visual impact frame within $\pm 1$ frame.
-
-#### `T4-SCEN-10`: Full End-to-End System Pipeline (Authoring $\rightarrow$ QA $\rightarrow$ Render $\rightarrow$ Rubric)
-- **Scope:** Full master integration test representing production release certification.
-- **Execution Flow:**
-  1. Package compilation: `motion-kit` compiles cleanly via `tsc --noEmit`.
-  2. Isolation audit: 0 imports from `.agents/` across the entire project.
-  3. Static AST analysis: `validators/motion-lint.ts` passes with 0 Critical / 0 Major defects.
-  4. Spec validation: `validators/validate-shot-spec.ts` passes on all compositions.
-  5. Video render: Remotion renders all 3 V2 benchmarks to MP4.
-  6. Temporal QA: `validators/temporal-render-qa.ts` verifies 0 unannotated MAD spikes.
-  7. Independent quality rubric audit: 10 rubric dimensions score overall average $\ge 4.5 / 5.0$ (no individual dimension $< 4.0$).
-- **Verifiable Invariants & Passing Gates:**
-  1. Every gate in the pipeline exits with code 0.
-  2. Final release certification signal `TEST_READY.md` is published.
-
----
-
-## 6. Execution Guide & Test Commands
-
-### 6.1 Running the Complete E2E Suite
-```bash
-# Execute all 230 test cases across all 4 tiers
-npx tsx tests/e2e-runner.ts
-```
-
-### 6.2 Running Specific Tiers
-```bash
-# Tier 1: Happy-path feature coverage (100 tests)
-npx tsx tests/e2e-runner.ts --tier=1
-
-# Tier 2: Boundary value and corner cases (100 tests)
-npx tsx tests/e2e-runner.ts --tier=2
-
-# Tier 3: Pairwise cross-feature combinations (20 tests)
-npx tsx tests/e2e-runner.ts --tier=3
-
-# Tier 4: Real-world application scenarios (10 scenarios)
-npx tsx tests/e2e-runner.ts --tier=4
-```
-
-### 6.3 Filtering by Feature or Scenario
-```bash
-# Run all tests for camera tracking across all tiers
-npx tsx tests/e2e-runner.ts --feature=F-CAM-TRACKING
-
-# Run specific real-world scenario
-npx tsx tests/e2e-runner.ts --scenario=T4-SCEN-01
-```
-
-### 6.4 Quality Gate CLI Commands
-```bash
-# AST Motion Linter
-npx tsx validators/motion-lint.ts connection-film/src/ motion-kit/
-
-# ShotSpec Continuity Validator
-npx tsx validators/validate-shot-spec.ts connection-film/src/benchmarks/v2/shot-spec.v2-a.json
-npx tsx validators/validate-shot-spec.ts connection-film/src/benchmarks/v2/shot-spec.v2-b.json
-npx tsx validators/validate-shot-spec.ts connection-film/src/benchmarks/v2/shot-spec.v2-c.json
-
-# Temporal Render Video QA
-npx tsx validators/temporal-render-qa.ts out/v2-human.mp4 connection-film/src/benchmarks/v2/shot-spec.v2-a.json
-```
-
----
-
-## 7. Quality Gate Pass/Fail Criteria
-
-A production build or release candidate is certified **READY** if and only if all the following conditions are met:
-1. **E2E Test Suite:** 100% of executed tests pass (0 failures).
-2. **AST Motion Linter:** 0 Critical violations, 0 Major violations.
-3. **ShotSpec Continuity:** 100% PASS on all active composition shot specifications.
-4. **Temporal Render QA:** 0 unannotated MAD spikes exceeding $4.0\times$ local median on rendered MP4 files.
-5. **Independent Quality Rubric:** Evaluated by independent reviewer agent with overall average $\ge 4.5 / 5.0$ and no single dimension $< 4.0$.

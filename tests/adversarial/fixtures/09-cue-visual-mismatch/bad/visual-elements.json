@@ -1,0 +1,9 @@
+{
+  "elements": [
+    {
+      "id": "stamp_reject_overlay",
+      "mountFrame": 150,
+      "unmountFrame": 280
+    }
+  ]
+}

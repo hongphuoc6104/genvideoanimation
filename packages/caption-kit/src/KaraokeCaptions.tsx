@@ -38,6 +38,17 @@ export const KaraokeCaptions: React.FC<KaraokeCaptionsProps> = ({
   }
 
   const box = activeGroup.box;
+
+  // Smooth 3-frame crossfade to prevent single-frame brightness spikes on static backgrounds
+  const framesFromStart = frame - activeGroup.startFrame;
+  const framesToEnd = activeGroup.endFrame - frame;
+  let groupOpacity = 1.0;
+  if (framesFromStart < 3) {
+    groupOpacity = Math.min(1.0, (framesFromStart + 1) / 4);
+  } else if (framesToEnd <= 3) {
+    groupOpacity = Math.max(0.1, framesToEnd / 4);
+  }
+
   const containerStyle: React.CSSProperties = {
     position: 'absolute',
     left: `${box.x}px`,
@@ -46,6 +57,7 @@ export const KaraokeCaptions: React.FC<KaraokeCaptionsProps> = ({
     height: `${box.height}px`,
     zIndex: 100,
     pointerEvents: 'none',
+    opacity: groupOpacity,
     ...style,
   };
 

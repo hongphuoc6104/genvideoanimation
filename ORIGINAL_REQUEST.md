@@ -496,3 +496,175 @@ Add dedicated CLI validator scripts in `validators/`:
 
 ### Real Project Acceptance
 - [ ] `connection-film` (Scopus Research Gap explainer) re-rendered with V3.1 Vietnamese narration, bilingual terms preserved, 9:16 vertical 1080x1920, and karaoke captions aligned.
+
+## 2026-09-10T11:05:38Z
+
+# V3.3 — PRODUCTION INTEGRITY HARDENING (FAILURE-FIRST ACCEPTANCE)
+
+Working directory: /home/hongphuoc6104/Desktop/videorenderhoathinh
+Integrity mode: development
+Requested team: Full multi-agent team across video rendering, audio DSP, Remotion choreography, and adversarial QA
+
+Harden the 1080x1920 Remotion educational video production pipeline for the Scopus explainer film by eliminating every known false-positive acceptance path through failure-first static, acoustic, temporal, and mobile legibility verification gates.
+
+## Reference Context
+- Reference review commit: `51b14c2` (`scopus-v3_2-no-music.mp4`)
+- Skill specification: `.agents/skills/educational-flat-motion/SKILL.md`
+- Target film: `connection-film/src/scopus-explainer/`
+
+## Requirements
+
+### R1. Never Shrink To Fit & Static Typography Validator
+- For 1080x1920 production, informational font sizes must strictly obey minimums:
+  - Hero text >= 64px
+  - Section title >= 48px
+  - Card title >= 38px
+  - Body text >= 34px
+  - Secondary informational text >= 30px
+  - Karaoke captions >= 52px
+  (Tiny nonessential legal/citation metadata excluded).
+- When content cannot fit, split into additional sequential visual beats/scenes instead of shrinking font, omitting content, or summarizing.
+- Implement AST/static validator `validators/validate-mobile-typography.ts` recursively inspecting production TSX and failing on informational font sizes below thresholds without filename-specific regex.
+
+### R2. Mobile Legibility Render Gate & QA Rubric
+- Dual-render production: generate `1080x1920` final MP4 and `360x640` QA preview MP4.
+- Implement automated QA rubric inspecting actual `360x640` frames:
+  - Primary visual recognizable
+  - Informational text readable without zooming
+  - No dense PowerPoint-like card grids
+  - One dominant focal idea per frame
+  - Karaoke captions do not collide with visual subjects
+
+### R3. One Primary Idea Per Visual Beat (Progressive Disclosure)
+- Prohibit displaying dense multi-card information simultaneously when narration focuses on one item.
+- Re-choreograph multi-item taxonomies and multi-step procedures into progressive disclosure beats (overview → item 1 full-screen → item 2 → ... → comparison recap).
+
+### R4. Single Authoritative Semantic Timeline
+- Create canonical timeline artifact `semantic-timeline.json`.
+- Schema per beat: `id`, `narrationTokenRange`, `startSec`, `endSec`, `startFrame`, `endFrame`, `visualIntent`, `primaryObject`, `cameraIntent`, `transitionIntent`, `sfxIntent`, `captionIntent`.
+- All visual, timing, audio, and subtitle manifests (`ShotSpec`, Remotion Sequence boundaries, scene internal phases, `CueManifest`, SFX timing, caption groups, transition timing) must derive strictly from `semantic-timeline.json`. Zero hardcoded frame constants.
+
+### R5. Content-Driven Choreography
+- When narration expands or reflows, internal scene action timing must dynamically expand/reflow.
+- Visual components must derive local beats from `semantic-timeline.json` or receive explicit timing props generated from it. Prohibit hardcoded legacy frame assumptions.
+
+### R6. Scopus Project Visual Retiming (103.20s Parity)
+- Re-author existing Scopus explainer scene-local choreography to match the 103.20s narration timeline.
+- Align each visual event directly with the narration phrase explaining it (no uniform stretching).
+
+### R7. Strict ShotSpec Production Validation
+- `validators/validate-shot-spec.ts` must run against real production `shot-spec.json` and terminate execution on any failure (out-of-bounds impact frames or invalid bounds). No warnings-only mode.
+
+### R8. Explicit Transition Whitelist & Continuity
+- Distinguish impact frames from transitions: declare `transition_frames`, `transition_type`, and `expected_visual_discontinuity` in `shot-spec.json`.
+- Temporal QA may only whitelist adjacent-frame visual discontinuities where an explicit transition is declared.
+
+### R9. Temporal QA on Rendered MP4
+- Decode rendered MP4 to compute adjacent-frame visual differences.
+- Flag unmotivated spikes. Ensure scene cuts at boundaries (specifically frames ~618, ~1309, ~1976, ~2531) are repaired, transitioned, and validated.
+
+### R10. Motivated Transitions
+- Prohibit naked hard cuts between major scene sequences unless explicitly motivated.
+- Implement motivated transitions (object match, camera carry, shape morph, foreground wipe, continuing trajectory, semantic zoom, motivated iris, match cut).
+
+### R11. Audio Asset Ownership & Double SFX Prevention
+- Enforce `PREMIXED` audio strategy: master audio contains narration + all mixed SFX; Remotion mounts master audio only.
+- Implement `validators/validate-audio-ownership.ts` to detect and fail on dual audio ownership or duplicate playback.
+
+### R12. Authoritative Audio Asset Graph
+- Track all audible assets in final MP4 in a directed dependency graph. Detect duplicate SFX, unreferenced music, double mixing, multiple narration masters, or accidental overlapping copies.
+
+### R13. Safe VieNeu TTS Voice Default
+- Default voice configuration must use `GENVIDEO_ADAM_PROFILE.synthesis.voice = "Adam"` (VieNeu-TTS). Prohibit default routing to Kokoro (`am_adam`); Kokoro is explicit fallback only.
+
+### R14. Measured Audio Metadata Validation
+- Read real WAV headers and ffprobe measurements (`sampleRate`, `channels`, `bitDepth`, `duration`) and write to `audio-manifest.json`. Fail on discrepancies.
+
+### R15. Workspace Portability Gate
+- Committed manifests, specs, and configs must contain zero machine-specific absolute paths (`/home/`, `C:\`, `/Users/`).
+- Implement `validators/validate-portability.ts` enforcing workspace-relative URIs.
+
+### R16. Audio Policy Hygiene (Zero Production Music)
+- Enforce `audioPolicy = "narration-sfx"`. Legacy background music files (e.g. `background_soundtrack.wav`) must not reside in the production audio namespace (move to `fixtures/` or `legacy-assets/`).
+
+### R17. Role-Aware Natural Pause Policy
+- Remove rigid `interSentenceMax <= 0.30s`.
+- Implement role-aware pause ranges:
+  - Within clause: 0.08–0.20s
+  - Normal sentence: 0.18–0.40s
+  - Semantic turn: 0.25–0.55s
+  - Major section transition: 0.40–0.80s
+  - Payoff / important realization: 0.30–0.65s
+- Update dead-air detection to respect intentional semantic pauses.
+
+### R18. Audio Dynamics QA Gate
+- Measure LUFS, dBTP, LRA, speech RMS, pause distribution, and speech rate. Enforce broadcast compliance (-15 LUFS, -1.8 dBTP ceiling) and flag extreme compression for human listening review.
+
+### R19. Educational Flat Motion Skill Overhaul
+- Rewrite `.agents/skills/educational-flat-motion/SKILL.md` production defaults:
+  - 1080x1920 (9:16), 30fps, mobile-first, Vietnamese-first, content-driven duration (derive duration from content, remove mandatory `targetDuration`).
+  - Add hard rules: `NEVER_SHRINK_TO_FIT`, `ONE_PRIMARY_IDEA_PER_BEAT`, `PROGRESSIVE_DISCLOSURE`, `MOBILE_FIRST_READABILITY`, `ONE_AUTHORITATIVE_TIMELINE`, `ONE_AUDIO_OWNER_PER_ASSET`, `FINAL_RENDER_IS_AUTHORITATIVE`, `NO_SELF_CERTIFICATION`.
+
+### R20. Quality Rubric Overhaul
+- Mandatory rubric categories: Mobile Readability, Information Density, Audio/Visual Synchronization, Narration Naturalness, Timing Integrity, Production Portability, Source-to-Video Content Coverage, Validator Reliability.
+- Acceptance threshold: overall average >= 4.5, no category < 4.0, critical categories individually >= 4.3.
+
+### R21. 100% Source Content Coverage Map
+- Create `source-content-map.json` mapping every source concept to >= 1 semantic beat. Coverage must equal 100% without omitting content.
+
+### R22. Adversarial False-Positive Test Suite
+- Construct deliberate bad fixtures that validators must reject:
+  - 14px body text
+  - Invalid out-of-range impact frame
+  - Naked scene cut
+  - Duplicate SFX ownership
+  - Absolute machine path
+  - `am_adam` default voice
+  - Audio metadata mismatch
+  - Scene timing older than ShotSpec
+  - Cue/visual mismatch
+  - Five dense cards simultaneously
+  - Fake content duration that only increases Sequence length
+  - Unannotated temporal spike
+- Acceptance fails if any bad fixture passes.
+
+### R23. Real Project End-to-End Acceptance
+- Rebuild Scopus explainer project under V3.3 integrity gates.
+- Deliverables:
+  - `final-v3_3.mp4` (1080x1920)
+  - `preview-360x640.mp4`
+  - `semantic-timeline.json`
+  - `source-content-map.json`
+  - `shot-spec.json`
+  - `audio-manifest.json`
+  - `qa-report.json`
+- Perform independent inspection at 0%, 10%, ... 100%, all shot boundaries, all transition windows, and all major SFX cues.
+- Implementation agents are prohibited from self-certifying final scores.
+
+## Acceptance Criteria
+
+### Automated Static & AST Validators
+- [ ] `validators/validate-mobile-typography.ts` exists, passes on production TSX, and rejects typography below minimum thresholds.
+- [ ] `validators/validate-portability.ts` exists and confirms zero machine-specific absolute paths.
+- [ ] `validators/validate-audio-ownership.ts` exists and enforces PREMIXED single ownership with zero dual playback.
+- [ ] `validators/validate-shot-spec.ts` executes and passes on real production `shot-spec.json`.
+- [ ] Adversarial test suite runs all R22 bad fixtures and confirms 100% rejection rate.
+
+### Audio & Pipeline Integrity
+- [ ] `audio-manifest.json` contains real measured metadata matching ffprobe/WAV headers.
+- [ ] Default TTS voice profile is confirmed as `Adam` (VieNeu-TTS) without Kokoro default fallback.
+- [ ] Audio master meets -15 LUFS / -1.8 dBTP ceiling under `narration-sfx` policy without background music in production assets.
+- [ ] Role-aware pause ranges are applied and verified.
+
+### Video Rendering & Choreography
+- [ ] `semantic-timeline.json` is generated as the single source of truth for all shot and cue timings.
+- [ ] `source-content-map.json` achieves 100% coverage of source content items.
+- [ ] Scopus explainer sequences and visual components are retimed to match the 103.20s narration timeline.
+- [ ] Final renders `final-v3_3.mp4` (1080x1920) and `preview-360x640.mp4` are generated.
+- [ ] Temporal QA on rendered MP4 confirms zero unwhitelisted discontinuity spikes across all shot boundaries.
+- [ ] Mobile legibility rubric passes on 360x640 preview frames without zooming.
+
+### Documentation & Skill
+- [ ] `.agents/skills/educational-flat-motion/SKILL.md` is updated with V3.3 production defaults and rules.
+- [ ] Independent QA report `qa-report.json` is generated with rubric scores meeting acceptance thresholds.
+

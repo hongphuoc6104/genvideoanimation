@@ -1,0 +1,6 @@
+{
+  "madSeries": [2.1, 2.4, 2.3, 2.5, 2.4, 32.5, 2.6, 2.5, 2.3, 2.4, 2.2],
+  "windowRadius": 5,
+  "spikeThreshold": 4.0,
+  "whitelistedFrames": [5]
+}

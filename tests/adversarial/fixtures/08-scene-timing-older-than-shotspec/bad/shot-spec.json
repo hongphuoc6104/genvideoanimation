@@ -1,0 +1,11 @@
+{
+  "sequence_id": "adversarial-scene-timing-older",
+  "shots": [
+    {
+      "id": "shot_01",
+      "startFrame": 0,
+      "endFrame": 618,
+      "durationInFrames": 618
+    }
+  ]
+}
