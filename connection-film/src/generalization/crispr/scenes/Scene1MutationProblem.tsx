@@ -185,75 +185,43 @@ export const Scene1MutationProblem: React.FC<Scene1MutationProblemProps> = ({
         )}
       </div>
 
-      {/* Explanatory Pedagogical Context Card (Bottom Active Zone) */}
+      {/* Sleek Status Badge (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
           position: 'absolute',
-          bottom: 360,
-          left: 80,
-          right: 80,
-          backgroundColor: 'rgba(19, 29, 51, 0.92)',
-          border: '2px solid #1E2D4A',
-          borderRadius: 32,
-          padding: '36px 40px',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
+          top: 1200,
+          left: 100,
+          right: 100,
+          height: 80,
+          backgroundColor: 'rgba(19, 29, 51, 0.94)',
+          border: '2px solid #EF4444',
+          borderRadius: 24,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 16,
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
           opacity: cardSpring,
-          transform: `translateY(${(1 - cardSpring) * 25}px)`,
         }}
       >
-        <h3
+        <span style={{ fontSize: 38 }}>
+          {phase === 1 ? '🧬' : phase === 2 ? '⚠️' : '🛡️'}
+        </span>
+        <span
           data-role="card"
           style={{
-            margin: '0 0 16px 0',
             fontSize: 38,
             fontWeight: 800,
             color: phase === 1 ? '#EF4444' : phase === 2 ? '#F59E0B' : '#06B6D4',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 16,
-          }}
-        >
-          <span style={{ fontSize: 38 }}>
-            {phase === 1 ? '🧬' : phase === 2 ? '⚠️' : '🛡️'}
-          </span>
-          {phase === 1
-            ? 'Bệnh Lý Di Truyền Phân Tử'
-            : phase === 2
-            ? 'Rào Cản Kỹ Thuật Truyền Thống'
-            : 'Cơ Chế Miễn Dịch Vi Khuẩn'}
-        </h3>
-        <p
-          data-role="body"
-          style={{
-            margin: '0 0 14px 0',
-            fontSize: 34,
-            fontWeight: 500,
-            color: '#F8FAFC',
-            lineHeight: 1.45,
+            letterSpacing: '0.02em',
           }}
         >
           {phase === 1
-            ? 'Chỉ cần sai khác một cặp base trong 3.2 tỷ nucleotide đã gây bệnh thiếu máu hồng cầu liềm.'
+            ? 'Bệnh Lý Di Truyền: Đột Biến Điểm'
             : phase === 2
-            ? 'Công cụ ZFN và TALEN yêu cầu tổng hợp protein mới cho từng chuỗi DNA, rất khó lập trình linh hoạt.'
-            : 'Vi khuẩn dùng mảng CRISPR lưu trữ mẫu DNA virus, tạo ra RNA dẫn đường để Cas9 cắt virus tái nhiễm.'}
-        </p>
-        <div
-          data-role="secondary"
-          style={{
-            fontSize: 30,
-            fontWeight: 600,
-            color: '#94A3B8',
-            borderTop: '1px solid rgba(148, 163, 184, 0.2)',
-            paddingTop: 12,
-          }}
-        >
-          {phase === 1
-            ? '➤ Hậu quả: Chuỗi xoắn kép tạo ra protein hemoglobin biến dạng'
-            : phase === 2
-            ? '➤ Thách thức: Cần một công cụ cắt DNA đa năng, tái sử dụng dễ dàng'
-            : '➤ Đột phá: Tận dụng cơ chế phòng thủ tự nhiên thành công cụ chỉnh sửa gen'}
-        </div>
+            ? 'Rào Cản: ZFN / TALEN Khó Lập Trình'
+            : 'Đột Phá: Miễn Dịch Vi Khuẩn'}
+        </span>
       </div>
     </div>
   );

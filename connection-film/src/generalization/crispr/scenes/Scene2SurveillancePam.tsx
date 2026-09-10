@@ -121,7 +121,7 @@ export const Scene2SurveillancePam: React.FC<Scene2SurveillancePamProps> = ({
             x={cas9X}
             y={560}
             clampProgress={clampSpring}
-            showCatalyticDomains={phase >= 2}
+            showCatalyticDomains={false}
             activeDomain="none"
             opacity={0.88}
             scale={1.1}
@@ -137,75 +137,43 @@ export const Scene2SurveillancePam: React.FC<Scene2SurveillancePamProps> = ({
         </svg>
       </div>
 
-      {/* Pedagogical Explanation Card */}
+      {/* Sleek Status Badge (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
           position: 'absolute',
-          bottom: 360,
-          left: 80,
-          right: 80,
-          backgroundColor: 'rgba(19, 29, 51, 0.92)',
-          border: '2px solid #1E2D4A',
-          borderRadius: 32,
-          padding: '36px 40px',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
+          top: 1200,
+          left: 100,
+          right: 100,
+          height: 80,
+          backgroundColor: 'rgba(19, 29, 51, 0.94)',
+          border: '2px solid #6366F1',
+          borderRadius: 24,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 16,
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
           opacity: cardSpring,
-          transform: `translateY(${(1 - cardSpring) * 25}px)`,
         }}
       >
-        <h3
+        <span style={{ fontSize: 38 }}>
+          {phase === 1 ? '🔍' : phase === 2 ? '⚓' : '🔄'}
+        </span>
+        <span
           data-role="card"
           style={{
-            margin: '0 0 16px 0',
             fontSize: 38,
             fontWeight: 800,
             color: phase === 1 ? '#818CF8' : phase === 2 ? '#F59E0B' : '#22C55E',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 16,
-          }}
-        >
-          <span style={{ fontSize: 38 }}>
-            {phase === 1 ? '🔍' : phase === 2 ? '⚓' : '🔄'}
-          </span>
-          {phase === 1
-            ? 'Cơ Chế Quét 1D Dọc DNA'
-            : phase === 2
-            ? 'Motif PAM: Điểm Tựa Khởi Đầu'
-            : 'Bắt Cặp Bổ Sung & Khóa Mục Tiêu'}
-        </h3>
-        <p
-          data-role="body"
-          style={{
-            margin: '0 0 14px 0',
-            fontSize: 34,
-            fontWeight: 500,
-            color: '#F8FAFC',
-            lineHeight: 1.45,
+            letterSpacing: '0.02em',
           }}
         >
           {phase === 1
-            ? 'Cas9 trượt nhanh dọc chuỗi xoắn kép để quét tìm chuỗi 5\'-NGG-3\' mà không cần mở xoắn trước.'
+            ? 'Tuần Tra 1D Dọc Chuỗi Xoắn Kép'
             : phase === 2
-            ? 'Khi nhận diện motif PAM, thùy PI của Cas9 bám chặt, kích hoạt biến đổi cấu trúc để tách chuỗi đôi DNA.'
-            : 'Thanh sgRNA len vào bắt cặp 20 nucleotide bổ sung. Vòng lai R-loop khóa chặt DNA vào trung tâm hoạt động.'}
-        </p>
-        <div
-          data-role="secondary"
-          style={{
-            fontSize: 30,
-            fontWeight: 600,
-            color: '#94A3B8',
-            borderTop: '1px solid rgba(148, 163, 184, 0.2)',
-            paddingTop: 12,
-          }}
-        >
-          {phase === 1
-            ? '➤ Tốc độ: Hàng nghìn tương tác va chạm mỗi giây để tìm đúng vị trí PAM'
-            : phase === 2
-            ? '➤ Quy tắc: Nếu không có motif PAM, Cas9 lập tức nhả ra và tiếp tục trượt'
-            : '➤ Độ chính xác: Đòi hỏi độ khớp chính xác tuyệt đối trên đoạn hạt giống (Seed Region)'}
-        </div>
+            ? 'Khóa Chặt Motif PAM 5\'-NGG-3\''
+            : 'Mở Xoắn & Tạo Vòng Lai R-Loop'}
+        </span>
       </div>
     </div>
   );

@@ -161,75 +161,43 @@ export const Scene3DualCleavage: React.FC<Scene3DualCleavageProps> = ({
         </svg>
       </div>
 
-      {/* Pedagogical Explanation Card */}
+      {/* Sleek Status Badge (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
           position: 'absolute',
-          bottom: 360,
-          left: 80,
-          right: 80,
-          backgroundColor: 'rgba(19, 29, 51, 0.92)',
-          border: '2px solid #1E2D4A',
-          borderRadius: 32,
-          padding: '36px 40px',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
+          top: 1200,
+          left: 100,
+          right: 100,
+          height: 80,
+          backgroundColor: 'rgba(19, 29, 51, 0.94)',
+          border: '2px solid #EC4899',
+          borderRadius: 24,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 16,
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
           opacity: cardSpring,
-          transform: `translateY(${(1 - cardSpring) * 25}px)`,
         }}
       >
-        <h3
+        <span style={{ fontSize: 38 }}>
+          {phase === 1 ? '✂️' : phase === 2 ? '⚡' : '🚨'}
+        </span>
+        <span
           data-role="card"
           style={{
-            margin: '0 0 16px 0',
             fontSize: 38,
             fontWeight: 800,
             color: phase === 1 ? '#EC4899' : phase === 2 ? '#EF4444' : '#F59E0B',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 16,
+            letterSpacing: '0.02em',
           }}
         >
-          <span style={{ fontSize: 38 }}>
-            {phase === 1 ? '✂️' : phase === 2 ? '⚡' : '🚨'}
-          </span>
           {phase === 1
             ? 'Hai Lưỡi Kéo Phân Tử: HNH & RuvC'
             : phase === 2
-            ? 'Vết Đứt Gãy Sợi Đôi (DSB)'
-            : 'Tế Bào Kích Hoạt Hàn Gắn Khẩn Cấp'}
-        </h3>
-        <p
-          data-role="body"
-          style={{
-            margin: '0 0 14px 0',
-            fontSize: 34,
-            fontWeight: 500,
-            color: '#F8FAFC',
-            lineHeight: 1.45,
-          }}
-        >
-          {phase === 1
-            ? 'Miền HNH cắt sợi DNA bổ sung gắn với RNA, trong khi miền RuvC cắt sợi DNA tự do đối diện.'
-            : phase === 2
-            ? 'Vết cắt diễn ra chuẩn xác 3 cặp base trước motif PAM, tạo thành hai đầu bằng (Blunt Ends).'
-            : 'Sự đứt lìa sợi đôi đe dọa trực tiếp sự sống còn của tế bào, kích hoạt tức thì các cơ chế sửa chữa gen.'}
-        </p>
-        <div
-          data-role="secondary"
-          style={{
-            fontSize: 30,
-            fontWeight: 600,
-            color: '#94A3B8',
-            borderTop: '1px solid rgba(148, 163, 184, 0.2)',
-            paddingTop: 12,
-          }}
-        >
-          {phase === 1
-            ? '➤ Phối hợp: Hai miền nuclease hoạt động đồng bộ dưới sự hỗ trợ của ion Magie (Mg2+)'
-            : phase === 2
-            ? '➤ Vị trí: Chính xác tuyệt đối ở nucleotide thứ 17 của chuỗi nhận diện 20-bp'
-            : '➤ Chuyển tiếp: Cas9 hoàn thành nhiệm vụ và nhả khỏi vị trí cắt để tế bào sửa chữa'}
-        </div>
+            ? 'Vết Đứt Gãy Sợi Đôi (DSB) Tại -3 PAM'
+            : 'Tín Hiệu Báo Động Khẩn Cấp'}
+        </span>
       </div>
     </div>
   );

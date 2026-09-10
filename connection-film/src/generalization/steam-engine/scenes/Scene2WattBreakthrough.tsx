@@ -191,48 +191,36 @@ export const Scene2WattBreakthrough: React.FC = () => {
         )}
       </div>
 
-      {/* 3. PEDAGOGICAL SUMMARY CARD */}
+      {/* 3. DYNAMIC STATUS BADGE (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
-          width: '100%',
+          position: 'absolute',
+          top: 1200,
+          left: 80,
+          right: 80,
+          height: 80,
           backgroundColor: THEME.colors.bgCard,
-          border: '3px solid #334155',
-          borderRadius: 24,
-          padding: '28px 36px',
-          boxSizing: 'border-box',
+          border: '2px solid #D97706',
+          borderRadius: 20,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
         }}
       >
-        <p
+        <span
           data-role="card"
           style={{
-            fontSize: THEME.typography.cardTitle,
+            fontSize: 38,
             color: THEME.colors.brass,
             fontWeight: 800,
-            margin: '0 0 12px 0',
+            letterSpacing: '0.02em',
           }}
         >
-          {isPhase1 && 'ĐỊNH LUẬT BẤT BIẾN CỦA JAMES WATT'}
-          {isPhase2 && 'SỰ PHÂN TÁCH KHÔNG GIAN ĐẲNG NHIỆT'}
-          {isPhase3 && 'BẢO TỒN NĂNG LƯỢNG GẤP BỐN LẦN'}
-        </p>
-
-        <p
-          data-role="body"
-          style={{
-            fontSize: THEME.typography.body,
-            color: THEME.colors.textPrimary,
-            lineHeight: 1.45,
-            margin: 0,
-            fontWeight: 500,
-          }}
-        >
-          {isPhase1 &&
-            'Muốn động cơ không hao phí than đá, lòng xi-lanh phải luôn được giữ ở nhiệt độ sôi 100°C. Quá trình làm lạnh phải diễn ra ở một không gian hoàn toàn khác.'}
-          {isPhase2 &&
-            'Watt thiết kế một bình ngưng riêng biệt ngâm trong nước lạnh. Hơi nước sau khi đẩy piston lập tức bị hút sang bình ngưng và hóa lỏng mà không làm nguội xi-lanh.'}
-          {isPhase3 &&
-            'Bọc thêm lớp vỏ áo hơi bảo ôn và trang bị bơm rút nước ngưng, cỗ máy của Watt cắt giảm hơn 75% lượng than tiêu thụ, giải phóng công suất vượt bậc.'}
-        </p>
+          {isPhase1 && '💡 Nguyên Lý Watt: Xi-Lanh Luôn Giữ Ở Điểm Sôi 100°C'}
+          {isPhase2 && '❄️ Bình Ngưng Riêng Biệt: Làm Lạnh Ở Không Gian Khác'}
+          {isPhase3 && '🛡️ Áo Hơi Bảo Ôn & Bơm Chân Không Tiết Kiệm 75% Than'}
+        </span>
       </div>
     </div>
   );

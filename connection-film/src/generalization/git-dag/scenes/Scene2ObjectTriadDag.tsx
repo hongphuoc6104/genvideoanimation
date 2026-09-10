@@ -132,16 +132,16 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
           <GitObjectCard
             x={460}
             y={420}
-            width={780}
+            width={840}
             height={280}
             type="BLOB"
             hash="d670460b4b4aece5915caf5c68d12f560a9fe3e4"
-            title="Dữ liệu nội dung nhị phân thô"
+            title="Nội dung nhị phân"
             details={[
               'type: blob (compressed zlib)',
-              'data: "fn main() { println!(\\"Git DAG\\"); }"',
+              'data: "println!(\\"Git DAG\\");"',
               'sha1: sha1("blob 35\\0" + data)',
-              'Tên tệp và quyền hạn hoàn toàn KHÔNG lưu ở đây!',
+              'Tên tệp/quyền KHÔNG lưu ở đây',
             ]}
             color="#0284C7"
             appearFrame={30}
@@ -149,9 +149,9 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
 
           {/* Key Insight Card */}
           <g transform="translate(460, 840)">
-            <rect x="-380" y="-45" width="760" height="90" rx="16" fill="#1E293B" stroke="#0284C7" strokeWidth="3" />
-            <text x="0" y="10" textAnchor="middle" fill="#BAE6FD" fontSize={34} fontWeight="600">
-              Hai tệp cùng nội dung sẽ chia sẻ CHUNG một Blob duy nhất!
+            <rect x="-420" y="-45" width="840" height="90" rx="16" fill="#1E293B" stroke="#0284C7" strokeWidth="3" />
+            <text x="0" y="10" textAnchor="middle" fill="#BAE6FD" fontSize={30} fontWeight="700">
+              Hai tệp cùng nội dung sẽ dùng chung một Blob
             </text>
           </g>
         </svg>
@@ -185,11 +185,11 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
           <GitObjectCard
             x={460}
             y={120}
-            width={780}
+            width={840}
             height={290}
             type="TREE"
             hash="a1b2c3d4e5f60718293a4b5c6d7e8f9012345678"
-            title="Thư mục gốc (Root Tree)"
+            title="Thư mục gốc"
             details={[
               '100644 blob d670460...  main.rs',
               '100644 blob e891a23...  README.md',
@@ -203,20 +203,13 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
           {/* Directed Downward Branching Links */}
           <g transform="translate(460, 480)">
             {/* Left Branch to Blob */}
-            <line x1="-180" y1="0" x2="-260" y2="100" stroke="#10B981" strokeWidth="5" />
-            <polygon points="-260,115 -270,95 -250,95" fill="#10B981" />
-
-            {/* Center Branch to Sub-Tree */}
-            <line x1="0" y1="0" x2="0" y2="100" stroke="#10B981" strokeWidth="5" />
-            <polygon points="0,115 -12,95 12,95" fill="#10B981" />
-
+            <line x1="-180" y1="0" x2="-260" y2="120" stroke="#10B981" strokeWidth="4" strokeDasharray="8 6" />
             {/* Right Branch to Blob */}
-            <line x1="180" y1="0" x2="260" y2="100" stroke="#10B981" strokeWidth="5" />
-            <polygon points="260,115 250,95 270,95" fill="#10B981" />
+            <line x1="180" y1="0" x2="260" y2="120" stroke="#10B981" strokeWidth="4" strokeDasharray="8 6" />
           </g>
 
-          {/* Child Nodes */}
-          <g transform="translate(460, 680)">
+          {/* Connected Children Blobs Preview */}
+          <g transform="translate(460, 640)">
             {/* Child Blob 1 */}
             <g transform="translate(-260, 0)">
               <rect x="-100" y="-40" width="200" height="80" rx="12" fill="#1E293B" stroke="#0284C7" strokeWidth="3" />
@@ -225,17 +218,6 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
               </text>
               <text x="0" y="24" textAnchor="middle" fill="#94A3B8" fontSize={30} fontFamily="monospace">
                 main.rs
-              </text>
-            </g>
-
-            {/* Child Tree */}
-            <g transform="translate(0, 0)">
-              <rect x="-100" y="-40" width="200" height="80" rx="12" fill="#1E293B" stroke="#10B981" strokeWidth="3" />
-              <text x="0" y="-8" textAnchor="middle" fill="#FFFFFF" fontSize={30} fontWeight="bold">
-                TREE: src/
-              </text>
-              <text x="0" y="24" textAnchor="middle" fill="#94A3B8" fontSize={30} fontFamily="monospace">
-                f45c991...
               </text>
             </g>
 
@@ -253,9 +235,9 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
 
           {/* Explanatory Banner */}
           <g transform="translate(460, 860)">
-            <rect x="-380" y="-45" width="760" height="90" rx="16" fill="#1E293B" stroke="#10B981" strokeWidth="3" />
-            <text x="0" y="10" textAnchor="middle" fill="#D1FAE5" fontSize={34} fontWeight="600">
-              Tree liên kết tên tệp với Blob, xây dựng cây thư mục phân tầng
+            <rect x="-420" y="-45" width="840" height="90" rx="16" fill="#1E293B" stroke="#10B981" strokeWidth="3" />
+            <text x="0" y="10" textAnchor="middle" fill="#D1FAE5" fontSize={32} fontWeight="700">
+              Tree liên kết tên tệp với Blob thành cây thư mục
             </text>
           </g>
         </svg>
@@ -289,17 +271,17 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
           <GitObjectCard
             x={460}
             y={120}
-            width={780}
+            width={840}
             height={320}
             type="COMMIT"
             hash="9f83a1b2c3d4e5f60718293a4b5c6d7e8f901234"
-            title="Đỉnh cam kết đồ thị DAG"
+            title="Đỉnh cam kết DAG"
             details={[
-              'tree   a1b2c3d... (Con trỏ tới Root Tree)',
-              'parent 4b28f7c... (Nút cha trước đó)',
+              'tree   a1b2c3d... (Root Tree)',
+              'parent 4b28f7c... (Nút cha)',
               'author Linus Torvalds <torvalds@kernel.org>',
               'committer Linus Torvalds <torvalds@kernel.org>',
-              'message: "Implement cryptographic DAG model"',
+              'message: "Implement cryptographic DAG"',
             ]}
             color="#F59E0B"
             appearFrame={490}
@@ -336,12 +318,12 @@ export const Scene2ObjectTriadDag: React.FC<Scene2ObjectTriadDagProps> = ({
 
           {/* Cryptographic Proof Card */}
           <g transform="translate(460, 780)">
-            <rect x="-380" y="-60" width="760" height="120" rx="20" fill="#1E293B" stroke="#F59E0B" strokeWidth="4" />
+            <rect x="-420" y="-60" width="840" height="120" rx="20" fill="#1E293B" stroke="#F59E0B" strokeWidth="4" />
             <text x="0" y="-10" textAnchor="middle" fill="#FFFFFF" fontSize={38} fontWeight="bold">
               TÍNH TOÀN VẸN MẬT MÃ BẤT BIẾN
             </text>
-            <text x="0" y="35" textAnchor="middle" fill="#FEF3C7" fontSize={34} fontWeight="500">
-              Bất kỳ thay đổi nào ở Blob/Tree đều làm thay đổi toàn bộ mã băm Commit!
+            <text x="0" y="35" textAnchor="middle" fill="#FEF3C7" fontSize={32} fontWeight="600">
+              Mọi thay đổi nội dung đều tạo ra mã băm Commit mới!
             </text>
           </g>
         </svg>

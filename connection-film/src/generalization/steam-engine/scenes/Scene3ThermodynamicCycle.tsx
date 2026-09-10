@@ -12,21 +12,28 @@ export interface Scene3ThermodynamicCycleProps {
 }
 
 export const Scene3ThermodynamicCycle: React.FC<Scene3ThermodynamicCycleProps> = ({
+  durationInFrames = 750,
   shotBeats,
 }) => {
   const frame = useCurrentFrame();
 
   // Dynamic choreography derived from semantic timeline (Beats 7, 8, 9)
-  // Phase 1: 4-phase thermodynamic P-V expansion cycle
-  // Phase 2: Parallel motion pantograph linkage
-  // Phase 3: Industrial flywheel rotary torque
-  const choreography = useBeatChoreography(shotBeats, frame, 750);
-  const isPhase1 = choreography.phase === 1;
-  const isPhase2 = choreography.phase === 2;
-  const isPhase3 = choreography.phase >= 3;
+  // Beat 7 (Phase 1): Thermodynamic P-V admission & expansion stroke (0.0 -> 0.5)
+  // Beat 8 (Phase 2): Condenser exhaust, vacuum creation & return stroke (0.5 -> 1.0)
+  // Beat 9 (Phase 3): Parallel motion linkage & flywheel continuous rotation
+  const choreography = useBeatChoreography(shotBeats, frame, durationInFrames);
+  const isPVPhase1 = choreography.phase === 1;
+  const isPVPhase2 = choreography.phase === 2;
+  const isPV = isPVPhase1 || isPVPhase2;
+  const isMechanism = choreography.phase >= 3;
 
-  // Kinetic state
-  const cycleProgress = ((frame * 1.2) % 100) / 100;
+  // Kinetic state for PV tracer across Beat 7 and Beat 8
+  const pvProgress = isPVPhase1
+    ? interpolate(choreography.beatProgress, [0, 1], [0.0, 0.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
+    : isPVPhase2
+    ? interpolate(choreography.beatProgress, [0, 1], [0.5, 1.0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
+    : 0.0;
+
   const beamAngle = Math.sin((frame * 0.12)) * 14; // -14° to +14°
   const flywheelAngle = (frame * 4.5) % 360;
 
@@ -38,12 +45,9 @@ export const Scene3ThermodynamicCycle: React.FC<Scene3ThermodynamicCycleProps> =
         height: 1920,
         backgroundColor: THEME.colors.bgDark,
         padding: '140px 80px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'space-between',
         boxSizing: 'border-box',
         overflow: 'hidden',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
       }}
     >
       {/* 1. SECTION HEADER */}
@@ -72,97 +76,85 @@ export const Scene3ThermodynamicCycle: React.FC<Scene3ThermodynamicCycleProps> =
             lineHeight: 1.15,
           }}
         >
-          {isPhase1 && 'Chu Trình Áp Suất - Thể Tích'}
-          {isPhase2 && 'Cơ Cấu Chuyển Động Song Song'}
-          {isPhase3 && 'Bánh Đà & Mô-Men Quay Tròn'}
+          {isPVPhase1 && 'Chu Trình P-V: Nạp Hơi & Giãn Nở'}
+          {isPVPhase2 && 'Chu Trình P-V: Ngưng Tụ & Chân Không'}
+          {isMechanism && 'Cơ Cấu Chuyển Động Song Song & Bánh Đà'}
         </h1>
       </div>
 
       {/* 2. CENTRAL RELATIONAL VISUAL CANVAS */}
       <div
         style={{
-          position: 'relative',
-          width: '100%',
+          position: 'absolute',
+          top: 320,
+          left: 80,
+          right: 80,
           height: 980,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        {/* BEAT 7: THERMODYNAMIC P-V CYCLE DIAGRAM */}
-        {isPhase1 && (
+        {/* BEATS 7 & 8: CONTINUOUS THERMODYNAMIC P-V CYCLE DIAGRAM */}
+        {isPV && (
           <PVDiagram
-            cycleProgress={cycleProgress}
-            width={680}
-            height={720}
+            cycleProgress={pvProgress}
+            width={720}
+            height={760}
             showLabels={true}
           />
         )}
 
-        {/* BEAT 8: WATT'S PARALLEL MOTION LINKAGE PANTOGRAPH */}
-        {isPhase2 && (
-          <ParallelMotionLinkage
-            beamAngleDeg={beamAngle}
-            width={680}
-            height={680}
-            showLabels={true}
-          />
-        )}
-
-        {/* BEAT 9: CONTINUOUS INDUSTRIAL FLYWHEEL & BELT */}
-        {isPhase3 && (
-          <RotaryFlywheel
-            rotationAngleDeg={flywheelAngle}
-            width={640}
-            height={720}
-            showBelt={true}
-            showLabels={true}
-          />
+        {/* BEAT 9: WATT'S PARALLEL MOTION LINKAGE & INDUSTRIAL FLYWHEEL */}
+        {isMechanism && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30 }}>
+            <ParallelMotionLinkage
+              beamAngleDeg={beamAngle}
+              width={640}
+              height={520}
+              showLabels={true}
+            />
+            <RotaryFlywheel
+              rotationAngleDeg={flywheelAngle}
+              width={520}
+              height={320}
+              showBelt={true}
+              showLabels={false}
+            />
+          </div>
         )}
       </div>
 
-      {/* 3. PEDAGOGICAL SUMMARY CARD */}
+      {/* 3. DYNAMIC STATUS BADGE (Safe Zone: y = 1330 - 1410, clear of subtitles at y >= 1450) */}
       <div
         style={{
-          width: '100%',
+          position: 'absolute',
+          top: 1330,
+          left: 80,
+          right: 80,
+          height: 80,
           backgroundColor: THEME.colors.bgCard,
-          border: '3px solid #334155',
-          borderRadius: 24,
-          padding: '28px 36px',
-          boxSizing: 'border-box',
+          border: '2px solid #D97706',
+          borderRadius: 20,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
         }}
       >
-        <p
+        <span
           data-role="card"
           style={{
-            fontSize: THEME.typography.cardTitle,
-            color: THEME.colors.brass,
+            fontSize: 38,
             fontWeight: 800,
-            margin: '0 0 12px 0',
+            color: THEME.colors.brass,
+            letterSpacing: '0.02em',
           }}
         >
-          {isPhase1 && 'ĐỘNG HỌC GIÃN NỞ ĐOẠN NHIỆT'}
-          {isPhase2 && 'THIẾT KẾ CƠ HỌC BẤT HỦ CỦA WATT'}
-          {isPhase3 && 'NGUỒN ĐỘNG LỰC CÔNG NGHIỆP'}
-        </p>
-
-        <p
-          data-role="body"
-          style={{
-            fontSize: THEME.typography.body,
-            color: THEME.colors.textPrimary,
-            lineHeight: 1.45,
-            margin: 0,
-            fontWeight: 500,
-          }}
-        >
-          {isPhase1 &&
-            'Bằng cách ngắt van hơi sớm ở một phần tư hành trình, lượng hơi nước đã nạp tiếp tục giãn nở đoạn nhiệt sinh công tối đa mà không tốn thêm nhiên liệu than đốt.'}
-          {isPhase2 &&
-            'Cơ cấu tay đòn song song giữ thanh piston di chuyển hoàn toàn theo đường thẳng đứng tuyệt đối, triệt tiêu mọi lực bẻ ngang làm mòn nát lòng xi-lanh.'}
-          {isPhase3 &&
-            'Bánh răng hành tinh kết hợp bánh đà tích trữ quán tính biến đổi hành trình thụt thò thẳng đứng thành lực xoay tròn liên tục, cung cấp công suất cho toàn bộ phân xưởng.'}
-        </p>
+          {isPVPhase1 && '🔥 Pha 1 & 2: Nạp Hơi Sớm & Giãn Nở Sinh Công'}
+          {isPVPhase2 && '❄️ Pha 3 & 4: Xả Vào Bình Ngưng & Hút Chân Không'}
+          {isMechanism && '⚙️ Cơ Cấu Song Song Watt: Dẫn Hướng & Bánh Đà'}
+        </span>
       </div>
     </div>
   );

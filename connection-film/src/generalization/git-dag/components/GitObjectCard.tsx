@@ -71,21 +71,41 @@ export const GitObjectCard: React.FC<GitObjectCardProps> = ({
 
       {/* Type Badge & Title */}
       <text
-        x={-width / 2 + 24}
+        x={-width / 2 + 28}
         y={42}
         fill="#FFFFFF"
         fontSize={32}
-        fontWeight="800"
+        fontWeight="900"
         fontFamily="system-ui, sans-serif"
       >
-        {type}: {title}
+        {type}
       </text>
 
-      {/* Hash Label */}
+      {/* Short Description */}
       <text
-        x={width / 2 - 24}
+        x={-width / 2 + 160}
         y={42}
-        textAnchor="end"
+        fill="#E2E8F0"
+        fontSize={30}
+        fontWeight="700"
+        fontFamily="system-ui, sans-serif"
+      >
+        {title}
+      </text>
+
+      {/* Hash Label Pill */}
+      <rect
+        x={width / 2 - 180}
+        y={12}
+        width={156}
+        height={36}
+        rx={8}
+        fill="rgba(0, 0, 0, 0.35)"
+      />
+      <text
+        x={width / 2 - 102}
+        y={38}
+        textAnchor="middle"
         fill="#F8FAFC"
         fontSize={30}
         fontWeight="bold"

@@ -140,75 +140,43 @@ export const Scene4RepairPathways: React.FC<Scene4RepairPathwaysProps> = ({
         )}
       </div>
 
-      {/* Pedagogical Explanation Card */}
+      {/* Sleek Status Badge (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
           position: 'absolute',
-          bottom: 360,
-          left: 80,
-          right: 80,
-          backgroundColor: 'rgba(19, 29, 51, 0.92)',
-          border: '2px solid #1E2D4A',
-          borderRadius: 32,
-          padding: '36px 40px',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
+          top: 1200,
+          left: 100,
+          right: 100,
+          height: 80,
+          backgroundColor: 'rgba(19, 29, 51, 0.94)',
+          border: '2px solid #10B981',
+          borderRadius: 24,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 16,
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
           opacity: cardSpring,
-          transform: `translateY(${(1 - cardSpring) * 25}px)`,
         }}
       >
-        <h3
+        <span style={{ fontSize: 38 }}>
+          {phase === 1 ? '🚫' : phase === 2 ? '✨' : '🏥'}
+        </span>
+        <span
           data-role="card"
           style={{
-            margin: '0 0 16px 0',
             fontSize: 38,
             fontWeight: 800,
             color: phase === 1 ? '#60A5FA' : phase === 2 ? '#FBBF24' : '#34D399',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 16,
+            letterSpacing: '0.02em',
           }}
         >
-          <span style={{ fontSize: 38 }}>
-            {phase === 1 ? '🚫' : phase === 2 ? '✨' : '🏥'}
-          </span>
           {phase === 1
             ? 'NHEJ: Tắt Hoàn Toàn Gen Xấu'
             : phase === 2
-            ? 'HDR: Thay Thế & Chèn Đoạn Mới'
-            : 'Cách Mạng Y Sinh & Chữa Bệnh'}
-        </h3>
-        <p
-          data-role="body"
-          style={{
-            margin: '0 0 14px 0',
-            fontSize: 34,
-            fontWeight: 500,
-            color: '#F8FAFC',
-            lineHeight: 1.45,
-          }}
-        >
-          {phase === 1
-            ? 'Cơ chế hàn gắn nhanh nối hai đầu đứt nhưng hay gây mất đoạn (Indel), phá vỡ khung đọc mã gen gây bệnh.'
-            : phase === 2
-            ? 'Cung cấp đoạn DNA khuôn mẫu lành lặn để tế bào sao chép, tích hợp chính xác trình tự mong muốn.'
-            : 'Ứng dụng điều trị tận gốc bệnh thiếu máu hồng cầu liềm, ung thư miễn dịch và tái thiết kế sinh học.'}
-        </p>
-        <div
-          data-role="secondary"
-          style={{
-            fontSize: 30,
-            fontWeight: 600,
-            color: '#94A3B8',
-            borderTop: '1px solid rgba(148, 163, 184, 0.2)',
-            paddingTop: 12,
-          }}
-        >
-          {phase === 1
-            ? '➤ Mục tiêu: Knockout các gen thúc đẩy ung thư hoặc virus xâm nhập tế bào'
-            : phase === 2
-            ? '➤ Mục tiêu: Sửa chữa chính xác từng nucleotide bị sai hỏng bẩm sinh'
-            : '➤ Tầm nhìn: Kỷ nguyên mới trao cho nhân loại chìa khóa mã nguồn sự sống'}
-        </div>
+            ? 'HDR: Chèn Mẫu Sửa Chữa Chính Xác'
+            : 'Ứng Dụng Y Sinh & Trị Liệu Gen'}
+        </span>
       </div>
     </div>
   );

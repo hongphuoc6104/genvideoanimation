@@ -142,48 +142,36 @@ export const Scene4IndustrialImpact: React.FC = () => {
         )}
       </div>
 
-      {/* 3. PEDAGOGICAL SUMMARY CARD */}
+      {/* 3. DYNAMIC STATUS BADGE (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
-          width: '100%',
+          position: 'absolute',
+          top: 1200,
+          left: 80,
+          right: 80,
+          height: 80,
           backgroundColor: THEME.colors.bgCard,
-          border: '3px solid #334155',
-          borderRadius: 24,
-          padding: '28px 36px',
-          boxSizing: 'border-box',
+          border: '2px solid #D97706',
+          borderRadius: 20,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
         }}
       >
-        <p
+        <span
           data-role="card"
           style={{
-            fontSize: THEME.typography.cardTitle,
+            fontSize: 38,
             color: THEME.colors.brass,
             fontWeight: 800,
-            margin: '0 0 12px 0',
+            letterSpacing: '0.02em',
           }}
         >
-          {isPhase1 && 'CHUYỂN DỊCH KHÔNG GIAN SẢN XUẤT'}
-          {isPhase2 && 'KẾT NỐI MẠNG LƯỚI GIAO THƯƠNG TOÀN CẦU'}
-          {isPhase3 && 'BÀI HỌC VỀ HIỆU SUẤT VÀ TƯ DUY NĂNG LƯỢNG'}
-        </p>
-
-        <p
-          data-role="body"
-          style={{
-            fontSize: THEME.typography.body,
-            color: THEME.colors.textPrimary,
-            lineHeight: 1.45,
-            margin: 0,
-            fontWeight: 500,
-          }}
-        >
-          {isPhase1 &&
-            'Không còn bị trói buộc bên dòng sông hẻo lánh, các nhà máy dệt bông quy mô vĩ đại mọc lên ngay tại trung tâm đô thị cảng biển, tạo ra hàng triệu công ăn việc làm.'}
-          {isPhase2 &&
-            'Bơm thấu cạn các giếng mỏ than ngập nước sâu giải phóng nguồn nhiên liệu vô tận, trực tiếp nuôi sống các tuyến tàu hỏa hơi nước vượt lục địa.'}
-          {isPhase3 &&
-            'Từ phát kiến bình ngưng của James Watt, loài người nhận ra chân lý: hiệu suất sinh công phụ thuộc vào khoảng chênh nhiệt độ, đặt nền móng cho định luật nhiệt động lực học.'}
-        </p>
+          {isPhase1 && '🏭 Nhà Máy Rời Rừng Núi Về Trung Tâm Cảng Biển'}
+          {isPhase2 && '🚂 Khai Thác Mỏ Than Sâu & Tuyến Đường Sắt Hơi Nước'}
+          {isPhase3 && '🌡️ Nền Móng Cho Định Luật Nhiệt Động Lực Học'}
+        </span>
       </div>
     </div>
   );

@@ -213,46 +213,36 @@ export const Scene1PreIndustrial: React.FC<Scene1Props> = () => {
         )}
       </div>
 
-      {/* 3. PEDAGOGICAL SUMMARY CARD (Hero Information Box) */}
+      {/* 3. DYNAMIC STATUS BADGE (Safe Zone: y = 1200 - 1280, clear of subtitles at y >= 1450) */}
       <div
         style={{
-          width: '100%',
+          position: 'absolute',
+          top: 1200,
+          left: 80,
+          right: 80,
+          height: 80,
           backgroundColor: THEME.colors.bgCard,
-          border: '3px solid #334155',
-          borderRadius: 24,
-          padding: '28px 36px',
-          boxSizing: 'border-box',
+          border: '2px solid #D97706',
+          borderRadius: 20,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
         }}
       >
-        <h3
+        <span
+          data-role="card"
           style={{
-            fontSize: 40,
+            fontSize: 38,
             color: THEME.colors.brass,
             fontWeight: 800,
-            margin: '0 0 12px 0',
+            letterSpacing: '0.02em',
           }}
         >
-          {isPhase1 && 'QUY LUẬT ĐỊA LÝ KHẮC NGHIỆT'}
-          {isPhase2 && 'CƠ CHẾ PHUN NƯỚC LẠNH NỘI TẠI'}
-          {isPhase3 && 'NGUYÊN NHÂN GỐC RỄ CỦA SỰ THẤT THOÁT'}
-        </h3>
-
-        <p
-          style={{
-            fontSize: 36,
-            color: THEME.colors.textPrimary,
-            lineHeight: 1.45,
-            margin: 0,
-            fontWeight: 500,
-          }}
-        >
-          {isPhase1 &&
-            'Các cơ sở thủ công nghiệp buộc phải đóng đô cạnh ghềnh thác. Nguồn nước biến động theo mùa giới hạn quy mô sản xuất toàn châu Âu.'}
-          {isPhase2 &&
-            'Newcomen bơm hơi nước vào lòng xi-lanh rồi phun trực tiếp tia nước lạnh để tạo chân không, ép piston đi xuống bằng áp suất khí quyển.'}
-          {isPhase3 &&
-            'Mỗi lần xịt nước lạnh, toàn bộ thành xi-lanh bị hạ nhiệt đột ngột. Lượng than khổng lồ sau đó chỉ dùng để làm nóng lại buồng đốt trước khi sinh công.'}
-        </p>
+          {isPhase1 && '⚠️ Năng Lượng Thủy Lực Phụ Thuộc Dòng Chảy Tự Nhiên'}
+          {isPhase2 && '⚙️ Máy Newcomen: Phun Nước Lạnh Trực Tiếp Vào Xi-Lanh'}
+          {isPhase3 && '🔥 98% Nhiệt Thất Thoát Nung Nóng Lại Khối Kim Loại'}
+        </span>
       </div>
     </div>
   );
