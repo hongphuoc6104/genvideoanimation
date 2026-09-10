@@ -4,7 +4,9 @@
  * Conforms to both V3 R10/R11 and E2E AudioManifest specifications.
  */
 
-export type AudioTrackType = 'narration' | 'music' | 'sfx';
+export type AudioTrackType = 'narration' | 'music' | 'sfx' | 'ambience';
+
+export type AudioPolicy = 'narration-sfx' | 'narration-music-sfx';
 
 export interface DuckingConfig {
   duckingDepthDb: number; // e.g. -12.8 dB
@@ -75,6 +77,8 @@ export interface MixOptions {
   duckingConfig?: DuckingConfig;
   targetDurationSec?: number;
   words?: Array<{ word?: string; start: number; end: number }>;
+  audioPolicy?: AudioPolicy;
+  voiceProfile?: string;
 }
 
 export interface MixResult {
@@ -139,7 +143,9 @@ export interface AudioManifestValidation {
 }
 
 export interface AudioManifest {
-  version: '1.0.0' | '3.0' | string;
+  version: '1.0.0' | '3.0' | '3.2' | string;
+  audioPolicy?: AudioPolicy;
+  voiceProfile?: string;
   tracks: AudioManifestTracks;
   ducking: AudioManifestDucking;
   output: AudioManifestOutput;

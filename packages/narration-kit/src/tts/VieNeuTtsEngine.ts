@@ -150,6 +150,18 @@ export class VieNeuTtsEngine implements TtsEngine, TTSProvider {
       String(speed),
       '--sample-rate',
       String(sampleRate),
+      '--mode',
+      'v3turbo',
+      '--backend',
+      'onnx',
+      '--device',
+      'cpu',
+      '--precision',
+      'fp32',
+      '--temperature',
+      '0.65',
+      '--silence-p',
+      '0.05',
       '--output',
       targetWav,
       '--json',
@@ -225,6 +237,111 @@ export class VieNeuTtsEngine implements TtsEngine, TTSProvider {
               } catch {}
             }
             reject(parseError);
+          }
+        }
+      );
+    });
+  }
+
+  public async synthesizeBatch(options: {
+    lines: Array<{
+      id: number | string;
+      role?: string;
+      spoken: string;
+      speed?: number;
+      pauseAfter?: number;
+    }>;
+    outputDir: string;
+    voice?: string;
+    mode?: string;
+    backend?: string;
+    device?: string;
+    precision?: string;
+    temperature?: number;
+    silenceP?: number;
+    masterVoiceover?: string;
+    reuseVoice?: boolean;
+    offline?: boolean;
+  }): Promise<{
+    status: string;
+    totalDurationSec: number;
+    totalLines: number;
+    masterVoiceover: string;
+    scenes: Array<{
+      id: number | string;
+      role: string;
+      speed: number;
+      pauseAfter: number;
+      start: number;
+      end: number;
+      audioDuration: number;
+      totalDuration: number;
+      spoken: string;
+      file: string;
+    }>;
+  }> {
+    const isOffline = options.offline ?? this.offlineDefault;
+    const voice = resolveVieNeuVoice(options.voice || DEFAULT_VIENEU_VOICE);
+    const tempBatchJson = path.join(
+      options.outputDir,
+      `batch_${Date.now()}_${Math.random().toString(36).substring(2, 7)}.json`
+    );
+
+    const batchPayload = {
+      voice: {
+        voice,
+        mode: options.mode || 'v3turbo',
+        backend: options.backend || 'onnx',
+        device: options.device || 'cpu',
+        precision: options.precision || 'fp32',
+        temperature: options.temperature ?? 0.65,
+        silenceP: options.silenceP ?? 0.05,
+      },
+      lines: options.lines,
+      outputDir: options.outputDir,
+      masterVoiceover: options.masterVoiceover || 'voiceover.wav',
+    };
+
+    fs.writeFileSync(tempBatchJson, JSON.stringify(batchPayload, null, 2), 'utf-8');
+
+    const args = [this.scriptPath, '--batch-json', tempBatchJson, '--json'];
+    if (options.reuseVoice) {
+      args.push('--reuse-voice');
+    }
+    if (isOffline) {
+      args.push('--offline');
+    }
+
+    const env: NodeJS.ProcessEnv = {
+      ...process.env,
+      HF_HUB_OFFLINE: isOffline ? '1' : process.env.HF_HUB_OFFLINE,
+      TRANSFORMERS_OFFLINE: isOffline ? '1' : process.env.TRANSFORMERS_OFFLINE,
+      OFFLINE_MODE: isOffline ? '1' : process.env.OFFLINE_MODE,
+    };
+
+    return new Promise((resolve, reject) => {
+      childProcess.execFile(
+        this.pythonPath,
+        args,
+        { env, maxBuffer: 30 * 1024 * 1024 },
+        async (error, stdout, stderr) => {
+          try {
+            if (fs.existsSync(tempBatchJson)) {
+              await fs.promises.unlink(tempBatchJson);
+            }
+          } catch {}
+
+          if (error) {
+            return reject(
+              new Error(`VieNeu batch synthesis failed: ${stderr.trim() || error.message}`)
+            );
+          }
+
+          try {
+            const parsed = JSON.parse(stdout.trim());
+            resolve(parsed);
+          } catch (e: any) {
+            reject(new Error(`Failed to parse batch synthesis result: ${e.message}\nOutput: ${stdout}`));
           }
         }
       );

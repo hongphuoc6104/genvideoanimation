@@ -8,3 +8,4 @@ export * from './normalizeLoudness';
 export * from './mixAudio';
 export * from './audioManifest';
 export * from './deriveCues';
+export * from './voiceProfile';

@@ -256,7 +256,8 @@ export function mixAudioTracks(options: MixOptions): MixResult {
     }
   }
 
-  // 2. Add Background Music track with Dynamic Ducking
+  // 2. Add Background Music track with Dynamic Ducking (Only if audioPolicy allows music)
+  const audioPolicy = options.audioPolicy || 'narration-sfx';
   const duckingConfig: DuckingConfig = options.duckingConfig || {
     duckingDepthDb: -12.8,
     attackMs: 100,
@@ -271,7 +272,7 @@ export function mixAudioTracks(options: MixOptions): MixResult {
   }));
 
   const musicFile = options.musicTrack?.filePath || options.musicTrack?.file;
-  if (musicFile && fs.existsSync(musicFile)) {
+  if (audioPolicy !== 'narration-sfx' && musicFile && fs.existsSync(musicFile)) {
     const musicStereo = readWavToStereo48k(musicFile);
     const envelope = generateDuckingEnvelope(totalFrames, sampleRate, narrationRegions, duckingConfig);
     const musicVol = options.musicTrack?.volume ?? 0.22;
@@ -315,10 +316,10 @@ export function mixAudioTracks(options: MixOptions): MixResult {
     masterInterleaved[2 * i + 1] = mixRight[i];
   }
 
-  // 5. Loudness Normalization & Peak Limiting (EBU R128: -16 LUFS / -1.0 dBFS ceiling)
+  // 5. Loudness Normalization & Peak Limiting (Target: -15.0 LUFS / -1.8 dBTP ceiling)
   const normRes = normalizePcmLoudness(masterInterleaved, {
-    targetLufs: -16.0,
-    maxPeakDbfs: -1.0,
+    targetLufs: -15.0,
+    maxPeakDbfs: -1.8,
     sampleRate: 48000,
     channels: 2,
   });

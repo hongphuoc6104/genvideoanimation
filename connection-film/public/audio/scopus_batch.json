@@ -1,0 +1,176 @@
+{
+  "voice": {
+    "voice": "Adam",
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "lines": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.08,
+      "pauseAfter": 0.2,
+      "spoken": "Tại sao bài báo có số liệu tốt phương pháp mạnh vẫn bị Desk Reject ngay từ vòng đầu"
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.08,
+      "pauseAfter": 0.18,
+      "spoken": "Nguyên nhân cốt lõi Phần mở đầu không chứng minh được khoảng trống nghiên cứu một cách thuyết phục"
+    },
+    {
+      "id": 3,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Chuẩn Scopus là chuẩn đối thoại học thuật Vấn đề rõ tổng quan chọn lọc lập luận có căn cứ"
+    },
+    {
+      "id": 4,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Một Gap chuẩn phải trả lời ba câu hỏi Đã biết gì Chưa thỏa đáng điểm nào Đóng góp gì mới"
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Và sở hữu bốn thuộc tính Định vị Chứng cứ Giải thích và Khả nghiên cứu theo mô hình Swales C A R S"
+    },
+    {
+      "id": 6,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Cánh cửa thứ nhất Gap Lý thuyết khi lý thuyết hiện hành chưa giải thích đủ cơ chế trung gian hay điều tiết"
+    },
+    {
+      "id": 7,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Cánh cửa thứ hai Gap Thực nghiệm khi các nghiên cứu trước cho kết quả mâu thuẫn chưa nhất quán"
+    },
+    {
+      "id": 8,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Cánh cửa thứ ba Gap Bối cảnh đặc thù văn hóa thể chế làm thay đổi cơ chế không chỉ đơn thuần đổi địa bàn"
+    },
+    {
+      "id": 9,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Cánh cửa thứ tư Gap Phương pháp hạn chế về đo lường thiết kế mẫu dữ liệu dọc hoặc sai lệch C M V"
+    },
+    {
+      "id": 10,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Cánh cửa thứ năm Gap Ứng dụng khi hàm ý chính sách và quản trị gắn liền với đóng góp học thuật"
+    },
+    {
+      "id": 11,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Bước một Dùng phễu lọc thu hẹp từ chủ đề rộng sang dòng nghiên cứu chuyên sâu có trọng tâm"
+    },
+    {
+      "id": 12,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Bước hai Lập bản đồ tri thức bốn trục để nhận diện điểm mâu thuẫn và hạn chế lặp lại có hệ thống"
+    },
+    {
+      "id": 13,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Bước ba Lọc hạn chế qua ba điều kiện liên hệ học thuật cốt lõi lặp lại nhiều lần và khả thi kiểm định"
+    },
+    {
+      "id": 14,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Bước bốn Kiến tạo Gap Statement ba tầng Tầng Nền móng Tầng Vấn đề và Tầng Định vị giải pháp"
+    },
+    {
+      "id": 15,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Áp dụng công thức biến số chuẩn A B C D E M F để thể hiện sự kế thừa học thuật có chọn lọc"
+    },
+    {
+      "id": 16,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Nắm chắc Template bốn câu chuẩn quốc tế Câu nền tảng Câu điểm chưa rõ Câu ý nghĩa và Câu định vị"
+    },
+    {
+      "id": 17,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Case study Ngân hàng số Mô hình TAM đã xác nhận vai trò của tính hữu ích và dễ sử dụng"
+    },
+    {
+      "id": 18,
+      "role": "turn",
+      "speed": 1.1,
+      "pauseAfter": 0.22,
+      "spoken": "Dẫu vậy cơ chế từ chất lượng dịch vụ điện tử sang ý định tiếp tục dùng vẫn chưa nhất quán tại thị trường mới nổi"
+    },
+    {
+      "id": 19,
+      "role": "payoff",
+      "speed": 1.08,
+      "pauseAfter": 0.24,
+      "spoken": "Nghiên cứu mới kiểm định trung gian Hài lòng và điều tiết Rủi ro cảm nhận lấp đầy trọn vẹn khoảng trống"
+    },
+    {
+      "id": 20,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Tuyệt đối tránh Lỗi một Tuyên bố thiếu bằng chứng và Lỗi hai Đồng nhất bối cảnh mới với tính mới"
+    },
+    {
+      "id": 21,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.16,
+      "spoken": "Tránh Lỗi ba Liệt kê nguồn thay vì tổng hợp và Lỗi bốn Tách rời khoảng trống khỏi thiết kế phương pháp"
+    },
+    {
+      "id": 22,
+      "role": "turn",
+      "speed": 1.1,
+      "pauseAfter": 0.22,
+      "spoken": "Tránh hai cực đoan không tuyên bố vĩ mô rỗng tuếch cũng đừng vi mô hóa địa bàn mà thiếu giá trị lý thuyết"
+    },
+    {
+      "id": 23,
+      "role": "close",
+      "speed": 1.06,
+      "pauseAfter": 0.2,
+      "spoken": "Research Gap là nền tảng của tính mới Chúc bạn xây dựng lập luận vững chắc và công bố thành công trên Scopus"
+    }
+  ],
+  "outputDir": "/home/hongphuoc6104/Desktop/videorenderhoathinh/connection-film/src/scopus-explainer/audio",
+  "masterVoiceover": "scopus_voiceover.wav"
+}

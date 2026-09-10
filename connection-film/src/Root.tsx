@@ -50,7 +50,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="ScopusResearchGap-TikTok916"
         component={ScopusExplainerFilm}
-        durationInFrames={2400}
+        durationInFrames={SCOPUS_EXPLAINER_DURATION}
         fps={30}
         width={1080}
         height={1920}

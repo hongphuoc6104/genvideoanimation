@@ -21,7 +21,8 @@ import { segmentCaptions } from '../captions/segmentCaptions';
 import { mixAudioTracks } from '../audio/mixAudio';
 import { createAudioManifest } from '../audio/audioManifest';
 import { createCueManifestFromNarration, CueManifest } from './deriveCues';
-import { AudioTrackSpec } from '../audio/types';
+import { AudioPolicy, AudioTrackSpec } from '../audio/types';
+import { GENVIDEO_ADAM_PROFILE } from '../audio/voiceProfile';
 import { PlacementOptions, ShotSpecPlacementInput } from '../captions/types';
 
 export interface NarrationPipelineRequest {
@@ -32,6 +33,7 @@ export interface NarrationPipelineRequest {
   profile?: NarrationProfileName;
   fps?: number;
   offline?: boolean;
+  audioPolicy?: AudioPolicy;
   musicFilePath?: string;
   musicVolume?: number;
   sfxTracks?: AudioTrackSpec[];
@@ -257,8 +259,10 @@ export async function generateNarrationPipeline(
     durationSec: durationSeconds,
   };
 
+  const audioPolicy: AudioPolicy = request.audioPolicy || 'narration-sfx';
+
   let musicTrack: AudioTrackSpec | undefined;
-  if (request.musicFilePath && fs.existsSync(request.musicFilePath)) {
+  if (audioPolicy !== 'narration-sfx' && request.musicFilePath && fs.existsSync(request.musicFilePath)) {
     musicTrack = {
       id: 'track-music',
       type: 'music',
@@ -277,6 +281,7 @@ export async function generateNarrationPipeline(
     outputPath: mixedAudioPath,
     targetDurationSec: durationSeconds,
     words: wordTimings,
+    audioPolicy,
     duckingConfig: {
       duckingDepthDb: -12.8,
       attackMs: 100,
@@ -289,11 +294,13 @@ export async function generateNarrationPipeline(
   createAudioManifest({
     outputPath: audioManifestPath,
     outputFile: mixedSoundtrackName,
+    audioPolicy,
+    voiceProfile: 'GENVIDEO_ADAM_PROFILE',
     totalDurationSec: mixResult.durationSec,
     sampleRate: 48000,
     channels: 2,
     bitDepth: 16,
-    targetLufs: -16.0,
+    targetLufs: -15.0,
     truePeakDbfs: mixResult.truePeakDbfs,
     peakDbfs: mixResult.peakDbfs,
     integratedLufs: mixResult.lufs,

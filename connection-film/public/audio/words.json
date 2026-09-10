@@ -1,0 +1,5090 @@
+[
+  {
+    "id": "w_0",
+    "word": "Tại",
+    "cleanWord": "tại",
+    "start": 0,
+    "end": 0.121,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_1",
+    "word": "sao",
+    "cleanWord": "sao",
+    "start": 0.161,
+    "end": 0.322,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_2",
+    "word": "bài",
+    "cleanWord": "bài",
+    "start": 0.342,
+    "end": 0.462,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_3",
+    "word": "báo",
+    "cleanWord": "báo",
+    "start": 0.482,
+    "end": 0.663,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_4",
+    "word": "có",
+    "cleanWord": "có",
+    "start": 0.724,
+    "end": 0.824,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_5",
+    "word": "số",
+    "cleanWord": "số",
+    "start": 0.844,
+    "end": 0.944,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_6",
+    "word": "liệu",
+    "cleanWord": "liệu",
+    "start": 0.985,
+    "end": 1.106,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_7",
+    "word": "tốt",
+    "cleanWord": "tốt",
+    "start": 1.126,
+    "end": 1.286,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_8",
+    "word": "phương",
+    "cleanWord": "phương",
+    "start": 1.327,
+    "end": 1.508,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_9",
+    "word": "pháp",
+    "cleanWord": "pháp",
+    "start": 1.528,
+    "end": 1.628,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_10",
+    "word": "mạnh",
+    "cleanWord": "mạnh",
+    "start": 1.628,
+    "end": 1.829,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_11",
+    "word": "vẫn",
+    "cleanWord": "vẫn",
+    "start": 1.91,
+    "end": 2.01,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_12",
+    "word": "bị",
+    "cleanWord": "bị",
+    "start": 2.05,
+    "end": 2.15,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_13",
+    "word": "Desk Reject",
+    "cleanWord": "deskreject",
+    "start": 2.151,
+    "end": 2.834,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_PHRASE",
+    "pronunciationMode": "en_phrase",
+    "subunits": [
+      {
+        "text": "Desk",
+        "start": 2.151,
+        "end": 2.432,
+        "confidence": 0.95
+      },
+      {
+        "text": "Reject",
+        "start": 2.452,
+        "end": 2.834,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "w_14",
+    "word": "ngay",
+    "cleanWord": "ngay",
+    "start": 2.895,
+    "end": 3.136,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_15",
+    "word": "từ",
+    "cleanWord": "từ",
+    "start": 3.136,
+    "end": 3.236,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_16",
+    "word": "vòng",
+    "cleanWord": "vòng",
+    "start": 3.196,
+    "end": 3.397,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_17",
+    "word": "đầu",
+    "cleanWord": "đầu",
+    "start": 3.477,
+    "end": 3.618,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_18",
+    "word": "Nguyên",
+    "cleanWord": "nguyên",
+    "start": 4.099,
+    "end": 4.22,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_19",
+    "word": "nhân",
+    "cleanWord": "nhân",
+    "start": 4.24,
+    "end": 4.361,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_20",
+    "word": "cốt",
+    "cleanWord": "cốt",
+    "start": 4.401,
+    "end": 4.562,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_21",
+    "word": "lõi",
+    "cleanWord": "lõi",
+    "start": 4.602,
+    "end": 4.723,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_22",
+    "word": "Phần",
+    "cleanWord": "phần",
+    "start": 4.783,
+    "end": 4.904,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_23",
+    "word": "mở",
+    "cleanWord": "mở",
+    "start": 4.964,
+    "end": 5.064,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_24",
+    "word": "đầu",
+    "cleanWord": "đầu",
+    "start": 5.085,
+    "end": 5.245,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_25",
+    "word": "không",
+    "cleanWord": "không",
+    "start": 5.306,
+    "end": 5.527,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_26",
+    "word": "chứng",
+    "cleanWord": "chứng",
+    "start": 5.527,
+    "end": 5.668,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_27",
+    "word": "minh",
+    "cleanWord": "minh",
+    "start": 5.668,
+    "end": 5.788,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_28",
+    "word": "được",
+    "cleanWord": "được",
+    "start": 5.809,
+    "end": 5.929,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_29",
+    "word": "khoảng",
+    "cleanWord": "khoảng",
+    "start": 5.949,
+    "end": 6.13,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_30",
+    "word": "trống",
+    "cleanWord": "trống",
+    "start": 6.13,
+    "end": 6.291,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_31",
+    "word": "nghiên",
+    "cleanWord": "nghiên",
+    "start": 6.352,
+    "end": 6.512,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_32",
+    "word": "cứu",
+    "cleanWord": "cứu",
+    "start": 6.512,
+    "end": 6.612,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_33",
+    "word": "một",
+    "cleanWord": "một",
+    "start": 6.573,
+    "end": 6.673,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_34",
+    "word": "cách",
+    "cleanWord": "cách",
+    "start": 6.653,
+    "end": 6.854,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_35",
+    "word": "thuyết",
+    "cleanWord": "thuyết",
+    "start": 6.915,
+    "end": 7.076,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_36",
+    "word": "phục",
+    "cleanWord": "phục",
+    "start": 7.096,
+    "end": 7.196,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_37",
+    "word": "Chuẩn",
+    "cleanWord": "chuẩn",
+    "start": 7.598,
+    "end": 7.739,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_38",
+    "word": "Scopus",
+    "cleanWord": "scopus",
+    "start": 7.839,
+    "end": 8.24,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_39",
+    "word": "là",
+    "cleanWord": "là",
+    "start": 8.461,
+    "end": 8.561,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_40",
+    "word": "chuẩn",
+    "cleanWord": "chuẩn",
+    "start": 8.602,
+    "end": 8.702,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_41",
+    "word": "đối",
+    "cleanWord": "đối",
+    "start": 8.702,
+    "end": 8.802,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_42",
+    "word": "thoại",
+    "cleanWord": "thoại",
+    "start": 8.842,
+    "end": 9.023,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_43",
+    "word": "học",
+    "cleanWord": "học",
+    "start": 9.023,
+    "end": 9.164,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_44",
+    "word": "thuật",
+    "cleanWord": "thuật",
+    "start": 9.184,
+    "end": 9.344,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_45",
+    "word": "Vấn",
+    "cleanWord": "vấn",
+    "start": 9.344,
+    "end": 9.445,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_46",
+    "word": "đề",
+    "cleanWord": "đề",
+    "start": 9.505,
+    "end": 9.605,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_47",
+    "word": "rõ",
+    "cleanWord": "rõ",
+    "start": 9.605,
+    "end": 9.706,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_48",
+    "word": "tổng",
+    "cleanWord": "tổng",
+    "start": 9.746,
+    "end": 10.087,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_49",
+    "word": "quan",
+    "cleanWord": "quan",
+    "start": 10.127,
+    "end": 10.227,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_50",
+    "word": "chọn",
+    "cleanWord": "chọn",
+    "start": 10.247,
+    "end": 10.408,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_51",
+    "word": "lọc",
+    "cleanWord": "lọc",
+    "start": 10.468,
+    "end": 10.568,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_52",
+    "word": "lập",
+    "cleanWord": "lập",
+    "start": 10.609,
+    "end": 10.749,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_53",
+    "word": "luận",
+    "cleanWord": "luận",
+    "start": 10.789,
+    "end": 10.95,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_54",
+    "word": "có",
+    "cleanWord": "có",
+    "start": 11.01,
+    "end": 11.11,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_55",
+    "word": "căn",
+    "cleanWord": "căn",
+    "start": 11.09,
+    "end": 11.271,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_56",
+    "word": "cứ",
+    "cleanWord": "cứ",
+    "start": 11.291,
+    "end": 11.391,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_57",
+    "word": "Một",
+    "cleanWord": "một",
+    "start": 11.953,
+    "end": 12.054,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_58",
+    "word": "Gap",
+    "cleanWord": "gap",
+    "start": 12.094,
+    "end": 12.195,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_59",
+    "word": "chuẩn",
+    "cleanWord": "chuẩn",
+    "start": 12.255,
+    "end": 12.416,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_60",
+    "word": "phải",
+    "cleanWord": "phải",
+    "start": 12.496,
+    "end": 12.597,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_61",
+    "word": "trả",
+    "cleanWord": "trả",
+    "start": 12.617,
+    "end": 12.717,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_62",
+    "word": "lời",
+    "cleanWord": "lời",
+    "start": 12.758,
+    "end": 12.858,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_63",
+    "word": "3",
+    "cleanWord": "3",
+    "start": 12.879,
+    "end": 12.979,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_64",
+    "word": "câu",
+    "cleanWord": "câu",
+    "start": 12.979,
+    "end": 13.14,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_65",
+    "word": "hỏi",
+    "cleanWord": "hỏi",
+    "start": 13.161,
+    "end": 13.281,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_66",
+    "word": "Đã",
+    "cleanWord": "đã",
+    "start": 13.342,
+    "end": 13.442,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_67",
+    "word": "biết",
+    "cleanWord": "biết",
+    "start": 13.442,
+    "end": 13.583,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_68",
+    "word": "gì",
+    "cleanWord": "gì",
+    "start": 13.583,
+    "end": 13.683,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_69",
+    "word": "Chưa",
+    "cleanWord": "chưa",
+    "start": 13.684,
+    "end": 13.986,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_70",
+    "word": "thỏa",
+    "cleanWord": "thỏa",
+    "start": 14.026,
+    "end": 14.167,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_71",
+    "word": "đáng",
+    "cleanWord": "đáng",
+    "start": 14.167,
+    "end": 14.328,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_72",
+    "word": "điểm",
+    "cleanWord": "điểm",
+    "start": 14.348,
+    "end": 14.489,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_73",
+    "word": "nào",
+    "cleanWord": "nào",
+    "start": 14.509,
+    "end": 14.609,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_74",
+    "word": "Đóng",
+    "cleanWord": "đóng",
+    "start": 14.569,
+    "end": 14.73,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_75",
+    "word": "góp",
+    "cleanWord": "góp",
+    "start": 14.791,
+    "end": 14.911,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_76",
+    "word": "gì",
+    "cleanWord": "gì",
+    "start": 14.952,
+    "end": 15.052,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_77",
+    "word": "mới",
+    "cleanWord": "mới",
+    "start": 15.032,
+    "end": 15.173,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_78",
+    "word": "Và",
+    "cleanWord": "và",
+    "start": 15.876,
+    "end": 15.976,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_79",
+    "word": "sở",
+    "cleanWord": "sở",
+    "start": 16.057,
+    "end": 16.157,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_80",
+    "word": "hữu",
+    "cleanWord": "hữu",
+    "start": 16.197,
+    "end": 16.338,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_81",
+    "word": "4",
+    "cleanWord": "4",
+    "start": 16.378,
+    "end": 16.559,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_82",
+    "word": "thuộc",
+    "cleanWord": "thuộc",
+    "start": 16.599,
+    "end": 16.72,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_83",
+    "word": "tính",
+    "cleanWord": "tính",
+    "start": 16.74,
+    "end": 16.88,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_84",
+    "word": "Định",
+    "cleanWord": "định",
+    "start": 16.88,
+    "end": 17.041,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_85",
+    "word": "vị",
+    "cleanWord": "vị",
+    "start": 17.041,
+    "end": 17.141,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_86",
+    "word": "Chứng",
+    "cleanWord": "chứng",
+    "start": 17.101,
+    "end": 17.403,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_87",
+    "word": "cứ",
+    "cleanWord": "cứ",
+    "start": 17.423,
+    "end": 17.523,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_88",
+    "word": "Giải",
+    "cleanWord": "giải",
+    "start": 17.483,
+    "end": 17.704,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_89",
+    "word": "thích",
+    "cleanWord": "thích",
+    "start": 17.724,
+    "end": 17.885,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_90",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 17.925,
+    "end": 18.025,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_91",
+    "word": "Khả",
+    "cleanWord": "khả",
+    "start": 18.025,
+    "end": 18.166,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_92",
+    "word": "nghiên",
+    "cleanWord": "nghiên",
+    "start": 18.166,
+    "end": 18.326,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_93",
+    "word": "cứu",
+    "cleanWord": "cứu",
+    "start": 18.326,
+    "end": 18.426,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_94",
+    "word": "theo",
+    "cleanWord": "theo",
+    "start": 18.407,
+    "end": 18.567,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_95",
+    "word": "mô",
+    "cleanWord": "mô",
+    "start": 18.608,
+    "end": 18.708,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_96",
+    "word": "hình",
+    "cleanWord": "hình",
+    "start": 18.708,
+    "end": 18.808,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_97",
+    "word": "Swales CARS",
+    "cleanWord": "swalescars",
+    "start": 18.829,
+    "end": 19.551,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_PHRASE",
+    "pronunciationMode": "custom",
+    "subunits": [
+      {
+        "text": "Swales",
+        "start": 18.829,
+        "end": 19.13,
+        "confidence": 0.95
+      },
+      {
+        "text": "C",
+        "start": 19.25,
+        "end": 19.33,
+        "confidence": 0.95
+      },
+      {
+        "text": "A",
+        "start": 19.331,
+        "end": 19.411,
+        "confidence": 0.95
+      },
+      {
+        "text": "R",
+        "start": 19.391,
+        "end": 19.471,
+        "confidence": 0.95
+      },
+      {
+        "text": "S",
+        "start": 19.471,
+        "end": 19.551,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "w_98",
+    "word": "Cánh",
+    "cleanWord": "cánh",
+    "start": 20.595,
+    "end": 20.735,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_99",
+    "word": "cửa",
+    "cleanWord": "cửa",
+    "start": 20.795,
+    "end": 20.976,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_100",
+    "word": "thứ",
+    "cleanWord": "thứ",
+    "start": 21.036,
+    "end": 21.136,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_101",
+    "word": "nhất",
+    "cleanWord": "nhất",
+    "start": 21.096,
+    "end": 21.236,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_102",
+    "word": "Gap",
+    "cleanWord": "gap",
+    "start": 21.236,
+    "end": 21.437,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_103",
+    "word": "Lý",
+    "cleanWord": "lý",
+    "start": 21.477,
+    "end": 21.577,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_104",
+    "word": "thuyết",
+    "cleanWord": "thuyết",
+    "start": 21.617,
+    "end": 21.858,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_105",
+    "word": "khi",
+    "cleanWord": "khi",
+    "start": 21.858,
+    "end": 22.018,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_106",
+    "word": "lý",
+    "cleanWord": "lý",
+    "start": 22.038,
+    "end": 22.138,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_107",
+    "word": "thuyết",
+    "cleanWord": "thuyết",
+    "start": 22.219,
+    "end": 22.439,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_108",
+    "word": "hiện",
+    "cleanWord": "hiện",
+    "start": 22.439,
+    "end": 22.56,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_109",
+    "word": "hành",
+    "cleanWord": "hành",
+    "start": 22.58,
+    "end": 22.74,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_110",
+    "word": "chưa",
+    "cleanWord": "chưa",
+    "start": 22.78,
+    "end": 23.021,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_111",
+    "word": "giải",
+    "cleanWord": "giải",
+    "start": 23.021,
+    "end": 23.221,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_112",
+    "word": "thích",
+    "cleanWord": "thích",
+    "start": 23.221,
+    "end": 23.401,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_113",
+    "word": "đủ",
+    "cleanWord": "đủ",
+    "start": 23.401,
+    "end": 23.501,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_114",
+    "word": "cơ",
+    "cleanWord": "cơ",
+    "start": 23.482,
+    "end": 23.582,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_115",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 23.582,
+    "end": 23.822,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_116",
+    "word": "trung",
+    "cleanWord": "trung",
+    "start": 23.923,
+    "end": 24.123,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_117",
+    "word": "gian",
+    "cleanWord": "gian",
+    "start": 24.143,
+    "end": 24.263,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_118",
+    "word": "hay",
+    "cleanWord": "hay",
+    "start": 24.263,
+    "end": 24.364,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_119",
+    "word": "điều",
+    "cleanWord": "điều",
+    "start": 24.404,
+    "end": 24.664,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_120",
+    "word": "tiết",
+    "cleanWord": "tiết",
+    "start": 24.684,
+    "end": 24.825,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_121",
+    "word": "Cánh",
+    "cleanWord": "cánh",
+    "start": 25.205,
+    "end": 25.346,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_122",
+    "word": "cửa",
+    "cleanWord": "cửa",
+    "start": 25.386,
+    "end": 25.527,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_123",
+    "word": "thứ",
+    "cleanWord": "thứ",
+    "start": 25.567,
+    "end": 25.667,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_124",
+    "word": "hai",
+    "cleanWord": "hai",
+    "start": 25.688,
+    "end": 25.829,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_125",
+    "word": "Gap",
+    "cleanWord": "gap",
+    "start": 25.869,
+    "end": 25.97,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_126",
+    "word": "Thực",
+    "cleanWord": "thực",
+    "start": 26.01,
+    "end": 26.131,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_127",
+    "word": "nghiệm",
+    "cleanWord": "nghiệm",
+    "start": 26.171,
+    "end": 26.332,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_128",
+    "word": "khi",
+    "cleanWord": "khi",
+    "start": 26.332,
+    "end": 26.493,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_129",
+    "word": "các",
+    "cleanWord": "các",
+    "start": 26.513,
+    "end": 26.674,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_130",
+    "word": "nghiên",
+    "cleanWord": "nghiên",
+    "start": 26.694,
+    "end": 26.875,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_131",
+    "word": "cứu",
+    "cleanWord": "cứu",
+    "start": 26.875,
+    "end": 26.996,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_132",
+    "word": "trước",
+    "cleanWord": "trước",
+    "start": 27.016,
+    "end": 27.237,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_133",
+    "word": "cho",
+    "cleanWord": "cho",
+    "start": 27.257,
+    "end": 27.357,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_134",
+    "word": "kết",
+    "cleanWord": "kết",
+    "start": 27.398,
+    "end": 27.519,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_135",
+    "word": "quả",
+    "cleanWord": "quả",
+    "start": 27.7,
+    "end": 27.821,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_136",
+    "word": "mâu",
+    "cleanWord": "mâu",
+    "start": 27.861,
+    "end": 27.982,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_137",
+    "word": "thuẫn",
+    "cleanWord": "thuẫn",
+    "start": 28.102,
+    "end": 28.284,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_138",
+    "word": "chưa",
+    "cleanWord": "chưa",
+    "start": 28.284,
+    "end": 28.404,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_139",
+    "word": "nhất",
+    "cleanWord": "nhất",
+    "start": 28.545,
+    "end": 28.686,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_140",
+    "word": "quán",
+    "cleanWord": "quán",
+    "start": 28.706,
+    "end": 28.807,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_141",
+    "word": "Cánh",
+    "cleanWord": "cánh",
+    "start": 29.289,
+    "end": 29.409,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_142",
+    "word": "cửa",
+    "cleanWord": "cửa",
+    "start": 29.409,
+    "end": 29.529,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_143",
+    "word": "thứ",
+    "cleanWord": "thứ",
+    "start": 29.59,
+    "end": 29.73,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_144",
+    "word": "ba",
+    "cleanWord": "ba",
+    "start": 29.73,
+    "end": 29.83,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_145",
+    "word": "Gap",
+    "cleanWord": "gap",
+    "start": 29.87,
+    "end": 30.111,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_146",
+    "word": "Bối",
+    "cleanWord": "bối",
+    "start": 30.151,
+    "end": 30.271,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_147",
+    "word": "cảnh",
+    "cleanWord": "cảnh",
+    "start": 30.311,
+    "end": 30.431,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_148",
+    "word": "đặc",
+    "cleanWord": "đặc",
+    "start": 30.471,
+    "end": 30.571,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_149",
+    "word": "thù",
+    "cleanWord": "thù",
+    "start": 30.592,
+    "end": 30.732,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_150",
+    "word": "văn",
+    "cleanWord": "văn",
+    "start": 30.732,
+    "end": 30.952,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_151",
+    "word": "hóa",
+    "cleanWord": "hóa",
+    "start": 30.992,
+    "end": 31.133,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_152",
+    "word": "thể",
+    "cleanWord": "thể",
+    "start": 31.173,
+    "end": 31.473,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_153",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 31.473,
+    "end": 31.654,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_154",
+    "word": "làm",
+    "cleanWord": "làm",
+    "start": 31.654,
+    "end": 31.974,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_155",
+    "word": "thay",
+    "cleanWord": "thay",
+    "start": 31.994,
+    "end": 32.155,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_156",
+    "word": "đổi",
+    "cleanWord": "đổi",
+    "start": 32.155,
+    "end": 32.275,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_157",
+    "word": "cơ",
+    "cleanWord": "cơ",
+    "start": 32.315,
+    "end": 32.435,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_158",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 32.495,
+    "end": 32.676,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_159",
+    "word": "không",
+    "cleanWord": "không",
+    "start": 32.676,
+    "end": 33.016,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_160",
+    "word": "chỉ",
+    "cleanWord": "chỉ",
+    "start": 33.036,
+    "end": 33.136,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_161",
+    "word": "đơn",
+    "cleanWord": "đơn",
+    "start": 33.116,
+    "end": 33.216,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_162",
+    "word": "thuần",
+    "cleanWord": "thuần",
+    "start": 33.217,
+    "end": 33.497,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_163",
+    "word": "đổi",
+    "cleanWord": "đổi",
+    "start": 33.497,
+    "end": 33.597,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_164",
+    "word": "địa",
+    "cleanWord": "địa",
+    "start": 33.557,
+    "end": 33.738,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_165",
+    "word": "bàn",
+    "cleanWord": "bàn",
+    "start": 33.778,
+    "end": 33.918,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_166",
+    "word": "Cánh",
+    "cleanWord": "cánh",
+    "start": 34.419,
+    "end": 34.539,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_167",
+    "word": "cửa",
+    "cleanWord": "cửa",
+    "start": 34.58,
+    "end": 34.7,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_168",
+    "word": "thứ",
+    "cleanWord": "thứ",
+    "start": 34.72,
+    "end": 34.82,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_169",
+    "word": "tư",
+    "cleanWord": "tư",
+    "start": 34.861,
+    "end": 34.961,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_170",
+    "word": "Gap",
+    "cleanWord": "gap",
+    "start": 35.101,
+    "end": 35.202,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_171",
+    "word": "Phương",
+    "cleanWord": "phương",
+    "start": 35.222,
+    "end": 35.362,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_172",
+    "word": "pháp",
+    "cleanWord": "pháp",
+    "start": 35.362,
+    "end": 35.523,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_173",
+    "word": "hạn",
+    "cleanWord": "hạn",
+    "start": 35.543,
+    "end": 35.684,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_174",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 35.684,
+    "end": 35.804,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_175",
+    "word": "về",
+    "cleanWord": "về",
+    "start": 35.844,
+    "end": 36.025,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_176",
+    "word": "đo",
+    "cleanWord": "đo",
+    "start": 36.065,
+    "end": 36.165,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_177",
+    "word": "lường",
+    "cleanWord": "lường",
+    "start": 36.205,
+    "end": 36.486,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_178",
+    "word": "thiết",
+    "cleanWord": "thiết",
+    "start": 36.486,
+    "end": 36.607,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_179",
+    "word": "kế",
+    "cleanWord": "kế",
+    "start": 36.627,
+    "end": 36.727,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_180",
+    "word": "mẫu",
+    "cleanWord": "mẫu",
+    "start": 36.667,
+    "end": 36.888,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_181",
+    "word": "dữ",
+    "cleanWord": "dữ",
+    "start": 36.928,
+    "end": 37.028,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_182",
+    "word": "liệu",
+    "cleanWord": "liệu",
+    "start": 37.109,
+    "end": 37.349,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_183",
+    "word": "dọc",
+    "cleanWord": "dọc",
+    "start": 37.37,
+    "end": 37.53,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_184",
+    "word": "hoặc",
+    "cleanWord": "hoặc",
+    "start": 37.57,
+    "end": 37.731,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_185",
+    "word": "sai",
+    "cleanWord": "sai",
+    "start": 37.751,
+    "end": 37.891,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_186",
+    "word": "lệch",
+    "cleanWord": "lệch",
+    "start": 37.932,
+    "end": 38.112,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_187",
+    "word": "CMV",
+    "cleanWord": "cmv",
+    "start": 38.152,
+    "end": 38.293,
+    "confidence": 0.95,
+    "semanticType": "INITIALISM",
+    "pronunciationMode": "en_spell",
+    "subunits": [
+      {
+        "text": "C",
+        "start": 38.152,
+        "end": 38.232,
+        "confidence": 0.95
+      },
+      {
+        "text": "M",
+        "start": 38.172,
+        "end": 38.252,
+        "confidence": 0.95
+      },
+      {
+        "text": "V",
+        "start": 38.213,
+        "end": 38.293,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "w_188",
+    "word": "Cánh",
+    "cleanWord": "cánh",
+    "start": 39.095,
+    "end": 39.235,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_189",
+    "word": "cửa",
+    "cleanWord": "cửa",
+    "start": 39.275,
+    "end": 39.416,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_190",
+    "word": "thứ",
+    "cleanWord": "thứ",
+    "start": 39.416,
+    "end": 39.516,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_191",
+    "word": "năm",
+    "cleanWord": "năm",
+    "start": 39.516,
+    "end": 39.696,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_192",
+    "word": "Gap",
+    "cleanWord": "gap",
+    "start": 39.756,
+    "end": 39.976,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_193",
+    "word": "Ứng",
+    "cleanWord": "ứng",
+    "start": 39.996,
+    "end": 40.157,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_194",
+    "word": "dụng",
+    "cleanWord": "dụng",
+    "start": 40.157,
+    "end": 40.317,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_195",
+    "word": "khi",
+    "cleanWord": "khi",
+    "start": 40.397,
+    "end": 40.637,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_196",
+    "word": "hàm",
+    "cleanWord": "hàm",
+    "start": 40.658,
+    "end": 40.838,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_197",
+    "word": "ý",
+    "cleanWord": "ý",
+    "start": 40.838,
+    "end": 40.938,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_198",
+    "word": "chính",
+    "cleanWord": "chính",
+    "start": 40.878,
+    "end": 41.218,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_199",
+    "word": "sách",
+    "cleanWord": "sách",
+    "start": 41.218,
+    "end": 41.379,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_200",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 41.419,
+    "end": 41.519,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_201",
+    "word": "quản",
+    "cleanWord": "quản",
+    "start": 41.519,
+    "end": 41.819,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_202",
+    "word": "trị",
+    "cleanWord": "trị",
+    "start": 41.819,
+    "end": 41.919,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_203",
+    "word": "gắn",
+    "cleanWord": "gắn",
+    "start": 41.92,
+    "end": 42.04,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_204",
+    "word": "liền",
+    "cleanWord": "liền",
+    "start": 42.08,
+    "end": 42.4,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_205",
+    "word": "với",
+    "cleanWord": "với",
+    "start": 42.46,
+    "end": 42.621,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_206",
+    "word": "đóng",
+    "cleanWord": "đóng",
+    "start": 42.661,
+    "end": 42.841,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_207",
+    "word": "góp",
+    "cleanWord": "góp",
+    "start": 42.861,
+    "end": 42.961,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_208",
+    "word": "học",
+    "cleanWord": "học",
+    "start": 42.961,
+    "end": 43.061,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_209",
+    "word": "thuật",
+    "cleanWord": "thuật",
+    "start": 43.081,
+    "end": 43.242,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_210",
+    "word": "Bước",
+    "cleanWord": "bước",
+    "start": 43.642,
+    "end": 43.763,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_211",
+    "word": "một",
+    "cleanWord": "một",
+    "start": 43.763,
+    "end": 43.883,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_212",
+    "word": "Dùng",
+    "cleanWord": "dùng",
+    "start": 43.944,
+    "end": 44.185,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_213",
+    "word": "phễu",
+    "cleanWord": "phễu",
+    "start": 44.185,
+    "end": 44.346,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_214",
+    "word": "lọc",
+    "cleanWord": "lọc",
+    "start": 44.406,
+    "end": 44.527,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_215",
+    "word": "thu",
+    "cleanWord": "thu",
+    "start": 44.567,
+    "end": 44.667,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_216",
+    "word": "hẹp",
+    "cleanWord": "hẹp",
+    "start": 44.648,
+    "end": 44.829,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_217",
+    "word": "từ",
+    "cleanWord": "từ",
+    "start": 44.829,
+    "end": 44.929,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_218",
+    "word": "chủ",
+    "cleanWord": "chủ",
+    "start": 44.99,
+    "end": 45.131,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_219",
+    "word": "đề",
+    "cleanWord": "đề",
+    "start": 45.231,
+    "end": 45.331,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_220",
+    "word": "rộng",
+    "cleanWord": "rộng",
+    "start": 45.292,
+    "end": 45.694,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_221",
+    "word": "sang",
+    "cleanWord": "sang",
+    "start": 45.734,
+    "end": 45.875,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_222",
+    "word": "dòng",
+    "cleanWord": "dòng",
+    "start": 45.935,
+    "end": 46.076,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_223",
+    "word": "nghiên",
+    "cleanWord": "nghiên",
+    "start": 46.116,
+    "end": 46.257,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_224",
+    "word": "cứu",
+    "cleanWord": "cứu",
+    "start": 46.257,
+    "end": 46.357,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_225",
+    "word": "chuyên",
+    "cleanWord": "chuyên",
+    "start": 46.317,
+    "end": 46.599,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_226",
+    "word": "sâu",
+    "cleanWord": "sâu",
+    "start": 46.599,
+    "end": 46.699,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_227",
+    "word": "có",
+    "cleanWord": "có",
+    "start": 46.659,
+    "end": 46.759,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_228",
+    "word": "trọng",
+    "cleanWord": "trọng",
+    "start": 46.7,
+    "end": 46.981,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_229",
+    "word": "tâm",
+    "cleanWord": "tâm",
+    "start": 47.102,
+    "end": 47.263,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_230",
+    "word": "Bước",
+    "cleanWord": "bước",
+    "start": 47.785,
+    "end": 47.925,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_231",
+    "word": "hai",
+    "cleanWord": "hai",
+    "start": 47.945,
+    "end": 48.045,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_232",
+    "word": "Lập",
+    "cleanWord": "lập",
+    "start": 48.066,
+    "end": 48.186,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_233",
+    "word": "bản",
+    "cleanWord": "bản",
+    "start": 48.226,
+    "end": 48.346,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_234",
+    "word": "đồ",
+    "cleanWord": "đồ",
+    "start": 48.406,
+    "end": 48.507,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_235",
+    "word": "tri",
+    "cleanWord": "tri",
+    "start": 48.547,
+    "end": 48.767,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_236",
+    "word": "thức",
+    "cleanWord": "thức",
+    "start": 48.787,
+    "end": 48.927,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_237",
+    "word": "4",
+    "cleanWord": "4",
+    "start": 48.947,
+    "end": 49.088,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_238",
+    "word": "trục",
+    "cleanWord": "trục",
+    "start": 49.088,
+    "end": 49.228,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_239",
+    "word": "để",
+    "cleanWord": "để",
+    "start": 49.248,
+    "end": 49.348,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_240",
+    "word": "nhận",
+    "cleanWord": "nhận",
+    "start": 49.469,
+    "end": 49.589,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_241",
+    "word": "diện",
+    "cleanWord": "diện",
+    "start": 49.589,
+    "end": 49.729,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_242",
+    "word": "điểm",
+    "cleanWord": "điểm",
+    "start": 49.809,
+    "end": 49.99,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_243",
+    "word": "mâu",
+    "cleanWord": "mâu",
+    "start": 50.03,
+    "end": 50.13,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_244",
+    "word": "thuẫn",
+    "cleanWord": "thuẫn",
+    "start": 50.11,
+    "end": 50.31,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_245",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 50.37,
+    "end": 50.47,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_246",
+    "word": "hạn",
+    "cleanWord": "hạn",
+    "start": 50.411,
+    "end": 50.551,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_247",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 50.691,
+    "end": 50.851,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_248",
+    "word": "lặp",
+    "cleanWord": "lặp",
+    "start": 50.871,
+    "end": 51.012,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_249",
+    "word": "lại",
+    "cleanWord": "lại",
+    "start": 51.012,
+    "end": 51.152,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_250",
+    "word": "có",
+    "cleanWord": "có",
+    "start": 51.172,
+    "end": 51.272,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_251",
+    "word": "hệ",
+    "cleanWord": "hệ",
+    "start": 51.272,
+    "end": 51.372,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_252",
+    "word": "thống",
+    "cleanWord": "thống",
+    "start": 51.433,
+    "end": 51.673,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_253",
+    "word": "Bước",
+    "cleanWord": "bước",
+    "start": 52.214,
+    "end": 52.354,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_254",
+    "word": "ba",
+    "cleanWord": "ba",
+    "start": 52.374,
+    "end": 52.474,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_255",
+    "word": "Lọc",
+    "cleanWord": "lọc",
+    "start": 52.635,
+    "end": 52.756,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_256",
+    "word": "hạn",
+    "cleanWord": "hạn",
+    "start": 52.796,
+    "end": 52.916,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_257",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 52.976,
+    "end": 53.076,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_258",
+    "word": "qua",
+    "cleanWord": "qua",
+    "start": 53.217,
+    "end": 53.317,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_259",
+    "word": "3",
+    "cleanWord": "3",
+    "start": 53.357,
+    "end": 53.457,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_260",
+    "word": "điều",
+    "cleanWord": "điều",
+    "start": 53.478,
+    "end": 53.578,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_261",
+    "word": "kiện",
+    "cleanWord": "kiện",
+    "start": 53.578,
+    "end": 53.758,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_262",
+    "word": "liên",
+    "cleanWord": "liên",
+    "start": 53.758,
+    "end": 53.939,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_263",
+    "word": "hệ",
+    "cleanWord": "hệ",
+    "start": 53.959,
+    "end": 54.059,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_264",
+    "word": "học",
+    "cleanWord": "học",
+    "start": 54.039,
+    "end": 54.22,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_265",
+    "word": "thuật",
+    "cleanWord": "thuật",
+    "start": 54.26,
+    "end": 54.4,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_266",
+    "word": "cốt",
+    "cleanWord": "cốt",
+    "start": 54.4,
+    "end": 54.52,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_267",
+    "word": "lõi",
+    "cleanWord": "lõi",
+    "start": 54.56,
+    "end": 54.741,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_268",
+    "word": "lặp",
+    "cleanWord": "lặp",
+    "start": 54.821,
+    "end": 55.002,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_269",
+    "word": "lại",
+    "cleanWord": "lại",
+    "start": 55.042,
+    "end": 55.182,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_270",
+    "word": "nhiều",
+    "cleanWord": "nhiều",
+    "start": 55.222,
+    "end": 55.383,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_271",
+    "word": "lần",
+    "cleanWord": "lần",
+    "start": 55.383,
+    "end": 55.483,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_272",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 55.523,
+    "end": 55.623,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_273",
+    "word": "khả",
+    "cleanWord": "khả",
+    "start": 55.824,
+    "end": 56.004,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_274",
+    "word": "thi",
+    "cleanWord": "thi",
+    "start": 56.004,
+    "end": 56.145,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_275",
+    "word": "kiểm",
+    "cleanWord": "kiểm",
+    "start": 56.165,
+    "end": 56.385,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_276",
+    "word": "định",
+    "cleanWord": "định",
+    "start": 56.405,
+    "end": 56.566,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_277",
+    "word": "Bước",
+    "cleanWord": "bước",
+    "start": 56.866,
+    "end": 57.026,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_278",
+    "word": "bốn",
+    "cleanWord": "bốn",
+    "start": 57.046,
+    "end": 57.207,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_279",
+    "word": "Kiến",
+    "cleanWord": "kiến",
+    "start": 57.267,
+    "end": 57.427,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_280",
+    "word": "tạo",
+    "cleanWord": "tạo",
+    "start": 57.427,
+    "end": 57.587,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_281",
+    "word": "Gap Statement",
+    "cleanWord": "gapstatement",
+    "start": 57.688,
+    "end": 58.289,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_PHRASE",
+    "pronunciationMode": "en_phrase",
+    "subunits": [
+      {
+        "text": "Gap",
+        "start": 57.688,
+        "end": 57.868,
+        "confidence": 0.95
+      },
+      {
+        "text": "Statement",
+        "start": 57.908,
+        "end": 58.289,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "w_282",
+    "word": "3",
+    "cleanWord": "3",
+    "start": 58.309,
+    "end": 58.409,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_283",
+    "word": "tầng",
+    "cleanWord": "tầng",
+    "start": 58.389,
+    "end": 58.629,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_284",
+    "word": "Tầng",
+    "cleanWord": "tầng",
+    "start": 58.629,
+    "end": 58.85,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_285",
+    "word": "Nền",
+    "cleanWord": "nền",
+    "start": 58.85,
+    "end": 58.97,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_286",
+    "word": "móng",
+    "cleanWord": "móng",
+    "start": 59.01,
+    "end": 59.191,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_287",
+    "word": "Tầng",
+    "cleanWord": "tầng",
+    "start": 59.191,
+    "end": 59.371,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_288",
+    "word": "Vấn",
+    "cleanWord": "vấn",
+    "start": 59.371,
+    "end": 59.491,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_289",
+    "word": "đề",
+    "cleanWord": "đề",
+    "start": 59.511,
+    "end": 59.611,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_290",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 59.652,
+    "end": 59.872,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_291",
+    "word": "Tầng",
+    "cleanWord": "tầng",
+    "start": 59.892,
+    "end": 60.092,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_292",
+    "word": "Định",
+    "cleanWord": "định",
+    "start": 60.092,
+    "end": 60.273,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_293",
+    "word": "vị",
+    "cleanWord": "vị",
+    "start": 60.293,
+    "end": 60.393,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_294",
+    "word": "giải",
+    "cleanWord": "giải",
+    "start": 60.413,
+    "end": 60.633,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_295",
+    "word": "pháp",
+    "cleanWord": "pháp",
+    "start": 60.674,
+    "end": 60.814,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_296",
+    "word": "Áp",
+    "cleanWord": "áp",
+    "start": 61.094,
+    "end": 61.194,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_297",
+    "word": "dụng",
+    "cleanWord": "dụng",
+    "start": 61.235,
+    "end": 61.395,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_298",
+    "word": "công",
+    "cleanWord": "công",
+    "start": 61.395,
+    "end": 61.576,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_299",
+    "word": "thức",
+    "cleanWord": "thức",
+    "start": 61.576,
+    "end": 61.676,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_300",
+    "word": "biến",
+    "cleanWord": "biến",
+    "start": 61.696,
+    "end": 61.877,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_301",
+    "word": "số",
+    "cleanWord": "số",
+    "start": 61.897,
+    "end": 61.997,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_302",
+    "word": "chuẩn",
+    "cleanWord": "chuẩn",
+    "start": 61.998,
+    "end": 62.319,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_303",
+    "word": "A-B-C-D-E-M-F",
+    "cleanWord": "abcdemf",
+    "start": 62.319,
+    "end": 63.061,
+    "confidence": 0.95,
+    "semanticType": "FORMULA",
+    "pronunciationMode": "en_spell",
+    "subunits": [
+      {
+        "text": "A",
+        "start": 62.319,
+        "end": 62.399,
+        "confidence": 0.95
+      },
+      {
+        "text": "B",
+        "start": 62.359,
+        "end": 62.439,
+        "confidence": 0.95
+      },
+      {
+        "text": "C",
+        "start": 62.379,
+        "end": 62.459,
+        "confidence": 0.95
+      },
+      {
+        "text": "D",
+        "start": 62.499,
+        "end": 62.579,
+        "confidence": 0.95
+      },
+      {
+        "text": "E",
+        "start": 62.66,
+        "end": 62.74,
+        "confidence": 0.95
+      },
+      {
+        "text": "M",
+        "start": 62.841,
+        "end": 62.921,
+        "confidence": 0.95
+      },
+      {
+        "text": "F",
+        "start": 62.981,
+        "end": 63.061,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "w_304",
+    "word": "để",
+    "cleanWord": "để",
+    "start": 63.042,
+    "end": 63.303,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_305",
+    "word": "thể",
+    "cleanWord": "thể",
+    "start": 63.584,
+    "end": 63.905,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_306",
+    "word": "hiện",
+    "cleanWord": "hiện",
+    "start": 63.965,
+    "end": 64.065,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_307",
+    "word": "sự",
+    "cleanWord": "sự",
+    "start": 64.126,
+    "end": 64.226,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_308",
+    "word": "kế",
+    "cleanWord": "kế",
+    "start": 64.186,
+    "end": 64.286,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_309",
+    "word": "thừa",
+    "cleanWord": "thừa",
+    "start": 64.306,
+    "end": 64.507,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_310",
+    "word": "học",
+    "cleanWord": "học",
+    "start": 64.567,
+    "end": 64.748,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_311",
+    "word": "thuật",
+    "cleanWord": "thuật",
+    "start": 64.748,
+    "end": 64.909,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_312",
+    "word": "có",
+    "cleanWord": "có",
+    "start": 64.929,
+    "end": 65.029,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_313",
+    "word": "chọn",
+    "cleanWord": "chọn",
+    "start": 65.049,
+    "end": 65.149,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_314",
+    "word": "lọc",
+    "cleanWord": "lọc",
+    "start": 65.129,
+    "end": 65.27,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_315",
+    "word": "Nắm",
+    "cleanWord": "nắm",
+    "start": 65.871,
+    "end": 65.991,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_316",
+    "word": "chắc",
+    "cleanWord": "chắc",
+    "start": 66.031,
+    "end": 66.192,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_317",
+    "word": "Template",
+    "cleanWord": "template",
+    "start": 66.272,
+    "end": 66.692,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_318",
+    "word": "4",
+    "cleanWord": "4",
+    "start": 66.712,
+    "end": 66.873,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_319",
+    "word": "câu",
+    "cleanWord": "câu",
+    "start": 66.913,
+    "end": 67.073,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_320",
+    "word": "chuẩn",
+    "cleanWord": "chuẩn",
+    "start": 67.153,
+    "end": 67.293,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_321",
+    "word": "quốc",
+    "cleanWord": "quốc",
+    "start": 67.293,
+    "end": 67.393,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_322",
+    "word": "tế",
+    "cleanWord": "tế",
+    "start": 67.413,
+    "end": 67.513,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_323",
+    "word": "Câu",
+    "cleanWord": "câu",
+    "start": 67.493,
+    "end": 67.754,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_324",
+    "word": "nền",
+    "cleanWord": "nền",
+    "start": 67.774,
+    "end": 67.914,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_325",
+    "word": "tảng",
+    "cleanWord": "tảng",
+    "start": 67.954,
+    "end": 68.134,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_326",
+    "word": "Câu",
+    "cleanWord": "câu",
+    "start": 68.195,
+    "end": 68.295,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_327",
+    "word": "điểm",
+    "cleanWord": "điểm",
+    "start": 68.275,
+    "end": 68.435,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_328",
+    "word": "chưa",
+    "cleanWord": "chưa",
+    "start": 68.475,
+    "end": 68.575,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_329",
+    "word": "rõ",
+    "cleanWord": "rõ",
+    "start": 68.655,
+    "end": 68.755,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_330",
+    "word": "Câu",
+    "cleanWord": "câu",
+    "start": 68.735,
+    "end": 68.876,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_331",
+    "word": "ý",
+    "cleanWord": "ý",
+    "start": 68.936,
+    "end": 69.036,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_332",
+    "word": "nghĩa",
+    "cleanWord": "nghĩa",
+    "start": 69.096,
+    "end": 69.416,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_333",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 69.416,
+    "end": 69.516,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_334",
+    "word": "Câu",
+    "cleanWord": "câu",
+    "start": 69.456,
+    "end": 69.597,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_335",
+    "word": "định",
+    "cleanWord": "định",
+    "start": 69.777,
+    "end": 69.997,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_336",
+    "word": "vị",
+    "cleanWord": "vị",
+    "start": 70.017,
+    "end": 70.117,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_337",
+    "word": "Case",
+    "cleanWord": "case",
+    "start": 70.638,
+    "end": 70.799,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_338",
+    "word": "study",
+    "cleanWord": "study",
+    "start": 70.819,
+    "end": 71.08,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_339",
+    "word": "Ngân",
+    "cleanWord": "ngân",
+    "start": 71.12,
+    "end": 71.22,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_340",
+    "word": "hàng",
+    "cleanWord": "hàng",
+    "start": 71.24,
+    "end": 71.461,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_341",
+    "word": "số",
+    "cleanWord": "số",
+    "start": 71.461,
+    "end": 71.561,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_342",
+    "word": "Mô",
+    "cleanWord": "mô",
+    "start": 71.602,
+    "end": 71.702,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_343",
+    "word": "hình",
+    "cleanWord": "hình",
+    "start": 71.722,
+    "end": 71.923,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_344",
+    "word": "TAM",
+    "cleanWord": "tam",
+    "start": 71.923,
+    "end": 72.023,
+    "confidence": 0.95,
+    "semanticType": "ACRONYM",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_345",
+    "word": "đã",
+    "cleanWord": "đã",
+    "start": 72.043,
+    "end": 72.164,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_346",
+    "word": "xác",
+    "cleanWord": "xác",
+    "start": 72.224,
+    "end": 72.365,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_347",
+    "word": "nhận",
+    "cleanWord": "nhận",
+    "start": 72.385,
+    "end": 72.545,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_348",
+    "word": "vai",
+    "cleanWord": "vai",
+    "start": 72.545,
+    "end": 72.646,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_349",
+    "word": "trò",
+    "cleanWord": "trò",
+    "start": 72.706,
+    "end": 72.826,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_350",
+    "word": "của",
+    "cleanWord": "của",
+    "start": 72.826,
+    "end": 72.967,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_351",
+    "word": "tính",
+    "cleanWord": "tính",
+    "start": 73.107,
+    "end": 73.248,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_352",
+    "word": "hữu",
+    "cleanWord": "hữu",
+    "start": 73.288,
+    "end": 73.388,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_353",
+    "word": "ích",
+    "cleanWord": "ích",
+    "start": 73.388,
+    "end": 73.509,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_354",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 73.569,
+    "end": 73.669,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_355",
+    "word": "dễ",
+    "cleanWord": "dễ",
+    "start": 73.669,
+    "end": 73.81,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_356",
+    "word": "sử",
+    "cleanWord": "sử",
+    "start": 73.87,
+    "end": 74.031,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_357",
+    "word": "dụng",
+    "cleanWord": "dụng",
+    "start": 74.091,
+    "end": 74.372,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_358",
+    "word": "Dẫu",
+    "cleanWord": "dẫu",
+    "start": 74.693,
+    "end": 74.833,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_359",
+    "word": "vậy",
+    "cleanWord": "vậy",
+    "start": 74.873,
+    "end": 75.014,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_360",
+    "word": "cơ",
+    "cleanWord": "cơ",
+    "start": 75.114,
+    "end": 75.214,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_361",
+    "word": "chế",
+    "cleanWord": "chế",
+    "start": 75.274,
+    "end": 75.374,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_362",
+    "word": "từ",
+    "cleanWord": "từ",
+    "start": 75.354,
+    "end": 75.515,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_363",
+    "word": "chất",
+    "cleanWord": "chất",
+    "start": 75.555,
+    "end": 75.715,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_364",
+    "word": "lượng",
+    "cleanWord": "lượng",
+    "start": 75.755,
+    "end": 75.935,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_365",
+    "word": "dịch",
+    "cleanWord": "dịch",
+    "start": 75.935,
+    "end": 76.056,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_366",
+    "word": "vụ",
+    "cleanWord": "vụ",
+    "start": 76.076,
+    "end": 76.176,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_367",
+    "word": "điện",
+    "cleanWord": "điện",
+    "start": 76.116,
+    "end": 76.336,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_368",
+    "word": "tử",
+    "cleanWord": "tử",
+    "start": 76.336,
+    "end": 76.436,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_369",
+    "word": "sang",
+    "cleanWord": "sang",
+    "start": 76.376,
+    "end": 76.737,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_370",
+    "word": "ý",
+    "cleanWord": "ý",
+    "start": 76.797,
+    "end": 76.897,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_371",
+    "word": "định",
+    "cleanWord": "định",
+    "start": 76.877,
+    "end": 77.097,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_372",
+    "word": "tiếp",
+    "cleanWord": "tiếp",
+    "start": 77.117,
+    "end": 77.238,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_373",
+    "word": "tục",
+    "cleanWord": "tục",
+    "start": 77.278,
+    "end": 77.378,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_374",
+    "word": "dùng",
+    "cleanWord": "dùng",
+    "start": 77.378,
+    "end": 77.598,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_375",
+    "word": "vẫn",
+    "cleanWord": "vẫn",
+    "start": 77.719,
+    "end": 77.839,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_376",
+    "word": "chưa",
+    "cleanWord": "chưa",
+    "start": 77.839,
+    "end": 77.959,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_377",
+    "word": "nhất",
+    "cleanWord": "nhất",
+    "start": 77.999,
+    "end": 78.159,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_378",
+    "word": "quán",
+    "cleanWord": "quán",
+    "start": 78.199,
+    "end": 78.36,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_379",
+    "word": "tại",
+    "cleanWord": "tại",
+    "start": 78.36,
+    "end": 78.46,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_380",
+    "word": "thị",
+    "cleanWord": "thị",
+    "start": 78.44,
+    "end": 78.56,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_381",
+    "word": "trường",
+    "cleanWord": "trường",
+    "start": 78.58,
+    "end": 78.941,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_382",
+    "word": "mới",
+    "cleanWord": "mới",
+    "start": 78.941,
+    "end": 79.081,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_383",
+    "word": "nổi",
+    "cleanWord": "nổi",
+    "start": 79.081,
+    "end": 79.181,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_384",
+    "word": "Nghiên",
+    "cleanWord": "nghiên",
+    "start": 79.922,
+    "end": 80.043,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_385",
+    "word": "cứu",
+    "cleanWord": "cứu",
+    "start": 80.063,
+    "end": 80.184,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_386",
+    "word": "mới",
+    "cleanWord": "mới",
+    "start": 80.224,
+    "end": 80.324,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_387",
+    "word": "kiểm",
+    "cleanWord": "kiểm",
+    "start": 80.344,
+    "end": 80.505,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_388",
+    "word": "định",
+    "cleanWord": "định",
+    "start": 80.505,
+    "end": 80.686,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_389",
+    "word": "trung",
+    "cleanWord": "trung",
+    "start": 80.686,
+    "end": 80.827,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_390",
+    "word": "gian",
+    "cleanWord": "gian",
+    "start": 80.827,
+    "end": 80.928,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_391",
+    "word": "Hài",
+    "cleanWord": "hài",
+    "start": 80.968,
+    "end": 81.129,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_392",
+    "word": "lòng",
+    "cleanWord": "lòng",
+    "start": 81.149,
+    "end": 81.35,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_393",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 81.41,
+    "end": 81.51,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_394",
+    "word": "điều",
+    "cleanWord": "điều",
+    "start": 81.652,
+    "end": 81.833,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_395",
+    "word": "tiết",
+    "cleanWord": "tiết",
+    "start": 81.833,
+    "end": 81.994,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_396",
+    "word": "Rủi",
+    "cleanWord": "rủi",
+    "start": 82.014,
+    "end": 82.155,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_397",
+    "word": "ro",
+    "cleanWord": "ro",
+    "start": 82.195,
+    "end": 82.295,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_398",
+    "word": "cảm",
+    "cleanWord": "cảm",
+    "start": 82.295,
+    "end": 82.577,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_399",
+    "word": "nhận",
+    "cleanWord": "nhận",
+    "start": 82.617,
+    "end": 82.758,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_400",
+    "word": "lấp",
+    "cleanWord": "lấp",
+    "start": 82.758,
+    "end": 82.879,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_401",
+    "word": "đầy",
+    "cleanWord": "đầy",
+    "start": 82.939,
+    "end": 83.06,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_402",
+    "word": "trọn",
+    "cleanWord": "trọn",
+    "start": 83.1,
+    "end": 83.301,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_403",
+    "word": "vẹn",
+    "cleanWord": "vẹn",
+    "start": 83.301,
+    "end": 83.422,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_404",
+    "word": "khoảng",
+    "cleanWord": "khoảng",
+    "start": 83.422,
+    "end": 83.723,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_405",
+    "word": "trống",
+    "cleanWord": "trống",
+    "start": 83.723,
+    "end": 83.884,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_406",
+    "word": "Tuyệt",
+    "cleanWord": "tuyệt",
+    "start": 84.325,
+    "end": 84.425,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_407",
+    "word": "đối",
+    "cleanWord": "đối",
+    "start": 84.446,
+    "end": 84.586,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_408",
+    "word": "tránh",
+    "cleanWord": "tránh",
+    "start": 84.646,
+    "end": 84.827,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_409",
+    "word": "Lỗi",
+    "cleanWord": "lỗi",
+    "start": 84.827,
+    "end": 84.988,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_410",
+    "word": "1",
+    "cleanWord": "1",
+    "start": 85.068,
+    "end": 85.249,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_411",
+    "word": "Tuyên",
+    "cleanWord": "tuyên",
+    "start": 85.309,
+    "end": 85.47,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_412",
+    "word": "bố",
+    "cleanWord": "bố",
+    "start": 85.47,
+    "end": 85.57,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_413",
+    "word": "thiếu",
+    "cleanWord": "thiếu",
+    "start": 85.571,
+    "end": 85.812,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_414",
+    "word": "bằng",
+    "cleanWord": "bằng",
+    "start": 85.832,
+    "end": 85.932,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_415",
+    "word": "chứng",
+    "cleanWord": "chứng",
+    "start": 85.952,
+    "end": 86.173,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_416",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 86.173,
+    "end": 86.273,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_417",
+    "word": "Lỗi",
+    "cleanWord": "lỗi",
+    "start": 86.274,
+    "end": 86.374,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_418",
+    "word": "2",
+    "cleanWord": "2",
+    "start": 86.595,
+    "end": 86.856,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_419",
+    "word": "Đồng",
+    "cleanWord": "đồng",
+    "start": 86.917,
+    "end": 87.098,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_420",
+    "word": "nhất",
+    "cleanWord": "nhất",
+    "start": 87.138,
+    "end": 87.359,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_421",
+    "word": "bối",
+    "cleanWord": "bối",
+    "start": 87.399,
+    "end": 87.499,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_422",
+    "word": "cảnh",
+    "cleanWord": "cảnh",
+    "start": 87.479,
+    "end": 87.579,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_423",
+    "word": "mới",
+    "cleanWord": "mới",
+    "start": 87.6,
+    "end": 87.74,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_424",
+    "word": "với",
+    "cleanWord": "với",
+    "start": 87.781,
+    "end": 87.901,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_425",
+    "word": "tính",
+    "cleanWord": "tính",
+    "start": 87.941,
+    "end": 88.102,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_426",
+    "word": "mới",
+    "cleanWord": "mới",
+    "start": 88.162,
+    "end": 88.283,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_427",
+    "word": "Tránh",
+    "cleanWord": "tránh",
+    "start": 88.925,
+    "end": 89.065,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_428",
+    "word": "Lỗi",
+    "cleanWord": "lỗi",
+    "start": 89.085,
+    "end": 89.225,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_429",
+    "word": "3",
+    "cleanWord": "3",
+    "start": 89.265,
+    "end": 89.365,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_430",
+    "word": "Liệt",
+    "cleanWord": "liệt",
+    "start": 89.426,
+    "end": 89.566,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_431",
+    "word": "kê",
+    "cleanWord": "kê",
+    "start": 89.606,
+    "end": 89.726,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_432",
+    "word": "nguồn",
+    "cleanWord": "nguồn",
+    "start": 89.886,
+    "end": 90.007,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_433",
+    "word": "thay",
+    "cleanWord": "thay",
+    "start": 90.027,
+    "end": 90.167,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_434",
+    "word": "vì",
+    "cleanWord": "vì",
+    "start": 90.167,
+    "end": 90.267,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_435",
+    "word": "tổng",
+    "cleanWord": "tổng",
+    "start": 90.307,
+    "end": 90.507,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_436",
+    "word": "hợp",
+    "cleanWord": "hợp",
+    "start": 90.547,
+    "end": 90.668,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_437",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 90.708,
+    "end": 90.828,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_438",
+    "word": "Lỗi",
+    "cleanWord": "lỗi",
+    "start": 90.948,
+    "end": 91.108,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_439",
+    "word": "4",
+    "cleanWord": "4",
+    "start": 91.148,
+    "end": 91.288,
+    "confidence": 0.95,
+    "semanticType": "NUMBER",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_440",
+    "word": "Tách",
+    "cleanWord": "tách",
+    "start": 91.308,
+    "end": 91.529,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_441",
+    "word": "rời",
+    "cleanWord": "rời",
+    "start": 91.569,
+    "end": 91.709,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_442",
+    "word": "khoảng",
+    "cleanWord": "khoảng",
+    "start": 91.789,
+    "end": 92.03,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_443",
+    "word": "trống",
+    "cleanWord": "trống",
+    "start": 92.03,
+    "end": 92.19,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_444",
+    "word": "khỏi",
+    "cleanWord": "khỏi",
+    "start": 92.19,
+    "end": 92.29,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_445",
+    "word": "thiết",
+    "cleanWord": "thiết",
+    "start": 92.29,
+    "end": 92.45,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_446",
+    "word": "kế",
+    "cleanWord": "kế",
+    "start": 92.51,
+    "end": 92.61,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_447",
+    "word": "phương",
+    "cleanWord": "phương",
+    "start": 92.59,
+    "end": 92.771,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_448",
+    "word": "pháp",
+    "cleanWord": "pháp",
+    "start": 92.851,
+    "end": 92.971,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_449",
+    "word": "Tránh",
+    "cleanWord": "tránh",
+    "start": 93.371,
+    "end": 93.511,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_450",
+    "word": "hai",
+    "cleanWord": "hai",
+    "start": 93.551,
+    "end": 93.672,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_451",
+    "word": "cực",
+    "cleanWord": "cực",
+    "start": 93.712,
+    "end": 93.832,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_452",
+    "word": "đoan",
+    "cleanWord": "đoan",
+    "start": 93.872,
+    "end": 94.073,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_453",
+    "word": "không",
+    "cleanWord": "không",
+    "start": 94.073,
+    "end": 94.273,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_454",
+    "word": "tuyên",
+    "cleanWord": "tuyên",
+    "start": 94.293,
+    "end": 94.434,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_455",
+    "word": "bố",
+    "cleanWord": "bố",
+    "start": 94.434,
+    "end": 94.534,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_456",
+    "word": "vĩ",
+    "cleanWord": "vĩ",
+    "start": 94.474,
+    "end": 94.574,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_457",
+    "word": "mô",
+    "cleanWord": "mô",
+    "start": 94.574,
+    "end": 94.715,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_458",
+    "word": "rỗng",
+    "cleanWord": "rỗng",
+    "start": 94.755,
+    "end": 95.076,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_459",
+    "word": "tuếch",
+    "cleanWord": "tuếch",
+    "start": 95.096,
+    "end": 95.276,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_460",
+    "word": "cũng",
+    "cleanWord": "cũng",
+    "start": 95.296,
+    "end": 95.457,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_461",
+    "word": "đừng",
+    "cleanWord": "đừng",
+    "start": 95.477,
+    "end": 95.577,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_462",
+    "word": "vi",
+    "cleanWord": "vi",
+    "start": 95.597,
+    "end": 95.697,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  },
+  {
+    "id": "w_463",
+    "word": "mô",
+    "cleanWord": "mô",
+    "start": 95.697,
+    "end": 95.797,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_464",
+    "word": "hóa",
+    "cleanWord": "hóa",
+    "start": 95.777,
+    "end": 95.978,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_465",
+    "word": "địa",
+    "cleanWord": "địa",
+    "start": 95.998,
+    "end": 96.138,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_466",
+    "word": "bàn",
+    "cleanWord": "bàn",
+    "start": 96.158,
+    "end": 96.339,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_467",
+    "word": "mà",
+    "cleanWord": "mà",
+    "start": 96.379,
+    "end": 96.479,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_468",
+    "word": "thiếu",
+    "cleanWord": "thiếu",
+    "start": 96.479,
+    "end": 96.961,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_469",
+    "word": "giá",
+    "cleanWord": "giá",
+    "start": 96.981,
+    "end": 97.081,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_470",
+    "word": "trị",
+    "cleanWord": "trị",
+    "start": 97.041,
+    "end": 97.141,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_471",
+    "word": "lý",
+    "cleanWord": "lý",
+    "start": 97.121,
+    "end": 97.221,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_472",
+    "word": "thuyết",
+    "cleanWord": "thuyết",
+    "start": 97.241,
+    "end": 97.562,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_473",
+    "word": "Research Gap",
+    "cleanWord": "researchgap",
+    "start": 97.963,
+    "end": 98.324,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_PHRASE",
+    "pronunciationMode": "en_phrase",
+    "subunits": [
+      {
+        "text": "Research",
+        "start": 97.963,
+        "end": 98.203,
+        "confidence": 0.95
+      },
+      {
+        "text": "Gap",
+        "start": 98.223,
+        "end": 98.324,
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "w_474",
+    "word": "là",
+    "cleanWord": "là",
+    "start": 98.384,
+    "end": 98.504,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_475",
+    "word": "nền",
+    "cleanWord": "nền",
+    "start": 98.584,
+    "end": 98.724,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_476",
+    "word": "tảng",
+    "cleanWord": "tảng",
+    "start": 98.724,
+    "end": 98.905,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_477",
+    "word": "của",
+    "cleanWord": "của",
+    "start": 98.945,
+    "end": 99.085,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_478",
+    "word": "tính",
+    "cleanWord": "tính",
+    "start": 99.105,
+    "end": 99.245,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_479",
+    "word": "mới",
+    "cleanWord": "mới",
+    "start": 99.265,
+    "end": 99.365,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_480",
+    "word": "Chúc",
+    "cleanWord": "chúc",
+    "start": 99.385,
+    "end": 99.666,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_481",
+    "word": "bạn",
+    "cleanWord": "bạn",
+    "start": 99.666,
+    "end": 99.766,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_482",
+    "word": "xây",
+    "cleanWord": "xây",
+    "start": 99.786,
+    "end": 99.926,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_483",
+    "word": "dựng",
+    "cleanWord": "dựng",
+    "start": 99.926,
+    "end": 100.106,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_484",
+    "word": "lập",
+    "cleanWord": "lập",
+    "start": 100.147,
+    "end": 100.287,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_485",
+    "word": "luận",
+    "cleanWord": "luận",
+    "start": 100.287,
+    "end": 100.467,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_486",
+    "word": "vững",
+    "cleanWord": "vững",
+    "start": 100.507,
+    "end": 100.647,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_487",
+    "word": "chắc",
+    "cleanWord": "chắc",
+    "start": 100.687,
+    "end": 100.828,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_488",
+    "word": "và",
+    "cleanWord": "và",
+    "start": 100.848,
+    "end": 100.948,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_489",
+    "word": "công",
+    "cleanWord": "công",
+    "start": 100.908,
+    "end": 101.268,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_490",
+    "word": "bố",
+    "cleanWord": "bố",
+    "start": 101.509,
+    "end": 101.609,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_491",
+    "word": "thành",
+    "cleanWord": "thành",
+    "start": 101.609,
+    "end": 101.829,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_492",
+    "word": "công",
+    "cleanWord": "công",
+    "start": 101.849,
+    "end": 101.969,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_493",
+    "word": "trên",
+    "cleanWord": "trên",
+    "start": 102.009,
+    "end": 102.19,
+    "confidence": 0.95,
+    "semanticType": "VIETNAMESE",
+    "pronunciationMode": "vi"
+  },
+  {
+    "id": "w_494",
+    "word": "Scopus",
+    "cleanWord": "scopus",
+    "start": 102.25,
+    "end": 102.51,
+    "confidence": 0.95,
+    "semanticType": "ENGLISH_WORD",
+    "pronunciationMode": "en_word"
+  }
+]

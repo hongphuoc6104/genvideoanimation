@@ -3,24 +3,38 @@ import { Audio, Sequence, staticFile } from 'remotion';
 import { KaraokeCaptions } from 'caption-kit';
 import captionsData from './subtitles/captions.json';
 import cuesData from './cues.json';
+import shotSpecData from './shot-spec.json';
 import { Scene1ProblemScopus } from './scenes/Scene1ProblemScopus';
 import { Scene2GapTaxonomy } from './scenes/Scene2GapTaxonomy';
 import { Scene3ProcessFunnel } from './scenes/Scene3ProcessFunnel';
 import { Scene4TemplateCaseStudy } from './scenes/Scene4TemplateCaseStudy';
 import { Scene5PitfallsConclusion } from './scenes/Scene5PitfallsConclusion';
 
-export const TOTAL_FRAMES = 2400; // 80 seconds at 30 FPS
 export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 
-export const SHOTS = [
-  { id: 'shot_01', startFrame: 0, durationInFrames: 450, component: Scene1ProblemScopus },
-  { id: 'shot_02', startFrame: 450, durationInFrames: 450, component: Scene2GapTaxonomy },
-  { id: 'shot_03', startFrame: 900, durationInFrames: 540, component: Scene3ProcessFunnel },
-  { id: 'shot_04', startFrame: 1440, durationInFrames: 510, component: Scene4TemplateCaseStudy },
-  { id: 'shot_05', startFrame: 1950, durationInFrames: 450, component: Scene5PitfallsConclusion },
-] as const;
+const SCENE_COMPONENTS: Record<string, React.FC> = {
+  shot_01: Scene1ProblemScopus,
+  shot_02: Scene2GapTaxonomy,
+  shot_03: Scene3ProcessFunnel,
+  shot_04: Scene4TemplateCaseStudy,
+  shot_05: Scene5PitfallsConclusion,
+};
+
+// Content-driven shot boundaries derived from shot-spec.json
+export const SHOTS = shotSpecData.shots.map((shot: any) => ({
+  id: shot.id,
+  startFrame: shot.startFrame,
+  durationInFrames: shot.endFrame - shot.startFrame,
+  component: SCENE_COMPONENTS[shot.id] || Scene1ProblemScopus,
+}));
+
+// Content-driven total duration in frames
+export const TOTAL_FRAMES =
+  shotSpecData.shots.length > 0
+    ? shotSpecData.shots[shotSpecData.shots.length - 1].endFrame
+    : 2400;
 
 export const ScopusExplainerFilm: React.FC = () => {
   return (
@@ -33,20 +47,14 @@ export const ScopusExplainerFilm: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Background Soundtrack Audio */}
-      <Audio
-        src={staticFile('audio/background_soundtrack.wav')}
-        volume={0.35}
-      />
-
-      {/* Synchronized Master Narration Voiceover */}
+      {/* Synchronized Master Narration Voiceover (Normalized to -15.0 LUFS, TP <= -1.8 dBTP) */}
       <Audio
         src={staticFile('audio/scopus_master_audio.wav')}
         volume={1.0}
       />
 
-      {/* Dynamic SFX Audio Hits Triggered at Declared Cue Frames */}
-      {cuesData.cues.map((cue) => {
+      {/* Dynamic Semantic SFX Audio Hits Triggered at Declared Cue Frames (No Background Music) */}
+      {cuesData.cues.map((cue: any) => {
         if (!cue.soundFx) return null;
         return (
           <Sequence
@@ -62,7 +70,7 @@ export const ScopusExplainerFilm: React.FC = () => {
         );
       })}
 
-      {/* 5 Sequential Scenes covering the 2400 Frames Timeline */}
+      {/* 5 Sequential Scenes covering the Content-Driven Timeline */}
       {SHOTS.map((shot) => {
         const Component = shot.component;
         return (

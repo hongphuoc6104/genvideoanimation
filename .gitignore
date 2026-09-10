@@ -13,6 +13,8 @@ out/
 frames/
 .remotion/
 packages/*/dist/
+connection-film/public/audio/lines/
+connection-film/public/audio/scopus_voiceover.wav
 
 # OS and Logs
 *.log

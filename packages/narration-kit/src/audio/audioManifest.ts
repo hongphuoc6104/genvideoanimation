@@ -15,6 +15,8 @@ import {
 export interface CreateAudioManifestOptions {
   outputPath?: string;
   outputFile?: string;
+  audioPolicy?: 'narration-sfx' | 'narration-music-sfx';
+  voiceProfile?: string;
   totalDurationSec?: number;
   durationSec?: number;
   sampleRate?: number;
@@ -37,16 +39,18 @@ export interface CreateAudioManifestOptions {
  * Creates canonical audio-manifest.json conforming to V3 R10, R11, and test fixture schema.
  */
 export function createAudioManifest(options: CreateAudioManifestOptions): AudioManifest {
-  const version = '1.0.0';
+  const version = '3.2';
+  const audioPolicy = options.audioPolicy || 'narration-sfx';
+  const voiceProfile = options.voiceProfile || 'GENVIDEO_ADAM_PROFILE';
   const sampleRate = options.sampleRate ?? 48000;
   const channels = options.channels ?? 2;
   const bitDepth = options.bitDepth ?? 16;
   const totalDurationSec =
     Math.round((options.totalDurationSec ?? options.durationSec ?? 0) * 100) / 100;
   const truePeakDbfs =
-    Math.round((options.truePeakDbfs ?? options.peakDbfs ?? -1.2) * 10) / 10;
+    Math.round((options.truePeakDbfs ?? options.peakDbfs ?? -1.8) * 10) / 10;
   const lufs =
-    Math.round((options.lufs ?? options.integratedLufs ?? options.targetLufs ?? -16.0) * 10) / 10;
+    Math.round((options.lufs ?? options.integratedLufs ?? options.targetLufs ?? -15.0) * 10) / 10;
   const clippedSamples = options.clippedSamples ?? 0;
 
   // 1. Narration track metadata
@@ -77,9 +81,9 @@ export function createAudioManifest(options: CreateAudioManifestOptions): AudioM
     };
   }
 
-  // 2. Music track metadata
+  // 2. Music track metadata (omitted under narration-sfx policy)
   let music: any = undefined;
-  if (options.musicTrack) {
+  if (audioPolicy !== 'narration-sfx' && options.musicTrack) {
     const rawFile =
       options.musicTrack.file ||
       (options.musicTrack.filePath
@@ -156,6 +160,8 @@ export function createAudioManifest(options: CreateAudioManifestOptions): AudioM
 
   const manifest: AudioManifest = {
     version,
+    audioPolicy,
+    voiceProfile,
     tracks: {
       narration,
       music,
@@ -163,7 +169,7 @@ export function createAudioManifest(options: CreateAudioManifestOptions): AudioM
     },
     ducking,
     output,
-    targetLufs: options.targetLufs ?? -16.0,
+    targetLufs: options.targetLufs ?? -15.0,
     sampleRate,
     channels,
     totalDurationSec,
