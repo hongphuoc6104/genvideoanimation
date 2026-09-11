@@ -1,6 +1,5 @@
 import React from 'react';
-import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
-import { AutoPill } from 'motion-kit';
+import { AutoPill, useBeatChoreography } from 'motion-kit';
 import {
   RaftClusterTopology,
   getClusterNodeBoxes,
@@ -16,14 +15,14 @@ export interface Scene1LeaderElectionProps {
 
 export const Scene1LeaderElection: React.FC<Scene1LeaderElectionProps> = ({
   durationInFrames = 450,
+  shotBeats = [],
 }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { currentBeatIndex, beatProgress, getEventProgress } = useBeatChoreography(shotBeats);
 
-  // Beat 1: frames 0..150 (Follower baseline, countdown timers)
-  // Beat 2: frames 150..300 (S1 Candidate, RequestVote broadcast)
-  // Beat 3: frames 300..450 (Quorum majority reached, S1 Leader elected, Heartbeats)
-  const currentBeat = frame < 150 ? 1 : frame < 300 ? 2 : 3;
+  // Beat 1: currentBeatIndex === 0 (Follower baseline, countdown timers)
+  // Beat 2: currentBeatIndex === 1 (S1 Candidate, RequestVote broadcast)
+  // Beat 3: currentBeatIndex === 2 (Quorum majority reached, S1 Leader elected, Heartbeats)
+  const currentBeat = currentBeatIndex + 1;
 
   // S1 role changes across beats
   const s1Role = currentBeat === 1 ? 'FOLLOWER' : currentBeat === 2 ? 'CANDIDATE' : 'LEADER';
@@ -39,14 +38,11 @@ export const Scene1LeaderElection: React.FC<Scene1LeaderElectionProps> = ({
 
   const nodeBoxes = getClusterNodeBoxes(nodes);
 
-  // Beat 2 RPC broadcast progress (frames 150..300)
-  const rpcProgressBeat2 = interpolate(frame, [160, 280], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  // Beat 2 RPC broadcast progress derived from intra-beat choreography
+  const rpcProgressBeat2 = getEventProgress(0.08, 0.88);
 
-  // Beat 3 Heartbeat pulse progress (frames 300..450)
-  const heartbeatProgress = ((frame - 300) % 40) / 40;
+  // Beat 3 Heartbeat pulse progress derived from beat progress
+  const heartbeatProgress = (beatProgress * 3.75) % 1;
 
   return (
     <div

@@ -1,6 +1,5 @@
 import React from 'react';
-import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
-import { AutoPill } from 'motion-kit';
+import { AutoPill, useBeatChoreography } from 'motion-kit';
 import {
   RaftClusterTopology,
   getClusterNodeBoxes,
@@ -17,15 +16,15 @@ export interface Scene3SafetyPartitionProps {
 
 export const Scene3SafetyPartition: React.FC<Scene3SafetyPartitionProps> = ({
   durationInFrames = 450,
+  shotBeats = [],
 }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { currentBeatIndex, beatProgress, getEventProgress } = useBeatChoreography(shotBeats);
 
-  // Local frame within Scene 3: 0..450 (global 900..1350)
-  // Beat 7: 0..150 (Network partition barrier active, minority S1-S2 cannot commit)
-  // Beat 8: 150..300 (Majority S3-S4-S5 elects S3 as Leader Term 3)
-  // Beat 9: 300..450 (Partition heals, S1 steps down, logs reconciled)
-  const currentBeat = frame < 150 ? 7 : frame < 300 ? 8 : 9;
+  // Local beat within Scene 3:
+  // Beat 7: currentBeatIndex === 0 (Network partition barrier active, minority S1-S2 cannot commit)
+  // Beat 8: currentBeatIndex === 1 (Majority S3-S4-S5 elects S3 as Leader Term 3)
+  // Beat 9: currentBeatIndex === 2 (Partition heals, S1 steps down, logs reconciled)
+  const currentBeat = currentBeatIndex + 7;
 
   // Node states across the partition lifecycle
   let nodes: NodeState[];
@@ -58,17 +57,14 @@ export const Scene3SafetyPartition: React.FC<Scene3SafetyPartitionProps> = ({
 
   const nodeBoxes = getClusterNodeBoxes(nodes);
 
-  // Partition barrier opacity: 1.0 in Beat 7-8, fades to 0 in Beat 9
-  const barrierOpacity = interpolate(frame, [290, 320], [1, 0], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  // Partition barrier opacity: 1.0 in Beat 7-8, fades to 0 in Beat 9 (derived from intra-beat progress)
+  const barrierOpacity = currentBeat <= 8 ? 1 : Math.max(0, 1 - getEventProgress(0.0, 0.25));
 
   // Beat 8 AppendEntries in majority partition from S3 to S4, S5
-  const majorityRpcProgress = ((frame - 150) % 50) / 50;
+  const majorityRpcProgress = (beatProgress * 3) % 1;
 
   // Beat 9 Heartbeats from S3 to all nodes
-  const healedHeartbeatProgress = ((frame - 300) % 45) / 45;
+  const healedHeartbeatProgress = (beatProgress * 3.3) % 1;
 
   return (
     <div

@@ -1,6 +1,5 @@
 import React from 'react';
-import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
-import { AutoPill, AutoClippingConnector, type BoxDescriptor } from 'motion-kit';
+import { AutoPill, AutoClippingConnector, type BoxDescriptor, useBeatChoreography } from 'motion-kit';
 import {
   RaftClusterTopology,
   getClusterNodeBoxes,
@@ -17,15 +16,15 @@ export interface Scene2LogReplicationProps {
 
 export const Scene2LogReplication: React.FC<Scene2LogReplicationProps> = ({
   durationInFrames = 450,
+  shotBeats = [],
 }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { currentBeatIndex, getEventProgress } = useBeatChoreography(shotBeats);
 
-  // Local frame within Scene 2: 0..450 (global 450..900)
-  // Beat 4: 0..150 (Client write command -> Leader S1 uncommitted)
-  // Beat 5: 150..300 (AppendEntries broadcast -> Followers ACK)
-  // Beat 6: 300..450 (Quorum majority -> Committed & State Machine apply)
-  const currentBeat = frame < 150 ? 4 : frame < 300 ? 5 : 6;
+  // Local beat within Scene 2:
+  // Beat 4: currentBeatIndex === 0 (Client write command -> Leader S1 uncommitted)
+  // Beat 5: currentBeatIndex === 1 (AppendEntries broadcast -> Followers ACK)
+  // Beat 6: currentBeatIndex === 2 (Quorum majority -> Committed & State Machine apply)
+  const currentBeat = currentBeatIndex + 4;
 
   const nodes: NodeState[] = [
     { id: 's1', label: 'S1', role: 'LEADER', term: 2, active: true },
@@ -46,17 +45,11 @@ export const Scene2LogReplication: React.FC<Scene2LogReplicationProps> = ({
     cornerRadius: 18,
   };
 
-  // Beat 4 Client to Leader command progress
-  const clientProgress = interpolate(frame, [10, 110], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  // Beat 4 Client to Leader command progress derived from intra-beat choreography
+  const clientProgress = getEventProgress(0.08, 0.75);
 
-  // Beat 5 AppendEntries broadcast progress
-  const rpcProgressBeat5 = interpolate(frame, [160, 270], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
+  // Beat 5 AppendEntries broadcast progress derived from intra-beat choreography
+  const rpcProgressBeat5 = getEventProgress(0.08, 0.85);
 
   // ACK count dynamic calculation across beats
   const ackCount = currentBeat === 4 ? 1 : currentBeat === 5 ? 3 : 4;
