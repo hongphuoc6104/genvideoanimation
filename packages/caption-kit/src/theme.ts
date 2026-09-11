@@ -31,11 +31,11 @@ export const EDUCATIONAL_THEME: CaptionTheme = {
   spokenColor: '#cbd5e1',
   activeTransform: 'none',
   activeScale: 1.0,
-  backgroundColor: 'rgba(15, 23, 42, 0.85)', // dark slate translucent pill
-  borderRadius: '16px',
-  padding: '14px 24px',
-  fontSize: 52, // Standard mobile typography (NEVER_SHRINK_TO_FIT floor for karaoke captions)
+  backgroundColor: 'rgba(15, 23, 42, 0.80)', // dark slate translucent compact pill
+  borderRadius: '14px',
+  padding: '10px 22px',
+  fontSize: 44, // Compact mobile typography (42-46px range, >= 30px mobile floor)
   fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-  lineHeight: 1.3,
+  lineHeight: 1.25,
   letterSpacing: '-0.01em',
 };

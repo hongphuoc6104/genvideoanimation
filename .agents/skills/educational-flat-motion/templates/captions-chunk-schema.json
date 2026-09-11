@@ -7,7 +7,11 @@
     "required": ["id", "text", "startFrame", "endFrame", "box", "words"],
     "properties": {
       "id": { "type": "string" },
-      "text": { "type": "string" },
+      "text": {
+        "type": "string",
+        "maxLength": 85,
+        "description": "Short semantic chunk (typically 4-8 words, <= 12 words max)"
+      },
       "startFrame": { "type": "integer" },
       "endFrame": { "type": "integer" },
       "box": {
@@ -15,9 +19,9 @@
         "required": ["x", "y", "width", "height"],
         "properties": {
           "x": { "type": "number", "default": 80 },
-          "y": { "type": "number", "minimum": 1420, "maximum": 1550 },
+          "y": { "type": "number", "minimum": 1450, "maximum": 1700 },
           "width": { "type": "number", "default": 920 },
-          "height": { "type": "number", "maximum": 200 }
+          "height": { "type": "number", "maximum": 180 }
         }
       },
       "words": {

@@ -7,18 +7,28 @@ export interface SceneProps {
   shotBeats?: any[];
 }
 
+/**
+ * SceneTemplate: Mẫu dựng cảnh động học theo chuẩn V3.4 (Anti-Slide & Kinetic Transformation).
+ * 
+ * NGUYÊN TẮC THIẾT KẾ:
+ * 1. Tự do bố cục hình ảnh (Creative Layout Freedom): Full-bleed, chia đôi so sánh (split),
+ *    chu trình pha tròn (radial phase), hoặc đồ thị mạng lưới. KHÔNG ÉP BUỘC BỐ CỤC 4 TẦNG.
+ * 2. Visual Progression: Diễn giải bằng chuyển động của vector, hình khối và cơ chế (Relational Mechanism).
+ * 3. Ranh giới bất biến duy nhất: Dành riêng vùng an toàn phụ đề [y: 1520 - 1720px] và lề đáy [y > 1720px].
+ *    Không đặt các chi tiết động học chính hoặc văn bản đè lên vùng phụ đề này.
+ */
 export const SceneTemplate: React.FC<SceneProps> = ({ durationInFrames = 600, shotBeats = [] }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Dynamic beat choreography derived strictly from timeline tokens
-  const { currentBeatIndex, intraBeatProgress, phase } = useBeatChoreography(shotBeats);
+  // Dẫn xuất nhịp động học từ timeline tokens (chống hardcode frame tuyệt đối)
+  const { currentBeatIndex, beatProgress: intraBeatProgress, phase } = useBeatChoreography(shotBeats);
 
-  // Entrance spring for central mechanism
-  const entrance = spring({
-    frame,
+  // Ví dụ: Hiệu ứng chuyển biến hình học theo từng nhịp (Intra-beat kinematic interpolation)
+  const morphProgress = spring({
+    frame: frame % 150,
     fps,
-    config: { damping: 14, stiffness: 85 },
+    config: { damping: 15, stiffness: 90 },
   });
 
   return (
@@ -31,95 +41,53 @@ export const SceneTemplate: React.FC<SceneProps> = ({ durationInFrames = 600, sh
         overflow: 'hidden',
       }}
     >
-      {/* Tầng 1: Title Header [y: 120 - 280px] */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 140,
-          left: 80,
-          right: 80,
-          textAlign: 'center',
-        }}
+      {/* 
+        VÙNG KHÔNG GIAN HÌNH ẢNH CHỦ ĐẠO (Primary Kinetic Canvas) [y: 100 - 1500px]
+        Tác giả tự do sáng tạo cơ cấu chuyển động: van lật, liên kết đòn bẩy, đồ thị luồng...
+      */}
+      <svg
+        style={{ position: 'absolute', top: 0, left: 0, width: 1080, height: 1920 }}
+        viewBox="0 0 1080 1920"
       >
-        <div
-          style={{
-            display: 'inline-block',
-            padding: '8px 24px',
-            backgroundColor: 'rgba(59, 130, 246, 0.15)',
-            border: '1.5px solid #3B82F6',
-            borderRadius: 24,
-            color: '#60A5FA',
-            fontSize: 32,
-            fontWeight: 700,
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-            marginBottom: 16,
-          }}
-        >
-          Phần 1: Xác Lập Cơ Chế
-        </div>
-        <h1
-          style={{
-            margin: 0,
-            color: '#FFFFFF',
-            fontSize: 54,
-            fontWeight: 800,
-            lineHeight: 1.2,
-          }}
-        >
-          Tên Khái Niệm Trực Quan
-        </h1>
-      </div>
+        {/* Ví dụ: Cơ cấu chuyển hóa hình học 2 trạng thái (State A <-> State B) */}
+        <g transform={`translate(540, 800) scale(${interpolate(morphProgress, [0, 1], [0.95, 1.05])})`}>
+          {/* Cung liên kết / Cánh van cơ học */}
+          <path
+            d={`M -200 0 Q 0 ${interpolate(morphProgress, [0, 1], [-120, 120])} 200 0`}
+            fill="none"
+            stroke="#3B82F6"
+            strokeWidth={12}
+            strokeLinecap="round"
+          />
 
-      {/* Tầng 2: Central Visual Canvas [y: 300 - 1320px] */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 320,
-          left: 80,
-          width: 920,
-          height: 980,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          opacity: entrance,
-          transform: `scale(${interpolate(entrance, [0, 1], [0.92, 1.0])})`,
-        }}
-      >
-        <svg width="920" height="980" viewBox="0 0 920 980">
-          {/* Active Kinematic Vectors & Relational Nodes */}
-          <circle cx="460" cy="490" r="180" fill="none" stroke="#2563EB" strokeWidth="6" />
-        </svg>
-      </div>
+          {/* Thực thể hạt / Node động học */}
+          <circle
+            cx={interpolate(morphProgress, [0, 1], [-160, 160])}
+            cy={interpolate(morphProgress, [0, 1], [-40, 40])}
+            r={36}
+            fill="#10B981"
+            filter="drop-shadow(0 0 16px rgba(16, 185, 129, 0.6))"
+          />
+        </g>
 
-      {/* Tầng 3: Status Ribbon / Dynamic Badge [y: 1330 - 1410px] */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 1340,
-          left: 80,
-          right: 80,
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: 'rgba(16, 185, 129, 0.15)',
-            border: '1.5px solid #10B981',
-            borderRadius: 30,
-            padding: '10px 28px',
-            color: '#34D399',
-            fontSize: 32,
-            fontWeight: 700,
-          }}
+        {/* Nhãn neo cơ học ngắn gọn (Kinetic Anchor Label - chỉ tên gọi <= 3 từ, cấm đoạn văn) */}
+        <text
+          x={540}
+          y={360}
+          textAnchor="middle"
+          fill="#F8FAFC"
+          fontSize={44}
+          fontWeight={800}
+          letterSpacing="0.02em"
         >
-          Trạng Thái: Pha {phase + 1}
-        </div>
-      </div>
+          {phase === 0 ? 'TRẠNG THÁI KHỞI ĐẦU' : 'CHUYỂN HÓA CẤU HÌNH'}
+        </text>
+      </svg>
 
-      {/* Tầng 4: Karaoke Subtitles Safe Region [y: 1420 - 1750px] - Rendered by Root */}
-      {/* Lề đáy an toàn [y > 1750px] giữ hoàn toàn thông thoáng */}
+      {/* 
+        RANH GIỚI BẢO VỆ PHỤ ĐỀ (Subtitle Clearance Zone) [y: 1520 - 1720px]
+        Không chèn vật thể hoặc đồ họa tĩnh vào dải này. Phụ đề karaoke được Root mount tại đây.
+      */}
     </div>
   );
 };

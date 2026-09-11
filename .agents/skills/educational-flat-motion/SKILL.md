@@ -14,12 +14,20 @@ Kỹ năng này cung cấp quy trình chuẩn hóa, độc lập và tự chứa
 
 ### 5 Nguyên Tắc Bất Biến:
 1. **Visual Progression Over Slide Monoculture**: Cấm tuyệt đối việc tạo các slide hay thẻ bài chứa nhiều chữ (Card Monoculture). Mọi khái niệm phải được diễn hoạt thông qua cơ chế động học (Relational Mechanisms): đồ thị nút/cạnh (nodes & edges), mô hình phân tử, cơ cấu đòn bẩy, phễu hình học, hoặc máy trạng thái.
+   - **Quy tắc Tam Giác Động Học (The Kinetic Triad)**:
+     * *Danh từ (Subject)* $\to$ Chuyển thành Thực thể trực quan (Visual Entity: SVG shape, icon, hạt particle, màng, ống dẫn, khối).
+     * *Động từ/Tác động (Action)* $\to$ Chuyển thành Phép biến đổi không gian (Spatial Transformation: dời chỗ `translate`, co giãn `scale`, biến hình `morph`, đổi màu `fill`, hoặc cắt/mở `mask`).
+     * *Lời thoại (Narration)* $\to$ Gánh toàn bộ phần diễn giải chi tiết bằng âm thanh giọng đọc. Canvas KHÔNG nhắc lại lời dẫn dưới dạng đoạn văn chữ.
+   - **Bài Test Câm & Che Chữ (The Mute-and-Blank Rule)**: Mọi scene phải vượt qua bài test: *Nếu tắt âm thanh và che sạch toàn bộ chữ trên canvas, sự chuyển động của các hình khối và vector vẫn phải truyền tải được bản chất cơ chế*. Nếu che chữ đi mà người xem chỉ thấy các hộp chữ nhật đứng yên $\to$ ĐÓ LÀ SLIDE BÀI GIẢNG TRÁ HÌNH.
+   - **Chính sách Văn bản Duy nhất trên Màn hình (Two Text Categories Only)**:
+     * *Nhóm 1: Nhãn định danh neo cơ học (Kinetic Anchor Labels)*: Chỉ gồm tên danh pháp, ký hiệu ngắn ($\le 3$ từ) hoặc công thức toán/hóa học, dòng lệnh code gắn trực tiếp vào vật thể chuyển động. Cấm tuyệt đối các đoạn văn xuôi mô tả giải thích.
+     * *Nhóm 2: Phụ đề Karaoke*: Nằm gọn sát đáy màn hình ($y \in [1520, 1720\text{px}]$), không chiếm dụng diện tích trung tâm.
 2. **Core Pedagogical Question First**: Mọi video bắt buộc phải giải quyết một câu hỏi cơ chế trọng tâm duy nhất (The Core Pedagogical Question), đi sâu vào bản chất *tại sao* và *như thế nào*, không dàn trải lý thuyết chung chung.
-3. **Audio-Driven Kinetic Rhythm with Smart Punctuation**: Thời lượng video là linh hoạt theo nội dung (`content-driven`), dẫn dắt hoàn toàn bởi âm thanh giọng đọc tiếng Việt tự nhiên (`vi-VN`), bảo toàn dấu câu ngắt giọng tự nhiên (200-400ms PCM silence pause).
+3. **Audio-Driven Kinetic Rhythm with Smart Punctuation**: Thời lượng video là linh hoạt theo nội dung (`content-driven`), dẫn dắt hoàn toàn bởi âm thanh giọng đọc tiếng Việt tự nhiên (`vi-VN`), bảo toàn dấu câu ngắt giọng tự nhiên (250-400ms PCM silence pause).
 4. **Mobile Subtitle Clearance & Creative Layout Flexibility**: 
    - Bố cục màn hình di động 9:16 cần bảo tồn tối đa tính tự do sáng tạo hình ảnh (full-bleed graphs, split comparisons, circular phase cycles, kinetic focal hierarchies) miễn là giải thích đúng bản chất cơ chế.
    - **Tuyệt đối KHÔNG biến bố cục thành một khuôn mẫu 4 tầng bắt buộc hay chia ô cứng nhắc cho mọi cảnh**. Chọn hình thức diễn hoạt vì nó giải thích đúng mối quan hệ, không phải để lấp đầy một khung mẫu cố định.
-   - **Ranh giới bất biến duy nhất**: Dành riêng vùng an toàn phụ đề (Subtitle Clearance Safe Zone: $y \in [1420, 1750\text{px}]$) để phụ đề không va chạm/đè lên các chi tiết động học trung tâm; giữ lề đáy an toàn $y > 1750\text{px}$ tránh UI di động.
+   - **Ranh giới bất biến duy nhất**: Dành riêng vùng an toàn phụ đề siêu gọn (Subtitle Clearance Safe Zone: $y \in [1520, 1720\text{px}]$) để phụ đề không va chạm/đè lên các chi tiết động học trung tâm; giữ lề đáy an toàn $y > 1720\text{px}$ tránh UI di động.
 5. **Fail-Closed Two-Tier Acceptance (NO_SELF_CERTIFICATION)**: Tác nhân lập trình (Tier 1) không bao giờ tự chấm điểm hay tự nghiệm thu cho sản phẩm của mình. Mọi đánh giá phải thông qua bộ cổng kiểm định độc lập (Tier 2 Gates) chạy trên video MP4 và file WAV thật với tiêu chí loại trừ nghiêm ngặt.
 
 ---

@@ -200,11 +200,12 @@ export function segmentCaptions(
     // Line capacity check: can current cluster + nextWord fit within 2 lines of maxCharsPerLine?
     const exceedsCapacity = !canFitInTwoLines([...currentCluster, nextWord], maxCharsPerLine);
     const exceedsMaxDuration = currentDuration > maxDurationSec;
+    const exceedsWordLimit = currentCluster.length >= 8; // Enforce compact 4-8 word chunks
 
     // Boundary decision
     let shouldBreak = false;
 
-    if (exceedsCapacity || exceedsMaxDuration) {
+    if (exceedsCapacity || exceedsMaxDuration || exceedsWordLimit) {
       shouldBreak = true;
     } else if (isSentence) {
       shouldBreak = true;

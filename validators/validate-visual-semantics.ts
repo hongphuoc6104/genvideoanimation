@@ -53,12 +53,14 @@ const SVG_PRIMITIVES = new Set([
   'defs', 'marker', 'lineargradient', 'radialgradient', 'clippath', 'mask', 'g'
 ]);
 
+// Generic domain-agnostic mechanism terms for visual explanations
 const RELATIONAL_COMPONENT_NAMES = new Set([
   'researcherrig', 'characterrig', 'birdrig', 'humanrig', 'customrig',
-  'narrowingfunnel', 'knowledgenetwork', 'threetierassembly', 'bankingcasestudy',
-  'fatalpitfalls', 'gapdoorstaxonomy', 'networkgraph', 'dataflow', 'nodegraph',
-  'funnel', 'statetransition', 'diagram', 'chart', 'coordinatesystem',
-  'matrixgrid', 'assemblymodel', 'flowdiagram'
+  'narrowingfunnel', 'knowledgenetwork', 'threetierassembly', 'networkgraph',
+  'dataflow', 'nodegraph', 'funnel', 'statetransition', 'diagram', 'chart',
+  'coordinatesystem', 'matrixgrid', 'assemblymodel', 'flowdiagram',
+  'statemachine', 'kineticflow', 'molecularrig', 'lipidbilayer', 'porechannel',
+  'linkagemechanism', 'pvcycle', 'commitdag', 'particleemitter'
 ]);
 
 const TEXT_TAGS = new Set([
@@ -67,11 +69,28 @@ const TEXT_TAGS = new Set([
 
 /**
  * Checks if a name matches a known relational or character rig component.
+ * Legacy specific components are only permitted when inspecting legacy/ directories.
  */
-function isRelationalComponentName(name: string): boolean {
+function isRelationalComponentName(name: string, filePath: string = ''): boolean {
   const lower = name.toLowerCase();
+  if (filePath.toLowerCase().includes('legacy')) {
+    if (['bankingcasestudy', 'fatalpitfalls', 'gapdoorstaxonomy'].includes(lower)) {
+      return true;
+    }
+  }
   if (RELATIONAL_COMPONENT_NAMES.has(lower)) return true;
-  return lower.endsWith('rig') || lower.endsWith('diagram') || lower.endsWith('graph') || lower.endsWith('funnel') || lower.endsWith('model');
+  return (
+    lower.endsWith('rig') ||
+    lower.endsWith('diagram') ||
+    lower.endsWith('graph') ||
+    lower.endsWith('funnel') ||
+    lower.endsWith('mechanism') ||
+    lower.endsWith('linkage') ||
+    lower.endsWith('channel') ||
+    lower.endsWith('network') ||
+    lower.endsWith('model') ||
+    lower.endsWith('cycle')
+  );
 }
 
 /**
@@ -190,17 +209,72 @@ function checkComponent(
       }
 
       if (SVG_PRIMITIVES.has(lowerTag)) {
-        svgPrimitiveCount++;
+        let isDummy = false;
+        const attrs = opening.attributes || [];
+        for (const a of attrs) {
+          if (a.type === 'JSXAttribute') {
+            const attrName = a.name?.name;
+            if (attrName === 'opacity' && (a.value?.value === '0' || a.value?.expression?.value === 0)) {
+              isDummy = true;
+            }
+            if ((attrName === 'r' || attrName === 'width' || attrName === 'height') &&
+                (a.value?.value === '0' || a.value?.expression?.value === 0)) {
+              isDummy = true;
+            }
+          }
+        }
+        if (!isDummy) {
+          svgPrimitiveCount++;
+        }
       }
 
       if (TEXT_TAGS.has(lowerTag)) {
         textTagCount++;
       }
 
-      if (isRelationalComponentName(tagName)) {
+      if (isRelationalComponentName(tagName, filePath)) {
         relationalComponents.push({ name: tagName, node: opening, path: jsxPath });
         if (tagName.toLowerCase().includes('rig')) {
           characterRigs.push({ name: tagName, node: opening, path: jsxPath });
+        }
+      }
+
+      // Check for dense prose containers (Text Cluster Law)
+      if (['div', 'section', 'article'].includes(lowerTag)) {
+        let containerWordCount = 0;
+        let containerHasVisuals = false;
+        jsxPath.traverse({
+          JSXElement(childPath: any) {
+            const childTag = getTagName(childPath.node.openingElement.name).toLowerCase();
+            if (SVG_PRIMITIVES.has(childTag) || isRelationalComponentName(childTag, filePath)) {
+              containerHasVisuals = true;
+            }
+          },
+          JSXText(textPath: any) {
+            const val = textPath.node.value.trim();
+            if (val) {
+              containerWordCount += val.split(/\s+/).filter(Boolean).length;
+            }
+          },
+          StringLiteral(strPath: any) {
+            const val = strPath.node.value.trim();
+            if (val && strPath.parentPath?.node?.type === 'JSXExpressionContainer') {
+              containerWordCount += val.split(/\s+/).filter(Boolean).length;
+            }
+          }
+        });
+
+        if (!containerHasVisuals && containerWordCount > 24 && !filePath.toLowerCase().includes('legacy')) {
+          const loc = opening.loc?.start || { line: 1, column: 1 };
+          violations.push({
+            file: filePath,
+            line: loc.line,
+            column: loc.column,
+            rule: 'no-text-card-monoculture',
+            ruleId: 'no-dense-prose-container',
+            severity: 'CRITICAL',
+            message: `Dense prose container detected in "${componentName}": <${tagName}> holds ${containerWordCount} words without kinetic visual mechanisms. Educational motion must not embed dense prose blocks or slide paragraphs into visual scenes.`
+          });
         }
       }
     },
@@ -221,11 +295,12 @@ function checkComponent(
   // Flags components composed purely of text cards without diagrams or animation mechanics.
   // -------------------------------------------------------------
   const totalVisualPrimitives = svgPrimitiveCount + relationalComponents.length;
+  // If totalVisualPrimitives === 0, having spring() on text cards does NOT exempt it from card monoculture!
   const isPureTextMonoculture =
     textTagCount >= 2 &&
-    (totalVisualPrimitives === 0 || (svgPrimitiveCount <= 2 && relationalComponents.length === 0 && !fileHasKinetic));
+    (totalVisualPrimitives === 0 || (svgPrimitiveCount <= 1 && relationalComponents.length === 0 && !fileHasKinetic));
 
-  if (isPureTextMonoculture && !fileHasKinetic) {
+  if (isPureTextMonoculture) {
     const loc = astPath.node.loc?.start || { line: 1, column: 1 };
     violations.push({
       file: filePath,
@@ -234,7 +309,7 @@ function checkComponent(
       rule: 'no-text-card-monoculture',
       ruleId: 'no-text-card-monoculture',
       severity: 'CRITICAL',
-      message: `Text-card monoculture detected in component "${componentName}". Component contains ${textTagCount} text elements but lacks meaningful diagram mechanisms (only ${svgPrimitiveCount} primitives, 0 relational components). Educational motion must use relational visual diagrams, not static presentation slides.`,
+      message: `Text-card monoculture detected in component "${componentName}". Component contains ${textTagCount} text elements but lacks meaningful diagram mechanisms (only ${svgPrimitiveCount} primitives, ${relationalComponents.length} relational components). Educational motion must use relational visual diagrams, not static presentation slides.`,
     });
   }
 

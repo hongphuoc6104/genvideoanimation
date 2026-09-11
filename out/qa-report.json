@@ -1,12 +1,12 @@
 {
   "version": "3.4.0",
-  "timestamp": "2026-09-10T19:39:08.133Z",
+  "timestamp": "2026-09-11T08:23:49.137Z",
   "project": "sodium-potassium-pump",
   "projectDir": "connection-film/src/projects/sodium-potassium-pump",
   "masterVideo": "out/sodium-potassium-pump-1080p.mp4",
   "previewVideo": "out/sodium-potassium-pump-preview-360x640.mp4",
   "passed": true,
-  "totalDurationSec": 13.26,
+  "totalDurationSec": 13.42,
   "certifiedBy": "independent_reviewer_agent",
   "overallAverage": 4.87,
   "verdict": "CERTIFIED_PRODUCTION_GRADE",
@@ -21,49 +21,49 @@
     {
       "id": "G01-mobile-typography",
       "name": "Mobile Typography & Effective Scale AST Gate (>= 30px Floor)",
-      "durationMs": 1109.701473,
+      "durationMs": 1091.708693,
       "passed": true
     },
     {
       "id": "G02-portability",
       "name": "Workspace Portability & Zero Machine Paths Gate",
-      "durationMs": 646.383257,
+      "durationMs": 629.680644,
       "passed": true
     },
     {
       "id": "G03-audio-ownership",
       "name": "Audio Single Ownership & Root Mount Gate (1 <Audio> tag)",
-      "durationMs": 1113.0467489999999,
+      "durationMs": 1175.5163719999998,
       "passed": true
     },
     {
       "id": "G04-visual-semantics",
       "name": "Visual AST Semantics & Anti-Card Monoculture Gate",
-      "durationMs": 1231.3806949999998,
+      "durationMs": 1097.740578,
       "passed": true
     },
     {
       "id": "G05-contact-sheet",
       "name": "Storyboard Contact Sheet Frame Extraction (FFmpeg Pipe)",
-      "durationMs": 872.2331650000006,
+      "durationMs": 856.4520769999999,
       "passed": true
     },
     {
       "id": "G06-temporal-qa",
       "name": "Temporal Video Discontinuity & Spike Gate (Rawvideo MAD)",
-      "durationMs": 2728.2474870000005,
+      "durationMs": 2760.5613600000006,
       "passed": true
     },
     {
       "id": "G07-preview-parity",
       "name": "Deterministic Preview Parity Gate (PSNR >= 35.0 dB, Delta = 0.0s)",
-      "durationMs": 2623.5278560000006,
+      "durationMs": 2788.6473699999997,
       "passed": true
     },
     {
       "id": "G08-preview-rubric",
       "name": "Mobile Preview Readability & Rubric Gate (Real FFmpeg RGB24 Pipe)",
-      "durationMs": 2934.7559979999987,
+      "durationMs": 3012.675257000001,
       "passed": true
     }
   ]

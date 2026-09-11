@@ -20,10 +20,11 @@ export const KaraokeGroup: React.FC<KaraokeGroupProps> = ({
   const fontSize = themeProps?.fontSize || theme.fontSize || 36;
   const fontFamily = themeProps?.fontFamily || theme.fontFamily || 'Inter, system-ui, sans-serif';
 
-  // Fixed container dimensions guarantee zero layout shift (CLS = 0)
+  // Dynamic width adapts to phrase length, freeing peripheral screen space
   const groupStyle: React.CSSProperties = {
-    width: box ? `${box.width}px` : '100%',
-    height: box ? `${box.height}px` : 'auto',
+    width: 'fit-content',
+    maxWidth: box ? `${box.width}px` : '100%',
+    minHeight: box ? `${box.height}px` : 'auto',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

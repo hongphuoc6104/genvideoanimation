@@ -39,9 +39,42 @@
             "type": "object",
             "required": ["spatialRelationship", "transformationType"],
             "properties": {
-              "spatialRelationship": { "type": "string" },
-              "transformationType": { "type": "string" },
-              "coreMechanism": { "type": "string" }
+              "spatialRelationship": {
+                "type": "string",
+                "pattern": "^(?!.*(card_grid|slide_deck|bullet_list)).*$",
+                "description": "Spatial organization of visual elements (e.g. lateral_conformation_split, axial_flow_channel)"
+              },
+              "transformationType": {
+                "type": "string",
+                "pattern": "^(?!.*(card_fade|slide_in_text|bullet_reveal)).*$",
+                "description": "Observable kinetic transformation (e.g. e1_to_e2_morph, pore_dilation, cleavage_severance)"
+              },
+              "coreMechanism": { "type": "string" },
+              "mechanismParadigm": {
+                "type": "string",
+                "enum": [
+                  "STATE_MACHINE",
+                  "CONTINUOUS_FLOW",
+                  "MECHANICAL_LINKAGE",
+                  "SPATIAL_TOPOLOGY",
+                  "MOLECULAR_CONFORMATION",
+                  "GEOMETRIC_TRANSFORMATION",
+                  "HIERARCHICAL_NETWORK",
+                  "DYNAMIC_EQUATION"
+                ]
+              },
+              "stateChange": {
+                "type": "object",
+                "properties": {
+                  "initialState": { "type": "string" },
+                  "drivingForce": { "type": "string" },
+                  "targetState": { "type": "string" }
+                }
+              },
+              "textElementPolicy": {
+                "type": "string",
+                "enum": ["ANCHOR_ONLY", "NONE", "EQUATION_ONLY"]
+              }
             }
           }
         }

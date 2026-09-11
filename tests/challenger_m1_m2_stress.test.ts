@@ -256,6 +256,32 @@ export async function runAllStressTests() {
     assert.ok(violations.some((v) => v.severity === 'CRITICAL'), 'Violation must be CRITICAL');
   });
 
+  await runChallenge('M2.1b Synthetic scene: animated text cards with spring() must FAIL (closed loophole)', () => {
+    const animatedCardCode = `
+      import React from 'react';
+      import { useCurrentFrame, spring } from 'remotion';
+
+      export const AnimatedTextCardScene: React.FC = () => {
+        const frame = useCurrentFrame();
+        const spr = spring({ frame, fps: 30 });
+
+        return (
+          <div style={{ opacity: spr, transform: \`translateY(\${(1 - spr) * 40}px)\` }}>
+            <h1>Tiêu đề slide bài giảng</h1>
+            <p>Nội dung thẻ giải thích số 1 có hiệu ứng bay vào</p>
+            <p>Nội dung thẻ giải thích số 2 có hiệu ứng bay vào</p>
+          </div>
+        );
+      };
+    `;
+    const violations = lintVisualSemanticsCode(animatedCardCode, 'scenes/AnimatedTextCardScene.tsx');
+    assert.ok(violations.length > 0, 'Must detect violations even when animated with spring');
+
+    const hasAntiCard = violations.some((v) => v.rule === 'no-text-card-monoculture');
+    assert.ok(hasAntiCard, 'Must trigger no-text-card-monoculture despite spring animation');
+    assert.ok(violations.some((v) => v.severity === 'CRITICAL'), 'Violation must be CRITICAL');
+  });
+
   await runChallenge('M2.2 Synthetic scene: text + passive/idle character rig must FAIL', () => {
     const passiveCode = `
       import React from 'react';
