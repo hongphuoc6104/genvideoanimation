@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBeatChoreography } from 'motion-kit';
+import { useBeatChoreography, SafeStageZone } from 'motion-kit';
 import { ScopusMicroHUD } from '../components/ScopusMicroHUD';
 import { ResearchFunnelMechanism } from '../components/ResearchFunnelMechanism';
 import { ThreeTierBridgeMechanism } from '../components/ThreeTierBridgeMechanism';
@@ -38,15 +38,18 @@ export const Scene3ProcessFunnel: React.FC<SceneProps> = ({
       {/* Semantic Micro HUD */}
       <ScopusMicroHUD currentSection={3} sectionTitle="PHỄU & CẦU 3 TẦNG SWALES" />
 
-      {/* Stage 1: Research Funnel (Unmounts completely at Beat 3) */}
-      {isFunnelStage && (
-        <ResearchFunnelMechanism activeLevelIndex={currentBeatIndex} />
-      )}
+      {/* Stage Boundary Protection */}
+      <SafeStageZone>
+        {/* Stage 1: Research Funnel (Unmounts completely at Beat 3) */}
+        {isFunnelStage && (
+          <ResearchFunnelMechanism activeLevelIndex={currentBeatIndex} />
+        )}
 
-      {/* Stage 2: 3-Tier Cantilever Bridge (Mounted at Beat 3+) */}
-      {isBridgeStage && (
-        <ThreeTierBridgeMechanism activeTier={activeTier} />
-      )}
+        {/* Stage 2: 3-Tier Cantilever Bridge (Mounted at Beat 3+) */}
+        {isBridgeStage && (
+          <ThreeTierBridgeMechanism activeTier={activeTier} />
+        )}
+      </SafeStageZone>
     </div>
   );
 };

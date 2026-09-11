@@ -7,6 +7,7 @@
 
 export interface TextMetricOptions {
   paddingHorizontal?: number;
+  paddingVertical?: number;
   minWidth?: number;
   maxWidth?: number;
   height?: number;
@@ -75,14 +76,17 @@ export function computePillDimensions(
 ): PillDimensions {
   const {
     paddingHorizontal = 34,
+    paddingVertical = 32,
     minWidth = 140,
     maxWidth = 980,
-    height = Math.round(fontSize * 1.6),
+    height,
     fontWeight = 700,
   } = options;
 
   const safePaddingHorizontal = Math.max(30, paddingHorizontal);
+  const safePaddingVertical = Math.max(30, paddingVertical);
   const safeMinWidth = Math.max(140, minWidth);
+  const safeHeight = height ?? Math.max(96, Math.round(fontSize * 1.15) + safePaddingVertical * 2);
 
   const textWidth = estimateTextWidth(text, fontSize, fontWeight);
   const idealWidth = textWidth + safePaddingHorizontal * 2;
@@ -91,7 +95,7 @@ export function computePillDimensions(
 
   return {
     width,
-    height,
+    height: safeHeight,
     estimatedTextWidth: textWidth,
     padLeft: effectivePadding,
     padRight: effectivePadding,

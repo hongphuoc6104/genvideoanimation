@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBeatChoreography } from 'motion-kit';
+import { useBeatChoreography, SafeStageZone } from 'motion-kit';
 import { ScopusMicroHUD } from '../components/ScopusMicroHUD';
 import { DiagnosticRadarMechanism } from '../components/DiagnosticRadarMechanism';
 
@@ -38,8 +38,11 @@ export const Scene5PitfallsConclusion: React.FC<SceneProps> = ({
       {/* Semantic Micro HUD */}
       <ScopusMicroHUD currentSection={5} sectionTitle="CHUẨN HÓA CÔNG BỐ SCOPUS" />
 
-      {/* Primary Kinetic Mechanism: Diagnostic Pitfall Radar & Scopus Victory Badge */}
-      <DiagnosticRadarMechanism activeMistakeIndex={activeMistakeIndex} />
+      {/* Stage Boundary Protection */}
+      <SafeStageZone>
+        {/* Primary Kinetic Mechanism: Diagnostic Pitfall Radar & Scopus Victory Badge */}
+        <DiagnosticRadarMechanism activeMistakeIndex={activeMistakeIndex} />
+      </SafeStageZone>
     </div>
   );
 };

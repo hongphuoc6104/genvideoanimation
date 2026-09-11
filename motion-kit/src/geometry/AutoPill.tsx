@@ -13,6 +13,7 @@ export interface AutoPillProps {
   strokeWidth?: number;
   rx?: number;
   paddingHorizontal?: number;
+  paddingVertical?: number;
   minWidth?: number;
   maxWidth?: number;
   height?: number;
@@ -42,9 +43,10 @@ export const AutoPill: React.FC<AutoPillProps> = ({
   strokeWidth = 2,
   rx = 16,
   paddingHorizontal = 34,
+  paddingVertical = 32,
   minWidth = 140,
   maxWidth = 980,
-  height = 54,
+  height,
   anchor = 'center',
   opacity = 1.0,
   filter,
@@ -53,6 +55,7 @@ export const AutoPill: React.FC<AutoPillProps> = ({
 }) => {
   const dims = computePillDimensions(text, fontSize, {
     paddingHorizontal,
+    paddingVertical,
     minWidth,
     maxWidth,
     height,

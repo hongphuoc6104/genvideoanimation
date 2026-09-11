@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBeatChoreography } from 'motion-kit';
+import { useBeatChoreography, SafeStageZone } from 'motion-kit';
 import { ScopusMicroHUD } from '../components/ScopusMicroHUD';
 import { KnowledgeConstellationMechanism } from '../components/KnowledgeConstellation';
 import { ThreeQuestionsTriangleMechanism } from '../components/ThreeQuestionsTriangle';
@@ -16,9 +16,10 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
 }) => {
   const { currentBeatIndex } = useBeatChoreography(shotBeats);
 
-  // Manuscript state across Beats 0-2 (Zero-Ghosting Invariant)
+  // Manuscript state across Beats 0-2 (Zero-Ghosting & Anti-Freeze Progression)
   const manuscriptState =
-    currentBeatIndex === 0 ? 'submitting' : 'rejected';
+    currentBeatIndex === 0 ? 'submitting' :
+    currentBeatIndex === 1 ? 'rejected' : 'connecting';
 
   const highlightChasm = currentBeatIndex >= 1;
 
@@ -43,23 +44,26 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
       {/* Semantic Micro HUD */}
       <ScopusMicroHUD currentSection={1} sectionTitle="ĐỐI THOẠI HỌC THUẬT" />
 
-      {/* Stage 1: Knowledge Constellation Mechanism (Unmounts completely at Beat 3) */}
-      {isConstellationStage && (
-        <KnowledgeConstellationMechanism
-          manuscriptState={manuscriptState}
-          highlightChasm={highlightChasm}
-        />
-      )}
+      {/* Strict Stage Boundary Protection */}
+      <SafeStageZone>
+        {/* Stage 1: Knowledge Constellation Mechanism (Unmounts completely at Beat 3) */}
+        {isConstellationStage && (
+          <KnowledgeConstellationMechanism
+            manuscriptState={manuscriptState}
+            highlightChasm={highlightChasm}
+          />
+        )}
 
-      {/* Stage 2: 3 Core Questions Triangle Mechanism (Unmounts completely at Beat 4) */}
-      {isTriangleStage && (
-        <ThreeQuestionsTriangleMechanism />
-      )}
+        {/* Stage 2: 3 Core Questions Triangle Mechanism (Unmounts completely at Beat 4) */}
+        {isTriangleStage && (
+          <ThreeQuestionsTriangleMechanism />
+        )}
 
-      {/* Stage 3: 4 Mandatory CARS Pillars Mechanism (Beat 4+) */}
-      {isPillarsStage && (
-        <CarsFourPillarsMechanism />
-      )}
+        {/* Stage 3: 4 Mandatory CARS Pillars Mechanism (Beat 4+) */}
+        {isPillarsStage && (
+          <CarsFourPillarsMechanism />
+        )}
+      </SafeStageZone>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
-import { useCurrentFrame, useVideoConfig } from 'remotion';
-import { useBeatChoreography } from 'motion-kit';
+import { useBeatChoreography, SafeStageZone } from 'motion-kit';
 import { ScopusMicroHUD } from '../components/ScopusMicroHUD';
 import { FiveGapPrismsMechanism } from '../components/FiveGapPrismsMechanism';
 
@@ -31,8 +30,11 @@ export const Scene2GapTaxonomy: React.FC<SceneProps> = ({
       {/* Semantic Micro HUD */}
       <ScopusMicroHUD currentSection={2} sectionTitle="5 CÁNH CỬA RESEARCH GAP" />
 
-      {/* Primary Kinetic Mechanism: 5 Directional Refractive Gap Prisms */}
-      <FiveGapPrismsMechanism activeGapIndex={activeGapIndex} />
+      {/* Stage Boundary Protection */}
+      <SafeStageZone>
+        {/* Primary Kinetic Mechanism: 5 Directional Refractive Gap Prisms */}
+        <FiveGapPrismsMechanism activeGapIndex={activeGapIndex} />
+      </SafeStageZone>
     </div>
   );
 };

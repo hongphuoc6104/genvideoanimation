@@ -1,6 +1,6 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { SalienceContainer, SalienceItem } from 'motion-kit';
+import { AutoPill } from 'motion-kit';
 
 export interface CarsFourPillarsProps {
   currentFrame?: number;
@@ -13,12 +13,11 @@ const PILLARS = [
   { id: 'p4', title: '4. KHẢ THI', desc: 'Khả thi kiểm định & đo lường', color: '#A855F7', move: 'Move 4: Occupying' },
 ];
 
-export const CarsFourPillarsMechanism: React.FC<CarsFourPillarsProps> = ({ currentFrame }) => {
+export const CarsFourPillarsMechanism: React.FC<CarsFourPillarsProps> = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Active pillar cycles smoothly across the beat duration (137 frames total: 476..613)
-  // ~34 frames per pillar
+  // Active pillar cycles smoothly across the beat duration (~34 frames per pillar)
   const pillarIdx = Math.min(3, Math.floor(frame / 34));
 
   const entryProgress = spring({
@@ -27,103 +26,105 @@ export const CarsFourPillarsMechanism: React.FC<CarsFourPillarsProps> = ({ curre
     config: { damping: 14, stiffness: 90 },
   });
 
-  const scale = interpolate(entryProgress, [0, 1], [0.85, 1.0]);
+  const scale = interpolate(entryProgress, [0, 1], [0.9, 1.0]);
   const opacity = interpolate(entryProgress, [0, 1], [0, 1]);
 
   return (
-    <div
+    <svg
+      width={1080}
+      height={1920}
       style={{
         position: 'absolute',
         top: 0,
         left: 0,
-        width: 1080,
-        height: 1920,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+        pointerEvents: 'none',
+        zIndex: 15,
         opacity,
         transform: `scale(${scale})`,
-        pointerEvents: 'none',
+        transformOrigin: '540px 800px',
       }}
     >
-      {/* Header Badge */}
-      <div
-        style={{
-          marginBottom: 30,
-          padding: '30px 40px',
-          borderRadius: 24,
-          backgroundColor: 'rgba(15, 23, 42, 0.95)',
-          border: '2px solid #38BDF8',
-          boxShadow: '0 0 20px rgba(56, 189, 248, 0.3)',
-        }}
-      >
-        <span style={{ fontSize: 32, fontWeight: 900, color: '#38BDF8' }}>
-          4 THUỘC TÍNH MÔ HÌNH SWALES CARS
-        </span>
-      </div>
+      {/* Header Pill using AutoPill at y = 440 */}
+      <AutoPill
+        text="4 THUỘC TÍNH MÔ HÌNH SWALES CARS"
+        x={540}
+        y={440}
+        fontSize={32}
+        fontWeight={900}
+        color="#38BDF8"
+        stroke="#38BDF8"
+        strokeWidth={3}
+        fill="#0F172A"
+        paddingHorizontal={36}
+      />
 
-      {/* 4 Pillars Grid with Salience Spotlight & Dim */}
-      <SalienceContainer
-        mode="spotlight-dim"
-        activeItemIndex={pillarIdx}
-        currentFrameOverride={frame}
-        inactiveOpacity={0.25}
-        inactiveDesaturation={0.75}
-        activeScale={1.04}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 20,
-            width: 900,
-          }}
-        >
-          {PILLARS.map((p, idx) => {
-            return (
-              <SalienceItem key={p.id} index={idx} as="html">
-                <div
-                  style={{
-                    width: 900,
-                    padding: '30px 36px',
-                    borderRadius: 20,
-                    backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                    border: `3px solid ${p.color}`,
-                    boxShadow: idx === pillarIdx ? `0 0 24px ${p.color}80` : 'none',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 8,
-                    boxSizing: 'border-box',
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: 34, fontWeight: 900, color: p.color }}>
-                      {p.title}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: 30,
-                        fontWeight: 700,
-                        color: idx === pillarIdx ? '#FFFFFF' : p.color,
-                        padding: '4px 16px',
-                        borderRadius: 12,
-                        backgroundColor: `${p.color}33`,
-                      }}
-                    >
-                      {p.move}
-                    </span>
-                  </div>
-                  <span style={{ fontSize: 30, fontWeight: 600, color: '#E2E8F0' }}>
-                    {p.desc}
-                  </span>
-                </div>
-              </SalienceItem>
-            );
-          })}
-        </div>
-      </SalienceContainer>
-    </div>
+      {/* 4 CARS Pillars vertically arranged within Safe Zone [540, 1260] */}
+      <g transform="translate(540, 540)">
+        {PILLARS.map((p, idx) => {
+          const isActive = idx === pillarIdx;
+          const yOffset = idx * 180;
+
+          return (
+            <g
+              key={p.id}
+              transform={`translate(0, ${yOffset})`}
+              opacity={isActive ? 1.0 : 0.35}
+              style={{ transition: 'opacity 0.25s ease' }}
+            >
+              {/* Outer Card Shield: 920px wide, 165px height, leaves >=30px padding on all sides */}
+              <rect
+                x={-460}
+                y={0}
+                width={920}
+                height={165}
+                rx={24}
+                fill="#0F172A"
+                stroke={isActive ? p.color : '#334155'}
+                strokeWidth={isActive ? 4 : 2}
+                filter={isActive ? `drop-shadow(0 0 20px ${p.color}80)` : 'none'}
+                data-badge="true"
+              />
+
+              {/* Title on left (top margin >= 32px) */}
+              <text
+                x={-410}
+                y={62}
+                textAnchor="start"
+                fill={isActive ? '#FFFFFF' : p.color}
+                fontSize={32}
+                fontWeight={900}
+              >
+                {p.title}
+              </text>
+
+              {/* Move Tag on right (top margin >= 32px) */}
+              <text
+                x={410}
+                y={62}
+                textAnchor="end"
+                fill={isActive ? p.color : '#94A3B8'}
+                fontSize={30}
+                fontWeight={800}
+              >
+                {p.move}
+              </text>
+
+              {/* Description text (bottom margin >= 34px) */}
+              <text
+                x={0}
+                y={122}
+                textAnchor="middle"
+                fill="#E2E8F0"
+                fontSize={30}
+                fontWeight={600}
+              >
+                {p.desc}
+              </text>
+            </g>
+          );
+        })}
+      </g>
+    </svg>
   );
 };
 
