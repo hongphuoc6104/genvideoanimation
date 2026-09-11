@@ -31,12 +31,12 @@ export const LipidBilayer: React.FC<LipidBilayerProps> = ({
   const rightEdge = pumpGapX + pumpGapWidth / 2;
 
   const leftHeads: number[] = [];
-  for (let x = 30; x < leftEdge - 15; x += headSpacing) {
+  for (let x = 16; x < leftEdge - 15; x += headSpacing) {
     leftHeads.push(x);
   }
 
   const rightHeads: number[] = [];
-  for (let x = rightEdge + 25; x < width - 20; x += headSpacing) {
+  for (let x = rightEdge + 25; x < width - 15; x += headSpacing) {
     rightHeads.push(x);
   }
 
@@ -50,8 +50,8 @@ export const LipidBilayer: React.FC<LipidBilayerProps> = ({
         y={0}
         width={width}
         height={topY}
-        fill="#0F2038"
-        opacity={0.7}
+        fill="#0C192E"
+        opacity={0.6}
       />
 
       {/* Intracellular Cytoplasm Background Tint (Bottom, y > botY) */}
@@ -59,9 +59,9 @@ export const LipidBilayer: React.FC<LipidBilayerProps> = ({
         x={0}
         y={botY}
         width={width}
-        height={980 - botY}
-        fill="#121D24"
-        opacity={0.8}
+        height={Math.max(0, 1920 - botY)}
+        fill="#081422"
+        opacity={0.6}
       />
 
       {/* Hydrophobic Membrane Core (Bilayer interior) */}
@@ -160,7 +160,7 @@ export const LipidBilayer: React.FC<LipidBilayerProps> = ({
       {showLabels && (
         <>
           {/* Extracellular Fluid Label (Top) */}
-          <g transform="translate(100, 70)">
+          <g transform="translate(60, 70)">
             <rect
               x={-15}
               y={-30}
@@ -196,7 +196,7 @@ export const LipidBilayer: React.FC<LipidBilayerProps> = ({
           </g>
 
           {/* Cytoplasm Label (Bottom) */}
-          <g transform="translate(100, 890)">
+          <g transform={`translate(60, ${botY + 50})`}>
             <rect
               x={-15}
               y={-30}
@@ -232,7 +232,7 @@ export const LipidBilayer: React.FC<LipidBilayerProps> = ({
           </g>
 
           {/* Resting Membrane Potential Voltmeter Indicator */}
-          <g transform="translate(720, 70)">
+          <g transform="translate(760, 70)">
             <rect
               x={-20}
               y={-30}

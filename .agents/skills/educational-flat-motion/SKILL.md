@@ -175,10 +175,13 @@ Mọi video phải xoay quanh **một câu hỏi cơ chế duy nhất**:
      ```tsx
      const { currentBeat, intraBeatProgress, phase } = useBeatChoreography(shotBeats);
      ```
-3. **Quản lý không gian & Vùng an toàn phụ đề**:
-   - Cho phép tác giả tự do tạo hình trực quan (full-bleed, split screen, radial phase diagram, hierarchical tree, etc.) để phục vụ trực tiếp việc giải thích bản chất cơ chế. **Không ép buộc chia 4 tầng cứng nhắc**.
-   - Bắt buộc chừa vùng an toàn phụ đề (Subtitle Clearance Safe Zone): $y \in [1420, 1750\text{px}]$, bảo đảm không có vật thể chuyển động chính đè lên phụ đề karaoke.
-   - Bắt buộc chừa lề đáy: $y > 1750\text{px}$ để tránh thanh điều hướng và giao diện mobile.
+3. **Quản lý không gian, Vùng an toàn & Động học thuần khiết**:
+   - **Full-Bleed Canvas (Chống Slide Hộp Lơ Lửng)**: Tận dụng trọn vẹn bề ngang 1080px. Nghiêm cấm bọc component trong các thẻ `<rect width={920}>` hay translate lệch tâm gây hiệu ứng slide hộp chữ nhật lơ lửng giữa màn hình dọc.
+   - **Giải phóng Vùng Phản ứng (Active Site Clearance)**: Tuyệt đối không dán huy hiệu chữ hay nhãn trạng thái đè trực diện lên miệng enzyme, túi gắn kết ion hoặc trung tâm phản ứng phân tử. Cấu trúc van mở/đóng tự thân minh họa cơ chế.
+   - **Chuyển đổi Nhãn Mượt mà (Smooth Text Crossfade)**: Khi thay đổi nhãn trạng thái cơ chế (ví dụ $E_1 \leftrightarrow E_2$), bắt buộc dùng nội suy `opacity` chuyển mượt qua nhiều frame (crossfade), cấm thay đổi chuỗi tức thời 1-frame gây đột biến đạo hàm MAD (bị G06 Temporal QA từ chối).
+   - **Minimalist Semantic HUD (Chapter Dots Vi Mô)**: Khi trình bày chu trình động học đa pha, khuyến nghị đặt thanh tiến trình vi mô (Chapter Dots) tại vùng an toàn đỉnh $y \in [120, 160\text{px}]$, font chữ $\ge 30\text{px}$, để người học nắm chắc các pha mà không chiếm dụng không gian diễn hoạt.
+   - **Vùng an toàn phụ đề (Subtitle Clearance Safe Zone)**: Bắt buộc dành riêng $y \in [1420, 1750\text{px}]$, bảo đảm không có vật thể chuyển động chính đè lên phụ đề karaoke.
+   - **Lề đáy di động**: Bắt buộc chừa $y > 1750\text{px}$ để tránh thanh điều hướng và giao diện mobile.
 4. **Single Root Audio**:
    - Gắn âm thanh duy nhất tại `<ProjectName>Film.tsx`:
      ```tsx

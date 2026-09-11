@@ -38,7 +38,7 @@
         "camera": "macro_pump_core",
         "state": "e1_k2_released"
       },
-      "impact_frames": [470, 620, 629, 751]
+      "impact_frames": [470, 481, 620, 629, 751]
     },
     {
       "id": "shot_03",

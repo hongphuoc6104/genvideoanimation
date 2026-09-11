@@ -239,6 +239,38 @@ function checkComponent(
         }
       }
 
+      // Prohibit presentation slide headers and section cards in active production scenes
+      if (filePath.toLowerCase().includes('projects')) {
+        if (['h1', 'h2', 'h3'].includes(lowerTag)) {
+          const loc = opening.loc?.start || { line: 1, column: 1 };
+          violations.push({
+            file: filePath,
+            line: loc.line,
+            column: loc.column,
+            rule: 'no-text-card-monoculture',
+            ruleId: 'no-slide-header',
+            severity: 'CRITICAL',
+            message: `Slide presentation header <${tagName}> detected in "${componentName}". Educational flat-vector motion must not embed presentation slide titles into scene canvases. The visual transformation and narration carry the concept.`
+          });
+        }
+
+        const attrs = opening.attributes || [];
+        for (const a of attrs) {
+          if (a.type === 'JSXAttribute' && a.name?.name === 'data-role' && a.value?.value === 'section') {
+            const loc = opening.loc?.start || { line: 1, column: 1 };
+            violations.push({
+              file: filePath,
+              line: loc.line,
+              column: loc.column,
+              rule: 'no-text-card-monoculture',
+              ruleId: 'no-slide-section-card',
+              severity: 'CRITICAL',
+              message: `Slide section card [data-role="section"] detected in "${componentName}". Active educational motion scenes must be full-bleed kinetic canvases without presentation slide decks.`
+            });
+          }
+        }
+      }
+
       // Check for dense prose containers (Text Cluster Law)
       if (['div', 'section', 'article'].includes(lowerTag)) {
         let containerWordCount = 0;

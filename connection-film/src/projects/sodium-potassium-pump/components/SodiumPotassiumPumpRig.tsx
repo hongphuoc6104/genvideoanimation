@@ -10,6 +10,7 @@ export interface SodiumPotassiumPumpRigProps {
   boundNaCount?: number; // 0 to 3
   boundKCount?: number; // 0 to 2
   scale?: number;
+  showStateBadge?: boolean;
 }
 
 export const SodiumPotassiumPumpRig: React.FC<SodiumPotassiumPumpRigProps> = ({
@@ -21,6 +22,7 @@ export const SodiumPotassiumPumpRig: React.FC<SodiumPotassiumPumpRigProps> = ({
   boundNaCount = 0,
   boundKCount = 0,
   scale = 1.0,
+  showStateBadge = false,
 }) => {
   // Interpolate aperture widths
   // E1: Top aperture narrow (closed gate, width ~ 30px), Bottom aperture wide open (width ~ 170px)
@@ -258,30 +260,32 @@ export const SodiumPotassiumPumpRig: React.FC<SodiumPotassiumPumpRigProps> = ({
         )}
       </g>
 
-      {/* 6. Active State Indicator Badge below Pump */}
-      <g transform="translate(0, 190)">
-        <rect
-          x={-220}
-          y={-28}
-          width={440}
-          height={54}
-          rx={20}
-          fill="rgba(30, 58, 138, 0.4)"
-          stroke="#60A5FA"
-          strokeWidth={2}
-        />
-        <text
-          x={0}
-          y={9}
-          fill="#93C5FD"
-          fontSize={30}
-          fontWeight={800}
-          textAnchor="middle"
-          fontFamily="sans-serif"
-        >
-          {stateLabel}
-        </text>
-      </g>
+      {/* 6. Active State Indicator Badge below Pump (Disabled by default to prevent collisions) */}
+      {showStateBadge && (
+        <g transform="translate(0, 190)">
+          <rect
+            x={-220}
+            y={-28}
+            width={440}
+            height={54}
+            rx={20}
+            fill="rgba(30, 58, 138, 0.4)"
+            stroke="#60A5FA"
+            strokeWidth={2}
+          />
+          <text
+            x={0}
+            y={9}
+            fill="#93C5FD"
+            fontSize={30}
+            fontWeight={800}
+            textAnchor="middle"
+            fontFamily="sans-serif"
+          >
+            {stateLabel}
+          </text>
+        </g>
+      )}
     </g>
   );
 };

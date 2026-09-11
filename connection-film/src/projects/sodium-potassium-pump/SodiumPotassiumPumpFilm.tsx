@@ -27,7 +27,11 @@ export const SHOTS = shotSpecData.shots.map((shot: any) => ({
   component: SCENE_COMPONENTS[shot.id] || Scene1ElectrochemicalGradient,
 }));
 
-export const SodiumPotassiumPumpFilm: React.FC = () => {
+export interface FilmProps {
+  enableMicroHUD?: boolean;
+}
+
+export const SodiumPotassiumPumpFilm: React.FC<FilmProps> = ({ enableMicroHUD = true }) => {
   return (
     <div
       style={{
@@ -53,7 +57,11 @@ export const SodiumPotassiumPumpFilm: React.FC = () => {
             from={shot.startFrame}
             durationInFrames={shot.durationInFrames}
           >
-            <Component durationInFrames={shot.durationInFrames} shotBeats={shot.beats} />
+            <Component
+              durationInFrames={shot.durationInFrames}
+              shotBeats={shot.beats}
+              {...(shot.id === 'shot_02' ? { enableMicroHUD } : {})}
+            />
           </Sequence>
         );
       })}

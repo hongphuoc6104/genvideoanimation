@@ -56,7 +56,7 @@ export const KaraokeWord: React.FC<KaraokeWordProps> = (props) => {
     display: 'inline-block',
     marginRight: '0.28em',
     whiteSpace: 'nowrap',
-    fontWeight: isSpoken ? EDUCATIONAL_THEME.spoken.fontWeight : EDUCATIONAL_THEME.upcoming.fontWeight,
+    fontWeight: EDUCATIONAL_THEME.spoken.fontWeight,
     color: isSpoken ? spokenColor : upcomingColor,
     opacity: isSpoken ? EDUCATIONAL_THEME.spoken.opacity : EDUCATIONAL_THEME.upcoming.opacity,
     transform: 'none',
