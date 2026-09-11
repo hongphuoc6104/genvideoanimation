@@ -48,10 +48,30 @@ export function computeClipPathInset(progress: number): string {
 }
 
 /**
+ * Safely extracts earliest word start frame and latest word end frame from a group.
+ */
+function extractWordBounds(g: any, fps: number = 30): { firstWordStart: number; lastWordEnd: number } | null {
+  const words: any[] = [];
+  if (Array.isArray(g.lines)) {
+    for (const line of g.lines) {
+      if (Array.isArray(line.words)) words.push(...line.words);
+    }
+  } else if (Array.isArray(g.words)) {
+    words.push(...g.words);
+  }
+  if (words.length === 0) return null;
+  const starts = words.map((w: any) => w.startFrame !== undefined ? w.startFrame : Math.round((w.start ?? 0) * fps));
+  const ends = words.map((w: any) => w.endFrame !== undefined ? w.endFrame : Math.round((w.end ?? 0) * fps));
+  return {
+    firstWordStart: Math.min(...starts),
+    lastWordEnd: Math.max(...ends),
+  };
+}
+
+/**
  * Isolates the exact active CaptionGroup for the given composition frame.
  * Accepts polymorphic input: CaptionsData or CaptionGroup[].
- * Returns null if the frame falls during a silence gap, before speech starts,
- * or after speech ends.
+ * Guarantees zero-hang boundary handoff: no group lingers once next group's words begin.
  */
 export function resolveActiveGroup(
   captions: CaptionsData | CaptionGroup[] | any | null | undefined,
@@ -64,9 +84,38 @@ export function resolveActiveGroup(
   if (!Array.isArray(groups) || groups.length === 0) {
     return null;
   }
-  const rawItem = groups.find(
-    (g: any) => currentFrame >= g.startFrame && currentFrame <= g.endFrame
-  );
+
+  const rawItem = groups.find((g: any, idx: number) => {
+    const nextG = groups[idx + 1];
+    const bounds = extractWordBounds(g);
+    const nextBounds = nextG ? extractWordBounds(nextG) : null;
+
+    // Effective start: if words exist, cannot start later than words[0].startFrame
+    let effectiveStart = g.startFrame;
+    if (bounds) {
+      effectiveStart = Math.min(g.startFrame, bounds.firstWordStart);
+    }
+
+    // Effective end: must hand off before next group's words begin, or cap at 10 frames post-speech
+    let effectiveEnd = g.endFrame;
+    if (bounds) {
+      effectiveEnd = Math.min(g.endFrame, bounds.lastWordEnd + 10);
+    }
+    if (nextBounds) {
+      // If the next group's speech has started, g must yield immediately
+      effectiveEnd = Math.min(effectiveEnd, nextBounds.firstWordStart);
+    }
+
+    // Prioritize next group at exact speech onset
+    if (nextBounds && currentFrame >= nextBounds.firstWordStart) {
+      return false;
+    }
+    if (nextG && currentFrame >= effectiveEnd && nextG.startFrame <= effectiveEnd) {
+      return false;
+    }
+
+    return currentFrame >= effectiveStart && currentFrame <= effectiveEnd;
+  });
   if (!rawItem) {
     return null;
   }

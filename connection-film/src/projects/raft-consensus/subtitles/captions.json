@@ -1,0 +1,2918 @@
+[
+  {
+    "id": "chunk_01",
+    "text": "Năm máy chủ bắt đầu ở vai trò Follower, với đồng hồ đếm ngược bầu cử ngẫu nhiên.",
+    "startFrame": 1,
+    "endFrame": 148,
+    "startTime": 0.033,
+    "endTime": 4.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Năm máy chủ bắt đầu ở vai trò Follower,",
+        "words": [
+          {
+            "id": "w_0_0",
+            "word": "Năm",
+            "cleanWord": "năm",
+            "start": 0.033,
+            "end": 0.267,
+            "startFrame": 1,
+            "endFrame": 8
+          },
+          {
+            "id": "w_0_1",
+            "word": "máy",
+            "cleanWord": "máy",
+            "start": 0.3,
+            "end": 0.533,
+            "startFrame": 9,
+            "endFrame": 16
+          },
+          {
+            "id": "w_0_2",
+            "word": "chủ",
+            "cleanWord": "chủ",
+            "start": 0.567,
+            "end": 0.767,
+            "startFrame": 17,
+            "endFrame": 23
+          },
+          {
+            "id": "w_0_3",
+            "word": "bắt",
+            "cleanWord": "bắt",
+            "start": 0.833,
+            "end": 1.033,
+            "startFrame": 25,
+            "endFrame": 31
+          },
+          {
+            "id": "w_0_4",
+            "word": "đầu",
+            "cleanWord": "đầu",
+            "start": 1.1,
+            "end": 1.3,
+            "startFrame": 33,
+            "endFrame": 39
+          },
+          {
+            "id": "w_0_5",
+            "word": "ở",
+            "cleanWord": "ở",
+            "start": 1.333,
+            "end": 1.567,
+            "startFrame": 40,
+            "endFrame": 47
+          },
+          {
+            "id": "w_0_6",
+            "word": "vai",
+            "cleanWord": "vai",
+            "start": 1.6,
+            "end": 1.833,
+            "startFrame": 48,
+            "endFrame": 55
+          },
+          {
+            "id": "w_0_7",
+            "word": "trò",
+            "cleanWord": "trò",
+            "start": 1.867,
+            "end": 2.1,
+            "startFrame": 56,
+            "endFrame": 63
+          },
+          {
+            "id": "w_0_8",
+            "word": "Follower,",
+            "cleanWord": "follower",
+            "start": 2.133,
+            "end": 2.367,
+            "startFrame": 64,
+            "endFrame": 71
+          }
+        ]
+      },
+      {
+        "text": "với đồng hồ đếm ngược bầu cử ngẫu nhiên.",
+        "words": [
+          {
+            "id": "w_0_9",
+            "word": "với",
+            "cleanWord": "với",
+            "start": 2.567,
+            "end": 2.8,
+            "startFrame": 77,
+            "endFrame": 84
+          },
+          {
+            "id": "w_0_10",
+            "word": "đồng",
+            "cleanWord": "đồng",
+            "start": 2.833,
+            "end": 3.067,
+            "startFrame": 85,
+            "endFrame": 92
+          },
+          {
+            "id": "w_0_11",
+            "word": "hồ",
+            "cleanWord": "hồ",
+            "start": 3.1,
+            "end": 3.3,
+            "startFrame": 93,
+            "endFrame": 99
+          },
+          {
+            "id": "w_0_12",
+            "word": "đếm",
+            "cleanWord": "đếm",
+            "start": 3.367,
+            "end": 3.567,
+            "startFrame": 101,
+            "endFrame": 107
+          },
+          {
+            "id": "w_0_13",
+            "word": "ngược",
+            "cleanWord": "ngược",
+            "start": 3.633,
+            "end": 3.833,
+            "startFrame": 109,
+            "endFrame": 115
+          },
+          {
+            "id": "w_0_14",
+            "word": "bầu",
+            "cleanWord": "bầu",
+            "start": 3.867,
+            "end": 4.1,
+            "startFrame": 116,
+            "endFrame": 123
+          },
+          {
+            "id": "w_0_15",
+            "word": "cử",
+            "cleanWord": "cử",
+            "start": 4.133,
+            "end": 4.367,
+            "startFrame": 124,
+            "endFrame": 131
+          },
+          {
+            "id": "w_0_16",
+            "word": "ngẫu",
+            "cleanWord": "ngẫu",
+            "start": 4.4,
+            "end": 4.633,
+            "startFrame": 132,
+            "endFrame": 139
+          },
+          {
+            "id": "w_0_17",
+            "word": "nhiên.",
+            "cleanWord": "nhiên",
+            "start": 4.667,
+            "end": 4.9,
+            "startFrame": 140,
+            "endFrame": 147
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_0_0",
+        "word": "Năm",
+        "cleanWord": "năm",
+        "start": 0.033,
+        "end": 0.267,
+        "startFrame": 1,
+        "endFrame": 8
+      },
+      {
+        "id": "w_0_1",
+        "word": "máy",
+        "cleanWord": "máy",
+        "start": 0.3,
+        "end": 0.533,
+        "startFrame": 9,
+        "endFrame": 16
+      },
+      {
+        "id": "w_0_2",
+        "word": "chủ",
+        "cleanWord": "chủ",
+        "start": 0.567,
+        "end": 0.767,
+        "startFrame": 17,
+        "endFrame": 23
+      },
+      {
+        "id": "w_0_3",
+        "word": "bắt",
+        "cleanWord": "bắt",
+        "start": 0.833,
+        "end": 1.033,
+        "startFrame": 25,
+        "endFrame": 31
+      },
+      {
+        "id": "w_0_4",
+        "word": "đầu",
+        "cleanWord": "đầu",
+        "start": 1.1,
+        "end": 1.3,
+        "startFrame": 33,
+        "endFrame": 39
+      },
+      {
+        "id": "w_0_5",
+        "word": "ở",
+        "cleanWord": "ở",
+        "start": 1.333,
+        "end": 1.567,
+        "startFrame": 40,
+        "endFrame": 47
+      },
+      {
+        "id": "w_0_6",
+        "word": "vai",
+        "cleanWord": "vai",
+        "start": 1.6,
+        "end": 1.833,
+        "startFrame": 48,
+        "endFrame": 55
+      },
+      {
+        "id": "w_0_7",
+        "word": "trò",
+        "cleanWord": "trò",
+        "start": 1.867,
+        "end": 2.1,
+        "startFrame": 56,
+        "endFrame": 63
+      },
+      {
+        "id": "w_0_8",
+        "word": "Follower,",
+        "cleanWord": "follower",
+        "start": 2.133,
+        "end": 2.367,
+        "startFrame": 64,
+        "endFrame": 71
+      },
+      {
+        "id": "w_0_9",
+        "word": "với",
+        "cleanWord": "với",
+        "start": 2.567,
+        "end": 2.8,
+        "startFrame": 77,
+        "endFrame": 84
+      },
+      {
+        "id": "w_0_10",
+        "word": "đồng",
+        "cleanWord": "đồng",
+        "start": 2.833,
+        "end": 3.067,
+        "startFrame": 85,
+        "endFrame": 92
+      },
+      {
+        "id": "w_0_11",
+        "word": "hồ",
+        "cleanWord": "hồ",
+        "start": 3.1,
+        "end": 3.3,
+        "startFrame": 93,
+        "endFrame": 99
+      },
+      {
+        "id": "w_0_12",
+        "word": "đếm",
+        "cleanWord": "đếm",
+        "start": 3.367,
+        "end": 3.567,
+        "startFrame": 101,
+        "endFrame": 107
+      },
+      {
+        "id": "w_0_13",
+        "word": "ngược",
+        "cleanWord": "ngược",
+        "start": 3.633,
+        "end": 3.833,
+        "startFrame": 109,
+        "endFrame": 115
+      },
+      {
+        "id": "w_0_14",
+        "word": "bầu",
+        "cleanWord": "bầu",
+        "start": 3.867,
+        "end": 4.1,
+        "startFrame": 116,
+        "endFrame": 123
+      },
+      {
+        "id": "w_0_15",
+        "word": "cử",
+        "cleanWord": "cử",
+        "start": 4.133,
+        "end": 4.367,
+        "startFrame": 124,
+        "endFrame": 131
+      },
+      {
+        "id": "w_0_16",
+        "word": "ngẫu",
+        "cleanWord": "ngẫu",
+        "start": 4.4,
+        "end": 4.633,
+        "startFrame": 132,
+        "endFrame": 139
+      },
+      {
+        "id": "w_0_17",
+        "word": "nhiên.",
+        "cleanWord": "nhiên",
+        "start": 4.667,
+        "end": 4.9,
+        "startFrame": 140,
+        "endFrame": 147
+      }
+    ]
+  },
+  {
+    "id": "chunk_02",
+    "text": "Node S1 hết giờ trước, thành Candidate, đồng loạt gửi RequestVote tới toàn bộ cụm.",
+    "startFrame": 150,
+    "endFrame": 298,
+    "startTime": 5,
+    "endTime": 9.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Node S1 hết giờ trước, thành Candidate,",
+        "words": [
+          {
+            "id": "w_1_0",
+            "word": "Node",
+            "cleanWord": "node",
+            "start": 5,
+            "end": 5.3,
+            "startFrame": 150,
+            "endFrame": 159
+          },
+          {
+            "id": "w_1_1",
+            "word": "S1",
+            "cleanWord": "s1",
+            "start": 5.333,
+            "end": 5.633,
+            "startFrame": 160,
+            "endFrame": 169
+          },
+          {
+            "id": "w_1_2",
+            "word": "hết",
+            "cleanWord": "hết",
+            "start": 5.667,
+            "end": 5.967,
+            "startFrame": 170,
+            "endFrame": 179
+          },
+          {
+            "id": "w_1_3",
+            "word": "giờ",
+            "cleanWord": "giờ",
+            "start": 6,
+            "end": 6.3,
+            "startFrame": 180,
+            "endFrame": 189
+          },
+          {
+            "id": "w_1_4",
+            "word": "trước,",
+            "cleanWord": "trước",
+            "start": 6.367,
+            "end": 6.633,
+            "startFrame": 191,
+            "endFrame": 199
+          },
+          {
+            "id": "w_1_5",
+            "word": "thành",
+            "cleanWord": "thành",
+            "start": 6.7,
+            "end": 6.967,
+            "startFrame": 201,
+            "endFrame": 209
+          },
+          {
+            "id": "w_1_6",
+            "word": "Candidate,",
+            "cleanWord": "candidate",
+            "start": 7.033,
+            "end": 7.3,
+            "startFrame": 211,
+            "endFrame": 219
+          }
+        ]
+      },
+      {
+        "text": "đồng loạt gửi RequestVote tới toàn bộ cụm.",
+        "words": [
+          {
+            "id": "w_1_7",
+            "word": "đồng",
+            "cleanWord": "đồng",
+            "start": 7.567,
+            "end": 7.833,
+            "startFrame": 227,
+            "endFrame": 235
+          },
+          {
+            "id": "w_1_8",
+            "word": "loạt",
+            "cleanWord": "loạt",
+            "start": 7.867,
+            "end": 8.1,
+            "startFrame": 236,
+            "endFrame": 243
+          },
+          {
+            "id": "w_1_9",
+            "word": "gửi",
+            "cleanWord": "gửi",
+            "start": 8.167,
+            "end": 8.4,
+            "startFrame": 245,
+            "endFrame": 252
+          },
+          {
+            "id": "w_1_10",
+            "word": "RequestVote",
+            "cleanWord": "requestvote",
+            "start": 8.467,
+            "end": 8.7,
+            "startFrame": 254,
+            "endFrame": 261
+          },
+          {
+            "id": "w_1_11",
+            "word": "tới",
+            "cleanWord": "tới",
+            "start": 8.767,
+            "end": 9,
+            "startFrame": 263,
+            "endFrame": 270
+          },
+          {
+            "id": "w_1_12",
+            "word": "toàn",
+            "cleanWord": "toàn",
+            "start": 9.033,
+            "end": 9.3,
+            "startFrame": 271,
+            "endFrame": 279
+          },
+          {
+            "id": "w_1_13",
+            "word": "bộ",
+            "cleanWord": "bộ",
+            "start": 9.333,
+            "end": 9.6,
+            "startFrame": 280,
+            "endFrame": 288
+          },
+          {
+            "id": "w_1_14",
+            "word": "cụm.",
+            "cleanWord": "cụm",
+            "start": 9.633,
+            "end": 9.9,
+            "startFrame": 289,
+            "endFrame": 297
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_1_0",
+        "word": "Node",
+        "cleanWord": "node",
+        "start": 5,
+        "end": 5.3,
+        "startFrame": 150,
+        "endFrame": 159
+      },
+      {
+        "id": "w_1_1",
+        "word": "S1",
+        "cleanWord": "s1",
+        "start": 5.333,
+        "end": 5.633,
+        "startFrame": 160,
+        "endFrame": 169
+      },
+      {
+        "id": "w_1_2",
+        "word": "hết",
+        "cleanWord": "hết",
+        "start": 5.667,
+        "end": 5.967,
+        "startFrame": 170,
+        "endFrame": 179
+      },
+      {
+        "id": "w_1_3",
+        "word": "giờ",
+        "cleanWord": "giờ",
+        "start": 6,
+        "end": 6.3,
+        "startFrame": 180,
+        "endFrame": 189
+      },
+      {
+        "id": "w_1_4",
+        "word": "trước,",
+        "cleanWord": "trước",
+        "start": 6.367,
+        "end": 6.633,
+        "startFrame": 191,
+        "endFrame": 199
+      },
+      {
+        "id": "w_1_5",
+        "word": "thành",
+        "cleanWord": "thành",
+        "start": 6.7,
+        "end": 6.967,
+        "startFrame": 201,
+        "endFrame": 209
+      },
+      {
+        "id": "w_1_6",
+        "word": "Candidate,",
+        "cleanWord": "candidate",
+        "start": 7.033,
+        "end": 7.3,
+        "startFrame": 211,
+        "endFrame": 219
+      },
+      {
+        "id": "w_1_7",
+        "word": "đồng",
+        "cleanWord": "đồng",
+        "start": 7.567,
+        "end": 7.833,
+        "startFrame": 227,
+        "endFrame": 235
+      },
+      {
+        "id": "w_1_8",
+        "word": "loạt",
+        "cleanWord": "loạt",
+        "start": 7.867,
+        "end": 8.1,
+        "startFrame": 236,
+        "endFrame": 243
+      },
+      {
+        "id": "w_1_9",
+        "word": "gửi",
+        "cleanWord": "gửi",
+        "start": 8.167,
+        "end": 8.4,
+        "startFrame": 245,
+        "endFrame": 252
+      },
+      {
+        "id": "w_1_10",
+        "word": "RequestVote",
+        "cleanWord": "requestvote",
+        "start": 8.467,
+        "end": 8.7,
+        "startFrame": 254,
+        "endFrame": 261
+      },
+      {
+        "id": "w_1_11",
+        "word": "tới",
+        "cleanWord": "tới",
+        "start": 8.767,
+        "end": 9,
+        "startFrame": 263,
+        "endFrame": 270
+      },
+      {
+        "id": "w_1_12",
+        "word": "toàn",
+        "cleanWord": "toàn",
+        "start": 9.033,
+        "end": 9.3,
+        "startFrame": 271,
+        "endFrame": 279
+      },
+      {
+        "id": "w_1_13",
+        "word": "bộ",
+        "cleanWord": "bộ",
+        "start": 9.333,
+        "end": 9.6,
+        "startFrame": 280,
+        "endFrame": 288
+      },
+      {
+        "id": "w_1_14",
+        "word": "cụm.",
+        "cleanWord": "cụm",
+        "start": 9.633,
+        "end": 9.9,
+        "startFrame": 289,
+        "endFrame": 297
+      }
+    ]
+  },
+  {
+    "id": "chunk_03",
+    "text": "Thu thập đủ bốn phiếu vượt quá bán Quorum, S1 đắc cử Leader và phát sóng Heartbeat.",
+    "startFrame": 300,
+    "endFrame": 448,
+    "startTime": 10,
+    "endTime": 14.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Thu thập đủ bốn phiếu vượt quá bán Quorum,",
+        "words": [
+          {
+            "id": "w_2_0",
+            "word": "Thu",
+            "cleanWord": "thu",
+            "start": 10,
+            "end": 10.233,
+            "startFrame": 300,
+            "endFrame": 307
+          },
+          {
+            "id": "w_2_1",
+            "word": "thập",
+            "cleanWord": "thập",
+            "start": 10.267,
+            "end": 10.5,
+            "startFrame": 308,
+            "endFrame": 315
+          },
+          {
+            "id": "w_2_2",
+            "word": "đủ",
+            "cleanWord": "đủ",
+            "start": 10.533,
+            "end": 10.733,
+            "startFrame": 316,
+            "endFrame": 322
+          },
+          {
+            "id": "w_2_3",
+            "word": "bốn",
+            "cleanWord": "bốn",
+            "start": 10.8,
+            "end": 11,
+            "startFrame": 324,
+            "endFrame": 330
+          },
+          {
+            "id": "w_2_4",
+            "word": "phiếu",
+            "cleanWord": "phiếu",
+            "start": 11.067,
+            "end": 11.267,
+            "startFrame": 332,
+            "endFrame": 338
+          },
+          {
+            "id": "w_2_5",
+            "word": "vượt",
+            "cleanWord": "vượt",
+            "start": 11.3,
+            "end": 11.533,
+            "startFrame": 339,
+            "endFrame": 346
+          },
+          {
+            "id": "w_2_6",
+            "word": "quá",
+            "cleanWord": "quá",
+            "start": 11.567,
+            "end": 11.8,
+            "startFrame": 347,
+            "endFrame": 354
+          },
+          {
+            "id": "w_2_7",
+            "word": "bán",
+            "cleanWord": "bán",
+            "start": 11.833,
+            "end": 12.067,
+            "startFrame": 355,
+            "endFrame": 362
+          },
+          {
+            "id": "w_2_8",
+            "word": "Quorum,",
+            "cleanWord": "quorum",
+            "start": 12.1,
+            "end": 12.333,
+            "startFrame": 363,
+            "endFrame": 370
+          }
+        ]
+      },
+      {
+        "text": "S1 đắc cử Leader và phát sóng Heartbeat.",
+        "words": [
+          {
+            "id": "w_2_9",
+            "word": "S1",
+            "cleanWord": "s1",
+            "start": 12.567,
+            "end": 12.833,
+            "startFrame": 377,
+            "endFrame": 385
+          },
+          {
+            "id": "w_2_10",
+            "word": "đắc",
+            "cleanWord": "đắc",
+            "start": 12.867,
+            "end": 13.1,
+            "startFrame": 386,
+            "endFrame": 393
+          },
+          {
+            "id": "w_2_11",
+            "word": "cử",
+            "cleanWord": "cử",
+            "start": 13.167,
+            "end": 13.4,
+            "startFrame": 395,
+            "endFrame": 402
+          },
+          {
+            "id": "w_2_12",
+            "word": "Leader",
+            "cleanWord": "leader",
+            "start": 13.467,
+            "end": 13.7,
+            "startFrame": 404,
+            "endFrame": 411
+          },
+          {
+            "id": "w_2_13",
+            "word": "và",
+            "cleanWord": "và",
+            "start": 13.767,
+            "end": 14,
+            "startFrame": 413,
+            "endFrame": 420
+          },
+          {
+            "id": "w_2_14",
+            "word": "phát",
+            "cleanWord": "phát",
+            "start": 14.033,
+            "end": 14.3,
+            "startFrame": 421,
+            "endFrame": 429
+          },
+          {
+            "id": "w_2_15",
+            "word": "sóng",
+            "cleanWord": "sóng",
+            "start": 14.333,
+            "end": 14.6,
+            "startFrame": 430,
+            "endFrame": 438
+          },
+          {
+            "id": "w_2_16",
+            "word": "Heartbeat.",
+            "cleanWord": "heartbeat",
+            "start": 14.633,
+            "end": 14.9,
+            "startFrame": 439,
+            "endFrame": 447
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_2_0",
+        "word": "Thu",
+        "cleanWord": "thu",
+        "start": 10,
+        "end": 10.233,
+        "startFrame": 300,
+        "endFrame": 307
+      },
+      {
+        "id": "w_2_1",
+        "word": "thập",
+        "cleanWord": "thập",
+        "start": 10.267,
+        "end": 10.5,
+        "startFrame": 308,
+        "endFrame": 315
+      },
+      {
+        "id": "w_2_2",
+        "word": "đủ",
+        "cleanWord": "đủ",
+        "start": 10.533,
+        "end": 10.733,
+        "startFrame": 316,
+        "endFrame": 322
+      },
+      {
+        "id": "w_2_3",
+        "word": "bốn",
+        "cleanWord": "bốn",
+        "start": 10.8,
+        "end": 11,
+        "startFrame": 324,
+        "endFrame": 330
+      },
+      {
+        "id": "w_2_4",
+        "word": "phiếu",
+        "cleanWord": "phiếu",
+        "start": 11.067,
+        "end": 11.267,
+        "startFrame": 332,
+        "endFrame": 338
+      },
+      {
+        "id": "w_2_5",
+        "word": "vượt",
+        "cleanWord": "vượt",
+        "start": 11.3,
+        "end": 11.533,
+        "startFrame": 339,
+        "endFrame": 346
+      },
+      {
+        "id": "w_2_6",
+        "word": "quá",
+        "cleanWord": "quá",
+        "start": 11.567,
+        "end": 11.8,
+        "startFrame": 347,
+        "endFrame": 354
+      },
+      {
+        "id": "w_2_7",
+        "word": "bán",
+        "cleanWord": "bán",
+        "start": 11.833,
+        "end": 12.067,
+        "startFrame": 355,
+        "endFrame": 362
+      },
+      {
+        "id": "w_2_8",
+        "word": "Quorum,",
+        "cleanWord": "quorum",
+        "start": 12.1,
+        "end": 12.333,
+        "startFrame": 363,
+        "endFrame": 370
+      },
+      {
+        "id": "w_2_9",
+        "word": "S1",
+        "cleanWord": "s1",
+        "start": 12.567,
+        "end": 12.833,
+        "startFrame": 377,
+        "endFrame": 385
+      },
+      {
+        "id": "w_2_10",
+        "word": "đắc",
+        "cleanWord": "đắc",
+        "start": 12.867,
+        "end": 13.1,
+        "startFrame": 386,
+        "endFrame": 393
+      },
+      {
+        "id": "w_2_11",
+        "word": "cử",
+        "cleanWord": "cử",
+        "start": 13.167,
+        "end": 13.4,
+        "startFrame": 395,
+        "endFrame": 402
+      },
+      {
+        "id": "w_2_12",
+        "word": "Leader",
+        "cleanWord": "leader",
+        "start": 13.467,
+        "end": 13.7,
+        "startFrame": 404,
+        "endFrame": 411
+      },
+      {
+        "id": "w_2_13",
+        "word": "và",
+        "cleanWord": "và",
+        "start": 13.767,
+        "end": 14,
+        "startFrame": 413,
+        "endFrame": 420
+      },
+      {
+        "id": "w_2_14",
+        "word": "phát",
+        "cleanWord": "phát",
+        "start": 14.033,
+        "end": 14.3,
+        "startFrame": 421,
+        "endFrame": 429
+      },
+      {
+        "id": "w_2_15",
+        "word": "sóng",
+        "cleanWord": "sóng",
+        "start": 14.333,
+        "end": 14.6,
+        "startFrame": 430,
+        "endFrame": 438
+      },
+      {
+        "id": "w_2_16",
+        "word": "Heartbeat.",
+        "cleanWord": "heartbeat",
+        "start": 14.633,
+        "end": 14.9,
+        "startFrame": 439,
+        "endFrame": 447
+      }
+    ]
+  },
+  {
+    "id": "chunk_04",
+    "text": "Client gửi lệnh ghi dữ liệu tới Leader S1, entry được thêm vào nhật ký chưa commit.",
+    "startFrame": 450,
+    "endFrame": 598,
+    "startTime": 15,
+    "endTime": 19.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Client gửi lệnh ghi dữ liệu tới Leader S1,",
+        "words": [
+          {
+            "id": "w_3_0",
+            "word": "Client",
+            "cleanWord": "client",
+            "start": 15,
+            "end": 15.233,
+            "startFrame": 450,
+            "endFrame": 457
+          },
+          {
+            "id": "w_3_1",
+            "word": "gửi",
+            "cleanWord": "gửi",
+            "start": 15.267,
+            "end": 15.5,
+            "startFrame": 458,
+            "endFrame": 465
+          },
+          {
+            "id": "w_3_2",
+            "word": "lệnh",
+            "cleanWord": "lệnh",
+            "start": 15.533,
+            "end": 15.733,
+            "startFrame": 466,
+            "endFrame": 472
+          },
+          {
+            "id": "w_3_3",
+            "word": "ghi",
+            "cleanWord": "ghi",
+            "start": 15.8,
+            "end": 16,
+            "startFrame": 474,
+            "endFrame": 480
+          },
+          {
+            "id": "w_3_4",
+            "word": "dữ",
+            "cleanWord": "dữ",
+            "start": 16.067,
+            "end": 16.267,
+            "startFrame": 482,
+            "endFrame": 488
+          },
+          {
+            "id": "w_3_5",
+            "word": "liệu",
+            "cleanWord": "liệu",
+            "start": 16.3,
+            "end": 16.533,
+            "startFrame": 489,
+            "endFrame": 496
+          },
+          {
+            "id": "w_3_6",
+            "word": "tới",
+            "cleanWord": "tới",
+            "start": 16.567,
+            "end": 16.8,
+            "startFrame": 497,
+            "endFrame": 504
+          },
+          {
+            "id": "w_3_7",
+            "word": "Leader",
+            "cleanWord": "leader",
+            "start": 16.833,
+            "end": 17.067,
+            "startFrame": 505,
+            "endFrame": 512
+          },
+          {
+            "id": "w_3_8",
+            "word": "S1,",
+            "cleanWord": "s1",
+            "start": 17.1,
+            "end": 17.333,
+            "startFrame": 513,
+            "endFrame": 520
+          }
+        ]
+      },
+      {
+        "text": "entry được thêm vào nhật ký chưa commit.",
+        "words": [
+          {
+            "id": "w_3_9",
+            "word": "entry",
+            "cleanWord": "entry",
+            "start": 17.567,
+            "end": 17.833,
+            "startFrame": 527,
+            "endFrame": 535
+          },
+          {
+            "id": "w_3_10",
+            "word": "được",
+            "cleanWord": "được",
+            "start": 17.867,
+            "end": 18.1,
+            "startFrame": 536,
+            "endFrame": 543
+          },
+          {
+            "id": "w_3_11",
+            "word": "thêm",
+            "cleanWord": "thêm",
+            "start": 18.167,
+            "end": 18.4,
+            "startFrame": 545,
+            "endFrame": 552
+          },
+          {
+            "id": "w_3_12",
+            "word": "vào",
+            "cleanWord": "vào",
+            "start": 18.467,
+            "end": 18.7,
+            "startFrame": 554,
+            "endFrame": 561
+          },
+          {
+            "id": "w_3_13",
+            "word": "nhật",
+            "cleanWord": "nhật",
+            "start": 18.767,
+            "end": 19,
+            "startFrame": 563,
+            "endFrame": 570
+          },
+          {
+            "id": "w_3_14",
+            "word": "ký",
+            "cleanWord": "ký",
+            "start": 19.033,
+            "end": 19.3,
+            "startFrame": 571,
+            "endFrame": 579
+          },
+          {
+            "id": "w_3_15",
+            "word": "chưa",
+            "cleanWord": "chưa",
+            "start": 19.333,
+            "end": 19.6,
+            "startFrame": 580,
+            "endFrame": 588
+          },
+          {
+            "id": "w_3_16",
+            "word": "commit.",
+            "cleanWord": "commit",
+            "start": 19.633,
+            "end": 19.9,
+            "startFrame": 589,
+            "endFrame": 597
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_3_0",
+        "word": "Client",
+        "cleanWord": "client",
+        "start": 15,
+        "end": 15.233,
+        "startFrame": 450,
+        "endFrame": 457
+      },
+      {
+        "id": "w_3_1",
+        "word": "gửi",
+        "cleanWord": "gửi",
+        "start": 15.267,
+        "end": 15.5,
+        "startFrame": 458,
+        "endFrame": 465
+      },
+      {
+        "id": "w_3_2",
+        "word": "lệnh",
+        "cleanWord": "lệnh",
+        "start": 15.533,
+        "end": 15.733,
+        "startFrame": 466,
+        "endFrame": 472
+      },
+      {
+        "id": "w_3_3",
+        "word": "ghi",
+        "cleanWord": "ghi",
+        "start": 15.8,
+        "end": 16,
+        "startFrame": 474,
+        "endFrame": 480
+      },
+      {
+        "id": "w_3_4",
+        "word": "dữ",
+        "cleanWord": "dữ",
+        "start": 16.067,
+        "end": 16.267,
+        "startFrame": 482,
+        "endFrame": 488
+      },
+      {
+        "id": "w_3_5",
+        "word": "liệu",
+        "cleanWord": "liệu",
+        "start": 16.3,
+        "end": 16.533,
+        "startFrame": 489,
+        "endFrame": 496
+      },
+      {
+        "id": "w_3_6",
+        "word": "tới",
+        "cleanWord": "tới",
+        "start": 16.567,
+        "end": 16.8,
+        "startFrame": 497,
+        "endFrame": 504
+      },
+      {
+        "id": "w_3_7",
+        "word": "Leader",
+        "cleanWord": "leader",
+        "start": 16.833,
+        "end": 17.067,
+        "startFrame": 505,
+        "endFrame": 512
+      },
+      {
+        "id": "w_3_8",
+        "word": "S1,",
+        "cleanWord": "s1",
+        "start": 17.1,
+        "end": 17.333,
+        "startFrame": 513,
+        "endFrame": 520
+      },
+      {
+        "id": "w_3_9",
+        "word": "entry",
+        "cleanWord": "entry",
+        "start": 17.567,
+        "end": 17.833,
+        "startFrame": 527,
+        "endFrame": 535
+      },
+      {
+        "id": "w_3_10",
+        "word": "được",
+        "cleanWord": "được",
+        "start": 17.867,
+        "end": 18.1,
+        "startFrame": 536,
+        "endFrame": 543
+      },
+      {
+        "id": "w_3_11",
+        "word": "thêm",
+        "cleanWord": "thêm",
+        "start": 18.167,
+        "end": 18.4,
+        "startFrame": 545,
+        "endFrame": 552
+      },
+      {
+        "id": "w_3_12",
+        "word": "vào",
+        "cleanWord": "vào",
+        "start": 18.467,
+        "end": 18.7,
+        "startFrame": 554,
+        "endFrame": 561
+      },
+      {
+        "id": "w_3_13",
+        "word": "nhật",
+        "cleanWord": "nhật",
+        "start": 18.767,
+        "end": 19,
+        "startFrame": 563,
+        "endFrame": 570
+      },
+      {
+        "id": "w_3_14",
+        "word": "ký",
+        "cleanWord": "ký",
+        "start": 19.033,
+        "end": 19.3,
+        "startFrame": 571,
+        "endFrame": 579
+      },
+      {
+        "id": "w_3_15",
+        "word": "chưa",
+        "cleanWord": "chưa",
+        "start": 19.333,
+        "end": 19.6,
+        "startFrame": 580,
+        "endFrame": 588
+      },
+      {
+        "id": "w_3_16",
+        "word": "commit.",
+        "cleanWord": "commit",
+        "start": 19.633,
+        "end": 19.9,
+        "startFrame": 589,
+        "endFrame": 597
+      }
+    ]
+  },
+  {
+    "id": "chunk_05",
+    "text": "Leader gửi AppendEntries tới các Follower, các node sao chép và gửi xác nhận về.",
+    "startFrame": 600,
+    "endFrame": 748,
+    "startTime": 20,
+    "endTime": 24.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Leader gửi AppendEntries tới các Follower,",
+        "words": [
+          {
+            "id": "w_4_0",
+            "word": "Leader",
+            "cleanWord": "leader",
+            "start": 20,
+            "end": 20.333,
+            "startFrame": 600,
+            "endFrame": 610
+          },
+          {
+            "id": "w_4_1",
+            "word": "gửi",
+            "cleanWord": "gửi",
+            "start": 20.4,
+            "end": 20.733,
+            "startFrame": 612,
+            "endFrame": 622
+          },
+          {
+            "id": "w_4_2",
+            "word": "AppendEntries",
+            "cleanWord": "appendentries",
+            "start": 20.8,
+            "end": 21.133,
+            "startFrame": 624,
+            "endFrame": 634
+          },
+          {
+            "id": "w_4_3",
+            "word": "tới",
+            "cleanWord": "tới",
+            "start": 21.2,
+            "end": 21.533,
+            "startFrame": 636,
+            "endFrame": 646
+          },
+          {
+            "id": "w_4_4",
+            "word": "các",
+            "cleanWord": "các",
+            "start": 21.567,
+            "end": 21.9,
+            "startFrame": 647,
+            "endFrame": 657
+          },
+          {
+            "id": "w_4_5",
+            "word": "Follower,",
+            "cleanWord": "follower",
+            "start": 21.967,
+            "end": 22.3,
+            "startFrame": 659,
+            "endFrame": 669
+          }
+        ]
+      },
+      {
+        "text": "các node sao chép và gửi xác nhận về.",
+        "words": [
+          {
+            "id": "w_4_6",
+            "word": "các",
+            "cleanWord": "các",
+            "start": 22.567,
+            "end": 22.8,
+            "startFrame": 677,
+            "endFrame": 684
+          },
+          {
+            "id": "w_4_7",
+            "word": "node",
+            "cleanWord": "node",
+            "start": 22.833,
+            "end": 23.067,
+            "startFrame": 685,
+            "endFrame": 692
+          },
+          {
+            "id": "w_4_8",
+            "word": "sao",
+            "cleanWord": "sao",
+            "start": 23.1,
+            "end": 23.3,
+            "startFrame": 693,
+            "endFrame": 699
+          },
+          {
+            "id": "w_4_9",
+            "word": "chép",
+            "cleanWord": "chép",
+            "start": 23.367,
+            "end": 23.567,
+            "startFrame": 701,
+            "endFrame": 707
+          },
+          {
+            "id": "w_4_10",
+            "word": "và",
+            "cleanWord": "và",
+            "start": 23.633,
+            "end": 23.833,
+            "startFrame": 709,
+            "endFrame": 715
+          },
+          {
+            "id": "w_4_11",
+            "word": "gửi",
+            "cleanWord": "gửi",
+            "start": 23.867,
+            "end": 24.1,
+            "startFrame": 716,
+            "endFrame": 723
+          },
+          {
+            "id": "w_4_12",
+            "word": "xác",
+            "cleanWord": "xác",
+            "start": 24.133,
+            "end": 24.367,
+            "startFrame": 724,
+            "endFrame": 731
+          },
+          {
+            "id": "w_4_13",
+            "word": "nhận",
+            "cleanWord": "nhận",
+            "start": 24.4,
+            "end": 24.633,
+            "startFrame": 732,
+            "endFrame": 739
+          },
+          {
+            "id": "w_4_14",
+            "word": "về.",
+            "cleanWord": "về",
+            "start": 24.667,
+            "end": 24.9,
+            "startFrame": 740,
+            "endFrame": 747
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_4_0",
+        "word": "Leader",
+        "cleanWord": "leader",
+        "start": 20,
+        "end": 20.333,
+        "startFrame": 600,
+        "endFrame": 610
+      },
+      {
+        "id": "w_4_1",
+        "word": "gửi",
+        "cleanWord": "gửi",
+        "start": 20.4,
+        "end": 20.733,
+        "startFrame": 612,
+        "endFrame": 622
+      },
+      {
+        "id": "w_4_2",
+        "word": "AppendEntries",
+        "cleanWord": "appendentries",
+        "start": 20.8,
+        "end": 21.133,
+        "startFrame": 624,
+        "endFrame": 634
+      },
+      {
+        "id": "w_4_3",
+        "word": "tới",
+        "cleanWord": "tới",
+        "start": 21.2,
+        "end": 21.533,
+        "startFrame": 636,
+        "endFrame": 646
+      },
+      {
+        "id": "w_4_4",
+        "word": "các",
+        "cleanWord": "các",
+        "start": 21.567,
+        "end": 21.9,
+        "startFrame": 647,
+        "endFrame": 657
+      },
+      {
+        "id": "w_4_5",
+        "word": "Follower,",
+        "cleanWord": "follower",
+        "start": 21.967,
+        "end": 22.3,
+        "startFrame": 659,
+        "endFrame": 669
+      },
+      {
+        "id": "w_4_6",
+        "word": "các",
+        "cleanWord": "các",
+        "start": 22.567,
+        "end": 22.8,
+        "startFrame": 677,
+        "endFrame": 684
+      },
+      {
+        "id": "w_4_7",
+        "word": "node",
+        "cleanWord": "node",
+        "start": 22.833,
+        "end": 23.067,
+        "startFrame": 685,
+        "endFrame": 692
+      },
+      {
+        "id": "w_4_8",
+        "word": "sao",
+        "cleanWord": "sao",
+        "start": 23.1,
+        "end": 23.3,
+        "startFrame": 693,
+        "endFrame": 699
+      },
+      {
+        "id": "w_4_9",
+        "word": "chép",
+        "cleanWord": "chép",
+        "start": 23.367,
+        "end": 23.567,
+        "startFrame": 701,
+        "endFrame": 707
+      },
+      {
+        "id": "w_4_10",
+        "word": "và",
+        "cleanWord": "và",
+        "start": 23.633,
+        "end": 23.833,
+        "startFrame": 709,
+        "endFrame": 715
+      },
+      {
+        "id": "w_4_11",
+        "word": "gửi",
+        "cleanWord": "gửi",
+        "start": 23.867,
+        "end": 24.1,
+        "startFrame": 716,
+        "endFrame": 723
+      },
+      {
+        "id": "w_4_12",
+        "word": "xác",
+        "cleanWord": "xác",
+        "start": 24.133,
+        "end": 24.367,
+        "startFrame": 724,
+        "endFrame": 731
+      },
+      {
+        "id": "w_4_13",
+        "word": "nhận",
+        "cleanWord": "nhận",
+        "start": 24.4,
+        "end": 24.633,
+        "startFrame": 732,
+        "endFrame": 739
+      },
+      {
+        "id": "w_4_14",
+        "word": "về.",
+        "cleanWord": "về",
+        "start": 24.667,
+        "end": 24.9,
+        "startFrame": 740,
+        "endFrame": 747
+      }
+    ]
+  },
+  {
+    "id": "chunk_06",
+    "text": "Đạt đủ ba xác nhận Quorum từ đa số node, Leader commit nhật ký vào State Machine.",
+    "startFrame": 750,
+    "endFrame": 898,
+    "startTime": 25,
+    "endTime": 29.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Đạt đủ ba xác nhận Quorum từ đa số node,",
+        "words": [
+          {
+            "id": "w_5_0",
+            "word": "Đạt",
+            "cleanWord": "đạt",
+            "start": 25,
+            "end": 25.2,
+            "startFrame": 750,
+            "endFrame": 756
+          },
+          {
+            "id": "w_5_1",
+            "word": "đủ",
+            "cleanWord": "đủ",
+            "start": 25.233,
+            "end": 25.433,
+            "startFrame": 757,
+            "endFrame": 763
+          },
+          {
+            "id": "w_5_2",
+            "word": "ba",
+            "cleanWord": "ba",
+            "start": 25.467,
+            "end": 25.667,
+            "startFrame": 764,
+            "endFrame": 770
+          },
+          {
+            "id": "w_5_3",
+            "word": "xác",
+            "cleanWord": "xác",
+            "start": 25.7,
+            "end": 25.9,
+            "startFrame": 771,
+            "endFrame": 777
+          },
+          {
+            "id": "w_5_4",
+            "word": "nhận",
+            "cleanWord": "nhận",
+            "start": 25.933,
+            "end": 26.133,
+            "startFrame": 778,
+            "endFrame": 784
+          },
+          {
+            "id": "w_5_5",
+            "word": "Quorum",
+            "cleanWord": "quorum",
+            "start": 26.2,
+            "end": 26.4,
+            "startFrame": 786,
+            "endFrame": 792
+          },
+          {
+            "id": "w_5_6",
+            "word": "từ",
+            "cleanWord": "từ",
+            "start": 26.433,
+            "end": 26.633,
+            "startFrame": 793,
+            "endFrame": 799
+          },
+          {
+            "id": "w_5_7",
+            "word": "đa",
+            "cleanWord": "đa",
+            "start": 26.667,
+            "end": 26.867,
+            "startFrame": 800,
+            "endFrame": 806
+          },
+          {
+            "id": "w_5_8",
+            "word": "số",
+            "cleanWord": "số",
+            "start": 26.9,
+            "end": 27.1,
+            "startFrame": 807,
+            "endFrame": 813
+          },
+          {
+            "id": "w_5_9",
+            "word": "node,",
+            "cleanWord": "node",
+            "start": 27.133,
+            "end": 27.333,
+            "startFrame": 814,
+            "endFrame": 820
+          }
+        ]
+      },
+      {
+        "text": "Leader commit nhật ký vào State Machine.",
+        "words": [
+          {
+            "id": "w_5_10",
+            "word": "Leader",
+            "cleanWord": "leader",
+            "start": 27.567,
+            "end": 27.867,
+            "startFrame": 827,
+            "endFrame": 836
+          },
+          {
+            "id": "w_5_11",
+            "word": "commit",
+            "cleanWord": "commit",
+            "start": 27.9,
+            "end": 28.2,
+            "startFrame": 837,
+            "endFrame": 846
+          },
+          {
+            "id": "w_5_12",
+            "word": "nhật",
+            "cleanWord": "nhật",
+            "start": 28.233,
+            "end": 28.533,
+            "startFrame": 847,
+            "endFrame": 856
+          },
+          {
+            "id": "w_5_13",
+            "word": "ký",
+            "cleanWord": "ký",
+            "start": 28.567,
+            "end": 28.867,
+            "startFrame": 857,
+            "endFrame": 866
+          },
+          {
+            "id": "w_5_14",
+            "word": "vào",
+            "cleanWord": "vào",
+            "start": 28.933,
+            "end": 29.2,
+            "startFrame": 868,
+            "endFrame": 876
+          },
+          {
+            "id": "w_5_15",
+            "word": "State",
+            "cleanWord": "state",
+            "start": 29.267,
+            "end": 29.533,
+            "startFrame": 878,
+            "endFrame": 886
+          },
+          {
+            "id": "w_5_16",
+            "word": "Machine.",
+            "cleanWord": "machine",
+            "start": 29.6,
+            "end": 29.867,
+            "startFrame": 888,
+            "endFrame": 896
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_5_0",
+        "word": "Đạt",
+        "cleanWord": "đạt",
+        "start": 25,
+        "end": 25.2,
+        "startFrame": 750,
+        "endFrame": 756
+      },
+      {
+        "id": "w_5_1",
+        "word": "đủ",
+        "cleanWord": "đủ",
+        "start": 25.233,
+        "end": 25.433,
+        "startFrame": 757,
+        "endFrame": 763
+      },
+      {
+        "id": "w_5_2",
+        "word": "ba",
+        "cleanWord": "ba",
+        "start": 25.467,
+        "end": 25.667,
+        "startFrame": 764,
+        "endFrame": 770
+      },
+      {
+        "id": "w_5_3",
+        "word": "xác",
+        "cleanWord": "xác",
+        "start": 25.7,
+        "end": 25.9,
+        "startFrame": 771,
+        "endFrame": 777
+      },
+      {
+        "id": "w_5_4",
+        "word": "nhận",
+        "cleanWord": "nhận",
+        "start": 25.933,
+        "end": 26.133,
+        "startFrame": 778,
+        "endFrame": 784
+      },
+      {
+        "id": "w_5_5",
+        "word": "Quorum",
+        "cleanWord": "quorum",
+        "start": 26.2,
+        "end": 26.4,
+        "startFrame": 786,
+        "endFrame": 792
+      },
+      {
+        "id": "w_5_6",
+        "word": "từ",
+        "cleanWord": "từ",
+        "start": 26.433,
+        "end": 26.633,
+        "startFrame": 793,
+        "endFrame": 799
+      },
+      {
+        "id": "w_5_7",
+        "word": "đa",
+        "cleanWord": "đa",
+        "start": 26.667,
+        "end": 26.867,
+        "startFrame": 800,
+        "endFrame": 806
+      },
+      {
+        "id": "w_5_8",
+        "word": "số",
+        "cleanWord": "số",
+        "start": 26.9,
+        "end": 27.1,
+        "startFrame": 807,
+        "endFrame": 813
+      },
+      {
+        "id": "w_5_9",
+        "word": "node,",
+        "cleanWord": "node",
+        "start": 27.133,
+        "end": 27.333,
+        "startFrame": 814,
+        "endFrame": 820
+      },
+      {
+        "id": "w_5_10",
+        "word": "Leader",
+        "cleanWord": "leader",
+        "start": 27.567,
+        "end": 27.867,
+        "startFrame": 827,
+        "endFrame": 836
+      },
+      {
+        "id": "w_5_11",
+        "word": "commit",
+        "cleanWord": "commit",
+        "start": 27.9,
+        "end": 28.2,
+        "startFrame": 837,
+        "endFrame": 846
+      },
+      {
+        "id": "w_5_12",
+        "word": "nhật",
+        "cleanWord": "nhật",
+        "start": 28.233,
+        "end": 28.533,
+        "startFrame": 847,
+        "endFrame": 856
+      },
+      {
+        "id": "w_5_13",
+        "word": "ký",
+        "cleanWord": "ký",
+        "start": 28.567,
+        "end": 28.867,
+        "startFrame": 857,
+        "endFrame": 866
+      },
+      {
+        "id": "w_5_14",
+        "word": "vào",
+        "cleanWord": "vào",
+        "start": 28.933,
+        "end": 29.2,
+        "startFrame": 868,
+        "endFrame": 876
+      },
+      {
+        "id": "w_5_15",
+        "word": "State",
+        "cleanWord": "state",
+        "start": 29.267,
+        "end": 29.533,
+        "startFrame": 878,
+        "endFrame": 886
+      },
+      {
+        "id": "w_5_16",
+        "word": "Machine.",
+        "cleanWord": "machine",
+        "start": 29.6,
+        "end": 29.867,
+        "startFrame": 888,
+        "endFrame": 896
+      }
+    ]
+  },
+  {
+    "id": "chunk_07",
+    "text": "Mạng bị phân vùng chia cắt cụm làm đôi, nhóm thiểu số không thể commit lệnh mới.",
+    "startFrame": 900,
+    "endFrame": 1048,
+    "startTime": 30,
+    "endTime": 34.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Mạng bị phân vùng chia cắt cụm làm đôi,",
+        "words": [
+          {
+            "id": "w_6_0",
+            "word": "Mạng",
+            "cleanWord": "mạng",
+            "start": 30,
+            "end": 30.233,
+            "startFrame": 900,
+            "endFrame": 907
+          },
+          {
+            "id": "w_6_1",
+            "word": "bị",
+            "cleanWord": "bị",
+            "start": 30.267,
+            "end": 30.5,
+            "startFrame": 908,
+            "endFrame": 915
+          },
+          {
+            "id": "w_6_2",
+            "word": "phân",
+            "cleanWord": "phân",
+            "start": 30.533,
+            "end": 30.733,
+            "startFrame": 916,
+            "endFrame": 922
+          },
+          {
+            "id": "w_6_3",
+            "word": "vùng",
+            "cleanWord": "vùng",
+            "start": 30.8,
+            "end": 31,
+            "startFrame": 924,
+            "endFrame": 930
+          },
+          {
+            "id": "w_6_4",
+            "word": "chia",
+            "cleanWord": "chia",
+            "start": 31.067,
+            "end": 31.267,
+            "startFrame": 932,
+            "endFrame": 938
+          },
+          {
+            "id": "w_6_5",
+            "word": "cắt",
+            "cleanWord": "cắt",
+            "start": 31.3,
+            "end": 31.533,
+            "startFrame": 939,
+            "endFrame": 946
+          },
+          {
+            "id": "w_6_6",
+            "word": "cụm",
+            "cleanWord": "cụm",
+            "start": 31.567,
+            "end": 31.8,
+            "startFrame": 947,
+            "endFrame": 954
+          },
+          {
+            "id": "w_6_7",
+            "word": "làm",
+            "cleanWord": "làm",
+            "start": 31.833,
+            "end": 32.067,
+            "startFrame": 955,
+            "endFrame": 962
+          },
+          {
+            "id": "w_6_8",
+            "word": "đôi,",
+            "cleanWord": "đôi",
+            "start": 32.1,
+            "end": 32.333,
+            "startFrame": 963,
+            "endFrame": 970
+          }
+        ]
+      },
+      {
+        "text": "nhóm thiểu số không thể commit lệnh mới.",
+        "words": [
+          {
+            "id": "w_6_9",
+            "word": "nhóm",
+            "cleanWord": "nhóm",
+            "start": 32.567,
+            "end": 32.833,
+            "startFrame": 977,
+            "endFrame": 985
+          },
+          {
+            "id": "w_6_10",
+            "word": "thiểu",
+            "cleanWord": "thiểu",
+            "start": 32.867,
+            "end": 33.1,
+            "startFrame": 986,
+            "endFrame": 993
+          },
+          {
+            "id": "w_6_11",
+            "word": "số",
+            "cleanWord": "số",
+            "start": 33.167,
+            "end": 33.4,
+            "startFrame": 995,
+            "endFrame": 1002
+          },
+          {
+            "id": "w_6_12",
+            "word": "không",
+            "cleanWord": "không",
+            "start": 33.467,
+            "end": 33.7,
+            "startFrame": 1004,
+            "endFrame": 1011
+          },
+          {
+            "id": "w_6_13",
+            "word": "thể",
+            "cleanWord": "thể",
+            "start": 33.767,
+            "end": 34,
+            "startFrame": 1013,
+            "endFrame": 1020
+          },
+          {
+            "id": "w_6_14",
+            "word": "commit",
+            "cleanWord": "commit",
+            "start": 34.033,
+            "end": 34.3,
+            "startFrame": 1021,
+            "endFrame": 1029
+          },
+          {
+            "id": "w_6_15",
+            "word": "lệnh",
+            "cleanWord": "lệnh",
+            "start": 34.333,
+            "end": 34.6,
+            "startFrame": 1030,
+            "endFrame": 1038
+          },
+          {
+            "id": "w_6_16",
+            "word": "mới.",
+            "cleanWord": "mới",
+            "start": 34.633,
+            "end": 34.9,
+            "startFrame": 1039,
+            "endFrame": 1047
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_6_0",
+        "word": "Mạng",
+        "cleanWord": "mạng",
+        "start": 30,
+        "end": 30.233,
+        "startFrame": 900,
+        "endFrame": 907
+      },
+      {
+        "id": "w_6_1",
+        "word": "bị",
+        "cleanWord": "bị",
+        "start": 30.267,
+        "end": 30.5,
+        "startFrame": 908,
+        "endFrame": 915
+      },
+      {
+        "id": "w_6_2",
+        "word": "phân",
+        "cleanWord": "phân",
+        "start": 30.533,
+        "end": 30.733,
+        "startFrame": 916,
+        "endFrame": 922
+      },
+      {
+        "id": "w_6_3",
+        "word": "vùng",
+        "cleanWord": "vùng",
+        "start": 30.8,
+        "end": 31,
+        "startFrame": 924,
+        "endFrame": 930
+      },
+      {
+        "id": "w_6_4",
+        "word": "chia",
+        "cleanWord": "chia",
+        "start": 31.067,
+        "end": 31.267,
+        "startFrame": 932,
+        "endFrame": 938
+      },
+      {
+        "id": "w_6_5",
+        "word": "cắt",
+        "cleanWord": "cắt",
+        "start": 31.3,
+        "end": 31.533,
+        "startFrame": 939,
+        "endFrame": 946
+      },
+      {
+        "id": "w_6_6",
+        "word": "cụm",
+        "cleanWord": "cụm",
+        "start": 31.567,
+        "end": 31.8,
+        "startFrame": 947,
+        "endFrame": 954
+      },
+      {
+        "id": "w_6_7",
+        "word": "làm",
+        "cleanWord": "làm",
+        "start": 31.833,
+        "end": 32.067,
+        "startFrame": 955,
+        "endFrame": 962
+      },
+      {
+        "id": "w_6_8",
+        "word": "đôi,",
+        "cleanWord": "đôi",
+        "start": 32.1,
+        "end": 32.333,
+        "startFrame": 963,
+        "endFrame": 970
+      },
+      {
+        "id": "w_6_9",
+        "word": "nhóm",
+        "cleanWord": "nhóm",
+        "start": 32.567,
+        "end": 32.833,
+        "startFrame": 977,
+        "endFrame": 985
+      },
+      {
+        "id": "w_6_10",
+        "word": "thiểu",
+        "cleanWord": "thiểu",
+        "start": 32.867,
+        "end": 33.1,
+        "startFrame": 986,
+        "endFrame": 993
+      },
+      {
+        "id": "w_6_11",
+        "word": "số",
+        "cleanWord": "số",
+        "start": 33.167,
+        "end": 33.4,
+        "startFrame": 995,
+        "endFrame": 1002
+      },
+      {
+        "id": "w_6_12",
+        "word": "không",
+        "cleanWord": "không",
+        "start": 33.467,
+        "end": 33.7,
+        "startFrame": 1004,
+        "endFrame": 1011
+      },
+      {
+        "id": "w_6_13",
+        "word": "thể",
+        "cleanWord": "thể",
+        "start": 33.767,
+        "end": 34,
+        "startFrame": 1013,
+        "endFrame": 1020
+      },
+      {
+        "id": "w_6_14",
+        "word": "commit",
+        "cleanWord": "commit",
+        "start": 34.033,
+        "end": 34.3,
+        "startFrame": 1021,
+        "endFrame": 1029
+      },
+      {
+        "id": "w_6_15",
+        "word": "lệnh",
+        "cleanWord": "lệnh",
+        "start": 34.333,
+        "end": 34.6,
+        "startFrame": 1030,
+        "endFrame": 1038
+      },
+      {
+        "id": "w_6_16",
+        "word": "mới.",
+        "cleanWord": "mới",
+        "start": 34.633,
+        "end": 34.9,
+        "startFrame": 1039,
+        "endFrame": 1047
+      }
+    ]
+  },
+  {
+    "id": "chunk_08",
+    "text": "Phân vùng đa số bầu S3 làm Leader mới, tiếp tục commit các entry ở Term ba.",
+    "startFrame": 1050,
+    "endFrame": 1198,
+    "startTime": 35,
+    "endTime": 39.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Phân vùng đa số bầu S3 làm Leader mới,",
+        "words": [
+          {
+            "id": "w_7_0",
+            "word": "Phân",
+            "cleanWord": "phân",
+            "start": 35,
+            "end": 35.233,
+            "startFrame": 1050,
+            "endFrame": 1057
+          },
+          {
+            "id": "w_7_1",
+            "word": "vùng",
+            "cleanWord": "vùng",
+            "start": 35.267,
+            "end": 35.5,
+            "startFrame": 1058,
+            "endFrame": 1065
+          },
+          {
+            "id": "w_7_2",
+            "word": "đa",
+            "cleanWord": "đa",
+            "start": 35.533,
+            "end": 35.733,
+            "startFrame": 1066,
+            "endFrame": 1072
+          },
+          {
+            "id": "w_7_3",
+            "word": "số",
+            "cleanWord": "số",
+            "start": 35.8,
+            "end": 36,
+            "startFrame": 1074,
+            "endFrame": 1080
+          },
+          {
+            "id": "w_7_4",
+            "word": "bầu",
+            "cleanWord": "bầu",
+            "start": 36.067,
+            "end": 36.267,
+            "startFrame": 1082,
+            "endFrame": 1088
+          },
+          {
+            "id": "w_7_5",
+            "word": "S3",
+            "cleanWord": "s3",
+            "start": 36.3,
+            "end": 36.533,
+            "startFrame": 1089,
+            "endFrame": 1096
+          },
+          {
+            "id": "w_7_6",
+            "word": "làm",
+            "cleanWord": "làm",
+            "start": 36.567,
+            "end": 36.8,
+            "startFrame": 1097,
+            "endFrame": 1104
+          },
+          {
+            "id": "w_7_7",
+            "word": "Leader",
+            "cleanWord": "leader",
+            "start": 36.833,
+            "end": 37.067,
+            "startFrame": 1105,
+            "endFrame": 1112
+          },
+          {
+            "id": "w_7_8",
+            "word": "mới,",
+            "cleanWord": "mới",
+            "start": 37.1,
+            "end": 37.333,
+            "startFrame": 1113,
+            "endFrame": 1120
+          }
+        ]
+      },
+      {
+        "text": "tiếp tục commit các entry ở Term ba.",
+        "words": [
+          {
+            "id": "w_7_9",
+            "word": "tiếp",
+            "cleanWord": "tiếp",
+            "start": 37.567,
+            "end": 37.833,
+            "startFrame": 1127,
+            "endFrame": 1135
+          },
+          {
+            "id": "w_7_10",
+            "word": "tục",
+            "cleanWord": "tục",
+            "start": 37.867,
+            "end": 38.1,
+            "startFrame": 1136,
+            "endFrame": 1143
+          },
+          {
+            "id": "w_7_11",
+            "word": "commit",
+            "cleanWord": "commit",
+            "start": 38.167,
+            "end": 38.4,
+            "startFrame": 1145,
+            "endFrame": 1152
+          },
+          {
+            "id": "w_7_12",
+            "word": "các",
+            "cleanWord": "các",
+            "start": 38.467,
+            "end": 38.7,
+            "startFrame": 1154,
+            "endFrame": 1161
+          },
+          {
+            "id": "w_7_13",
+            "word": "entry",
+            "cleanWord": "entry",
+            "start": 38.767,
+            "end": 39,
+            "startFrame": 1163,
+            "endFrame": 1170
+          },
+          {
+            "id": "w_7_14",
+            "word": "ở",
+            "cleanWord": "ở",
+            "start": 39.033,
+            "end": 39.3,
+            "startFrame": 1171,
+            "endFrame": 1179
+          },
+          {
+            "id": "w_7_15",
+            "word": "Term",
+            "cleanWord": "term",
+            "start": 39.333,
+            "end": 39.6,
+            "startFrame": 1180,
+            "endFrame": 1188
+          },
+          {
+            "id": "w_7_16",
+            "word": "ba.",
+            "cleanWord": "ba",
+            "start": 39.633,
+            "end": 39.9,
+            "startFrame": 1189,
+            "endFrame": 1197
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_7_0",
+        "word": "Phân",
+        "cleanWord": "phân",
+        "start": 35,
+        "end": 35.233,
+        "startFrame": 1050,
+        "endFrame": 1057
+      },
+      {
+        "id": "w_7_1",
+        "word": "vùng",
+        "cleanWord": "vùng",
+        "start": 35.267,
+        "end": 35.5,
+        "startFrame": 1058,
+        "endFrame": 1065
+      },
+      {
+        "id": "w_7_2",
+        "word": "đa",
+        "cleanWord": "đa",
+        "start": 35.533,
+        "end": 35.733,
+        "startFrame": 1066,
+        "endFrame": 1072
+      },
+      {
+        "id": "w_7_3",
+        "word": "số",
+        "cleanWord": "số",
+        "start": 35.8,
+        "end": 36,
+        "startFrame": 1074,
+        "endFrame": 1080
+      },
+      {
+        "id": "w_7_4",
+        "word": "bầu",
+        "cleanWord": "bầu",
+        "start": 36.067,
+        "end": 36.267,
+        "startFrame": 1082,
+        "endFrame": 1088
+      },
+      {
+        "id": "w_7_5",
+        "word": "S3",
+        "cleanWord": "s3",
+        "start": 36.3,
+        "end": 36.533,
+        "startFrame": 1089,
+        "endFrame": 1096
+      },
+      {
+        "id": "w_7_6",
+        "word": "làm",
+        "cleanWord": "làm",
+        "start": 36.567,
+        "end": 36.8,
+        "startFrame": 1097,
+        "endFrame": 1104
+      },
+      {
+        "id": "w_7_7",
+        "word": "Leader",
+        "cleanWord": "leader",
+        "start": 36.833,
+        "end": 37.067,
+        "startFrame": 1105,
+        "endFrame": 1112
+      },
+      {
+        "id": "w_7_8",
+        "word": "mới,",
+        "cleanWord": "mới",
+        "start": 37.1,
+        "end": 37.333,
+        "startFrame": 1113,
+        "endFrame": 1120
+      },
+      {
+        "id": "w_7_9",
+        "word": "tiếp",
+        "cleanWord": "tiếp",
+        "start": 37.567,
+        "end": 37.833,
+        "startFrame": 1127,
+        "endFrame": 1135
+      },
+      {
+        "id": "w_7_10",
+        "word": "tục",
+        "cleanWord": "tục",
+        "start": 37.867,
+        "end": 38.1,
+        "startFrame": 1136,
+        "endFrame": 1143
+      },
+      {
+        "id": "w_7_11",
+        "word": "commit",
+        "cleanWord": "commit",
+        "start": 38.167,
+        "end": 38.4,
+        "startFrame": 1145,
+        "endFrame": 1152
+      },
+      {
+        "id": "w_7_12",
+        "word": "các",
+        "cleanWord": "các",
+        "start": 38.467,
+        "end": 38.7,
+        "startFrame": 1154,
+        "endFrame": 1161
+      },
+      {
+        "id": "w_7_13",
+        "word": "entry",
+        "cleanWord": "entry",
+        "start": 38.767,
+        "end": 39,
+        "startFrame": 1163,
+        "endFrame": 1170
+      },
+      {
+        "id": "w_7_14",
+        "word": "ở",
+        "cleanWord": "ở",
+        "start": 39.033,
+        "end": 39.3,
+        "startFrame": 1171,
+        "endFrame": 1179
+      },
+      {
+        "id": "w_7_15",
+        "word": "Term",
+        "cleanWord": "term",
+        "start": 39.333,
+        "end": 39.6,
+        "startFrame": 1180,
+        "endFrame": 1188
+      },
+      {
+        "id": "w_7_16",
+        "word": "ba.",
+        "cleanWord": "ba",
+        "start": 39.633,
+        "end": 39.9,
+        "startFrame": 1189,
+        "endFrame": 1197
+      }
+    ]
+  },
+  {
+    "id": "chunk_09",
+    "text": "Mạng phục hồi, S1 thoái lui Follower, nhật ký đồng bộ an toàn tuyệt đối.",
+    "startFrame": 1200,
+    "endFrame": 1348,
+    "startTime": 40,
+    "endTime": 44.933,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Mạng phục hồi, S1 thoái lui Follower,",
+        "words": [
+          {
+            "id": "w_8_0",
+            "word": "Mạng",
+            "cleanWord": "mạng",
+            "start": 40,
+            "end": 40.3,
+            "startFrame": 1200,
+            "endFrame": 1209
+          },
+          {
+            "id": "w_8_1",
+            "word": "phục",
+            "cleanWord": "phục",
+            "start": 40.333,
+            "end": 40.633,
+            "startFrame": 1210,
+            "endFrame": 1219
+          },
+          {
+            "id": "w_8_2",
+            "word": "hồi,",
+            "cleanWord": "hồi",
+            "start": 40.667,
+            "end": 40.967,
+            "startFrame": 1220,
+            "endFrame": 1229
+          },
+          {
+            "id": "w_8_3",
+            "word": "S1",
+            "cleanWord": "s1",
+            "start": 41,
+            "end": 41.3,
+            "startFrame": 1230,
+            "endFrame": 1239
+          },
+          {
+            "id": "w_8_4",
+            "word": "thoái",
+            "cleanWord": "thoái",
+            "start": 41.367,
+            "end": 41.633,
+            "startFrame": 1241,
+            "endFrame": 1249
+          },
+          {
+            "id": "w_8_5",
+            "word": "lui",
+            "cleanWord": "lui",
+            "start": 41.7,
+            "end": 41.967,
+            "startFrame": 1251,
+            "endFrame": 1259
+          },
+          {
+            "id": "w_8_6",
+            "word": "Follower,",
+            "cleanWord": "follower",
+            "start": 42.033,
+            "end": 42.3,
+            "startFrame": 1261,
+            "endFrame": 1269
+          }
+        ]
+      },
+      {
+        "text": "nhật ký đồng bộ an toàn tuyệt đối.",
+        "words": [
+          {
+            "id": "w_8_7",
+            "word": "nhật",
+            "cleanWord": "nhật",
+            "start": 42.567,
+            "end": 42.833,
+            "startFrame": 1277,
+            "endFrame": 1285
+          },
+          {
+            "id": "w_8_8",
+            "word": "ký",
+            "cleanWord": "ký",
+            "start": 42.867,
+            "end": 43.1,
+            "startFrame": 1286,
+            "endFrame": 1293
+          },
+          {
+            "id": "w_8_9",
+            "word": "đồng",
+            "cleanWord": "đồng",
+            "start": 43.167,
+            "end": 43.4,
+            "startFrame": 1295,
+            "endFrame": 1302
+          },
+          {
+            "id": "w_8_10",
+            "word": "bộ",
+            "cleanWord": "bộ",
+            "start": 43.467,
+            "end": 43.7,
+            "startFrame": 1304,
+            "endFrame": 1311
+          },
+          {
+            "id": "w_8_11",
+            "word": "an",
+            "cleanWord": "an",
+            "start": 43.767,
+            "end": 44,
+            "startFrame": 1313,
+            "endFrame": 1320
+          },
+          {
+            "id": "w_8_12",
+            "word": "toàn",
+            "cleanWord": "toàn",
+            "start": 44.033,
+            "end": 44.3,
+            "startFrame": 1321,
+            "endFrame": 1329
+          },
+          {
+            "id": "w_8_13",
+            "word": "tuyệt",
+            "cleanWord": "tuyệt",
+            "start": 44.333,
+            "end": 44.6,
+            "startFrame": 1330,
+            "endFrame": 1338
+          },
+          {
+            "id": "w_8_14",
+            "word": "đối.",
+            "cleanWord": "đối",
+            "start": 44.633,
+            "end": 44.9,
+            "startFrame": 1339,
+            "endFrame": 1347
+          }
+        ]
+      }
+    ],
+    "words": [
+      {
+        "id": "w_8_0",
+        "word": "Mạng",
+        "cleanWord": "mạng",
+        "start": 40,
+        "end": 40.3,
+        "startFrame": 1200,
+        "endFrame": 1209
+      },
+      {
+        "id": "w_8_1",
+        "word": "phục",
+        "cleanWord": "phục",
+        "start": 40.333,
+        "end": 40.633,
+        "startFrame": 1210,
+        "endFrame": 1219
+      },
+      {
+        "id": "w_8_2",
+        "word": "hồi,",
+        "cleanWord": "hồi",
+        "start": 40.667,
+        "end": 40.967,
+        "startFrame": 1220,
+        "endFrame": 1229
+      },
+      {
+        "id": "w_8_3",
+        "word": "S1",
+        "cleanWord": "s1",
+        "start": 41,
+        "end": 41.3,
+        "startFrame": 1230,
+        "endFrame": 1239
+      },
+      {
+        "id": "w_8_4",
+        "word": "thoái",
+        "cleanWord": "thoái",
+        "start": 41.367,
+        "end": 41.633,
+        "startFrame": 1241,
+        "endFrame": 1249
+      },
+      {
+        "id": "w_8_5",
+        "word": "lui",
+        "cleanWord": "lui",
+        "start": 41.7,
+        "end": 41.967,
+        "startFrame": 1251,
+        "endFrame": 1259
+      },
+      {
+        "id": "w_8_6",
+        "word": "Follower,",
+        "cleanWord": "follower",
+        "start": 42.033,
+        "end": 42.3,
+        "startFrame": 1261,
+        "endFrame": 1269
+      },
+      {
+        "id": "w_8_7",
+        "word": "nhật",
+        "cleanWord": "nhật",
+        "start": 42.567,
+        "end": 42.833,
+        "startFrame": 1277,
+        "endFrame": 1285
+      },
+      {
+        "id": "w_8_8",
+        "word": "ký",
+        "cleanWord": "ký",
+        "start": 42.867,
+        "end": 43.1,
+        "startFrame": 1286,
+        "endFrame": 1293
+      },
+      {
+        "id": "w_8_9",
+        "word": "đồng",
+        "cleanWord": "đồng",
+        "start": 43.167,
+        "end": 43.4,
+        "startFrame": 1295,
+        "endFrame": 1302
+      },
+      {
+        "id": "w_8_10",
+        "word": "bộ",
+        "cleanWord": "bộ",
+        "start": 43.467,
+        "end": 43.7,
+        "startFrame": 1304,
+        "endFrame": 1311
+      },
+      {
+        "id": "w_8_11",
+        "word": "an",
+        "cleanWord": "an",
+        "start": 43.767,
+        "end": 44,
+        "startFrame": 1313,
+        "endFrame": 1320
+      },
+      {
+        "id": "w_8_12",
+        "word": "toàn",
+        "cleanWord": "toàn",
+        "start": 44.033,
+        "end": 44.3,
+        "startFrame": 1321,
+        "endFrame": 1329
+      },
+      {
+        "id": "w_8_13",
+        "word": "tuyệt",
+        "cleanWord": "tuyệt",
+        "start": 44.333,
+        "end": 44.6,
+        "startFrame": 1330,
+        "endFrame": 1338
+      },
+      {
+        "id": "w_8_14",
+        "word": "đối.",
+        "cleanWord": "đối",
+        "start": 44.633,
+        "end": 44.9,
+        "startFrame": 1339,
+        "endFrame": 1347
+      }
+    ]
+  }
+]

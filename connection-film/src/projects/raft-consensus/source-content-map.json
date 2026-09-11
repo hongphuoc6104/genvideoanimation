@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "topic": "raft-consensus",
+  "title": "Giao Thức Đồng Thuận Phân Tán Raft (Raft Distributed Consensus Protocol)",
+  "sourceDocument": "curriculum/raft-consensus-source.md",
+  "coverage": 1.0,
+  "mappings": [
+    {
+      "sourceSection": "1. Khởi Tạo Cụm & Bầu Chọn Trưởng Nhóm (Leader Election)",
+      "coreConcepts": [
+        "Trạng thái 3 vai trò: Follower, Candidate, Leader",
+        "Randomized Election Timeout: 150ms đến 300ms chống xung đột phiếu",
+        "Candidate gửi RequestVote RPC tới toàn bộ cụm",
+        "Quorum Majority: Cần ít nhất floor(N/2) + 1 phiếu (3/5) để đắc cử Leader"
+      ],
+      "coverageStatus": "IN_SCOPE_PRIMARY",
+      "mappedBeats": ["b01_cluster_initialization", "b02_election_timeout_candidate", "b03_quorum_majority_leader"]
+    },
+    {
+      "sourceSection": "2. Sao Chép Nhật Ký & Cam Kết Trạng Thái (Log Replication)",
+      "coreConcepts": [
+        "Client gửi lệnh ghi tới Leader (SET x = 1)",
+        "Leader ghi nhận entry vào local log ở trạng thái Uncommitted",
+        "Leader phát tán AppendEntries RPC tới các Follower",
+        "Khi nhận đủ đa số ACK, Leader đánh dấu Committed và apply vào State Machine"
+      ],
+      "coverageStatus": "IN_SCOPE_PRIMARY",
+      "mappedBeats": ["b04_client_command_uncommitted", "b05_append_entries_rpc_broadcast", "b06_majority_commit_apply"]
+    },
+    {
+      "sourceSection": "3. Phân Vùng Mạng & Bất Biến An Toàn (Network Partition & Safety)",
+      "coreConcepts": [
+        "Vách ngăn mạng chia cắt cụm thành nhóm thiểu số và đa số",
+        "Chống não đôi (Split-Brain Prevention): Nhóm thiểu số không thể commit",
+        "Nhóm đa số bầu Leader mới với Term cao hơn và duy trì tiến trình",
+        "Hàn gắn mạng: Leader cũ thoái lui và đồng bộ nhật ký theo Leader đa số"
+      ],
+      "coverageStatus": "IN_SCOPE_PRIMARY",
+      "mappedBeats": ["b07_network_partition_split_brain", "b08_partition_leader_election", "b09_reconnection_log_healing"]
+    }
+  ]
+}

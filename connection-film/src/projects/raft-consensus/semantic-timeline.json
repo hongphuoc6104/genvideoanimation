@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "sequenceId": "raft-consensus",
+  "fps": 30,
+  "totalFrames": 1350,
+  "totalDurationSec": 45.0,
+  "beats": [
+    {
+      "id": "b01_cluster_initialization",
+      "shotId": "shot_01",
+      "startSec": 0.0,
+      "endSec": 5.0,
+      "startFrame": 0,
+      "endFrame": 150,
+      "visualIntent": "Cụm 5 server nodes S1 đến S5 khởi đầu ở vai trò Follower trong Term 1, mỗi node mang đồng hồ đếm ngược bầu cử ngẫu nhiên",
+      "primaryObject": "raft_cluster_topology",
+      "cameraIntent": "neutral_cluster_overview",
+      "transitionIntent": "none",
+      "visualExplanationContract": {
+        "spatialRelationship": "five_nodes_polar_arrangement",
+        "transformationType": "randomized_timeout_countdown",
+        "coreMechanism": "follower_baseline_countdown"
+      }
+    },
+    {
+      "id": "b02_election_timeout_candidate",
+      "shotId": "shot_01",
+      "startSec": 5.0,
+      "endSec": 10.0,
+      "startFrame": 150,
+      "endFrame": 300,
+      "visualIntent": "Đồng hồ node S1 cạn trước, S1 tăng Term lên 2 thành Candidate và đồng loạt bắn RequestVote RPC tới 4 node còn lại",
+      "primaryObject": "candidate_request_vote_rpcs",
+      "cameraIntent": "focus_on_candidate_s1",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "candidate_broadcasting_to_followers",
+        "transformationType": "clipped_rpc_packet_propagation",
+        "coreMechanism": "request_vote_solicitation"
+      }
+    },
+    {
+      "id": "b03_quorum_majority_leader",
+      "shotId": "shot_01",
+      "startSec": 10.0,
+      "endSec": 15.0,
+      "startFrame": 300,
+      "endFrame": 450,
+      "visualIntent": "Thu thập đủ 4 trên 5 phiếu bầu vượt ngưỡng Quorum đa số, S1 chuyển thành Leader và phát Heartbeat duy trì thẩm quyền",
+      "primaryObject": "leader_halo_and_heartbeats",
+      "cameraIntent": "tight_leader_elevation",
+      "transitionIntent": "object_match",
+      "visualExplanationContract": {
+        "spatialRelationship": "leader_hub_with_followers",
+        "transformationType": "emerald_halo_heartbeat_waves",
+        "coreMechanism": "quorum_majority_election"
+      }
+    },
+    {
+      "id": "b04_client_command_uncommitted",
+      "shotId": "shot_02",
+      "startSec": 15.0,
+      "endSec": 20.0,
+      "startFrame": 450,
+      "endFrame": 600,
+      "visualIntent": "Client gửi yêu cầu SET x = 1 tới Leader S1, Leader ghi vào nhật ký cục bộ ở trạng thái Uncommitted viền cam nét đứt",
+      "primaryObject": "client_write_command",
+      "cameraIntent": "client_to_leader_flow",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "client_packet_entering_leader_log",
+        "transformationType": "uncommitted_log_entry_creation",
+        "coreMechanism": "client_command_ingestion"
+      }
+    },
+    {
+      "id": "b05_append_entries_rpc_broadcast",
+      "shotId": "shot_02",
+      "startSec": 20.0,
+      "endSec": 25.0,
+      "startFrame": 600,
+      "endFrame": 750,
+      "visualIntent": "Leader S1 phát sóng AppendEntries RPC mang theo log entry tới tất cả Followers, các Follower sao chép và gửi phản hồi ACK",
+      "primaryObject": "append_entries_rpc_flow",
+      "cameraIntent": "replicated_cluster_diffusion",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "leader_to_followers_replication_mesh",
+        "transformationType": "log_entry_packet_broadcast",
+        "coreMechanism": "replicated_log_propagation"
+      }
+    },
+    {
+      "id": "b06_majority_commit_apply",
+      "shotId": "shot_02",
+      "startSec": 25.0,
+      "endSec": 30.0,
+      "startFrame": 750,
+      "endFrame": 900,
+      "visualIntent": "Nhận đủ 3 ACK đa số Quorum, Leader chuyển entry sang Committed viền xanh lá, apply State Machine và trả kết quả cho Client",
+      "primaryObject": "committed_state_machine_apply",
+      "cameraIntent": "commit_checkpoint_confirmation",
+      "transitionIntent": "semantic_zoom",
+      "visualExplanationContract": {
+        "spatialRelationship": "quorum_acknowledgment_to_commit",
+        "transformationType": "uncommitted_to_committed_solid_lock",
+        "coreMechanism": "state_machine_safety_commit"
+      }
+    },
+    {
+      "id": "b07_network_partition_split_brain",
+      "shotId": "shot_03",
+      "startSec": 30.0,
+      "endSec": 35.0,
+      "startFrame": 900,
+      "endFrame": 1050,
+      "visualIntent": "Vách ngăn mạng chia cắt cụm thành nhóm S1-S2 và nhóm S3-S4-S5, Leader S1 nhận lệnh nhưng không đạt quá bán nên cấm commit",
+      "primaryObject": "network_partition_barrier",
+      "cameraIntent": "bipartite_split_cluster_view",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "minority_partition_vs_majority_partition",
+        "transformationType": "barrier_drop_and_rpc_drop",
+        "coreMechanism": "split_brain_prevention"
+      }
+    },
+    {
+      "id": "b08_partition_leader_election",
+      "shotId": "shot_03",
+      "startSec": 35.0,
+      "endSec": 40.0,
+      "startFrame": 1050,
+      "endFrame": 1200,
+      "visualIntent": "Phân vùng đa số bầu S3 làm Leader mới ở Term 3, S3 sao chép và commit thành công các entry mới trên 3 node S3-S4-S5",
+      "primaryObject": "majority_leader_election",
+      "cameraIntent": "majority_partition_focus",
+      "transitionIntent": "continuing_trajectory",
+      "visualExplanationContract": {
+        "spatialRelationship": "majority_subcluster_leadership",
+        "transformationType": "term_3_elevation_and_active_commit",
+        "coreMechanism": "majority_liveness_continuity"
+      }
+    },
+    {
+      "id": "b09_reconnection_log_healing",
+      "shotId": "shot_03",
+      "startSec": 40.0,
+      "endSec": 45.0,
+      "startFrame": 1200,
+      "endFrame": 1350,
+      "visualIntent": "Vách ngăn mạng biến mất, S1 thấy Term 3 cao hơn nên thoái lui thành Follower, log S3 ghi đè entry chưa commit, bảo toàn an toàn tuyệt đối",
+      "primaryObject": "healed_cluster_log_reconciliation",
+      "cameraIntent": "unified_settled_safety_view",
+      "transitionIntent": "none",
+      "visualExplanationContract": {
+        "spatialRelationship": "unified_five_node_cluster",
+        "transformationType": "log_healing_and_leader_stepdown",
+        "coreMechanism": "linearizable_log_safety"
+      }
+    }
+  ]
+}

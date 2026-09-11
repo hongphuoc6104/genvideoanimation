@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "topic": "raft-consensus",
+  "claims": [
+    {
+      "claimId": "claim_01_leader_election",
+      "statement": "Trong giao thức Raft, tại mỗi Term chỉ có tối đa một Leader được đắc cử thông qua đa số phiếu Quorum (floor(N/2) + 1).",
+      "boundaryConditions": "Áp dụng cho cụm phân tán có số node N lẻ (thường N = 3 hoặc 5); yêu cầu mạng truyền thông không phân mảnh hoàn toàn.",
+      "evidenceSource": "Ongaro & Ousterhout (USENIX ATC 2014) Section 5.2; Section 5.4.1 Election Safety",
+      "beatRef": "b03_quorum_majority_leader"
+    },
+    {
+      "claimId": "claim_02_randomized_timeouts",
+      "statement": "Khoảng thời gian chờ bầu cử ngẫu nhiên (150ms - 300ms) giải tỏa nguy cơ chia phiếu (split votes), đảm bảo một node hết giờ trước và thắng cử.",
+      "boundaryConditions": "Khoảng timeout ngẫu nhiên phải lớn hơn đáng kể thời gian truyền thông vòng lặp (broadcastTime << electionTimeout << MTBF).",
+      "evidenceSource": "Ongaro & Ousterhout (2014) Section 5.2 & Section 5.6",
+      "beatRef": "b02_election_timeout_candidate"
+    },
+    {
+      "claimId": "claim_03_log_replication_quorum",
+      "statement": "Một log entry chỉ được coi là Committed khi đã được sao chép thành công lên quá bán số node trong cụm.",
+      "boundaryConditions": "Leader chỉ commit các entry thuộc Term hiện tại của mình bằng cách đếm số node đa số; entry term cũ được commit gián tiếp.",
+      "evidenceSource": "Ongaro & Ousterhout (2014) Section 5.3 & Section 5.4.2",
+      "beatRef": "b06_majority_commit_apply"
+    },
+    {
+      "claimId": "claim_04_network_partition_split_brain",
+      "statement": "Khi mạng bị phân vùng, phân vùng thiểu số không thể tích lũy đủ Quorum đa số nên không thể commit bất kỳ lệnh ghi mới nào, triệt tiêu lỗi Split-Brain.",
+      "boundaryConditions": "Giả định mô hình lỗi sụp đổ có thể phục hồi (Fail-Stop / Crash-Recovery), không xét lỗi Byzantine giả mạo thông điệp.",
+      "evidenceSource": "Ongaro & Ousterhout (2014) Section 5.4 & Section 8",
+      "beatRef": "b07_network_partition_split_brain"
+    },
+    {
+      "claimId": "claim_05_linearizable_safety",
+      "statement": "Tính chất Leader Completeness bảo đảm Leader mới đắc cử luôn chứa toàn bộ các entry đã commit từ các term trước, duy trì tính nhất quán tuyến tính.",
+      "boundaryConditions": "Mỗi cử tri từ chối bỏ phiếu cho ứng viên có nhật ký kém cập nhật hơn (Log Comparison Rule).",
+      "evidenceSource": "Ongaro & Ousterhout (2014) Section 5.4.1 & Section 5.4.2",
+      "beatRef": "b09_reconnection_log_healing"
+    }
+  ]
+}

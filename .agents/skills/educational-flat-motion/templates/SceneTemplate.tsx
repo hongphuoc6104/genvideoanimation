@@ -1,6 +1,13 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { useBeatChoreography } from 'motion-kit';
+import {
+  SafeStageZone,
+  AutoPill,
+  AutoClippingConnector,
+  OpaqueCard,
+  useBeatChoreography,
+  BoxDescriptor,
+} from 'motion-kit';
 
 export interface SceneProps {
   durationInFrames?: number;
@@ -8,14 +15,17 @@ export interface SceneProps {
 }
 
 /**
- * SceneTemplate: Mẫu dựng cảnh động học theo chuẩn V3.4 (Anti-Slide & Kinetic Transformation).
+ * SceneTemplate: Mẫu dựng cảnh động học chuẩn V3.4+ với Smart Geometric Primitives.
  * 
  * NGUYÊN TẮC THIẾT KẾ:
- * 1. Tự do bố cục hình ảnh (Creative Layout Freedom): Full-bleed, chia đôi so sánh (split),
- *    chu trình pha tròn (radial phase), hoặc đồ thị mạng lưới. KHÔNG ÉP BUỘC BỐ CỤC 4 TẦNG.
- * 2. Visual Progression: Diễn giải bằng chuyển động của vector, hình khối và cơ chế (Relational Mechanism).
- * 3. Ranh giới bất biến duy nhất: Dành riêng vùng an toàn phụ đề [y: 1520 - 1720px] và lề đáy [y > 1720px].
- *    Không đặt các chi tiết động học chính hoặc văn bản đè lên vùng phụ đề này.
+ * 1. SafeStageZone: Bọc 100% phần tử trong Stage Zone 2 [36, 1044] x [180, 1420px],
+ *    bảo toàn khoảng đệm an toàn >= 50px trước trần phụ đề y = 1470px.
+ * 2. AutoClippingConnector: Nối các node với thuật toán Ray-AABB Boundary Clipping,
+ *    không bao giờ đâm xuyên qua hộp chữ hoặc tâm node.
+ * 3. AutoPill: Tự động đo độ rộng chuỗi tiếng Việt UTF-8, duy trì padding >= 34px.
+ * 4. OpaqueCard: Kiến trúc 2 lớp phân ly (Base Shield opacity: 1.0 #0F172A),
+ *    chống triệt để bẫy kế thừa CSS khi làm mờ thẻ inactive.
+ * 5. Clean Mount/Unmount (Zero Ghosting): Trạng thái cũ unmount sạch sẽ khi chuyển pha.
  */
 export const SceneTemplate: React.FC<SceneProps> = ({ durationInFrames = 600, shotBeats = [] }) => {
   const frame = useCurrentFrame();
@@ -24,12 +34,31 @@ export const SceneTemplate: React.FC<SceneProps> = ({ durationInFrames = 600, sh
   // Dẫn xuất nhịp động học từ timeline tokens (chống hardcode frame tuyệt đối)
   const { currentBeatIndex, beatProgress: intraBeatProgress, phase } = useBeatChoreography(shotBeats);
 
-  // Ví dụ: Hiệu ứng chuyển biến hình học theo từng nhịp (Intra-beat kinematic interpolation)
+  // Hiệu ứng chuyển biến hình học nội suy
   const morphProgress = spring({
     frame: frame % 150,
     fps,
     config: { damping: 15, stiffness: 90 },
   });
+
+  // Khai báo BoxDescriptor cho 2 node quan hệ
+  const sourceNode: BoxDescriptor = {
+    cx: 340,
+    cy: 760,
+    width: 260,
+    height: 72,
+    shape: 'rounded-rect',
+    cornerRadius: 18,
+  };
+
+  const targetNode: BoxDescriptor = {
+    cx: 740,
+    cy: 760,
+    width: 260,
+    height: 72,
+    shape: 'rounded-rect',
+    cornerRadius: 18,
+  };
 
   return (
     <div
@@ -41,53 +70,134 @@ export const SceneTemplate: React.FC<SceneProps> = ({ durationInFrames = 600, sh
         overflow: 'hidden',
       }}
     >
-      {/* 
-        VÙNG KHÔNG GIAN HÌNH ẢNH CHỦ ĐẠO (Primary Kinetic Canvas) [y: 100 - 1500px]
-        Tác giả tự do sáng tạo cơ cấu chuyển động: van lật, liên kết đòn bẩy, đồ thị luồng...
-      */}
       <svg
         style={{ position: 'absolute', top: 0, left: 0, width: 1080, height: 1920 }}
         viewBox="0 0 1080 1920"
       >
-        {/* Ví dụ: Cơ cấu chuyển hóa hình học 2 trạng thái (State A <-> State B) */}
-        <g transform={`translate(540, 800) scale(${interpolate(morphProgress, [0, 1], [0.95, 1.05])})`}>
-          {/* Cung liên kết / Cánh van cơ học */}
-          <path
-            d={`M -200 0 Q 0 ${interpolate(morphProgress, [0, 1], [-120, 120])} 200 0`}
-            fill="none"
-            stroke="#3B82F6"
-            strokeWidth={12}
-            strokeLinecap="round"
-          />
-
-          {/* Thực thể hạt / Node động học */}
-          <circle
-            cx={interpolate(morphProgress, [0, 1], [-160, 160])}
-            cy={interpolate(morphProgress, [0, 1], [-40, 40])}
-            r={36}
-            fill="#10B981"
-            filter="drop-shadow(0 0 16px rgba(16, 185, 129, 0.6))"
-          />
-        </g>
-
-        {/* Nhãn neo cơ học ngắn gọn (Kinetic Anchor Label - chỉ tên gọi <= 3 từ, cấm đoạn văn) */}
-        <text
-          x={540}
-          y={360}
-          textAnchor="middle"
-          fill="#F8FAFC"
-          fontSize={44}
-          fontWeight={800}
-          letterSpacing="0.02em"
+        {/* VÙNG AN TOÀN SÂN KHẤU ZONE 2: [36, 1044] x [180, 1420] */}
+        <SafeStageZone
+          minX={36}
+          maxX={1044}
+          minY={180}
+          maxY={1420}
+          subtitleZoneY={1470}
+          as="svg"
         >
-          {phase === 0 ? 'TRẠNG THÁI KHỞI ĐẦU' : 'CHUYỂN HÓA CẤU HÌNH'}
-        </text>
-      </svg>
+          {({ bounds, mapPoint }) => (
+            <g>
+              {/* Tiêu đề neo cơ học bằng AutoPill tự co giãn */}
+              <AutoPill
+                x={bounds.centerX}
+                y={280}
+                text={phase === 0 ? 'TRẠNG THÁI KHỞI ĐẦU' : 'CHUYỂN HÓA ĐỒNG THUẬN'}
+                fontSize={34}
+                fontWeight={800}
+                color="#F8FAFC"
+                fill="#0F172A"
+                stroke="#38BDF8"
+                strokeWidth={2}
+                paddingHorizontal={36}
+                minWidth={160}
+                height={64}
+                anchor="center"
+              />
 
-      {/* 
-        RANH GIỚI BẢO VỆ PHỤ ĐỀ (Subtitle Clearance Zone) [y: 1520 - 1720px]
-        Không chèn vật thể hoặc đồ họa tĩnh vào dải này. Phụ đề karaoke được Root mount tại đây.
-      */}
+              {/* Đường nối tự động cắt mép Ray-AABB giữa 2 node, cấm đâm vào lòng chữ */}
+              <AutoClippingConnector
+                from={sourceNode}
+                to={targetNode}
+                routing="curved"
+                curvature={-0.15}
+                stroke="#38BDF8"
+                strokeWidth={3}
+                arrowhead="end"
+                arrowheadSize={12}
+                startGap={6}
+                endGap={6}
+              />
+
+              {/* Node nguồn: OpaqueCard với base shield đục 100% chống bẫy CSS opacity */}
+              <OpaqueCard
+                cx={sourceNode.cx}
+                cy={sourceNode.cy}
+                width={sourceNode.width}
+                height={sourceNode.height}
+                rx={sourceNode.cornerRadius}
+                isActive={phase === 0}
+                isDimmed={phase !== 0}
+                inactiveOpacity={0.25}
+                activeBorderColor="#38BDF8"
+                baseColor="#0F172A"
+              >
+                {({ isActive, filter }) => (
+                  <g style={{ filter }}>
+                    <text
+                      x={sourceNode.cx!}
+                      y={sourceNode.cy!}
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      fill={isActive ? '#38BDF8' : '#94A3B8'}
+                      fontSize={26}
+                      fontWeight={700}
+                    >
+                      NODE TIỀN ĐỀ
+                    </text>
+                  </g>
+                )}
+              </OpaqueCard>
+
+              {/* Node đích: OpaqueCard */}
+              <OpaqueCard
+                cx={targetNode.cx}
+                cy={targetNode.cy}
+                width={targetNode.width}
+                height={targetNode.height}
+                rx={targetNode.cornerRadius}
+                isActive={phase === 1}
+                isDimmed={phase !== 1}
+                inactiveOpacity={0.25}
+                activeBorderColor="#10B981"
+                baseColor="#0F172A"
+              >
+                {({ isActive, filter }) => (
+                  <g style={{ filter }}>
+                    <text
+                      x={targetNode.cx!}
+                      y={targetNode.cy!}
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                      fill={isActive ? '#10B981' : '#94A3B8'}
+                      fontSize={26}
+                      fontWeight={700}
+                    >
+                      NODE ĐÍCH ĐẾN
+                    </text>
+                  </g>
+                )}
+              </OpaqueCard>
+
+              {/* Clean Mount / Unmount: Không vẽ đè 2 text lên cùng 1 tọa độ */}
+              {phase === 0 && (
+                <g transform={`translate(${bounds.centerX}, 1040)`}>
+                  <circle r={40} fill="#38BDF8" opacity={0.8} />
+                  <text y={60} textAnchor="middle" fill="#94A3B8" fontSize={22} fontWeight={600}>
+                    GIAI ĐOẠN 1: KHỞI TẠO
+                  </text>
+                </g>
+              )}
+
+              {phase === 1 && (
+                <g transform={`translate(${bounds.centerX}, 1040)`}>
+                  <rect x={-40} y={-40} width={80} height={80} rx={16} fill="#10B981" />
+                  <text y={60} textAnchor="middle" fill="#10B981" fontSize={22} fontWeight={600}>
+                    GIAI ĐOẠN 2: HOÀN THÀNH
+                  </text>
+                </g>
+              )}
+            </g>
+          )}
+        </SafeStageZone>
+      </svg>
     </div>
   );
 };

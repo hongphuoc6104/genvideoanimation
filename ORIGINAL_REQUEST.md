@@ -899,3 +899,88 @@ Mỗi cơ chế khoa học/kỹ thuật phải tuân thủ bất biến topo và
 - [ ] Cả 4 video (Scopus + 3 generalization) đều được FFmpeg pipe giải mã thật, đo PSNR preview parity (>= 35 dB), contact sheet và EBU R128 loudness (-15.0 ± 1.0 LUFS, peak <= -1.8 dBTP).
 - [ ] Toàn bộ test suite unit, invariant, boundary, stress, adversarial tests chạy và pass 100% trên code đã sửa.
 - [ ] Báo cáo QA ghi rõ kết quả từng project, phạm vi kiểm tra, SHA-256 artifact thực, và phân định rõ ràng các phần Explanatory Review đã kiểm tra vs. "chưa xác minh".
+
+## 2026-09-11T19:15:14Z
+
+# Teamwork Project Prompt — Final Verified Draft
+
+> Status: Launched
+> Goal: Craft prompt → get user approval → delegate to teamwork_preview
+> Requested team: Full team (Architect, Core Motion Engineer, Headless DOM Tooling Engineer, Independent Tier 2 Auditor)
+
+Đại tu toàn diện 4 tầng hệ sinh thái video giáo dục để triệt tiêu vĩnh viễn các lỗi hiển thị thị giác (chữ đè chữ, vector đâm xuyên lòng thẻ/chữ, bóng ma trạng thái cũ, nhãn tràn màn hình, xâm phạm vùng phụ đề); loại bỏ 100% mã kiểm định hardcode và lỗ hổng bỏ qua kiểm tra dynamic; xây dựng thư viện Primitives hình học tự bảo vệ trong `packages/motion-kit` với cơ chế Content-Driven Auto-Sizing; thiết lập bộ kiểm định Headless DOM thực tế độc lập; và kiểm chứng tính tổng quát trên một bài giảng mới hoàn toàn mà không cần can thiệp thủ công.
+
+Working directory: `/home/hongphuoc6104/Desktop/videorenderhoathinh`
+Integrity mode: `development`
+
+---
+
+## Phản Biện Sửa Ngọn vs Sửa Gốc & Vạch Trần Các Điểm Mập Mờ
+
+### 1. Vạch Trần Các Điểm Mập Mờ & Tư Duy "Sửa Ngọn" Trước Đây:
+- **Mập mờ 1 (Tọa độ thủ công thay vì thuật toán)**: Kế hoạch cũ liệt kê "dời BẢN THẢO về (540, 600)", "tăng pillWidth lên 320px". Đây là biểu hiện điển hình của **sửa ngọn (patching symptoms)**. Khi thay đổi câu từ narration hoặc áp dụng sang video khác, lỗi tràn chữ và va chạm sẽ tái diễn ngay lập tức.
+- **Mập mờ 2 (Thiếu Content-Driven Sizing trong SVG)**: SVG không có cơ chế CSS Box Model tự co giãn như HTML DOM. Việc hardcode `<rect width={280}>` bao quanh chuỗi text 302px là nguyên nhân trực tiếp gây ra lỗi tràn viền (overflow).
+- **Mập mờ 3 (Thiếu State Transition Handoff)**: Khi chuyển cảnh hoặc thay đổi trạng thái diễn hoạt (ví dụ từ QC sang Triumph, hoặc từ Vực Thẳm sang Cây Cầu Hoàn Chỉnh), các phần tử cũ không được unmount hoặc exit sạch sẽ, dẫn đến việc vẽ đè 2 text lên cùng một tọa độ ("PASS" đè "SCOPUS", chòm sao cũ mờ đục đè dưới Desk Reject).
+- **Mập mờ 4 (Sai lầm hình học trong Bố cục Cực)**: Đặt các nhãn ở các góc hẹp ($\Delta \theta = 25^\circ$) trên cùng một bán kính $R=270\text{px}$ khiến khoảng cách giữa hai nhãn chỉ là $116\text{px}$, nhỏ hơn tổng bề rộng của hai nhãn ($280\text{px}$), dẫn đến va chạm hình học không thể tránh khỏi.
+
+### 2. Bí Quyết & Chuẩn Mực Trong Ngành (Industry Best Practices):
+- **Dynamic Text Measurement & AutoPill**: Sử dụng công thức tính toán font metrics dựa trên độ dài chuỗi UTF-8 tiếng Việt: $W_{box} = \max(W_{min}, W_{text} + 2 \times \text{padding})$, đảm bảo padding luôn $\ge 30\text{px}$.
+- **Ray-AABB Boundary Clipping (`AutoClippingConnector`)**: Thuật toán cắt tia tại viền hộp chữ nhật, cấm vẽ vector vào trong lòng hộp chứa text.
+- **Staggered Radii Polar Layout**: Trong bố cục tỏa tròn, các nhánh liền kề phải dùng bán kính so le ($R_{odd} \neq R_{even}$) để tách biệt không gian nhãn, không bao giờ để hai nhãn nằm cùng một bán kính nếu góc lệch $< 45^\circ$.
+- **Clean Mount/Unmount (Zero Ghosting)**: Khi trạng thái mới được kích hoạt, phần tử của trạng thái cũ phải được gỡ bỏ hoàn toàn khỏi DOM cây SVG.
+- **Headless DOM Verification (Layer 2 Gate G04D)**: Sử dụng Chromium thực tế để đo đạc `getBoundingClientRect()` tại từng keyframe, loại bỏ 100% việc dùng AST tĩnh để lách kiểm tra.
+
+---
+
+## Requirements
+
+### R1. Reusable Smart Geometric Primitives (`packages/motion-kit`)
+- Bổ sung `AutoPill.tsx` và `measureTextMetrics.ts`: Tự động tính toán bề rộng hộp dựa trên nội dung text, luôn đảm bảo khoảng đệm an toàn ngang $\ge 30\text{px}$ và không bao giờ tràn viền.
+- Cung cấp component nối thông minh (`AutoClippingConnector`) tự động giải phương trình giao điểm tia và mép hộp chữ nhật (Ray-Box Boundary Intersection).
+- Cung cấp container che chắn (`OpaqueCard` / `OpaqueShield`) với kiến trúc 2 lớp phân ly: Lớp nền luôn giữ độ đục 100% (`opacity: 1.0`) với màu `#0F172A`.
+- Cung cấp vùng an toàn sân khấu (`SafeStageZone`) bao bọc toàn bộ khu vực diễn hoạt (Zone 2: $y \in [180, 1420]\text{px}$).
+- Cung cấp nhóm nhãn tỏa tròn (`RadialLabelGroup`) hỗ trợ Staggered Radii và clamp tọa độ ngang trong lề an toàn $[36, 1044]\text{px}$.
+
+### R2. Generic Headless DOM Runtime Geometry Gate (G04D)
+- Duy trì bộ kiểm định `validators/validate-runtime-geometry.ts` hoàn toàn không hardcode, hỗ trợ cờ `--project=<path>`.
+- Chặn đứng 100% các vi phạm:
+  * Va chạm text đè text / text đè container ($AABB_1 \cap AABB_2 \neq \emptyset$).
+  * Vector đâm xuyên lòng text/card không có shield bảo vệ.
+  * Phần tử diễn hoạt xâm phạm vùng phụ đề ($y > 1420\text{px}$).
+  * Phần tử tràn mép màn hình ($x < 36\text{px}$ hoặc $x + w > 1044\text{px}$).
+  * Khoảng đệm container thiếu hụt ($< 30\text{px}$).
+
+### R3. Skill Instructions & Contract Overhaul
+- Cập nhật toàn diện `.agents/skills/educational-flat-motion/SKILL.md`:
+  - Quy định bắt buộc mọi layout có đường nối phải sử dụng `AutoClippingConnector`.
+  - Bắt buộc dùng `AutoPill` hoặc Dynamic Metrics cho mọi thẻ text có khung viền.
+  - Quy định Clean Mount/Unmount khi đổi trạng thái (Zero Ghosting).
+  - Đưa checklist 5 bất biến hình học vào quy trình bắt buộc của Tier 1 Motion Agent.
+
+### R4. Migration of Existing Video & Independent Generalization Benchmark
+- Refactor toàn diện 4 component trong `scopus-research-gap` (`FiveGapPrismsMechanism.tsx`, `ResearchFunnelMechanism.tsx`, `ThreeTierBridgeMechanism.tsx`, `DiagnosticRadarMechanism.tsx`) bằng các Smart Primitives và thuật toán Staggered Radii $\to$ Đạt **0 VIOLATIONS** trên Headless DOM Gate.
+- **Tổng quát hóa (Generalization Test)**: Tạo một project bài giảng mới hoàn toàn: `connection-film/src/projects/raft-consensus` (Raft Distributed Consensus Protocol) bằng 100% Smart Primitives mới, chứng minh project mới tự động đạt 0 lỗi mà không cần vá tay.
+
+---
+
+## Acceptance Criteria
+
+### AC1. Zero Hardcoding in Test Harness
+- [ ] Không còn bất kỳ hằng số riêng nào của `scopus-research-gap` trong `validators/validate-runtime-geometry.ts`.
+- [ ] Validator chạy thành công trên bất kỳ project nào qua cờ `--project=<path>` và trả về kết quả đo đạc DOM thực tế.
+
+### AC2. Real Headless DOM Geometry Gate (Zero Violations on Scopus)
+- [ ] `validate-runtime-geometry.ts --project=connection-film/src/projects/scopus-research-gap` đạt **0 VIOLATIONS** tuyệt đối trên toàn bộ 69 keyframes của 23 beats.
+
+### AC3. Reusable Content-Driven Primitives Integration in `motion-kit`
+- [ ] `packages/motion-kit` export đầy đủ các component: `AutoPill`, `AutoClippingConnector`, `OpaqueCard`, `SafeStageZone`, `RadialLabelGroup`.
+- [ ] Toàn bộ unit tests trong `tests/invariants/` PASS 100%.
+
+### AC4. Independent Generalization Benchmark
+- [ ] Project mới `connection-film/src/projects/raft-consensus` được khởi tạo và render thành công.
+- [ ] `validate-runtime-geometry.ts --project=connection-film/src/projects/raft-consensus` đạt **0 VIOLATIONS** ngay từ lần chạy đầu tiên.
+
+### AC5. Canonical Gate & Verification
+- [ ] Toàn bộ `npm run gate` và `npm run v3.3:gate` PASS 100%.
+- [ ] `qa-report.json` ghi nhận kết quả xác thực độc lập.
+

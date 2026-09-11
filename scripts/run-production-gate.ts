@@ -119,6 +119,24 @@ async function main() {
       args: ['tsx', 'validators/validate-visual-semantics.ts', scenesDir],
     },
     {
+      id: 'G04B-layout-geometry',
+      name: 'Layout Zero-Collision & Bounding Box Clearance AST Gate (>= 30px)',
+      command: 'npx',
+      args: ['tsx', 'validators/validate-layout-geometry.ts', projectDir],
+    },
+    {
+      id: 'G04C-frame-salience',
+      name: 'Dual Visual Salience & Zero-Ghosting Stage Lifecycle Gate (>= 2.5:1 Ratio)',
+      command: 'npx',
+      args: ['tsx', 'validators/validate-frame-salience.ts', timelinePath, previewMp4],
+    },
+    {
+      id: 'G04D-runtime-geometry',
+      name: 'Headless DOM Runtime Geometry & Vector Boundary Gate (0 Collisions, Zero Penetration)',
+      command: 'npx',
+      args: ['tsx', 'validators/validate-runtime-geometry.ts', projectDir],
+    },
+    {
       id: 'G05-contact-sheet',
       name: 'Storyboard Contact Sheet Frame Extraction (FFmpeg Pipe)',
       command: 'npx',

@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "studio": "npm run studio --prefix connection-film",
-    "render": "npm run render --prefix connection-film",
+    "render:connection": "npm run render --prefix connection-film",
     "render:offline": "npm run render:offline --prefix connection-film",
     "narration:setup": "tsx scripts/setup-narration-models.ts",
     "build:narration": "tsc --project packages/narration-kit/tsconfig.json",

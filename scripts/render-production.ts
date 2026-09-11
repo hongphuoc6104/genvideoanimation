@@ -30,13 +30,19 @@ const outputMp4 = path.resolve(process.cwd(), `out/${projectName}-1080p.mp4`);
 
 // Detect composition ID if not explicitly specified
 if (!composition) {
+  const camel = projectName.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+  const candidate = `${camel}-TikTok916`;
   const rootFile = path.resolve(__dirname, '../connection-film/src/Root.tsx');
   if (fs.existsSync(rootFile)) {
     const rootSrc = fs.readFileSync(rootFile, 'utf-8');
-    const compMatches = Array.from(rootSrc.matchAll(/<Composition[\s\S]*?id=["']([^"']+)["']/g)).map(m => m[1]);
-    const filtered = compMatches.filter(id => !['ScopusResearchGap-TikTok916', 'CrisprCas9-TikTok916', 'SteamEngineCycle', 'GitDagModel-TikTok916'].includes(id));
-    if (filtered.length > 0) {
-      composition = filtered[0];
+    if (rootSrc.includes(`id="${candidate}"`) || rootSrc.includes(`id='${candidate}'`)) {
+      composition = candidate;
+    } else {
+      const compMatches = Array.from(rootSrc.matchAll(/<Composition[\s\S]*?id=["']([^"']+)["']/g)).map(m => m[1]);
+      const filtered = compMatches.filter(id => !['CrisprCas9-TikTok916', 'SteamEngineCycle', 'GitDagModel-TikTok916'].includes(id));
+      if (filtered.length > 0) {
+        composition = filtered[0];
+      }
     }
   }
 }

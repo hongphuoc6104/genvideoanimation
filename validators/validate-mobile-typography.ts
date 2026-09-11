@@ -596,8 +596,35 @@ export function validateSourceCode(
             effectiveSize < 30
               ? `Font size (${detectedSize}px${scaleDesc}) violates absolute mobile floor (>= 30px) for role '${role}' (required >= ${requiredThreshold}px).`
               : `Font size (${detectedSize}px${scaleDesc}) violates mobile threshold for role '${role}' (required >= ${requiredThreshold}px).`,
-          snippet: content.slice(astPath.node.start, Math.min(astPath.node.end, astPath.node.start + 120)),
         });
+      }
+
+      // Check for horizontal text overflow risk on 1080px mobile canvas (exempt legacy archives)
+      if (!filePath.includes('/legacy/')) {
+        const children = astPath.parent?.children || [];
+        for (const child of children) {
+          if (child.type === 'JSXText') {
+            const rawText = child.value.trim().replace(/\s+/g, ' ');
+            // Long single-line canvas labels exceeding 42 chars at font >= 30px risk clipping out of 1080px vertical bounds
+            if (rawText.length > 42 && effectiveSize >= 30 && !rawText.includes('\n')) {
+              const line = child.loc?.start.line || astPath.node.loc?.start.line || 1;
+              const col = child.loc?.start.column || 1;
+              violations.push({
+                file: filePath,
+                line,
+                column: col,
+                tagName,
+                role,
+                detectedSize: rawText.length,
+                requiredThreshold: 42,
+                shortfall: rawText.length - 42,
+                severity: 'CRITICAL',
+                message: `Horizontal text length (${rawText.length} chars at ${effectiveSize}px) exceeds safe single-line mobile width (<= 42 chars). Wrap into multi-line or shorten label.`,
+                snippet: rawText.slice(0, 70),
+              });
+            }
+          }
+        }
       }
     },
   });

@@ -1,0 +1,6349 @@
+[
+  {
+    "id": "g0",
+    "text": "Tại sao bài báo có số liệu tốt phương pháp mạnh vẫn",
+    "startFrame": 0,
+    "endFrame": 61,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Tại sao bài báo có số liệu",
+        "words": [
+          {
+            "id": "w_0",
+            "word": "Tại",
+            "start": 0,
+            "end": 0.121,
+            "startFrame": 0,
+            "endFrame": 4,
+            "cleanWord": "tại",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_1",
+            "word": "sao",
+            "start": 0.161,
+            "end": 0.322,
+            "startFrame": 5,
+            "endFrame": 10,
+            "cleanWord": "sao",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_2",
+            "word": "bài",
+            "start": 0.342,
+            "end": 0.462,
+            "startFrame": 10,
+            "endFrame": 14,
+            "cleanWord": "bài",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_3",
+            "word": "báo",
+            "start": 0.482,
+            "end": 0.663,
+            "startFrame": 14,
+            "endFrame": 20,
+            "cleanWord": "báo",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_4",
+            "word": "có",
+            "start": 0.724,
+            "end": 0.824,
+            "startFrame": 22,
+            "endFrame": 25,
+            "cleanWord": "có",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_5",
+            "word": "số",
+            "start": 0.844,
+            "end": 0.944,
+            "startFrame": 25,
+            "endFrame": 28,
+            "cleanWord": "số",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_6",
+            "word": "liệu",
+            "start": 0.985,
+            "end": 1.106,
+            "startFrame": 30,
+            "endFrame": 33,
+            "cleanWord": "liệu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "tốt phương pháp mạnh vẫn",
+        "words": [
+          {
+            "id": "w_7",
+            "word": "tốt",
+            "start": 1.126,
+            "end": 1.286,
+            "startFrame": 34,
+            "endFrame": 39,
+            "cleanWord": "tốt",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_8",
+            "word": "phương",
+            "start": 1.327,
+            "end": 1.508,
+            "startFrame": 40,
+            "endFrame": 45,
+            "cleanWord": "phương",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_9",
+            "word": "pháp",
+            "start": 1.528,
+            "end": 1.628,
+            "startFrame": 46,
+            "endFrame": 49,
+            "cleanWord": "pháp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_10",
+            "word": "mạnh",
+            "start": 1.628,
+            "end": 1.829,
+            "startFrame": 49,
+            "endFrame": 55,
+            "cleanWord": "mạnh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_11",
+            "word": "vẫn",
+            "start": 1.91,
+            "end": 2.01,
+            "startFrame": 57,
+            "endFrame": 60,
+            "cleanWord": "vẫn",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 0,
+    "endTime": 2.033
+  },
+  {
+    "id": "g1",
+    "text": "bị Desk Reject ngay từ vòng đầu",
+    "startFrame": 61,
+    "endFrame": 113,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "bị Desk Reject",
+        "words": [
+          {
+            "id": "w_12",
+            "word": "bị",
+            "start": 2.05,
+            "end": 2.15,
+            "startFrame": 61,
+            "endFrame": 65,
+            "cleanWord": "bị",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_13",
+            "word": "Desk Reject",
+            "start": 2.151,
+            "end": 2.834,
+            "startFrame": 65,
+            "endFrame": 85,
+            "cleanWord": "deskreject",
+            "confidence": 0.95,
+            "subunits": [
+              {
+                "text": "Desk",
+                "start": 2.151,
+                "end": 2.432,
+                "confidence": 0.95
+              },
+              {
+                "text": "Reject",
+                "start": 2.452,
+                "end": 2.834,
+                "confidence": 0.95
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "ngay từ vòng đầu",
+        "words": [
+          {
+            "id": "w_14",
+            "word": "ngay",
+            "start": 2.895,
+            "end": 3.136,
+            "startFrame": 87,
+            "endFrame": 94,
+            "cleanWord": "ngay",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_15",
+            "word": "từ",
+            "start": 3.136,
+            "end": 3.236,
+            "startFrame": 94,
+            "endFrame": 97,
+            "cleanWord": "từ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_16",
+            "word": "vòng",
+            "start": 3.196,
+            "end": 3.397,
+            "startFrame": 96,
+            "endFrame": 102,
+            "cleanWord": "vòng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_17",
+            "word": "đầu",
+            "start": 3.477,
+            "end": 3.618,
+            "startFrame": 104,
+            "endFrame": 109,
+            "cleanWord": "đầu",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 2.033,
+    "endTime": 3.767
+  },
+  {
+    "id": "g2",
+    "text": "Nguyên nhân cốt lõi Phần mở đầu không chứng minh",
+    "startFrame": 113,
+    "endFrame": 174,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Nguyên nhân cốt lõi Phần",
+        "words": [
+          {
+            "id": "w_18",
+            "word": "Nguyên",
+            "start": 4.099,
+            "end": 4.22,
+            "startFrame": 123,
+            "endFrame": 127,
+            "cleanWord": "nguyên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_19",
+            "word": "nhân",
+            "start": 4.24,
+            "end": 4.361,
+            "startFrame": 127,
+            "endFrame": 131,
+            "cleanWord": "nhân",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_20",
+            "word": "cốt",
+            "start": 4.401,
+            "end": 4.562,
+            "startFrame": 132,
+            "endFrame": 137,
+            "cleanWord": "cốt",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_21",
+            "word": "lõi",
+            "start": 4.602,
+            "end": 4.723,
+            "startFrame": 138,
+            "endFrame": 142,
+            "cleanWord": "lõi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_22",
+            "word": "Phần",
+            "start": 4.783,
+            "end": 4.904,
+            "startFrame": 143,
+            "endFrame": 147,
+            "cleanWord": "phần",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "mở đầu không chứng minh",
+        "words": [
+          {
+            "id": "w_23",
+            "word": "mở",
+            "start": 4.964,
+            "end": 5.064,
+            "startFrame": 149,
+            "endFrame": 152,
+            "cleanWord": "mở",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_24",
+            "word": "đầu",
+            "start": 5.085,
+            "end": 5.245,
+            "startFrame": 153,
+            "endFrame": 157,
+            "cleanWord": "đầu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_25",
+            "word": "không",
+            "start": 5.306,
+            "end": 5.527,
+            "startFrame": 159,
+            "endFrame": 166,
+            "cleanWord": "không",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_26",
+            "word": "chứng",
+            "start": 5.527,
+            "end": 5.668,
+            "startFrame": 166,
+            "endFrame": 170,
+            "cleanWord": "chứng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_27",
+            "word": "minh",
+            "start": 5.668,
+            "end": 5.788,
+            "startFrame": 170,
+            "endFrame": 174,
+            "cleanWord": "minh",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 3.767,
+    "endTime": 5.8
+  },
+  {
+    "id": "g3",
+    "text": "được khoảng trống nghiên cứu một cách thuyết phục",
+    "startFrame": 174,
+    "endFrame": 220,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "được khoảng trống nghiên",
+        "words": [
+          {
+            "id": "w_28",
+            "word": "được",
+            "start": 5.809,
+            "end": 5.929,
+            "startFrame": 174,
+            "endFrame": 178,
+            "cleanWord": "được",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_29",
+            "word": "khoảng",
+            "start": 5.949,
+            "end": 6.13,
+            "startFrame": 178,
+            "endFrame": 184,
+            "cleanWord": "khoảng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_30",
+            "word": "trống",
+            "start": 6.13,
+            "end": 6.291,
+            "startFrame": 184,
+            "endFrame": 189,
+            "cleanWord": "trống",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_31",
+            "word": "nghiên",
+            "start": 6.352,
+            "end": 6.512,
+            "startFrame": 191,
+            "endFrame": 195,
+            "cleanWord": "nghiên",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "cứu một cách thuyết phục",
+        "words": [
+          {
+            "id": "w_32",
+            "word": "cứu",
+            "start": 6.512,
+            "end": 6.612,
+            "startFrame": 195,
+            "endFrame": 198,
+            "cleanWord": "cứu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_33",
+            "word": "một",
+            "start": 6.573,
+            "end": 6.673,
+            "startFrame": 197,
+            "endFrame": 200,
+            "cleanWord": "một",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_34",
+            "word": "cách",
+            "start": 6.653,
+            "end": 6.854,
+            "startFrame": 200,
+            "endFrame": 206,
+            "cleanWord": "cách",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_35",
+            "word": "thuyết",
+            "start": 6.915,
+            "end": 7.076,
+            "startFrame": 207,
+            "endFrame": 212,
+            "cleanWord": "thuyết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_36",
+            "word": "phục",
+            "start": 7.096,
+            "end": 7.196,
+            "startFrame": 213,
+            "endFrame": 216,
+            "cleanWord": "phục",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 5.8,
+    "endTime": 7.333
+  },
+  {
+    "id": "g4",
+    "text": "Chuẩn Scopus là chuẩn đối thoại học thuật Vấn đề rõ",
+    "startFrame": 220,
+    "endFrame": 292,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Chuẩn Scopus là chuẩn đối",
+        "words": [
+          {
+            "id": "w_37",
+            "word": "Chuẩn",
+            "start": 7.598,
+            "end": 7.739,
+            "startFrame": 228,
+            "endFrame": 232,
+            "cleanWord": "chuẩn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_38",
+            "word": "Scopus",
+            "start": 7.839,
+            "end": 8.24,
+            "startFrame": 235,
+            "endFrame": 247,
+            "cleanWord": "scopus",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_39",
+            "word": "là",
+            "start": 8.461,
+            "end": 8.561,
+            "startFrame": 254,
+            "endFrame": 257,
+            "cleanWord": "là",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_40",
+            "word": "chuẩn",
+            "start": 8.602,
+            "end": 8.702,
+            "startFrame": 258,
+            "endFrame": 261,
+            "cleanWord": "chuẩn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_41",
+            "word": "đối",
+            "start": 8.702,
+            "end": 8.802,
+            "startFrame": 261,
+            "endFrame": 264,
+            "cleanWord": "đối",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "thoại học thuật Vấn đề rõ",
+        "words": [
+          {
+            "id": "w_42",
+            "word": "thoại",
+            "start": 8.842,
+            "end": 9.023,
+            "startFrame": 265,
+            "endFrame": 271,
+            "cleanWord": "thoại",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_43",
+            "word": "học",
+            "start": 9.023,
+            "end": 9.164,
+            "startFrame": 271,
+            "endFrame": 275,
+            "cleanWord": "học",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_44",
+            "word": "thuật",
+            "start": 9.184,
+            "end": 9.344,
+            "startFrame": 276,
+            "endFrame": 280,
+            "cleanWord": "thuật",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_45",
+            "word": "Vấn",
+            "start": 9.344,
+            "end": 9.445,
+            "startFrame": 280,
+            "endFrame": 283,
+            "cleanWord": "vấn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_46",
+            "word": "đề",
+            "start": 9.505,
+            "end": 9.605,
+            "startFrame": 285,
+            "endFrame": 288,
+            "cleanWord": "đề",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_47",
+            "word": "rõ",
+            "start": 9.605,
+            "end": 9.706,
+            "startFrame": 288,
+            "endFrame": 291,
+            "cleanWord": "rõ",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 7.333,
+    "endTime": 9.733
+  },
+  {
+    "id": "g5",
+    "text": "tổng quan chọn lọc lập luận có căn cứ",
+    "startFrame": 292,
+    "endFrame": 346,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "tổng quan chọn lọc",
+        "words": [
+          {
+            "id": "w_48",
+            "word": "tổng",
+            "start": 9.746,
+            "end": 10.087,
+            "startFrame": 292,
+            "endFrame": 303,
+            "cleanWord": "tổng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_49",
+            "word": "quan",
+            "start": 10.127,
+            "end": 10.227,
+            "startFrame": 304,
+            "endFrame": 307,
+            "cleanWord": "quan",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_50",
+            "word": "chọn",
+            "start": 10.247,
+            "end": 10.408,
+            "startFrame": 307,
+            "endFrame": 312,
+            "cleanWord": "chọn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_51",
+            "word": "lọc",
+            "start": 10.468,
+            "end": 10.568,
+            "startFrame": 314,
+            "endFrame": 317,
+            "cleanWord": "lọc",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "lập luận có căn cứ",
+        "words": [
+          {
+            "id": "w_52",
+            "word": "lập",
+            "start": 10.609,
+            "end": 10.749,
+            "startFrame": 318,
+            "endFrame": 322,
+            "cleanWord": "lập",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_53",
+            "word": "luận",
+            "start": 10.789,
+            "end": 10.95,
+            "startFrame": 324,
+            "endFrame": 329,
+            "cleanWord": "luận",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_54",
+            "word": "có",
+            "start": 11.01,
+            "end": 11.11,
+            "startFrame": 330,
+            "endFrame": 333,
+            "cleanWord": "có",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_55",
+            "word": "căn",
+            "start": 11.09,
+            "end": 11.271,
+            "startFrame": 333,
+            "endFrame": 338,
+            "cleanWord": "căn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_56",
+            "word": "cứ",
+            "start": 11.291,
+            "end": 11.391,
+            "startFrame": 339,
+            "endFrame": 342,
+            "cleanWord": "cứ",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 9.733,
+    "endTime": 11.533
+  },
+  {
+    "id": "g6",
+    "text": "Một Gap chuẩn phải trả lời 3 câu hỏi Đã biết gì Chưa",
+    "startFrame": 346,
+    "endFrame": 421,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Một Gap chuẩn phải trả lời",
+        "words": [
+          {
+            "id": "w_57",
+            "word": "Một",
+            "start": 11.953,
+            "end": 12.054,
+            "startFrame": 359,
+            "endFrame": 362,
+            "cleanWord": "một",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_58",
+            "word": "Gap",
+            "start": 12.094,
+            "end": 12.195,
+            "startFrame": 363,
+            "endFrame": 366,
+            "cleanWord": "gap",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_59",
+            "word": "chuẩn",
+            "start": 12.255,
+            "end": 12.416,
+            "startFrame": 368,
+            "endFrame": 372,
+            "cleanWord": "chuẩn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_60",
+            "word": "phải",
+            "start": 12.496,
+            "end": 12.597,
+            "startFrame": 375,
+            "endFrame": 378,
+            "cleanWord": "phải",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_61",
+            "word": "trả",
+            "start": 12.617,
+            "end": 12.717,
+            "startFrame": 379,
+            "endFrame": 382,
+            "cleanWord": "trả",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_62",
+            "word": "lời",
+            "start": 12.758,
+            "end": 12.858,
+            "startFrame": 383,
+            "endFrame": 386,
+            "cleanWord": "lời",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "3 câu hỏi Đã biết gì Chưa",
+        "words": [
+          {
+            "id": "w_63",
+            "word": "3",
+            "start": 12.879,
+            "end": 12.979,
+            "startFrame": 386,
+            "endFrame": 389,
+            "cleanWord": "3",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_64",
+            "word": "câu",
+            "start": 12.979,
+            "end": 13.14,
+            "startFrame": 389,
+            "endFrame": 394,
+            "cleanWord": "câu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_65",
+            "word": "hỏi",
+            "start": 13.161,
+            "end": 13.281,
+            "startFrame": 395,
+            "endFrame": 398,
+            "cleanWord": "hỏi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_66",
+            "word": "Đã",
+            "start": 13.342,
+            "end": 13.442,
+            "startFrame": 400,
+            "endFrame": 403,
+            "cleanWord": "đã",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_67",
+            "word": "biết",
+            "start": 13.442,
+            "end": 13.583,
+            "startFrame": 403,
+            "endFrame": 407,
+            "cleanWord": "biết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_68",
+            "word": "gì",
+            "start": 13.583,
+            "end": 13.683,
+            "startFrame": 407,
+            "endFrame": 410,
+            "cleanWord": "gì",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_69",
+            "word": "Chưa",
+            "start": 13.684,
+            "end": 13.986,
+            "startFrame": 411,
+            "endFrame": 420,
+            "cleanWord": "chưa",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 11.533,
+    "endTime": 14.033
+  },
+  {
+    "id": "g7",
+    "text": "thỏa đáng điểm nào Đóng góp gì mới",
+    "startFrame": 421,
+    "endFrame": 459,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "thỏa đáng điểm nào",
+        "words": [
+          {
+            "id": "w_70",
+            "word": "thỏa",
+            "start": 14.026,
+            "end": 14.167,
+            "startFrame": 421,
+            "endFrame": 425,
+            "cleanWord": "thỏa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_71",
+            "word": "đáng",
+            "start": 14.167,
+            "end": 14.328,
+            "startFrame": 425,
+            "endFrame": 430,
+            "cleanWord": "đáng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_72",
+            "word": "điểm",
+            "start": 14.348,
+            "end": 14.489,
+            "startFrame": 430,
+            "endFrame": 435,
+            "cleanWord": "điểm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_73",
+            "word": "nào",
+            "start": 14.509,
+            "end": 14.609,
+            "startFrame": 435,
+            "endFrame": 438,
+            "cleanWord": "nào",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "Đóng góp gì mới",
+        "words": [
+          {
+            "id": "w_74",
+            "word": "Đóng",
+            "start": 14.569,
+            "end": 14.73,
+            "startFrame": 437,
+            "endFrame": 442,
+            "cleanWord": "đóng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_75",
+            "word": "góp",
+            "start": 14.791,
+            "end": 14.911,
+            "startFrame": 444,
+            "endFrame": 447,
+            "cleanWord": "góp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_76",
+            "word": "gì",
+            "start": 14.952,
+            "end": 15.052,
+            "startFrame": 449,
+            "endFrame": 452,
+            "cleanWord": "gì",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_77",
+            "word": "mới",
+            "start": 15.032,
+            "end": 15.173,
+            "startFrame": 451,
+            "endFrame": 455,
+            "cleanWord": "mới",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 14.033,
+    "endTime": 15.3
+  },
+  {
+    "id": "g8",
+    "text": "Và sở hữu 4 thuộc tính Định vị Chứng cứ Giải",
+    "startFrame": 459,
+    "endFrame": 532,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Và sở hữu 4 thuộc tính",
+        "words": [
+          {
+            "id": "w_78",
+            "word": "Và",
+            "start": 15.876,
+            "end": 15.976,
+            "startFrame": 476,
+            "endFrame": 479,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_79",
+            "word": "sở",
+            "start": 16.057,
+            "end": 16.157,
+            "startFrame": 482,
+            "endFrame": 485,
+            "cleanWord": "sở",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_80",
+            "word": "hữu",
+            "start": 16.197,
+            "end": 16.338,
+            "startFrame": 486,
+            "endFrame": 490,
+            "cleanWord": "hữu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_81",
+            "word": "4",
+            "start": 16.378,
+            "end": 16.559,
+            "startFrame": 491,
+            "endFrame": 497,
+            "cleanWord": "4",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_82",
+            "word": "thuộc",
+            "start": 16.599,
+            "end": 16.72,
+            "startFrame": 498,
+            "endFrame": 502,
+            "cleanWord": "thuộc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_83",
+            "word": "tính",
+            "start": 16.74,
+            "end": 16.88,
+            "startFrame": 502,
+            "endFrame": 506,
+            "cleanWord": "tính",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "Định vị Chứng cứ Giải",
+        "words": [
+          {
+            "id": "w_84",
+            "word": "Định",
+            "start": 16.88,
+            "end": 17.041,
+            "startFrame": 506,
+            "endFrame": 511,
+            "cleanWord": "định",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_85",
+            "word": "vị",
+            "start": 17.041,
+            "end": 17.141,
+            "startFrame": 511,
+            "endFrame": 514,
+            "cleanWord": "vị",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_86",
+            "word": "Chứng",
+            "start": 17.101,
+            "end": 17.403,
+            "startFrame": 513,
+            "endFrame": 522,
+            "cleanWord": "chứng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_87",
+            "word": "cứ",
+            "start": 17.423,
+            "end": 17.523,
+            "startFrame": 523,
+            "endFrame": 526,
+            "cleanWord": "cứ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_88",
+            "word": "Giải",
+            "start": 17.483,
+            "end": 17.704,
+            "startFrame": 524,
+            "endFrame": 531,
+            "cleanWord": "giải",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 15.3,
+    "endTime": 17.733
+  },
+  {
+    "id": "g9",
+    "text": "thích và Khả nghiên cứu theo mô hình Swales CARS",
+    "startFrame": 532,
+    "endFrame": 591,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "thích và Khả nghiên cứu",
+        "words": [
+          {
+            "id": "w_89",
+            "word": "thích",
+            "start": 17.724,
+            "end": 17.885,
+            "startFrame": 532,
+            "endFrame": 537,
+            "cleanWord": "thích",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_90",
+            "word": "và",
+            "start": 17.925,
+            "end": 18.025,
+            "startFrame": 538,
+            "endFrame": 541,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_91",
+            "word": "Khả",
+            "start": 18.025,
+            "end": 18.166,
+            "startFrame": 541,
+            "endFrame": 545,
+            "cleanWord": "khả",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_92",
+            "word": "nghiên",
+            "start": 18.166,
+            "end": 18.326,
+            "startFrame": 545,
+            "endFrame": 550,
+            "cleanWord": "nghiên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_93",
+            "word": "cứu",
+            "start": 18.326,
+            "end": 18.426,
+            "startFrame": 550,
+            "endFrame": 553,
+            "cleanWord": "cứu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "theo mô hình Swales CARS",
+        "words": [
+          {
+            "id": "w_94",
+            "word": "theo",
+            "start": 18.407,
+            "end": 18.567,
+            "startFrame": 552,
+            "endFrame": 557,
+            "cleanWord": "theo",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_95",
+            "word": "mô",
+            "start": 18.608,
+            "end": 18.708,
+            "startFrame": 558,
+            "endFrame": 561,
+            "cleanWord": "mô",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_96",
+            "word": "hình",
+            "start": 18.708,
+            "end": 18.808,
+            "startFrame": 561,
+            "endFrame": 564,
+            "cleanWord": "hình",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_97",
+            "word": "Swales CARS",
+            "start": 18.829,
+            "end": 19.551,
+            "startFrame": 565,
+            "endFrame": 587,
+            "cleanWord": "swalescars",
+            "confidence": 0.95,
+            "subunits": [
+              {
+                "text": "Swales",
+                "start": 18.829,
+                "end": 19.13,
+                "confidence": 0.95
+              },
+              {
+                "text": "C",
+                "start": 19.25,
+                "end": 19.33,
+                "confidence": 0.95
+              },
+              {
+                "text": "A",
+                "start": 19.331,
+                "end": 19.411,
+                "confidence": 0.95
+              },
+              {
+                "text": "R",
+                "start": 19.391,
+                "end": 19.471,
+                "confidence": 0.95
+              },
+              {
+                "text": "S",
+                "start": 19.471,
+                "end": 19.551,
+                "confidence": 0.95
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "startTime": 17.733,
+    "endTime": 19.7
+  },
+  {
+    "id": "g10",
+    "text": "Cánh cửa thứ nhất Gap Lý thuyết khi lý thuyết hiện",
+    "startFrame": 591,
+    "endFrame": 677,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Cánh cửa thứ nhất Gap Lý",
+        "words": [
+          {
+            "id": "w_98",
+            "word": "Cánh",
+            "start": 20.595,
+            "end": 20.735,
+            "startFrame": 618,
+            "endFrame": 622,
+            "cleanWord": "cánh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_99",
+            "word": "cửa",
+            "start": 20.795,
+            "end": 20.976,
+            "startFrame": 624,
+            "endFrame": 629,
+            "cleanWord": "cửa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_100",
+            "word": "thứ",
+            "start": 21.036,
+            "end": 21.136,
+            "startFrame": 631,
+            "endFrame": 634,
+            "cleanWord": "thứ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_101",
+            "word": "nhất",
+            "start": 21.096,
+            "end": 21.236,
+            "startFrame": 633,
+            "endFrame": 637,
+            "cleanWord": "nhất",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_102",
+            "word": "Gap",
+            "start": 21.236,
+            "end": 21.437,
+            "startFrame": 637,
+            "endFrame": 643,
+            "cleanWord": "gap",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_103",
+            "word": "Lý",
+            "start": 21.477,
+            "end": 21.577,
+            "startFrame": 644,
+            "endFrame": 647,
+            "cleanWord": "lý",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "thuyết khi lý thuyết hiện",
+        "words": [
+          {
+            "id": "w_104",
+            "word": "thuyết",
+            "start": 21.617,
+            "end": 21.858,
+            "startFrame": 649,
+            "endFrame": 656,
+            "cleanWord": "thuyết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_105",
+            "word": "khi",
+            "start": 21.858,
+            "end": 22.018,
+            "startFrame": 656,
+            "endFrame": 661,
+            "cleanWord": "khi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_106",
+            "word": "lý",
+            "start": 22.038,
+            "end": 22.138,
+            "startFrame": 661,
+            "endFrame": 664,
+            "cleanWord": "lý",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_107",
+            "word": "thuyết",
+            "start": 22.219,
+            "end": 22.439,
+            "startFrame": 667,
+            "endFrame": 673,
+            "cleanWord": "thuyết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_108",
+            "word": "hiện",
+            "start": 22.439,
+            "end": 22.56,
+            "startFrame": 673,
+            "endFrame": 677,
+            "cleanWord": "hiện",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 19.7,
+    "endTime": 22.567
+  },
+  {
+    "id": "g11",
+    "text": "hành chưa giải thích đủ cơ chế trung gian hay điều",
+    "startFrame": 677,
+    "endFrame": 741,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "hành chưa giải thích đủ",
+        "words": [
+          {
+            "id": "w_109",
+            "word": "hành",
+            "start": 22.58,
+            "end": 22.74,
+            "startFrame": 677,
+            "endFrame": 682,
+            "cleanWord": "hành",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_110",
+            "word": "chưa",
+            "start": 22.78,
+            "end": 23.021,
+            "startFrame": 683,
+            "endFrame": 691,
+            "cleanWord": "chưa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_111",
+            "word": "giải",
+            "start": 23.021,
+            "end": 23.221,
+            "startFrame": 691,
+            "endFrame": 697,
+            "cleanWord": "giải",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_112",
+            "word": "thích",
+            "start": 23.221,
+            "end": 23.401,
+            "startFrame": 697,
+            "endFrame": 702,
+            "cleanWord": "thích",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_113",
+            "word": "đủ",
+            "start": 23.401,
+            "end": 23.501,
+            "startFrame": 702,
+            "endFrame": 705,
+            "cleanWord": "đủ",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "cơ chế trung gian hay điều",
+        "words": [
+          {
+            "id": "w_114",
+            "word": "cơ",
+            "start": 23.482,
+            "end": 23.582,
+            "startFrame": 704,
+            "endFrame": 707,
+            "cleanWord": "cơ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_115",
+            "word": "chế",
+            "start": 23.582,
+            "end": 23.822,
+            "startFrame": 707,
+            "endFrame": 715,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_116",
+            "word": "trung",
+            "start": 23.923,
+            "end": 24.123,
+            "startFrame": 718,
+            "endFrame": 724,
+            "cleanWord": "trung",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_117",
+            "word": "gian",
+            "start": 24.143,
+            "end": 24.263,
+            "startFrame": 724,
+            "endFrame": 728,
+            "cleanWord": "gian",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_118",
+            "word": "hay",
+            "start": 24.263,
+            "end": 24.364,
+            "startFrame": 728,
+            "endFrame": 731,
+            "cleanWord": "hay",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_119",
+            "word": "điều",
+            "start": 24.404,
+            "end": 24.664,
+            "startFrame": 732,
+            "endFrame": 740,
+            "cleanWord": "điều",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 22.567,
+    "endTime": 24.7
+  },
+  {
+    "id": "g12",
+    "text": "tiết Cánh cửa thứ hai Gap Thực nghiệm khi các nghiên",
+    "startFrame": 741,
+    "endFrame": 806,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "tiết Cánh cửa thứ hai Gap",
+        "words": [
+          {
+            "id": "w_120",
+            "word": "tiết",
+            "start": 24.684,
+            "end": 24.825,
+            "startFrame": 741,
+            "endFrame": 745,
+            "cleanWord": "tiết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_121",
+            "word": "Cánh",
+            "start": 25.205,
+            "end": 25.346,
+            "startFrame": 756,
+            "endFrame": 760,
+            "cleanWord": "cánh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_122",
+            "word": "cửa",
+            "start": 25.386,
+            "end": 25.527,
+            "startFrame": 762,
+            "endFrame": 766,
+            "cleanWord": "cửa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_123",
+            "word": "thứ",
+            "start": 25.567,
+            "end": 25.667,
+            "startFrame": 767,
+            "endFrame": 770,
+            "cleanWord": "thứ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_124",
+            "word": "hai",
+            "start": 25.688,
+            "end": 25.829,
+            "startFrame": 771,
+            "endFrame": 775,
+            "cleanWord": "hai",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_125",
+            "word": "Gap",
+            "start": 25.869,
+            "end": 25.97,
+            "startFrame": 776,
+            "endFrame": 779,
+            "cleanWord": "gap",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "Thực nghiệm khi các nghiên",
+        "words": [
+          {
+            "id": "w_126",
+            "word": "Thực",
+            "start": 26.01,
+            "end": 26.131,
+            "startFrame": 780,
+            "endFrame": 784,
+            "cleanWord": "thực",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_127",
+            "word": "nghiệm",
+            "start": 26.171,
+            "end": 26.332,
+            "startFrame": 785,
+            "endFrame": 790,
+            "cleanWord": "nghiệm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_128",
+            "word": "khi",
+            "start": 26.332,
+            "end": 26.493,
+            "startFrame": 790,
+            "endFrame": 795,
+            "cleanWord": "khi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_129",
+            "word": "các",
+            "start": 26.513,
+            "end": 26.674,
+            "startFrame": 795,
+            "endFrame": 800,
+            "cleanWord": "các",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_130",
+            "word": "nghiên",
+            "start": 26.694,
+            "end": 26.875,
+            "startFrame": 801,
+            "endFrame": 806,
+            "cleanWord": "nghiên",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 24.7,
+    "endTime": 26.867
+  },
+  {
+    "id": "g13",
+    "text": "cứu trước cho kết quả mâu thuẫn chưa nhất quán",
+    "startFrame": 806,
+    "endFrame": 868,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "cứu trước cho kết quả",
+        "words": [
+          {
+            "id": "w_131",
+            "word": "cứu",
+            "start": 26.875,
+            "end": 26.996,
+            "startFrame": 806,
+            "endFrame": 810,
+            "cleanWord": "cứu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_132",
+            "word": "trước",
+            "start": 27.016,
+            "end": 27.237,
+            "startFrame": 810,
+            "endFrame": 817,
+            "cleanWord": "trước",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_133",
+            "word": "cho",
+            "start": 27.257,
+            "end": 27.357,
+            "startFrame": 818,
+            "endFrame": 821,
+            "cleanWord": "cho",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_134",
+            "word": "kết",
+            "start": 27.398,
+            "end": 27.519,
+            "startFrame": 822,
+            "endFrame": 826,
+            "cleanWord": "kết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_135",
+            "word": "quả",
+            "start": 27.7,
+            "end": 27.821,
+            "startFrame": 831,
+            "endFrame": 835,
+            "cleanWord": "quả",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "mâu thuẫn chưa nhất quán",
+        "words": [
+          {
+            "id": "w_136",
+            "word": "mâu",
+            "start": 27.861,
+            "end": 27.982,
+            "startFrame": 836,
+            "endFrame": 839,
+            "cleanWord": "mâu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_137",
+            "word": "thuẫn",
+            "start": 28.102,
+            "end": 28.284,
+            "startFrame": 843,
+            "endFrame": 849,
+            "cleanWord": "thuẫn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_138",
+            "word": "chưa",
+            "start": 28.284,
+            "end": 28.404,
+            "startFrame": 849,
+            "endFrame": 852,
+            "cleanWord": "chưa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_139",
+            "word": "nhất",
+            "start": 28.545,
+            "end": 28.686,
+            "startFrame": 856,
+            "endFrame": 861,
+            "cleanWord": "nhất",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_140",
+            "word": "quán",
+            "start": 28.706,
+            "end": 28.807,
+            "startFrame": 861,
+            "endFrame": 864,
+            "cleanWord": "quán",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 26.867,
+    "endTime": 28.933
+  },
+  {
+    "id": "g14",
+    "text": "Cánh cửa thứ ba Gap Bối cảnh đặc thù văn hóa thể",
+    "startFrame": 868,
+    "endFrame": 944,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Cánh cửa thứ ba Gap Bối",
+        "words": [
+          {
+            "id": "w_141",
+            "word": "Cánh",
+            "start": 29.289,
+            "end": 29.409,
+            "startFrame": 879,
+            "endFrame": 882,
+            "cleanWord": "cánh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_142",
+            "word": "cửa",
+            "start": 29.409,
+            "end": 29.529,
+            "startFrame": 882,
+            "endFrame": 886,
+            "cleanWord": "cửa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_143",
+            "word": "thứ",
+            "start": 29.59,
+            "end": 29.73,
+            "startFrame": 888,
+            "endFrame": 892,
+            "cleanWord": "thứ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_144",
+            "word": "ba",
+            "start": 29.73,
+            "end": 29.83,
+            "startFrame": 892,
+            "endFrame": 895,
+            "cleanWord": "ba",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_145",
+            "word": "Gap",
+            "start": 29.87,
+            "end": 30.111,
+            "startFrame": 896,
+            "endFrame": 903,
+            "cleanWord": "gap",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_146",
+            "word": "Bối",
+            "start": 30.151,
+            "end": 30.271,
+            "startFrame": 905,
+            "endFrame": 908,
+            "cleanWord": "bối",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "cảnh đặc thù văn hóa thể",
+        "words": [
+          {
+            "id": "w_147",
+            "word": "cảnh",
+            "start": 30.311,
+            "end": 30.431,
+            "startFrame": 909,
+            "endFrame": 913,
+            "cleanWord": "cảnh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_148",
+            "word": "đặc",
+            "start": 30.471,
+            "end": 30.571,
+            "startFrame": 914,
+            "endFrame": 917,
+            "cleanWord": "đặc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_149",
+            "word": "thù",
+            "start": 30.592,
+            "end": 30.732,
+            "startFrame": 918,
+            "endFrame": 922,
+            "cleanWord": "thù",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_150",
+            "word": "văn",
+            "start": 30.732,
+            "end": 30.952,
+            "startFrame": 922,
+            "endFrame": 929,
+            "cleanWord": "văn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_151",
+            "word": "hóa",
+            "start": 30.992,
+            "end": 31.133,
+            "startFrame": 930,
+            "endFrame": 934,
+            "cleanWord": "hóa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_152",
+            "word": "thể",
+            "start": 31.173,
+            "end": 31.473,
+            "startFrame": 935,
+            "endFrame": 944,
+            "cleanWord": "thể",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 28.933,
+    "endTime": 31.467
+  },
+  {
+    "id": "g15",
+    "text": "chế làm thay đổi cơ chế không chỉ đơn thuần đổi",
+    "startFrame": 944,
+    "endFrame": 1007,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "chế làm thay đổi cơ chế",
+        "words": [
+          {
+            "id": "w_153",
+            "word": "chế",
+            "start": 31.473,
+            "end": 31.654,
+            "startFrame": 944,
+            "endFrame": 950,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_154",
+            "word": "làm",
+            "start": 31.654,
+            "end": 31.974,
+            "startFrame": 950,
+            "endFrame": 959,
+            "cleanWord": "làm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_155",
+            "word": "thay",
+            "start": 31.994,
+            "end": 32.155,
+            "startFrame": 960,
+            "endFrame": 965,
+            "cleanWord": "thay",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_156",
+            "word": "đổi",
+            "start": 32.155,
+            "end": 32.275,
+            "startFrame": 965,
+            "endFrame": 968,
+            "cleanWord": "đổi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_157",
+            "word": "cơ",
+            "start": 32.315,
+            "end": 32.435,
+            "startFrame": 969,
+            "endFrame": 973,
+            "cleanWord": "cơ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_158",
+            "word": "chế",
+            "start": 32.495,
+            "end": 32.676,
+            "startFrame": 975,
+            "endFrame": 980,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "không chỉ đơn thuần đổi",
+        "words": [
+          {
+            "id": "w_159",
+            "word": "không",
+            "start": 32.676,
+            "end": 33.016,
+            "startFrame": 980,
+            "endFrame": 990,
+            "cleanWord": "không",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_160",
+            "word": "chỉ",
+            "start": 33.036,
+            "end": 33.136,
+            "startFrame": 991,
+            "endFrame": 994,
+            "cleanWord": "chỉ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_161",
+            "word": "đơn",
+            "start": 33.116,
+            "end": 33.216,
+            "startFrame": 993,
+            "endFrame": 996,
+            "cleanWord": "đơn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_162",
+            "word": "thuần",
+            "start": 33.217,
+            "end": 33.497,
+            "startFrame": 997,
+            "endFrame": 1005,
+            "cleanWord": "thuần",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_163",
+            "word": "đổi",
+            "start": 33.497,
+            "end": 33.597,
+            "startFrame": 1005,
+            "endFrame": 1008,
+            "cleanWord": "đổi",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 31.467,
+    "endTime": 33.567
+  },
+  {
+    "id": "g16",
+    "text": "địa bàn",
+    "startFrame": 1007,
+    "endFrame": 1022,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "địa bàn",
+        "words": [
+          {
+            "id": "w_164",
+            "word": "địa",
+            "start": 33.557,
+            "end": 33.738,
+            "startFrame": 1007,
+            "endFrame": 1012,
+            "cleanWord": "địa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_165",
+            "word": "bàn",
+            "start": 33.778,
+            "end": 33.918,
+            "startFrame": 1013,
+            "endFrame": 1018,
+            "cleanWord": "bàn",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 33.567,
+    "endTime": 34.067
+  },
+  {
+    "id": "g17",
+    "text": "Cánh cửa thứ tư Gap Phương pháp hạn chế về đo lường",
+    "startFrame": 1022,
+    "endFrame": 1095,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Cánh cửa thứ tư Gap Phương",
+        "words": [
+          {
+            "id": "w_166",
+            "word": "Cánh",
+            "start": 34.419,
+            "end": 34.539,
+            "startFrame": 1033,
+            "endFrame": 1036,
+            "cleanWord": "cánh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_167",
+            "word": "cửa",
+            "start": 34.58,
+            "end": 34.7,
+            "startFrame": 1037,
+            "endFrame": 1041,
+            "cleanWord": "cửa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_168",
+            "word": "thứ",
+            "start": 34.72,
+            "end": 34.82,
+            "startFrame": 1042,
+            "endFrame": 1045,
+            "cleanWord": "thứ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_169",
+            "word": "tư",
+            "start": 34.861,
+            "end": 34.961,
+            "startFrame": 1046,
+            "endFrame": 1049,
+            "cleanWord": "tư",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_170",
+            "word": "Gap",
+            "start": 35.101,
+            "end": 35.202,
+            "startFrame": 1053,
+            "endFrame": 1056,
+            "cleanWord": "gap",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_171",
+            "word": "Phương",
+            "start": 35.222,
+            "end": 35.362,
+            "startFrame": 1057,
+            "endFrame": 1061,
+            "cleanWord": "phương",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "pháp hạn chế về đo lường",
+        "words": [
+          {
+            "id": "w_172",
+            "word": "pháp",
+            "start": 35.362,
+            "end": 35.523,
+            "startFrame": 1061,
+            "endFrame": 1066,
+            "cleanWord": "pháp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_173",
+            "word": "hạn",
+            "start": 35.543,
+            "end": 35.684,
+            "startFrame": 1066,
+            "endFrame": 1071,
+            "cleanWord": "hạn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_174",
+            "word": "chế",
+            "start": 35.684,
+            "end": 35.804,
+            "startFrame": 1071,
+            "endFrame": 1074,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_175",
+            "word": "về",
+            "start": 35.844,
+            "end": 36.025,
+            "startFrame": 1075,
+            "endFrame": 1081,
+            "cleanWord": "về",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_176",
+            "word": "đo",
+            "start": 36.065,
+            "end": 36.165,
+            "startFrame": 1082,
+            "endFrame": 1085,
+            "cleanWord": "đo",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_177",
+            "word": "lường",
+            "start": 36.205,
+            "end": 36.486,
+            "startFrame": 1086,
+            "endFrame": 1095,
+            "cleanWord": "lường",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 34.067,
+    "endTime": 36.5
+  },
+  {
+    "id": "g18",
+    "text": "thiết kế mẫu dữ liệu dọc hoặc sai lệch CMV",
+    "startFrame": 1095,
+    "endFrame": 1153,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "thiết kế mẫu dữ liệu",
+        "words": [
+          {
+            "id": "w_178",
+            "word": "thiết",
+            "start": 36.486,
+            "end": 36.607,
+            "startFrame": 1095,
+            "endFrame": 1098,
+            "cleanWord": "thiết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_179",
+            "word": "kế",
+            "start": 36.627,
+            "end": 36.727,
+            "startFrame": 1099,
+            "endFrame": 1102,
+            "cleanWord": "kế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_180",
+            "word": "mẫu",
+            "start": 36.667,
+            "end": 36.888,
+            "startFrame": 1100,
+            "endFrame": 1107,
+            "cleanWord": "mẫu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_181",
+            "word": "dữ",
+            "start": 36.928,
+            "end": 37.028,
+            "startFrame": 1108,
+            "endFrame": 1111,
+            "cleanWord": "dữ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_182",
+            "word": "liệu",
+            "start": 37.109,
+            "end": 37.349,
+            "startFrame": 1113,
+            "endFrame": 1120,
+            "cleanWord": "liệu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "dọc hoặc sai lệch CMV",
+        "words": [
+          {
+            "id": "w_183",
+            "word": "dọc",
+            "start": 37.37,
+            "end": 37.53,
+            "startFrame": 1121,
+            "endFrame": 1126,
+            "cleanWord": "dọc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_184",
+            "word": "hoặc",
+            "start": 37.57,
+            "end": 37.731,
+            "startFrame": 1127,
+            "endFrame": 1132,
+            "cleanWord": "hoặc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_185",
+            "word": "sai",
+            "start": 37.751,
+            "end": 37.891,
+            "startFrame": 1133,
+            "endFrame": 1137,
+            "cleanWord": "sai",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_186",
+            "word": "lệch",
+            "start": 37.932,
+            "end": 38.112,
+            "startFrame": 1138,
+            "endFrame": 1143,
+            "cleanWord": "lệch",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_187",
+            "word": "CMV",
+            "start": 38.152,
+            "end": 38.293,
+            "startFrame": 1145,
+            "endFrame": 1149,
+            "cleanWord": "cmv",
+            "confidence": 0.95,
+            "subunits": [
+              {
+                "text": "C",
+                "start": 38.152,
+                "end": 38.232,
+                "confidence": 0.95
+              },
+              {
+                "text": "M",
+                "start": 38.172,
+                "end": 38.252,
+                "confidence": 0.95
+              },
+              {
+                "text": "V",
+                "start": 38.213,
+                "end": 38.293,
+                "confidence": 0.95
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "startTime": 36.5,
+    "endTime": 38.433
+  },
+  {
+    "id": "g19",
+    "text": "Cánh cửa thứ năm Gap Ứng dụng khi hàm ý chính sách",
+    "startFrame": 1153,
+    "endFrame": 1243,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Cánh cửa thứ năm Gap Ứng",
+        "words": [
+          {
+            "id": "w_188",
+            "word": "Cánh",
+            "start": 39.095,
+            "end": 39.235,
+            "startFrame": 1173,
+            "endFrame": 1177,
+            "cleanWord": "cánh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_189",
+            "word": "cửa",
+            "start": 39.275,
+            "end": 39.416,
+            "startFrame": 1178,
+            "endFrame": 1182,
+            "cleanWord": "cửa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_190",
+            "word": "thứ",
+            "start": 39.416,
+            "end": 39.516,
+            "startFrame": 1182,
+            "endFrame": 1185,
+            "cleanWord": "thứ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_191",
+            "word": "năm",
+            "start": 39.516,
+            "end": 39.696,
+            "startFrame": 1185,
+            "endFrame": 1191,
+            "cleanWord": "năm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_192",
+            "word": "Gap",
+            "start": 39.756,
+            "end": 39.976,
+            "startFrame": 1193,
+            "endFrame": 1199,
+            "cleanWord": "gap",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_193",
+            "word": "Ứng",
+            "start": 39.996,
+            "end": 40.157,
+            "startFrame": 1200,
+            "endFrame": 1205,
+            "cleanWord": "ứng",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "dụng khi hàm ý chính sách",
+        "words": [
+          {
+            "id": "w_194",
+            "word": "dụng",
+            "start": 40.157,
+            "end": 40.317,
+            "startFrame": 1205,
+            "endFrame": 1210,
+            "cleanWord": "dụng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_195",
+            "word": "khi",
+            "start": 40.397,
+            "end": 40.637,
+            "startFrame": 1212,
+            "endFrame": 1219,
+            "cleanWord": "khi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_196",
+            "word": "hàm",
+            "start": 40.658,
+            "end": 40.838,
+            "startFrame": 1220,
+            "endFrame": 1225,
+            "cleanWord": "hàm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_197",
+            "word": "ý",
+            "start": 40.838,
+            "end": 40.938,
+            "startFrame": 1225,
+            "endFrame": 1228,
+            "cleanWord": "ý",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_198",
+            "word": "chính",
+            "start": 40.878,
+            "end": 41.218,
+            "startFrame": 1226,
+            "endFrame": 1237,
+            "cleanWord": "chính",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_199",
+            "word": "sách",
+            "start": 41.218,
+            "end": 41.379,
+            "startFrame": 1237,
+            "endFrame": 1241,
+            "cleanWord": "sách",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 38.433,
+    "endTime": 41.433
+  },
+  {
+    "id": "g20",
+    "text": "và quản trị gắn liền với đóng góp học thuật",
+    "startFrame": 1243,
+    "endFrame": 1301,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "và quản trị gắn liền",
+        "words": [
+          {
+            "id": "w_200",
+            "word": "và",
+            "start": 41.419,
+            "end": 41.519,
+            "startFrame": 1243,
+            "endFrame": 1246,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_201",
+            "word": "quản",
+            "start": 41.519,
+            "end": 41.819,
+            "startFrame": 1246,
+            "endFrame": 1255,
+            "cleanWord": "quản",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_202",
+            "word": "trị",
+            "start": 41.819,
+            "end": 41.919,
+            "startFrame": 1255,
+            "endFrame": 1258,
+            "cleanWord": "trị",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_203",
+            "word": "gắn",
+            "start": 41.92,
+            "end": 42.04,
+            "startFrame": 1258,
+            "endFrame": 1261,
+            "cleanWord": "gắn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_204",
+            "word": "liền",
+            "start": 42.08,
+            "end": 42.4,
+            "startFrame": 1262,
+            "endFrame": 1272,
+            "cleanWord": "liền",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "với đóng góp học thuật",
+        "words": [
+          {
+            "id": "w_205",
+            "word": "với",
+            "start": 42.46,
+            "end": 42.621,
+            "startFrame": 1274,
+            "endFrame": 1279,
+            "cleanWord": "với",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_206",
+            "word": "đóng",
+            "start": 42.661,
+            "end": 42.841,
+            "startFrame": 1280,
+            "endFrame": 1285,
+            "cleanWord": "đóng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_207",
+            "word": "góp",
+            "start": 42.861,
+            "end": 42.961,
+            "startFrame": 1286,
+            "endFrame": 1289,
+            "cleanWord": "góp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_208",
+            "word": "học",
+            "start": 42.961,
+            "end": 43.061,
+            "startFrame": 1289,
+            "endFrame": 1292,
+            "cleanWord": "học",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_209",
+            "word": "thuật",
+            "start": 43.081,
+            "end": 43.242,
+            "startFrame": 1292,
+            "endFrame": 1297,
+            "cleanWord": "thuật",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 41.433,
+    "endTime": 43.367
+  },
+  {
+    "id": "g21",
+    "text": "Bước một Dùng phễu lọc thu hẹp từ chủ đề rộng sang",
+    "startFrame": 1301,
+    "endFrame": 1378,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Bước một Dùng phễu lọc thu",
+        "words": [
+          {
+            "id": "w_210",
+            "word": "Bước",
+            "start": 43.642,
+            "end": 43.763,
+            "startFrame": 1309,
+            "endFrame": 1313,
+            "cleanWord": "bước",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_211",
+            "word": "một",
+            "start": 43.763,
+            "end": 43.883,
+            "startFrame": 1313,
+            "endFrame": 1316,
+            "cleanWord": "một",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_212",
+            "word": "Dùng",
+            "start": 43.944,
+            "end": 44.185,
+            "startFrame": 1318,
+            "endFrame": 1326,
+            "cleanWord": "dùng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_213",
+            "word": "phễu",
+            "start": 44.185,
+            "end": 44.346,
+            "startFrame": 1326,
+            "endFrame": 1330,
+            "cleanWord": "phễu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_214",
+            "word": "lọc",
+            "start": 44.406,
+            "end": 44.527,
+            "startFrame": 1332,
+            "endFrame": 1336,
+            "cleanWord": "lọc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_215",
+            "word": "thu",
+            "start": 44.567,
+            "end": 44.667,
+            "startFrame": 1337,
+            "endFrame": 1340,
+            "cleanWord": "thu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "hẹp từ chủ đề rộng sang",
+        "words": [
+          {
+            "id": "w_216",
+            "word": "hẹp",
+            "start": 44.648,
+            "end": 44.829,
+            "startFrame": 1339,
+            "endFrame": 1345,
+            "cleanWord": "hẹp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_217",
+            "word": "từ",
+            "start": 44.829,
+            "end": 44.929,
+            "startFrame": 1345,
+            "endFrame": 1348,
+            "cleanWord": "từ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_218",
+            "word": "chủ",
+            "start": 44.99,
+            "end": 45.131,
+            "startFrame": 1350,
+            "endFrame": 1354,
+            "cleanWord": "chủ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_219",
+            "word": "đề",
+            "start": 45.231,
+            "end": 45.331,
+            "startFrame": 1357,
+            "endFrame": 1360,
+            "cleanWord": "đề",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_220",
+            "word": "rộng",
+            "start": 45.292,
+            "end": 45.694,
+            "startFrame": 1359,
+            "endFrame": 1371,
+            "cleanWord": "rộng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_221",
+            "word": "sang",
+            "start": 45.734,
+            "end": 45.875,
+            "startFrame": 1372,
+            "endFrame": 1376,
+            "cleanWord": "sang",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 43.367,
+    "endTime": 45.933
+  },
+  {
+    "id": "g22",
+    "text": "dòng nghiên cứu chuyên sâu có trọng tâm",
+    "startFrame": 1378,
+    "endFrame": 1422,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "dòng nghiên cứu chuyên",
+        "words": [
+          {
+            "id": "w_222",
+            "word": "dòng",
+            "start": 45.935,
+            "end": 46.076,
+            "startFrame": 1378,
+            "endFrame": 1382,
+            "cleanWord": "dòng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_223",
+            "word": "nghiên",
+            "start": 46.116,
+            "end": 46.257,
+            "startFrame": 1383,
+            "endFrame": 1388,
+            "cleanWord": "nghiên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_224",
+            "word": "cứu",
+            "start": 46.257,
+            "end": 46.357,
+            "startFrame": 1388,
+            "endFrame": 1391,
+            "cleanWord": "cứu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_225",
+            "word": "chuyên",
+            "start": 46.317,
+            "end": 46.599,
+            "startFrame": 1390,
+            "endFrame": 1398,
+            "cleanWord": "chuyên",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "sâu có trọng tâm",
+        "words": [
+          {
+            "id": "w_226",
+            "word": "sâu",
+            "start": 46.599,
+            "end": 46.699,
+            "startFrame": 1398,
+            "endFrame": 1401,
+            "cleanWord": "sâu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_227",
+            "word": "có",
+            "start": 46.659,
+            "end": 46.759,
+            "startFrame": 1400,
+            "endFrame": 1403,
+            "cleanWord": "có",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_228",
+            "word": "trọng",
+            "start": 46.7,
+            "end": 46.981,
+            "startFrame": 1401,
+            "endFrame": 1409,
+            "cleanWord": "trọng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_229",
+            "word": "tâm",
+            "start": 47.102,
+            "end": 47.263,
+            "startFrame": 1413,
+            "endFrame": 1418,
+            "cleanWord": "tâm",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 45.933,
+    "endTime": 47.4
+  },
+  {
+    "id": "g23",
+    "text": "Bước hai Lập bản đồ tri thức 4 trục để nhận diện",
+    "startFrame": 1422,
+    "endFrame": 1494,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Bước hai Lập bản đồ tri",
+        "words": [
+          {
+            "id": "w_230",
+            "word": "Bước",
+            "start": 47.785,
+            "end": 47.925,
+            "startFrame": 1434,
+            "endFrame": 1438,
+            "cleanWord": "bước",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_231",
+            "word": "hai",
+            "start": 47.945,
+            "end": 48.045,
+            "startFrame": 1438,
+            "endFrame": 1441,
+            "cleanWord": "hai",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_232",
+            "word": "Lập",
+            "start": 48.066,
+            "end": 48.186,
+            "startFrame": 1442,
+            "endFrame": 1446,
+            "cleanWord": "lập",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_233",
+            "word": "bản",
+            "start": 48.226,
+            "end": 48.346,
+            "startFrame": 1447,
+            "endFrame": 1450,
+            "cleanWord": "bản",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_234",
+            "word": "đồ",
+            "start": 48.406,
+            "end": 48.507,
+            "startFrame": 1452,
+            "endFrame": 1455,
+            "cleanWord": "đồ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_235",
+            "word": "tri",
+            "start": 48.547,
+            "end": 48.767,
+            "startFrame": 1456,
+            "endFrame": 1463,
+            "cleanWord": "tri",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "thức 4 trục để nhận diện",
+        "words": [
+          {
+            "id": "w_236",
+            "word": "thức",
+            "start": 48.787,
+            "end": 48.927,
+            "startFrame": 1464,
+            "endFrame": 1468,
+            "cleanWord": "thức",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_237",
+            "word": "4",
+            "start": 48.947,
+            "end": 49.088,
+            "startFrame": 1468,
+            "endFrame": 1473,
+            "cleanWord": "4",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_238",
+            "word": "trục",
+            "start": 49.088,
+            "end": 49.228,
+            "startFrame": 1473,
+            "endFrame": 1477,
+            "cleanWord": "trục",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_239",
+            "word": "để",
+            "start": 49.248,
+            "end": 49.348,
+            "startFrame": 1477,
+            "endFrame": 1480,
+            "cleanWord": "để",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_240",
+            "word": "nhận",
+            "start": 49.469,
+            "end": 49.589,
+            "startFrame": 1484,
+            "endFrame": 1488,
+            "cleanWord": "nhận",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_241",
+            "word": "diện",
+            "start": 49.589,
+            "end": 49.729,
+            "startFrame": 1488,
+            "endFrame": 1492,
+            "cleanWord": "diện",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 47.4,
+    "endTime": 49.8
+  },
+  {
+    "id": "g24",
+    "text": "điểm mâu thuẫn và hạn chế lặp lại có hệ thống",
+    "startFrame": 1494,
+    "endFrame": 1554,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "điểm mâu thuẫn và hạn",
+        "words": [
+          {
+            "id": "w_242",
+            "word": "điểm",
+            "start": 49.809,
+            "end": 49.99,
+            "startFrame": 1494,
+            "endFrame": 1500,
+            "cleanWord": "điểm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_243",
+            "word": "mâu",
+            "start": 50.03,
+            "end": 50.13,
+            "startFrame": 1501,
+            "endFrame": 1504,
+            "cleanWord": "mâu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_244",
+            "word": "thuẫn",
+            "start": 50.11,
+            "end": 50.31,
+            "startFrame": 1503,
+            "endFrame": 1509,
+            "cleanWord": "thuẫn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_245",
+            "word": "và",
+            "start": 50.37,
+            "end": 50.47,
+            "startFrame": 1511,
+            "endFrame": 1514,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_246",
+            "word": "hạn",
+            "start": 50.411,
+            "end": 50.551,
+            "startFrame": 1512,
+            "endFrame": 1517,
+            "cleanWord": "hạn",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "chế lặp lại có hệ thống",
+        "words": [
+          {
+            "id": "w_247",
+            "word": "chế",
+            "start": 50.691,
+            "end": 50.851,
+            "startFrame": 1521,
+            "endFrame": 1526,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_248",
+            "word": "lặp",
+            "start": 50.871,
+            "end": 51.012,
+            "startFrame": 1526,
+            "endFrame": 1530,
+            "cleanWord": "lặp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_249",
+            "word": "lại",
+            "start": 51.012,
+            "end": 51.152,
+            "startFrame": 1530,
+            "endFrame": 1535,
+            "cleanWord": "lại",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_250",
+            "word": "có",
+            "start": 51.172,
+            "end": 51.272,
+            "startFrame": 1535,
+            "endFrame": 1538,
+            "cleanWord": "có",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_251",
+            "word": "hệ",
+            "start": 51.272,
+            "end": 51.372,
+            "startFrame": 1538,
+            "endFrame": 1541,
+            "cleanWord": "hệ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_252",
+            "word": "thống",
+            "start": 51.433,
+            "end": 51.673,
+            "startFrame": 1543,
+            "endFrame": 1550,
+            "cleanWord": "thống",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 49.8,
+    "endTime": 51.8
+  },
+  {
+    "id": "g25",
+    "text": "Bước ba Lọc hạn chế qua 3 điều kiện liên hệ học",
+    "startFrame": 1554,
+    "endFrame": 1628,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Bước ba Lọc hạn chế qua",
+        "words": [
+          {
+            "id": "w_253",
+            "word": "Bước",
+            "start": 52.214,
+            "end": 52.354,
+            "startFrame": 1566,
+            "endFrame": 1571,
+            "cleanWord": "bước",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_254",
+            "word": "ba",
+            "start": 52.374,
+            "end": 52.474,
+            "startFrame": 1571,
+            "endFrame": 1574,
+            "cleanWord": "ba",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_255",
+            "word": "Lọc",
+            "start": 52.635,
+            "end": 52.756,
+            "startFrame": 1579,
+            "endFrame": 1583,
+            "cleanWord": "lọc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_256",
+            "word": "hạn",
+            "start": 52.796,
+            "end": 52.916,
+            "startFrame": 1584,
+            "endFrame": 1587,
+            "cleanWord": "hạn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_257",
+            "word": "chế",
+            "start": 52.976,
+            "end": 53.076,
+            "startFrame": 1589,
+            "endFrame": 1592,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_258",
+            "word": "qua",
+            "start": 53.217,
+            "end": 53.317,
+            "startFrame": 1597,
+            "endFrame": 1600,
+            "cleanWord": "qua",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "3 điều kiện liên hệ học",
+        "words": [
+          {
+            "id": "w_259",
+            "word": "3",
+            "start": 53.357,
+            "end": 53.457,
+            "startFrame": 1601,
+            "endFrame": 1604,
+            "cleanWord": "3",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_260",
+            "word": "điều",
+            "start": 53.478,
+            "end": 53.578,
+            "startFrame": 1604,
+            "endFrame": 1607,
+            "cleanWord": "điều",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_261",
+            "word": "kiện",
+            "start": 53.578,
+            "end": 53.758,
+            "startFrame": 1607,
+            "endFrame": 1613,
+            "cleanWord": "kiện",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_262",
+            "word": "liên",
+            "start": 53.758,
+            "end": 53.939,
+            "startFrame": 1613,
+            "endFrame": 1618,
+            "cleanWord": "liên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_263",
+            "word": "hệ",
+            "start": 53.959,
+            "end": 54.059,
+            "startFrame": 1619,
+            "endFrame": 1622,
+            "cleanWord": "hệ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_264",
+            "word": "học",
+            "start": 54.039,
+            "end": 54.22,
+            "startFrame": 1621,
+            "endFrame": 1627,
+            "cleanWord": "học",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 51.8,
+    "endTime": 54.267
+  },
+  {
+    "id": "g26",
+    "text": "thuật cốt lõi lặp lại nhiều lần và khả thi kiểm",
+    "startFrame": 1628,
+    "endFrame": 1692,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "thuật cốt lõi lặp lại",
+        "words": [
+          {
+            "id": "w_265",
+            "word": "thuật",
+            "start": 54.26,
+            "end": 54.4,
+            "startFrame": 1628,
+            "endFrame": 1632,
+            "cleanWord": "thuật",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_266",
+            "word": "cốt",
+            "start": 54.4,
+            "end": 54.52,
+            "startFrame": 1632,
+            "endFrame": 1636,
+            "cleanWord": "cốt",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_267",
+            "word": "lõi",
+            "start": 54.56,
+            "end": 54.741,
+            "startFrame": 1637,
+            "endFrame": 1642,
+            "cleanWord": "lõi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_268",
+            "word": "lặp",
+            "start": 54.821,
+            "end": 55.002,
+            "startFrame": 1645,
+            "endFrame": 1650,
+            "cleanWord": "lặp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_269",
+            "word": "lại",
+            "start": 55.042,
+            "end": 55.182,
+            "startFrame": 1651,
+            "endFrame": 1655,
+            "cleanWord": "lại",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "nhiều lần và khả thi kiểm",
+        "words": [
+          {
+            "id": "w_270",
+            "word": "nhiều",
+            "start": 55.222,
+            "end": 55.383,
+            "startFrame": 1657,
+            "endFrame": 1661,
+            "cleanWord": "nhiều",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_271",
+            "word": "lần",
+            "start": 55.383,
+            "end": 55.483,
+            "startFrame": 1661,
+            "endFrame": 1664,
+            "cleanWord": "lần",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_272",
+            "word": "và",
+            "start": 55.523,
+            "end": 55.623,
+            "startFrame": 1666,
+            "endFrame": 1669,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_273",
+            "word": "khả",
+            "start": 55.824,
+            "end": 56.004,
+            "startFrame": 1675,
+            "endFrame": 1680,
+            "cleanWord": "khả",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_274",
+            "word": "thi",
+            "start": 56.004,
+            "end": 56.145,
+            "startFrame": 1680,
+            "endFrame": 1684,
+            "cleanWord": "thi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_275",
+            "word": "kiểm",
+            "start": 56.165,
+            "end": 56.385,
+            "startFrame": 1685,
+            "endFrame": 1692,
+            "cleanWord": "kiểm",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 54.267,
+    "endTime": 56.4
+  },
+  {
+    "id": "g27",
+    "text": "định Bước bốn Kiến tạo Gap Statement 3 tầng Tầng",
+    "startFrame": 1692,
+    "endFrame": 1766,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "định Bước bốn Kiến tạo",
+        "words": [
+          {
+            "id": "w_276",
+            "word": "định",
+            "start": 56.405,
+            "end": 56.566,
+            "startFrame": 1692,
+            "endFrame": 1697,
+            "cleanWord": "định",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_277",
+            "word": "Bước",
+            "start": 56.866,
+            "end": 57.026,
+            "startFrame": 1706,
+            "endFrame": 1711,
+            "cleanWord": "bước",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_278",
+            "word": "bốn",
+            "start": 57.046,
+            "end": 57.207,
+            "startFrame": 1711,
+            "endFrame": 1716,
+            "cleanWord": "bốn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_279",
+            "word": "Kiến",
+            "start": 57.267,
+            "end": 57.427,
+            "startFrame": 1718,
+            "endFrame": 1723,
+            "cleanWord": "kiến",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_280",
+            "word": "tạo",
+            "start": 57.427,
+            "end": 57.587,
+            "startFrame": 1723,
+            "endFrame": 1728,
+            "cleanWord": "tạo",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "Gap Statement 3 tầng Tầng",
+        "words": [
+          {
+            "id": "w_281",
+            "word": "Gap Statement",
+            "start": 57.688,
+            "end": 58.289,
+            "startFrame": 1731,
+            "endFrame": 1749,
+            "cleanWord": "gapstatement",
+            "confidence": 0.95,
+            "subunits": [
+              {
+                "text": "Gap",
+                "start": 57.688,
+                "end": 57.868,
+                "confidence": 0.95
+              },
+              {
+                "text": "Statement",
+                "start": 57.908,
+                "end": 58.289,
+                "confidence": 0.95
+              }
+            ]
+          },
+          {
+            "id": "w_282",
+            "word": "3",
+            "start": 58.309,
+            "end": 58.409,
+            "startFrame": 1749,
+            "endFrame": 1752,
+            "cleanWord": "3",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_283",
+            "word": "tầng",
+            "start": 58.389,
+            "end": 58.629,
+            "startFrame": 1752,
+            "endFrame": 1759,
+            "cleanWord": "tầng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_284",
+            "word": "Tầng",
+            "start": 58.629,
+            "end": 58.85,
+            "startFrame": 1759,
+            "endFrame": 1766,
+            "cleanWord": "tầng",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 56.4,
+    "endTime": 58.867
+  },
+  {
+    "id": "g28",
+    "text": "Nền móng Tầng Vấn đề và Tầng Định vị giải pháp Áp",
+    "startFrame": 1766,
+    "endFrame": 1837,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Nền móng Tầng Vấn đề và",
+        "words": [
+          {
+            "id": "w_285",
+            "word": "Nền",
+            "start": 58.85,
+            "end": 58.97,
+            "startFrame": 1766,
+            "endFrame": 1769,
+            "cleanWord": "nền",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_286",
+            "word": "móng",
+            "start": 59.01,
+            "end": 59.191,
+            "startFrame": 1770,
+            "endFrame": 1776,
+            "cleanWord": "móng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_287",
+            "word": "Tầng",
+            "start": 59.191,
+            "end": 59.371,
+            "startFrame": 1776,
+            "endFrame": 1781,
+            "cleanWord": "tầng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_288",
+            "word": "Vấn",
+            "start": 59.371,
+            "end": 59.491,
+            "startFrame": 1781,
+            "endFrame": 1785,
+            "cleanWord": "vấn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_289",
+            "word": "đề",
+            "start": 59.511,
+            "end": 59.611,
+            "startFrame": 1785,
+            "endFrame": 1788,
+            "cleanWord": "đề",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_290",
+            "word": "và",
+            "start": 59.652,
+            "end": 59.872,
+            "startFrame": 1790,
+            "endFrame": 1796,
+            "cleanWord": "và",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "Tầng Định vị giải pháp Áp",
+        "words": [
+          {
+            "id": "w_291",
+            "word": "Tầng",
+            "start": 59.892,
+            "end": 60.092,
+            "startFrame": 1797,
+            "endFrame": 1803,
+            "cleanWord": "tầng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_292",
+            "word": "Định",
+            "start": 60.092,
+            "end": 60.273,
+            "startFrame": 1803,
+            "endFrame": 1808,
+            "cleanWord": "định",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_293",
+            "word": "vị",
+            "start": 60.293,
+            "end": 60.393,
+            "startFrame": 1809,
+            "endFrame": 1812,
+            "cleanWord": "vị",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_294",
+            "word": "giải",
+            "start": 60.413,
+            "end": 60.633,
+            "startFrame": 1812,
+            "endFrame": 1819,
+            "cleanWord": "giải",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_295",
+            "word": "pháp",
+            "start": 60.674,
+            "end": 60.814,
+            "startFrame": 1820,
+            "endFrame": 1824,
+            "cleanWord": "pháp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_296",
+            "word": "Áp",
+            "start": 61.094,
+            "end": 61.194,
+            "startFrame": 1833,
+            "endFrame": 1836,
+            "cleanWord": "áp",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 58.867,
+    "endTime": 61.233
+  },
+  {
+    "id": "g29",
+    "text": "dụng công thức biến số chuẩn A-B-C-D-E-M-F để thể",
+    "startFrame": 1837,
+    "endFrame": 1919,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "dụng công thức biến số",
+        "words": [
+          {
+            "id": "w_297",
+            "word": "dụng",
+            "start": 61.235,
+            "end": 61.395,
+            "startFrame": 1837,
+            "endFrame": 1842,
+            "cleanWord": "dụng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_298",
+            "word": "công",
+            "start": 61.395,
+            "end": 61.576,
+            "startFrame": 1842,
+            "endFrame": 1847,
+            "cleanWord": "công",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_299",
+            "word": "thức",
+            "start": 61.576,
+            "end": 61.676,
+            "startFrame": 1847,
+            "endFrame": 1850,
+            "cleanWord": "thức",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_300",
+            "word": "biến",
+            "start": 61.696,
+            "end": 61.877,
+            "startFrame": 1851,
+            "endFrame": 1856,
+            "cleanWord": "biến",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_301",
+            "word": "số",
+            "start": 61.897,
+            "end": 61.997,
+            "startFrame": 1857,
+            "endFrame": 1860,
+            "cleanWord": "số",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "chuẩn A-B-C-D-E-M-F để thể",
+        "words": [
+          {
+            "id": "w_302",
+            "word": "chuẩn",
+            "start": 61.998,
+            "end": 62.319,
+            "startFrame": 1860,
+            "endFrame": 1870,
+            "cleanWord": "chuẩn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_303",
+            "word": "A-B-C-D-E-M-F",
+            "start": 62.319,
+            "end": 63.061,
+            "startFrame": 1870,
+            "endFrame": 1892,
+            "cleanWord": "abcdemf",
+            "confidence": 0.95,
+            "subunits": [
+              {
+                "text": "A",
+                "start": 62.319,
+                "end": 62.399,
+                "confidence": 0.95
+              },
+              {
+                "text": "B",
+                "start": 62.359,
+                "end": 62.439,
+                "confidence": 0.95
+              },
+              {
+                "text": "C",
+                "start": 62.379,
+                "end": 62.459,
+                "confidence": 0.95
+              },
+              {
+                "text": "D",
+                "start": 62.499,
+                "end": 62.579,
+                "confidence": 0.95
+              },
+              {
+                "text": "E",
+                "start": 62.66,
+                "end": 62.74,
+                "confidence": 0.95
+              },
+              {
+                "text": "M",
+                "start": 62.841,
+                "end": 62.921,
+                "confidence": 0.95
+              },
+              {
+                "text": "F",
+                "start": 62.981,
+                "end": 63.061,
+                "confidence": 0.95
+              }
+            ]
+          },
+          {
+            "id": "w_304",
+            "word": "để",
+            "start": 63.042,
+            "end": 63.303,
+            "startFrame": 1891,
+            "endFrame": 1899,
+            "cleanWord": "để",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_305",
+            "word": "thể",
+            "start": 63.584,
+            "end": 63.905,
+            "startFrame": 1908,
+            "endFrame": 1917,
+            "cleanWord": "thể",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 61.233,
+    "endTime": 63.967
+  },
+  {
+    "id": "g30",
+    "text": "hiện sự kế thừa học thuật có chọn lọc",
+    "startFrame": 1919,
+    "endFrame": 1962,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "hiện sự kế thừa học",
+        "words": [
+          {
+            "id": "w_306",
+            "word": "hiện",
+            "start": 63.965,
+            "end": 64.065,
+            "startFrame": 1919,
+            "endFrame": 1922,
+            "cleanWord": "hiện",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_307",
+            "word": "sự",
+            "start": 64.126,
+            "end": 64.226,
+            "startFrame": 1924,
+            "endFrame": 1927,
+            "cleanWord": "sự",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_308",
+            "word": "kế",
+            "start": 64.186,
+            "end": 64.286,
+            "startFrame": 1926,
+            "endFrame": 1929,
+            "cleanWord": "kế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_309",
+            "word": "thừa",
+            "start": 64.306,
+            "end": 64.507,
+            "startFrame": 1929,
+            "endFrame": 1935,
+            "cleanWord": "thừa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_310",
+            "word": "học",
+            "start": 64.567,
+            "end": 64.748,
+            "startFrame": 1937,
+            "endFrame": 1942,
+            "cleanWord": "học",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "thuật có chọn lọc",
+        "words": [
+          {
+            "id": "w_311",
+            "word": "thuật",
+            "start": 64.748,
+            "end": 64.909,
+            "startFrame": 1942,
+            "endFrame": 1947,
+            "cleanWord": "thuật",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_312",
+            "word": "có",
+            "start": 64.929,
+            "end": 65.029,
+            "startFrame": 1948,
+            "endFrame": 1951,
+            "cleanWord": "có",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_313",
+            "word": "chọn",
+            "start": 65.049,
+            "end": 65.149,
+            "startFrame": 1951,
+            "endFrame": 1954,
+            "cleanWord": "chọn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_314",
+            "word": "lọc",
+            "start": 65.129,
+            "end": 65.27,
+            "startFrame": 1954,
+            "endFrame": 1958,
+            "cleanWord": "lọc",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 63.967,
+    "endTime": 65.4
+  },
+  {
+    "id": "g31",
+    "text": "Nắm chắc Template 4 câu chuẩn quốc tế Câu nền tảng",
+    "startFrame": 1962,
+    "endFrame": 2046,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Nắm chắc Template 4 câu",
+        "words": [
+          {
+            "id": "w_315",
+            "word": "Nắm",
+            "start": 65.871,
+            "end": 65.991,
+            "startFrame": 1976,
+            "endFrame": 1980,
+            "cleanWord": "nắm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_316",
+            "word": "chắc",
+            "start": 66.031,
+            "end": 66.192,
+            "startFrame": 1981,
+            "endFrame": 1986,
+            "cleanWord": "chắc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_317",
+            "word": "Template",
+            "start": 66.272,
+            "end": 66.692,
+            "startFrame": 1988,
+            "endFrame": 2001,
+            "cleanWord": "template",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_318",
+            "word": "4",
+            "start": 66.712,
+            "end": 66.873,
+            "startFrame": 2001,
+            "endFrame": 2006,
+            "cleanWord": "4",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_319",
+            "word": "câu",
+            "start": 66.913,
+            "end": 67.073,
+            "startFrame": 2007,
+            "endFrame": 2012,
+            "cleanWord": "câu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "chuẩn quốc tế Câu nền tảng",
+        "words": [
+          {
+            "id": "w_320",
+            "word": "chuẩn",
+            "start": 67.153,
+            "end": 67.293,
+            "startFrame": 2015,
+            "endFrame": 2019,
+            "cleanWord": "chuẩn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_321",
+            "word": "quốc",
+            "start": 67.293,
+            "end": 67.393,
+            "startFrame": 2019,
+            "endFrame": 2022,
+            "cleanWord": "quốc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_322",
+            "word": "tế",
+            "start": 67.413,
+            "end": 67.513,
+            "startFrame": 2022,
+            "endFrame": 2025,
+            "cleanWord": "tế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_323",
+            "word": "Câu",
+            "start": 67.493,
+            "end": 67.754,
+            "startFrame": 2025,
+            "endFrame": 2033,
+            "cleanWord": "câu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_324",
+            "word": "nền",
+            "start": 67.774,
+            "end": 67.914,
+            "startFrame": 2033,
+            "endFrame": 2037,
+            "cleanWord": "nền",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_325",
+            "word": "tảng",
+            "start": 67.954,
+            "end": 68.134,
+            "startFrame": 2039,
+            "endFrame": 2044,
+            "cleanWord": "tảng",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 65.4,
+    "endTime": 68.2
+  },
+  {
+    "id": "g32",
+    "text": "Câu điểm chưa rõ Câu ý nghĩa và Câu định vị",
+    "startFrame": 2046,
+    "endFrame": 2108,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Câu điểm chưa rõ Câu",
+        "words": [
+          {
+            "id": "w_326",
+            "word": "Câu",
+            "start": 68.195,
+            "end": 68.295,
+            "startFrame": 2046,
+            "endFrame": 2049,
+            "cleanWord": "câu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_327",
+            "word": "điểm",
+            "start": 68.275,
+            "end": 68.435,
+            "startFrame": 2048,
+            "endFrame": 2053,
+            "cleanWord": "điểm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_328",
+            "word": "chưa",
+            "start": 68.475,
+            "end": 68.575,
+            "startFrame": 2054,
+            "endFrame": 2057,
+            "cleanWord": "chưa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_329",
+            "word": "rõ",
+            "start": 68.655,
+            "end": 68.755,
+            "startFrame": 2060,
+            "endFrame": 2063,
+            "cleanWord": "rõ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_330",
+            "word": "Câu",
+            "start": 68.735,
+            "end": 68.876,
+            "startFrame": 2062,
+            "endFrame": 2066,
+            "cleanWord": "câu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "ý nghĩa và Câu định vị",
+        "words": [
+          {
+            "id": "w_331",
+            "word": "ý",
+            "start": 68.936,
+            "end": 69.036,
+            "startFrame": 2068,
+            "endFrame": 2071,
+            "cleanWord": "ý",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_332",
+            "word": "nghĩa",
+            "start": 69.096,
+            "end": 69.416,
+            "startFrame": 2073,
+            "endFrame": 2082,
+            "cleanWord": "nghĩa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_333",
+            "word": "và",
+            "start": 69.416,
+            "end": 69.516,
+            "startFrame": 2082,
+            "endFrame": 2085,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_334",
+            "word": "Câu",
+            "start": 69.456,
+            "end": 69.597,
+            "startFrame": 2084,
+            "endFrame": 2088,
+            "cleanWord": "câu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_335",
+            "word": "định",
+            "start": 69.777,
+            "end": 69.997,
+            "startFrame": 2093,
+            "endFrame": 2100,
+            "cleanWord": "định",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_336",
+            "word": "vị",
+            "start": 70.017,
+            "end": 70.117,
+            "startFrame": 2101,
+            "endFrame": 2104,
+            "cleanWord": "vị",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 68.2,
+    "endTime": 70.267
+  },
+  {
+    "id": "g33",
+    "text": "Case study Ngân hàng số Mô hình TAM đã xác nhận vai",
+    "startFrame": 2108,
+    "endFrame": 2181,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Case study Ngân hàng số Mô",
+        "words": [
+          {
+            "id": "w_337",
+            "word": "Case",
+            "start": 70.638,
+            "end": 70.799,
+            "startFrame": 2119,
+            "endFrame": 2124,
+            "cleanWord": "case",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_338",
+            "word": "study",
+            "start": 70.819,
+            "end": 71.08,
+            "startFrame": 2125,
+            "endFrame": 2132,
+            "cleanWord": "study",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_339",
+            "word": "Ngân",
+            "start": 71.12,
+            "end": 71.22,
+            "startFrame": 2134,
+            "endFrame": 2137,
+            "cleanWord": "ngân",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_340",
+            "word": "hàng",
+            "start": 71.24,
+            "end": 71.461,
+            "startFrame": 2137,
+            "endFrame": 2144,
+            "cleanWord": "hàng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_341",
+            "word": "số",
+            "start": 71.461,
+            "end": 71.561,
+            "startFrame": 2144,
+            "endFrame": 2147,
+            "cleanWord": "số",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_342",
+            "word": "Mô",
+            "start": 71.602,
+            "end": 71.702,
+            "startFrame": 2148,
+            "endFrame": 2151,
+            "cleanWord": "mô",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "hình TAM đã xác nhận vai",
+        "words": [
+          {
+            "id": "w_343",
+            "word": "hình",
+            "start": 71.722,
+            "end": 71.923,
+            "startFrame": 2152,
+            "endFrame": 2158,
+            "cleanWord": "hình",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_344",
+            "word": "TAM",
+            "start": 71.923,
+            "end": 72.023,
+            "startFrame": 2158,
+            "endFrame": 2161,
+            "cleanWord": "tam",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_345",
+            "word": "đã",
+            "start": 72.043,
+            "end": 72.164,
+            "startFrame": 2161,
+            "endFrame": 2165,
+            "cleanWord": "đã",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_346",
+            "word": "xác",
+            "start": 72.224,
+            "end": 72.365,
+            "startFrame": 2167,
+            "endFrame": 2171,
+            "cleanWord": "xác",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_347",
+            "word": "nhận",
+            "start": 72.385,
+            "end": 72.545,
+            "startFrame": 2172,
+            "endFrame": 2176,
+            "cleanWord": "nhận",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_348",
+            "word": "vai",
+            "start": 72.545,
+            "end": 72.646,
+            "startFrame": 2176,
+            "endFrame": 2179,
+            "cleanWord": "vai",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 70.267,
+    "endTime": 72.7
+  },
+  {
+    "id": "g34",
+    "text": "trò của tính hữu ích và dễ sử dụng",
+    "startFrame": 2181,
+    "endFrame": 2235,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "trò của tính hữu",
+        "words": [
+          {
+            "id": "w_349",
+            "word": "trò",
+            "start": 72.706,
+            "end": 72.826,
+            "startFrame": 2181,
+            "endFrame": 2185,
+            "cleanWord": "trò",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_350",
+            "word": "của",
+            "start": 72.826,
+            "end": 72.967,
+            "startFrame": 2185,
+            "endFrame": 2189,
+            "cleanWord": "của",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_351",
+            "word": "tính",
+            "start": 73.107,
+            "end": 73.248,
+            "startFrame": 2193,
+            "endFrame": 2197,
+            "cleanWord": "tính",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_352",
+            "word": "hữu",
+            "start": 73.288,
+            "end": 73.388,
+            "startFrame": 2199,
+            "endFrame": 2202,
+            "cleanWord": "hữu",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "ích và dễ sử dụng",
+        "words": [
+          {
+            "id": "w_353",
+            "word": "ích",
+            "start": 73.388,
+            "end": 73.509,
+            "startFrame": 2202,
+            "endFrame": 2205,
+            "cleanWord": "ích",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_354",
+            "word": "và",
+            "start": 73.569,
+            "end": 73.669,
+            "startFrame": 2207,
+            "endFrame": 2210,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_355",
+            "word": "dễ",
+            "start": 73.669,
+            "end": 73.81,
+            "startFrame": 2210,
+            "endFrame": 2214,
+            "cleanWord": "dễ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_356",
+            "word": "sử",
+            "start": 73.87,
+            "end": 74.031,
+            "startFrame": 2216,
+            "endFrame": 2221,
+            "cleanWord": "sử",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_357",
+            "word": "dụng",
+            "start": 74.091,
+            "end": 74.372,
+            "startFrame": 2223,
+            "endFrame": 2231,
+            "cleanWord": "dụng",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 72.7,
+    "endTime": 74.5
+  },
+  {
+    "id": "g35",
+    "text": "Dẫu vậy cơ chế từ chất lượng dịch vụ điện tử sang",
+    "startFrame": 2235,
+    "endFrame": 2304,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Dẫu vậy cơ chế từ chất",
+        "words": [
+          {
+            "id": "w_358",
+            "word": "Dẫu",
+            "start": 74.693,
+            "end": 74.833,
+            "startFrame": 2241,
+            "endFrame": 2245,
+            "cleanWord": "dẫu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_359",
+            "word": "vậy",
+            "start": 74.873,
+            "end": 75.014,
+            "startFrame": 2246,
+            "endFrame": 2250,
+            "cleanWord": "vậy",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_360",
+            "word": "cơ",
+            "start": 75.114,
+            "end": 75.214,
+            "startFrame": 2253,
+            "endFrame": 2256,
+            "cleanWord": "cơ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_361",
+            "word": "chế",
+            "start": 75.274,
+            "end": 75.374,
+            "startFrame": 2258,
+            "endFrame": 2261,
+            "cleanWord": "chế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_362",
+            "word": "từ",
+            "start": 75.354,
+            "end": 75.515,
+            "startFrame": 2261,
+            "endFrame": 2265,
+            "cleanWord": "từ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_363",
+            "word": "chất",
+            "start": 75.555,
+            "end": 75.715,
+            "startFrame": 2267,
+            "endFrame": 2271,
+            "cleanWord": "chất",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "lượng dịch vụ điện tử sang",
+        "words": [
+          {
+            "id": "w_364",
+            "word": "lượng",
+            "start": 75.755,
+            "end": 75.935,
+            "startFrame": 2273,
+            "endFrame": 2278,
+            "cleanWord": "lượng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_365",
+            "word": "dịch",
+            "start": 75.935,
+            "end": 76.056,
+            "startFrame": 2278,
+            "endFrame": 2282,
+            "cleanWord": "dịch",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_366",
+            "word": "vụ",
+            "start": 76.076,
+            "end": 76.176,
+            "startFrame": 2282,
+            "endFrame": 2285,
+            "cleanWord": "vụ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_367",
+            "word": "điện",
+            "start": 76.116,
+            "end": 76.336,
+            "startFrame": 2283,
+            "endFrame": 2290,
+            "cleanWord": "điện",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_368",
+            "word": "tử",
+            "start": 76.336,
+            "end": 76.436,
+            "startFrame": 2290,
+            "endFrame": 2293,
+            "cleanWord": "tử",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_369",
+            "word": "sang",
+            "start": 76.376,
+            "end": 76.737,
+            "startFrame": 2291,
+            "endFrame": 2302,
+            "cleanWord": "sang",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 74.5,
+    "endTime": 76.8
+  },
+  {
+    "id": "g36",
+    "text": "ý định tiếp tục dùng vẫn chưa nhất quán tại thị",
+    "startFrame": 2304,
+    "endFrame": 2357,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "ý định tiếp tục dùng vẫn",
+        "words": [
+          {
+            "id": "w_370",
+            "word": "ý",
+            "start": 76.797,
+            "end": 76.897,
+            "startFrame": 2304,
+            "endFrame": 2307,
+            "cleanWord": "ý",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_371",
+            "word": "định",
+            "start": 76.877,
+            "end": 77.097,
+            "startFrame": 2306,
+            "endFrame": 2313,
+            "cleanWord": "định",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_372",
+            "word": "tiếp",
+            "start": 77.117,
+            "end": 77.238,
+            "startFrame": 2314,
+            "endFrame": 2317,
+            "cleanWord": "tiếp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_373",
+            "word": "tục",
+            "start": 77.278,
+            "end": 77.378,
+            "startFrame": 2318,
+            "endFrame": 2321,
+            "cleanWord": "tục",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_374",
+            "word": "dùng",
+            "start": 77.378,
+            "end": 77.598,
+            "startFrame": 2321,
+            "endFrame": 2328,
+            "cleanWord": "dùng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_375",
+            "word": "vẫn",
+            "start": 77.719,
+            "end": 77.839,
+            "startFrame": 2332,
+            "endFrame": 2335,
+            "cleanWord": "vẫn",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "chưa nhất quán tại thị",
+        "words": [
+          {
+            "id": "w_376",
+            "word": "chưa",
+            "start": 77.839,
+            "end": 77.959,
+            "startFrame": 2335,
+            "endFrame": 2339,
+            "cleanWord": "chưa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_377",
+            "word": "nhất",
+            "start": 77.999,
+            "end": 78.159,
+            "startFrame": 2340,
+            "endFrame": 2345,
+            "cleanWord": "nhất",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_378",
+            "word": "quán",
+            "start": 78.199,
+            "end": 78.36,
+            "startFrame": 2346,
+            "endFrame": 2351,
+            "cleanWord": "quán",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_379",
+            "word": "tại",
+            "start": 78.36,
+            "end": 78.46,
+            "startFrame": 2351,
+            "endFrame": 2354,
+            "cleanWord": "tại",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_380",
+            "word": "thị",
+            "start": 78.44,
+            "end": 78.56,
+            "startFrame": 2353,
+            "endFrame": 2357,
+            "cleanWord": "thị",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 76.8,
+    "endTime": 78.567
+  },
+  {
+    "id": "g37",
+    "text": "trường mới nổi",
+    "startFrame": 2357,
+    "endFrame": 2379,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "trường mới nổi",
+        "words": [
+          {
+            "id": "w_381",
+            "word": "trường",
+            "start": 78.58,
+            "end": 78.941,
+            "startFrame": 2357,
+            "endFrame": 2368,
+            "cleanWord": "trường",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_382",
+            "word": "mới",
+            "start": 78.941,
+            "end": 79.081,
+            "startFrame": 2368,
+            "endFrame": 2372,
+            "cleanWord": "mới",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_383",
+            "word": "nổi",
+            "start": 79.081,
+            "end": 79.181,
+            "startFrame": 2372,
+            "endFrame": 2375,
+            "cleanWord": "nổi",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 78.567,
+    "endTime": 79.3
+  },
+  {
+    "id": "g38",
+    "text": "Nghiên cứu mới kiểm định trung gian Hài lòng và",
+    "startFrame": 2379,
+    "endFrame": 2450,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Nghiên cứu mới kiểm định",
+        "words": [
+          {
+            "id": "w_384",
+            "word": "Nghiên",
+            "start": 79.922,
+            "end": 80.043,
+            "startFrame": 2398,
+            "endFrame": 2401,
+            "cleanWord": "nghiên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_385",
+            "word": "cứu",
+            "start": 80.063,
+            "end": 80.184,
+            "startFrame": 2402,
+            "endFrame": 2406,
+            "cleanWord": "cứu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_386",
+            "word": "mới",
+            "start": 80.224,
+            "end": 80.324,
+            "startFrame": 2407,
+            "endFrame": 2410,
+            "cleanWord": "mới",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_387",
+            "word": "kiểm",
+            "start": 80.344,
+            "end": 80.505,
+            "startFrame": 2410,
+            "endFrame": 2415,
+            "cleanWord": "kiểm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_388",
+            "word": "định",
+            "start": 80.505,
+            "end": 80.686,
+            "startFrame": 2415,
+            "endFrame": 2421,
+            "cleanWord": "định",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "trung gian Hài lòng và",
+        "words": [
+          {
+            "id": "w_389",
+            "word": "trung",
+            "start": 80.686,
+            "end": 80.827,
+            "startFrame": 2421,
+            "endFrame": 2425,
+            "cleanWord": "trung",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_390",
+            "word": "gian",
+            "start": 80.827,
+            "end": 80.928,
+            "startFrame": 2425,
+            "endFrame": 2428,
+            "cleanWord": "gian",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_391",
+            "word": "Hài",
+            "start": 80.968,
+            "end": 81.129,
+            "startFrame": 2429,
+            "endFrame": 2434,
+            "cleanWord": "hài",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_392",
+            "word": "lòng",
+            "start": 81.149,
+            "end": 81.35,
+            "startFrame": 2434,
+            "endFrame": 2441,
+            "cleanWord": "lòng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_393",
+            "word": "và",
+            "start": 81.41,
+            "end": 81.51,
+            "startFrame": 2442,
+            "endFrame": 2445,
+            "cleanWord": "và",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 79.3,
+    "endTime": 81.667
+  },
+  {
+    "id": "g39",
+    "text": "điều tiết Rủi ro cảm nhận lấp đầy trọn vẹn khoảng",
+    "startFrame": 2450,
+    "endFrame": 2512,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "điều tiết Rủi ro cảm nhận",
+        "words": [
+          {
+            "id": "w_394",
+            "word": "điều",
+            "start": 81.652,
+            "end": 81.833,
+            "startFrame": 2450,
+            "endFrame": 2455,
+            "cleanWord": "điều",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_395",
+            "word": "tiết",
+            "start": 81.833,
+            "end": 81.994,
+            "startFrame": 2455,
+            "endFrame": 2460,
+            "cleanWord": "tiết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_396",
+            "word": "Rủi",
+            "start": 82.014,
+            "end": 82.155,
+            "startFrame": 2460,
+            "endFrame": 2465,
+            "cleanWord": "rủi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_397",
+            "word": "ro",
+            "start": 82.195,
+            "end": 82.295,
+            "startFrame": 2466,
+            "endFrame": 2469,
+            "cleanWord": "ro",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_398",
+            "word": "cảm",
+            "start": 82.295,
+            "end": 82.577,
+            "startFrame": 2469,
+            "endFrame": 2477,
+            "cleanWord": "cảm",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_399",
+            "word": "nhận",
+            "start": 82.617,
+            "end": 82.758,
+            "startFrame": 2479,
+            "endFrame": 2483,
+            "cleanWord": "nhận",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "lấp đầy trọn vẹn khoảng",
+        "words": [
+          {
+            "id": "w_400",
+            "word": "lấp",
+            "start": 82.758,
+            "end": 82.879,
+            "startFrame": 2483,
+            "endFrame": 2486,
+            "cleanWord": "lấp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_401",
+            "word": "đầy",
+            "start": 82.939,
+            "end": 83.06,
+            "startFrame": 2488,
+            "endFrame": 2492,
+            "cleanWord": "đầy",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_402",
+            "word": "trọn",
+            "start": 83.1,
+            "end": 83.301,
+            "startFrame": 2493,
+            "endFrame": 2499,
+            "cleanWord": "trọn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_403",
+            "word": "vẹn",
+            "start": 83.301,
+            "end": 83.422,
+            "startFrame": 2499,
+            "endFrame": 2503,
+            "cleanWord": "vẹn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_404",
+            "word": "khoảng",
+            "start": 83.422,
+            "end": 83.723,
+            "startFrame": 2503,
+            "endFrame": 2512,
+            "cleanWord": "khoảng",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 81.667,
+    "endTime": 83.733
+  },
+  {
+    "id": "g40",
+    "text": "trống Tuyệt đối tránh Lỗi 1 Tuyên bố thiếu bằng",
+    "startFrame": 2512,
+    "endFrame": 2579,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "trống Tuyệt đối tránh",
+        "words": [
+          {
+            "id": "w_405",
+            "word": "trống",
+            "start": 83.723,
+            "end": 83.884,
+            "startFrame": 2512,
+            "endFrame": 2517,
+            "cleanWord": "trống",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_406",
+            "word": "Tuyệt",
+            "start": 84.325,
+            "end": 84.425,
+            "startFrame": 2530,
+            "endFrame": 2533,
+            "cleanWord": "tuyệt",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_407",
+            "word": "đối",
+            "start": 84.446,
+            "end": 84.586,
+            "startFrame": 2533,
+            "endFrame": 2538,
+            "cleanWord": "đối",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_408",
+            "word": "tránh",
+            "start": 84.646,
+            "end": 84.827,
+            "startFrame": 2539,
+            "endFrame": 2545,
+            "cleanWord": "tránh",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "Lỗi 1 Tuyên bố thiếu bằng",
+        "words": [
+          {
+            "id": "w_409",
+            "word": "Lỗi",
+            "start": 84.827,
+            "end": 84.988,
+            "startFrame": 2545,
+            "endFrame": 2550,
+            "cleanWord": "lỗi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_410",
+            "word": "1",
+            "start": 85.068,
+            "end": 85.249,
+            "startFrame": 2552,
+            "endFrame": 2557,
+            "cleanWord": "1",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_411",
+            "word": "Tuyên",
+            "start": 85.309,
+            "end": 85.47,
+            "startFrame": 2559,
+            "endFrame": 2564,
+            "cleanWord": "tuyên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_412",
+            "word": "bố",
+            "start": 85.47,
+            "end": 85.57,
+            "startFrame": 2564,
+            "endFrame": 2567,
+            "cleanWord": "bố",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_413",
+            "word": "thiếu",
+            "start": 85.571,
+            "end": 85.812,
+            "startFrame": 2567,
+            "endFrame": 2574,
+            "cleanWord": "thiếu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_414",
+            "word": "bằng",
+            "start": 85.832,
+            "end": 85.932,
+            "startFrame": 2575,
+            "endFrame": 2578,
+            "cleanWord": "bằng",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 83.733,
+    "endTime": 85.967
+  },
+  {
+    "id": "g41",
+    "text": "chứng và Lỗi 2 Đồng nhất bối cảnh mới với tính mới",
+    "startFrame": 2579,
+    "endFrame": 2652,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "chứng và Lỗi 2 Đồng nhất",
+        "words": [
+          {
+            "id": "w_415",
+            "word": "chứng",
+            "start": 85.952,
+            "end": 86.173,
+            "startFrame": 2579,
+            "endFrame": 2585,
+            "cleanWord": "chứng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_416",
+            "word": "và",
+            "start": 86.173,
+            "end": 86.273,
+            "startFrame": 2585,
+            "endFrame": 2588,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_417",
+            "word": "Lỗi",
+            "start": 86.274,
+            "end": 86.374,
+            "startFrame": 2588,
+            "endFrame": 2591,
+            "cleanWord": "lỗi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_418",
+            "word": "2",
+            "start": 86.595,
+            "end": 86.856,
+            "startFrame": 2598,
+            "endFrame": 2606,
+            "cleanWord": "2",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_419",
+            "word": "Đồng",
+            "start": 86.917,
+            "end": 87.098,
+            "startFrame": 2608,
+            "endFrame": 2613,
+            "cleanWord": "đồng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_420",
+            "word": "nhất",
+            "start": 87.138,
+            "end": 87.359,
+            "startFrame": 2614,
+            "endFrame": 2621,
+            "cleanWord": "nhất",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "bối cảnh mới với tính mới",
+        "words": [
+          {
+            "id": "w_421",
+            "word": "bối",
+            "start": 87.399,
+            "end": 87.499,
+            "startFrame": 2622,
+            "endFrame": 2625,
+            "cleanWord": "bối",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_422",
+            "word": "cảnh",
+            "start": 87.479,
+            "end": 87.579,
+            "startFrame": 2624,
+            "endFrame": 2627,
+            "cleanWord": "cảnh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_423",
+            "word": "mới",
+            "start": 87.6,
+            "end": 87.74,
+            "startFrame": 2628,
+            "endFrame": 2632,
+            "cleanWord": "mới",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_424",
+            "word": "với",
+            "start": 87.781,
+            "end": 87.901,
+            "startFrame": 2633,
+            "endFrame": 2637,
+            "cleanWord": "với",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_425",
+            "word": "tính",
+            "start": 87.941,
+            "end": 88.102,
+            "startFrame": 2638,
+            "endFrame": 2643,
+            "cleanWord": "tính",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_426",
+            "word": "mới",
+            "start": 88.162,
+            "end": 88.283,
+            "startFrame": 2645,
+            "endFrame": 2648,
+            "cleanWord": "mới",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 85.967,
+    "endTime": 88.4
+  },
+  {
+    "id": "g42",
+    "text": "Tránh Lỗi 3 Liệt kê nguồn thay vì tổng hợp và Lỗi 4",
+    "startFrame": 2652,
+    "endFrame": 2739,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Tránh Lỗi 3 Liệt kê nguồn",
+        "words": [
+          {
+            "id": "w_427",
+            "word": "Tránh",
+            "start": 88.925,
+            "end": 89.065,
+            "startFrame": 2668,
+            "endFrame": 2672,
+            "cleanWord": "tránh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_428",
+            "word": "Lỗi",
+            "start": 89.085,
+            "end": 89.225,
+            "startFrame": 2673,
+            "endFrame": 2677,
+            "cleanWord": "lỗi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_429",
+            "word": "3",
+            "start": 89.265,
+            "end": 89.365,
+            "startFrame": 2678,
+            "endFrame": 2681,
+            "cleanWord": "3",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_430",
+            "word": "Liệt",
+            "start": 89.426,
+            "end": 89.566,
+            "startFrame": 2683,
+            "endFrame": 2687,
+            "cleanWord": "liệt",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_431",
+            "word": "kê",
+            "start": 89.606,
+            "end": 89.726,
+            "startFrame": 2688,
+            "endFrame": 2692,
+            "cleanWord": "kê",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_432",
+            "word": "nguồn",
+            "start": 89.886,
+            "end": 90.007,
+            "startFrame": 2697,
+            "endFrame": 2700,
+            "cleanWord": "nguồn",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "thay vì tổng hợp và Lỗi 4",
+        "words": [
+          {
+            "id": "w_433",
+            "word": "thay",
+            "start": 90.027,
+            "end": 90.167,
+            "startFrame": 2701,
+            "endFrame": 2705,
+            "cleanWord": "thay",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_434",
+            "word": "vì",
+            "start": 90.167,
+            "end": 90.267,
+            "startFrame": 2705,
+            "endFrame": 2708,
+            "cleanWord": "vì",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_435",
+            "word": "tổng",
+            "start": 90.307,
+            "end": 90.507,
+            "startFrame": 2709,
+            "endFrame": 2715,
+            "cleanWord": "tổng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_436",
+            "word": "hợp",
+            "start": 90.547,
+            "end": 90.668,
+            "startFrame": 2716,
+            "endFrame": 2720,
+            "cleanWord": "hợp",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_437",
+            "word": "và",
+            "start": 90.708,
+            "end": 90.828,
+            "startFrame": 2721,
+            "endFrame": 2725,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_438",
+            "word": "Lỗi",
+            "start": 90.948,
+            "end": 91.108,
+            "startFrame": 2728,
+            "endFrame": 2733,
+            "cleanWord": "lỗi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_439",
+            "word": "4",
+            "start": 91.148,
+            "end": 91.288,
+            "startFrame": 2734,
+            "endFrame": 2739,
+            "cleanWord": "4",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 88.4,
+    "endTime": 91.3
+  },
+  {
+    "id": "g43",
+    "text": "Tách rời khoảng trống khỏi thiết kế phương pháp",
+    "startFrame": 2739,
+    "endFrame": 2793,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Tách rời khoảng trống",
+        "words": [
+          {
+            "id": "w_440",
+            "word": "Tách",
+            "start": 91.308,
+            "end": 91.529,
+            "startFrame": 2739,
+            "endFrame": 2746,
+            "cleanWord": "tách",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_441",
+            "word": "rời",
+            "start": 91.569,
+            "end": 91.709,
+            "startFrame": 2747,
+            "endFrame": 2751,
+            "cleanWord": "rời",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_442",
+            "word": "khoảng",
+            "start": 91.789,
+            "end": 92.03,
+            "startFrame": 2754,
+            "endFrame": 2761,
+            "cleanWord": "khoảng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_443",
+            "word": "trống",
+            "start": 92.03,
+            "end": 92.19,
+            "startFrame": 2761,
+            "endFrame": 2766,
+            "cleanWord": "trống",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "khỏi thiết kế phương pháp",
+        "words": [
+          {
+            "id": "w_444",
+            "word": "khỏi",
+            "start": 92.19,
+            "end": 92.29,
+            "startFrame": 2766,
+            "endFrame": 2769,
+            "cleanWord": "khỏi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_445",
+            "word": "thiết",
+            "start": 92.29,
+            "end": 92.45,
+            "startFrame": 2769,
+            "endFrame": 2774,
+            "cleanWord": "thiết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_446",
+            "word": "kế",
+            "start": 92.51,
+            "end": 92.61,
+            "startFrame": 2775,
+            "endFrame": 2778,
+            "cleanWord": "kế",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_447",
+            "word": "phương",
+            "start": 92.59,
+            "end": 92.771,
+            "startFrame": 2778,
+            "endFrame": 2783,
+            "cleanWord": "phương",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_448",
+            "word": "pháp",
+            "start": 92.851,
+            "end": 92.971,
+            "startFrame": 2786,
+            "endFrame": 2789,
+            "cleanWord": "pháp",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 91.3,
+    "endTime": 93.1
+  },
+  {
+    "id": "g44",
+    "text": "Tránh hai cực đoan không tuyên bố vĩ mô rỗng tuếch",
+    "startFrame": 2793,
+    "endFrame": 2859,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "Tránh hai cực đoan không",
+        "words": [
+          {
+            "id": "w_449",
+            "word": "Tránh",
+            "start": 93.371,
+            "end": 93.511,
+            "startFrame": 2801,
+            "endFrame": 2805,
+            "cleanWord": "tránh",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_450",
+            "word": "hai",
+            "start": 93.551,
+            "end": 93.672,
+            "startFrame": 2807,
+            "endFrame": 2810,
+            "cleanWord": "hai",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_451",
+            "word": "cực",
+            "start": 93.712,
+            "end": 93.832,
+            "startFrame": 2811,
+            "endFrame": 2815,
+            "cleanWord": "cực",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_452",
+            "word": "đoan",
+            "start": 93.872,
+            "end": 94.073,
+            "startFrame": 2816,
+            "endFrame": 2822,
+            "cleanWord": "đoan",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_453",
+            "word": "không",
+            "start": 94.073,
+            "end": 94.273,
+            "startFrame": 2822,
+            "endFrame": 2828,
+            "cleanWord": "không",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "tuyên bố vĩ mô rỗng tuếch",
+        "words": [
+          {
+            "id": "w_454",
+            "word": "tuyên",
+            "start": 94.293,
+            "end": 94.434,
+            "startFrame": 2829,
+            "endFrame": 2833,
+            "cleanWord": "tuyên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_455",
+            "word": "bố",
+            "start": 94.434,
+            "end": 94.534,
+            "startFrame": 2833,
+            "endFrame": 2836,
+            "cleanWord": "bố",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_456",
+            "word": "vĩ",
+            "start": 94.474,
+            "end": 94.574,
+            "startFrame": 2834,
+            "endFrame": 2837,
+            "cleanWord": "vĩ",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_457",
+            "word": "mô",
+            "start": 94.574,
+            "end": 94.715,
+            "startFrame": 2837,
+            "endFrame": 2841,
+            "cleanWord": "mô",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_458",
+            "word": "rỗng",
+            "start": 94.755,
+            "end": 95.076,
+            "startFrame": 2843,
+            "endFrame": 2852,
+            "cleanWord": "rỗng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_459",
+            "word": "tuếch",
+            "start": 95.096,
+            "end": 95.276,
+            "startFrame": 2853,
+            "endFrame": 2858,
+            "cleanWord": "tuếch",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 93.1,
+    "endTime": 95.3
+  },
+  {
+    "id": "g45",
+    "text": "cũng đừng vi mô hóa địa bàn mà thiếu giá trị lý",
+    "startFrame": 2859,
+    "endFrame": 2917,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "cũng đừng vi mô hóa địa",
+        "words": [
+          {
+            "id": "w_460",
+            "word": "cũng",
+            "start": 95.296,
+            "end": 95.457,
+            "startFrame": 2859,
+            "endFrame": 2864,
+            "cleanWord": "cũng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_461",
+            "word": "đừng",
+            "start": 95.477,
+            "end": 95.577,
+            "startFrame": 2864,
+            "endFrame": 2867,
+            "cleanWord": "đừng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_462",
+            "word": "vi",
+            "start": 95.597,
+            "end": 95.697,
+            "startFrame": 2868,
+            "endFrame": 2871,
+            "cleanWord": "vi",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_463",
+            "word": "mô",
+            "start": 95.697,
+            "end": 95.797,
+            "startFrame": 2871,
+            "endFrame": 2874,
+            "cleanWord": "mô",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_464",
+            "word": "hóa",
+            "start": 95.777,
+            "end": 95.978,
+            "startFrame": 2873,
+            "endFrame": 2879,
+            "cleanWord": "hóa",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_465",
+            "word": "địa",
+            "start": 95.998,
+            "end": 96.138,
+            "startFrame": 2880,
+            "endFrame": 2884,
+            "cleanWord": "địa",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "bàn mà thiếu giá trị lý",
+        "words": [
+          {
+            "id": "w_466",
+            "word": "bàn",
+            "start": 96.158,
+            "end": 96.339,
+            "startFrame": 2885,
+            "endFrame": 2890,
+            "cleanWord": "bàn",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_467",
+            "word": "mà",
+            "start": 96.379,
+            "end": 96.479,
+            "startFrame": 2891,
+            "endFrame": 2894,
+            "cleanWord": "mà",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_468",
+            "word": "thiếu",
+            "start": 96.479,
+            "end": 96.961,
+            "startFrame": 2894,
+            "endFrame": 2909,
+            "cleanWord": "thiếu",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_469",
+            "word": "giá",
+            "start": 96.981,
+            "end": 97.081,
+            "startFrame": 2909,
+            "endFrame": 2912,
+            "cleanWord": "giá",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_470",
+            "word": "trị",
+            "start": 97.041,
+            "end": 97.141,
+            "startFrame": 2911,
+            "endFrame": 2914,
+            "cleanWord": "trị",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_471",
+            "word": "lý",
+            "start": 97.121,
+            "end": 97.221,
+            "startFrame": 2914,
+            "endFrame": 2917,
+            "cleanWord": "lý",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 95.3,
+    "endTime": 97.233
+  },
+  {
+    "id": "g46",
+    "text": "thuyết Research Gap là nền tảng của tính mới Chúc bạn",
+    "startFrame": 2917,
+    "endFrame": 2994,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "thuyết Research Gap là nền",
+        "words": [
+          {
+            "id": "w_472",
+            "word": "thuyết",
+            "start": 97.241,
+            "end": 97.562,
+            "startFrame": 2917,
+            "endFrame": 2927,
+            "cleanWord": "thuyết",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_473",
+            "word": "Research Gap",
+            "start": 97.963,
+            "end": 98.324,
+            "startFrame": 2939,
+            "endFrame": 2950,
+            "cleanWord": "researchgap",
+            "confidence": 0.95,
+            "subunits": [
+              {
+                "text": "Research",
+                "start": 97.963,
+                "end": 98.203,
+                "confidence": 0.95
+              },
+              {
+                "text": "Gap",
+                "start": 98.223,
+                "end": 98.324,
+                "confidence": 0.95
+              }
+            ]
+          },
+          {
+            "id": "w_474",
+            "word": "là",
+            "start": 98.384,
+            "end": 98.504,
+            "startFrame": 2952,
+            "endFrame": 2955,
+            "cleanWord": "là",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_475",
+            "word": "nền",
+            "start": 98.584,
+            "end": 98.724,
+            "startFrame": 2958,
+            "endFrame": 2962,
+            "cleanWord": "nền",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "tảng của tính mới Chúc bạn",
+        "words": [
+          {
+            "id": "w_476",
+            "word": "tảng",
+            "start": 98.724,
+            "end": 98.905,
+            "startFrame": 2962,
+            "endFrame": 2967,
+            "cleanWord": "tảng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_477",
+            "word": "của",
+            "start": 98.945,
+            "end": 99.085,
+            "startFrame": 2968,
+            "endFrame": 2973,
+            "cleanWord": "của",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_478",
+            "word": "tính",
+            "start": 99.105,
+            "end": 99.245,
+            "startFrame": 2973,
+            "endFrame": 2977,
+            "cleanWord": "tính",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_479",
+            "word": "mới",
+            "start": 99.265,
+            "end": 99.365,
+            "startFrame": 2978,
+            "endFrame": 2981,
+            "cleanWord": "mới",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_480",
+            "word": "Chúc",
+            "start": 99.385,
+            "end": 99.666,
+            "startFrame": 2982,
+            "endFrame": 2990,
+            "cleanWord": "chúc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_481",
+            "word": "bạn",
+            "start": 99.666,
+            "end": 99.766,
+            "startFrame": 2990,
+            "endFrame": 2993,
+            "cleanWord": "bạn",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 97.233,
+    "endTime": 99.8
+  },
+  {
+    "id": "g47",
+    "text": "xây dựng lập luận vững chắc và công bố thành công",
+    "startFrame": 2994,
+    "endFrame": 3060,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "xây dựng lập luận vững",
+        "words": [
+          {
+            "id": "w_482",
+            "word": "xây",
+            "start": 99.786,
+            "end": 99.926,
+            "startFrame": 2994,
+            "endFrame": 2998,
+            "cleanWord": "xây",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_483",
+            "word": "dựng",
+            "start": 99.926,
+            "end": 100.106,
+            "startFrame": 2998,
+            "endFrame": 3003,
+            "cleanWord": "dựng",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_484",
+            "word": "lập",
+            "start": 100.147,
+            "end": 100.287,
+            "startFrame": 3004,
+            "endFrame": 3009,
+            "cleanWord": "lập",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_485",
+            "word": "luận",
+            "start": 100.287,
+            "end": 100.467,
+            "startFrame": 3009,
+            "endFrame": 3014,
+            "cleanWord": "luận",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_486",
+            "word": "vững",
+            "start": 100.507,
+            "end": 100.647,
+            "startFrame": 3015,
+            "endFrame": 3019,
+            "cleanWord": "vững",
+            "confidence": 0.95
+          }
+        ]
+      },
+      {
+        "text": "chắc và công bố thành công",
+        "words": [
+          {
+            "id": "w_487",
+            "word": "chắc",
+            "start": 100.687,
+            "end": 100.828,
+            "startFrame": 3021,
+            "endFrame": 3025,
+            "cleanWord": "chắc",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_488",
+            "word": "và",
+            "start": 100.848,
+            "end": 100.948,
+            "startFrame": 3025,
+            "endFrame": 3028,
+            "cleanWord": "và",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_489",
+            "word": "công",
+            "start": 100.908,
+            "end": 101.268,
+            "startFrame": 3027,
+            "endFrame": 3038,
+            "cleanWord": "công",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_490",
+            "word": "bố",
+            "start": 101.509,
+            "end": 101.609,
+            "startFrame": 3045,
+            "endFrame": 3048,
+            "cleanWord": "bố",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_491",
+            "word": "thành",
+            "start": 101.609,
+            "end": 101.829,
+            "startFrame": 3048,
+            "endFrame": 3055,
+            "cleanWord": "thành",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_492",
+            "word": "công",
+            "start": 101.849,
+            "end": 101.969,
+            "startFrame": 3055,
+            "endFrame": 3059,
+            "cleanWord": "công",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 99.8,
+    "endTime": 102
+  },
+  {
+    "id": "g48",
+    "text": "trên Scopus",
+    "startFrame": 3060,
+    "endFrame": 3081,
+    "box": {
+      "x": 80,
+      "y": 1470,
+      "width": 920,
+      "height": 170
+    },
+    "lines": [
+      {
+        "text": "trên Scopus",
+        "words": [
+          {
+            "id": "w_493",
+            "word": "trên",
+            "start": 102.009,
+            "end": 102.19,
+            "startFrame": 3060,
+            "endFrame": 3066,
+            "cleanWord": "trên",
+            "confidence": 0.95
+          },
+          {
+            "id": "w_494",
+            "word": "Scopus",
+            "start": 102.25,
+            "end": 102.51,
+            "startFrame": 3068,
+            "endFrame": 3075,
+            "cleanWord": "scopus",
+            "confidence": 0.95
+          }
+        ]
+      }
+    ],
+    "startTime": 102,
+    "endTime": 102.7
+  }
+]

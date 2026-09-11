@@ -1,249 +1,111 @@
-# Project: V3.3 Production Integrity Hardening
+# Project: 4-Tier Educational Video Ecosystem Overhaul
 
 ## Architecture
-The V3.3 production architecture hardens the 1080x1920 (9:16, 30fps) 2D Educational Flat-Vector Remotion motion graphics system against false-positive acceptance through system-first contracts, real media decoding, single audio ownership, progressive disclosure, and fail-closed gates.
-
-### System Overview & Module Boundaries
-1. **Canonical Production Policy (`production-policy.json`)**:
-   - Single authoritative configuration governing canvas (1080x1920, 30fps, 360x640 preview), typography minimums (Hero >= 64px, Section >= 48px, Card Title >= 38px, Body >= 34px, Secondary >= 30px, Karaoke >= 52px), safe regions (L80, R80, T140, B140, Caption 1600-1800), audio policy (`narration-sfx`, PREMIXED, -15 LUFS, -1.8 dBTP, role pauses), and gate thresholds.
-
-2. **Static & Acoustic Quality Gates (`validators/`)**:
-   - `validate-mobile-typography.ts`: AST visitor calculating effective rendered font size after parent SVG/CSS transform scaling ($\text{Font} \times \prod \text{Scale} \ge 30\text{px}$).
-   - `validate-shot-spec.ts`: Validates shot continuity, strictly separates internal `impact_frames` from `transition_frames`, enforces 8 motivated transition types, prohibits naked cuts and opacity crossfades.
-   - `validate-audio-ownership.ts`: Enforces PREMIXED strategy with exactly 1 `<Audio>` tag mounting master WAV; validates `audio-dependency-graph.json`; prohibits secondary cue `<Audio>` tags and double SFX playback.
-   - `validate-audio-policy.ts`: Validates broadcast loudness (-15 LUFS, -1.8 dBTP ceiling) and role-aware natural pause ranges (clause 0.08-0.20s, sentence 0.18-0.40s, turn 0.25-0.55s, section 0.40-0.80s, payoff 0.30-0.65s, max dead-air 0.85s).
-   - `validate-audio-mix.ts`: Extracts binary RIFF WAV headers and verifies sampleRate, channels, bitDepth, duration against manifest.
-   - `validate-portability.ts`: Asserts zero machine-specific absolute paths (`/home/`, `/Users/`, `C:\`, `/tmp/`) in committed artifacts.
-   - `validate-source-coverage.ts`: Asserts 100.0% coverage of curriculum atomic units in `source-content-map.json`.
-
-3. **Real Video Decoding & Mobile Parity Gates (`validators/`)**:
-   - `validate-preview-rubric.ts`: Decodes real MP4 frames via FFmpeg rawvideo pipe; completely eliminates synthetic `Buffer.alloc` fallbacks; fails closed on missing/corrupted media.
-   - `validate-preview-parity.ts`: Verifies mathematical lineage and frame parity between `final-v3_3.mp4` and `preview-360x640.mp4` (duration $\Delta t < 0.033\text{s}$, frame count match, $\text{PSNR} \ge 35\text{ dB}$, fresh mtime).
-
-4. **Speech Synthesis & Voice Routing (`packages/narration-kit/`)**:
-   - Default TTS engine: local `VieNeu-TTS v3 Turbo` with voice `Adam`.
-   - Omitted or empty voice parameter in pipeline requests strictly resolves to VieNeu `Adam`.
-   - Omitting voice never routes to Kokoro `am_adam`. Kokoro is strictly an explicit opt-in fallback for English-only benchmarks.
-
-5. **Canonical Acceptance Entrypoint (`package.json`) & Adversarial Suite**:
-   - `npm run v3.3:gate`: Single canonical command executing all gates in fail-closed sequence.
-   - `scripts/run-adversarial-suite.ts`: 12+ negative fixtures (all rejected) and matching positive fixtures (all accepted) executed against real standalone validators.
-
-6. **Canary Migration & Unseen Mini-Projects**:
-   - Scopus Canary: Reflow choreography to 103.20s (3096 frames), eliminate 70.4s panel collision in `Scene4TemplateCaseStudy.tsx`, enforce single PREMIXED master audio, 100% source coverage.
-   - 3 Unseen Mini-Projects: Science/mechanism, historical/process, technology/tutorial, all passing `npm run v3.3:gate`.
-   - Independent review scoring across 18 rubric categories (overall >= 4.5, min >= 4.0, critical >= 4.3).
-
----
+- **Layer 1: Runtime Primitives (`motion-kit/src/geometry/`)**: Self-protecting geometric primitives (`AutoClippingConnector`, `OpaqueCard`/`OpaqueShield`, `SafeStageZone`, `RadialLabelGroup`).
+- **Layer 2: Verification Gates (`validators/validate-runtime-geometry.ts` & `tests/invariants/`)**: Generic Headless DOM runtime measurement via Remotion bundling & Chromium CDP (`getBoundingClientRect()`, `getBBox()`), eliminating all hardcoded constants, AST `isDynamic` bypasses, and `(0,0)` vector fallbacks.
+- **Layer 3: Authoring Standards & Skills (`.agents/skills/educational-flat-motion/`)**: Canonical rules, 5 Geometric Invariants checklist, and updated templates mandating smart primitives.
+- **Layer 4: Compositions & Generalization Benchmark (`connection-film/src/projects/`)**: Clean migration of 4 legacy projects and production of a brand new, independent generalization project (Raft Distributed Consensus Protocol) with 0 manual coordinate patches.
 
 ## Feature Inventory
-Every feature from requirements and Phase 0 survey appears here with its assigned milestone. No feature is unassigned.
-
 | # | Feature | Description | Milestone | Source |
 |---|---------|-------------|-----------|--------|
-| F01 | Canonical Production Policy | `production-policy.json` as single source of truth for canvas, fps, typography, audio, and gate thresholds | M1 | R1 |
-| F02 | Effective Typography Scaling Validator | `validators/validate-mobile-typography.ts` calculating effective rendered font size after parent/SVG transform scaling | M2 | R2 |
-| F03 | Deterministic Mobile Preview Lineage | Deterministic derivation of `preview-360x640.mp4` from `final-v3_3.mp4` via FFmpeg Lanczos resize | M3 | R3 |
-| F04 | Full / Mobile Content Parity Validator | `validators/validate-preview-parity.ts` decoding real frames and enforcing PSNR >= 35dB & frame parity | M3 | R3 |
-| F05 | Real Video Decoding (No Synthetic Buffers) | `validators/validate-preview-rubric.ts` elimination of Buffer.alloc mock fallback, real FFmpeg rawvideo decoding, fail closed | M3 | R4 |
-| F06 | Progressive Disclosure Choreography | Enforce 1 primary idea per beat; eliminate simultaneous multi-card dumps; resolve 70.4s panel collision | M5 | R5, R15 |
-| F07 | Canonical Semantic Timeline | `semantic-timeline.json` as single source of truth for all scene boundaries, durations, shots, cues; zero magic numbers | M5 | R6 |
-| F08 | Real ShotSpec Validation & Motivated Transitions | `validators/validate-shot-spec.ts` strict separation of impact frames from transition windows, 8 motivated transitions | M2 | R7 |
-| F09 | Single Audio Ownership & Routing | `validators/validate-audio-ownership.ts`, `audio-dependency-graph.json`, PREMIXED default, zero secondary `<Audio>`, zero music | M2 | R8 |
-| F10 | Safe VieNeu TTS Default & Voice Routing | Default voice routes to VieNeu Adam; omit voice never routes to Kokoro `am_adam`; Vietnamese-first bilingual | M1 | R9 |
-| F11 | Real Audio Metadata & Portability | Real WAV headers/ffprobe metadata validation; `validators/validate-portability.ts` asserting zero absolute machine paths | M2 | R10 |
-| F12 | Content Coverage Mapping & Validator | `source-content-map.json` mapping 100% of source units; `validators/validate-source-coverage.ts` | M2 | R11 |
-| F13 | Skill & Governance Hardening | `.agents/skills/educational-flat-motion/SKILL.md` 17 hard rules, `AGENTS.md` role separation, 0 runtime imports from `.agents/` | M1 | R12 |
-| F14 | Canonical Acceptance Entrypoint | `npm run v3.3:gate` running all gates in fail-closed sequence | M4 | R13 |
-| F15 | Adversarial Negative & Positive Fixture Suite | `tests/adversarial/` 12+ defective fixtures rejected 100% and 12+ positive baselines accepted 100% by real validators | M4 | R14 |
-| F16 | Scopus Canary Migration | Eliminate 70.4s collision, reflow to 103.20s, render `final-v3_3.mp4` & `preview-360x640.mp4`, PREMIXED audio | M5 | R15 |
-| F17 | Generalization Proof (3 Unseen Mini-Projects) | 3 unseen projects (science/mechanism, historical/process, technology/tutorial) passing `npm run v3.3:gate` | M6 | R16 |
-| F18 | Independent Review & Quality Rubric | Independent evaluation across 18 categories (overall >= 4.5, min >= 4.0, critical >= 4.3, `qa-report.json`) | M7 | R17 |
-
----
+| 1 | F1.1 AutoClippingConnector | Ray-Box Boundary Intersection solver with outer boundary clipping and zero text penetration | M1 | ORIGINAL_REQUEST §R1 |
+| 2 | F1.2 OpaqueCard & Shield | 2-layer decoupled architecture (100% opaque base shield `#0F172A`, separate content salience layer) | M1 | ORIGINAL_REQUEST §R1 |
+| 3 | F1.3 SafeStageZone | Stage Zone 2 container ($y \in [180, 1420]\text{px}$, $x \in [36, 1044]\text{px}$) with $\ge 50\text{px}$ buffer before subtitle ($y = 1470\text{px}$) | M1 | ORIGINAL_REQUEST §R1 |
+| 4 | F1.4 RadialLabelGroup | Polar layout with automatic flip alignment ($\theta \pm 180^\circ$) and horizontal clamping $[36, 1044]\text{px}$ | M1 | ORIGINAL_REQUEST §R1 |
+| 5 | F1.5 Motion-Kit Unit Tests | Comprehensive mathematical and integration test suite (`tests/invariants/smart-geometric-primitives.test.ts`) | M1 | ORIGINAL_REQUEST §R1 |
+| 6 | F2.1 Purge Validator Hardcoding | Remove 100% hardcoded constants of `scopus-research-gap` from `validate-runtime-geometry.ts` | M2 | ORIGINAL_REQUEST §R2 |
+| 7 | F2.2 Headless DOM Measurement | Real Chromium CDP DOM measurement via Remotion bundler/renderer (`getBoundingClientRect()`, `getBBox()`) | M2 | ORIGINAL_REQUEST §R2 |
+| 8 | F2.3 Eliminate Bypass Loopholes | Remove `isDynamic` bypass and `(0,0)` vector fallback completely; fail-closed on unmeasurable geometry | M2 | ORIGINAL_REQUEST §R2 |
+| 9 | F2.4 Generic CLI `--project` | Support generic `--project=<path>` argument to run runtime geometry checks on any composition | M2 | ORIGINAL_REQUEST §R2 |
+| 10 | F2.5 Fail-Closed Exit Code 1 | Fail-closed on collisions, vector pierces, subtitle intrusions ($y > 1420$), and viewport overflow | M2 | ORIGINAL_REQUEST §R2 |
+| 11 | F3.1 Mandatory Primitives in Skill | Update `SKILL.md` to mandate `AutoClippingConnector` and `OpaqueCard` | M3 | ORIGINAL_REQUEST §R3 |
+| 12 | F3.2 5 Geometric Invariants Checklist | Formalize 5 invariants checklist for Tier 1 authoring before delivery | M3 | ORIGINAL_REQUEST §R3 |
+| 13 | F3.3 Update Templates & Schemas | Update `SceneTemplate.tsx` and reference schemas to eliminate coordinate discrepancies and embed smart primitives | M3 | ORIGINAL_REQUEST §R3 |
+| 14 | F4.1 Scopus Project Migration | Refactor `scopus-research-gap` scenes to use smart primitives, removing manual coordinate patches and opacity hacks | M4 | ORIGINAL_REQUEST §R4 |
+| 15 | F4.2 Legacy Films Migration | Refactor `crispr-cas9`, `steam-engine`, and `git-dag` to eliminate center-to-center vector pierces and hardcoded y offsets | M4 | ORIGINAL_REQUEST §R4 |
+| 16 | F4.3 Regression & Gate Verification | Verify all 4 migrated legacy projects pass runtime geometry checks cleanly without exceptions | M4 | ORIGINAL_REQUEST §R4 |
+| 17 | F5.1 Generalization Film Creation | Author brand new educational film (Raft Distributed Consensus Protocol) using curriculum mapping and smart primitives | M5 | ORIGINAL_REQUEST §R4 |
+| 18 | F5.2 Zero Manual Coordinate Tuning | Ensure generalization film achieves 100% geometric compliance purely via smart primitives without manual coordinate hacks | M5 | ORIGINAL_REQUEST §R4 |
+| 19 | F5.3 Generalization Gate Verification | Verify generalization film passes generic runtime geometry gate with exit code 0 | M5 | ORIGINAL_REQUEST §R4 |
+| 20 | F6.1 Scopus Gate Verification | `npm run gate -- --project=connection-film/src/projects/scopus-research-gap` PASS 100% | M5 | ORIGINAL_REQUEST §AC4 |
+| 21 | F6.2 Canonical Workspace Gate | `npm run v3.3:gate` PASS 100% across all projects in workspace | M5 | ORIGINAL_REQUEST §AC4 |
+| 22 | F6.3 Independent Forensic Audit | Independent `teamwork_preview_auditor` verifies zero hardcoding, zero bypasses, and signs `qa-report.json` | M5 | ORIGINAL_REQUEST §AC4 |
 
 ## Milestones
-
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Governance, Production Policy & Voice Routing Contracts | F01, F10, F13 | None | PLANNED |
-| M2 | Static, Acoustic & Portability Quality Gates | F02, F08, F09, F11, F12 | M1 | PLANNED |
-| M3 | Real Video Decoding & Mobile Parity Quality Gates | F03, F04, F05 | M1 | PLANNED |
-| M4 | Adversarial Fixture Suite & Canonical Acceptance Entrypoint | F14, F15 | M2, M3 | PLANNED |
-| M5 | Scopus Canary Migration & Choreography Hardening | F06, F07, F16 | M1, M2, M3, M4 | PLANNED |
-| M6 | Generalization Proof (3 Unseen Mini-Projects) | F17 | M4, M5 | PLANNED |
-| M7 | Independent Review & Quality Rubric Certification | F18 | M1-M6 | PLANNED |
-
----
-
-## Interface Contracts
-
-### 1. Production Policy Contract (`production-policy.json`)
-```typescript
-export interface ProductionPolicy {
-  version: "3.3.0";
-  canvas: {
-    width: 1080;
-    height: 1920;
-    aspectRatio: "9:16";
-    fps: 30;
-    preview: { width: 360; height: 640; scale: number };
-    safeMargins: { horizontal: number; vertical: number; captionRegion: { top: number; bottom: number } };
-  };
-  typography: {
-    minimums: { hero: 64; section: 48; card: 38; body: 34; secondary: 30; caption: 52; citation: 22 };
-    enforceEffectiveScale: true;
-    absoluteMobileFloor: 30;
-  };
-  audio: {
-    policy: "narration-sfx";
-    strategy: "PREMIXED";
-    targetLoudnessLufs: -15.0;
-    loudnessToleranceLufs: 1.0;
-    truePeakCeilingDbTp: -1.8;
-    sampleRate: 48000;
-    channels: 2;
-    bitDepth: 16;
-    allowMusic: false;
-    rolePauses: {
-      withinClause: [number, number];
-      normalSentence: [number, number];
-      semanticTurn: [number, number];
-      majorSectionTransition: [number, number];
-      payoffRealization: [number, number];
-      maxUnmotivatedPause: 0.85;
-    };
-  };
-  speech: {
-    primaryLanguage: "vi-VN";
-    secondaryLanguage: "en";
-    defaultEngine: "VieNeu-TTS";
-    defaultVoice: "Adam";
-    fallbackEngine: "Kokoro";
-  };
-  acceptance: {
-    overallRubricMin: 4.50;
-    floorRubricMin: 4.00;
-    criticalRubricMin: 4.30;
-    contentCoverageRatio: 1.00;
-    maxAllowedTemporalSpikes: 0;
-    maxAllowedAbsolutePaths: 0;
-    maxAllowedDualAudioTags: 0;
-  };
-}
-```
-
-### 2. Semantic Timeline Contract (`semantic-timeline.json`)
-```typescript
-export interface SemanticBeat {
-  id: string; // e.g. "beat_01"
-  shotId: string; // e.g. "shot_01"
-  narrationTokenRange: [number, number];
-  startSec: number;
-  endSec: number;
-  startFrame: number;
-  endFrame: number;
-  visualIntent: string;
-  primaryObject: string;
-  cameraIntent: string;
-  conceptId: string;
-  sfxIntent?: { asset: string; frame: number; volume: number };
-  captionIntent?: { displayText: string; layout: "bottom" | "top"; fontSize: number };
-}
-
-export interface SemanticTimeline {
-  version: "3.3.0";
-  compositionId: string;
-  totalFrames: number;
-  durationSec: number;
-  fps: 30;
-  beats: SemanticBeat[];
-}
-```
-
-### 3. Audio Dependency Graph Contract (`audio-dependency-graph.json`)
-```typescript
-export interface AudioDependencyGraph {
-  version: "3.3.0";
-  strategy: "PREMIXED";
-  masterAudio: string;
-  remotionMounts: Array<{ file: string; tag: string; line: number }>;
-  tracks: {
-    narration: { source: string; mixedIntoMaster: boolean };
-    sfx: Array<{ id: string; asset: string; frame: number; mixedIntoMaster: boolean }>;
-  };
-  runtimePlayback: {
-    discreteAudioTagsCount: number; // MUST be 0
-    duplicateSfxCount: number; // MUST be 0
-  };
-}
-```
-
-### 4. Source Content Mapping Contract (`source-content-map.json`)
-```typescript
-export interface SourceContentUnit {
-  conceptId: string;
-  conceptTitle: string;
-  sourceDocument: string;
-  beatId: string;
-  narrationExcerpt: string;
-  covered: boolean;
-}
-
-export interface SourceContentMap {
-  version: "3.3.0";
-  sourceDocument: string;
-  totalUnits: number;
-  coveredUnits: number;
-  coveragePercent: number; // MUST be 100
-  mappings: SourceContentUnit[];
-}
-```
-
----
+| 1 | M1: Smart Primitives in Motion-Kit | Implement `AutoClippingConnector`, `OpaqueCard`, `SafeStageZone`, `RadialLabelGroup` and tests in `motion-kit` | none | IN_PROGRESS |
+| 2 | M2: Generic Headless DOM Gate G04D | Overhaul `validate-runtime-geometry.ts` with real Remotion CDP headless DOM measurement and `--project` CLI | none | IN_PROGRESS |
+| 3 | M3: Skill & Templates Overhaul | Update `SKILL.md`, `references/`, `templates/` with 5 Geometric Invariants and mandatory smart primitives | M1, M2 | PLANNED |
+| 4 | M4: Migration of Existing Videos | Refactor `scopus`, `crispr`, `steam`, and `git-dag` to smart primitives and verify regression-free | M1, M2 | PLANNED |
+| 5 | M5: Generalization Benchmark & Acceptance Audit | Build Raft Consensus lecture, verify zero manual tuning, run canonical gate across all films, and execute forensic audit | M3, M4 | PLANNED |
 
 ## Code Layout
+- `motion-kit/src/geometry/`:
+  - `boundaryIntersection.ts`: Pure math solver for Ray-Box intersection with rounded corners.
+  - `AutoClippingConnector.tsx`: Connector component with outer boundary clipping.
+  - `OpaqueCard.tsx`: 2-layer decoupled card/shield component (`opacity: 1.0` base).
+  - `SafeStageZone.tsx`: Stage container enforcing bounds $[36, 1044] \times [180, 1420]$ and subtitle clearance.
+  - `RadialLabelGroup.tsx`: Polar layout coordinator with flip alignment and horizontal clamping.
+  - `index.ts`: Public exports from `motion-kit/src/geometry/`.
+- `tests/invariants/smart-geometric-primitives.test.ts`: Unit test suite for geometry math and primitives.
+- `validators/validate-runtime-geometry.ts`: Generic Headless DOM runtime geometry gate (G04D).
+- `.agents/skills/educational-flat-motion/`: Updated skill files, templates, and schemas.
+- `connection-film/src/projects/`: Migrated legacy compositions and new generalization composition `raft-consensus`.
+
+## Interface Contracts
+### AutoClippingConnectorProps
+```ts
+interface BoxBounds {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  borderRadius?: number;
+}
+
+interface AutoClippingConnectorProps {
+  sourceBox: BoxBounds;
+  targetBox: BoxBounds;
+  routing?: 'straight' | 'curved' | 'orthogonal';
+  curvedOffset?: number;
+  gapStart?: number;
+  gapEnd?: number;
+  stroke?: string;
+  strokeWidth?: number;
+  strokeDasharray?: string;
+  progress?: number;
+  arrowEnd?: boolean;
+  arrowSize?: number;
+}
 ```
-/home/hongphuoc6104/Desktop/videorenderhoathinh/
-├── production-policy.json              # Canonical production policy (R1)
-├── AGENTS.md                          # Two-tier governance and role invariants (R12)
-├── .agents/
-│   └── skills/educational-flat-motion/SKILL.md # Hardened with 17 non-negotiable hard rules (R12)
-├── packages/
-│   └── narration-kit/
-│       └── src/
-│           ├── pipeline/generateNarrationPipeline.ts # VieNeu Adam default voice routing (R9)
-│           └── tts/voices.ts                         # Default voice configuration (R9)
-├── validators/
-│   ├── validate-mobile-typography.ts   # Effective transform scaling calculation (R2)
-│   ├── validate-shot-spec.ts           # Separate impact vs transition frames (R7)
-│   ├── validate-audio-ownership.ts     # PREMIXED single mount enforcement (R8)
-│   ├── validate-audio-policy.ts        # Role-aware pause ranges (R17)
-│   ├── validate-audio-mix.ts           # Measured WAV headers (sampleRate, channels, bitDepth) (R10)
-│   ├── validate-portability.ts         # Zero machine-specific absolute paths (R10)
-│   ├── validate-source-coverage.ts     # 100% curriculum coverage gate (R11)
-│   ├── validate-preview-parity.ts      # Master vs preview PSNR & frame parity (R3)
-│   ├── validate-preview-rubric.ts      # Real FFmpeg frame decoding, no Buffer.alloc (R4)
-│   └── temporal-render-qa.ts           # Real MP4 temporal difference verification (R9)
-├── scripts/
-│   ├── generate-preview.ts             # Deterministic FFmpeg Lanczos resize (R3)
-│   └── run-adversarial-suite.ts        # Real validator adversarial runner (R14)
-├── tests/
-│   └── adversarial/                    # 12+ defective fixtures & 12+ positive baselines (R14)
-├── connection-film/
-│   └── src/scopus-explainer/
-│       ├── ScopusExplainerFilm.tsx     # Single master audio mount, timeline integration (R8, R15)
-│       ├── semantic-timeline.json      # Canonical timeline (R6)
-│       ├── source-content-map.json     # 100% source mapping (R11)
-│       ├── shot-spec.json              # Validated shot transitions & impact frames (R7)
-│       └── scenes/
-│           └── Scene4TemplateCaseStudy.tsx # 70.4s panel collision eliminated (R5, R15)
-├── mini-projects/                      # 3 Unseen mini-projects for generalization proof (R16)
-│   ├── science-mechanism/
-│   ├── historical-process/
-│   └── tech-tutorial/
-└── out/
-    ├── final-v3_3.mp4                  # Full 1080x1920 30fps production render (R15)
-    ├── preview-360x640.mp4             # Deterministic 360x640 preview render (R3, R15)
-    └── qa-report.json                  # Independent review 18-category score report (R17)
+
+### OpaqueCardProps
+```ts
+interface OpaqueCardProps {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  borderRadius?: number;
+  backgroundColor?: string; // default '#0F172A'
+  borderColor?: string;
+  borderWidth?: number;
+  isSalient?: boolean;
+  salienceOpacity?: number; // default 0.25 when inactive
+  children: React.ReactNode;
+  svgMode?: boolean; // default true
+}
+```
+
+### SafeStageZoneProps
+```ts
+interface SafeStageZoneProps {
+  children: React.ReactNode | ((helpers: {
+    mapPoint: (u: number, v: number) => { x: number; y: number };
+    clampBox: (x: number, y: number, w: number, h: number) => { x: number; y: number; width: number; height: number };
+  }) => React.ReactNode);
+  showDebugBounds?: boolean;
+}
 ```

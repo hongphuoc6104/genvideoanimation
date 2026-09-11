@@ -1,12 +1,12 @@
 {
   "version": "3.4.0",
-  "timestamp": "2026-09-11T14:25:31.961Z",
-  "project": "sodium-potassium-pump",
-  "projectDir": "connection-film/src/projects/sodium-potassium-pump",
-  "masterVideo": "out/sodium-potassium-pump-1080p.mp4",
-  "previewVideo": "out/sodium-potassium-pump-preview-360x640.mp4",
+  "timestamp": "2026-09-11T18:19:44.134Z",
+  "project": "scopus-research-gap",
+  "projectDir": "connection-film/src/projects/scopus-research-gap",
+  "masterVideo": "out/scopus-research-gap-1080p.mp4",
+  "previewVideo": "out/scopus-research-gap-preview-360x640.mp4",
   "passed": true,
-  "totalDurationSec": 13.98,
+  "totalDurationSec": 27.92,
   "certifiedBy": "independent_reviewer_agent",
   "overallAverage": 4.87,
   "verdict": "CERTIFIED_PRODUCTION_GRADE",
@@ -21,49 +21,67 @@
     {
       "id": "G01-mobile-typography",
       "name": "Mobile Typography & Effective Scale AST Gate (>= 30px Floor)",
-      "durationMs": 1408.420409,
+      "durationMs": 1072.934003,
       "passed": true
     },
     {
       "id": "G02-portability",
       "name": "Workspace Portability & Zero Machine Paths Gate",
-      "durationMs": 766.892895,
+      "durationMs": 642.89391,
       "passed": true
     },
     {
       "id": "G03-audio-ownership",
       "name": "Audio Single Ownership & Root Mount Gate (1 <Audio> tag)",
-      "durationMs": 1105.6405690000001,
+      "durationMs": 1084.4391170000001,
       "passed": true
     },
     {
       "id": "G04-visual-semantics",
       "name": "Visual AST Semantics & Anti-Card Monoculture Gate",
-      "durationMs": 1136.5313030000002,
+      "durationMs": 1081.2119469999998,
+      "passed": true
+    },
+    {
+      "id": "G04B-layout-geometry",
+      "name": "Layout Zero-Collision & Bounding Box Clearance AST Gate (>= 30px)",
+      "durationMs": 1164.9937579999996,
+      "passed": true
+    },
+    {
+      "id": "G04C-frame-salience",
+      "name": "Dual Visual Salience & Zero-Ghosting Stage Lifecycle Gate (>= 2.5:1 Ratio)",
+      "durationMs": 2161.8256600000004,
+      "passed": true
+    },
+    {
+      "id": "G04D-runtime-geometry",
+      "name": "Headless DOM Runtime Geometry & Vector Boundary Gate (0 Collisions, Zero Penetration)",
+      "durationMs": 626.8994460000004,
       "passed": true
     },
     {
       "id": "G05-contact-sheet",
       "name": "Storyboard Contact Sheet Frame Extraction (FFmpeg Pipe)",
-      "durationMs": 990.4667560000007,
+      "durationMs": 1201.3383879999992,
       "passed": true
     },
     {
       "id": "G06-temporal-qa",
       "name": "Temporal Video Discontinuity & Spike Gate (Rawvideo MAD)",
-      "durationMs": 2712.3021849999996,
+      "durationMs": 6303.175311000001,
       "passed": true
     },
     {
       "id": "G07-preview-parity",
       "name": "Deterministic Preview Parity Gate (PSNR >= 35.0 dB, Delta = 0.0s)",
-      "durationMs": 3198.9909019999996,
+      "durationMs": 7843.905814,
       "passed": true
     },
     {
       "id": "G08-preview-rubric",
       "name": "Mobile Preview Readability & Rubric Gate (Real FFmpeg RGB24 Pipe)",
-      "durationMs": 2657.376746,
+      "durationMs": 4732.659361000002,
       "passed": true
     }
   ]

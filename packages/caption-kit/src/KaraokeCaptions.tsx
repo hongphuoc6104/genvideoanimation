@@ -39,13 +39,22 @@ export const KaraokeCaptions: React.FC<KaraokeCaptionsProps> = ({
 
   const box = activeGroup.box;
 
-  // Smooth 3-frame crossfade to prevent single-frame brightness spikes on static backgrounds
+  // Determine if activeGroup has an immediate predecessor or successor in captions (tight handoff)
+  const groups = Array.isArray(captions) ? captions : (captions?.groups || []);
+  const currentIndex = groups.findIndex((g: any) => g.id === activeGroup.id);
+  const prevGroup = currentIndex > 0 ? groups[currentIndex - 1] : null;
+  const nextGroup = currentIndex >= 0 && currentIndex < groups.length - 1 ? groups[currentIndex + 1] : null;
+
+  const isTightStart = prevGroup ? (activeGroup.startFrame - prevGroup.endFrame <= 2) : false;
+  const isTightEnd = nextGroup ? (nextGroup.startFrame - activeGroup.endFrame <= 2) : false;
+
+  // Smooth crossfade only when entering or exiting silence / edge boundaries
   const framesFromStart = frame - activeGroup.startFrame;
   const framesToEnd = activeGroup.endFrame - frame;
   let groupOpacity = 1.0;
-  if (framesFromStart < 3) {
+  if (!isTightStart && framesFromStart < 3) {
     groupOpacity = Math.min(1.0, (framesFromStart + 1) / 4);
-  } else if (framesToEnd <= 3) {
+  } else if (!isTightEnd && framesToEnd <= 3) {
     groupOpacity = Math.max(0.1, framesToEnd / 4);
   }
 

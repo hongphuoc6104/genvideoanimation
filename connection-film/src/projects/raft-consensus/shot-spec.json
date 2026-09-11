@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "3.4.0",
+  "sequence_id": "raft-consensus",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "totalFrames": 1350,
+  "totalDurationSec": 45.0,
+  "shots": [
+    {
+      "id": "shot_01",
+      "narrative_purpose": "Khởi tạo cụm phân tán 5 node, cơ chế bầu chọn Leader thông qua Quorum đa số",
+      "startFrame": 0,
+      "endFrame": 450,
+      "durationInFrames": 450,
+      "start_state": {
+        "camera": "neutral_full_view",
+        "cluster": "all_followers_term_1"
+      },
+      "end_state": {
+        "camera": "centered_on_leader",
+        "cluster": "leader_s1_elected_term_2"
+      },
+      "impact_frames": [150, 300]
+    },
+    {
+      "id": "shot_02",
+      "narrative_purpose": "Quy trình sao chép nhật ký từ Leader sang các Follower và cam kết State Machine",
+      "startFrame": 450,
+      "endFrame": 900,
+      "durationInFrames": 450,
+      "start_state": {
+        "camera": "macro_replication_view",
+        "log": "client_write_pending"
+      },
+      "end_state": {
+        "camera": "macro_replication_view",
+        "log": "majority_committed"
+      },
+      "impact_frames": [600, 750]
+    },
+    {
+      "id": "shot_03",
+      "narrative_purpose": "Xử lý biến cố phân vùng mạng, chống Split-Brain và hàn gắn tính nhất quán",
+      "startFrame": 900,
+      "endFrame": 1350,
+      "durationInFrames": 450,
+      "start_state": {
+        "camera": "wide_cluster_split_view",
+        "partition": "barrier_active_minority_vs_majority"
+      },
+      "end_state": {
+        "camera": "settled_cluster_view",
+        "partition": "barrier_healed_consistent_linearizable"
+      },
+      "impact_frames": [1050, 1200]
+    }
+  ],
+  "transitions": [
+    {
+      "from_shot": "shot_01",
+      "to_shot": "shot_02",
+      "transition_type": "object_match",
+      "transition_frames": [448, 452],
+      "expected_visual_discontinuity": 1.5,
+      "description": "Khóa tâm Leader S1 chuyển tiếp mượt sang quy trình sao chép nhật ký"
+    },
+    {
+      "from_shot": "shot_02",
+      "to_shot": "shot_03",
+      "transition_type": "semantic_zoom",
+      "transition_frames": [898, 902],
+      "expected_visual_discontinuity": 2.0,
+      "description": "Thu nhỏ góc nhìn toàn thể khi vách ngăn phân vùng mạng xuất hiện"
+    }
+  ]
+}

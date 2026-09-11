@@ -48,48 +48,36 @@ export const KaraokeWord: React.FC<KaraokeWordProps> = (props) => {
 
   const progress = calculateProgressiveFill(frame, startFrame, endFrame);
   const isSpoken = frame >= endFrame;
-  const isActive = progress > 0.0 && progress < 1.0;
+  const isActive = frame >= startFrame && frame < endFrame;
 
-  // Base layer: relative inline-block establishing dimensions (CLS = 0)
+  // Pure Luminance Pop highlight:
+  // Active word pops with bright activeColor (#38BDF8) and subtle text-shadow
+  // Zero dynamic padding, zero background pill, zero layout shift (CLS = 0)
+  const wordColor = isActive ? activeColor : isSpoken ? spokenColor : upcomingColor;
+  const wordOpacity = isActive ? 1.0 : isSpoken ? 0.85 : 0.45;
+
   const baseStyle: React.CSSProperties = {
     position: 'relative',
     display: 'inline-block',
-    marginRight: '0.28em',
     whiteSpace: 'nowrap',
-    fontWeight: EDUCATIONAL_THEME.spoken.fontWeight,
-    color: isSpoken ? spokenColor : upcomingColor,
-    opacity: isSpoken ? EDUCATIONAL_THEME.spoken.opacity : EDUCATIONAL_THEME.upcoming.opacity,
+    fontWeight: EDUCATIONAL_THEME.active.fontWeight, // Strictly '700' to guarantee CLS = 0
+    color: wordColor,
+    opacity: wordOpacity,
     transform: 'none',
+    textRendering: 'geometricPrecision',
+    WebkitFontSmoothing: 'antialiased',
+    textShadow: isActive ? '0 0 12px rgba(56, 189, 248, 0.5)' : 'none',
+    borderRadius: '0px',
+    backgroundColor: 'transparent',
+    padding: '0px 2px',
+    margin: '0px 0.20em',
+    transition: 'color 0.04s ease, opacity 0.04s ease',
     ...props.style,
-  };
-
-  const clipInset = computeClipPathInset(progress);
-
-  // Overlay highlight layer: absolute positioned directly over base layer with clip-path
-  const highlightOverlayStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    pointerEvents: 'none',
-    color: activeColor,
-    fontWeight: EDUCATIONAL_THEME.active.fontWeight,
-    opacity: EDUCATIONAL_THEME.active.opacity,
-    transform: 'none',
-    clipPath: clipInset,
-    WebkitClipPath: clipInset,
-    whiteSpace: 'nowrap',
   };
 
   return (
     <span style={baseStyle}>
       {text}
-      {isActive && (
-        <span style={highlightOverlayStyle} aria-hidden="true">
-          {text}
-        </span>
-      )}
     </span>
   );
 };

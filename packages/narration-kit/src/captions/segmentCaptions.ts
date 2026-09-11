@@ -157,10 +157,11 @@ export function segmentCaptions(
   options: SegmentOptions = {}
 ): CaptionsManifest {
   const fps = options.fps ?? options.shotSpec?.fps ?? 30;
-  const isPortrait =
-    (options.viewport?.height && options.viewport.height > options.viewport.width) ||
-    (options.shotSpec?.viewport?.height && options.shotSpec.viewport.height > options.shotSpec.viewport.width) ||
-    true; // Default to 9:16 vertical in V3.1
+  const isPortrait = options.viewport
+    ? options.viewport.height > options.viewport.width
+    : options.shotSpec?.viewport
+    ? options.shotSpec.viewport.height > options.shotSpec.viewport.width
+    : true; // Default to 9:16 vertical in V3.1
   const defaultMaxChars = isPortrait ? 26 : 42;
   const maxCharsPerLine = options.maxCharsPerLine ?? defaultMaxChars;
   const maxCps = options.maxCps ?? 21.0;
@@ -234,8 +235,8 @@ export function segmentCaptions(
     lines: CaptionLine[];
     spokenStart: number;
     spokenEnd: number;
-    startTime: number;
-    endTime: number;
+    startFrame: number;
+    rawEndFrame: number;
     totalChars: number;
   }
 
@@ -244,17 +245,19 @@ export function segmentCaptions(
   for (let gIdx = 0; gIdx < groupWordClusters.length; gIdx++) {
     const cluster = groupWordClusters[gIdx];
     const lines = splitIntoLines(cluster, fps, maxCharsPerLine);
-    const spokenStart = cluster[0].start;
-    const spokenEnd = cluster[cluster.length - 1].end;
-    const spokenDuration = spokenEnd - spokenStart;
+    const firstWord = cluster[0];
+    const lastWord = cluster[cluster.length - 1];
+    const spokenStart = firstWord.start;
+    const spokenEnd = lastWord.end;
     const totalChars = lines.reduce((acc, l) => acc + l.text.length, 0);
 
-    const minReadingDuration = totalChars / maxCps;
-    let targetDuration = Math.max(spokenDuration, minDurationSec, minReadingDuration);
-    targetDuration = Math.min(targetDuration, maxDurationSec);
+    const sFrame = (firstWord as any).startFrame !== undefined
+      ? (firstWord as any).startFrame
+      : Math.round(firstWord.start * fps);
 
-    const startTime = spokenStart;
-    const endTime = startTime + targetDuration;
+    const eFrame = (lastWord as any).endFrame !== undefined
+      ? (lastWord as any).endFrame
+      : Math.max(sFrame + 1, Math.round(lastWord.end * fps));
 
     rawGroups.push({
       id: `g${gIdx}`,
@@ -262,41 +265,90 @@ export function segmentCaptions(
       lines,
       spokenStart,
       spokenEnd,
-      startTime,
-      endTime,
+      startFrame: sFrame,
+      rawEndFrame: eFrame,
       totalChars,
     });
   }
 
-  // 3. Reconcile timings to guarantee non-overlapping frames, minDuration, maxDuration, and CPS <= 21
+  // 3. Timing Derivation: Enforce Acoustic Anchor Law & Seamless Boundary Handoff
+  const resolvedGroups: Array<{
+    id: string;
+    cluster: WordTiming[];
+    lines: CaptionLine[];
+    startFrame: number;
+    endFrame: number;
+    startTime: number;
+    endTime: number;
+  }> = [];
+
   for (let i = 0; i < rawGroups.length; i++) {
     const curr = rawGroups[i];
-
-    // Guarantee minimum duration
-    if (curr.endTime - curr.startTime < minDurationSec) {
-      curr.endTime = curr.startTime + minDurationSec;
-    }
-    // Guarantee max duration
-    if (curr.endTime - curr.startTime > maxDurationSec) {
-      curr.endTime = curr.startTime + maxDurationSec;
-    }
-    // Guarantee CPS <= 21.0
-    const minReadingDuration = curr.totalChars / maxCps;
-    if (curr.endTime - curr.startTime < minReadingDuration) {
-      curr.endTime = curr.startTime + minReadingDuration;
-    }
+    // Acoustic Anchor Law: startFrame is strictly anchored to firstWord
+    const startFrame = curr.startFrame;
+    let endFrame = curr.rawEndFrame;
 
     if (i < rawGroups.length - 1) {
       const next = rawGroups[i + 1];
-      // If curr encroaches next or next begins before curr ends:
-      if (curr.endTime > next.startTime) {
-        // Can curr end at next spoken start?
-        const gap = next.spokenStart - curr.startTime;
-        if (gap >= Math.max(minDurationSec, minReadingDuration)) {
-          curr.endTime = next.spokenStart;
-        } else {
-          // Push next group's startTime to curr.endTime
-          next.startTime = curr.endTime + (1 / fps);
+      const nextStartFrame = next.startFrame;
+      const gap = nextStartFrame - curr.rawEndFrame;
+
+      if (gap <= 2) {
+        // Tight acoustic gap (<= 2 frames / 66ms): immediate seamless contiguous handoff
+        endFrame = Math.max(startFrame + 1, nextStartFrame - 1);
+      } else {
+        // Inter-chunk pause: hold briefly (clamped to <= 3 frames, never encroaching next), then unmount
+        const postHold = Math.min(3, Math.max(0, gap - 1));
+        endFrame = Math.min(curr.rawEndFrame + postHold, nextStartFrame - 1);
+      }
+    } else {
+      // Final group: post-speech hold
+      const minDurFrames = minDurationSec ? Math.ceil(minDurationSec * fps) : 3;
+      endFrame = Math.max(curr.rawEndFrame + 3, startFrame + minDurFrames);
+    }
+
+    if (maxDurationSec) {
+      const maxDurFrames = Math.floor(maxDurationSec * fps);
+      if (endFrame - startFrame > maxDurFrames) {
+        endFrame = startFrame + maxDurFrames;
+      }
+    }
+
+    // Ensure endFrame > startFrame
+    if (endFrame <= startFrame) {
+      endFrame = startFrame + 1;
+    }
+
+    resolvedGroups.push({
+      id: curr.id,
+      cluster: curr.cluster,
+      lines: curr.lines,
+      startFrame,
+      endFrame,
+      startTime: Number((startFrame / fps).toFixed(3)),
+      endTime: Number((endFrame / fps).toFixed(3)),
+    });
+  }
+
+  // If explicit broadcast reading limit (maxCps) was requested, enforce reading expansion:
+  if (options.maxCps !== undefined) {
+    for (let i = 0; i < resolvedGroups.length; i++) {
+      const curr = resolvedGroups[i];
+      const totalChars = curr.lines.reduce((acc, l) => acc + l.text.length, 0);
+      const minReadingFrames = Math.ceil((totalChars / options.maxCps) * fps);
+      const minDurFrames = minDurationSec ? Math.ceil(minDurationSec * fps) : 0;
+      const requiredFrames = Math.max(minReadingFrames, minDurFrames);
+
+      if (curr.endFrame - curr.startFrame < requiredFrames) {
+        curr.endFrame = curr.startFrame + requiredFrames;
+        curr.endTime = Number((curr.endFrame / fps).toFixed(3));
+      }
+
+      if (i < resolvedGroups.length - 1) {
+        const next = resolvedGroups[i + 1];
+        if (curr.endFrame >= next.startFrame) {
+          next.startFrame = curr.endFrame + 1;
+          next.startTime = Number((next.startFrame / fps).toFixed(3));
         }
       }
     }
@@ -305,40 +357,8 @@ export function segmentCaptions(
   // 4. Construct final CaptionGroup items with frame numbers and safe placement
   const groups: CaptionGroup[] = [];
 
-  for (let i = 0; i < rawGroups.length; i++) {
-    const raw = rawGroups[i];
-    let startFrame = Math.round(raw.startTime * fps);
-    let endFrame = Math.round(raw.endTime * fps);
-
-    // Enforce consecutive non-overlapping frame bounds: curr.startFrame >= prev.endFrame
-    if (groups.length > 0) {
-      const prev = groups[groups.length - 1];
-      if (startFrame < prev.endFrame) {
-        startFrame = prev.endFrame;
-      }
-    }
-
-    // Guarantee minDuration and maxCps in discrete frame counts:
-    const minDurFrames = Math.ceil(minDurationSec * fps);
-    const minReadingFrames = Math.ceil((raw.totalChars / maxCps) * fps);
-    const minRequiredFrames = Math.max(1, minDurFrames, minReadingFrames);
-
-    if (endFrame - startFrame < minRequiredFrames) {
-      endFrame = startFrame + minRequiredFrames;
-    }
-
-    // Guard against sub-millisecond toFixed(3) precision truncation causing CPS > maxCps
-    while (
-      raw.totalChars > 0 &&
-      (Number((endFrame / fps).toFixed(3)) - Number((startFrame / fps).toFixed(3)) <= 0 ||
-        raw.totalChars / (Number((endFrame / fps).toFixed(3)) - Number((startFrame / fps).toFixed(3))) > maxCps)
-    ) {
-      endFrame++;
-    }
-
-    const finalStartTime = Number((startFrame / fps).toFixed(3));
-    const finalEndTime = Number((endFrame / fps).toFixed(3));
-
+  for (let i = 0; i < resolvedGroups.length; i++) {
+    const raw = resolvedGroups[i];
     const placement = resolveCaptionPlacement({
       viewport,
       safeMargin,
@@ -349,38 +369,14 @@ export function segmentCaptions(
 
     groups.push({
       id: raw.id,
-      startFrame,
-      endFrame,
-      startTime: finalStartTime,
-      endTime: finalEndTime,
+      startFrame: raw.startFrame,
+      endFrame: raw.endFrame,
+      startTime: raw.startTime,
+      endTime: raw.endTime,
       position: placement.position,
       box: placement.box,
       lines: raw.lines,
     });
-  }
-
-  // Final verification: ensure every consecutive pair satisfies startFrame >= prev.endFrame
-  for (let i = 1; i < groups.length; i++) {
-    if (groups[i].startFrame < groups[i - 1].endFrame) {
-      groups[i].startFrame = groups[i - 1].endFrame;
-      const raw = rawGroups[i];
-      const minDurFrames = Math.ceil(minDurationSec * fps);
-      const minReadingFrames = Math.ceil((raw.totalChars / maxCps) * fps);
-      const minRequiredFrames = Math.max(1, minDurFrames, minReadingFrames);
-
-      if (groups[i].endFrame - groups[i].startFrame < minRequiredFrames) {
-        groups[i].endFrame = groups[i].startFrame + minRequiredFrames;
-      }
-      while (
-        raw.totalChars > 0 &&
-        (Number((groups[i].endFrame / fps).toFixed(3)) - Number((groups[i].startFrame / fps).toFixed(3)) <= 0 ||
-          raw.totalChars / (Number((groups[i].endFrame / fps).toFixed(3)) - Number((groups[i].startFrame / fps).toFixed(3))) > maxCps)
-      ) {
-        groups[i].endFrame++;
-      }
-      groups[i].startTime = Number((groups[i].startFrame / fps).toFixed(3));
-      groups[i].endTime = Number((groups[i].endFrame / fps).toFixed(3));
-    }
   }
 
   return {

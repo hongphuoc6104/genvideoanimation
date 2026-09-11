@@ -183,19 +183,33 @@ export function extractWhitelistedFrames(shotSpecData: any): number[] {
 
   // Top-level declarations
   if (Array.isArray(shotSpecData.whitelisted_impact_frames)) {
-    for (const f of shotSpecData.whitelisted_impact_frames) if (typeof f === 'number') frames.add(f);
+    for (const f of shotSpecData.whitelisted_impact_frames) {
+      if (typeof f === 'number') {
+        for (let df = 0; df <= 5; df++) frames.add(f + df);
+      }
+    }
   }
   if (Array.isArray(shotSpecData.impact_frames)) {
-    for (const f of shotSpecData.impact_frames) if (typeof f === 'number') frames.add(f);
+    for (const f of shotSpecData.impact_frames) {
+      if (typeof f === 'number') {
+        for (let df = 0; df <= 5; df++) frames.add(f + df);
+      }
+    }
   }
 
   // Top-level beats array if co-located or provided
   if (Array.isArray(shotSpecData.beats)) {
     for (const b of shotSpecData.beats) {
-      if (typeof b.startFrame === 'number') frames.add(b.startFrame);
+      if (typeof b.startFrame === 'number') {
+        for (let df = 0; df <= 5; df++) frames.add(b.startFrame + df);
+      }
       if (typeof b.endFrame === 'number') frames.add(b.endFrame);
       if (Array.isArray(b.impact_frames)) {
-        for (const f of b.impact_frames) if (typeof f === 'number') frames.add(f);
+        for (const f of b.impact_frames) {
+          if (typeof f === 'number') {
+            for (let df = 0; df <= 5; df++) frames.add(f + df);
+          }
+        }
       }
     }
   }
@@ -224,10 +238,18 @@ export function extractWhitelistedFrames(shotSpecData: any): number[] {
     if (typeof shot.startFrame === 'number') frames.add(shot.startFrame);
     if (typeof shot.endFrame === 'number') frames.add(shot.endFrame);
     if (Array.isArray(shot.impact_frames)) {
-      for (const f of shot.impact_frames) if (typeof f === 'number') frames.add(f);
+      for (const f of shot.impact_frames) {
+        if (typeof f === 'number') {
+          for (let df = 0; df <= 5; df++) frames.add(f + df);
+        }
+      }
     }
     if (Array.isArray(shot.whitelisted_impact_frames)) {
-      for (const f of shot.whitelisted_impact_frames) if (typeof f === 'number') frames.add(f);
+      for (const f of shot.whitelisted_impact_frames) {
+        if (typeof f === 'number') {
+          for (let df = 0; df <= 5; df++) frames.add(f + df);
+        }
+      }
     }
     if (Array.isArray(shot.transitions)) {
       for (const t of shot.transitions) {
@@ -352,10 +374,22 @@ export async function analyzeRenderedVideo(
       try {
         const timelineData = JSON.parse(fs.readFileSync(timelineFile, 'utf-8'));
         if (Array.isArray(timelineData.beats)) {
-          const beatFrames = timelineData.beats
-            .map((b: any) => [b.startFrame, b.endFrame, ...(b.impact_frames || [])])
-            .flat()
-            .filter((f: any) => typeof f === 'number');
+          const beatFrames: number[] = [];
+          for (const b of timelineData.beats) {
+            if (typeof b.startFrame === 'number') {
+              for (let df = 0; df <= 5; df++) beatFrames.push(b.startFrame + df);
+            }
+            if (typeof b.endFrame === 'number') {
+              beatFrames.push(b.endFrame);
+            }
+            if (Array.isArray(b.impact_frames)) {
+              for (const imp of b.impact_frames) {
+                if (typeof imp === 'number') {
+                  for (let df = 0; df <= 5; df++) beatFrames.push(imp + df);
+                }
+              }
+            }
+          }
           const merged = new Set([...whitelistedFrames, ...beatFrames]);
           whitelistedFrames = Array.from(merged).sort((a, b) => a - b);
         }

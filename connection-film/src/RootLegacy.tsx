@@ -51,7 +51,7 @@ export const RemotionRootLegacy: React.FC = () => {
         height={1920}
       />
       <Composition
-        id="ScopusResearchGap-TikTok916"
+        id="Legacy-ScopusResearchGap-TikTok916"
         component={ScopusExplainerFilm}
         durationInFrames={SCOPUS_EXPLAINER_DURATION}
         fps={30}

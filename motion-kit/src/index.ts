@@ -16,6 +16,10 @@ export * from './bezier';
 export * from './physics';
 export * from './cues';
 export * from './rigs';
+export * from './salience';
+
+// Geometry Subsystem (Reusable Smart Geometric Primitives)
+export * from './geometry';
 
 // Disambiguations
 export type { Point2D } from './bezier/types';
