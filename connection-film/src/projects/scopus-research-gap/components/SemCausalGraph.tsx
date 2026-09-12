@@ -3,6 +3,8 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface SemCausalGraphProps {
   currentBeatIndex: number; // 0: Constructs, 1: Causal paths, 2: Context moderation barrier, 3: Synthesis
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 interface ConstructNode {
@@ -29,13 +31,19 @@ const TARGET_NODE = {
   y: 800,
 };
 
-export const SemCausalGraph: React.FC<SemCausalGraphProps> = ({ currentBeatIndex }) => {
+export const SemCausalGraph: React.FC<SemCausalGraphProps> = ({
+  currentBeatIndex,
+  relativeBeatFrame,
+  beatProgress,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+
   // Entrance spring
   const enterSpring = spring({
-    frame,
+    frame: currentBeatIndex === 0 ? activeFrame : 30,
     fps,
     config: { damping: 14, stiffness: 85 },
   });
@@ -46,7 +54,7 @@ export const SemCausalGraph: React.FC<SemCausalGraphProps> = ({ currentBeatIndex
 
   // Moderation barrier drop spring for Beat 2 (Context Gap)
   const barrierDrop = spring({
-    frame: isContextGap || isSynthesis ? frame : 0,
+    frame: isContextGap ? activeFrame : isSynthesis ? 60 : 0,
     fps,
     config: { damping: 12, stiffness: 110 },
   });

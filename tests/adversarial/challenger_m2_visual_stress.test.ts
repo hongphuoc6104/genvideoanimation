@@ -360,9 +360,9 @@ runTest('4.1 Active scenes in scopus-research-gap import zero deprecated card/pi
 
   const deprecatedComponents = [
     'CarsFourPillars',
-    'AutoPill',
-    'OpaqueCard',
     'FiveGapPrismsMechanism',
+    'ThreeTierBridgeMechanism',
+    'OrthogonalKnowledgeMatrix',
   ];
 
   const forbiddenImports: any[] = [];

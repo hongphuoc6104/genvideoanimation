@@ -12,7 +12,8 @@ export const Scene5PitfallsConclusion: React.FC<SceneProps> = ({
   durationInFrames = 781,
   shotBeats = [],
 }) => {
-  const { currentBeatIndex, beatProgress } = useBeatChoreography(shotBeats);
+  const { currentBeatIndex, beatProgress, relativeFrame, beatStartRelFrame } = useBeatChoreography(shotBeats);
+  const relativeBeatFrame = Math.max(0, relativeFrame - beatStartRelFrame);
 
   // Active pitfall check:
   // beat 0 -> Lỗi 1 (idx 0)
@@ -41,7 +42,11 @@ export const Scene5PitfallsConclusion: React.FC<SceneProps> = ({
       {/* Stage Boundary Protection */}
       <SafeStageZone>
         {/* Primary Kinetic Mechanism: Diagnostic Pitfall Radar & Scopus Victory Badge */}
-        <DiagnosticRadarMechanism activeMistakeIndex={activeMistakeIndex} />
+        <DiagnosticRadarMechanism
+          activeMistakeIndex={activeMistakeIndex}
+          relativeBeatFrame={relativeBeatFrame}
+          beatProgress={beatProgress}
+        />
       </SafeStageZone>
     </div>
   );

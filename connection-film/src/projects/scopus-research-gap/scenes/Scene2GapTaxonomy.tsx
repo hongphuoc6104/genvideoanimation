@@ -12,7 +12,8 @@ export const Scene2GapTaxonomy: React.FC<SceneProps> = ({
   durationInFrames = 972,
   shotBeats = [],
 }) => {
-  const { currentBeatIndex } = useBeatChoreography(shotBeats);
+  const { currentBeatIndex, beatProgress, relativeFrame, beatStartRelFrame } = useBeatChoreography(shotBeats);
+  const relativeBeatFrame = Math.max(0, relativeFrame - beatStartRelFrame);
 
   // Map 5 beats of shot 2 to the 5 gap prisms (0: Theory, 1: Empirical, 2: Context, 3: Method, 4: Practice)
   const activeGapIndex = Math.min(Math.max(0, currentBeatIndex), 4);
@@ -33,7 +34,11 @@ export const Scene2GapTaxonomy: React.FC<SceneProps> = ({
       {/* Stage Boundary Protection */}
       <SafeStageZone>
         {/* Primary Kinetic Mechanism: Optical Crystal Refraction Laser Beams */}
-        <OpticalPrismsRefractionMechanism activeGapIndex={activeGapIndex} />
+        <OpticalPrismsRefractionMechanism
+          activeGapIndex={activeGapIndex}
+          relativeBeatFrame={relativeBeatFrame}
+          beatProgress={beatProgress}
+        />
       </SafeStageZone>
     </div>
   );

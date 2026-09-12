@@ -1,21 +1,28 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { computePillDimensions } from 'motion-kit';
 import { ResearcherRig } from './ResearcherRig';
 
 export interface KnowledgeMatrixRadarProps {
   progress?: number;
   showResearcher?: boolean;
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 export const KnowledgeMatrixRadar: React.FC<KnowledgeMatrixRadarProps> = ({
   showResearcher = true,
+  relativeBeatFrame,
+  beatProgress,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Entrance spring
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+
+  // Entrance spring synchronized to beat
   const entryProgress = spring({
-    frame,
+    frame: activeFrame,
     fps,
     config: { damping: 14, stiffness: 90 },
   });
@@ -343,44 +350,53 @@ export const KnowledgeMatrixRadar: React.FC<KnowledgeMatrixRadarProps> = ({
               strokeWidth={3}
             />
 
-            {/* Kinetic Void Anchor Tag (<= 3 words, font size >= 30px) */}
-            <g transform="translate(0, 75)">
-              <rect
-                x={-170}
-                y={-24}
-                width={340}
-                height={48}
-                rx={24}
-                fill="#0F172A"
-                stroke="#EF4444"
-                strokeWidth={3}
-                filter="drop-shadow(0 0 16px rgba(239, 68, 68, 0.8))"
-              />
-              <text
-                x={0}
-                y={8}
-                fill="#FFFFFF"
-                fontSize={30}
-                fontWeight={900}
-                textAnchor="middle"
-                letterSpacing="0.04em"
-              >
-                KHOẢNG TRỐNG NGHIÊN CỨU
-              </text>
-            </g>
+            {/* Kinetic Void Anchor Tag (Safely sized with computePillDimensions, zero overflow) */}
+            {(() => {
+              const gapDims = computePillDimensions('KHOẢNG TRỐNG NGHIÊN CỨU', 30, {
+                paddingHorizontal: 36,
+                paddingVertical: 14,
+                fontWeight: 900,
+              });
+              return (
+                <g transform="translate(0, 85)">
+                  <rect
+                    x={-gapDims.width / 2}
+                    y={-gapDims.height / 2}
+                    width={gapDims.width}
+                    height={gapDims.height}
+                    rx={gapDims.height / 2}
+                    fill="#0F172A"
+                    stroke="#EF4444"
+                    strokeWidth={3}
+                    filter="drop-shadow(0 0 16px rgba(239, 68, 68, 0.8))"
+                  />
+                  <text
+                    x={0}
+                    y={10}
+                    fill="#FFFFFF"
+                    fontSize={30}
+                    fontWeight={900}
+                    textAnchor="middle"
+                    letterSpacing="0.04em"
+                  >
+                    KHOẢNG TRỐNG NGHIÊN CỨU
+                  </text>
+                </g>
+              );
+            })()}
           </g>
         </g>
       </svg>
 
-      {/* Academic Researcher in 'analyzing' pose observing the matrix radar */}
+      {/* Academic Researcher in 'analyzing' pose observing the matrix radar from bottom-left observatory */}
       {showResearcher && (
         <div
           style={{
             position: 'absolute',
-            right: 40,
-            bottom: 480,
-            width: 320,
-            height: 440,
+            left: 40,
+            top: 1040,
+            width: 240,
+            height: 360,
             zIndex: 25,
             pointerEvents: 'none',
           }}
@@ -390,8 +406,7 @@ export const KnowledgeMatrixRadar: React.FC<KnowledgeMatrixRadarProps> = ({
             frame={frame}
             showGlasses
             showMagnifier
-            scale={0.88}
-            flip
+            scale={0.72}
           />
         </div>
       )}

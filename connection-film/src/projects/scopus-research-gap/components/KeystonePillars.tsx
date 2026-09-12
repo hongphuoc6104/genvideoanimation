@@ -3,6 +3,8 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface KeystonePillarsProps {
   currentFrame?: number;
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 interface PillarDef {
@@ -20,27 +22,34 @@ const PILLARS: PillarDef[] = [
   { id: 'p4', label: 'KHẢ THI', subLabel: 'FEASIBILITY', color: '#A855F7', x: 885 },
 ];
 
-export const KeystonePillars: React.FC<KeystonePillarsProps> = () => {
+export const KeystonePillars: React.FC<KeystonePillarsProps> = ({
+  relativeBeatFrame,
+  beatProgress,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Entrance spring for overall scene
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+
+  // Entrance spring for pillars rising from ground
   const sceneProgress = spring({
-    frame,
+    frame: activeFrame,
     fps,
     config: { damping: 14, stiffness: 85 },
   });
 
-  // Highlight cycles across the 4 pillars (progressively illuminating them)
-  const activeIdx = Math.min(3, Math.floor(frame / 45));
+  // Highlight cycles across the 4 pillars (progressively illuminating them in sync with voice)
+  const activeIdx = beatProgress !== undefined
+    ? Math.min(3, Math.floor(beatProgress * 4))
+    : Math.min(3, Math.floor(activeFrame / 45));
 
   // The base elevation line where pillars rise from
   const groundY = 1260;
   const targetHeight = 440;
 
-  // Manuscript lift: as pillars rise, manuscript is hoisted up to y = 520
+  // Manuscript lift: as pillars rise, manuscript is hoisted up to y = 500
   const manuscriptLift = spring({
-    frame: Math.max(0, frame - 15),
+    frame: Math.max(0, activeFrame - 10),
     fps,
     config: { damping: 12, stiffness: 70 },
   });

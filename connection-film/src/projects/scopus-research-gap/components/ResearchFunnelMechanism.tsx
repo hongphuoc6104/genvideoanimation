@@ -3,6 +3,8 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface ResearchFunnelMechanismProps {
   activeLevelIndex: number; // 0: Macro, 1: Stream, 2: Gap Niche
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 interface FunnelLevel {
@@ -21,15 +23,19 @@ const LEVELS: FunnelLevel[] = [
 
 export const ResearchFunnelMechanism: React.FC<ResearchFunnelMechanismProps> = ({
   activeLevelIndex,
+  relativeBeatFrame,
+  beatProgress = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
   const clampedIdx = Math.min(Math.max(0, activeLevelIndex), LEVELS.length - 1);
 
-  // Dynamic entrance
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+
+  // Dynamic entrance synchronized to beat
   const enterSpring = spring({
-    frame,
+    frame: activeFrame,
     fps,
     config: { damping: 14, stiffness: 90 },
   });

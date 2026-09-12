@@ -4,17 +4,23 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 export interface CantileverBridgeProps {
   activeTier: 1 | 2 | 3; // 1: Foundation Cliffs, 2: Cantilever Tension Arms, 3: Keystone Locked
   showResearcher?: boolean;
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 export const CantileverBridge: React.FC<CantileverBridgeProps> = ({
   activeTier,
+  relativeBeatFrame,
+  beatProgress,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Keystone drop spring animation when activeTier === 3
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+
+  // Keystone drop spring animation when activeTier === 3 (synchronized to Beat 15 start)
   const keystoneDrop = spring({
-    frame: activeTier === 3 ? frame : 0,
+    frame: activeTier === 3 ? activeFrame : 0,
     fps,
     config: { damping: 12, stiffness: 120 },
   });
@@ -130,8 +136,8 @@ export const CantileverBridge: React.FC<CantileverBridgeProps> = ({
           <line x1={140} y1={860} x2={260} y2={1100} stroke="#334155" strokeWidth={3} />
           <line x1={240} y1={860} x2={310} y2={1200} stroke="#334155" strokeWidth={3} />
 
-          {/* Anchor Tag <= 3 words */}
-          <g transform="translate(190, 940)">
+          {/* Anchor Tag <= 3 words (Safely inside bedrock, zero overlap with road) */}
+          <g transform="translate(190, 1040)">
             <rect x={-90} y={-24} width={180} height={48} rx={24} fill="#0F172A" stroke="#10B981" strokeWidth={2.5} />
             <text x={0} y={8} fill="#10B981" fontSize={30} fontWeight={900} textAnchor="middle">
               ĐÃ BIẾT
@@ -154,8 +160,8 @@ export const CantileverBridge: React.FC<CantileverBridgeProps> = ({
           <line x1={940} y1={860} x2={820} y2={1100} stroke="#334155" strokeWidth={3} />
           <line x1={840} y1={860} x2={770} y2={1200} stroke="#334155" strokeWidth={3} />
 
-          {/* Anchor Tag <= 3 words */}
-          <g transform="translate(890, 940)">
+          {/* Anchor Tag <= 3 words (Safely inside bedrock) */}
+          <g transform="translate(890, 1040)">
             <rect x={-90} y={-24} width={180} height={48} rx={24} fill="#0F172A" stroke="#10B981" strokeWidth={2.5} />
             <text x={0} y={8} fill="#10B981" fontSize={30} fontWeight={900} textAnchor="middle">
               MỤC TIÊU
@@ -283,5 +289,4 @@ export const CantileverBridge: React.FC<CantileverBridgeProps> = ({
   );
 };
 
-export const ThreeTierBridgeMechanism = CantileverBridge;
 export default CantileverBridge;

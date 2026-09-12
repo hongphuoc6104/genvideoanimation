@@ -1,9 +1,12 @@
 import React from 'react';
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { computePillDimensions } from 'motion-kit';
 import { ResearcherRig } from './ResearcherRig';
 
 export interface DiagnosticPitfallRadarProps {
   activeMistakeIndex: number; // 0: Lỗi 1, 1: Lỗi 2, 2: Lỗi 3, 3: Lỗi 4, 4: All cleared / Scopus triumph
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 interface PitfallBlip {
@@ -14,14 +17,16 @@ interface PitfallBlip {
 }
 
 const PITFALLS: PitfallBlip[] = [
-  { id: 'p1', name: 'THIẾU BẰNG CHỨNG', angle: 270, color: '#F43F5E' }, // North
-  { id: 'p2', name: 'ĐỒNG NHẤT BỐI CẢNH', angle: 0, color: '#F59E0B' }, // East
-  { id: 'p3', name: 'LIỆT KÊ ĐƠN THUẦN', angle: 90, color: '#A855F7' }, // South
-  { id: 'p4', name: 'TÁCH RỜI PHƯƠNG PHÁP', angle: 180, color: '#38BDF8' }, // West
+  { id: 'p1', name: 'THIẾU DỮ LIỆU', angle: 270, color: '#F43F5E' }, // North
+  { id: 'p2', name: 'LỆCH BỐI CẢNH', angle: 0, color: '#F59E0B' }, // East
+  { id: 'p3', name: 'LIỆT KÊ TĨNH', angle: 90, color: '#A855F7' }, // South
+  { id: 'p4', name: 'SAI PHƯƠNG PHÁP', angle: 180, color: '#38BDF8' }, // West
 ];
 
 export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = ({
   activeMistakeIndex,
+  relativeBeatFrame,
+  beatProgress = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -31,7 +36,7 @@ export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = (
 
   const cx = 540;
   const cy = 640;
-  const scopeRadius = 260;
+  const scopeRadius = 240;
 
   // Entrance spring
   const enterSpring = spring({
@@ -40,9 +45,9 @@ export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = (
     config: { damping: 14, stiffness: 85 },
   });
 
-  // Triumph burst spring
+  // Triumph burst spring driven by relativeBeatFrame
   const triumphSpring = spring({
-    frame: isTriumph ? frame : 0,
+    frame: isTriumph ? Math.max(0, relativeBeatFrame ?? frame) : 0,
     fps,
     config: { damping: 10, stiffness: 90 },
   });
@@ -271,39 +276,48 @@ export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = (
                   />
                 )}
 
-                {/* Anchor Label Tag <= 3 words, Font >= 30px */}
-                <g
-                  transform={
+                {/* Dynamic AutoPill Label Container */}
+                {(() => {
+                  const dims = computePillDimensions(p.name, 30, {
+                    paddingHorizontal: 36,
+                    paddingVertical: 14,
+                    fontWeight: 900,
+                  });
+                  // North: above; South: below; East/West: placed vertically above blip to clear QC center and prevent screen border clipping
+                  const pillOffset =
                     p.angle === 270
-                      ? 'translate(0, -42)'
+                      ? `translate(0, -${dims.height / 2 + 32})`
                       : p.angle === 90
-                      ? 'translate(0, 48)'
+                      ? `translate(0, ${dims.height / 2 + 32})`
                       : p.angle === 0
-                      ? 'translate(130, 8)'
-                      : 'translate(-130, 8)'
-                  }
-                >
-                  <rect
-                    x={-120}
-                    y={-22}
-                    width={240}
-                    height={44}
-                    rx={22}
-                    fill="#0F172A"
-                    stroke={isCleared ? '#10B981' : isCurrent ? '#EF4444' : '#475569'}
-                    strokeWidth={2}
-                  />
-                  <text
-                    x={0}
-                    y={8}
-                    fill={isCleared ? '#10B981' : isCurrent ? '#FFFFFF' : '#CBD5E1'}
-                    fontSize={30}
-                    fontWeight={900}
-                    textAnchor="middle"
-                  >
-                    {p.name}
-                  </text>
-                </g>
+                      ? `translate(24, -${dims.height / 2 + 54})`
+                      : `translate(-24, -${dims.height / 2 + 54})`;
+
+                  return (
+                    <g transform={pillOffset}>
+                      <rect
+                        x={-dims.width / 2}
+                        y={-dims.height / 2}
+                        width={dims.width}
+                        height={dims.height}
+                        rx={dims.height / 2}
+                        fill="#0F172A"
+                        stroke={isCleared ? '#10B981' : isCurrent ? '#EF4444' : '#475569'}
+                        strokeWidth={2.5}
+                      />
+                      <text
+                        x={0}
+                        y={10}
+                        fill={isCleared ? '#10B981' : isCurrent ? '#FFFFFF' : '#CBD5E1'}
+                        fontSize={30}
+                        fontWeight={900}
+                        textAnchor="middle"
+                      >
+                        {p.name}
+                      </text>
+                    </g>
+                  );
+                })()}
               </g>
             );
           })}
@@ -343,7 +357,7 @@ export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = (
           style={{
             position: 'absolute',
             left: 380,
-            bottom: 490,
+            bottom: 360,
             width: 320,
             height: 440,
             zIndex: 25,

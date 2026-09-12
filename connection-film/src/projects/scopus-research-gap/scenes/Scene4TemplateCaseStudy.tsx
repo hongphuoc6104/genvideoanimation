@@ -12,7 +12,8 @@ export const Scene4TemplateCaseStudy: React.FC<SceneProps> = ({
   durationInFrames = 773,
   shotBeats = [],
 }) => {
-  const { currentBeatIndex } = useBeatChoreography(shotBeats);
+  const { currentBeatIndex, beatProgress, relativeFrame, beatStartRelFrame } = useBeatChoreography(shotBeats);
+  const relativeBeatFrame = Math.max(0, relativeFrame - beatStartRelFrame);
 
   return (
     <div
@@ -30,7 +31,11 @@ export const Scene4TemplateCaseStudy: React.FC<SceneProps> = ({
       {/* Stage Boundary Protection */}
       <SafeStageZone>
         {/* Primary Kinetic Mechanism: Structural Equation Model DAG with Salience */}
-        <SemCausalGraph currentBeatIndex={currentBeatIndex} />
+        <SemCausalGraph
+          currentBeatIndex={currentBeatIndex}
+          relativeBeatFrame={relativeBeatFrame}
+          beatProgress={beatProgress}
+        />
       </SafeStageZone>
     </div>
   );

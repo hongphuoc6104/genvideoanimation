@@ -17,7 +17,8 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
   shotBeats = [],
 }) => {
   const frame = useCurrentFrame();
-  const { currentBeatIndex } = useBeatChoreography(shotBeats);
+  const { currentBeatIndex, beatProgress, relativeFrame, beatStartRelFrame } = useBeatChoreography(shotBeats);
+  const relativeBeatFrame = Math.max(0, relativeFrame - beatStartRelFrame);
 
   // Manuscript state across Beats 0-2 (Zero-Ghosting & Anti-Freeze Progression)
   const manuscriptState =
@@ -60,14 +61,14 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
         {/* Stage 1: Knowledge Constellation Mechanism (Beats 0-2) */}
         {isConstellationStage && (
           <>
-            {/* Academic Researcher Rig on left stage */}
+            {/* Academic Researcher Rig on left observatory station */}
             <div
               style={{
                 position: 'absolute',
                 left: 40,
-                top: 480,
-                width: 380,
-                height: 520,
+                top: 460,
+                width: 260,
+                height: 420,
                 zIndex: 25,
                 pointerEvents: 'none',
               }}
@@ -79,7 +80,7 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
                 showPaper={currentBeatIndex === 0}
                 showMagnifier={currentBeatIndex === 1}
                 showIdeaBulb={currentBeatIndex === 2}
-                scale={0.92}
+                scale={0.78}
               />
             </div>
 
@@ -92,12 +93,18 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
 
         {/* Stage 2: 3 Core Questions Triangle Mechanism (Beat 3) */}
         {isTriangleStage && (
-          <ThreeQuestionsTriangleMechanism />
+          <ThreeQuestionsTriangleMechanism
+            relativeBeatFrame={relativeBeatFrame}
+            beatProgress={beatProgress}
+          />
         )}
 
         {/* Stage 3: 4 Architectural Keystone Pillars Mechanism (Beat 4) */}
         {isPillarsStage && (
-          <KeystonePillars />
+          <KeystonePillars
+            relativeBeatFrame={relativeBeatFrame}
+            beatProgress={beatProgress}
+          />
         )}
       </SafeStageZone>
     </div>

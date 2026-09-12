@@ -12,12 +12,12 @@ export interface ConstellationNode {
 }
 
 const NODES: ConstellationNode[] = [
-  { id: 'n1', x: 240, y: 440, label: 'LÝ THUYẾT A', subLabel: 'Smith (2018)', cluster: 'foundation' },
-  { id: 'n2', x: 540, y: 320, label: 'THỰC NGHIỆM', subLabel: 'Chen (2020)', cluster: 'foundation' },
-  { id: 'n3', x: 240, y: 960, label: 'KHUNG TAM', subLabel: 'Davis (1989)', cluster: 'foundation' },
-  { id: 'n4', x: 840, y: 440, label: 'LÝ THUYẾT B', subLabel: 'Miller (2021)', cluster: 'emerging' },
-  { id: 'n5', x: 840, y: 960, label: 'BỐI CẢNH MỚI', subLabel: 'Nguyen (2023)', cluster: 'emerging' },
-  { id: 'n6', x: 540, y: 1120, label: 'PHƯƠNG PHÁP', subLabel: 'Hair (2019)', cluster: 'method' },
+  { id: 'n1', x: 440, y: 440, label: 'LÝ THUYẾT A', subLabel: 'Smith (2018)', cluster: 'foundation' },
+  { id: 'n2', x: 660, y: 320, label: 'THỰC NGHIỆM', subLabel: 'Chen (2020)', cluster: 'foundation' },
+  { id: 'n3', x: 440, y: 980, label: 'KHUNG TAM', subLabel: 'Davis (1989)', cluster: 'foundation' },
+  { id: 'n4', x: 880, y: 440, label: 'LÝ THUYẾT B', subLabel: 'Miller (2021)', cluster: 'emerging' },
+  { id: 'n5', x: 880, y: 980, label: 'BỐI CẢNH MỚI', subLabel: 'Nguyen (2023)', cluster: 'emerging' },
+  { id: 'n6', x: 660, y: 1140, label: 'PHƯƠNG PHÁP', subLabel: 'Hair (2019)', cluster: 'method' },
 ];
 
 export interface KnowledgeConstellationProps {
@@ -57,9 +57,9 @@ export const KnowledgeConstellationMechanism: React.FC<KnowledgeConstellationPro
   const manuScale = interpolate(manuProgress, [0, 1], [0.88, 1.0]);
   const manuOpacity = interpolate(manuProgress, [0, 1], [0, 1]);
 
-  // When rejected in Beat 01, manuscript is at (680, 700) to balance researcher on left
+  // When rejected in Beat 01, manuscript is at (700, 700) to balance researcher on left
   const isBeat1 = manuscriptState === 'submitting' || manuscriptState === 'rejected';
-  const manuX = isBeat1 ? 680 : 540;
+  const manuX = isBeat1 ? 700 : 660;
   const manuY = isBeat1 ? 700 : 720;
 
   return (
@@ -143,7 +143,7 @@ export const KnowledgeConstellationMechanism: React.FC<KnowledgeConstellationPro
       {highlightChasm && !isBeat1 && (
         <g opacity={pulse}>
           <ellipse
-            cx={540}
+            cx={660}
             cy={740}
             rx={190}
             ry={75}
@@ -153,9 +153,9 @@ export const KnowledgeConstellationMechanism: React.FC<KnowledgeConstellationPro
             strokeDasharray="8 8"
             filter="url(#glowAmber)"
           />
-          <circle cx={540} cy={740} r={40} fill="#EF4444" opacity={0.3} filter="url(#glowCoral)" />
+          <circle cx={660} cy={740} r={40} fill="#EF4444" opacity={0.3} filter="url(#glowCoral)" />
           <text
-            x={540}
+            x={660}
             y={748}
             textAnchor="middle"
             fill="#F59E0B"

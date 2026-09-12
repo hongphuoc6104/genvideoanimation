@@ -17,7 +17,8 @@ export const Scene3ProcessFunnel: React.FC<SceneProps> = ({
   shotBeats = [],
 }) => {
   const frame = useCurrentFrame();
-  const { currentBeatIndex } = useBeatChoreography(shotBeats);
+  const { currentBeatIndex, beatProgress, relativeFrame, beatStartRelFrame } = useBeatChoreography(shotBeats);
+  const relativeBeatFrame = Math.max(0, relativeFrame - beatStartRelFrame);
 
   // Clean Stage Separation:
   // Beat 0 (overall beat 11): Step 1 Research Funnel Narrowing
@@ -50,29 +51,41 @@ export const Scene3ProcessFunnel: React.FC<SceneProps> = ({
       <SafeStageZone>
         {/* Beat 11: Step 1 Funnel Narrowing */}
         {isFunnelStep1 && (
-          <ResearchFunnelMechanism activeLevelIndex={0} />
+          <ResearchFunnelMechanism
+            activeLevelIndex={0}
+            relativeBeatFrame={relativeBeatFrame}
+            beatProgress={beatProgress}
+          />
         )}
 
         {/* Beat 12: Step 2 True 2D Orthogonal Knowledge Radar Matrix */}
         {isRadarStep2 && (
-          <KnowledgeMatrixRadar showResearcher />
+          <KnowledgeMatrixRadar
+            showResearcher
+            relativeBeatFrame={relativeBeatFrame}
+            beatProgress={beatProgress}
+          />
         )}
 
         {/* Beat 13: Step 3 Niche Gap Filter */}
         {isFilterStep3 && (
-          <ResearchFunnelMechanism activeLevelIndex={2} />
+          <ResearchFunnelMechanism
+            activeLevelIndex={2}
+            relativeBeatFrame={relativeBeatFrame}
+            beatProgress={beatProgress}
+          />
         )}
 
-        {/* Beat 14 & 15: 3-Tier Cantilever Bridge with Presenting Researcher */}
+        {/* Beat 14 & 15: 3-Tier Cantilever Bridge with Presenting Researcher standing on road */}
         {isBridgeStage && (
           <>
             <div
               style={{
                 position: 'absolute',
-                left: 60,
-                top: 500,
-                width: 320,
-                height: 440,
+                left: 80,
+                top: 480,
+                width: 240,
+                height: 380,
                 zIndex: 25,
                 pointerEvents: 'none',
               }}
@@ -81,11 +94,15 @@ export const Scene3ProcessFunnel: React.FC<SceneProps> = ({
                 pose="presenting"
                 frame={frame}
                 showGlasses
-                scale={0.88}
+                scale={0.78}
               />
             </div>
 
-            <CantileverBridge activeTier={activeTier} />
+            <CantileverBridge
+              activeTier={activeTier}
+              relativeBeatFrame={relativeBeatFrame}
+              beatProgress={beatProgress}
+            />
           </>
         )}
       </SafeStageZone>

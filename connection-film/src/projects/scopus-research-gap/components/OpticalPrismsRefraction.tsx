@@ -3,11 +3,14 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface OpticalPrismsRefractionProps {
   activeGapIndex: number; // 0: Lý thuyết, 1: Thực nghiệm, 2: Bối cảnh, 3: Phương pháp, 4: Ứng dụng
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 interface GapDef {
   id: string;
   name: string;
+  shortName: string;
   sub: string;
   color: string;
   targetX: number;
@@ -15,15 +18,17 @@ interface GapDef {
 }
 
 const GAPS: GapDef[] = [
-  { id: 'g1', name: 'GAP LÝ THUYẾT', sub: 'THIẾU CƠ CHẾ', color: '#38BDF8', targetX: 160, targetY: 900 },
-  { id: 'g2', name: 'GAP THỰC NGHIỆM', sub: 'MÂU THUẪN DỮ LIỆU', color: '#F59E0B', targetX: 350, targetY: 990 },
-  { id: 'g3', name: 'GAP BỐI CẢNH', sub: 'ĐẶC THÙ THỂ CHẾ', color: '#10B981', targetX: 540, targetY: 1040 },
-  { id: 'g4', name: 'GAP PHƯƠNG PHÁP', sub: 'SAI LỆCH ĐO LƯỜNG', color: '#A855F7', targetX: 730, targetY: 990 },
-  { id: 'g5', name: 'GAP ỨNG DỤNG', sub: 'KHOẢNG CÁCH THỰC TIỄN', color: '#EC4899', targetX: 920, targetY: 900 },
+  { id: 'g1', name: 'GAP LÝ THUYẾT', shortName: 'LÝ THUYẾT', sub: 'THIẾU CƠ CHẾ', color: '#38BDF8', targetX: 210, targetY: 770 },
+  { id: 'g2', name: 'GAP THỰC NGHIỆM', shortName: 'THỰC NGHIỆM', sub: 'MÂU THUẪN DỮ LIỆU', color: '#F59E0B', targetX: 385, targetY: 930 },
+  { id: 'g3', name: 'GAP BỐI CẢNH', shortName: 'BỐI CẢNH', sub: 'ĐẶC THÙ THỂ CHẾ', color: '#10B981', targetX: 540, targetY: 770 },
+  { id: 'g4', name: 'GAP PHƯƠNG PHÁP', shortName: 'PHƯƠNG PHÁP', sub: 'SAI LỆCH ĐO LƯỜNG', color: '#A855F7', targetX: 695, targetY: 930 },
+  { id: 'g5', name: 'GAP ỨNG DỤNG', shortName: 'ỨNG DỤNG', sub: 'KHOẢNG CÁCH THỰC TIỄN', color: '#EC4899', targetX: 870, targetY: 770 },
 ];
 
 export const OpticalPrismsRefractionMechanism: React.FC<OpticalPrismsRefractionProps> = ({
   activeGapIndex,
+  relativeBeatFrame,
+  beatProgress = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -31,11 +36,19 @@ export const OpticalPrismsRefractionMechanism: React.FC<OpticalPrismsRefractionP
   const clampedIdx = Math.min(Math.max(0, activeGapIndex), GAPS.length - 1);
   const activeGap = GAPS[clampedIdx];
 
-  // Dynamic spring entrance
+  // Dynamic spring entrance for whole scene
   const enterSpring = spring({
     frame,
     fps,
     config: { damping: 14, stiffness: 90 },
+  });
+
+  // Dynamic intra-beat spring for active gap transition
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+  const beatSpring = spring({
+    frame: activeFrame,
+    fps,
+    config: { damping: 12, stiffness: 110 },
   });
 
   // Pulse animation
@@ -61,112 +74,30 @@ export const OpticalPrismsRefractionMechanism: React.FC<OpticalPrismsRefractionP
         left: 0,
         pointerEvents: 'none',
         zIndex: 15,
+        opacity: enterSpring,
       }}
     >
       <defs>
         <filter id="prismGlow" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="12" result="blur" />
+          <feGaussianBlur stdDeviation="8" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
 
-        <linearGradient id="whiteLaserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.3" />
-          <stop offset="70%" stopColor="#FFFFFF" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#E0F2FE" stopOpacity="1" />
-        </linearGradient>
-
-        <linearGradient id="crystalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.35" />
-          <stop offset="50%" stopColor="#1E293B" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="#0F172A" stopOpacity="0.95" />
+        <linearGradient id="crystalFacetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.4" />
+          <stop offset="50%" stopColor="#818CF8" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#EC4899" stopOpacity="0.45" />
         </linearGradient>
       </defs>
 
-      {/* Kinetic Header (Minimal Anchor Tag <= 3 words) */}
-      <g transform="translate(540, 320)" opacity={enterSpring}>
-        <text
-          x={0}
-          y={0}
-          fill="#38BDF8"
-          fontSize={44}
-          fontWeight={900}
-          letterSpacing="0.08em"
-          textAnchor="middle"
-        >
-          5 CÁNH CỬA RESEARCH GAP
-        </text>
-        <line
-          x1={-200}
-          y1={24}
-          x2={200}
-          y2={24}
-          stroke="#38BDF8"
-          strokeWidth={3}
-          strokeLinecap="round"
-        />
-      </g>
-
-      {/* Incoming Incident White Knowledge Beam (Tri thức hiện hữu) */}
-      <g opacity={enterSpring}>
-        <line
-          x1={540}
-          y1={380}
-          x2={prismApexX}
-          y2={prismApexY}
-          stroke="url(#whiteLaserGrad)"
-          strokeWidth={8}
-          strokeLinecap="round"
-          filter="url(#prismGlow)"
-        />
-        {/* Animated photon packet traveling down the incident beam */}
-        <circle
-          cx={540}
-          cy={380 + beamLaserTravel}
-          r={6}
-          fill="#FFFFFF"
-          filter="url(#prismGlow)"
-        />
-        <text
-          x={540}
-          y={366}
-          fill="#E0F2FE"
-          fontSize={30}
-          fontWeight={800}
-          letterSpacing="0.06em"
-          textAnchor="middle"
-        >
-          TRI THỨC HIỆN HỮU
-        </text>
-      </g>
-
-      {/* Central Optical Crystal Prism */}
-      <g opacity={enterSpring}>
-        {/* Crystal Outer Hull */}
+      {/* Upright Optical Crystal Prism Apex */}
+      <g>
         <polygon
-          points={`${prismApexX},${prismApexY} ${prismRightX},${prismBaseY} ${prismLeftX},${prismBaseY}`}
-          fill="url(#crystalGrad)"
+          points={`${prismApexX},${prismApexY} ${prismLeftX},${prismBaseY} ${prismRightX},${prismBaseY}`}
+          fill="url(#crystalFacetGrad)"
           stroke="#38BDF8"
           strokeWidth={4}
-          filter="drop-shadow(0 0 24px rgba(56, 189, 248, 0.4))"
-        />
-        {/* Internal Facet Reflections */}
-        <line
-          x1={prismApexX}
-          y1={prismApexY}
-          x2={prismCenterX}
-          y2={prismBaseY}
-          stroke="#94A3B8"
-          strokeWidth={1.5}
-          opacity={0.5}
-        />
-        <line
-          x1={prismLeftX}
-          y1={prismBaseY}
-          x2={prismCenterX + 30}
-          y2={prismApexY + 60}
-          stroke="#94A3B8"
-          strokeWidth={1.5}
-          opacity={0.4}
+          filter="url(#prismGlow)"
         />
         {/* Crystal Core Glow Node */}
         <circle
@@ -279,37 +210,67 @@ export const OpticalPrismsRefractionMechanism: React.FC<OpticalPrismsRefractionP
               fill={gap.color}
             />
 
-            {/* Anchor Label (<= 3 words, font size >= 30px) */}
-            <g transform={`translate(0, ${isSelected ? 75 : 62})`}>
-              <text
-                x={0}
-                y={0}
-                fill={isSelected ? '#FFFFFF' : gap.color}
-                fontSize={30}
-                fontWeight={900}
-                letterSpacing="0.04em"
-                textAnchor="middle"
-              >
-                {gap.name}
-              </text>
-              <text
-                x={0}
-                y={32}
-                fill={isSelected ? gap.color : '#64748B'}
-                fontSize={30}
-                fontWeight={700}
-                letterSpacing="0.06em"
-                textAnchor="middle"
-              >
-                {gap.sub}
-              </text>
-            </g>
+            {/* Anchor Label (<= 3 words, font size >= 30px, Zero Collisions) */}
+            {isSelected ? (
+              <g transform="translate(0, 78)">
+                <rect
+                  x={-145}
+                  y={-28}
+                  width={290}
+                  height={88}
+                  rx={20}
+                  fill="#0F172A"
+                  stroke={gap.color}
+                  strokeWidth={3}
+                  filter={`drop-shadow(0 0 16px ${gap.color}80)`}
+                />
+                <text
+                  x={0}
+                  y={6}
+                  fill="#FFFFFF"
+                  fontSize={30}
+                  fontWeight={900}
+                  letterSpacing="0.04em"
+                  textAnchor="middle"
+                >
+                  {gap.name}
+                </text>
+                <text
+                  x={0}
+                  y={40}
+                  fill={gap.color}
+                  fontSize={30}
+                  fontWeight={700}
+                  letterSpacing="0.04em"
+                  textAnchor="middle"
+                >
+                  {gap.sub}
+                </text>
+              </g>
+            ) : (
+              <g transform="translate(0, 60)">
+                <text
+                  x={0}
+                  y={0}
+                  fill={gap.color}
+                  fontSize={30}
+                  fontWeight={800}
+                  letterSpacing="0.03em"
+                  textAnchor="middle"
+                >
+                  {gap.shortName}
+                </text>
+              </g>
+            )}
           </g>
         );
       })}
 
       {/* Active Gap Kinetic Mechanism Showcase Stage (y in [1160, 1380]) */}
-      <g transform={`translate(540, 1260)`}>
+      <g
+        transform={`translate(540, 1260) scale(${interpolate(beatSpring, [0, 1], [0.9, 1.0])})`}
+        opacity={Math.min(1, beatSpring * 1.5)}
+      >
         {/* Kinetic Focus Orbit */}
         <circle
           cx={0}

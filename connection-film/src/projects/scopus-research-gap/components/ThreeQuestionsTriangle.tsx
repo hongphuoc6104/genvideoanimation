@@ -3,6 +3,8 @@ import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface ThreeQuestionsTriangleProps {
   currentFrame?: number;
+  relativeBeatFrame?: number;
+  beatProgress?: number;
 }
 
 interface QuestionVertex {
@@ -20,15 +22,22 @@ const VERTICES: QuestionVertex[] = [
   { id: 'v3', label: 'ĐÓNG GÓP', sub: 'TÍNH MỚI SCOPUS', color: '#10B981', x: 800, y: 980 },
 ];
 
-export const ThreeQuestionsTriangleMechanism: React.FC<ThreeQuestionsTriangleProps> = () => {
+export const ThreeQuestionsTriangleMechanism: React.FC<ThreeQuestionsTriangleProps> = ({
+  relativeBeatFrame,
+  beatProgress,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Active question cycles across the beat (~38 frames per question)
-  const activeIdx = Math.min(2, Math.floor(frame / 38));
+  const activeFrame = relativeBeatFrame !== undefined ? relativeBeatFrame : frame;
+
+  // Active question cycles across the 3 questions in sync with narration (0: Đã biết, 1: Khoảng trống, 2: Đóng góp)
+  const activeIdx = beatProgress !== undefined
+    ? Math.min(2, Math.floor(beatProgress * 3))
+    : Math.min(2, Math.floor(activeFrame / 38));
 
   const entry = spring({
-    frame,
+    frame: activeFrame,
     fps,
     config: { damping: 14, stiffness: 85 },
   });
