@@ -1,9 +1,11 @@
 import React from 'react';
+import { useCurrentFrame } from 'remotion';
 import { useBeatChoreography, SafeStageZone } from 'motion-kit';
 import { ScopusMicroHUD } from '../components/ScopusMicroHUD';
 import { KnowledgeConstellationMechanism } from '../components/KnowledgeConstellation';
 import { ThreeQuestionsTriangleMechanism } from '../components/ThreeQuestionsTriangle';
-import { CarsFourPillarsMechanism } from '../components/CarsFourPillars';
+import { KeystonePillars } from '../components/KeystonePillars';
+import { ResearcherRig, type ResearcherPoseType } from '../components/ResearcherRig';
 
 export interface SceneProps {
   durationInFrames?: number;
@@ -11,25 +13,34 @@ export interface SceneProps {
 }
 
 export const Scene1ProblemScopus: React.FC<SceneProps> = ({
-  durationInFrames = 618,
+  durationInFrames = 996,
   shotBeats = [],
 }) => {
+  const frame = useCurrentFrame();
   const { currentBeatIndex } = useBeatChoreography(shotBeats);
 
   // Manuscript state across Beats 0-2 (Zero-Ghosting & Anti-Freeze Progression)
   const manuscriptState =
-    currentBeatIndex === 0 ? 'submitting' :
-    currentBeatIndex === 1 ? 'rejected' : 'connecting';
+    currentBeatIndex === 0 ? 'rejected' :
+    currentBeatIndex === 1 ? 'connecting' : 'integrated';
 
   const highlightChasm = currentBeatIndex >= 1;
 
   // Zero-Ghosting Stage Lifecycle:
   // Beat 0, 1, 2: Constellation (Desk reject paradox & dialog network)
   // Beat 3: 3 Core Questions Triangle (Golden Triangle)
-  // Beat 4: 4 Mandatory CARS Pillars (Swales CARS)
+  // Beat 4: 4 Mandatory Keystone Pillars (Swales CARS)
   const isConstellationStage = currentBeatIndex <= 2;
   const isTriangleStage = currentBeatIndex === 3;
   const isPillarsStage = currentBeatIndex >= 4;
+
+  // Character Kinematic Pose based on beat
+  // Beat 0: Desk reject paradox -> 'puzzled'
+  // Beat 1: Searching for gap -> 'analyzing'
+  // Beat 2: Scientific dialogue network -> 'discovering'
+  const researcherPose: ResearcherPoseType =
+    currentBeatIndex === 0 ? 'puzzled' :
+    currentBeatIndex === 1 ? 'analyzing' : 'discovering';
 
   return (
     <div
@@ -46,22 +57,47 @@ export const Scene1ProblemScopus: React.FC<SceneProps> = ({
 
       {/* Strict Stage Boundary Protection */}
       <SafeStageZone>
-        {/* Stage 1: Knowledge Constellation Mechanism (Unmounts completely at Beat 3) */}
+        {/* Stage 1: Knowledge Constellation Mechanism (Beats 0-2) */}
         {isConstellationStage && (
-          <KnowledgeConstellationMechanism
-            manuscriptState={manuscriptState}
-            highlightChasm={highlightChasm}
-          />
+          <>
+            {/* Academic Researcher Rig on left stage */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 40,
+                top: 480,
+                width: 380,
+                height: 520,
+                zIndex: 25,
+                pointerEvents: 'none',
+              }}
+            >
+              <ResearcherRig
+                pose={researcherPose}
+                frame={frame}
+                showGlasses
+                showPaper={currentBeatIndex === 0}
+                showMagnifier={currentBeatIndex === 1}
+                showIdeaBulb={currentBeatIndex === 2}
+                scale={0.92}
+              />
+            </div>
+
+            <KnowledgeConstellationMechanism
+              manuscriptState={manuscriptState}
+              highlightChasm={highlightChasm}
+            />
+          </>
         )}
 
-        {/* Stage 2: 3 Core Questions Triangle Mechanism (Unmounts completely at Beat 4) */}
+        {/* Stage 2: 3 Core Questions Triangle Mechanism (Beat 3) */}
         {isTriangleStage && (
           <ThreeQuestionsTriangleMechanism />
         )}
 
-        {/* Stage 3: 4 Mandatory CARS Pillars Mechanism (Beat 4+) */}
+        {/* Stage 3: 4 Architectural Keystone Pillars Mechanism (Beat 4) */}
         {isPillarsStage && (
-          <CarsFourPillarsMechanism />
+          <KeystonePillars />
         )}
       </SafeStageZone>
     </div>

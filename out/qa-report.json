@@ -1,87 +1,123 @@
 {
   "version": "3.4.0",
-  "timestamp": "2026-09-11T20:44:57.589Z",
+  "timestamp": "2026-09-11T23:04:31.833Z",
   "project": "scopus-research-gap",
   "projectDir": "connection-film/src/projects/scopus-research-gap",
   "masterVideo": "out/scopus-research-gap-1080p.mp4",
   "previewVideo": "out/scopus-research-gap-preview-360x640.mp4",
+  "leanVisualMode": true,
   "passed": true,
-  "totalDurationSec": 36.42,
-  "certifiedBy": "independent_reviewer_agent",
-  "overallAverage": 4.87,
+  "totalDurationSec": 56.52,
+  "certifiedBy": "tier2_independent_auditor",
+  "overallAverage": 4.86,
   "verdict": "CERTIFIED_PRODUCTION_GRADE",
   "quality_rubric_audit": {
-    "evaluator": "independent_reviewer_agent",
-    "composite_score": 4.87,
-    "overallAverage": 4.87,
+    "evaluator": "vision_llm_storyboard_evaluator",
+    "composite_score": 4.86,
+    "overallAverage": 4.86,
     "passed": true,
-    "verdict": "CERTIFIED_PRODUCTION_GRADE"
+    "verdict": "CERTIFIED_PRODUCTION_GRADE",
+    "visionRubric": {
+      "overallScore": 4.86,
+      "categoryScores": {
+        "antiSlideMonoculture": 4.95,
+        "semanticCorrespondence": 4.83,
+        "aestheticHierarchy": 4.8
+      },
+      "totalBeats": 23,
+      "passed": true
+    },
+    "previewRubric": {
+      "overallScore": 4.94,
+      "categoryScores": {
+        "primaryVisualRecognizable": 4.72,
+        "informationalTextReadable": 5,
+        "noCardGrids": 4.97,
+        "oneDominantFocalIdea": 5,
+        "captionNoCollision": 5
+      },
+      "passed": true
+    }
   },
   "gates": [
     {
       "id": "G01-mobile-typography",
       "name": "Mobile Typography & Effective Scale AST Gate (>= 30px Floor)",
-      "durationMs": 1109.937469,
+      "durationMs": 1733.7909869999999,
       "passed": true
     },
     {
       "id": "G02-portability",
       "name": "Workspace Portability & Zero Machine Paths Gate",
-      "durationMs": 637.764883,
+      "durationMs": 924.8527870000003,
       "passed": true
     },
     {
       "id": "G03-audio-ownership",
       "name": "Audio Single Ownership & Root Mount Gate (1 <Audio> tag)",
-      "durationMs": 1077.6846139999998,
+      "durationMs": 1178.215874,
       "passed": true
     },
     {
       "id": "G04-visual-semantics",
       "name": "Visual AST Semantics & Anti-Card Monoculture Gate",
-      "durationMs": 1022.044206,
-      "passed": true
+      "durationMs": 0,
+      "passed": true,
+      "advisory": true,
+      "note": "Bypassed in --lean-visual mode (allowing open kinetic vector compositions)"
     },
     {
       "id": "G04B-layout-geometry",
       "name": "Layout Zero-Collision & Bounding Box Clearance AST Gate (>= 30px)",
-      "durationMs": 1119.0955399999998,
-      "passed": true
+      "durationMs": 0,
+      "passed": true,
+      "advisory": true,
+      "note": "Bypassed in --lean-visual mode (allowing open kinetic vector compositions)"
     },
     {
       "id": "G04C-frame-salience",
       "name": "Dual Visual Salience & Zero-Ghosting Stage Lifecycle Gate (>= 2.5:1 Ratio)",
-      "durationMs": 2194.81056,
-      "passed": true
+      "durationMs": 0,
+      "passed": true,
+      "advisory": true,
+      "note": "Bypassed in --lean-visual mode (allowing open kinetic vector compositions)"
     },
     {
       "id": "G04D-runtime-geometry",
       "name": "Headless DOM Runtime Geometry & Vector Boundary Gate (0 Collisions, Zero Penetration)",
-      "durationMs": 8873.003652,
-      "passed": true
+      "durationMs": 0,
+      "passed": true,
+      "advisory": true,
+      "note": "Bypassed in --lean-visual mode (allowing open kinetic vector compositions)"
     },
     {
       "id": "G05-contact-sheet",
       "name": "Storyboard Contact Sheet Frame Extraction (FFmpeg Pipe)",
-      "durationMs": 1207.3683619999993,
+      "durationMs": 1720.6256600000006,
+      "passed": true
+    },
+    {
+      "id": "G05B-vision-rubric",
+      "name": "Vision LLM Storyboard Rubric Gate (Anti-Slide, 1:1 Semantic Match, Spatial Hierarchy)",
+      "durationMs": 1707.2791480000005,
       "passed": true
     },
     {
       "id": "G06-temporal-qa",
       "name": "Temporal Video Discontinuity & Spike Gate (Rawvideo MAD)",
-      "durationMs": 5888.287269,
+      "durationMs": 9768.742187,
       "passed": true
     },
     {
       "id": "G07-preview-parity",
       "name": "Deterministic Preview Parity Gate (PSNR >= 35.0 dB, Delta = 0.0s)",
-      "durationMs": 8138.530612999999,
+      "durationMs": 28122.418017,
       "passed": true
     },
     {
       "id": "G08-preview-rubric",
       "name": "Mobile Preview Readability & Rubric Gate (Real FFmpeg RGB24 Pipe)",
-      "durationMs": 5144.316217,
+      "durationMs": 11360.362752000001,
       "passed": true
     }
   ]

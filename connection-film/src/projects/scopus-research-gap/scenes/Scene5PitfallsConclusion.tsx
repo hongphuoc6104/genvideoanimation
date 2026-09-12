@@ -9,7 +9,7 @@ export interface SceneProps {
 }
 
 export const Scene5PitfallsConclusion: React.FC<SceneProps> = ({
-  durationInFrames = 565,
+  durationInFrames = 781,
   shotBeats = [],
 }) => {
   const { currentBeatIndex, beatProgress } = useBeatChoreography(shotBeats);

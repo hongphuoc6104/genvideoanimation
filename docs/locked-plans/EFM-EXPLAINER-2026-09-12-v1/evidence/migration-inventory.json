@@ -1,0 +1,102 @@
+{
+  "scope": "all SKILL.md paths discovered under .agents; subsystem dispositions are in WORKPACKAGES",
+  "discoveredCount": 12,
+  "entries": [
+    {
+      "path": ".agents/skills/educational-flat-motion/SKILL.md",
+      "sha256": "60de59086e8ff81794223e43408544cbff73da0478f10c5763df2303640d7562",
+      "disposition": "KEEP + MIGRATE",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "canonical skill",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/challenger_m1_recheck/skills/educational-flat-motion/SKILL.md",
+      "sha256": "af04ac31fab58123684f324a0ce87f669a345b8a97ff8b49bd2c828ab9548e62",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/challenger_1/skills/educational-flat-motion/SKILL.md",
+      "sha256": "60de59086e8ff81794223e43408544cbff73da0478f10c5763df2303640d7562",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/worker_m1_script_audio/skills/educational-flat-motion/SKILL.md",
+      "sha256": "7514612c82affbf5299b1efd78e94f1b28a46e3f2fb0bda966834d5162488692",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/worker_m3_crispr/skills/educational-flat-motion/SKILL.md",
+      "sha256": "af04ac31fab58123684f324a0ce87f669a345b8a97ff8b49bd2c828ab9548e62",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/teamwork_preview_spec_miner_survey_1/skills/educational-flat-motion/SKILL.md",
+      "sha256": "b843a1f2370d25104eed86c449a4602ef59c5199463f6a689c2636407bb9f4a6",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/victory_auditor_1/skills/educational-flat-motion/SKILL.md",
+      "sha256": "60de59086e8ff81794223e43408544cbff73da0478f10c5763df2303640d7562",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/teamwork_preview_challenger_m1_r2_2/skills/educational-flat-motion/SKILL.md",
+      "sha256": "413986bbc955940d89d3280b7bd073f0e74d56999432c4545cb7c49e5a6dc60a",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/test_writer_2/skills/educational-flat-motion/SKILL.md",
+      "sha256": "b843a1f2370d25104eed86c449a4602ef59c5199463f6a689c2636407bb9f4a6",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/spec_miner_v2_reqs/skills/educational-flat-motion/SKILL.md",
+      "sha256": "7514612c82affbf5299b1efd78e94f1b28a46e3f2fb0bda966834d5162488692",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/worker_m3_geometry_gen2/skills/educational-flat-motion/SKILL.md",
+      "sha256": "381e37f87f2968951ab5fae4ef49dd59fffad6e9b9aea1c4fc74d56b006bd835",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    },
+    {
+      "path": ".agents/challenger_m2_motion_1/SKILL.md",
+      "sha256": "381e37f87f2968951ab5fae4ef49dd59fffad6e9b9aea1c4fc74d56b006bd835",
+      "disposition": "ARCHIVE / exclude from discovery after dependency review",
+      "executionStatus": "NOT_EXECUTED",
+      "reason": "historical agent copy; not automatically proof of active conflict",
+      "replacement": ".agents/skills/educational-flat-motion/SKILL.md"
+    }
+  ]
+}

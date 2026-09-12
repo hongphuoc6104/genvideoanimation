@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "npx",
+      "tsx",
+      "validators/validate-visual-semantics.ts",
+      "out/audits/anti-slide-root-cause-2026-09-12/fixtures/projects/SceneStaticSpans-plus-rect.tsx",
+      "--json"
+    ],
+    "exitCode": 0,
+    "stdout": "{\n  \"filesAnalyzed\": 1,\n  \"componentsAnalyzed\": 1,\n  \"violations\": [],\n  \"passed\": true,\n  \"criticalCount\": 0,\n  \"majorCount\": 0,\n  \"minorCount\": 0\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "npx",
+      "tsx",
+      "validators/validate-visual-semantics.ts",
+      "out/audits/anti-slide-root-cause-2026-09-12/fixtures/projects/SceneStaticSpans-baseline.tsx",
+      "--json"
+    ],
+    "exitCode": 1,
+    "stdout": "{\n  \"filesAnalyzed\": 1,\n  \"componentsAnalyzed\": 1,\n  \"violations\": [\n    {\n      \"file\": \"/home/hongphuoc6104/Desktop/videorenderhoathinh/out/audits/anti-slide-root-cause-2026-09-12/fixtures/projects/SceneStaticSpans-baseline.tsx\",\n      \"line\": 2,\n      \"column\": 42,\n      \"rule\": \"no-text-card-monoculture\",\n      \"ruleId\": \"no-text-card-monoculture\",\n      \"severity\": \"CRITICAL\",\n      \"message\": \"Text-card monoculture detected in component \\\"SceneStaticSpans\\\". Component contains 2 text elements but lacks meaningful diagram mechanisms (only 0 primitives, 0 relational components). Educational motion must use relational visual diagrams, not static presentation slides.\"\n    },\n    {\n      \"file\": \"/home/hongphuoc6104/Desktop/videorenderhoathinh/out/audits/anti-slide-root-cause-2026-09-12/fixtures/projects/SceneStaticSpans-baseline.tsx\",\n      \"line\": 2,\n      \"column\": 42,\n      \"rule\": \"require-relational-primitives\",\n      \"ruleId\": \"require-relational-primitives\",\n      \"severity\": \"CRITICAL\",\n      \"message\": \"Scene component \\\"SceneStaticSpans\\\" lacks relational visual primitives. Scene must include SVG vectors, node/edge graphs, coordinate frameworks, or kinetic diagram mechanisms.\"\n    }\n  ],\n  \"passed\": false,\n  \"criticalCount\": 2,\n  \"majorCount\": 0,\n  \"minorCount\": 0\n}\n",
+    "stderr": ""
+  }
+]

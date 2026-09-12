@@ -21,6 +21,7 @@ out/*
 !out/preview-rubric-report.json
 !out/adversarial-qa-report.json
 !out/v3_3-e2e-summary.json
+!out/vision-rubric-report.json
 connection-film/out/
 frames/
 .remotion/

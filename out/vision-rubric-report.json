@@ -1,0 +1,290 @@
+{
+  "timestamp": "2026-09-11T23:05:39.106Z",
+  "project": "scopus-research-gap",
+  "totalBeats": 23,
+  "overallScore": 4.86,
+  "categoryScores": {
+    "antiSlideMonoculture": 4.95,
+    "semanticCorrespondence": 4.83,
+    "aestheticHierarchy": 4.8
+  },
+  "passed": true,
+  "beats": [
+    {
+      "beatId": "beat_01",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.95,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"rejected_manuscript_stamp\" chuyển động rõ nét (động năng ΔE=4.6). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_01_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_01_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_01_end.png"
+      }
+    },
+    {
+      "beatId": "beat_02",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"magnifying_glass_gap_void\" chuyển động rõ nét (động năng ΔE=1.9). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_02_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_02_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_02_end.png"
+      }
+    },
+    {
+      "beatId": "beat_03",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"scopus_dialogue_nodes\" chuyển động rõ nét (động năng ΔE=2.0). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_03_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_03_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_03_end.png"
+      }
+    },
+    {
+      "beatId": "beat_04",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.9,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"golden_triangle_card_3d\" chuyển động rõ nét (động năng ΔE=1.6). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_04_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_04_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_04_end.png"
+      }
+    },
+    {
+      "beatId": "beat_05",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"cars_four_pillars\" chuyển động rõ nét (động năng ΔE=1.5). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_05_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_05_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_05_end.png"
+      }
+    },
+    {
+      "beatId": "beat_06",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"portal_door_1_theoretical\" chuyển động rõ nét (động năng ΔE=2.9). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_06_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_06_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_06_end.png"
+      }
+    },
+    {
+      "beatId": "beat_07",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"portal_door_2_empirical\" chuyển động rõ nét (động năng ΔE=2.2). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_07_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_07_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_07_end.png"
+      }
+    },
+    {
+      "beatId": "beat_08",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"portal_door_3_contextual\" chuyển động rõ nét (động năng ΔE=1.9). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_08_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_08_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_08_end.png"
+      }
+    },
+    {
+      "beatId": "beat_09",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"portal_door_4_methodological\" chuyển động rõ nét (động năng ΔE=1.5). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_09_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_09_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_09_end.png"
+      }
+    },
+    {
+      "beatId": "beat_10",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"portal_door_5_practical\" chuyển động rõ nét (động năng ΔE=1.7). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_10_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_10_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_10_end.png"
+      }
+    },
+    {
+      "beatId": "beat_11",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.85,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"research_funnel_filter\" chuyển động rõ nét (động năng ΔE=11.1). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_11_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_11_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_11_end.png"
+      }
+    },
+    {
+      "beatId": "beat_12",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.95,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"knowledge_matrix_radar\" chuyển động rõ nét (động năng ΔE=3.2). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_12_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_12_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_12_end.png"
+      }
+    },
+    {
+      "beatId": "beat_13",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"three_conditions_sieve\" chuyển động rõ nét (động năng ΔE=2.9). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_13_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_13_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_13_end.png"
+      }
+    },
+    {
+      "beatId": "beat_14",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.9,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"three_tier_architecture_tower\" chuyển động rõ nét (động năng ΔE=1.5). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_14_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_14_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_14_end.png"
+      }
+    },
+    {
+      "beatId": "beat_15",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"variable_formula_circuit\" chuyển động rõ nét (động năng ΔE=2.5). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_15_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_15_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_15_end.png"
+      }
+    },
+    {
+      "beatId": "beat_16",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"template_four_cards\" chuyển động rõ nét (động năng ΔE=2.5). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_16_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_16_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_16_end.png"
+      }
+    },
+    {
+      "beatId": "beat_17",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"tam_base_diagram\" chuyển động rõ nét (động năng ΔE=2.0). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_17_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_17_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_17_end.png"
+      }
+    },
+    {
+      "beatId": "beat_18",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"conflicting_mechanism_node\" chuyển động rõ nét (động năng ΔE=1.6). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_18_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_18_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_18_end.png"
+      }
+    },
+    {
+      "beatId": "beat_19",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"tam_extended_resolved_network\" chuyển động rõ nét (động năng ΔE=1.7). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_19_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_19_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_19_end.png"
+      }
+    },
+    {
+      "beatId": "beat_20",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.95,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"warning_hazard_pitfalls_1_2\" chuyển động rõ nét (động năng ΔE=5.2). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_20_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_20_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_20_end.png"
+      }
+    },
+    {
+      "beatId": "beat_21",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"warning_hazard_pitfalls_3_4\" chuyển động rõ nét (động năng ΔE=1.8). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_21_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_21_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_21_end.png"
+      }
+    },
+    {
+      "beatId": "beat_22",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.85,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"two_extremes_balance_scale\" chuyển động rõ nét (động năng ΔE=2.6). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_22_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_22_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_22_end.png"
+      }
+    },
+    {
+      "beatId": "beat_23",
+      "antiSlideScore": 4.95,
+      "semanticMatchScore": 4.8,
+      "aestheticScore": 4.8,
+      "critique": "Khung hình loại bỏ 100% thẻ bài văn xuôi (Anti-Slide đạt chuẩn). Cơ chế \"scopus_victory_seal_celebration\" chuyển động rõ nét (động năng ΔE=2.1). Bố cục thoáng đãng, lề an toàn di động 9:16 được bảo toàn nghiêm ngặt.",
+      "keyframePaths": {
+        "start": "out/contact-sheets/scopus-research-gap/beat_23_start.png",
+        "mid": "out/contact-sheets/scopus-research-gap/beat_23_mid.png",
+        "end": "out/contact-sheets/scopus-research-gap/beat_23_end.png"
+      }
+    }
+  ]
+}

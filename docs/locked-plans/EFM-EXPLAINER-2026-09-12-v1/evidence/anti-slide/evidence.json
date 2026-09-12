@@ -1,0 +1,48 @@
+{
+  "head": "ce3682daf18c8e5ccdb09a1808a44225a64aaf91",
+  "video": "out/scopus-research-gap-preview-360x640.mp4",
+  "video_sha256": "e0c6a08754a590aa6afe0db0bf15023baaa98e12238e8823c14e49a702f3dd4e",
+  "frames": [
+    {
+      "beat": "beat_11",
+      "frame": 1369,
+      "seconds": 45.63333333333333,
+      "file": "out/audits/anti-slide-root-cause-2026-09-12/beat_11-frame-1369.png",
+      "contract": {
+        "spatialRelationship": "conical_funnel_filtration",
+        "transformationType": "cascade_particle_filtering",
+        "coreMechanism": "research_funnel_pipeline"
+      }
+    },
+    {
+      "beat": "beat_12",
+      "frame": 1497,
+      "seconds": 49.9,
+      "file": "out/audits/anti-slide-root-cause-2026-09-12/beat_12-frame-1497.png",
+      "contract": {
+        "spatialRelationship": "matrix_radar_orthogonal_grid",
+        "transformationType": "radar_sweep_clustering",
+        "coreMechanism": "knowledge_matrix_mapping"
+      }
+    },
+    {
+      "beat": "beat_13",
+      "frame": 1633,
+      "seconds": 54.43333333333333,
+      "file": "out/audits/anti-slide-root-cause-2026-09-12/beat_13-frame-1633.png",
+      "contract": {
+        "spatialRelationship": "three_condition_concentric_sieve",
+        "transformationType": "sieve_particle_separation",
+        "coreMechanism": "three_conditions_filter"
+      }
+    }
+  ],
+  "source_hashes": {
+    "connection-film/src/projects/scopus-research-gap/semantic-timeline.json": "f57fafcaf962da2cb97c8e662f841db85a0a1639b9ae721e8a080d2fbe1ca70b",
+    "connection-film/src/projects/scopus-research-gap/scenes/Scene3ProcessFunnel.tsx": "daf9e576aab0fb49634150c3ae75ad3eab3a6056b259fa4fa63515ec1f3f36da",
+    "connection-film/src/projects/scopus-research-gap/components/ResearchFunnelMechanism.tsx": "610c70637a7cdafa0b17b3da6163b08bef4d8d0175bd62599b0fa19426605d2b",
+    "validators/validate-visual-semantics.ts": "bb2fddc68e3fd0a57fb21b9bf565d87ba6024d03b8a5f6fc5bc81407cd08952a",
+    "scripts/run-production-gate.ts": "60d06032b1f3a13dfa3135e8b49082bd74ef4a627b950820802407892f21be3c",
+    ".agents/skills/educational-flat-motion/SKILL.md": "60de59086e8ff81794223e43408544cbff73da0478f10c5763df2303640d7562"
+  }
+}

@@ -370,6 +370,8 @@ export const IN_BROWSER_EXTRACT_SCRIPT = `(() => {
         fontSize,
         isSubtitle,
         isHud,
+        domIndex: domIdx,
+        zIndex: getZIndex(el),
       });
     }
 
@@ -578,6 +580,81 @@ export function evaluateFrameInvariants(snapshot: DOMFrameSnapshot): RuntimeGeom
           coordinates: { t1: t1.rect, t2: t2.rect, overlap: { width: overlapX, height: overlapY } },
           shortfallPx: Math.min(overlapX, overlapY),
         });
+      }
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // INVARIANT 1B: CARD-ON-CARD COLLISION (Zero Sibling Overlap)
+  // -------------------------------------------------------------------------
+  const visibleCards = cards.filter(
+    (c) => c.effectiveOpacity >= 0.2 && c.rect.width < 960 && c.rect.height < 1500 && !c.isHud
+  );
+
+  for (let i = 0; i < visibleCards.length; i++) {
+    for (let j = i + 1; j < visibleCards.length; j++) {
+      const c1 = visibleCards[i];
+      const c2 = visibleCards[j];
+
+      // Check if one card is nested inside the other (parent-child container relationship)
+      const c2InsideC1 =
+        c2.rect.x >= c1.rect.x - 2 &&
+        c2.rect.x + c2.rect.width <= c1.rect.x + c1.rect.width + 2 &&
+        c2.rect.y >= c1.rect.y - 2 &&
+        c2.rect.y + c2.rect.height <= c1.rect.y + c1.rect.height + 2;
+
+      const c1InsideC2 =
+        c1.rect.x >= c2.rect.x - 2 &&
+        c1.rect.x + c1.rect.width <= c2.rect.x + c2.rect.width + 2 &&
+        c1.rect.y >= c2.rect.y - 2 &&
+        c1.rect.y + c1.rect.height <= c2.rect.y + c2.rect.height + 2;
+
+      if (c2InsideC1 || c1InsideC2) continue; // Legitimate nested cards
+
+      const { overlapX, overlapY, intersects } = getBoxOverlap(c1.rect, c2.rect);
+      if (intersects && overlapX > 4.0 && overlapY > 4.0) {
+        violations.push({
+          beatId,
+          frame,
+          invariant: 'CARD_COLLISION',
+          severity: 'CRITICAL',
+          message: `Card collision: container <${c1.tag}> at (${c1.rect.x}, ${c1.rect.y}) collides with <${c2.tag}> at (${c2.rect.x}, ${c2.rect.y}) (overlap: ${overlapX.toFixed(1)}x${overlapY.toFixed(1)}px).`,
+          offendingElements: [c1.id, c2.id],
+          coordinates: { c1: c1.rect, c2: c2.rect, overlap: { width: overlapX, height: overlapY } },
+          shortfallPx: Math.min(overlapX, overlapY),
+        });
+      }
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // INVARIANT 1C: CARD-ON-TEXT OCCLUSION (Opaque Shield Obscuring Prior Text)
+  // -------------------------------------------------------------------------
+  for (const c of cards) {
+    if (!c.isOpaque || c.effectiveOpacity < 0.8) continue;
+    if (c.rect.width >= 1000) continue; // Skip full stage wrappers
+
+    for (const t of stageTexts) {
+      if (t.isSubtitle || t.isHud) continue;
+      // If text was rendered BEFORE card in DOM tree (lower domIndex or lower zIndex)
+      const textIsBehind =
+        (t.zIndex ?? 0) < c.zIndex ||
+        ((t.zIndex ?? 0) === c.zIndex && (t.domIndex ?? 0) < c.domIndex);
+
+      if (textIsBehind) {
+        const { overlapX, overlapY, intersects } = getBoxOverlap(c.rect, t.rect);
+        if (intersects && overlapX > 6.0 && overlapY > 6.0) {
+          violations.push({
+            beatId,
+            frame,
+            invariant: 'CARD_TEXT_OCCLUSION',
+            severity: 'CRITICAL',
+            message: `Card occlusion: opaque container <${c.tag}> occludes earlier text "${t.text.slice(0, 25)}" (overlap: ${overlapX.toFixed(1)}x${overlapY.toFixed(1)}px).`,
+            offendingElements: [c.id, t.text],
+            coordinates: { card: c.rect, text: t.rect, overlap: { width: overlapX, height: overlapY } },
+            shortfallPx: Math.min(overlapX, overlapY),
+          });
+        }
       }
     }
   }

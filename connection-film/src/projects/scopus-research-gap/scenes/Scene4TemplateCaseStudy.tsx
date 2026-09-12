@@ -9,7 +9,7 @@ export interface SceneProps {
 }
 
 export const Scene4TemplateCaseStudy: React.FC<SceneProps> = ({
-  durationInFrames = 555,
+  durationInFrames = 773,
   shotBeats = [],
 }) => {
   const { currentBeatIndex } = useBeatChoreography(shotBeats);

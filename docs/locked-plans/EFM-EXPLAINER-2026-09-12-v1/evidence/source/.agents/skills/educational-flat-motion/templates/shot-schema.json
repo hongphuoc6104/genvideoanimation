@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RemotionShotSpecV3_4",
+  "type": "object",
+  "required": ["sequence_id", "width", "height", "fps", "totalFrames", "shots", "transitions"],
+  "properties": {
+    "version": { "type": "string" },
+    "sequence_id": { "type": "string" },
+    "width": { "type": "integer", "const": 1080 },
+    "height": { "type": "integer", "const": 1920 },
+    "fps": { "type": "integer", "const": 30 },
+    "totalFrames": { "type": "integer", "minimum": 1 },
+    "totalDurationSec": { "type": "number", "minimum": 0 },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "narrative_purpose", "startFrame", "endFrame", "durationInFrames", "impact_frames"],
+        "properties": {
+          "id": { "type": "string" },
+          "narrative_purpose": { "type": "string" },
+          "startFrame": { "type": "integer", "minimum": 0 },
+          "endFrame": { "type": "integer", "minimum": 1 },
+          "durationInFrames": { "type": "integer", "minimum": 1 },
+          "start_state": { "type": "object" },
+          "end_state": { "type": "object" },
+          "impact_frames": {
+            "type": "array",
+            "items": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from_shot", "to_shot", "transition_type", "transition_frames"],
+        "properties": {
+          "from_shot": { "type": "string" },
+          "to_shot": { "type": "string" },
+          "transition_type": {
+            "type": "string",
+            "enum": [
+              "object_match",
+              "camera_carry",
+              "shape_morph",
+              "foreground_wipe",
+              "continuing_trajectory",
+              "semantic_zoom",
+              "motivated_iris",
+              "match_cut"
+            ]
+          },
+          "transition_frames": {
+            "type": "array",
+            "items": { "type": "integer" },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "expected_visual_discontinuity": { "type": "number" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  }
+}

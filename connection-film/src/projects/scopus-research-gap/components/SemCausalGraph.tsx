@@ -1,43 +1,74 @@
 import React from 'react';
-import { useCurrentFrame, useVideoConfig } from 'remotion';
-import { AutoPill, AutoClippingConnector, type BoxDescriptor } from 'motion-kit';
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export interface SemCausalGraphProps {
-  currentBeatIndex: number; // 0: Constructs focus, 1: Causal paths, 2: Context gap, 3: Synthesis
+  currentBeatIndex: number; // 0: Constructs, 1: Causal paths, 2: Context moderation barrier, 3: Synthesis
 }
 
-const CONSTRUCTS = [
-  { id: 'c1', name: 'Chất lượng DV số', color: '#38BDF8', y: 540, w: 320, h: 100 },
-  { id: 'c2', name: 'Niềm tin KH', color: '#10B981', y: 760, w: 320, h: 100 },
-  { id: 'c3', name: 'Rủi ro cảm nhận', color: '#F43F5E', y: 980, w: 320, h: 100 },
+interface ConstructNode {
+  id: string;
+  name: string;
+  sub: string;
+  color: string;
+  x: number;
+  y: number;
+  beta: string;
+}
+
+const INDEPENDENT_NODES: ConstructNode[] = [
+  { id: 'c1', name: 'DỊCH VỤ SỐ', sub: 'E-SERVICE', color: '#38BDF8', x: 240, y: 560, beta: 'β = 0.42' },
+  { id: 'c2', name: 'NIỀM TIN', sub: 'TRUST', color: '#10B981', x: 240, y: 800, beta: 'β = 0.38' },
+  { id: 'c3', name: 'RỦI RO', sub: 'RISK', color: '#F43F5E', x: 240, y: 1040, beta: 'β = -0.29' },
 ];
 
-const BETAS = [
-  { id: 'b1', text: 'β = 0.42***', color: '#38BDF8', y: 610, w: 240, h: 96 },
-  { id: 'b2', text: 'β = 0.38***', color: '#10B981', y: 760, w: 240, h: 96 },
-  { id: 'b3', text: 'β = -0.29**', color: '#F43F5E', y: 910, w: 240, h: 96 },
-];
-
-const TARGET_VAR = { name: 'SỰ HÀI LÒNG', color: '#10B981', cx: 860, cy: 760, w: 320, h: 120 };
+const TARGET_NODE = {
+  name: 'HÀI LÒNG',
+  sub: 'SATISFACTION',
+  color: '#10B981',
+  x: 840,
+  y: 800,
+};
 
 export const SemCausalGraph: React.FC<SemCausalGraphProps> = ({ currentBeatIndex }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Active construct in beat 0 cycles (~45 frames each)
-  const activeConstructIdx = currentBeatIndex === 0 ? Math.min(2, Math.floor(frame / 45)) : -1;
-  const showPaths = currentBeatIndex >= 1;
-  const isConflictStage = currentBeatIndex === 2;
-  const isSynthesisStage = currentBeatIndex >= 3;
+  // Entrance spring
+  const enterSpring = spring({
+    frame,
+    fps,
+    config: { damping: 14, stiffness: 85 },
+  });
 
-  // Box descriptors for dependent variable
-  const targetBox: BoxDescriptor = {
-    cx: TARGET_VAR.cx,
-    cy: TARGET_VAR.cy,
-    width: TARGET_VAR.w,
-    height: TARGET_VAR.h,
-    rx: 20,
+  const showPaths = currentBeatIndex >= 1;
+  const isContextGap = currentBeatIndex === 2;
+  const isSynthesis = currentBeatIndex >= 3;
+
+  // Moderation barrier drop spring for Beat 2 (Context Gap)
+  const barrierDrop = spring({
+    frame: isContextGap || isSynthesis ? frame : 0,
+    fps,
+    config: { damping: 12, stiffness: 110 },
+  });
+  const barrierY = interpolate(barrierDrop, [0, 1], [400, 800]);
+
+  // Pulse animation for energy packet travel (0..1 along Bezier)
+  const pulseT1 = (frame * 0.025) % 1;
+  const pulseT2 = ((frame * 0.025) + 0.33) % 1;
+  const pulseT3 = ((frame * 0.025) + 0.66) % 1;
+
+  // Quadratic Bezier coordinate helper: B(t) = (1-t)^2 P0 + 2(1-t)t P1 + t^2 P2
+  const getQuadBezierPoint = (p0: { x: number; y: number }, p1: { x: number; y: number }, p2: { x: number; y: number }, t: number) => {
+    const x = Math.pow(1 - t, 2) * p0.x + 2 * (1 - t) * t * p1.x + Math.pow(t, 2) * p2.x;
+    const y = Math.pow(1 - t, 2) * p0.y + 2 * (1 - t) * t * p1.y + Math.pow(t, 2) * p2.y;
+    return { x, y };
   };
+
+  const pathControls = [
+    { p0: { x: 240, y: 560 }, p1: { x: 540, y: 640 }, p2: { x: 840, y: 800 } },
+    { p0: { x: 240, y: 800 }, p1: { x: 540, y: 800 }, p2: { x: 840, y: 800 } },
+    { p0: { x: 240, y: 1040 }, p1: { x: 540, y: 960 }, p2: { x: 840, y: 800 } },
+  ];
 
   return (
     <svg
@@ -52,200 +83,306 @@ export const SemCausalGraph: React.FC<SemCausalGraphProps> = ({ currentBeatIndex
       }}
     >
       <defs>
-        <marker
-          id="semArrow"
-          markerWidth="12"
-          markerHeight="12"
-          refX="10"
-          refY="6"
-          orient="auto"
-        >
-          <path d="M 0 1 L 10 6 L 0 11 z" fill="#38BDF8" />
-        </marker>
-        <marker
-          id="trustArrow"
-          markerWidth="12"
-          markerHeight="12"
-          refX="10"
-          refY="6"
-          orient="auto"
-        >
-          <path d="M 0 1 L 10 6 L 0 11 z" fill="#10B981" />
-        </marker>
-        <marker
-          id="riskArrow"
-          markerWidth="12"
-          markerHeight="12"
-          refX="10"
-          refY="6"
-          orient="auto"
-        >
-          <path d="M 0 1 L 10 6 L 0 11 z" fill="#F43F5E" />
-        </marker>
+        <filter id="circuitGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="10" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <linearGradient id="barrierGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#D97706" />
+        </linearGradient>
       </defs>
 
-      {/* Domain Title Header Pill at y = 300 */}
-      <AutoPill
-        text="CASE STUDY: MÔ HÌNH SEM NGÂN HÀNG SỐ"
-        x={540}
-        y={300}
-        fontSize={30}
-        fontWeight={900}
-        color="#38BDF8"
-        stroke="#38BDF8"
-        strokeWidth={2}
-        fill="#0F172A"
-        paddingHorizontal={36}
-      />
+      {/* Kinetic Header (Minimal Anchor Tag <= 3 words) */}
+      <g transform="translate(540, 320)" opacity={enterSpring}>
+        <text
+          x={0}
+          y={0}
+          fill="#38BDF8"
+          fontSize={44}
+          fontWeight={900}
+          letterSpacing="0.08em"
+          textAnchor="middle"
+        >
+          MẠCH DỮ LIỆU SEM
+        </text>
+        <line
+          x1={-180}
+          y1={24}
+          x2={180}
+          y2={24}
+          stroke="#38BDF8"
+          strokeWidth={3}
+          strokeLinecap="round"
+        />
+      </g>
 
-      {/* 3 Independent Constructs on Left (x = 220) */}
-      {CONSTRUCTS.map((c, idx) => {
-        const isSelected =
-          isConflictStage ? idx === 2 :
-          isSynthesisStage ? true :
-          activeConstructIdx === -1 || idx === activeConstructIdx;
+      {/* Kinetic Circuit Bezier Traces connecting Nodes to Target Outcome */}
+      {showPaths && (
+        <g>
+          {pathControls.map((ctrl, i) => {
+            const node = INDEPENDENT_NODES[i];
+            const isBlockedPath = i === 1 && (isContextGap || isSynthesis);
 
-        const box: BoxDescriptor = { cx: 220, cy: c.y, width: c.w, height: c.h, rx: 20 };
-        const betaBox: BoxDescriptor = { cx: 540, cy: BETAS[idx].y, width: BETAS[idx].w, height: BETAS[idx].h, rx: 16 };
+            return (
+              <g key={`trace-${node.id}`}>
+                {/* Smooth Bezier Cable Curve */}
+                <path
+                  d={`M ${ctrl.p0.x} ${ctrl.p0.y} Q ${ctrl.p1.x} ${ctrl.p1.y} ${ctrl.p2.x} ${ctrl.p2.y}`}
+                  fill="none"
+                  stroke={isBlockedPath ? '#F59E0B' : node.color}
+                  strokeWidth={isBlockedPath ? 5 : 4}
+                  strokeDasharray={isBlockedPath ? '8 6' : undefined}
+                  opacity={isBlockedPath ? 0.75 : 0.85}
+                />
+
+                {/* Traveling Energy Pulses */}
+                {!isBlockedPath ? (
+                  <>
+                    {[pulseT1, pulseT2, pulseT3].map((t, pIdx) => {
+                      const pt = getQuadBezierPoint(ctrl.p0, ctrl.p1, ctrl.p2, t);
+                      return (
+                        <circle
+                          key={pIdx}
+                          cx={pt.x}
+                          cy={pt.y}
+                          r={7}
+                          fill="#FFFFFF"
+                          filter="url(#circuitGlow)"
+                        />
+                      );
+                    })}
+                  </>
+                ) : (
+                  // Blocked path: energy scatters at the barrier (x = 540)
+                  <>
+                    {[pulseT1, pulseT2].map((t, pIdx) => {
+                      const effectiveT = Math.min(0.48, t);
+                      const pt = getQuadBezierPoint(ctrl.p0, ctrl.p1, ctrl.p2, effectiveT);
+                      return (
+                        <circle
+                          key={pIdx}
+                          cx={pt.x}
+                          cy={pt.y}
+                          r={8}
+                          fill="#F59E0B"
+                          filter="url(#circuitGlow)"
+                        />
+                      );
+                    })}
+                  </>
+                )}
+
+                {/* Beta Weight Anchor Tag <= 3 words on curve */}
+                <g transform={`translate(${ctrl.p1.x}, ${i === 1 ? ctrl.p1.y - 45 : ctrl.p1.y})`}>
+                  <rect
+                    x={-80}
+                    y={-22}
+                    width={160}
+                    height={44}
+                    rx={22}
+                    fill="#0F172A"
+                    stroke={isBlockedPath ? '#F59E0B' : node.color}
+                    strokeWidth={2}
+                  />
+                  <text
+                    x={0}
+                    y={8}
+                    fill={isBlockedPath ? '#F59E0B' : node.color}
+                    fontSize={30}
+                    fontWeight={900}
+                    textAnchor="middle"
+                  >
+                    {node.beta}
+                  </text>
+                </g>
+              </g>
+            );
+          })}
+        </g>
+      )}
+
+      {/* Moderation Context Barrier dropping down in Beat 18 (Context Gap) */}
+      {(isContextGap || isSynthesis) && (
+        <g transform={`translate(540, ${barrierY})`}>
+          {/* Barrier Shockwave Aura */}
+          <ellipse
+            cx={0}
+            cy={0}
+            rx={90}
+            ry={90}
+            fill="none"
+            stroke="#F59E0B"
+            strokeWidth={3}
+            strokeDasharray="6 6"
+            opacity={0.7}
+          />
+          {/* Physical Barrier Block */}
+          <rect
+            x={-35}
+            y={-65}
+            width={70}
+            height={130}
+            rx={14}
+            fill="url(#barrierGrad)"
+            stroke="#FFFFFF"
+            strokeWidth={3.5}
+            filter="drop-shadow(0 0 24px rgba(245, 158, 11, 0.8))"
+          />
+          {/* Barrier Shield Icon */}
+          <path
+            d="M 0 -25 L 18 -15 L 18 10 Q 0 28 0 28 Q 0 28 -18 10 L -18 -15 Z"
+            fill="#0F172A"
+            stroke="#FFFFFF"
+            strokeWidth={2}
+          />
+
+          {/* Barrier Anchor Label <= 3 words */}
+          <g transform="translate(0, 95)">
+            <rect
+              x={-140}
+              y={-22}
+              width={280}
+              height={44}
+              rx={22}
+              fill="#0F172A"
+              stroke="#F59E0B"
+              strokeWidth={2.5}
+            />
+            <text
+              x={0}
+              y={7}
+              fill="#F59E0B"
+              fontSize={30}
+              fontWeight={900}
+              textAnchor="middle"
+              letterSpacing="0.04em"
+            >
+              RÀO CẢN BỐI CẢNH
+            </text>
+          </g>
+        </g>
+      )}
+
+      {/* 3 Independent Predictor Nodes on Left */}
+      {INDEPENDENT_NODES.map((node, idx) => {
+        const isActive = currentBeatIndex === 0 ? Math.min(2, Math.floor(frame / 45)) === idx : true;
 
         return (
-          <g key={c.id}>
-            {/* Connecting vectors when showPaths is active */}
-            {showPaths && (
-              <>
-                <AutoClippingConnector
-                  from={box}
-                  to={betaBox}
-                  stroke={c.color}
-                  strokeWidth={isConflictStage && idx === 2 ? 6 : 4}
-                  strokeDasharray={idx === 2 ? '8 6' : undefined}
-                />
-                <AutoClippingConnector
-                  from={betaBox}
-                  to={targetBox}
-                  stroke={c.color}
-                  strokeWidth={isConflictStage && idx === 2 ? 6 : 4}
-                  strokeDasharray={idx === 2 ? '8 6' : undefined}
-                />
-              </>
+          <g
+            key={node.id}
+            transform={`translate(${node.x}, ${node.y})`}
+            opacity={isActive ? 1.0 : 0.5}
+          >
+            {/* Active Aura */}
+            {isActive && (
+              <circle
+                cx={0}
+                cy={0}
+                r={68}
+                fill={node.color}
+                opacity={0.2}
+                filter="url(#circuitGlow)"
+              />
             )}
 
-            {/* Construct Box */}
-            <g
-              transform={`translate(220, ${c.y})`}
-              opacity={isSelected ? 1.0 : 0.4}
-              style={{ transition: 'opacity 0.25s ease' }}
-            >
-              <rect
-                x={-c.w / 2}
-                y={-c.h / 2}
-                width={c.w}
-                height={c.h}
-                rx={20}
-                fill="#0F172A"
-                stroke={c.color}
-                strokeWidth={isSelected ? 4 : 2}
-                filter={isSelected ? `drop-shadow(0 0 16px ${c.color}80)` : 'none'}
-                data-badge="true"
-              />
+            {/* Circular Base Node */}
+            <circle
+              cx={0}
+              cy={0}
+              r={46}
+              fill="#0F172A"
+              stroke={node.color}
+              strokeWidth={isActive ? 4 : 2.5}
+              filter={isActive ? `drop-shadow(0 0 16px ${node.color})` : 'none'}
+            />
+            <circle cx={0} cy={0} r={14} fill={node.color} />
+
+            {/* Anchor Label <= 3 words, Font >= 30px */}
+            <g transform="translate(0, 78)">
               <text
                 x={0}
-                y={10}
+                y={0}
+                fill={isActive ? '#FFFFFF' : node.color}
+                fontSize={32}
+                fontWeight={900}
+                letterSpacing="0.04em"
                 textAnchor="middle"
-                fill={isSelected ? '#FFFFFF' : c.color}
-                fontSize={30}
-                fontWeight={800}
               >
-                {c.name}
+                {node.name}
+              </text>
+              <text
+                x={0}
+                y={32}
+                fill={node.color}
+                fontSize={30}
+                fontWeight={700}
+                letterSpacing="0.06em"
+                textAnchor="middle"
+              >
+                {node.sub}
               </text>
             </g>
-
-            {/* Intermediate Beta Value Badge */}
-            {showPaths && (
-              <g transform={`translate(540, ${BETAS[idx].y})`}>
-                <rect
-                  x={-BETAS[idx].w / 2}
-                  y={-BETAS[idx].h / 2}
-                  width={BETAS[idx].w}
-                  height={BETAS[idx].h}
-                  rx={16}
-                  fill="#0F172A"
-                  stroke={c.color}
-                  strokeWidth={2}
-                  data-badge="true"
-                />
-                <text
-                  x={0}
-                  y={8}
-                  textAnchor="middle"
-                  fill={c.color}
-                  fontSize={30}
-                  fontWeight={800}
-                >
-                  {BETAS[idx].text}
-                </text>
-              </g>
-            )}
           </g>
         );
       })}
 
-      {/* Dependent Variable Box on Right (x = 860, y = 760) */}
-      <g transform={`translate(${TARGET_VAR.cx}, ${TARGET_VAR.cy})`}>
-        <rect
-          x={-TARGET_VAR.w / 2}
-          y={-TARGET_VAR.h / 2}
-          width={TARGET_VAR.w}
-          height={TARGET_VAR.h}
-          rx={20}
-          fill="#0F172A"
-          stroke={TARGET_VAR.color}
-          strokeWidth={isSynthesisStage ? 5 : 4}
-          filter={isSynthesisStage ? 'drop-shadow(0 0 30px rgba(16, 185, 129, 0.8))' : 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.4))'}
-          data-badge="true"
+      {/* Target Outcome Node on Right ("HÀI LÒNG") */}
+      <g
+        transform={`translate(${TARGET_NODE.x}, ${TARGET_NODE.y})`}
+        opacity={showPaths ? 1.0 : 0.5}
+      >
+        {/* Active Aura */}
+        <circle
+          cx={0}
+          cy={0}
+          r={78}
+          fill={TARGET_NODE.color}
+          opacity={0.25}
+          filter="url(#circuitGlow)"
         />
-        <text
-          x={0}
-          y={10}
-          textAnchor="middle"
-          fill={TARGET_VAR.color}
-          fontSize={32}
-          fontWeight={900}
-        >
-          {TARGET_VAR.name}
-        </text>
+
+        {/* Circular Target Core Node */}
+        <circle
+          cx={0}
+          cy={0}
+          r={56}
+          fill="#0F172A"
+          stroke={TARGET_NODE.color}
+          strokeWidth={5}
+          filter={`drop-shadow(0 0 24px ${TARGET_NODE.color})`}
+        />
+        <circle cx={0} cy={0} r={20} fill={TARGET_NODE.color} />
+
+        {/* Outcome Anchor Label <= 3 words */}
+        <g transform="translate(0, 90)">
+          <text
+            x={0}
+            y={0}
+            fill="#FFFFFF"
+            fontSize={34}
+            fontWeight={900}
+            letterSpacing="0.04em"
+            textAnchor="middle"
+          >
+            {TARGET_NODE.name}
+          </text>
+          <text
+            x={0}
+            y={34}
+            fill={TARGET_NODE.color}
+            fontSize={30}
+            fontWeight={700}
+            letterSpacing="0.06em"
+            textAnchor="middle"
+          >
+            {TARGET_NODE.sub}
+          </text>
+        </g>
       </g>
-
-      {/* Dynamic Stage Insight Pill in Safe Zone at y = 1150 */}
-      {isConflictStage && (
-        <AutoPill
-          text="BIẾN ĐIỀU TIẾT: RỦI RO LÀM ĐẢO CHIỀU TÁC ĐỘNG"
-          x={540}
-          y={1150}
-          fontSize={30}
-          fontWeight={800}
-          color="#F43F5E"
-          stroke="#F43F5E"
-          strokeWidth={3}
-          fill="#0F172A"
-          paddingHorizontal={36}
-        />
-      )}
-
-      {isSynthesisStage && (
-        <AutoPill
-          text="MÔ HÌNH TOÀN DIỆN: CÂN BẰNG HỆ THỐNG TRI THỨC"
-          x={540}
-          y={1150}
-          fontSize={30}
-          fontWeight={800}
-          color="#10B981"
-          stroke="#10B981"
-          strokeWidth={3}
-          fill="#0F172A"
-          paddingHorizontal={36}
-        />
-      )}
     </svg>
   );
 };
+
+export default SemCausalGraph;

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CaptionsChunkV3_4",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "text", "startFrame", "endFrame", "box", "words"],
+    "properties": {
+      "id": { "type": "string" },
+      "text": {
+        "type": "string",
+        "maxLength": 85,
+        "description": "Short semantic chunk (typically 4-8 words, <= 12 words max)"
+      },
+      "startFrame": { "type": "integer" },
+      "endFrame": { "type": "integer" },
+      "box": {
+        "type": "object",
+        "required": ["x", "y", "width", "height"],
+        "properties": {
+          "x": { "type": "number", "default": 80 },
+          "y": { "type": "number", "minimum": 1450, "maximum": 1700 },
+          "width": { "type": "number", "default": 920 },
+          "height": { "type": "number", "maximum": 180 }
+        }
+      },
+      "words": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["word", "startFrame", "endFrame"],
+          "properties": {
+            "word": { "type": "string" },
+            "startFrame": { "type": "integer" },
+            "endFrame": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}

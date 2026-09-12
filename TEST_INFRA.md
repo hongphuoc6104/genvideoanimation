@@ -62,6 +62,16 @@ The V3.3 framework maps all 17 requirements (R1–R17 / F01–F18) across the 4 
 ### Mathematical Coverage Invariant:
 $$\text{Total Test Cases} = \text{Tier 1 } (85) + \text{Tier 2 } (85) + \text{Tier 3 } (21) + \text{Tier 4 } (14) = 205 \ge 196 \quad [\mathbf{PASS}]$$
 
+### 2.1 Canonical Feature Aliases & Subsystem Inventory
+The framework maps legacy requirement IDs to canonical feature tags:
+- `F-PKG-CANONICAL`: Canonical Production Package Isolation & Strict Runtime Boundaries (R1/R15)
+- `F-SHOTSPEC-CUES`: Frame-Accurate ShotSpec Cues, Transitions & Temporal Invariants (R7)
+- `F-TYPOGRAPHY-SCALE`: Mobile Effective Scale & Typography Floor (R2)
+- `F-AUDIO-PREMIXED`: Single Audio Tag Ownership & Premixed Master WAV (R8/R10)
+- `F-TIMELINE-CHOREO`: Semantic Timeline Dynamic Adaptation & Progression (R5/R6)
+- `F-GEOM-PRIMITIVES`: Smart Self-Protecting Geometric Primitives & AutoPill
+- `F-FULL-PIPELINE`: Full End-to-End System Pipeline & QA Certification (R13/R17)
+
 ---
 
 ## 3. Test Architecture & Directory Layout

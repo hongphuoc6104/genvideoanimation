@@ -3,8 +3,8 @@
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "totalFrames": 3096,
-  "totalDurationSec": 103.2,
+  "totalFrames": 4503,
+  "totalDurationSec": 150.103,
   "policy": "content-driven",
   "authoritative": true,
   "beats": [
@@ -13,12 +13,12 @@
       "shotId": "shot_01",
       "narrationTokenRange": [
         0,
-        19
+        25
       ],
-      "startSec": 0,
-      "endSec": 3.879,
+      "startSec": 0.0,
+      "endSec": 5.217,
       "startFrame": 0,
-      "endFrame": 116,
+      "endFrame": 157,
       "visualIntent": "Desk reject paradox & manuscript rejection impact",
       "primaryObject": "rejected_manuscript_stamp",
       "cameraIntent": "push_in_focus",
@@ -29,9 +29,9 @@
         "volume": 0.85
       },
       "captionIntent": {
-        "displayText": "Tại sao bài báo có số liệu tốt phương pháp mạnh vẫn bị Desk Reject ngay từ vòng đầu",
+        "displayText": "Tại sao một bài báo có số liệu chuẩn xác, phương pháp vững vàng, vẫn có thể bị Desk Reject ngay từ vòng gửi xe?",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "manuscript_rejection_stamp_impact",
@@ -43,13 +43,13 @@
       "id": "beat_02",
       "shotId": "shot_01",
       "narrationTokenRange": [
-        19,
-        38
+        25,
+        54
       ],
-      "startSec": 4.079,
-      "endSec": 7.418,
-      "startFrame": 122,
-      "endFrame": 223,
+      "startSec": 5.567,
+      "endSec": 10.765,
+      "startFrame": 167,
+      "endFrame": 323,
       "visualIntent": "Revealing research gap in the introduction section",
       "primaryObject": "magnifying_glass_gap_void",
       "cameraIntent": "pan_right",
@@ -60,9 +60,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Nguyên nhân cốt lõi Phần mở đầu không chứng minh được khoảng trống nghiên cứu một cách thuyết phục",
+        "displayText": "Bí mật nằm ở phần mở đầu: Bạn chưa chứng minh được một khoảng trống nghiên cứu thực sự thuyết phục để bài báo có lý do tồn tại.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "magnifying_void_highlight",
@@ -74,13 +74,13 @@
       "id": "beat_03",
       "shotId": "shot_01",
       "narrationTokenRange": [
-        38,
-        58
+        54,
+        90
       ],
-      "startSec": 7.598,
-      "endSec": 11.773,
-      "startFrame": 228,
-      "endFrame": 353,
+      "startSec": 11.085,
+      "endSec": 18.251,
+      "startFrame": 333,
+      "endFrame": 548,
       "visualIntent": "International academic discourse dialog network",
       "primaryObject": "scopus_dialogue_nodes",
       "cameraIntent": "orbit_slight",
@@ -91,9 +91,9 @@
         "volume": 0.65
       },
       "captionIntent": {
-        "displayText": "Chuẩn Scopus là chuẩn đối thoại học thuật Vấn đề rõ tổng quan chọn lọc lập luận có căn cứ",
+        "displayText": "Khoa học là một mạng lưới tri thức kết nối. Chuẩn Scopus đòi hỏi bài báo phải tham gia vào một cuộc đối thoại học thuật có căn cứ, chứ không phải độc thoại một mình.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "dialogue_network_connectivity",
@@ -105,13 +105,13 @@
       "id": "beat_04",
       "shotId": "shot_01",
       "narrationTokenRange": [
-        58,
-        79
+        90,
+        125
       ],
-      "startSec": 11.933,
-      "endSec": 15.696,
-      "startFrame": 358,
-      "endFrame": 471,
+      "startSec": 18.551,
+      "endSec": 25.918,
+      "startFrame": 557,
+      "endFrame": 778,
       "visualIntent": "3 Core Questions equilateral golden triangle",
       "primaryObject": "golden_triangle_card_3d",
       "cameraIntent": "push_triangle_vertices",
@@ -122,9 +122,9 @@
         "volume": 0.75
       },
       "captionIntent": {
-        "displayText": "Một Gap chuẩn phải trả lời ba câu hỏi Đã biết gì Chưa thỏa đáng điểm nào Đóng góp gì mới",
+        "displayText": "Một Research Gap đạt chuẩn phải trả lời tam giác ba câu hỏi cốt lõi: Nhân loại đã biết gì, điểm nào chưa thỏa đáng, và phát hiện mới của bạn đóng góp điều gì?",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "golden_triangle_inscribed_flow",
@@ -136,13 +136,13 @@
       "id": "beat_05",
       "shotId": "shot_01",
       "narrationTokenRange": [
-        79,
-        103
+        125,
+        155
       ],
-      "startSec": 15.856,
-      "endSec": 20.435,
-      "startFrame": 476,
-      "endFrame": 613,
+      "startSec": 26.218,
+      "endSec": 32.839,
+      "startFrame": 787,
+      "endFrame": 985,
       "visualIntent": "4 Mandatory Gap Attributes & Swales CARS Model moves",
       "primaryObject": "cars_four_pillars",
       "cameraIntent": "camera_carry",
@@ -159,9 +159,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Và sở hữu bốn thuộc tính Định vị Chứng cứ Giải thích và Khả nghiên cứu theo mô hình Swales C A R S",
+        "displayText": "Khung lập luận đó cần bốn trụ cột vững chắc: Tính định vị, tính chứng cứ, tính giải thích và khả năng nghiên cứu, đúng theo mô hình Swales CARS.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "four_pillars_structural_support",
@@ -173,13 +173,13 @@
       "id": "beat_06",
       "shotId": "shot_02",
       "narrationTokenRange": [
-        103,
-        126
+        155,
+        183
       ],
-      "startSec": 20.595,
-      "endSec": 25.045,
-      "startFrame": 618,
-      "endFrame": 751,
+      "startSec": 33.189,
+      "endSec": 38.838,
+      "startFrame": 996,
+      "endFrame": 1165,
       "visualIntent": "Door 1: Theoretical Gap mediator & moderator mechanism",
       "primaryObject": "portal_door_1_theoretical",
       "cameraIntent": "pan_focus_door1",
@@ -190,9 +190,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Cánh cửa thứ nhất Gap Lý thuyết khi lý thuyết hiện hành chưa giải thích đủ cơ chế trung gian hay điều tiết",
+        "displayText": "Trước hết là khoảng trống lý thuyết: Khi các học thuyết hiện tại bất lực trong việc giải thích cơ chế trung gian hoặc biến điều tiết mới.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "portal_door_theory_focus",
@@ -204,13 +204,13 @@
       "id": "beat_07",
       "shotId": "shot_02",
       "narrationTokenRange": [
-        126,
-        146
+        183,
+        212
       ],
-      "startSec": 25.205,
-      "endSec": 29.129,
-      "startFrame": 756,
-      "endFrame": 874,
+      "startSec": 39.138,
+      "endSec": 44.851,
+      "startFrame": 1174,
+      "endFrame": 1346,
       "visualIntent": "Door 2: Empirical Gap conflicting results & inconsistencies",
       "primaryObject": "portal_door_2_empirical",
       "cameraIntent": "pan_focus_door2",
@@ -221,9 +221,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Cánh cửa thứ hai Gap Thực nghiệm khi các nghiên cứu trước cho kết quả mâu thuẫn chưa nhất quán",
+        "displayText": "Tiếp đến là khoảng trống thực nghiệm: Nảy sinh khi các công trình đi trước đưa ra những kết luận mâu thuẫn và chưa hề có sự nhất quán.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "portal_door_empirical_focus",
@@ -235,13 +235,13 @@
       "id": "beat_08",
       "shotId": "shot_02",
       "narrationTokenRange": [
-        146,
-        171
+        212,
+        247
       ],
-      "startSec": 29.289,
-      "endSec": 34.259,
-      "startFrame": 879,
-      "endFrame": 1028,
+      "startSec": 45.151,
+      "endSec": 51.97,
+      "startFrame": 1355,
+      "endFrame": 1559,
       "visualIntent": "Door 3: Contextual Gap institutional & cultural boundary shift",
       "primaryObject": "portal_door_3_contextual",
       "cameraIntent": "pan_focus_door3",
@@ -252,9 +252,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Cánh cửa thứ ba Gap Bối cảnh đặc thù văn hóa thể chế làm thay đổi cơ chế không chỉ đơn thuần đổi địa bàn",
+        "displayText": "Đặc biệt là khoảng trống bối cảnh: Nơi đặc thù văn hóa và thể chế làm thay đổi hoàn toàn bản chất cơ chế, chứ không đơn thuần là thay đổi địa bàn nghiên cứu.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "portal_door_contextual_focus",
@@ -266,13 +266,13 @@
       "id": "beat_09",
       "shotId": "shot_02",
       "narrationTokenRange": [
-        171,
-        195
+        247,
+        278
       ],
-      "startSec": 34.419,
-      "endSec": 38.935,
-      "startFrame": 1033,
-      "endFrame": 1168,
+      "startSec": 52.27,
+      "endSec": 59.564,
+      "startFrame": 1568,
+      "endFrame": 1787,
       "visualIntent": "Door 4: Methodological Gap sample measurement & longitudinal data",
       "primaryObject": "portal_door_4_methodological",
       "cameraIntent": "pan_focus_door4",
@@ -283,9 +283,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Cánh cửa thứ tư Gap Phương pháp hạn chế về đo lường thiết kế mẫu dữ liệu dọc hoặc sai lệch C M V",
+        "displayText": "Bạn cũng có thể khai phá khoảng trống phương pháp: Khắc phục những hạn chế về thang đo, thiết kế mẫu dọc, hay kiểm soát sai lệch phương pháp chung CMV.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "portal_door_methodological_focus",
@@ -297,13 +297,13 @@
       "id": "beat_10",
       "shotId": "shot_02",
       "narrationTokenRange": [
-        195,
-        217
+        278,
+        304
       ],
-      "startSec": 39.095,
-      "endSec": 43.462,
-      "startFrame": 1173,
-      "endFrame": 1304,
+      "startSec": 59.864,
+      "endSec": 65.251,
+      "startFrame": 1796,
+      "endFrame": 1958,
       "visualIntent": "Door 5: Practical Gap policy implications & academic alignment",
       "primaryObject": "portal_door_5_practical",
       "cameraIntent": "foreground_wipe",
@@ -320,9 +320,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Cánh cửa thứ năm Gap Ứng dụng khi hàm ý chính sách và quản trị gắn liền với đóng góp học thuật",
+        "displayText": "Cuối cùng là khoảng trống ứng dụng: Nơi các phát hiện thực tiễn giải quyết điểm nghẽn chính sách, gắn chặt với giá trị học thuật.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "portal_door_practical_focus",
@@ -334,13 +334,13 @@
       "id": "beat_11",
       "shotId": "shot_03",
       "narrationTokenRange": [
-        217,
-        237
+        304,
+        332
       ],
-      "startSec": 43.622,
-      "endSec": 47.625,
-      "startFrame": 1309,
-      "endFrame": 1429,
+      "startSec": 65.601,
+      "endSec": 70.79,
+      "startFrame": 1968,
+      "endFrame": 2124,
       "visualIntent": "Step 1: Research funnel narrowing from broad topic to niche",
       "primaryObject": "research_funnel_filter",
       "cameraIntent": "tilt_down_funnel",
@@ -351,9 +351,9 @@
         "volume": 0.75
       },
       "captionIntent": {
-        "displayText": "Bước một Dùng phễu lọc thu hẹp từ chủ đề rộng sang dòng nghiên cứu chuyên sâu có trọng tâm",
+        "displayText": "Quy trình bắt đầu bằng chiếc phễu tư duy: Thu hẹp từ một đại dương chủ đề rộng lớn về một dòng nghiên cứu chuyên sâu duy nhất.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "conical_funnel_filtration",
@@ -365,13 +365,13 @@
       "id": "beat_12",
       "shotId": "shot_03",
       "narrationTokenRange": [
-        237,
-        260
+        332,
+        361
       ],
-      "startSec": 47.785,
-      "endSec": 52.034,
-      "startFrame": 1434,
-      "endFrame": 1561,
+      "startSec": 71.09,
+      "endSec": 77.389,
+      "startFrame": 2133,
+      "endFrame": 2322,
       "visualIntent": "Step 2: 4-Axis Knowledge Matrix radar mapping",
       "primaryObject": "knowledge_matrix_radar",
       "cameraIntent": "rotate_matrix_grid",
@@ -382,9 +382,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Bước hai Lập bản đồ tri thức bốn trục để nhận diện điểm mâu thuẫn và hạn chế lặp lại có hệ thống",
+        "displayText": "Kế tiếp, lập ma trận tri thức bốn trục: Khái niệm, bối cảnh, phương pháp và mâu thuẫn, để phát hiện những điểm đứt gãy mang tính hệ thống.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "matrix_radar_orthogonal_grid",
@@ -396,13 +396,13 @@
       "id": "beat_13",
       "shotId": "shot_03",
       "narrationTokenRange": [
-        260,
-        284
+        361,
+        396
       ],
-      "startSec": 52.194,
-      "endSec": 56.686,
-      "startFrame": 1566,
-      "endFrame": 1701,
+      "startSec": 77.689,
+      "endSec": 84.269,
+      "startFrame": 2331,
+      "endFrame": 2528,
       "visualIntent": "Step 3: 3-Condition Filter for critical academic limitations",
       "primaryObject": "three_conditions_sieve",
       "cameraIntent": "push_sieve_pass",
@@ -413,9 +413,9 @@
         "volume": 0.75
       },
       "captionIntent": {
-        "displayText": "Bước ba Lọc hạn chế qua ba điều kiện liên hệ học thuật cốt lõi lặp lại nhiều lần và khả thi kiểm định",
+        "displayText": "Sàng lọc các hạn chế này qua ba điều kiện khắt khe: Phải chạm tới cốt lõi học thuật, lặp lại ở nhiều bài báo uy tín, và hoàn toàn khả thi để kiểm định.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "three_condition_concentric_sieve",
@@ -427,13 +427,13 @@
       "id": "beat_14",
       "shotId": "shot_03",
       "narrationTokenRange": [
-        284,
-        304
+        396,
+        431
       ],
-      "startSec": 56.846,
-      "endSec": 60.894,
-      "startFrame": 1705,
-      "endFrame": 1827,
+      "startSec": 84.569,
+      "endSec": 91.483,
+      "startFrame": 2537,
+      "endFrame": 2744,
       "visualIntent": "Step 4: 3-Tier Gap Statement architecture building",
       "primaryObject": "three_tier_architecture_tower",
       "cameraIntent": "crane_up_tiers",
@@ -444,9 +444,9 @@
         "volume": 0.8
       },
       "captionIntent": {
-        "displayText": "Bước bốn Kiến tạo Gap Statement ba tầng Tầng Nền móng Tầng Vấn đề và Tầng Định vị giải pháp",
+        "displayText": "Từ đó, hãy bắc một cây cầu ba tầng vững chãi: Tầng nền móng tri thức đã biết, tầng xác lập vết nứt khoảng trống, và tầng định vị giải pháp nghiên cứu của bạn.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "three_tier_vertical_assembly",
@@ -458,13 +458,13 @@
       "id": "beat_15",
       "shotId": "shot_03",
       "narrationTokenRange": [
-        304,
-        329
+        431,
+        462
       ],
-      "startSec": 61.054,
-      "endSec": 65.691,
-      "startFrame": 1832,
-      "endFrame": 1971,
+      "startSec": 91.783,
+      "endSec": 97.956,
+      "startFrame": 2753,
+      "endFrame": 2939,
       "visualIntent": "Variable Formulation formula A-B-C-D-E-M-F selective inheritance",
       "primaryObject": "variable_formula_circuit",
       "cameraIntent": "semantic_zoom",
@@ -481,9 +481,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Áp dụng công thức biến số chuẩn A B C D E M F để thể hiện sự kế thừa học thuật có chọn lọc",
+        "displayText": "Khóa chốt cây cầu bằng công thức biến số chuẩn mực: Thừa kế các biến kinh điển, đồng thời bổ sung mắt xích mới để tạo nên bước nhảy tri thức.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "variable_circuit_flow",
@@ -495,13 +495,13 @@
       "id": "beat_16",
       "shotId": "shot_04",
       "narrationTokenRange": [
-        329,
-        351
+        462,
+        497
       ],
-      "startSec": 65.851,
-      "endSec": 70.458,
-      "startFrame": 1976,
-      "endFrame": 2114,
+      "startSec": 98.306,
+      "endSec": 105.455,
+      "startFrame": 2949,
+      "endFrame": 3164,
       "visualIntent": "4-Sentence International Standard Template cards",
       "primaryObject": "template_four_cards",
       "cameraIntent": "glide_across_cards",
@@ -512,9 +512,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Nắm chắc Template bốn câu chuẩn quốc tế Câu nền tảng Câu điểm chưa rõ Câu ý nghĩa và Câu định vị",
+        "displayText": "Hãy diễn đạt qua template bốn câu chuẩn mực quốc tế: Câu nêu nền tảng, câu vạch ra điểm chưa rõ, câu khẳng định ý nghĩa, và câu định vị giải pháp của bài báo.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "four_quadrant_template_alignment",
@@ -526,13 +526,13 @@
       "id": "beat_17",
       "shotId": "shot_04",
       "narrationTokenRange": [
-        351,
-        372
+        497,
+        527
       ],
-      "startSec": 70.618,
-      "endSec": 74.513,
-      "startFrame": 2119,
-      "endFrame": 2235,
+      "startSec": 105.755,
+      "endSec": 111.386,
+      "startFrame": 3173,
+      "endFrame": 3342,
       "visualIntent": "Digital Banking Case Study: TAM model established base PU & PEU",
       "primaryObject": "tam_base_diagram",
       "cameraIntent": "focus_tam_pu_peu",
@@ -543,9 +543,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Case study Ngân hàng số Mô hình TAM đã xác nhận vai trò của tính hữu ích và dễ sử dụng",
+        "displayText": "Hãy nhìn vào ví dụ ngân hàng số: Mô hình chấp nhận công nghệ TAM đã khẳng định tính hữu ích và sự dễ dùng là nền tảng cốt lõi.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "tam_directed_acyclic_graph",
@@ -557,13 +557,13 @@
       "id": "beat_18",
       "shotId": "shot_04",
       "narrationTokenRange": [
-        372,
-        398
+        527,
+        556
       ],
-      "startSec": 74.673,
-      "endSec": 79.682,
-      "startFrame": 2240,
-      "endFrame": 2390,
+      "startSec": 111.686,
+      "endSec": 117.482,
+      "startFrame": 3351,
+      "endFrame": 3524,
       "visualIntent": "Case Study conflict: E-service quality mechanism in emerging markets",
       "primaryObject": "conflicting_mechanism_node",
       "cameraIntent": "shake_and_pulse",
@@ -574,9 +574,9 @@
         "volume": 0.75
       },
       "captionIntent": {
-        "displayText": "Dẫu vậy cơ chế từ chất lượng dịch vụ điện tử sang ý định tiếp tục dùng vẫn chưa nhất quán tại thị trường mới nổi",
+        "displayText": "Dẫu vậy, cơ chế từ chất lượng dịch vụ điện tử đến ý định sử dụng lâu dài vẫn còn đầy mâu thuẫn tại các thị trường mới nổi.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "conflicting_node_rupture",
@@ -588,13 +588,13 @@
       "id": "beat_19",
       "shotId": "shot_04",
       "narrationTokenRange": [
-        398,
-        420
+        556,
+        588
       ],
-      "startSec": 79.902,
-      "endSec": 84.085,
-      "startFrame": 2397,
-      "endFrame": 2523,
+      "startSec": 117.832,
+      "endSec": 123.688,
+      "startFrame": 3535,
+      "endFrame": 3711,
       "visualIntent": "Case Study resolution: Mediator Satisfaction & Moderator Perceived Risk",
       "primaryObject": "tam_extended_resolved_network",
       "cameraIntent": "match_cut",
@@ -611,9 +611,9 @@
         "volume": 0.8
       },
       "captionIntent": {
-        "displayText": "Nghiên cứu mới kiểm định trung gian Hài lòng và điều tiết Rủi ro cảm nhận lấp đầy trọn vẹn khoảng trống",
+        "displayText": "Bài báo mới sẽ lấp đầy vết nứt này bằng cách đưa vào biến trung gian sự hài lòng, cùng biến điều tiết rủi ro cảm nhận để hoàn thiện mô hình.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "extended_network_bridge",
@@ -625,13 +625,13 @@
       "id": "beat_20",
       "shotId": "shot_05",
       "narrationTokenRange": [
-        420,
-        441
+        588,
+        621
       ],
-      "startSec": 84.325,
-      "endSec": 88.765,
-      "startFrame": 2530,
-      "endFrame": 2663,
+      "startSec": 124.068,
+      "endSec": 130.399,
+      "startFrame": 3722,
+      "endFrame": 3912,
       "visualIntent": "Pitfall 1 (Unsubstantiated claim) & Pitfall 2 (Equating context with novelty)",
       "primaryObject": "warning_hazard_pitfalls_1_2",
       "cameraIntent": "snap_warning_alert",
@@ -642,9 +642,9 @@
         "volume": 0.8
       },
       "captionIntent": {
-        "displayText": "Tuyệt đối tránh Lỗi một Tuyên bố thiếu bằng chứng và Lỗi hai Đồng nhất bối cảnh mới với tính mới",
+        "displayText": "Hãy cảnh giác với hai cạm bẫy chết người: Tuyên bố khoảng trống mà thiếu bằng chứng trích dẫn, và ngộ nhận rằng bối cảnh mới đồng nghĩa với tính mới khoa học.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "hazard_barrier_boundary",
@@ -656,13 +656,13 @@
       "id": "beat_21",
       "shotId": "shot_05",
       "narrationTokenRange": [
-        441,
-        463
+        621,
+        650
       ],
-      "startSec": 88.925,
-      "endSec": 93.211,
-      "startFrame": 2668,
-      "endFrame": 2796,
+      "startSec": 130.699,
+      "endSec": 136.406,
+      "startFrame": 3921,
+      "endFrame": 4092,
       "visualIntent": "Pitfall 3 (Listing sources) & Pitfall 4 (Decoupling gap from method)",
       "primaryObject": "warning_hazard_pitfalls_3_4",
       "cameraIntent": "snap_warning_alert",
@@ -673,9 +673,9 @@
         "volume": 0.8
       },
       "captionIntent": {
-        "displayText": "Tránh Lỗi ba Liệt kê nguồn thay vì tổng hợp và Lỗi bốn Tách rời khoảng trống khỏi thiết kế phương pháp",
+        "displayText": "Đừng biến tổng quan thành bản liệt kê rời rạc, và tuyệt đối không bao giờ tách rời khoảng trống nghiên cứu khỏi thiết kế phương pháp kiểm định.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "hazard_barrier_boundary",
@@ -687,13 +687,13 @@
       "id": "beat_22",
       "shotId": "shot_05",
       "narrationTokenRange": [
-        463,
-        487
+        650,
+        685
       ],
-      "startSec": 93.371,
-      "endSec": 97.703,
-      "startFrame": 2801,
-      "endFrame": 2931,
+      "startSec": 136.706,
+      "endSec": 143.589,
+      "startFrame": 4101,
+      "endFrame": 4308,
       "visualIntent": "Avoid two extremes: empty macro vs trivial micro localism",
       "primaryObject": "two_extremes_balance_scale",
       "cameraIntent": "level_horizon_pan",
@@ -704,9 +704,9 @@
         "volume": 0.7
       },
       "captionIntent": {
-        "displayText": "Tránh hai cực đoan không tuyên bố vĩ mô rỗng tuếch cũng đừng vi mô hóa địa bàn mà thiếu giá trị lý thuyết",
+        "displayText": "Giữ thăng bằng giữa hai cực đoan: Đừng vẽ ra những khoảng trống vĩ mô rỗng tuếch, nhưng cũng đừng trói mình vào một địa phương hẹp mà thiếu đi giá trị khái quát hóa.",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "fulcrum_balance_tilt",
@@ -718,13 +718,13 @@
       "id": "beat_23",
       "shotId": "shot_05",
       "narrationTokenRange": [
-        487,
-        510
+        685,
+        711
       ],
-      "startSec": 97.923,
-      "endSec": 103.2,
-      "startFrame": 2938,
-      "endFrame": 3096,
+      "startSec": 143.939,
+      "endSec": 149.743,
+      "startFrame": 4318,
+      "endFrame": 4492,
       "visualIntent": "Core Axiom: Research Gap as Foundation of Novelty & Scopus Publication",
       "primaryObject": "scopus_victory_seal_celebration",
       "cameraIntent": "hero_push_in_climax",
@@ -735,9 +735,9 @@
         "volume": 0.9
       },
       "captionIntent": {
-        "displayText": "Research Gap là nền tảng của tính mới Chúc bạn xây dựng lập luận vững chắc và công bố thành công trên Scopus",
+        "displayText": "Một Research Gap thuyết phục chính là tấm hộ chiếu đưa bài báo của bạn bước vào cuộc đối thoại khoa học toàn cầu trên Scopus!",
         "layout": "bottom",
-        "fontSize": 56
+        "fontSize": 44
       },
       "visualExplanationContract": {
         "spatialRelationship": "concentric_seal_radiance",

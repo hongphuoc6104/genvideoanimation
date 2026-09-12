@@ -3,11 +3,70 @@
   "fps": 30,
   "width": 1080,
   "height": 1920,
+  "whitelisted_impact_frames": [
+    0,
+    45,
+    157,
+    162,
+    167,
+    273,
+    323,
+    333,
+    403,
+    521,
+    548,
+    557,
+    778,
+    787,
+    985,
+    996,
+    1078,
+    1165,
+    1174,
+    1218,
+    1346,
+    1355,
+    1559,
+    1568,
+    1787,
+    1796,
+    1958,
+    1968,
+    2124,
+    2133,
+    2322,
+    2331,
+    2528,
+    2537,
+    2744,
+    2753,
+    2939,
+    2949,
+    3164,
+    3173,
+    3342,
+    3351,
+    3524,
+    3535,
+    3711,
+    3722,
+    3912,
+    3921,
+    4092,
+    4101,
+    4200,
+    4201,
+    4202,
+    4308,
+    4318,
+    4492
+  ],
   "shots": [
     {
       "id": "shot_01",
       "startFrame": 0,
-      "endFrame": 618,
+      "endFrame": 996,
+      "durationInFrames": 996,
       "narrative_purpose": "Đặt vấn đề & Bản chất Scopus: Tại sao bị Desk Reject? 3 câu hỏi cốt lõi và 4 thuộc tính tối thiểu của Gap",
       "start_state": {
         "camera": {
@@ -26,19 +85,23 @@
         "active_section": "section_2_taxonomy"
       },
       "impact_frames": [
-        28,
-        29,
-        30,
+        0,
         45,
         162,
-        403
-      ],
-      "durationInFrames": 618
+        167,
+        273,
+        333,
+        403,
+        521,
+        557,
+        787
+      ]
     },
     {
       "id": "shot_02",
-      "startFrame": 618,
-      "endFrame": 1309,
+      "startFrame": 996,
+      "endFrame": 1968,
+      "durationInFrames": 972,
       "narrative_purpose": "Phân loại 5 loại Research Gap: Lý thuyết, Thực nghiệm, Bối cảnh, Phương pháp, Ứng dụng",
       "start_state": {
         "camera": {
@@ -57,20 +120,21 @@
         "active_section": "section_3_process"
       },
       "impact_frames": [
-        663,
-        801,
-        924,
-        934,
+        996,
         1078,
-        1218
-      ],
-      "durationInFrames": 691
+        1174,
+        1218,
+        1355,
+        1568,
+        1796
+      ]
     },
     {
       "id": "shot_03",
-      "startFrame": 1309,
-      "endFrame": 1976,
-      "narrative_purpose": "Quy trình 4 bước xác định Gap: Phễu thu hẹp dòng nghiên cứu và Cấu trúc 3 tầng Swales CARS",
+      "startFrame": 1968,
+      "endFrame": 2949,
+      "durationInFrames": 981,
+      "narrative_purpose": "Quy trình xác định Gap: Phễu thu hẹp dòng nghiên cứu, Ma trận 4 trục và Cầu 3 tầng Swales",
       "start_state": {
         "camera": {
           "x": 0,
@@ -88,19 +152,19 @@
         "active_section": "section_4_template"
       },
       "impact_frames": [
-        1354,
-        1479,
-        1611,
-        1750,
-        1877
-      ],
-      "durationInFrames": 667
+        1968,
+        2133,
+        2331,
+        2537,
+        2753
+      ]
     },
     {
       "id": "shot_04",
-      "startFrame": 1976,
-      "endFrame": 2531,
-      "narrative_purpose": "Template 4 câu chuẩn quốc tế & Case Study mô hình Ngân hàng số",
+      "startFrame": 2949,
+      "endFrame": 3722,
+      "durationInFrames": 773,
+      "narrative_purpose": "Template 4 câu chuẩn quốc tế & Case Study mô hình cấu trúc SEM",
       "start_state": {
         "camera": {
           "x": 0,
@@ -118,18 +182,18 @@
         "active_section": "section_5_conclusion"
       },
       "impact_frames": [
-        2021,
-        2164,
-        2285,
-        2442
-      ],
-      "durationInFrames": 555
+        2949,
+        3173,
+        3351,
+        3535
+      ]
     },
     {
       "id": "shot_05",
-      "startFrame": 2531,
-      "endFrame": 3096,
-      "narrative_purpose": "4 Lỗi chết người cần tránh, checklist và thông điệp chúc mừng công bố Scopus thành công",
+      "startFrame": 3722,
+      "endFrame": 4503,
+      "durationInFrames": 781,
+      "narrative_purpose": "4 Lỗi chết người cần tránh, checklist và Scopus victory badge",
       "start_state": {
         "camera": {
           "x": 0,
@@ -147,13 +211,12 @@
         "active_section": "final_victory"
       },
       "impact_frames": [
-        2575,
-        2713,
-        2846,
-        2865,
-        2983
-      ],
-      "durationInFrames": 565
+        3722,
+        3921,
+        4101,
+        4201,
+        4318
+      ]
     }
   ],
   "transitions": [
@@ -162,48 +225,48 @@
       "to_shot": "shot_02",
       "transition_type": "camera_carry",
       "transition_frames": [
-        603,
-        633
+        980,
+        1010
       ],
       "expected_visual_discontinuity": 6.5,
-      "description": "Continuous camera push carrying researcher focus from problem context into gap doors taxonomy"
+      "description": "Continuous camera push carrying researcher focus into 5 gap prisms"
     },
     {
       "from_shot": "shot_02",
       "to_shot": "shot_03",
       "transition_type": "foreground_wipe",
       "transition_frames": [
-        1294,
-        1324
+        1950,
+        1980
       ],
       "expected_visual_discontinuity": 6.5,
-      "description": "Practical gap door portal expands as a foreground wipe leading into the 4-step research funnel"
+      "description": "Practical gap door portal expands into 4-step research funnel and matrix"
     },
     {
       "from_shot": "shot_03",
       "to_shot": "shot_04",
       "transition_type": "semantic_zoom",
       "transition_frames": [
-        1961,
-        1991
+        2935,
+        2965
       ],
       "expected_visual_discontinuity": 6.5,
-      "description": "Semantic zoom into the gap statement tier-3 block connecting directly to international template cards"
+      "description": "Semantic zoom into SEM causal structural model"
     },
     {
       "from_shot": "shot_04",
       "to_shot": "shot_05",
       "transition_type": "match_cut",
       "transition_frames": [
-        2516,
-        2546
+        3705,
+        3735
       ],
       "expected_visual_discontinuity": 6.5,
-      "description": "Match cut from structural model nodes to pitfall warning indicators on the same visual coordinate axis"
+      "description": "Match cut to diagnostic radar and scopus triumph"
     }
   ],
-  "totalFrames": 3096,
-  "totalDurationSec": 103.2,
+  "totalFrames": 4503,
+  "totalDurationSec": 150.103,
   "durationPolicy": "content-driven",
   "allowSemanticOmission": false,
   "allowContentCompression": false

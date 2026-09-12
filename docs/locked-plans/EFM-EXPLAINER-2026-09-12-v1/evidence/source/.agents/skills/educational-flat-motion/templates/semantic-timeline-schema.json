@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemanticTimelineV3_4",
+  "type": "object",
+  "required": ["sequenceId", "fps", "totalFrames", "beats"],
+  "properties": {
+    "sequenceId": { "type": "string" },
+    "fps": { "type": "integer", "const": 30 },
+    "totalFrames": { "type": "integer" },
+    "totalDurationSec": { "type": "number" },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "shotId",
+          "startSec",
+          "endSec",
+          "startFrame",
+          "endFrame",
+          "visualIntent",
+          "primaryObject",
+          "visualExplanationContract"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "shotId": { "type": "string" },
+          "startSec": { "type": "number" },
+          "endSec": { "type": "number" },
+          "startFrame": { "type": "integer" },
+          "endFrame": { "type": "integer" },
+          "visualIntent": { "type": "string" },
+          "primaryObject": { "type": "string" },
+          "cameraIntent": { "type": "string" },
+          "transitionIntent": { "type": "string" },
+          "sfxIntent": { "type": "string" },
+          "visualExplanationContract": {
+            "type": "object",
+            "required": ["spatialRelationship", "transformationType"],
+            "properties": {
+              "spatialRelationship": {
+                "type": "string",
+                "pattern": "^(?!.*(card_grid|slide_deck|bullet_list)).*$",
+                "description": "Spatial organization of visual elements (e.g. lateral_conformation_split, axial_flow_channel)"
+              },
+              "transformationType": {
+                "type": "string",
+                "pattern": "^(?!.*(card_fade|slide_in_text|bullet_reveal)).*$",
+                "description": "Observable kinetic transformation (e.g. e1_to_e2_morph, pore_dilation, cleavage_severance)"
+              },
+              "coreMechanism": { "type": "string" },
+              "mechanismParadigm": {
+                "type": "string",
+                "enum": [
+                  "STATE_MACHINE",
+                  "CONTINUOUS_FLOW",
+                  "MECHANICAL_LINKAGE",
+                  "SPATIAL_TOPOLOGY",
+                  "MOLECULAR_CONFORMATION",
+                  "GEOMETRIC_TRANSFORMATION",
+                  "HIERARCHICAL_NETWORK",
+                  "DYNAMIC_EQUATION"
+                ]
+              },
+              "stateChange": {
+                "type": "object",
+                "properties": {
+                  "initialState": { "type": "string" },
+                  "drivingForce": { "type": "string" },
+                  "targetState": { "type": "string" }
+                }
+              },
+              "textElementPolicy": {
+                "type": "string",
+                "enum": ["ANCHOR_ONLY", "NONE", "EQUATION_ONLY"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

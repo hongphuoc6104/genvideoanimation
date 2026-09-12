@@ -27,6 +27,8 @@ export interface DOMTextElement {
   isSubtitle: boolean;
   isHud: boolean;
   parentCardId?: string;
+  domIndex?: number;
+  zIndex?: number;
 }
 
 export interface DOMCardElement {
@@ -62,8 +64,10 @@ export interface DOMFrameSnapshot {
 
 export type InvariantRule =
   | 'TEXT_COLLISION'
+  | 'CARD_COLLISION'
   | 'CONTAINER_OVERFLOW'
   | 'CONTAINER_PADDING_DEFICIT'
+  | 'CARD_TEXT_OCCLUSION'
   | 'UNSHIELDED_VECTOR_PIERCE'
   | 'SUBTITLE_INTRUSION'
   | 'VIEWPORT_OVERFLOW';

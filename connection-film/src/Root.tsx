@@ -46,7 +46,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="ScopusResearchGap-TikTok916"
         component={ScopusResearchGapFilm}
-        durationInFrames={SCOPUS_TOTAL_FRAMES}
+        durationInFrames={4503}
         fps={SCOPUS_FPS}
         width={SCOPUS_WIDTH}
         height={SCOPUS_HEIGHT}
@@ -62,7 +62,13 @@ export const RemotionRoot: React.FC = () => {
         height={RAFT_HEIGHT}
       />
 
-      {/* Legacy Regression Compositions mounted under isolated IDs */}
+      {/* =================================================================== */}
+      {/* CANONICAL V3.3 TARGET FILMS (M4 / R4 PRESERVATION)                  */}
+      {/* - CrisprCas9-TikTok916 (mounted via RemotionRootLegacy)             */}
+      {/* - SteamEngineCycle (mounted via RemotionRootLegacy)                 */}
+      {/* - GitDagModel-TikTok916 (mounted via RemotionRootLegacy)            */}
+      {/* - ScopusResearchGap-TikTok916 (mounted above)                       */}
+      {/* =================================================================== */}
       <RemotionRootLegacy />
     </>
   );

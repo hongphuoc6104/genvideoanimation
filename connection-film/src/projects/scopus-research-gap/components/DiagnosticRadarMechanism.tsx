@@ -1,44 +1,23 @@
 import React from 'react';
-import { useCurrentFrame, useVideoConfig } from 'remotion';
-import { computeItemSalienceState } from 'motion-kit';
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { ResearcherRig } from './ResearcherRig';
 
 export interface DiagnosticPitfallRadarProps {
-  activeMistakeIndex: number; // 0: Lỗi 1, 1: Lỗi 2, 2: Lỗi 3, 3: Lỗi 4, 4: All cleared/triumph
+  activeMistakeIndex: number; // 0: Lỗi 1, 1: Lỗi 2, 2: Lỗi 3, 3: Lỗi 4, 4: All cleared / Scopus triumph
 }
 
-const MISTAKES = [
-  {
-    id: 'm1',
-    name: 'LỖI 1: THIẾU BẰNG CHỨNG',
-    fix: 'Trích dẫn cụ thể tác giả & dữ liệu',
-    activeFix: 'Khắc phục: Bổ sung bằng chứng cụ thể',
-    clearedFix: 'Đã khắc phục: Dữ liệu & trích dẫn chuẩn',
-    color: '#F43F5E',
-  },
-  {
-    id: 'm2',
-    name: 'LỖI 2: ĐỒNG NHẤT BỐI CẢNH',
-    fix: 'Bối cảnh mới chưa chắc là tính mới',
-    activeFix: 'Khắc phục: Không chỉ đổi địa bàn nghiên cứu',
-    clearedFix: 'Đã khắc phục: Chứng minh cơ chế mới',
-    color: '#F59E0B',
-  },
-  {
-    id: 'm3',
-    name: 'LỖI 3: LIỆT KÊ ĐƠN THUẦN',
-    fix: 'Phải tổng hợp, đối chiếu và phản biện',
-    activeFix: 'Khắc phục: Tránh tóm tắt từng bài riêng rẽ',
-    clearedFix: 'Đã khắc phục: Tổng hợp và phản biện sâu',
-    color: '#A855F7',
-  },
-  {
-    id: 'm4',
-    name: 'LỖI 4: TÁCH RỜI PHƯƠNG PHÁP',
-    fix: 'Gap phải ăn khớp phương pháp đo',
-    activeFix: 'Khắc phục: Đồng bộ thang đo với câu hỏi',
-    clearedFix: 'Đã khắc phục: Phương pháp đo ăn khớp Gap',
-    color: '#38BDF8',
-  },
+interface PitfallBlip {
+  id: string;
+  name: string;
+  angle: number; // in degrees on radar scope
+  color: string;
+}
+
+const PITFALLS: PitfallBlip[] = [
+  { id: 'p1', name: 'THIẾU BẰNG CHỨNG', angle: 270, color: '#F43F5E' }, // North
+  { id: 'p2', name: 'ĐỒNG NHẤT BỐI CẢNH', angle: 0, color: '#F59E0B' }, // East
+  { id: 'p3', name: 'LIỆT KÊ ĐƠN THUẦN', angle: 90, color: '#A855F7' }, // South
+  { id: 'p4', name: 'TÁCH RỜI PHƯƠNG PHÁP', angle: 180, color: '#38BDF8' }, // West
 ];
 
 export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = ({
@@ -48,191 +27,340 @@ export const DiagnosticRadarMechanism: React.FC<DiagnosticPitfallRadarProps> = (
   const { fps } = useVideoConfig();
 
   const isTriumph = activeMistakeIndex >= 4;
-  const radarSweep = (frame * 4) % 360;
+  const radarSweep = (frame * 4.5) % 360;
+
+  const cx = 540;
+  const cy = 640;
+  const scopeRadius = 260;
+
+  // Entrance spring
+  const enterSpring = spring({
+    frame,
+    fps,
+    config: { damping: 14, stiffness: 85 },
+  });
+
+  // Triumph burst spring
+  const triumphSpring = spring({
+    frame: isTriumph ? frame : 0,
+    fps,
+    config: { damping: 10, stiffness: 90 },
+  });
+
+  // Confetti particles for celebration in Beat 23
+  const confetti = [
+    { x: -240, color: '#FCD34D', speed: 4, rotSpeed: 5, size: 14 },
+    { x: -180, color: '#38BDF8', speed: 6, rotSpeed: -7, size: 12 },
+    { x: -110, color: '#10B981', speed: 5, rotSpeed: 4, size: 16 },
+    { x: -40, color: '#F43F5E', speed: 7, rotSpeed: -6, size: 15 },
+    { x: 30, color: '#A855F7', speed: 5, rotSpeed: 8, size: 12 },
+    { x: 100, color: '#FCD34D', speed: 6, rotSpeed: -5, size: 14 },
+    { x: 170, color: '#10B981', speed: 4, rotSpeed: 6, size: 16 },
+    { x: 230, color: '#38BDF8', speed: 7, rotSpeed: -8, size: 13 },
+    { x: -300, color: '#EC4899', speed: 5, rotSpeed: 7, size: 15 },
+    { x: 300, color: '#10B981', speed: 6, rotSpeed: -4, size: 14 },
+    { x: -70, color: '#FCD34D', speed: 8, rotSpeed: 9, size: 18 },
+    { x: 80, color: '#38BDF8', speed: 7, rotSpeed: -7, size: 14 },
+  ];
 
   return (
-    <svg
-      width={1080}
-      height={1920}
+    <div
       style={{
         position: 'absolute',
-        top: 0,
-        left: 0,
+        width: 1080,
+        height: 1920,
         pointerEvents: 'none',
-        zIndex: 20,
       }}
     >
-      <defs>
-        <radialGradient id="radarSweepGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
-        </radialGradient>
-      </defs>
+      <svg
+        width={1080}
+        height={1920}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          pointerEvents: 'none',
+          zIndex: 15,
+        }}
+      >
+        <defs>
+          <radialGradient id="diagRadarSweep" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#10B981" stopOpacity="0.4" />
+            <stop offset="60%" stopColor="#10B981" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+          </radialGradient>
 
-      {/* Central Radar Diagnostic Scope (y = 480, r = 200) */}
-      <g transform="translate(540, 480)">
-        {/* Outer Scope Rings */}
-        <circle cx={0} cy={0} r={200} fill="#0F172A" stroke="#334155" strokeWidth={3} />
-        <circle cx={0} cy={0} r={140} fill="none" stroke="#334155" strokeWidth={2} strokeDasharray="6 6" />
-        <circle cx={0} cy={0} r={80} fill="none" stroke="#334155" strokeWidth={2} strokeDasharray="4 4" />
-        <line x1={-200} y1={0} x2={200} y2={0} stroke="#334155" strokeWidth={2} />
-        <line x1={0} y1={-200} x2={0} y2={200} stroke="#334155" strokeWidth={2} />
+          <filter id="radarGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="10" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
 
-        {/* Sweep Beam */}
-        <g transform={`rotate(${radarSweep})`}>
-          <path d="M 0,0 L 200,0 A 200,200 0 0,0 170,-100 Z" fill="url(#radarSweepGrad)" />
+          <linearGradient id="triumphGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FCD34D" />
+            <stop offset="50%" stopColor="#10B981" />
+            <stop offset="100%" stopColor="#059669" />
+          </linearGradient>
+        </defs>
+
+        {/* Kinetic Header (Minimal Anchor Tag <= 3 words) */}
+        <g transform="translate(540, 290)" opacity={enterSpring}>
+          <text
+            x={0}
+            y={0}
+            fill={isTriumph ? '#FCD34D' : '#10B981'}
+            fontSize={44}
+            fontWeight={900}
+            letterSpacing="0.08em"
+            textAnchor="middle"
+          >
+            {isTriumph ? 'CÔNG BỐ SCOPUS THÀNH CÔNG' : 'RADAR QUÉT 4 CẠM BẪY'}
+          </text>
+          <line
+            x1={-200}
+            y1={24}
+            x2={200}
+            y2={24}
+            stroke={isTriumph ? '#FCD34D' : '#10B981'}
+            strokeWidth={3}
+            strokeLinecap="round"
+          />
         </g>
 
-        {/* Center Target Indicator Badge: Single Clean Handoff between QC and SCOPUS */}
-        {!isTriumph ? (
-          <g data-badge="true">
-            <rect
-              x={-85}
-              y={-55}
-              width={170}
-              height={110}
-              rx={24}
-              fill="#0F172A"
-              stroke="#38BDF8"
-              strokeWidth={4}
-              filter="drop-shadow(0 0 16px rgba(56, 189, 248, 0.8))"
-            />
-            <text
-              x={0}
-              y={10}
-              textAnchor="middle"
-              fill="#FFFFFF"
-              fontSize={30}
-              fontWeight={900}
-            >
-              QC
-            </text>
-          </g>
-        ) : (
-          <g data-badge="true">
-            <rect
-              x={-150}
-              y={-60}
-              width={300}
-              height={120}
-              rx={32}
-              fill="#10B981"
-              stroke="#34D399"
-              strokeWidth={4}
-              filter="drop-shadow(0 0 24px rgba(16, 185, 129, 0.9))"
-            />
-            <text
-              x={0}
-              y={12}
-              textAnchor="middle"
-              fill="#FFFFFF"
-              fontSize={34}
-              fontWeight={900}
-            >
-              SCOPUS
-            </text>
+        {/* Central 360-Degree Radar Scope */}
+        <g
+          transform={`translate(${cx}, ${cy}) scale(${enterSpring})`}
+          style={{ transformOrigin: '0px 0px' }}
+        >
+          {/* Radar Background Scope */}
+          <circle
+            cx={0}
+            cy={0}
+            r={scopeRadius}
+            fill="#0F172A"
+            stroke={isTriumph ? '#10B981' : '#334155'}
+            strokeWidth={4}
+            filter={isTriumph ? 'drop-shadow(0 0 32px rgba(16, 185, 129, 0.6))' : 'none'}
+          />
+          {/* Concentric Scope Range Rings */}
+          <circle cx={0} cy={0} r={scopeRadius * 0.7} fill="none" stroke="#1E293B" strokeWidth={2} strokeDasharray="6 6" />
+          <circle cx={0} cy={0} r={scopeRadius * 0.4} fill="none" stroke="#1E293B" strokeWidth={2} strokeDasharray="4 4" />
+          {/* Reticle Crosshairs */}
+          <line x1={-scopeRadius} y1={0} x2={scopeRadius} y2={0} stroke="#334155" strokeWidth={2} />
+          <line x1={0} y1={-scopeRadius} x2={0} y2={scopeRadius} stroke="#334155" strokeWidth={2} />
+
+          {/* 360-Degree Rotating Radar Sweep Beam */}
+          {!isTriumph && (
+            <g transform={`rotate(${radarSweep})`}>
+              <path
+                d={`M 0,0 L ${scopeRadius},0 A ${scopeRadius},${scopeRadius} 0 0,0 ${scopeRadius * 0.85},-${scopeRadius * 0.5} Z`}
+                fill="url(#diagRadarSweep)"
+              />
+              <line
+                x1={0}
+                y1={0}
+                x2={scopeRadius}
+                y2={0}
+                stroke="#10B981"
+                strokeWidth={3}
+                filter="url(#radarGlow)"
+              />
+            </g>
+          )}
+
+          {/* Central Target Core Badge */}
+          {!isTriumph ? (
+            <g>
+              <circle cx={0} cy={0} r={46} fill="#0F172A" stroke="#38BDF8" strokeWidth={3} />
+              <text x={0} y={10} textAnchor="middle" fill="#38BDF8" fontSize={30} fontWeight={900}>
+                QC
+              </text>
+            </g>
+          ) : (
+            <g>
+              {/* Radiating Victory Golden Rays */}
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((ang) => (
+                <line
+                  key={ang}
+                  x1={0}
+                  y1={0}
+                  x2={Math.cos((ang * Math.PI) / 180) * (scopeRadius + 30)}
+                  y2={Math.sin((ang * Math.PI) / 180) * (scopeRadius + 30)}
+                  stroke="#FCD34D"
+                  strokeWidth={3}
+                  opacity={0.6}
+                  strokeDasharray="6 4"
+                />
+              ))}
+
+              <circle
+                cx={0}
+                cy={0}
+                r={64}
+                fill="url(#triumphGrad)"
+                stroke="#FFFFFF"
+                strokeWidth={4}
+                filter="url(#radarGlow)"
+              />
+              <text x={0} y={10} textAnchor="middle" fill="#FFFFFF" fontSize={32} fontWeight={900}>
+                SCOPUS
+              </text>
+            </g>
+          )}
+
+          {/* 4 Pitfall Warning Blips around Radar Perimeter */}
+          {PITFALLS.map((p, idx) => {
+            const rad = (p.angle * Math.PI) / 180;
+            const blipDist = scopeRadius * 0.85;
+            const bx = Math.cos(rad) * blipDist;
+            const by = Math.sin(rad) * blipDist;
+
+            const isCurrent = idx === activeMistakeIndex;
+            const isCleared = isTriumph || idx < activeMistakeIndex;
+
+            return (
+              <g key={p.id} transform={`translate(${bx}, ${by})`}>
+                {/* Active Reticle Bracket when targeted */}
+                {isCurrent && (
+                  <g>
+                    <circle
+                      cx={0}
+                      cy={0}
+                      r={36}
+                      fill="none"
+                      stroke="#EF4444"
+                      strokeWidth={3}
+                      strokeDasharray="6 4"
+                    />
+                    <path
+                      d="M -26 -16 L -26 -26 L -16 -26 M 16 -26 L 26 -26 L 26 -16 M 26 16 L 26 26 L 16 26 M -16 26 L -26 26 L -26 16"
+                      fill="none"
+                      stroke="#EF4444"
+                      strokeWidth={3}
+                    />
+                  </g>
+                )}
+
+                {/* Blip Circle */}
+                <circle
+                  cx={0}
+                  cy={0}
+                  r={22}
+                  fill={isCleared ? '#10B981' : isCurrent ? '#EF4444' : p.color}
+                  stroke="#FFFFFF"
+                  strokeWidth={2.5}
+                  filter={isCleared ? 'drop-shadow(0 0 12px #10B981)' : isCurrent ? 'drop-shadow(0 0 16px #EF4444)' : 'none'}
+                />
+
+                {/* Checkmark icon if cleared, or exclamation path if pending */}
+                {isCleared ? (
+                  <path
+                    d="M -8 0 L -2 6 L 8 -4"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    strokeWidth={3.5}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                ) : (
+                  <path
+                    d="M 0 -8 L 0 2 M 0 6 L 0 8"
+                    fill="none"
+                    stroke="#FFFFFF"
+                    strokeWidth={3.5}
+                    strokeLinecap="round"
+                  />
+                )}
+
+                {/* Anchor Label Tag <= 3 words, Font >= 30px */}
+                <g
+                  transform={
+                    p.angle === 270
+                      ? 'translate(0, -42)'
+                      : p.angle === 90
+                      ? 'translate(0, 48)'
+                      : p.angle === 0
+                      ? 'translate(130, 8)'
+                      : 'translate(-130, 8)'
+                  }
+                >
+                  <rect
+                    x={-120}
+                    y={-22}
+                    width={240}
+                    height={44}
+                    rx={22}
+                    fill="#0F172A"
+                    stroke={isCleared ? '#10B981' : isCurrent ? '#EF4444' : '#475569'}
+                    strokeWidth={2}
+                  />
+                  <text
+                    x={0}
+                    y={8}
+                    fill={isCleared ? '#10B981' : isCurrent ? '#FFFFFF' : '#CBD5E1'}
+                    fontSize={30}
+                    fontWeight={900}
+                    textAnchor="middle"
+                  >
+                    {p.name}
+                  </text>
+                </g>
+              </g>
+            );
+          })}
+        </g>
+
+        {/* Celebratory Confetti Particle Stream in Beat 23 (Triumph) */}
+        {isTriumph && (
+          <g>
+            {confetti.map((c, i) => {
+              const currentY = 200 + ((frame * c.speed * 2) % 1200);
+              const rot = frame * c.rotSpeed;
+
+              return (
+                <g
+                  key={i}
+                  transform={`translate(${540 + c.x}, ${currentY}) rotate(${rot})`}
+                >
+                  <rect
+                    x={-c.size / 2}
+                    y={-c.size / 4}
+                    width={c.size}
+                    height={c.size / 2}
+                    rx={2}
+                    fill={c.color}
+                    filter="drop-shadow(0 4px 8px rgba(0,0,0,0.5))"
+                  />
+                </g>
+              );
+            })}
           </g>
         )}
-      </g>
+      </svg>
 
-      {/* 4 Shield Indicators (y in [730, 1340], strictly above Subtitle Safe Floor 1450) */}
-      <g transform="translate(540, 730)">
-        {MISTAKES.map((m, idx) => {
-          const isActive = idx === activeMistakeIndex;
-          const isCleared = isTriumph || idx < activeMistakeIndex;
-          const yPos = idx * 155;
-
-          const state = computeItemSalienceState(
-            idx,
-            activeMistakeIndex,
-            isTriumph ? 1.0 : isActive ? 1.0 : 0.0,
-            {
-              mode: 'spotlight-dim',
-              inactiveOpacity: 0.22,
-              inactiveDesaturation: 0.75,
-              activeScale: 1.04,
-              activeBrightness: 1.25,
-            }
-          );
-
-          return (
-            <g key={m.id} transform={`translate(0, ${yPos})`}>
-              {/* Opaque Shield Background (920px width for safe padding >= 30px) */}
-              <rect
-                x={-460}
-                y={0}
-                width={920}
-                height={135}
-                rx={20}
-                fill="#0F172A"
-                stroke={isCleared ? '#10B981' : isActive ? m.color : '#334155'}
-                strokeWidth={isActive ? 4 : isCleared ? 3 : 1.5}
-                filter={isActive ? `drop-shadow(0 0 20px ${m.color}80)` : 'none'}
-                data-badge="true"
-              />
-
-              {/* Inner Content with Spotlight & Dim Opacity */}
-              <g
-                opacity={isTriumph ? 0.9 : state.opacity}
-                style={{
-                  filter: isTriumph ? 'none' : state.filter,
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                {/* Status Icon */}
-                <g transform="translate(-400, 67)">
-                  <circle
-                    cx={0}
-                    cy={0}
-                    r={26}
-                    fill={isCleared ? '#10B981' : isActive ? m.color : '#334155'}
-                  />
-                  {isCleared ? (
-                    <path
-                      d="M -9 1 L -3 7 L 9 -5"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeWidth={4}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  ) : (
-                    <path
-                      d="M 0 -9 L 0 1 M 0 6 L 0 8"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeWidth={4}
-                      strokeLinecap="round"
-                    />
-                  )}
-                </g>
-
-                {/* Line 1: Title */}
-                <text
-                  x={-350}
-                  y={55}
-                  fill={isCleared ? '#10B981' : isActive ? '#FFFFFF' : '#94A3B8'}
-                  fontSize={30}
-                  fontWeight={800}
-                >
-                  {m.name}
-                </text>
-
-                {/* Line 2: Fix Description */}
-                <text
-                  x={-350}
-                  y={101}
-                  fill={isCleared ? '#34D399' : isActive ? m.color : '#64748B'}
-                  fontSize={30}
-                  fontWeight={600}
-                >
-                  {isCleared ? m.clearedFix : isActive ? m.activeFix : m.fix}
-                </text>
-              </g>
-            </g>
-          );
-        })}
-      </g>
-    </svg>
+      {/* Beat 23: Researcher Celebrating with Scopus Certificate */}
+      {isTriumph && (
+        <div
+          style={{
+            position: 'absolute',
+            left: 380,
+            bottom: 490,
+            width: 320,
+            height: 440,
+            zIndex: 25,
+            pointerEvents: 'none',
+          }}
+        >
+          <ResearcherRig
+            pose="celebrating"
+            frame={frame}
+            showGlasses
+            showCertificate
+            scale={0.92}
+          />
+        </div>
+      )}
+    </div>
   );
 };
+
+export default DiagnosticRadarMechanism;

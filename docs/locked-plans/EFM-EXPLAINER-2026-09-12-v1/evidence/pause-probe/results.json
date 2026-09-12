@@ -1,0 +1,25 @@
+{
+  "filter": "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:detection=peak,areverse,silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:detection=peak,areverse,silenceremove=stop_periods=-1:stop_duration=0.25:stop_threshold=-45dB:detection=peak",
+  "results": [
+    {
+      "inputGapSec": 0.1,
+      "inputDurationSec": 0.9,
+      "outputDurationSec": 0.8999791666666667,
+      "removedSec": 2.0833333333358794e-05
+    },
+    {
+      "inputGapSec": 0.3,
+      "inputDurationSec": 1.1,
+      "outputDurationSec": 1.0574375,
+      "removedSec": 0.04256250000000006
+    },
+    {
+      "inputGapSec": 0.6,
+      "inputDurationSec": 1.4,
+      "outputDurationSec": 1.0574375,
+      "removedSec": 0.3425624999999999
+    }
+  ],
+  "ffmpegVersion": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+  "fixturePurpose": "Synthetic tone DSP test only; never narration"
+}

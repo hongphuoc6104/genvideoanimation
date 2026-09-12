@@ -56,13 +56,15 @@ export interface ExtractOptions {
   videoPath?: string;
   outDir?: string;
   verbose?: boolean;
+  clean?: boolean;
+  force?: boolean;
 }
 
 /**
  * Extracts 3 keyframes (Start, Mid, End) per semantic beat from a rendered video.
  */
 export async function extractContactSheet(options: ExtractOptions): Promise<ContactSheetManifest> {
-  const { timelinePath, verbose = false } = options;
+  const { timelinePath, verbose = false, clean = false, force = false } = options;
   const resolvedTimeline = path.resolve(timelinePath);
 
   if (!fs.existsSync(resolvedTimeline)) {
@@ -84,14 +86,25 @@ export async function extractContactSheet(options: ExtractOptions): Promise<Cont
 
   const fps = typeof timeline.fps === 'number' && timeline.fps > 0 ? timeline.fps : 30;
 
-  // Resolve video path: default to out/preview-360x640.mp4 or out/final-v3_3.mp4 if not given
+  // Resolve video path: default to project-specific preview or fallback candidates
   let videoPath = options.videoPath;
   if (!videoPath) {
-    if (fs.existsSync('out/preview-360x640.mp4')) {
-      videoPath = 'out/preview-360x640.mp4';
-    } else if (fs.existsSync('out/final-v3_3.mp4')) {
-      videoPath = 'out/final-v3_3.mp4';
-    } else {
+    const compName = path.basename(path.dirname(resolvedTimeline));
+    const candidatePreviews = [
+      path.join('out', `${compName}-preview-360x640.mp4`),
+      path.join('out', `${compName}-1080p.mp4`),
+      'out/scopus-research-gap-preview-360x640.mp4',
+      'out/scopus-research-gap-1080p.mp4',
+      'out/preview-360x640.mp4',
+      'out/final-v3_3.mp4',
+    ];
+    for (const candidate of candidatePreviews) {
+      if (fs.existsSync(candidate)) {
+        videoPath = candidate;
+        break;
+      }
+    }
+    if (!videoPath) {
       videoPath = 'out/preview-360x640.mp4';
     }
   }
@@ -110,6 +123,18 @@ export async function extractContactSheet(options: ExtractOptions): Promise<Cont
   const resolvedOutDir = path.resolve(outDir);
   if (!fs.existsSync(resolvedOutDir)) {
     fs.mkdirSync(resolvedOutDir, { recursive: true });
+  } else if (clean || force) {
+    const existing = fs.readdirSync(resolvedOutDir);
+    for (const f of existing) {
+      if (f.endsWith('.png') || f === 'contact-sheet-manifest.json') {
+        try {
+          fs.unlinkSync(path.join(resolvedOutDir, f));
+        } catch {}
+      }
+    }
+    if (verbose) {
+      console.log(`Cleaned previous keyframes in ${resolvedOutDir}`);
+    }
   }
 
   console.log(`\n==================================================================`);
@@ -244,23 +269,21 @@ export async function extractContactSheet(options: ExtractOptions): Promise<Cont
       const primaryDest = dests[0]?.destPath;
       if (!primaryDest) continue;
 
-      if (!fs.existsSync(primaryDest) || fs.statSync(primaryDest).size < 100) {
-        const timeSec = (frameNum / fps).toFixed(3);
-        const args = [
-          '-y',
-          '-v', 'error',
-          '-ss', String(timeSec),
-          '-i', resolvedVideo,
-          '-frames:v', '1',
-          '-update', '1',
-          primaryDest,
-        ];
-        const res = spawnSync(ffmpegBin, args, { stdio: 'pipe' });
-        if (res.status !== 0 || !fs.existsSync(primaryDest)) {
-          throw new Error(`Failed to extract keyframe at ${timeSec}s (frame ${frameNum}): ${res.stderr?.toString()}`);
-        }
-        extractedCount++;
+      const timeSec = (frameNum / fps).toFixed(3);
+      const args = [
+        '-y',
+        '-v', 'error',
+        '-ss', String(timeSec),
+        '-i', resolvedVideo,
+        '-frames:v', '1',
+        '-update', '1',
+        primaryDest,
+      ];
+      const res = spawnSync(ffmpegBin, args, { stdio: 'pipe' });
+      if (res.status !== 0 || !fs.existsSync(primaryDest)) {
+        throw new Error(`Failed to extract keyframe at ${timeSec}s (frame ${frameNum}): ${res.stderr?.toString()}`);
       }
+      extractedCount++;
 
       // Copy to other duplicate destinations if any
       for (let i = 1; i < dests.length; i++) {
@@ -319,6 +342,8 @@ Arguments:
   outDir          Output directory for keyframe PNGs and manifest (default: out/contact-sheets/<comp>)
 
 Options:
+  --clean, -c     Purge previous PNG keyframes and manifest before extraction
+  --force, -f     Force overwrite all existing keyframe files
   --verbose, -v   Verbose logging
   --help, -h      Display this guide
 `);
@@ -328,13 +353,59 @@ Options:
   const flags = new Set(args.filter((a) => a.startsWith('-')));
   const positional = args.filter((a) => !a.startsWith('-'));
 
-  const timelinePath = positional[0] || 'connection-film/src/scopus-explainer/semantic-timeline.json';
-  const videoPath = positional[1];
-  const outDir = positional[2];
+  let timelinePath = '';
+  let videoPath: string | undefined;
+  let outDir: string | undefined;
+  let projectPath: string | undefined;
+
+  for (let i = 0; i < args.length; i++) {
+    const a = args[i];
+    if (a.startsWith('--timeline=')) timelinePath = a.split('=')[1];
+    else if (a === '--timeline' && args[i + 1]) timelinePath = args[++i];
+    else if (a.startsWith('--video=')) videoPath = a.split('=')[1];
+    else if (a === '--video' && args[i + 1]) videoPath = args[++i];
+    else if (a.startsWith('--outDir=')) outDir = a.split('=')[1];
+    else if (a.startsWith('--out=')) outDir = a.split('=')[1];
+    else if ((a === '--outDir' || a === '--out') && args[i + 1]) outDir = args[++i];
+    else if (a.startsWith('--project=')) projectPath = a.split('=')[1];
+    else if (a === '--project' && args[i + 1]) projectPath = args[++i];
+  }
+
+  if (!timelinePath && positional[0]) {
+    timelinePath = positional[0];
+  }
+  if (!videoPath && positional[1]) {
+    videoPath = positional[1];
+  }
+  if (!outDir && positional[2]) {
+    outDir = positional[2];
+  }
+
+  if (!timelinePath) {
+    if (projectPath) {
+      timelinePath = path.join(projectPath, 'semantic-timeline.json');
+    } else {
+      const candidates = [
+        'connection-film/src/projects/scopus-research-gap/semantic-timeline.json',
+        'connection-film/src/legacy/scopus-explainer/semantic-timeline.json',
+        'semantic-timeline.json',
+        'out/semantic-timeline.json',
+      ];
+      for (const c of candidates) {
+        if (fs.existsSync(c)) {
+          timelinePath = c;
+          break;
+        }
+      }
+    }
+  }
+
   const verbose = flags.has('--verbose') || flags.has('-v');
+  const clean = flags.has('--clean') || flags.has('-c') || flags.has('--force') || flags.has('-f');
+  const force = flags.has('--force') || flags.has('-f');
 
   try {
-    await extractContactSheet({ timelinePath, videoPath, outDir, verbose });
+    await extractContactSheet({ timelinePath, videoPath, outDir, verbose, clean, force });
     process.exit(0);
   } catch (err: any) {
     console.error(`\n❌ Contact Sheet Extraction Failed: ${err.message}\n`);

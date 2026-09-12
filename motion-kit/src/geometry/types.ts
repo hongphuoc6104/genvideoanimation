@@ -176,9 +176,11 @@ export interface RadialItemData {
   radiusOffset?: number;  // offset added to base/staggered radius
   color?: string;
   icon?: React.ReactNode;
-  width?: number;         // default: 280
-  height?: number;        // default: 60
+  width?: number;         // default: 300
+  height?: number;        // default: auto (70 or 110)
   rx?: number;
+  fontSize?: number;      // default: >= 30 (mobile floor standard)
+  sublabelFontSize?: number; // default: >= 30 (mobile floor standard)
   data?: unknown;
 }
 

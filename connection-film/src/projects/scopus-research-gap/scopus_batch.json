@@ -1,0 +1,176 @@
+{
+  "voice": {
+    "voice": "Adam",
+    "mode": "v3turbo",
+    "backend": "onnx",
+    "device": "cpu",
+    "precision": "fp32",
+    "temperature": 0.65,
+    "silenceP": 0.05
+  },
+  "lines": [
+    {
+      "id": 1,
+      "role": "hook",
+      "speed": 1.08,
+      "pauseAfter": 0.35,
+      "spoken": "Tại sao một bài báo có số liệu chuẩn xác, phương pháp vững vàng, vẫn có thể bị Desk Reject ngay từ vòng gửi xe?"
+    },
+    {
+      "id": 2,
+      "role": "thesis",
+      "speed": 1.08,
+      "pauseAfter": 0.32,
+      "spoken": "Bí mật nằm ở phần mở đầu: Bạn chưa chứng minh được một khoảng trống nghiên cứu thực sự thuyết phục để bài báo có lý do tồn tại."
+    },
+    {
+      "id": 3,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Khoa học là một mạng lưới tri thức kết nối. Chuẩn Scopus đòi hỏi bài báo phải tham gia vào một cuộc đối thoại học thuật có căn cứ, chứ không phải độc thoại một mình."
+    },
+    {
+      "id": 4,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Một Research Gap đạt chuẩn phải trả lời tam giác ba câu hỏi cốt lõi: Nhân loại đã biết gì, điểm nào chưa thỏa đáng, và phát hiện mới của bạn đóng góp điều gì?"
+    },
+    {
+      "id": 5,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.35,
+      "spoken": "Khung lập luận đó cần bốn trụ cột vững chắc: Tính định vị, tính chứng cứ, tính giải thích và khả năng nghiên cứu, đúng theo mô hình Swales CARS."
+    },
+    {
+      "id": 6,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Trước hết là khoảng trống lý thuyết: Khi các học thuyết hiện tại bất lực trong việc giải thích cơ chế trung gian hoặc biến điều tiết mới."
+    },
+    {
+      "id": 7,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Tiếp đến là khoảng trống thực nghiệm: Nảy sinh khi các công trình đi trước đưa ra những kết luận mâu thuẫn và chưa hề có sự nhất quán."
+    },
+    {
+      "id": 8,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Đặc biệt là khoảng trống bối cảnh: Nơi đặc thù văn hóa và thể chế làm thay đổi hoàn toàn bản chất cơ chế, chứ không đơn thuần là thay đổi địa bàn nghiên cứu."
+    },
+    {
+      "id": 9,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Bạn cũng có thể khai phá khoảng trống phương pháp: Khắc phục những hạn chế về thang đo, thiết kế mẫu dọc, hay kiểm soát sai lệch phương pháp chung CMV."
+    },
+    {
+      "id": 10,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.35,
+      "spoken": "Cuối cùng là khoảng trống ứng dụng: Nơi các phát hiện thực tiễn giải quyết điểm nghẽn chính sách, gắn chặt với giá trị học thuật."
+    },
+    {
+      "id": 11,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Quy trình bắt đầu bằng chiếc phễu tư duy: Thu hẹp từ một đại dương chủ đề rộng lớn về một dòng nghiên cứu chuyên sâu duy nhất."
+    },
+    {
+      "id": 12,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Kế tiếp, lập ma trận tri thức bốn trục: Khái niệm, bối cảnh, phương pháp và mâu thuẫn, để phát hiện những điểm đứt gãy mang tính hệ thống."
+    },
+    {
+      "id": 13,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Sàng lọc các hạn chế này qua ba điều kiện khắt khe: Phải chạm tới cốt lõi học thuật, lặp lại ở nhiều bài báo uy tín, và hoàn toàn khả thi để kiểm định."
+    },
+    {
+      "id": 14,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Từ đó, hãy bắc một cây cầu ba tầng vững chãi: Tầng nền móng tri thức đã biết, tầng xác lập vết nứt khoảng trống, và tầng định vị giải pháp nghiên cứu của bạn."
+    },
+    {
+      "id": 15,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.35,
+      "spoken": "Khóa chốt cây cầu bằng công thức biến số chuẩn mực: Thừa kế các biến kinh điển, đồng thời bổ sung mắt xích mới để tạo nên bước nhảy tri thức."
+    },
+    {
+      "id": 16,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Hãy diễn đạt qua template bốn câu chuẩn mực quốc tế: Câu nêu nền tảng, câu vạch ra điểm chưa rõ, câu khẳng định ý nghĩa, và câu định vị giải pháp của bài báo."
+    },
+    {
+      "id": 17,
+      "role": "evidence",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Hãy nhìn vào ví dụ ngân hàng số: Mô hình chấp nhận công nghệ TAM đã khẳng định tính hữu ích và sự dễ dùng là nền tảng cốt lõi."
+    },
+    {
+      "id": 18,
+      "role": "turn",
+      "speed": 1.10,
+      "pauseAfter": 0.35,
+      "spoken": "Dẫu vậy, cơ chế từ chất lượng dịch vụ điện tử đến ý định sử dụng lâu dài vẫn còn đầy mâu thuẫn tại các thị trường mới nổi."
+    },
+    {
+      "id": 19,
+      "role": "payoff",
+      "speed": 1.08,
+      "pauseAfter": 0.38,
+      "spoken": "Bài báo mới sẽ lấp đầy vết nứt này bằng cách đưa vào biến trung gian sự hài lòng, cùng biến điều tiết rủi ro cảm nhận để hoàn thiện mô hình."
+    },
+    {
+      "id": 20,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Hãy cảnh giác với hai cạm bẫy chết người: Tuyên bố khoảng trống mà thiếu bằng chứng trích dẫn, và ngộ nhận rằng bối cảnh mới đồng nghĩa với tính mới khoa học."
+    },
+    {
+      "id": 21,
+      "role": "body",
+      "speed": 1.08,
+      "pauseAfter": 0.30,
+      "spoken": "Đừng biến tổng quan thành bản liệt kê rời rạc, và tuyệt đối không bao giờ tách rời khoảng trống nghiên cứu khỏi thiết kế phương pháp kiểm định."
+    },
+    {
+      "id": 22,
+      "role": "turn",
+      "speed": 1.10,
+      "pauseAfter": 0.35,
+      "spoken": "Giữ thăng bằng giữa hai cực đoan: Đừng vẽ ra những khoảng trống vĩ mô rỗng tuếch, nhưng cũng đừng trói mình vào một địa phương hẹp mà thiếu đi giá trị khái quát hóa."
+    },
+    {
+      "id": 23,
+      "role": "close",
+      "speed": 1.06,
+      "pauseAfter": 0.36,
+      "spoken": "Một Research Gap thuyết phục chính là tấm hộ chiếu đưa bài báo của bạn bước vào cuộc đối thoại khoa học toàn cầu trên Scopus!"
+    }
+  ],
+  "outputDir": ".agents/worker_m1_audio/audio_build",
+  "masterVoiceover": "scopus_voiceover.wav"
+}

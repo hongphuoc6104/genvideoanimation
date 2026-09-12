@@ -1,0 +1,7 @@
+{
+  "source": "connection-film/src/projects/raft-consensus/audio/master_audio.wav",
+  "sha256": "d5ea8e7e11a54a038761009382e45fe14a9dd14723674dd5ff59c66e25e35025",
+  "method": "Pearson correlation left channel samples at 1.0–1.2s, stride10, against generator raw sine formula",
+  "correlation": 0.9999999958725309,
+  "limit": "matches this sampled segment; not a universal speech detector or full-file content assessment"
+}

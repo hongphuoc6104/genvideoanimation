@@ -1,0 +1,17 @@
+HEAD ce3682daf18c8e5ccdb09a1808a44225a64aaf91
+
+WORKTREE (concurrent changes preserved)
+ M TEST_INFRA.md
+ M connection-film/src/projects/scopus-research-gap/components/FiveGapPrismsMechanism.tsx
+ M connection-film/src/projects/scopus-research-gap/components/KnowledgeConstellation.tsx
+ M connection-film/src/projects/scopus-research-gap/components/ThreeQuestionsTriangle.tsx
+ M connection-film/src/projects/scopus-research-gap/components/ThreeTierBridgeMechanism.tsx
+ M motion-kit/src/geometry/RadialLabelGroup.tsx
+ M motion-kit/src/geometry/types.ts
+ M out/preview-parity-report.json
+ M out/preview-rubric-report.json
+ M out/qa-report.json
+ M validators/geometry-types.ts
+ M validators/validate-runtime-geometry.ts
+?? docs/locked-plans/
+?? out/audits/anti-slide-root-cause-2026-09-12/

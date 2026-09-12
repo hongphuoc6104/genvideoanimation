@@ -1,7 +1,7 @@
 import React from 'react';
 import { useBeatChoreography, SafeStageZone } from 'motion-kit';
 import { ScopusMicroHUD } from '../components/ScopusMicroHUD';
-import { FiveGapPrismsMechanism } from '../components/FiveGapPrismsMechanism';
+import { OpticalPrismsRefractionMechanism } from '../components/OpticalPrismsRefraction';
 
 export interface SceneProps {
   durationInFrames?: number;
@@ -9,7 +9,7 @@ export interface SceneProps {
 }
 
 export const Scene2GapTaxonomy: React.FC<SceneProps> = ({
-  durationInFrames = 691,
+  durationInFrames = 972,
   shotBeats = [],
 }) => {
   const { currentBeatIndex } = useBeatChoreography(shotBeats);
@@ -32,8 +32,8 @@ export const Scene2GapTaxonomy: React.FC<SceneProps> = ({
 
       {/* Stage Boundary Protection */}
       <SafeStageZone>
-        {/* Primary Kinetic Mechanism: 5 Directional Refractive Gap Prisms */}
-        <FiveGapPrismsMechanism activeGapIndex={activeGapIndex} />
+        {/* Primary Kinetic Mechanism: Optical Crystal Refraction Laser Beams */}
+        <OpticalPrismsRefractionMechanism activeGapIndex={activeGapIndex} />
       </SafeStageZone>
     </div>
   );

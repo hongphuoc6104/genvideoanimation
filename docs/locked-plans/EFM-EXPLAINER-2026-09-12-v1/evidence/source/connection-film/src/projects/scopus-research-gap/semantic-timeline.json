@@ -1,0 +1,749 @@
+{
+  "version": "3.3.0",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "totalFrames": 3096,
+  "totalDurationSec": 103.2,
+  "policy": "content-driven",
+  "authoritative": true,
+  "beats": [
+    {
+      "id": "beat_01",
+      "shotId": "shot_01",
+      "narrationTokenRange": [
+        0,
+        19
+      ],
+      "startSec": 0,
+      "endSec": 3.879,
+      "startFrame": 0,
+      "endFrame": 116,
+      "visualIntent": "Desk reject paradox & manuscript rejection impact",
+      "primaryObject": "rejected_manuscript_stamp",
+      "cameraIntent": "push_in_focus",
+      "conceptId": "concept_01_rejection_paradox",
+      "sfxIntent": {
+        "asset": "sfx/stamp_reject.wav",
+        "frame": 45,
+        "volume": 0.85
+      },
+      "captionIntent": {
+        "displayText": "Tại sao bài báo có số liệu tốt phương pháp mạnh vẫn bị Desk Reject ngay từ vòng đầu",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "manuscript_rejection_stamp_impact",
+        "transformationType": "stamp_impact_compression",
+        "coreMechanism": "desk_reject_paradox"
+      }
+    },
+    {
+      "id": "beat_02",
+      "shotId": "shot_01",
+      "narrationTokenRange": [
+        19,
+        38
+      ],
+      "startSec": 4.079,
+      "endSec": 7.418,
+      "startFrame": 122,
+      "endFrame": 223,
+      "visualIntent": "Revealing research gap in the introduction section",
+      "primaryObject": "magnifying_glass_gap_void",
+      "cameraIntent": "pan_right",
+      "conceptId": "concept_02_defensible_gap",
+      "sfxIntent": {
+        "asset": "sfx/node_connect.wav",
+        "frame": 162,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Nguyên nhân cốt lõi Phần mở đầu không chứng minh được khoảng trống nghiên cứu một cách thuyết phục",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "magnifying_void_highlight",
+        "transformationType": "void_revelation_expansion",
+        "coreMechanism": "research_gap_detection"
+      }
+    },
+    {
+      "id": "beat_03",
+      "shotId": "shot_01",
+      "narrationTokenRange": [
+        38,
+        58
+      ],
+      "startSec": 7.598,
+      "endSec": 11.773,
+      "startFrame": 228,
+      "endFrame": 353,
+      "visualIntent": "International academic discourse dialog network",
+      "primaryObject": "scopus_dialogue_nodes",
+      "cameraIntent": "orbit_slight",
+      "conceptId": "concept_03_academic_dialogue",
+      "sfxIntent": {
+        "asset": "sfx/node_connect.wav",
+        "frame": 273,
+        "volume": 0.65
+      },
+      "captionIntent": {
+        "displayText": "Chuẩn Scopus là chuẩn đối thoại học thuật Vấn đề rõ tổng quan chọn lọc lập luận có căn cứ",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "dialogue_network_connectivity",
+        "transformationType": "node_edge_activation",
+        "coreMechanism": "academic_dialogue_graph"
+      }
+    },
+    {
+      "id": "beat_04",
+      "shotId": "shot_01",
+      "narrationTokenRange": [
+        58,
+        79
+      ],
+      "startSec": 11.933,
+      "endSec": 15.696,
+      "startFrame": 358,
+      "endFrame": 471,
+      "visualIntent": "3 Core Questions equilateral golden triangle",
+      "primaryObject": "golden_triangle_card_3d",
+      "cameraIntent": "push_triangle_vertices",
+      "conceptId": "concept_04_three_core_questions",
+      "sfxIntent": {
+        "asset": "sfx/block_lock.wav",
+        "frame": 403,
+        "volume": 0.75
+      },
+      "captionIntent": {
+        "displayText": "Một Gap chuẩn phải trả lời ba câu hỏi Đã biết gì Chưa thỏa đáng điểm nào Đóng góp gì mới",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "golden_triangle_inscribed_flow",
+        "transformationType": "triangular_prism_rotation",
+        "coreMechanism": "three_core_questions_hierarchy"
+      }
+    },
+    {
+      "id": "beat_05",
+      "shotId": "shot_01",
+      "narrationTokenRange": [
+        79,
+        103
+      ],
+      "startSec": 15.856,
+      "endSec": 20.435,
+      "startFrame": 476,
+      "endFrame": 613,
+      "visualIntent": "4 Mandatory Gap Attributes & Swales CARS Model moves",
+      "primaryObject": "cars_four_pillars",
+      "cameraIntent": "camera_carry",
+      "conceptId": "concept_05_cars_four_attributes",
+      "transitionIntent": {
+        "type": "camera_carry",
+        "startFrame": 603,
+        "endFrame": 633,
+        "expectedDiscontinuity": 6.5
+      },
+      "sfxIntent": {
+        "asset": "sfx/filter_pass.wav",
+        "frame": 521,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Và sở hữu bốn thuộc tính Định vị Chứng cứ Giải thích và Khả nghiên cứu theo mô hình Swales C A R S",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "four_pillars_structural_support",
+        "transformationType": "pillar_rise_elevation",
+        "coreMechanism": "cars_four_attributes"
+      }
+    },
+    {
+      "id": "beat_06",
+      "shotId": "shot_02",
+      "narrationTokenRange": [
+        103,
+        126
+      ],
+      "startSec": 20.595,
+      "endSec": 25.045,
+      "startFrame": 618,
+      "endFrame": 751,
+      "visualIntent": "Door 1: Theoretical Gap mediator & moderator mechanism",
+      "primaryObject": "portal_door_1_theoretical",
+      "cameraIntent": "pan_focus_door1",
+      "conceptId": "concept_06_theoretical_gap",
+      "sfxIntent": {
+        "asset": "sfx/whoosh_transition.wav",
+        "frame": 663,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Cánh cửa thứ nhất Gap Lý thuyết khi lý thuyết hiện hành chưa giải thích đủ cơ chế trung gian hay điều tiết",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_theory_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "theoretical_gap_portal"
+      }
+    },
+    {
+      "id": "beat_07",
+      "shotId": "shot_02",
+      "narrationTokenRange": [
+        126,
+        146
+      ],
+      "startSec": 25.205,
+      "endSec": 29.129,
+      "startFrame": 756,
+      "endFrame": 874,
+      "visualIntent": "Door 2: Empirical Gap conflicting results & inconsistencies",
+      "primaryObject": "portal_door_2_empirical",
+      "cameraIntent": "pan_focus_door2",
+      "conceptId": "concept_07_empirical_gap",
+      "sfxIntent": {
+        "asset": "sfx/whoosh_transition.wav",
+        "frame": 801,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Cánh cửa thứ hai Gap Thực nghiệm khi các nghiên cứu trước cho kết quả mâu thuẫn chưa nhất quán",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_empirical_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "empirical_gap_portal"
+      }
+    },
+    {
+      "id": "beat_08",
+      "shotId": "shot_02",
+      "narrationTokenRange": [
+        146,
+        171
+      ],
+      "startSec": 29.289,
+      "endSec": 34.259,
+      "startFrame": 879,
+      "endFrame": 1028,
+      "visualIntent": "Door 3: Contextual Gap institutional & cultural boundary shift",
+      "primaryObject": "portal_door_3_contextual",
+      "cameraIntent": "pan_focus_door3",
+      "conceptId": "concept_08_contextual_gap",
+      "sfxIntent": {
+        "asset": "sfx/whoosh_transition.wav",
+        "frame": 924,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Cánh cửa thứ ba Gap Bối cảnh đặc thù văn hóa thể chế làm thay đổi cơ chế không chỉ đơn thuần đổi địa bàn",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_contextual_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "contextual_gap_portal"
+      }
+    },
+    {
+      "id": "beat_09",
+      "shotId": "shot_02",
+      "narrationTokenRange": [
+        171,
+        195
+      ],
+      "startSec": 34.419,
+      "endSec": 38.935,
+      "startFrame": 1033,
+      "endFrame": 1168,
+      "visualIntent": "Door 4: Methodological Gap sample measurement & longitudinal data",
+      "primaryObject": "portal_door_4_methodological",
+      "cameraIntent": "pan_focus_door4",
+      "conceptId": "concept_09_methodological_gap",
+      "sfxIntent": {
+        "asset": "sfx/whoosh_transition.wav",
+        "frame": 1078,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Cánh cửa thứ tư Gap Phương pháp hạn chế về đo lường thiết kế mẫu dữ liệu dọc hoặc sai lệch C M V",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_methodological_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "methodological_gap_portal"
+      }
+    },
+    {
+      "id": "beat_10",
+      "shotId": "shot_02",
+      "narrationTokenRange": [
+        195,
+        217
+      ],
+      "startSec": 39.095,
+      "endSec": 43.462,
+      "startFrame": 1173,
+      "endFrame": 1304,
+      "visualIntent": "Door 5: Practical Gap policy implications & academic alignment",
+      "primaryObject": "portal_door_5_practical",
+      "cameraIntent": "foreground_wipe",
+      "conceptId": "concept_10_practical_gap",
+      "transitionIntent": {
+        "type": "foreground_wipe",
+        "startFrame": 1294,
+        "endFrame": 1324,
+        "expectedDiscontinuity": 6.5
+      },
+      "sfxIntent": {
+        "asset": "sfx/whoosh_transition.wav",
+        "frame": 1218,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Cánh cửa thứ năm Gap Ứng dụng khi hàm ý chính sách và quản trị gắn liền với đóng góp học thuật",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "portal_door_practical_focus",
+        "transformationType": "door_opening_perspective",
+        "coreMechanism": "practical_gap_portal"
+      }
+    },
+    {
+      "id": "beat_11",
+      "shotId": "shot_03",
+      "narrationTokenRange": [
+        217,
+        237
+      ],
+      "startSec": 43.622,
+      "endSec": 47.625,
+      "startFrame": 1309,
+      "endFrame": 1429,
+      "visualIntent": "Step 1: Research funnel narrowing from broad topic to niche",
+      "primaryObject": "research_funnel_filter",
+      "cameraIntent": "tilt_down_funnel",
+      "conceptId": "concept_11_funnel_step1",
+      "sfxIntent": {
+        "asset": "sfx/filter_pass.wav",
+        "frame": 1354,
+        "volume": 0.75
+      },
+      "captionIntent": {
+        "displayText": "Bước một Dùng phễu lọc thu hẹp từ chủ đề rộng sang dòng nghiên cứu chuyên sâu có trọng tâm",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "conical_funnel_filtration",
+        "transformationType": "cascade_particle_filtering",
+        "coreMechanism": "research_funnel_pipeline"
+      }
+    },
+    {
+      "id": "beat_12",
+      "shotId": "shot_03",
+      "narrationTokenRange": [
+        237,
+        260
+      ],
+      "startSec": 47.785,
+      "endSec": 52.034,
+      "startFrame": 1434,
+      "endFrame": 1561,
+      "visualIntent": "Step 2: 4-Axis Knowledge Matrix radar mapping",
+      "primaryObject": "knowledge_matrix_radar",
+      "cameraIntent": "rotate_matrix_grid",
+      "conceptId": "concept_12_matrix_step2",
+      "sfxIntent": {
+        "asset": "sfx/node_connect.wav",
+        "frame": 1479,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Bước hai Lập bản đồ tri thức bốn trục để nhận diện điểm mâu thuẫn và hạn chế lặp lại có hệ thống",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "matrix_radar_orthogonal_grid",
+        "transformationType": "radar_sweep_clustering",
+        "coreMechanism": "knowledge_matrix_mapping"
+      }
+    },
+    {
+      "id": "beat_13",
+      "shotId": "shot_03",
+      "narrationTokenRange": [
+        260,
+        284
+      ],
+      "startSec": 52.194,
+      "endSec": 56.686,
+      "startFrame": 1566,
+      "endFrame": 1701,
+      "visualIntent": "Step 3: 3-Condition Filter for critical academic limitations",
+      "primaryObject": "three_conditions_sieve",
+      "cameraIntent": "push_sieve_pass",
+      "conceptId": "concept_13_filter_step3",
+      "sfxIntent": {
+        "asset": "sfx/filter_pass.wav",
+        "frame": 1611,
+        "volume": 0.75
+      },
+      "captionIntent": {
+        "displayText": "Bước ba Lọc hạn chế qua ba điều kiện liên hệ học thuật cốt lõi lặp lại nhiều lần và khả thi kiểm định",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "three_condition_concentric_sieve",
+        "transformationType": "sieve_particle_separation",
+        "coreMechanism": "three_conditions_filter"
+      }
+    },
+    {
+      "id": "beat_14",
+      "shotId": "shot_03",
+      "narrationTokenRange": [
+        284,
+        304
+      ],
+      "startSec": 56.846,
+      "endSec": 60.894,
+      "startFrame": 1705,
+      "endFrame": 1827,
+      "visualIntent": "Step 4: 3-Tier Gap Statement architecture building",
+      "primaryObject": "three_tier_architecture_tower",
+      "cameraIntent": "crane_up_tiers",
+      "conceptId": "concept_14_tiers_step4",
+      "sfxIntent": {
+        "asset": "sfx/block_lock.wav",
+        "frame": 1750,
+        "volume": 0.8
+      },
+      "captionIntent": {
+        "displayText": "Bước bốn Kiến tạo Gap Statement ba tầng Tầng Nền móng Tầng Vấn đề và Tầng Định vị giải pháp",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "three_tier_vertical_assembly",
+        "transformationType": "tier_docking_alignment",
+        "coreMechanism": "three_tier_architecture"
+      }
+    },
+    {
+      "id": "beat_15",
+      "shotId": "shot_03",
+      "narrationTokenRange": [
+        304,
+        329
+      ],
+      "startSec": 61.054,
+      "endSec": 65.691,
+      "startFrame": 1832,
+      "endFrame": 1971,
+      "visualIntent": "Variable Formulation formula A-B-C-D-E-M-F selective inheritance",
+      "primaryObject": "variable_formula_circuit",
+      "cameraIntent": "semantic_zoom",
+      "conceptId": "concept_15_variable_formula",
+      "transitionIntent": {
+        "type": "semantic_zoom",
+        "startFrame": 1961,
+        "endFrame": 1991,
+        "expectedDiscontinuity": 6.5
+      },
+      "sfxIntent": {
+        "asset": "sfx/node_connect.wav",
+        "frame": 1877,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Áp dụng công thức biến số chuẩn A B C D E M F để thể hiện sự kế thừa học thuật có chọn lọc",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "variable_circuit_flow",
+        "transformationType": "circuit_trace_conduction",
+        "coreMechanism": "variable_formula_derivation"
+      }
+    },
+    {
+      "id": "beat_16",
+      "shotId": "shot_04",
+      "narrationTokenRange": [
+        329,
+        351
+      ],
+      "startSec": 65.851,
+      "endSec": 70.458,
+      "startFrame": 1976,
+      "endFrame": 2114,
+      "visualIntent": "4-Sentence International Standard Template cards",
+      "primaryObject": "template_four_cards",
+      "cameraIntent": "glide_across_cards",
+      "conceptId": "concept_16_four_sentence_template",
+      "sfxIntent": {
+        "asset": "sfx/filter_pass.wav",
+        "frame": 2021,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Nắm chắc Template bốn câu chuẩn quốc tế Câu nền tảng Câu điểm chưa rõ Câu ý nghĩa và Câu định vị",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "four_quadrant_template_alignment",
+        "transformationType": "modular_slotting_insertion",
+        "coreMechanism": "four_sentence_scaffold"
+      }
+    },
+    {
+      "id": "beat_17",
+      "shotId": "shot_04",
+      "narrationTokenRange": [
+        351,
+        372
+      ],
+      "startSec": 70.618,
+      "endSec": 74.513,
+      "startFrame": 2119,
+      "endFrame": 2235,
+      "visualIntent": "Digital Banking Case Study: TAM model established base PU & PEU",
+      "primaryObject": "tam_base_diagram",
+      "cameraIntent": "focus_tam_pu_peu",
+      "conceptId": "concept_17_tam_baseline",
+      "sfxIntent": {
+        "asset": "sfx/node_connect.wav",
+        "frame": 2164,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Case study Ngân hàng số Mô hình TAM đã xác nhận vai trò của tính hữu ích và dễ sử dụng",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "tam_directed_acyclic_graph",
+        "transformationType": "node_connection_flow",
+        "coreMechanism": "technology_acceptance_baseline"
+      }
+    },
+    {
+      "id": "beat_18",
+      "shotId": "shot_04",
+      "narrationTokenRange": [
+        372,
+        398
+      ],
+      "startSec": 74.673,
+      "endSec": 79.682,
+      "startFrame": 2240,
+      "endFrame": 2390,
+      "visualIntent": "Case Study conflict: E-service quality mechanism in emerging markets",
+      "primaryObject": "conflicting_mechanism_node",
+      "cameraIntent": "shake_and_pulse",
+      "conceptId": "concept_18_tam_conflict_context",
+      "sfxIntent": {
+        "asset": "sfx/node_connect.wav",
+        "frame": 2285,
+        "volume": 0.75
+      },
+      "captionIntent": {
+        "displayText": "Dẫu vậy cơ chế từ chất lượng dịch vụ điện tử sang ý định tiếp tục dùng vẫn chưa nhất quán tại thị trường mới nổi",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "conflicting_node_rupture",
+        "transformationType": "tension_spark_divergence",
+        "coreMechanism": "conflict_context_tension"
+      }
+    },
+    {
+      "id": "beat_19",
+      "shotId": "shot_04",
+      "narrationTokenRange": [
+        398,
+        420
+      ],
+      "startSec": 79.902,
+      "endSec": 84.085,
+      "startFrame": 2397,
+      "endFrame": 2523,
+      "visualIntent": "Case Study resolution: Mediator Satisfaction & Moderator Perceived Risk",
+      "primaryObject": "tam_extended_resolved_network",
+      "cameraIntent": "match_cut",
+      "conceptId": "concept_19_tam_mediator_moderator",
+      "transitionIntent": {
+        "type": "match_cut",
+        "startFrame": 2516,
+        "endFrame": 2546,
+        "expectedDiscontinuity": 6.5
+      },
+      "sfxIntent": {
+        "asset": "sfx/block_lock.wav",
+        "frame": 2442,
+        "volume": 0.8
+      },
+      "captionIntent": {
+        "displayText": "Nghiên cứu mới kiểm định trung gian Hài lòng và điều tiết Rủi ro cảm nhận lấp đầy trọn vẹn khoảng trống",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "extended_network_bridge",
+        "transformationType": "mediator_moderator_synthesis",
+        "coreMechanism": "network_equilibrium_restoration"
+      }
+    },
+    {
+      "id": "beat_20",
+      "shotId": "shot_05",
+      "narrationTokenRange": [
+        420,
+        441
+      ],
+      "startSec": 84.325,
+      "endSec": 88.765,
+      "startFrame": 2530,
+      "endFrame": 2663,
+      "visualIntent": "Pitfall 1 (Unsubstantiated claim) & Pitfall 2 (Equating context with novelty)",
+      "primaryObject": "warning_hazard_pitfalls_1_2",
+      "cameraIntent": "snap_warning_alert",
+      "conceptId": "concept_20_pitfalls_1_2",
+      "sfxIntent": {
+        "asset": "sfx/stamp_reject.wav",
+        "frame": 2575,
+        "volume": 0.8
+      },
+      "captionIntent": {
+        "displayText": "Tuyệt đối tránh Lỗi một Tuyên bố thiếu bằng chứng và Lỗi hai Đồng nhất bối cảnh mới với tính mới",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "hazard_barrier_boundary",
+        "transformationType": "warning_beacon_pulse",
+        "coreMechanism": "pitfall_1_2_detection"
+      }
+    },
+    {
+      "id": "beat_21",
+      "shotId": "shot_05",
+      "narrationTokenRange": [
+        441,
+        463
+      ],
+      "startSec": 88.925,
+      "endSec": 93.211,
+      "startFrame": 2668,
+      "endFrame": 2796,
+      "visualIntent": "Pitfall 3 (Listing sources) & Pitfall 4 (Decoupling gap from method)",
+      "primaryObject": "warning_hazard_pitfalls_3_4",
+      "cameraIntent": "snap_warning_alert",
+      "conceptId": "concept_21_pitfalls_3_4",
+      "sfxIntent": {
+        "asset": "sfx/stamp_reject.wav",
+        "frame": 2713,
+        "volume": 0.8
+      },
+      "captionIntent": {
+        "displayText": "Tránh Lỗi ba Liệt kê nguồn thay vì tổng hợp và Lỗi bốn Tách rời khoảng trống khỏi thiết kế phương pháp",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "hazard_barrier_boundary",
+        "transformationType": "warning_beacon_pulse",
+        "coreMechanism": "pitfall_3_4_detection"
+      }
+    },
+    {
+      "id": "beat_22",
+      "shotId": "shot_05",
+      "narrationTokenRange": [
+        463,
+        487
+      ],
+      "startSec": 93.371,
+      "endSec": 97.703,
+      "startFrame": 2801,
+      "endFrame": 2931,
+      "visualIntent": "Avoid two extremes: empty macro vs trivial micro localism",
+      "primaryObject": "two_extremes_balance_scale",
+      "cameraIntent": "level_horizon_pan",
+      "conceptId": "concept_22_two_extremes",
+      "sfxIntent": {
+        "asset": "sfx/filter_pass.wav",
+        "frame": 2846,
+        "volume": 0.7
+      },
+      "captionIntent": {
+        "displayText": "Tránh hai cực đoan không tuyên bố vĩ mô rỗng tuếch cũng đừng vi mô hóa địa bàn mà thiếu giá trị lý thuyết",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "fulcrum_balance_tilt",
+        "transformationType": "equilibrium_oscillation_damping",
+        "coreMechanism": "two_extremes_balance"
+      }
+    },
+    {
+      "id": "beat_23",
+      "shotId": "shot_05",
+      "narrationTokenRange": [
+        487,
+        510
+      ],
+      "startSec": 97.923,
+      "endSec": 103.2,
+      "startFrame": 2938,
+      "endFrame": 3096,
+      "visualIntent": "Core Axiom: Research Gap as Foundation of Novelty & Scopus Publication",
+      "primaryObject": "scopus_victory_seal_celebration",
+      "cameraIntent": "hero_push_in_climax",
+      "conceptId": "concept_23_axiom_scopus_victory",
+      "sfxIntent": {
+        "asset": "sfx/stamp_accept.wav",
+        "frame": 2983,
+        "volume": 0.9
+      },
+      "captionIntent": {
+        "displayText": "Research Gap là nền tảng của tính mới Chúc bạn xây dựng lập luận vững chắc và công bố thành công trên Scopus",
+        "layout": "bottom",
+        "fontSize": 56
+      },
+      "visualExplanationContract": {
+        "spatialRelationship": "concentric_seal_radiance",
+        "transformationType": "seal_emboss_expansion",
+        "coreMechanism": "scopus_publication_axiom"
+      }
+    }
+  ]
+}

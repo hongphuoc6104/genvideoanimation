@@ -102,8 +102,8 @@ export function calculateRadialLayout(
     const nodeY = centerY + itemRadius * Math.sin(rad);
     const nodePos: Point2D = { x: nodeX, y: nodeY };
 
-    const w = item.width ?? 280;
-    const h = item.height ?? 60;
+    const w = item.width ?? 320;
+    const h = item.height ?? (item.sublabel ? 120 : 76);
 
     let rawPillX: number;
     let rawPillY: number;
@@ -264,12 +264,12 @@ export const RadialLabelGroup: React.FC<RadialLabelGroupProps> = ({
             {/* Label */}
             <text
               x={l.pillX + l.pillWidth / 2}
-              y={l.pillY + (l.item.sublabel ? l.pillHeight / 2 - 8 : l.pillHeight / 2)}
+              y={l.pillY + (l.item.sublabel ? l.pillHeight / 2 - 18 : l.pillHeight / 2)}
               textAnchor="middle"
               dominantBaseline="central"
               fill={l.item.color ?? '#F8FAFC'}
-              fontSize={18}
-              fontWeight={600}
+              fontSize={l.item.fontSize ?? 30}
+              fontWeight={700}
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
             >
               {l.item.label}
@@ -279,11 +279,12 @@ export const RadialLabelGroup: React.FC<RadialLabelGroupProps> = ({
             {l.item.sublabel && (
               <text
                 x={l.pillX + l.pillWidth / 2}
-                y={l.pillY + l.pillHeight / 2 + 12}
+                y={l.pillY + l.pillHeight / 2 + 20}
                 textAnchor="middle"
                 dominantBaseline="central"
                 fill="#94A3B8"
-                fontSize={13}
+                fontSize={l.item.sublabelFontSize ?? 30}
+                fontWeight={500}
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
                 {l.item.sublabel}

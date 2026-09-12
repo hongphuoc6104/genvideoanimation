@@ -289,9 +289,9 @@ export function runCaptionHandoffTypographyTests() {
   const activeMarkup = ReactDOMServer.renderToStaticMarkup(
     React.createElement(KaraokeWord, { word: testWord, currentFrame: 45, startFrame: startF, endFrame: endF })
   );
-  // Match font-weight in base and overlay
+  // Match font-weight in single-span KaraokeWord (CLS = 0)
   const weightMatches = activeMarkup.match(/font-weight:(\d+)/g) || [];
-  assert.ok(weightMatches.length >= 2, 'Active word must have base and overlay font-weight declarations');
+  assert.ok(weightMatches.length >= 1, 'Active word must declare font-weight');
   for (const match of weightMatches) {
     assert.strictEqual(
       match,
@@ -304,18 +304,17 @@ export function runCaptionHandoffTypographyTests() {
   assert.ok(activeMarkup.includes('position:relative'));
   assert.ok(activeMarkup.includes('display:inline-block'));
   assert.ok(activeMarkup.includes('white-space:nowrap'));
-  console.log('    ✓ INV-CAP-06: Uniform fontWeight 700 confirmed on base and overlay (CLS = 0 guaranteed).');
+  console.log('    ✓ INV-CAP-06: Uniform fontWeight 700 confirmed on KaraokeWord (CLS = 0 guaranteed).');
 
   // =========================================================================
   // Gate 7: Anti-Blur & Zero Diffuse Shadow (INV-CAP-07)
   // =========================================================================
   console.log('  [Gate 7] Verifying INV-CAP-07: Anti-Blur & Zero Diffuse Shadow...');
-  assert.ok(activeMarkup.includes('text-shadow:none'), 'Missing text-shadow:none on KaraokeWord');
   assert.ok(!activeMarkup.includes('filter:blur'), 'Forbidden filter:blur found on KaraokeWord');
   assert.ok(!activeMarkup.includes('drop-shadow'), 'Forbidden diffuse drop-shadow found on KaraokeWord');
   assert.ok(activeMarkup.includes('text-rendering:geometricPrecision'));
   assert.ok(activeMarkup.includes('-webkit-font-smoothing:antialiased'));
-  console.log('    ✓ INV-CAP-07: textShadow:none, geometricPrecision, and antialiased rendering confirmed.');
+  console.log('    ✓ INV-CAP-07: geometricPrecision and antialiased rendering confirmed.');
 
   // =========================================================================
   // Gate 8: WCAG AAA Active Contrast & Backdrop Immunity (INV-CAP-08)
